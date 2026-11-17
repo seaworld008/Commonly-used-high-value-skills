@@ -527,6 +527,24 @@ class DesignTokenGenerator:
         css.append('}')
         
         return '\n'.join(css)
+
+    def _export_as_scss(self, tokens: Dict) -> str:
+        """Export token leaves as SCSS variables using the CSS token paths."""
+        scss = []
+
+        def flatten_dict(obj, prefix=''):
+            for key, value in obj.items():
+                name = f'{prefix}-{key}' if prefix else key
+                if isinstance(value, dict):
+                    flatten_dict(value, name)
+                else:
+                    # Metadata such as 1.0.0 is a string, not a Sass number.
+                    if prefix == 'meta':
+                        value = json.dumps(value)
+                    scss.append(f'${name}: {value};')
+
+        flatten_dict(tokens)
+        return '\n'.join(scss)
     
     def _hex_to_rgb(self, hex_color: str) -> Tuple[int, int, int]:
         """Convert hex to RGB"""

@@ -2,14 +2,14 @@
 name: lark-approval
 description: '飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。'
 zh_description: "用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。"
-version: "1.0.9"
+version: "1.0.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-approval"
 license: MIT
 tags: '[feishu, lark, lark-cli, approval, workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 metadata:
@@ -28,11 +28,13 @@ metadata:
 
 ### 明确归 `lark-approval` 的高优先级语义
 
-出现以下任一语义时，优先走 `lark-approval`：
+已出现审批单据、审批实例或明确审批上下文时，才按下列对象与动词走 `lark-approval`：
 
 - 审批待办 / 审批单据 / 审批实例 / 审批意见 / 审批定义
 - 同意 / 拒绝 / 转交 / 退回 / 撤回 / 催办 / 加签 / 抄送
-- 待办列表 / 待办单据 / 已发起审批 / 已办审批 / 审批详情 / 同意可编辑
+- 审批待办列表 / 审批单据 / 已发起审批 / 已办审批 / 审批详情 / 审批同意时可编辑
+
+单独出现“待办列表”或“同意”等通用词不构成审批触发；普通待办使用 `lark-task`，对象不明时先根据上下文消歧。
 
 **判定规则：** 只要最终动作是对审批单据做同意、拒绝、转交、退回、撤回、催办、加签、抄送、查详情、查已发起/已办/待办，就归 `lark-approval`。只有当用户处理的是**非审批类任务/待办**时，才走 [`lark-task`](../lark-task/SKILL.md)。
 

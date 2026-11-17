@@ -2,14 +2,14 @@
 name: frontend-design
 description: 'Design and implement polished web components, pages, and applications with a coherent visual direction and usable interaction states.'
 zh_description: "用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["design", "development", "frontend"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -40,16 +40,16 @@ Frontend Design 技能致力于创建极具辨识度、生产级且具备高审�
 
 ### 1. 突破常规的排版系统 (Advanced Typography)
 - **操作步骤**：
-  1. 放弃 Arial, Inter, Roboto 等通用字体。
-  2. 寻找具备性格的字体对：一个极具冲击力的标题字（Display Font）搭配一个极致可读的正文字（Body Font）。
+  1. 先采用品牌或设计系统规定的字体与字号。
+  2. 设计新视觉方向时，可试配有辨识度的标题字与易读的正文字。
   3. 利用 `clamp()` 函数实现流式排版（Fluid Typography），确保在任何屏幕上都具备完美的节奏感。
 - **最佳实践**：使用超大字号作为背景装饰，或尝试垂直/斜向排版。
 
 ### 2. 深度质感与氛围营造 (Atmosphere & Texture)
 - **操作步骤**：
-  1. 放弃纯色背景。
-  2. 使用 CSS 渐变网格 (Gradient Meshes)、噪点纹理 (Noise Textures)、几何图案层叠或磨砂玻璃 (Glassmorphism) 效果。
-  3. 应用动态光影：利用 `box-shadow` 的多层堆叠模拟真实的物理深度。
+  1. 按项目色彩 token 与对比度要求选择背景，保留设计系统规定的纯色。
+  2. 新视觉方向可试用 CSS 渐变网格、噪点纹理、几何图案或磨砂玻璃效果。
+  3. 需要表现层级时，可用多层 `box-shadow` 模拟光影。
 - **最佳实践**：添加一个轻微的 `grain` 滤镜覆盖全页面，消除数码冰冷感。
 
 ### 3. 高级动效与交互微调 (Motion & Micro-interactions)
@@ -106,7 +106,7 @@ Frontend Design 技能致力于创建极具辨识度、生产级且具备高审�
 - 利用 `canvas` 或 `svg` 动态生成随用户鼠标移动而变化的生成式艺术背景，提升界面的互动深度。
 
 ### 2. 响应式排版实验室
-- Agent 自动生成 10 种不同的字体排版方案供用户挑选，并实时在 Artifacts 中预览。
+- 探索排版方案时，可用项目已有的预览工具比较候选字体。
 
 ## 边界与限制 / Boundaries
 
@@ -122,5 +122,5 @@ Frontend Design 技能致力于创建极具辨识度、生产级且具备高审�
 3. **色彩一致性**：使用 CSS Variables 管理调色板，确保全站风格统一。
 4. **代码可读性**：即使是高度复杂的设计，代码也应具备良好的注释和组件化结构。
 5. **记录交付**：将本次成功的审美配方（色彩、字体、阴影）写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
-6. **视觉反馈**：每一步关键的 UI 变更，都应主动提供截图预览（通过 Web Artifacts）。
+6. **视觉反馈**：按本次改动选择代表性视口和交互状态，用可用且获准的预览工具核对并记录结果。
 7. **情感化设计**：思考界面如何与用户产生情感连接（Delight moments）。

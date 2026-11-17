@@ -2,13 +2,13 @@
 name: incident-commander
 description: 'Coordinate active incidents through severity assessment, roles, mitigation, communications, recovery verification, and postmortem handoff.'
 zh_description: "用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["commander", "devops", "incident", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -131,6 +131,10 @@ The Incident Commander skill provides a comprehensive incident response framewor
 **Communication Frequency:** Standard development cycle updates
 
 ### Incident Commander Role
+
+The responsibilities below describe an organization-appointed **human IC**.
+They grant an agent no production-change, spending, staffing or external-message
+authority. Agent actions remain within the current user's authorization.
 
 #### Primary Responsibilities
 
@@ -400,31 +404,41 @@ Read [the detailed procedure and examples](EXTENDED.md#section-4) when working o
 
 ## Usage Examples
 
-### Example 1: Database Connection Pool Exhaustion
+### Example 1: Bundled Payment-API Sample
+
+Run these offline examples from the loaded skill directory; outputs go to the
+host's task temporary directory. They demonstrate rule/template processing of
+sample data, not evidence of a real incident or verified causality. Review PIR
+inferences against actual evidence before using them.
 
 ```bash
 # Classify the incident
 echo '{"description": "Users reporting 500 errors, database connections timing out", "affected_users": "80%", "business_impact": "high"}' | python scripts/incident_classifier.py
 
 # Reconstruct timeline from logs
-python scripts/timeline_reconstructor.py --input assets/db_incident_events.json --output timeline.md
+python scripts/timeline_reconstructor.py --input assets/sample_timeline_events.json --format json --output "$TMPDIR/ic-timeline.json"
 
 # Generate PIR after resolution
-python scripts/pir_generator.py --incident assets/db_incident_data.json --timeline timeline.md --output pir.md
+python scripts/pir_generator.py --incident assets/sample_incident_pir_data.json --timeline "$TMPDIR/ic-timeline.json" --output "$TMPDIR/ic-pir.md"
 ```
 
-### Example 2: API Rate Limiting Incident
+### Example 2: Classification Text and Alternate PIR Framework
 
 ```bash
 # Quick classification from stdin
 echo "API rate limits causing customer API calls to fail" | python scripts/incident_classifier.py --format text
 
-# Build timeline from multiple sources
-python scripts/timeline_reconstructor.py --input assets/api_incident_logs.json --detect-phases --gap-analysis
+# Reuse the bundled event array; output goes to stdout
+python scripts/timeline_reconstructor.py --input assets/sample_timeline_events.json
 
-# Generate comprehensive PIR
-python scripts/pir_generator.py --incident assets/api_incident_summary.json --rca-method fishbone --action-items
+# Generate a fishbone draft from the bundled sample
+python scripts/pir_generator.py --incident assets/sample_incident_pir_data.json --rca-method fishbone
 ```
+
+The CLI parses `--detect-phases`, `--gap-analysis` and `--action-items` but does
+not pass those flags to its processing calls; do not claim they enable extra
+analysis. Generated severity, causes, confidence and actions are rule/template
+suggestions that require evidence review, not measured incident facts.
 
 ## Best Practices
 

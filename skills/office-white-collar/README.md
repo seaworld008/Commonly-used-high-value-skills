@@ -9,7 +9,7 @@
 ## 推荐先看
 
 - [answer-me-with-html](./answer-me-with-html/) - 仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
-- [guizang-ppt-skill](./guizang-ppt-skill/) - 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
+- [guizang-ppt-skill](./guizang-ppt-skill/) - 使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。
 - [markdown-tools](./markdown-tools/) - 把文档转换为保留结构、表格和图片的 Markdown。
 - [mermaid-tools](./mermaid-tools/) - 提取 Markdown 中的 Mermaid 图并渲染为图片。
 
@@ -19,7 +19,7 @@
 |------|------|------|------|
 | `answer-me-with-html` | 仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。 | [目录](./answer-me-with-html/) | [SKILL.md](./answer-me-with-html/SKILL.md) |
 | `docx` | 用于创建、编辑和检查 Word `.docx` 文档。 | [目录](./docx/) | [SKILL.md](./docx/SKILL.md) |
-| `guizang-ppt-skill` | 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。 | [目录](./guizang-ppt-skill/) | [SKILL.md](./guizang-ppt-skill/SKILL.md) |
+| `guizang-ppt-skill` | 使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。 | [目录](./guizang-ppt-skill/) | [SKILL.md](./guizang-ppt-skill/SKILL.md) |
 | `markdown-tools` | 把文档转换为保留结构、表格和图片的 Markdown。 | [目录](./markdown-tools/) | [SKILL.md](./markdown-tools/SKILL.md) |
 | `meeting-minutes-taker` | 从会议转录中整理准确的决策、行动项和责任人。 | [目录](./meeting-minutes-taker/) | [SKILL.md](./meeting-minutes-taker/SKILL.md) |
 | `mermaid-tools` | 提取 Markdown 中的 Mermaid 图并渲染为图片。 | [目录](./mermaid-tools/) | [SKILL.md](./mermaid-tools/SKILL.md) |

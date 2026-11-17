@@ -2,13 +2,13 @@
 name: event-driven-tracker
 description: 'Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.'
 zh_description: "跟踪影响投资标的的公司事件、催化因素和风险。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["driven", "event", "finance", "tracker"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 在市场“收割”你之前，先锁定关键的股价催化剂（Catalysts）。Event Driven Tracker 旨在帮助投资者从海量的日常公告中识别出真正具备“市场影响力”的大事件，并围绕这些时间点构建防御性或进攻性的交易计划。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装事件日历相关的库
-pip install openbb pandas
-# 准备事件数据
-npx clawhub install event-driven-tracker
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+按输入 as_of 与 events 日期计算 days_until、排序并筛选未来 14 天内 importance ≥ 4 的事件。数据由调用者提供；脚本不抓取实时日历、不计算隐含波动，也不设置提醒。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -68,16 +68,13 @@ npx clawhub install event-driven-tracker
 ### 事件监控 JSON 模板 (Events JSON)
 ```json
 {
-  "ticker": "TSLA",
-  "event_type": "Product Launch",
-  "event_name": "Robotaxi Day",
-  "date": "2026-08-08",
-  "priority": "Critical",
-  "implied_move": "±8.5%",
-  "scenario_analysis": {
-    "Bull": "Full FSD integration roadmap shared -> Target $280",
-    "Bear": "Vague delay or regulatory hurdles -> Target $210"
-  }
+  "as_of": "2026-03-18",
+  "events": [
+    {"company": "ACME", "type": "earnings", "date": "2026-03-24", "importance": 5},
+    {"company": "BETA", "type": "product_launch", "date": "2026-03-20", "importance": 3},
+    {"company": "GAMMA", "type": "buyback_update", "date": "2026-04-02", "importance": 4},
+    {"company": "DELTA", "type": "m&a_vote", "date": "2026-03-27", "importance": 5}
+  ]
 }
 ```
 
@@ -99,8 +96,8 @@ npx clawhub install event-driven-tracker
 
 ### 快速查询示例
 ```bash
-# 获取特定标的的未来事件
-python scripts/track_events.py --ticker MSFT --range 30d
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/track_events.py assets/sample_events.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases
@@ -114,7 +111,7 @@ python scripts/track_events.py --ticker MSFT --range 30d
 ## 边界与限制 / Boundaries
 
 - **信息滞后风险**：部分事件（如突发性的股东减持或 CFO 辞职）无法预知，本技能仅能跟踪“已知”日历。
-- **日期变动风险**：财报日期和产品发布日期经常发生“跳票”，需每日刷新 `npx github-ops` 类似的检查。
+- **日期变动风险**：财报日期和产品发布日期经常发生“跳票”，应在本轮分析中向发行人或官方事件日历核实日期和时区；附带脚本不执行刷新或监控。
 - **情绪误读**：即使事件结果是利好，如果已经被市场提前计价（Priced-in），股价仍可能下跌。
 - **配额限制**：频繁抓取全球金融日历可能消耗较多 API Quota。
 - **执行依赖**：本技能只提供“日历”和“建议”，不执行具体的买卖交易指令。

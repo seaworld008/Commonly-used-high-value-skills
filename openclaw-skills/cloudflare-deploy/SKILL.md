@@ -2,13 +2,13 @@
 name: cloudflare-deploy
 description: 'Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.'
 zh_description: "用于将应用部署到 Cloudflare 并处理相关发布流程。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cloudflare", "deploy", "deployment"]'
 created_at: "2026-03-04"
-updated_at: "2026-08-31"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -40,7 +40,7 @@ identify workload type
 
 ## Prerequisites
 
-- When sandboxing blocks the deployment network calls, rerun with `sandbox_permissions=require_escalated`.
+- Check that outbound access to Cloudflare is permitted for the deployment.
 - The deployment might take a few minutes. Use appropriate timeout values.
 
 ## Authentication (Required Before Deploy)
@@ -244,12 +244,6 @@ Need IaC? → pulumi/ (Pulumi), terraform/ (Terraform), or api/ (REST API)
 
 ## Troubleshooting
 
-### Escalated Network Access
+### Network failures
 
-If deployment fails due to network issues (timeouts, DNS errors, connection resets), rerun the deploy with escalated permissions (use `sandbox_permissions=require_escalated`). The deploy requires escalated network access when sandbox networking blocks outbound requests.
-
-Example guidance to the user:
-
-```
-The deploy needs escalated network access to deploy to Cloudflare. I can rerun the command with escalated permissions—want me to proceed?
-```
+Check the CLI error and platform status to distinguish authentication, DNS, service availability and host permission failures. For a confirmed permission denial, use the host approval mechanism only if available and permitted. If networking is unavailable, deliver the prepared artifacts and record which deployment checks are pending.

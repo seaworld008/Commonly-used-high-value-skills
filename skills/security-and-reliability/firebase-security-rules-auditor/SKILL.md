@@ -2,14 +2,14 @@
 name: firebase-security-rules-auditor
 description: 'Use when auditing changed Firestore or Cloud Storage rules for authorization, tenant isolation, field validation, privilege escalation, and emulator coverage.'
 zh_description: "审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。"
-version: "1.1.4"
+version: "1.1.5"
 author: seaworld008
 source: github:firebase/agent-skills
 source_url: "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor"
 license: Apache-2.0
 tags: '[firebase, firestore, cloud-storage, security-rules, authorization, appsec]'
 created_at: "2026-07-06"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 ---
@@ -24,12 +24,9 @@ correctly implemented.
 
 ## Assessment: Security Validator (Red Team Edition)
 
-You are a Senior Security Auditor and Penetration Tester specializing in
-Firestore. Your goal is to find "the hole in the wall." Do not assume a rule is
-secure because it looks complex; instead, actively try to find a sequence of
-operations to bypass it.
+Select the rule set from the changed paths and the mappings in `firebase.json`. Evaluate Firestore documents and Cloud Storage objects independently when both change.
 
-### Mandatory Audit Checklist:
+### Firestore checklist
 
 1. **The Update Bypass:** Compare 'create' and 'update' rules. Can a user create
    a valid document and then 'update' it into an invalid or malicious state
@@ -40,8 +37,8 @@ operations to bypass it.
 1. **Business Logic vs. Rules:** Does the rule set actually support the app's
    purpose? (e.g., In a collaboration app, can collaborators actually read the
    data? If not, the rules are "broken" or will force insecure workarounds).
-1. **Storage Abuse:** Are there string length or array size limits? If not,
-   label it as a "Resource Exhaustion/DoS" risk.
+1. **Document resource limits:** Are there string length or array size limits?
+   Assess the resource impact of any missing limits.
 1. **Type Safety:** Are fields checked with 'is string', 'is int', or 'is
    timestamp'?
 1. **Field-Level vs. Identity-Level Security:** Be careful with rules that use
@@ -52,11 +49,13 @@ operations to bypass it.
    without a corresponding ownership check, it is a data integrity
    vulnerability.
 
-### Admin Bootstrapping & Privileges:
+### Cloud Storage checklist
 
-The admin bootstrapping process is limited in this app. If the rules use a
-single hardcoded admin email (e.g., checking request.auth.token.email ==
-'admin@example.com'), this should NOT count against the score as long as:
+For each object path, identify the trusted tenant and owner. Compare expected access for the owner, another user, another tenant and an unauthenticated caller. Cover create, overwrite, read and delete separately. For uploads, include allowed and rejected sizes and content types, and verify that client-supplied metadata cannot grant ownership.
+
+### Admin Bootstrapping & Privileges
+
+Evaluate a hardcoded admin email only when the project explicitly uses that bootstrap policy. Verify that:
 
 - email_verified is also checked (request.auth.token.email_verified == true).
 - It is implemented in a way that does not allow additional admins to add
@@ -133,12 +132,13 @@ enough for the rule engine to prove every possible result is authorized.
 Inspect Admin SDK and callable/server functions separately because Admin SDK
 access bypasses Security Rules.
 
-Require emulator tests for unauthenticated access, cross-tenant access,
+For changed Firestore rules, test allowed access as well as unauthenticated access, cross-tenant access,
 immutable owner/role fields, self-escalation, invalid types, oversized values,
-and insufficiently constrained queries:
+and insufficiently constrained queries. For Storage, exercise the object and upload cases above. Run the applicable emulator suite with the project's test command, for example:
 
 ```bash
-firebase emulators:exec --only firestore,storage "npm test"
+firebase emulators:exec --only firestore "npm test"  # Firestore suite
+firebase emulators:exec --only storage "npm test"    # Storage suite
 ```
 
 For every finding include the rules path, actor, initial resource, attempted

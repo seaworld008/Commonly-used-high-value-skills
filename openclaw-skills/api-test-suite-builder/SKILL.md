@@ -2,13 +2,13 @@
 name: api-test-suite-builder
 description: 'Generate API tests from routes and contracts for authentication, validation, pagination, errors, uploads, and limits in Node.js or Python projects.'
 zh_description: "根据接口契约生成认证、输入校验、错误和边界测试。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["api", "development", "suite", "test"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -308,8 +308,8 @@ describe('GET /api/users (pagination)', () => {
   beforeAll(async () => {
     const admin = await createTestUser({ role: 'admin' })
     adminToken = generateJWT(admin)
-    // Create 15 test users for pagination
-    await Promise.all(Array.from({ length: 15 }, (_, i) =>
+    // Seed more visible rows than the endpoint's documented cap of 100.
+    await Promise.all(Array.from({ length: 101 }, (_, i) =>
       createTestUser({ email: `pagtest${i}@example.com` })
     ))
   })
@@ -347,7 +347,15 @@ describe('GET /api/users (pagination)', () => {
       .get('/api/users?pageSize=9999')
       .set('Authorization', `Bearer ${adminToken}`)
     expect(res.status).toBe(200)
-    expect(res.body.data.length).toBeLessThanOrEqual(100)
+    expect(res.body.total).toBeGreaterThan(100)
+    expect(res.body.data).toHaveLength(100)
+    const next = await request(app)
+      .get('/api/users?page=2&pageSize=9999')
+      .set('Authorization', `Bearer ${adminToken}`)
+    expect(next.status).toBe(200)
+    expect(next.body.data).toHaveLength(Math.min(100, res.body.total - 100))
+    const firstIds = new Set(res.body.data.map(user => user.id))
+    expect(next.body.data.every(user => !firstIds.has(user.id))).toBe(true)
   })
 })
 ```

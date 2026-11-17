@@ -2,13 +2,13 @@
 name: skill-tester
 description: 'Validate skill structure, bundled scripts and expected outputs against the target repository and agent host requirements.'
 zh_description: "用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "skill", "tester"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -50,8 +50,8 @@ Use the target repository's validators first. The bundled scoring scripts implem
 ### Advanced Script Testing
 - **Syntax Validation**: Compiles Python scripts to detect syntax errors before execution
 - **Import Analysis**: Identifies dependencies and checks them against the target project's declared runtime and policy
-- **Runtime Testing**: Executes scripts with sample data, validates argparse implementation, tests --help functionality
-- **Output Format Compliance**: Verifies dual output support (JSON + human-readable), proper error handling
+- **Runtime Probes**: Runs scripts without required inputs and probes `--help`; these do not establish functional correctness
+- **Output Format Hints**: Uses source keywords/help probes; parse real successful output separately to verify JSON and error behavior
 
 ### Multi-Dimensional Quality Scoring
 - **Documentation Quality (25%)**: SKILL.md depth and completeness, README clarity, reference documentation quality
@@ -110,9 +110,12 @@ Designed for seamless integration into existing development workflows:
 
 ## Implementation Details
 
+Function signatures and report layouts in this overview are conceptual; use the
+actual class methods and CLI declarations when integrating the bundled tools.
+
 ### skill_validator.py Core Functions
 ```python
-# Primary validation workflow
+# Conceptual validation stages (not callable helper API signatures)
 validate_skill_structure() -> ValidationReport
 check_skill_md_compliance() -> DocumentationReport  
 validate_python_scripts() -> ScriptReport
@@ -130,7 +133,7 @@ Key validation checks include:
 
 ### script_tester.py Testing Framework
 ```python
-# Core testing functions
+# Conceptual testing stages (not callable helper API signatures)
 syntax_validation() -> SyntaxReport
 import_validation() -> ImportReport
 runtime_testing() -> RuntimeReport
@@ -140,14 +143,17 @@ output_format_validation() -> OutputReport
 Testing capabilities encompass:
 - Python AST-based syntax validation
 - Import statement analysis and external dependency detection
-- Controlled script execution with timeout protection
-- Argparse --help functionality verification
-- Sample data processing and output validation
-- Expected output comparison and difference reporting
+- Script execution in the original script directory, with a timeout only
+- Argparse `--help` probing and source/AST heuristics
+- No CLI sample-data mode or general expected-output comparison
+- `basic_execution` currently accepts exit codes 0/1/2. Manually treat exceptions
+  as failures and missing required inputs as not executed / not applicable;
+  never turn those markers into a functional pass
+- JSON/source keywords are hints only; validate actual output with a parser
 
 ### quality_scorer.py Scoring System
 ```python
-# Multi-dimensional scoring
+# Conceptual scoring dimensions (not callable helper API signatures)
 score_documentation() -> float  # 25% weight
 score_code_quality() -> float   # 25% weight
 score_completeness() -> float   # 25% weight
@@ -163,16 +169,19 @@ Scoring dimensions include:
 
 ## Usage Scenarios
 
+The following repository examples run from its root. For a skill installed
+elsewhere, resolve each helper from the loaded skill directory instead.
+
 ### Development Workflow Integration
 ```bash
 # Pre-commit hook validation
-skill_validator.py path/to/skill --tier POWERFUL --json
+python skills/developer-engineering/skill-tester/scripts/skill_validator.py path/to/skill --tier POWERFUL --json
 
-# Comprehensive skill testing
-script_tester.py path/to/skill --timeout 30 --sample-data
+# Runtime probes: only after code review and explicit selection in host isolation
+python skills/developer-engineering/skill-tester/scripts/script_tester.py path/to/skill --timeout 30 --json
 
 # Quality assessment and scoring
-quality_scorer.py path/to/skill --detailed --recommendations
+python skills/developer-engineering/skill-tester/scripts/quality_scorer.py path/to/skill --detailed
 ```
 
 ### CI/CD Pipeline Integration
@@ -180,18 +189,25 @@ quality_scorer.py path/to/skill --detailed --recommendations
 # GitHub Actions workflow example
 - name: Validate Skill Quality
   run: |
-    python skill_validator.py engineering/${{ matrix.skill }} --json | tee validation.json
-    python script_tester.py engineering/${{ matrix.skill }} | tee testing.json
-    python quality_scorer.py engineering/${{ matrix.skill }} --json | tee scoring.json
+    python skills/developer-engineering/skill-tester/scripts/skill_validator.py skills/developer-engineering/${{ matrix.skill }} --json | tee validation.json
+    # Runtime probes require separately selected host isolation and code review.
+    python skills/developer-engineering/skill-tester/scripts/quality_scorer.py skills/developer-engineering/${{ matrix.skill }} --json | tee scoring.json
 ```
 
 ### Batch Repository Analysis
 ```bash
 # Validate all skills in repository
-find engineering/ -type d -maxdepth 1 | xargs -I {} skill_validator.py {}
+for entry in skills/developer-engineering/*/SKILL.md; do
+  [ -f "$entry" ] || continue
+  python skills/developer-engineering/skill-tester/scripts/skill_validator.py "$(dirname "$entry")" --json
+done
 
 # Generate repository quality report
-quality_scorer.py engineering/ --batch --output-format json > repo_quality.json
+for entry in skills/developer-engineering/*/SKILL.md; do
+  [ -f "$entry" ] || continue
+  python skills/developer-engineering/skill-tester/scripts/quality_scorer.py "$(dirname "$entry")" --json
+done
+# Each invocation emits one JSON object; collect separately or parse as a stream.
 ```
 
 ## Output Formats & Reporting
@@ -199,10 +215,13 @@ quality_scorer.py engineering/ --batch --output-format json > repo_quality.json
 ### Dual Output Support
 All tools provide both human-readable and machine-parseable output:
 
+The layouts below illustrate reporting concepts, not the current tools' exact
+output schema. Inspect actual `--json` output before integrating a consumer.
+
 #### Human-Readable Format
 ```
 === SKILL VALIDATION REPORT ===
-Skill: engineering/example-skill
+Skill: skills/developer-engineering/example-skill
 Tier: STANDARD
 Overall Score: 85/100 (B)
 
@@ -226,7 +245,7 @@ Recommendations:
 #### JSON Format
 ```json
 {
-  "skill_path": "engineering/example-skill",
+  "skill_path": "skills/developer-engineering/example-skill",
   "timestamp": "2026-02-16T16:41:00Z",
   "validation_results": {
     "structure_compliance": {
@@ -278,7 +297,7 @@ Recommendations:
 #!/bin/bash
 # .git/hooks/pre-commit
 echo "Running skill validation..."
-python engineering/skill-tester/scripts/skill_validator.py engineering/new-skill --tier STANDARD
+python skills/developer-engineering/skill-tester/scripts/skill_validator.py skills/developer-engineering/new-skill --tier STANDARD
 if [ $? -ne 0 ]; then
     echo "Skill validation failed. Commit blocked."
     exit 1
@@ -291,25 +310,27 @@ echo "Validation passed. Proceeding with commit."
 name: Skill Quality Gate
 on:
   pull_request:
-    paths: ['engineering/**']
+    paths: ['skills/developer-engineering/**']
 
 jobs:
   validate-skills:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       - name: Validate Changed Skills
         run: |
-          changed_skills=$(git diff --name-only ${{ github.event.before }} | grep -E '^engineering/[^/]+/' | cut -d'/' -f1-2 | sort -u)
+          changed_skills=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep -E '^skills/developer-engineering/[^/]+/' | cut -d'/' -f1-3 | sort -u)
           for skill in $changed_skills; do
             echo "Validating $skill..."
-            python engineering/skill-tester/scripts/skill_validator.py $skill --json
-            python engineering/skill-tester/scripts/script_tester.py $skill
-            python engineering/skill-tester/scripts/quality_scorer.py $skill --minimum-score 75
+            python skills/developer-engineering/skill-tester/scripts/skill_validator.py $skill --json
+            # Select runtime probes separately after review in host isolation.
+            python skills/developer-engineering/skill-tester/scripts/quality_scorer.py $skill --minimum-score 75
           done
 ```
 
@@ -319,12 +340,12 @@ jobs:
 # Daily quality report generation
 echo "Generating daily skill quality report..."
 timestamp=$(date +"%Y-%m-%d")
-python engineering/skill-tester/scripts/quality_scorer.py engineering/ \
-  --batch --json > "reports/quality_report_${timestamp}.json"
-
-echo "Quality trends analysis..."
-python engineering/skill-tester/scripts/trend_analyzer.py reports/ \
-  --days 30 > "reports/quality_trends_${timestamp}.md"
+for entry in skills/developer-engineering/*/SKILL.md; do
+  [ -f "$entry" ] || continue
+  skill=$(dirname "$entry")
+  python skills/developer-engineering/skill-tester/scripts/quality_scorer.py "$skill" --json > "reports/$(basename "$skill")_${timestamp}.json"
+done
+# Compare stored reports with project tooling; no trend analyzer is bundled.
 ```
 
 ## Performance & Scalability
@@ -332,28 +353,30 @@ python engineering/skill-tester/scripts/trend_analyzer.py reports/ \
 ### Execution Performance
 - **Fast Validation**: Structure validation completes in <1 second per skill
 - **Efficient Testing**: Script testing with timeout protection (configurable, default 30s)
-- **Batch Processing**: Optimized for repository-wide analysis with parallel processing support
+- **Batch Processing**: Invoke the single-skill tools in a caller-managed loop
 - **Memory Efficiency**: Minimal memory footprint for large-scale repository analysis
 
 ### Scalability Considerations
 - **Repository Size**: Designed to handle repositories with 100+ skills
-- **Concurrent Execution**: Thread-safe implementation supports parallel validation
-- **Resource Management**: Automatic cleanup of temporary files and subprocess resources
-- **Configuration Flexibility**: Configurable timeouts, memory limits, and validation strictness
+- **Runtime Scope**: Probes inherit host permissions and may create files or descendants
+- **Configuration**: Runtime timeout is configurable; no CPU/memory limits are implemented
 
 ## Security & Safety
 
-### Safe Execution Environment
-- **Sandboxed Testing**: Scripts execute in controlled environment with timeout protection
-- **Resource Limits**: Memory and CPU usage monitoring to prevent resource exhaustion
-- **Input Validation**: All inputs sanitized and validated before processing
-- **No Network Access**: Offline operation ensures no external dependencies or network calls
+### Runtime Boundary
+The tester provides a timeout, not an OS sandbox, network isolation, CPU limit
+or memory limit. It executes reviewed scripts in their original directory with
+the host's permissions. Review code before choosing runtime probes, and select
+runtime only in an environment the host has already isolated for this task.
+For untrusted code or unavailable isolation, use read-only AST/source checks and
+record runtime validation as not run. A timeout does not prove descendants exit.
 
-### Security Best Practices
-- **No Code Injection**: Static analysis only, no dynamic code generation
-- **Path Traversal Protection**: Secure file system access with path validation
-- **Minimal Privileges**: Operates with minimal required file system permissions
-- **Audit Logging**: Comprehensive logging for security monitoring and troubleshooting
+### Evidence Acceptance
+Verify exit status, required-input contract and actual stdout/stderr separately.
+An exception is a failure even if `basic_execution` says success for exit 1/2.
+Missing required inputs are not a functional run. Source occurrences of `json`
+or a successful help command do not prove the output schema. Keep logs redacted
+and preserve the target repository's acceptance rules.
 
 ## Troubleshooting & Support
 
@@ -376,7 +399,7 @@ python engineering/skill-tester/scripts/trend_analyzer.py reports/ \
 
 ### Debugging Support
 - **Verbose Mode**: Detailed logging and execution tracing available
-- **Dry Run Mode**: Validation without execution for debugging purposes
+- **Static Review**: Inspect AST/source without execution; no dry-run CLI flag is provided
 - **Debug Output**: Comprehensive error reporting with file locations and suggestions
 
 ## Future Enhancements

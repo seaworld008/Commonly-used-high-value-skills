@@ -2,14 +2,14 @@
 name: spec-driven-development
 description: 'Specify new features or substantial behavior changes when goals, boundaries, and acceptance criteria need agreement before implementation.'
 zh_description: "把需求转成明确的功能边界、契约和验收标准。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "spec-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: spec-driven-development
@@ -19,28 +19,20 @@ upstream_slug: spec-driven-development
 
 ## Overview
 
-Write a structured specification before writing any code. The spec is the shared source of truth between you and the human engineer — it defines what we're building, why, and how we'll know it's done. Code without a spec is guessing.
+Use a specification to settle goals, boundaries and acceptance criteria that materially affect implementation. Reuse an existing specification or plan when it already settles them.
 
 ## When to Use
 
-- Starting a new project or feature
-- Requirements are ambiguous or incomplete
-- The change touches multiple files or modules
-- You're about to make an architectural decision
-- The task would take more than 30 minutes to implement
+- A new feature has unresolved behavior, interfaces or acceptance criteria.
+- A proposed architectural change needs agreement about scope or tradeoffs.
+- With sufficient requirements and authorization, continue at the first unfinished phase.
 
-**When NOT to use:** Single-line fixes, typo corrections, or changes where requirements are unambiguous and self-contained.
+## Workflow
 
-## The Gated Workflow
-
-Spec-driven development has four phases, preceded by a scope check (Phase 0) that activates only when one request bundles several independently testable capabilities. Do not advance to the next phase until the current one is validated.
+Use the phases needed for the task. Phase 0 applies when one request bundles independently testable capabilities. Reuse prior decisions and seek review when an unresolved choice affects scope or acceptance.
 
 ```
 SPECIFY ──→ PLAN ──→ TASKS ──→ IMPLEMENT
-   │          │        │          │
-   ▼          ▼        ▼          ▼
- Human      Human    Human      Human
- reviews    reviews  reviews    reviews
 ```
 
 ### Phase 0: Scope Check
@@ -72,13 +64,13 @@ Build order: identity → billing, notifications → reporting
 - **Dependency direction, no cycles.** Arrows point one way. If two modules each need the other, they are one module.
 - **Interfaces live at the boundary.** The map records that `billing` depends on `identity`; the contract between them belongs in the provider module's spec (see `api-and-interface-design` for designing it).
 
-**The map is gated like every phase.** The human reviews module boundaries, dependency direction, and build order before any module spec is written. Getting the map wrong is expensive; reviewing ten lines is not.
+Review unresolved module boundaries, dependency direction and build order with the user. Reuse an agreed capability map.
 
 **Then recurse per module.** Run Specify → Plan → Tasks → Implement for each module in dependency order. Each module gets its own spec, scoped to that module's objective, boundaries, and success criteria. Save the approved map at the project root and each module's spec alongside it, named by module id (`SPEC-identity.md`, `SPEC-billing.md`) — the map, not filename guessing, is the index of what exists.
 
 ### Phase 1: Specify
 
-Start with a high-level vision. Ask the human clarifying questions until requirements are concrete.
+Start from the stated objective, project evidence and agreed requirements. Clarify remaining decisions that change what will be delivered.
 
 **Surface assumptions immediately.** Before writing any spec content, list what you're assuming:
 
@@ -101,7 +93,7 @@ Don't silently fill in ambiguous requirements. The spec's entire purpose is to s
    ```
    Build: npm run build
    Test: npm test -- --coverage
-   Lint: npm run lint --fix
+   Lint: npm run lint -- --fix
    Dev: npm run dev
    ```
 
@@ -127,7 +119,7 @@ Don't silently fill in ambiguous requirements. The spec's entire purpose is to s
 **Spec template:**
 
 ```markdown
-# Spec: [Project/Feature Name]
+# Spec: [Project/Feature Name] — V[N]
 
 ## Objective
 [What we're building and why. User stories or acceptance criteria.]
@@ -185,7 +177,7 @@ With the validated spec, generate a technical implementation plan:
 
 > Follow `planning-and-task-breakdown` for the dependency-graph mapping and vertical-slicing mechanics behind these steps; it is the canonical source. The bullets above are a lightweight summary; if they ever diverge, `planning-and-task-breakdown` takes precedence.
 >
-> **Output convention:** Save the plan to `tasks/plan.md` and record the task list in the task list target defined by `planning-and-task-breakdown` (default `tasks/todo.md`; projects may designate an external tracker instead). Create `tasks/` if it does not exist. Downstream commands (`/build`, etc.) expect these defaults.
+> **Handoff:** Reuse the existing plan and tracker at their project- or user-selected locations. If a separate plan is requested and no location is specified, `tasks/plan.md` is an example. `/build` is an optional host command. Check its configured inputs before using it.
 
 The plan should be reviewable: the human should be able to read it and say "yes, that's the right approach" or "no, change X."
 
@@ -211,7 +203,7 @@ Break the plan into discrete, implementable tasks:
 
 ### Phase 4: Implement
 
-Execute tasks one at a time following `skills/incremental-implementation/SKILL.md` (`incremental-implementation`) and `skills/test-driven-development/SKILL.md` (`test-driven-development`). Use `skills/context-engineering/SKILL.md` (`context-engineering`) to load the right spec sections and source files at each step rather than flooding the agent with the entire spec.
+Follow the plan's dependency order. Use `incremental-implementation`, `test-driven-development` and `context-engineering` where their methods apply. Load the spec sections and files needed for the current task.
 
 ## Keeping the Spec Alive
 
@@ -220,21 +212,28 @@ Execute tasks one at a time following `skills/incremental-implementation/SKILL.m
 This workflow is format-agnostic. If a project already uses OpenSpec or
 another specification system, keep that system's artifact format and storage
 conventions instead of creating a duplicate `SPEC.md`. This skill owns
-clarification, content, and approval gates; the external tool owns how the
+clarification, content and resolution of open decisions. The external tool defines how the
 approved specification is represented.
 
 The spec is a living document, not a one-time artifact:
 
 - **Update when decisions change** — If you discover the data model needs to change, update the spec first, then implement.
 - **Update when scope changes** — Features added or cut should be reflected in the spec.
-- **Commit the spec** — The spec belongs in version control alongside the code.
+- **Version the spec** — Include it alongside code when the requested delivery includes a commit.
 - **Reference the spec in PRs** — Link back to the spec section that each PR implements.
+
+## Spec Evolution
+
+Give each spec an explicit version and capture deferred ideas under Out of Scope. Keep new ideas out of the active implementation unless the user changes its scope.
+For a change to a shipped feature, write a small delta beside the original spec: objective, current behavior, new behavior, acceptance criteria, and changed boundaries. Link the existing spec and inherit unchanged constraints.
+Use the repository's actual planning commands; host-specific commands are not portable requirements. Resolve routine choices from evidence and use authorization already present in the conversation.
+After delivery, update the original spec to describe the shipped system and mark the delta implemented. Preserve the reasons for earlier decisions.
 
 ## Common Rationalizations
 
 | Rationalization | Reality |
 |---|---|
-| "This is simple, I don't need a spec" | Simple tasks don't need *long* specs, but they still need acceptance criteria. A two-line spec is fine. |
+| "This is simple" | Check whether the request already provides testable acceptance criteria. |
 | "I'll write the spec after I code it" | That's documentation, not specification. The spec's value is in forcing clarity *before* code. |
 | "The spec will slow us down" | A 15-minute spec prevents hours of rework. Waterfall in 15 minutes beats debugging in 15 hours. |
 | "Requirements will change anyway" | That's why the spec is a living document. An outdated spec is still better than no spec. |
@@ -248,7 +247,7 @@ The spec is a living document, not a one-time artifact:
 - Asking "should I just start building?" before clarifying what "done" means
 - Implementing features not mentioned in any spec or task list
 - Making architectural decisions without documenting them
-- Skipping the spec because "it's obvious what to build"
+- Starting implementation while material acceptance criteria are unresolved
 - One spec whose requirements span several independently testable capabilities
 - Module boundaries or build order decided implicitly during implementation because no capability map was approved up front
 
@@ -257,9 +256,9 @@ The spec is a living document, not a one-time artifact:
 Before proceeding to implementation, confirm:
 
 - [ ] The spec covers all six core areas
-- [ ] The human has reviewed and approved the spec
+- [ ] Required decisions are settled by the request, an existing approved spec or focused review
 - [ ] Success criteria are specific and testable
 - [ ] Boundaries (Always/Ask First/Never) are defined
-- [ ] The spec is saved to a file in the repository
-- [ ] If the request bundles several independently testable capabilities, a capability map (module ids, dependency direction, build order) was approved before any module spec was written
+- [ ] The spec is available at the requested handoff location
+- [ ] For bundled capabilities, module IDs, dependencies and build order are settled
 - [ ] Every module spec traces to a module id in the approved map

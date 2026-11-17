@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/simota/agent-skills",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "Curated per-category import from simota/agent-skills; refresh with scripts/sync_simota_agent_skills.py."
   },
   "official_references": [
@@ -19,16 +19,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/builder/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/builder/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "builder/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
-        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
+        "path_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -168,17 +168,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
-            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "595021b47e4204f456e4f9ab719d6231dab7c9833df9451414d5b05d8000e08b",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "path_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "content_sha256": "f75e49a95ce53f41a0e8f19a39d41be5b1b05b2c0d7a24409740e1626b609eba",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -365,7 +365,7 @@
         {
           "path": "skills/developer-engineering/builder/SKILL.md",
           "owner": "builder",
-          "sha256": "595021b47e4204f456e4f9ab719d6231dab7c9833df9451414d5b05d8000e08b",
+          "sha256": "f75e49a95ce53f41a0e8f19a39d41be5b1b05b2c0d7a24409740e1626b609eba",
           "mode": "100644"
         },
         {
@@ -682,14 +682,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/gateway/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gateway/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "gateway/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -816,17 +816,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "971b434f6824c03b6e0c7ad2fc3bf1bd590d2d718613ba3d3f33e3397fdabb57",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "3fb30e72673cd27947f2278c75a3e7650b7c5d5b2de104a6134e1de09d6f0eda",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -963,7 +963,7 @@
         {
           "path": "skills/developer-engineering/gateway/SKILL.md",
           "owner": "gateway",
-          "sha256": "971b434f6824c03b6e0c7ad2fc3bf1bd590d2d718613ba3d3f33e3397fdabb57",
+          "sha256": "3fb30e72673cd27947f2278c75a3e7650b7c5d5b2de104a6134e1de09d6f0eda",
           "mode": "100644"
         },
         {
@@ -1202,14 +1202,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/schema/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/schema/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "schema/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -1336,17 +1336,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "96a1493a9adc2de3d9a3b5c7f084ff6dd21c5ae72053fc15353c2862d8416a9a",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -1722,14 +1722,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/nexus/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/nexus/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "nexus/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
@@ -2171,17 +2171,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
-            "content_sha256": "22bb58995ee23458fc344107667b7ebd07cba23f7efa45807b068639168dfb42",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "11319f193f8ff7263930009fcf2c56f9ec21744cf9df2d762ec266960f3bb6a4",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -2463,7 +2463,7 @@
         {
           "path": "skills/ai-workflow/nexus/SKILL.md",
           "owner": "nexus",
-          "sha256": "22bb58995ee23458fc344107667b7ebd07cba23f7efa45807b068639168dfb42",
+          "sha256": "11319f193f8ff7263930009fcf2c56f9ec21744cf9df2d762ec266960f3bb6a4",
           "mode": "100644"
         },
         {
@@ -2559,7 +2559,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/charter-recipe.md",
           "owner": "nexus",
-          "sha256": "f49838c21a4fe5ddd111056c381d4a835cfdd6a28438bb92019bc77d89e979ac",
+          "sha256": "50eacfc5799770123b614012577c41982add9034f9262983fed55e48de8dc7bf",
           "mode": "100644"
         },
         {
@@ -2691,7 +2691,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/enact-recipe.md",
           "owner": "nexus",
-          "sha256": "6c339a2b3cf4f92bbe0463d3219cd7b3d4a8c114bd057c1703739dcc07f5b124",
+          "sha256": "d049505cab6935e7b3e0912acaaed7eac33447016ef3dc499ebc90196bfc5b4d",
           "mode": "100644"
         },
         {
@@ -2721,7 +2721,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/execution-layers.md",
           "owner": "nexus",
-          "sha256": "42de51e45d19fe3b66685e6c3f123cf937dd1ac43708cd580d27f1c799dbc78b",
+          "sha256": "e3751cd43d826b514a978a900639980f9ce5a4c2ddd3b99b548dd115a07a557b",
           "mode": "100644"
         },
         {
@@ -2745,7 +2745,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/gedanken-recipe.md",
           "owner": "nexus",
-          "sha256": "8444db51356ecae0f988da55ea1cf64de2b5a66e9d48b74f284b5516e93ffa27",
+          "sha256": "59123dcabb721cf58de3e051453b1b10e0135f7002d1249f2ed303f382ad74ce",
           "mode": "100644"
         },
         {
@@ -3255,14 +3255,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/sherpa/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/sherpa/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "sherpa/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -3359,17 +3359,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "a53e03f86d809541af04c7877122d48987547e1ea8e3dfb59ee3935cb3555271",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "f6d4a01127dfba217ec52b2d07f1de348e6938ba20b94ad348d64af108b84a12",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -3436,7 +3436,7 @@
         {
           "path": "skills/ai-workflow/sherpa/SKILL.md",
           "owner": "sherpa",
-          "sha256": "a53e03f86d809541af04c7877122d48987547e1ea8e3dfb59ee3935cb3555271",
+          "sha256": "f6d4a01127dfba217ec52b2d07f1de348e6938ba20b94ad348d64af108b84a12",
           "mode": "100644"
         },
         {
@@ -3585,14 +3585,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/rally/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/rally/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "rally/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -3664,17 +3664,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "b0f394a96bfcb564f41ec1f365fcf9ba144c125037ecb8d07141ebd4f8dede18",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "fbe6564043eae7ac99ab26d9832fa38b7bdc12274e82f34b7f73b02c4544dec5",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -3776,7 +3776,7 @@
         {
           "path": "skills/ai-workflow/rally/SKILL.md",
           "owner": "rally",
-          "sha256": "b0f394a96bfcb564f41ec1f365fcf9ba144c125037ecb8d07141ebd4f8dede18",
+          "sha256": "fbe6564043eae7ac99ab26d9832fa38b7bdc12274e82f34b7f73b02c4544dec5",
           "mode": "100644"
         },
         {
@@ -3907,14 +3907,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/oracle/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/oracle/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "oracle/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -4016,17 +4016,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "003121d26824c9e7d51fcee70db8d831493c83f74b4c4c51c9c3245cfbadecfd",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "2a72fb5fe47ea3e48841a6a313104eab2742a0a82db6d29137cec575dca6eb19",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -4123,7 +4123,7 @@
         {
           "path": "skills/ai-agent-platform/oracle/SKILL.md",
           "owner": "oracle",
-          "sha256": "003121d26824c9e7d51fcee70db8d831493c83f74b4c4c51c9c3245cfbadecfd",
+          "sha256": "2a72fb5fe47ea3e48841a6a313104eab2742a0a82db6d29137cec575dca6eb19",
           "mode": "100644"
         },
         {
@@ -4373,7 +4373,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "c427f33670c2a24a70fb343e4f35d571e35e13e26b3226f08479ce387fdf2d7b",
+            "content_sha256": "75b1abc6b141fbdeeeefb5fbfdbe6559220a57387596496a3e296120c06cd4d8",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -4382,7 +4382,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/arena/SKILL.md",
-          "sha256": "c427f33670c2a24a70fb343e4f35d571e35e13e26b3226f08479ce387fdf2d7b",
+          "sha256": "75b1abc6b141fbdeeeefb5fbfdbe6559220a57387596496a3e296120c06cd4d8",
           "owner": "arena",
           "mode": "100644"
         },
@@ -4461,14 +4461,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/sigil/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/sigil/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "sigil/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
@@ -4575,17 +4575,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
-            "content_sha256": "f69a8771c0026091cf17ebd30c010f1f598d8526d0263f7bcbb4280b19847b18",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "b57864783a336c7314f780c952457c5ceafff00dc18a66b79c955f25bb78d4cb",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -4672,7 +4672,7 @@
         {
           "path": "skills/ai-agent-platform/sigil/SKILL.md",
           "owner": "sigil",
-          "sha256": "f69a8771c0026091cf17ebd30c010f1f598d8526d0263f7bcbb4280b19847b18",
+          "sha256": "b57864783a336c7314f780c952457c5ceafff00dc18a66b79c955f25bb78d4cb",
           "mode": "100644"
         },
         {
@@ -4858,14 +4858,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/guardian/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/guardian/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "guardian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -4987,17 +4987,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "774392d798d4c28d6cb4e546292e7e0dcd62eea378010ca725fe1e74e54d770f",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "81c577c370af2f3f8908c9d21ac70508a44c7f1bd8231636291887cc49bf5766",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -5139,7 +5139,7 @@
         {
           "path": "skills/engineering-workflow-automation/guardian/SKILL.md",
           "owner": "guardian",
-          "sha256": "774392d798d4c28d6cb4e546292e7e0dcd62eea378010ca725fe1e74e54d770f",
+          "sha256": "81c577c370af2f3f8908c9d21ac70508a44c7f1bd8231636291887cc49bf5766",
           "mode": "100644"
         },
         {
@@ -6014,7 +6014,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "a5c5047056507bc80e8ad25c4e6ef8962aeedb77993513b4c69919470eb016e9",
+            "content_sha256": "9292d014699ecbf775210225cbe3161bbc41ddd49484847d83cca4ef74bc7a91",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -6068,7 +6068,7 @@
       "managed_files": [
         {
           "path": "skills/engineering-workflow-automation/latch/SKILL.md",
-          "sha256": "a5c5047056507bc80e8ad25c4e6ef8962aeedb77993513b4c69919470eb016e9",
+          "sha256": "9292d014699ecbf775210225cbe3161bbc41ddd49484847d83cca4ef74bc7a91",
           "owner": "latch",
           "mode": "100644"
         },
@@ -6164,16 +6164,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/beacon/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/beacon/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "beacon/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
-        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
+        "path_commit": "2fd01108f9011d59515a5c94109acce2f815c6bd"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -6268,17 +6268,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
-            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "8d2c33e9bd47cd27af6d3d67fca3190a8fe0dd171f6fb23ec5eac5ef927b1a84",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "path_commit": "2fd01108f9011d59515a5c94109acce2f815c6bd",
+            "content_sha256": "0b9629b3f1880debbd1892301a415ee52c466f6fd496b6f835e6252518fda6fd",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -6345,7 +6345,7 @@
         {
           "path": "skills/devops-sre/beacon/SKILL.md",
           "owner": "beacon",
-          "sha256": "8d2c33e9bd47cd27af6d3d67fca3190a8fe0dd171f6fb23ec5eac5ef927b1a84",
+          "sha256": "0b9629b3f1880debbd1892301a415ee52c466f6fd496b6f835e6252518fda6fd",
           "mode": "100644"
         },
         {
@@ -6494,16 +6494,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/triage/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/triage/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "triage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
-        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
+        "path_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -6563,17 +6563,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
-            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
-            "content_sha256": "06bd2e1bd24eac2613ecd6decf615fffbec37385aa72d27777eedee67da3ad67",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "path_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "content_sha256": "56d95659d3ce8bc48cbe04743d0d1b069ad8683debd9e0ff9eff075079df1e7c",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -6665,7 +6665,7 @@
         {
           "path": "skills/devops-sre/triage/SKILL.md",
           "owner": "triage",
-          "sha256": "06bd2e1bd24eac2613ecd6decf615fffbec37385aa72d27777eedee67da3ad67",
+          "sha256": "56d95659d3ce8bc48cbe04743d0d1b069ad8683debd9e0ff9eff075079df1e7c",
           "mode": "100644"
         },
         {
@@ -6772,14 +6772,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/gear/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gear/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "gear/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -6896,17 +6896,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "06313a17aa4653426e4389a6f99312178788ee14755bca273921ae7b979307a8",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "b43be03a70e5a76f56132435aba4c785a30376e64c8d332d2655d1df35352d7e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -7018,7 +7018,7 @@
         {
           "path": "skills/devops-sre/gear/SKILL.md",
           "owner": "gear",
-          "sha256": "06313a17aa4653426e4389a6f99312178788ee14755bca273921ae7b979307a8",
+          "sha256": "b43be03a70e5a76f56132435aba4c785a30376e64c8d332d2655d1df35352d7e",
           "mode": "100644"
         },
         {
@@ -7215,14 +7215,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/finance-investing/ledger/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ledger/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "ledger/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -7314,17 +7314,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "6f3fbe25702f792c4d9876dd98846ef20dac8c46ab3c725b06559874585ecf97",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "eebfa6f6514871a6c0beddb28a7b05c31be73d1188d89933bb0b06398c0cc426",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -7431,7 +7431,7 @@
         {
           "path": "skills/finance-investing/ledger/SKILL.md",
           "owner": "ledger",
-          "sha256": "6f3fbe25702f792c4d9876dd98846ef20dac8c46ab3c725b06559874585ecf97",
+          "sha256": "eebfa6f6514871a6c0beddb28a7b05c31be73d1188d89933bb0b06398c0cc426",
           "mode": "100644"
         },
         {
@@ -7715,7 +7715,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "6e2525d62f56f0ea14f3eb816034953484ef58c79306dba3407841a86da57452",
+            "content_sha256": "c260ac9d9fc1473a6f4049a82925438b1a47a74c21aaeeb125eb52c453667850",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -7830,7 +7830,7 @@
         },
         {
           "path": "skills/finance-investing/helm/SKILL.md",
-          "sha256": "6e2525d62f56f0ea14f3eb816034953484ef58c79306dba3407841a86da57452",
+          "sha256": "c260ac9d9fc1473a6f4049a82925438b1a47a74c21aaeeb125eb52c453667850",
           "owner": "helm",
           "mode": "100644"
         },
@@ -8117,7 +8117,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "a8c0de5f877420c8ec625d3b0b59b3b3a887120d178eb204920b697cbde76572",
+            "content_sha256": "a1e1b4f7f7eb8484bb0b5ad0082d2ffc197407748fef890275713645c66958c2",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -8126,7 +8126,7 @@
       "managed_files": [
         {
           "path": "skills/finance-investing/levy/SKILL.md",
-          "sha256": "a8c0de5f877420c8ec625d3b0b59b3b3a887120d178eb204920b697cbde76572",
+          "sha256": "a1e1b4f7f7eb8484bb0b5ad0082d2ffc197407748fef890275713645c66958c2",
           "owner": "levy",
           "mode": "100644"
         },
@@ -8198,14 +8198,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/growth/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/growth/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -8307,17 +8307,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "d7b69bd3c37ee1108586e23a3f4e8f5a236b048eecf73d31a1171fa132883a5b",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "4804a17a99507fb492d8eb3675210009d05e8450361a1008a39a8f8d665617b9",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -8419,7 +8419,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/growth/SKILL.md",
           "owner": "growth",
-          "sha256": "d7b69bd3c37ee1108586e23a3f4e8f5a236b048eecf73d31a1171fa132883a5b",
+          "sha256": "4804a17a99507fb492d8eb3675210009d05e8450361a1008a39a8f8d665617b9",
           "mode": "100644"
         },
         {
@@ -8586,14 +8586,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "compete/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -8755,17 +8755,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "d5b1551275542e014e310e960673da3fe34997c50912ad14ce41cd16e991deff",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "f898a83cc9017833aa9f5bfabea3076dc65b38324360bf1c5944b070ddd968be",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -8882,7 +8882,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
           "owner": "compete",
-          "sha256": "d5b1551275542e014e310e960673da3fe34997c50912ad14ce41cd16e991deff",
+          "sha256": "f898a83cc9017833aa9f5bfabea3076dc65b38324360bf1c5944b070ddd968be",
           "mode": "100644"
         },
         {
@@ -9139,14 +9139,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/pulse/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "pulse/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f"
       },
@@ -9243,17 +9243,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f",
-            "content_sha256": "1e82ec0a0d6b250bd2dc7b383bed6bb1ccde9edb5a5344cba0d82b7956bbe910",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "6d97ca369fab22ebd2cb078cb2598f9b8b4ced792d3ee4e74df0bfb96473890e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -9370,7 +9370,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
           "owner": "pulse",
-          "sha256": "1e82ec0a0d6b250bd2dc7b383bed6bb1ccde9edb5a5344cba0d82b7956bbe910",
+          "sha256": "6d97ca369fab22ebd2cb078cb2598f9b8b4ced792d3ee4e74df0bfb96473890e",
           "mode": "100644"
         },
         {
@@ -9914,14 +9914,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/office-white-collar/stage/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/stage/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "stage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -9978,17 +9978,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "ed3affa60fe6b8357ed4956c042c641df23c46ec015c86aaf579f7d428cda4da",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "30ba563296937c74218f09f544d8eb0226fc83687317fda68be491b1520c217f",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -10035,7 +10035,7 @@
         {
           "path": "skills/office-white-collar/stage/SKILL.md",
           "owner": "stage",
-          "sha256": "ed3affa60fe6b8357ed4956c042c641df23c46ec015c86aaf579f7d428cda4da",
+          "sha256": "30ba563296937c74218f09f544d8eb0226fc83687317fda68be491b1520c217f",
           "mode": "100644"
         },
         {
@@ -10304,14 +10304,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lore/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/.agents/skills/lore/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".agents/skills/lore/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -10368,17 +10368,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "06e99e95dbd24ce43ad08acd6e90ce271883b4a29a569ba4ec66d011f65f9c58",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -10513,14 +10513,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/tome/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/tome/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "tome/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -10622,17 +10622,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "462a1313d8f6dae24dc22d55a0643725162a67bf0a22e6e8c98ebee40bfcc6d7",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "5f5691a8ca85e2888d53e07791ef9b1c585d808dbe42c048adc83e78cf619660",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -10729,7 +10729,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/tome/SKILL.md",
           "owner": "tome",
-          "sha256": "462a1313d8f6dae24dc22d55a0643725162a67bf0a22e6e8c98ebee40bfcc6d7",
+          "sha256": "5f5691a8ca85e2888d53e07791ef9b1c585d808dbe42c048adc83e78cf619660",
           "mode": "100644"
         },
         {
@@ -10890,14 +10890,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/grove/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/grove/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "grove/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "27f6d8accb0a75376f660bb23b23117e1f264bca"
       },
@@ -11024,17 +11024,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "27f6d8accb0a75376f660bb23b23117e1f264bca",
-            "content_sha256": "e9c4f5e8b25779529085a03da990fa28192172a2dc318d78d4d261caf47c64c8",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "b1c62c87092031c29f58dad643ccfba6192b969ec3f445b0c9b15ef0ec773b74",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -11091,7 +11091,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/grove/SKILL.md",
           "owner": "grove",
-          "sha256": "e9c4f5e8b25779529085a03da990fa28192172a2dc318d78d4d261caf47c64c8",
+          "sha256": "b1c62c87092031c29f58dad643ccfba6192b969ec3f445b0c9b15ef0ec773b74",
           "mode": "100644"
         },
         {
@@ -11347,7 +11347,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "5ea6723b1a1f797c53df4ad48ceef465cda2583fd035c314de22c8c0587ff66f",
+            "content_sha256": "ec69a4c9867d92b90b45d6d6daf25d1adba56300af40004ed8f49b71092d3a01",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -11401,7 +11401,7 @@
       "managed_files": [
         {
           "path": "skills/operations-general/crest/SKILL.md",
-          "sha256": "5ea6723b1a1f797c53df4ad48ceef465cda2583fd035c314de22c8c0587ff66f",
+          "sha256": "ec69a4c9867d92b90b45d6d6daf25d1adba56300af40004ed8f49b71092d3a01",
           "owner": "crest",
           "mode": "100644"
         },
@@ -11625,7 +11625,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "7fe9b94b5cff348aeab9ea680a67a0a92bb6d2ddf94d0cca086534f3c0435c17",
+            "content_sha256": "698296a2a8daf963987461d039d97ba4e14b14e1d480acad6fb5b0abbd30008f",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -11684,7 +11684,7 @@
       "managed_files": [
         {
           "path": "skills/operations-general/hearth/SKILL.md",
-          "sha256": "7fe9b94b5cff348aeab9ea680a67a0a92bb6d2ddf94d0cca086534f3c0435c17",
+          "sha256": "698296a2a8daf963987461d039d97ba4e14b14e1d480acad6fb5b0abbd30008f",
           "owner": "hearth",
           "mode": "100644"
         },
@@ -11878,7 +11878,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "5d5bd68d7974128a47c0de113531fd2495fe613ec8baee91722702b001524b8d",
+            "content_sha256": "20b68cf58497cb28f721f4076dbda92048819a54744fba4becef497a2fdbfd4f",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-05-28"
           }
@@ -11888,7 +11888,7 @@
         {
           "path": "skills/operations-general/dawn/SKILL.md",
           "owner": "dawn",
-          "sha256": "5d5bd68d7974128a47c0de113531fd2495fe613ec8baee91722702b001524b8d",
+          "sha256": "20b68cf58497cb28f721f4076dbda92048819a54744fba4becef497a2fdbfd4f",
           "mode": "100644"
         },
         {
@@ -11905,14 +11905,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/product-design/voice/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/voice/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "voice/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
@@ -11974,17 +11974,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
-            "content_sha256": "da6b7042d484cf9a0215ebe609d9b13ab22c80a59e62ff2b1d6048b39ad0e9ab",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "4cf79e0fd53be34301c90e2c877ef73d15140234e00a9aa0e4835f000c67d707",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -12076,7 +12076,7 @@
         {
           "path": "skills/product-design/voice/SKILL.md",
           "owner": "voice",
-          "sha256": "da6b7042d484cf9a0215ebe609d9b13ab22c80a59e62ff2b1d6048b39ad0e9ab",
+          "sha256": "4cf79e0fd53be34301c90e2c877ef73d15140234e00a9aa0e4835f000c67d707",
           "mode": "100644"
         },
         {
@@ -12183,14 +12183,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/product-design/trace/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/trace/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "trace/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f"
       },
@@ -12257,17 +12257,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f",
-            "content_sha256": "25e6c7bcea3786359da5526316d7b436558bddbeb642e3c0dd552e150b34f2d0",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "7b6cd09a17b5445f0d55df431ca2466ee8436e0dfbde8431c79fa6b2f85d057f",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -12319,7 +12319,7 @@
         {
           "path": "skills/product-design/trace/SKILL.md",
           "owner": "trace",
-          "sha256": "25e6c7bcea3786359da5526316d7b436558bddbeb642e3c0dd552e150b34f2d0",
+          "sha256": "7b6cd09a17b5445f0d55df431ca2466ee8436e0dfbde8431c79fa6b2f85d057f",
           "mode": "100644"
         },
         {
@@ -12507,7 +12507,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "24c9fcfd9db73266005ea24d6046049529f8ef972d4a412545adb2e10acd2162",
+            "content_sha256": "6f57b2e09f4d443994667be184f71f2178535b8ec956424a2b72fdf41787fc29",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -12516,7 +12516,7 @@
       "managed_files": [
         {
           "path": "skills/product-design/researcher/SKILL.md",
-          "sha256": "24c9fcfd9db73266005ea24d6046049529f8ef972d4a412545adb2e10acd2162",
+          "sha256": "6f57b2e09f4d443994667be184f71f2178535b8ec956424a2b72fdf41787fc29",
           "owner": "researcher",
           "mode": "100644"
         },
@@ -12600,14 +12600,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/breach/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/breach/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "breach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -12674,17 +12674,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "c490ce8a7753b339d214b04e4106ef50fb79b0fd816b21d6f0abf617a0cbe5e3",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "7f01b57d854cdb1ab9a2019d594d7935722b3cc3425e1ea6092505d4a717f5a1",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -12746,7 +12746,7 @@
         {
           "path": "skills/security-and-reliability/breach/SKILL.md",
           "owner": "breach",
-          "sha256": "c490ce8a7753b339d214b04e4106ef50fb79b0fd816b21d6f0abf617a0cbe5e3",
+          "sha256": "7f01b57d854cdb1ab9a2019d594d7935722b3cc3425e1ea6092505d4a717f5a1",
           "mode": "100644"
         },
         {
@@ -12853,14 +12853,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/cloak/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cloak/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "cloak/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -12907,17 +12907,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "6f3a211ea48cefc886da52a3518762965f5acfa8a45ae00ccb489c3f87694072",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "be0f5435f6453c8f49855dba5ea65336ced5c23dc084f2a7adb6e7ae194137cc",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -12979,7 +12979,7 @@
         {
           "path": "skills/security-and-reliability/cloak/SKILL.md",
           "owner": "cloak",
-          "sha256": "6f3a211ea48cefc886da52a3518762965f5acfa8a45ae00ccb489c3f87694072",
+          "sha256": "be0f5435f6453c8f49855dba5ea65336ced5c23dc084f2a7adb6e7ae194137cc",
           "mode": "100644"
         },
         {
@@ -13140,7 +13140,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "5d9e0a481d9a425089f035e341ae67f5a26f0d34c7833651b98c0e393275d6d1",
+            "content_sha256": "7cdba1024db169e012e3b734bab8736d656f5cd177fc0c28f09b4cebc545161e",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -13149,7 +13149,7 @@
       "managed_files": [
         {
           "path": "skills/security-and-reliability/comply/SKILL.md",
-          "sha256": "5d9e0a481d9a425089f035e341ae67f5a26f0d34c7833651b98c0e393275d6d1",
+          "sha256": "7cdba1024db169e012e3b734bab8736d656f5cd177fc0c28f09b4cebc545161e",
           "owner": "comply",
           "mode": "100644"
         },
@@ -13522,7 +13522,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "849f808d79abed492da4c6dc364ebb9876f98d2dae5e8d1239e1136d28c204da",
+            "content_sha256": "29eb1dc47ce6ba853813abe79451b5f34696221015bc9dba6e6bf41a68af651d",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -13531,7 +13531,7 @@
       "managed_files": [
         {
           "path": "skills/multimodal-media/clay/SKILL.md",
-          "sha256": "849f808d79abed492da4c6dc364ebb9876f98d2dae5e8d1239e1136d28c204da",
+          "sha256": "29eb1dc47ce6ba853813abe79451b5f34696221015bc9dba6e6bf41a68af651d",
           "owner": "clay",
           "mode": "100644"
         },
@@ -13647,7 +13647,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "44b58b1f84b31815e7885cf65053c771a55ba69421134f855c1f4d1a30f66903",
+            "content_sha256": "53281bcdf0023f3f5850fafe92c78aed8c93c309c4bf5a52291c1ecd5141b7c1",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -13656,7 +13656,7 @@
       "managed_files": [
         {
           "path": "skills/multimodal-media/tone/SKILL.md",
-          "sha256": "44b58b1f84b31815e7885cf65053c771a55ba69421134f855c1f4d1a30f66903",
+          "sha256": "53281bcdf0023f3f5850fafe92c78aed8c93c309c4bf5a52291c1ecd5141b7c1",
           "owner": "tone",
           "mode": "100644"
         },
@@ -13710,14 +13710,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/deployment-platforms/scaffold/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scaffold/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "scaffold/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -13809,17 +13809,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "34596aa9e76fb68484cacd2d1f3368e55a514b664b9bc505331541dd603c62d7",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "de87d6c972cace93aac3c4eaaec690d6f8bf49603bddea06ff233f4cff210663",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -13921,7 +13921,7 @@
         {
           "path": "skills/deployment-platforms/scaffold/SKILL.md",
           "owner": "scaffold",
-          "sha256": "34596aa9e76fb68484cacd2d1f3368e55a514b664b9bc505331541dd603c62d7",
+          "sha256": "de87d6c972cace93aac3c4eaaec690d6f8bf49603bddea06ff233f4cff210663",
           "mode": "100644"
         },
         {
@@ -14174,7 +14174,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "65dafb367b6846c03a556947f7a6ad9607ebd38fcccf9d10abf94fa0080ef551",
+            "content_sha256": "588359f44c8b80af23947e594da43e88cc5e47a06335510f65efa317a83a013a",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -14233,7 +14233,7 @@
       "managed_files": [
         {
           "path": "skills/deployment-platforms/pipe/SKILL.md",
-          "sha256": "65dafb367b6846c03a556947f7a6ad9607ebd38fcccf9d10abf94fa0080ef551",
+          "sha256": "588359f44c8b80af23947e594da43e88cc5e47a06335510f65efa317a83a013a",
           "owner": "pipe",
           "mode": "100644"
         },
@@ -14421,7 +14421,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "f1be4eda90be0e34b25151448c6b311689f0b2eafca52ebfcd26688e00c96adc",
+            "content_sha256": "6fe212ad5072fa44a4e1ad2d037f91041ccf822c92aa436a528e13c1c5410e05",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -14465,7 +14465,7 @@
       "managed_files": [
         {
           "path": "skills/deployment-platforms/shard/SKILL.md",
-          "sha256": "f1be4eda90be0e34b25151448c6b311689f0b2eafca52ebfcd26688e00c96adc",
+          "sha256": "6fe212ad5072fa44a4e1ad2d037f91041ccf822c92aa436a528e13c1c5410e05",
           "owner": "shard",
           "mode": "100644"
         },
@@ -14531,14 +14531,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/openclaw-memory-and-safety/cast/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cast/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "cast/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -14620,17 +14620,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
             "content_sha256": "66a041a203bacbffb41eba3251e0770a32bde70b7bb07ef37bd3e9da814e8560",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -14828,14 +14828,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/openclaw-memory-and-safety/omen/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/omen/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "omen/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
@@ -14907,17 +14907,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "ecb3dfc5620095b9195c85a12c4f4ca34321094eb62b9a5d55920dbdb2a3dbc9",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -15143,7 +15143,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "b23a0b6282f4afa6e0755c4955151377cbb4fd2dd194f96f09fdd8de8d1c43e5",
+            "content_sha256": "85196f9e2d9f0857e4d750cbae62017777249d62c72606138174a92363c76bca",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -15152,7 +15152,7 @@
       "managed_files": [
         {
           "path": "skills/openclaw-memory-and-safety/warden/SKILL.md",
-          "sha256": "b23a0b6282f4afa6e0755c4955151377cbb4fd2dd194f96f09fdd8de8d1c43e5",
+          "sha256": "85196f9e2d9f0857e4d750cbae62017777249d62c72606138174a92363c76bca",
           "owner": "warden",
           "mode": "100644"
         },
@@ -15212,14 +15212,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/lens/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/lens/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "lens/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
@@ -15301,17 +15301,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
-            "content_sha256": "4b6d4c8cc049a1116caf23f0299200a799ffb2c852ec983a5218db6b2c0de16b",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "226cb0e83ad30bd07f80ae14eccd4f69d2a4230963da15bc7498d489b8503986",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -15378,7 +15378,7 @@
         {
           "path": "skills/task-understanding-decomposition/lens/SKILL.md",
           "owner": "lens",
-          "sha256": "4b6d4c8cc049a1116caf23f0299200a799ffb2c852ec983a5218db6b2c0de16b",
+          "sha256": "226cb0e83ad30bd07f80ae14eccd4f69d2a4230963da15bc7498d489b8503986",
           "mode": "100644"
         },
         {
@@ -15479,14 +15479,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/scout/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scout/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "scout/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
         "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
@@ -15603,17 +15603,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
-            "content_sha256": "a300995da9ff57cebab899594246075eb590ed148f62a5c86b9870fa6d47f978",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "590de4a5e99c6e1150d0b61d27b4f4ec990066206bca7859ac88724f132e129d",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -15735,7 +15735,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/SKILL.md",
           "owner": "scout",
-          "sha256": "a300995da9ff57cebab899594246075eb590ed148f62a5c86b9870fa6d47f978",
+          "sha256": "590de4a5e99c6e1150d0b61d27b4f4ec990066206bca7859ac88724f132e129d",
           "mode": "100644"
         },
         {
@@ -15765,7 +15765,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/reference/debug-strategies.md",
           "owner": "scout",
-          "sha256": "c3fa1e3c51a70dfb55f0f681e89e13b15a70f3c4907fbc33a6800ce1d32c57e8",
+          "sha256": "6c22174bcef0f0b9c3cd8056226bf358edc568d10fce45a30149c565d90f1554",
           "mode": "100644"
         },
         {
@@ -15944,16 +15944,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/ripple/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ripple/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "ripple/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
         "sync_mode": "monitor",
-        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
+        "path_commit": "b77bfa4e843cea275afee9c7bbae83966ea8e30e"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -16013,17 +16013,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
-            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "1d977c26eba7f5b4098674c4dd4f03afe46857c34c27052b46e0e6e5a654b648",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
+            "path_commit": "b77bfa4e843cea275afee9c7bbae83966ea8e30e",
+            "content_sha256": "d80df7f3c762dedee9f793675777b61ea9618401a4186a2887e81b73ebfcaa13",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
               "api_spdx": "MIT"
             }
           }
@@ -16090,7 +16090,7 @@
         {
           "path": "skills/task-understanding-decomposition/ripple/SKILL.md",
           "owner": "ripple",
-          "sha256": "1d977c26eba7f5b4098674c4dd4f03afe46857c34c27052b46e0e6e5a654b648",
+          "sha256": "d80df7f3c762dedee9f793675777b61ea9618401a4186a2887e81b73ebfcaa13",
           "mode": "100644"
         },
         {
@@ -16216,6 +16216,13 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "simota/agent-skills@2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "simota/agent-skills@c1189c2111e47c1a38378e238ca027d3c231ec83",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

@@ -29,7 +29,7 @@ def test_canonical_files_ignore_bytecode_but_not_unmanaged_source(tmp_path):
 
 
 MAPPING_PATH = REPO_ROOT / "docs/sources/larksuite-cli-2026-05.skills.json"
-REVIEWED_COMMIT = "017b19a793ad71794a02887ede04757f3d82e10d"
+REVIEWED_COMMIT = "3d82c85419ad7560ad017db7a3972a596b5fbeb1"
 SEPTEMBER_30_REVIEWED_COMMIT = "7beffb086d7fa3c5b843d8affa7c089f49cfc65e"
 SEPTEMBER_14_REVIEWED_COMMIT = "39aaf9fca0e08825b51f6d8c6c617bf781db761b"
 SEPTEMBER_6_REVIEWED_COMMIT = "7fd6ef3c07182257ce776cdc5a614e122d5bd4b3"
@@ -37,57 +37,53 @@ AUGUST_31_REVIEWED_COMMIT = "6646386e0996b1ff5df640bccff834a20bcb203b"
 AUGUST_24_REVIEWED_COMMIT = "56ad837c3d8f4c49d6b9725a3530c37408533ead"
 PREVIOUS_REVIEWED_COMMIT = "ca35f6061616d4f47681368bbbef03be28193dc9"
 INITIAL_REVIEWED_COMMIT = "755daa4de3ea12785c43a15244ffb8f012122c13"
-EXPECTED_COUNTS = {
-    "lark-approval": 17,
-    "lark-attendance": 1,
-    "lark-base": 33,
-    "lark-calendar": 15,
-    "lark-contact": 4,
-    "lark-doc": 45,
-    "lark-drive": 61,
-    "lark-event": 8,
-    "lark-im": 61,
-    "lark-mail": 37,
-    "lark-markdown": 6,
-    "lark-okr": 27,
-    "lark-openapi-explorer": 1,
-    "lark-shared": 7,
-    "lark-sheets": 32,
-    "lark-skill-maker": 2,
-    "lark-slides": 50,
-    "lark-task": 19,
-    "lark-whiteboard": 31,
-    "lark-wiki": 14,
-    "lark-workflow-meeting-summary": 1,
-    "lark-workflow-standup-report": 1,
-    "lark-meeting": 32,
-}
+EXPECTED_COUNTS = {'lark-approval': 17,
+ 'lark-attendance': 1,
+ 'lark-base': 33,
+ 'lark-calendar': 15,
+ 'lark-contact': 4,
+ 'lark-doc': 45,
+ 'lark-drive': 61,
+ 'lark-event': 9,
+ 'lark-im': 61,
+ 'lark-mail': 37,
+ 'lark-markdown': 6,
+ 'lark-okr': 28,
+ 'lark-openapi-explorer': 1,
+ 'lark-shared': 7,
+ 'lark-sheets': 32,
+ 'lark-skill-maker': 2,
+ 'lark-slides': 50,
+ 'lark-task': 19,
+ 'lark-whiteboard': 31,
+ 'lark-wiki': 14,
+ 'lark-workflow-meeting-summary': 1,
+ 'lark-workflow-standup-report': 1,
+ 'lark-meeting': 31}
 
-EXPECTED_PATH_COMMITS = {
-    "lark-approval": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
-    "lark-attendance": "69ae326d01a9163ca22408c746e052003cf0af2c",
-    "lark-base": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d",
-    "lark-calendar": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
-    "lark-contact": "87be09ef5f227c7b63d5eba40649544b5bec0133",
-    "lark-doc": "97f0dabe7b046f45cfd820453b8305aeed47a601",
-    "lark-drive": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
-    "lark-event": "fcdef499bb23739b720c665d49875a9957c97d48",
-    "lark-im": "341ee384fd668a963a68382cb48f73b8143879be",
-    "lark-mail": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-    "lark-markdown": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-    "lark-okr": "baf9640bec9eddb658ec351956553b8fa0bad6cb",
-    "lark-openapi-explorer": "83dfb068ad8bb4052787d80ca415118a20849b85",
-    "lark-shared": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
-    "lark-sheets": "d5a32489b93050c88a21e54784593dd3effd452b",
-    "lark-skill-maker": "83dfb068ad8bb4052787d80ca415118a20849b85",
-    "lark-slides": "017b19a793ad71794a02887ede04757f3d82e10d",
-    "lark-task": "64b0d51f1159dfac12be35f839103af86a93fdd9",
-    "lark-whiteboard": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
-    "lark-wiki": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-    "lark-workflow-meeting-summary": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
-    "lark-workflow-standup-report": "049ddf771b435e86a4f5a71e616336ec44341160",
-    "lark-meeting": "1da5768f96ed22e774a09fa2aa60af607d63a99e"
-}
+EXPECTED_PATH_COMMITS = {'lark-approval': '0d5334a0cdfdf18b0313ba051befb2848493ecda',
+ 'lark-attendance': '69ae326d01a9163ca22408c746e052003cf0af2c',
+ 'lark-base': '9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d',
+ 'lark-calendar': '7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2',
+ 'lark-contact': '87be09ef5f227c7b63d5eba40649544b5bec0133',
+ 'lark-doc': '97f0dabe7b046f45cfd820453b8305aeed47a601',
+ 'lark-drive': 'a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef',
+ 'lark-event': 'ecfe7f3f5af7bf844af858e52c21386eb68fee46',
+ 'lark-im': '341ee384fd668a963a68382cb48f73b8143879be',
+ 'lark-mail': 'd1ae4727324533f30b12c866f47f25a03f21f56d',
+ 'lark-markdown': 'd1ae4727324533f30b12c866f47f25a03f21f56d',
+ 'lark-okr': '3d82c85419ad7560ad017db7a3972a596b5fbeb1',
+ 'lark-openapi-explorer': '83dfb068ad8bb4052787d80ca415118a20849b85',
+ 'lark-shared': '74991aa69d997506a196bb8fa514f435b4e9aa60',
+ 'lark-sheets': 'd5a32489b93050c88a21e54784593dd3effd452b',
+ 'lark-skill-maker': '83dfb068ad8bb4052787d80ca415118a20849b85',
+ 'lark-slides': '017b19a793ad71794a02887ede04757f3d82e10d',
+ 'lark-task': 'daeed8575c9393f7ed633f39e69a6b47c60fa658',
+ 'lark-whiteboard': '27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0',
+ 'lark-wiki': 'd1ae4727324533f30b12c866f47f25a03f21f56d',
+ 'lark-workflow-meeting-summary': 'e525beb8d6ddecbde68ea3b2df292f1d70a66fa5',
+ 'lark-workflow-standup-report': '049ddf771b435e86a4f5a71e616336ec44341160',
+ 'lark-meeting': '05e9c6ef74290f78601892ed9eb8a6389d8fc8ca'}
 
 LOCAL_OVERLAYS = {
     "lark-approval": {
@@ -273,7 +269,8 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
 
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     attempts = mapping["verification_attempts"]
-    assert len(attempts) == 9
+    assert len(attempts) >= 10
+    assert attempts[8]["target"] == "larksuite/cli@017b19a793ad71794a02887ede04757f3d82e10d"
     assert attempts[0]["target"] == (
         f"larksuite/cli@{INITIAL_REVIEWED_COMMIT}"
     )
@@ -308,6 +305,6 @@ def test_lark_latest_review_has_explicit_evidence():
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     latest = mapping["verification_attempts"][-1]
     assert latest["target"] == f"larksuite/cli@{REVIEWED_COMMIT}"
-    assert latest["date"] == "2026-10-16"
+    assert latest["date"] == "2026-11-17"
     assert latest["result"] == "success"
     assert "Explicit reviewer checkpoint" in latest["evidence"]

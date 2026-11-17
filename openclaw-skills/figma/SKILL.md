@@ -2,13 +2,13 @@
 name: figma
 description: 'Fetch Figma design context, variables, screenshots, and assets through MCP when working from Figma URLs or node IDs, or diagnosing its integration.'
 zh_description: "通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。"
-version: "1.1.0"
+version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "figma"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -29,7 +29,7 @@ complexity: "intermediate"
 
 - 宿主已配置 Figma MCP：远程 server 为 `https://mcp.figma.com/mcp`（见 `agents/openai.yaml`），
   或 Figma 桌面应用提供的本地 server。配置、环境变量和验证清单见
-  [references/figma-mcp-config.md](references/figma-mcp-config.md)。
+  [references/figma-mcp-config.md](references/figma-mcp-config.md)。配置检查用 `test -n "${FIGMA_OAUTH_TOKEN:-}"`，只报告 set/unset；不要执行参考中的 `echo $FIGMA_OAUTH_TOKEN`。持久化配置仅在配置任务已有授权时进行。
 - 当前账号对目标文件有查看权限。远程 server 可用 `whoami` 确认身份与席位。
 - 工具名以宿主实际暴露的为准；未连接时如实说明，不要模拟工具调用结果。
 
@@ -84,5 +84,5 @@ complexity: "intermediate"
 
 - 只读取用户提供或有权访问的文件；不修改 Figma 文件，除非用户请求且工具支持写操作。
 - 交互原型中的复杂触发和动画无法从静态上下文完全还原，需向用户确认。
-- 访问令牌放在宿主配置或环境变量中，不写入仓库或输出。
+- 访问令牌放在宿主支持的秘密存储或环境变量中，不写入仓库或输出。
 - 视觉一致性需要在浏览器中对照截图验收；静态读取不等于实现已完成。

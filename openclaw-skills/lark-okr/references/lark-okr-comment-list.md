@@ -3,6 +3,9 @@
 
 分页获取单个 Cycle、Objective、KeyResult 或 Progress 下的评论。查询整个周期下所有评论时可使用 [+comment-detail](lark-okr-comment-detail.md)。
 
+
+本接口始终操作发布态，不使用草稿选择参数；草稿独有的 O/KR 不能作为已有发布态实体操作。
+
 ## 推荐命令
 
 ```bash

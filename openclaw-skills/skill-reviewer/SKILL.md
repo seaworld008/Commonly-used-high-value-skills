@@ -2,13 +2,13 @@
 name: skill-reviewer
 description: 'Review and improve agent skills for clear triggers, actionable instructions, progressive disclosure, reliable resources, and evidence-backed validation.'
 zh_description: "审查技能的触发边界、执行指导、引用和验证质量。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "reviewer", "skill", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-07"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -54,7 +54,7 @@ Evaluate someone else's skill repository.
 
 ```
 Review Workflow:
-- [ ] Clone repository to /tmp/
+- [ ] Review the supplied local checkout. If a remote copy is necessary and network access is authorized, clone into a unique directory under the host-assigned temporary directory.
 - [ ] Read entry points, then references relevant to suspected findings
 - [ ] Identify author's intent
 - [ ] Run evaluation checklist

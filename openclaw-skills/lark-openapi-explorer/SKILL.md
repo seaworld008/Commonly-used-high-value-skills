@@ -2,14 +2,14 @@
 name: lark-openapi-explorer
 description: '飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。'
 zh_description: "飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。"
-version: "1.0.4"
+version: "1.0.5"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-openapi-explorer"
 license: MIT
 tags: '[feishu, lark, lark-cli, openapi, api]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 metadata:
@@ -119,35 +119,23 @@ lark-cli api DELETE /open-apis/<path>
 
 ## 安全规则
 
-- **写入/删除类 API**（POST/PUT/DELETE）调用前必须确认用户意图
+- **按实际副作用判断写入授权**：POST/PUT/PATCH/DELETE 等修改资源的调用须在用户已授权的对象与范围内；不能仅按 HTTP 方法名推定读写。高风险确认沿用 `lark-shared` 协议
 - 建议先用 `--dry-run` 预览请求（如支持）
 - 不要猜测 API 路径或参数——必须从文档中获取确认
 - 涉及敏感操作（删除群、移除成员等）时，向用户说明影响范围
 
 ## 使用场景示例
 
-### 场景 1：用户需要拉人进群（未被 CLI 封装）
+### 场景 1：用户需要拉人进群（优先使用已注册资源）
 
-```bash
-# Step 1: 确认 CLI 没有封装
-lark-cli im --help
-# → 发现没有 chat_members 相关的 create 命令
-
-# Step 2-4: 通过文档挖掘获得 API 规范
-# → POST /open-apis/im/v1/chats/:chat_id/members
-
-# Step 5: 调用
-lark-cli api POST /open-apis/im/v1/chats/oc_xxx/members \
-  --data '{"id_list":["ou_xxx","ou_yyy"]}' \
-  --params '{"member_id_type":"open_id"}'
-```
+先按 [`lark-im`](../lark-im/SKILL.md) 的 `chat.members.create` 资源与身份条件执行，不将已收录能力当成未封装 API。只有本机 `lark-cli im --help` / 对应资源帮助确认当前安装版本缺少所需能力时，才进入官方文档发现链，核对方法、参数、scope 和已有写入授权后准备原生请求。
 
 ### 场景 2：用户需要设置群公告
 
 ```bash
 # Step 1: 确认 CLI 没有封装
 lark-cli im --help
-# → 没有 announcement 相关命令
+# 只有当前帮助确认缺少所需能力时，继续发现；已有命令则使用它
 
 # Step 2-4: 挖掘文档
 # → PATCH /open-apis/im/v1/chats/:chat_id/announcement

@@ -2,14 +2,14 @@
 name: test-driven-development
 description: Develop testable logic or fix behavioral bugs with focused regression tests and a red-green-refactor loop where it provides useful evidence.
 zh_description: "通过聚焦的回归测试验证业务逻辑和缺陷修复。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "test-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: test-driven-development
@@ -31,7 +31,7 @@ Write a failing test before writing the code that makes it pass. For bug fixes, 
 
 **When NOT to use:** Pure configuration changes, documentation updates, or static content changes that have no behavioral impact.
 
-**Related:** For browser-based changes, combine TDD with runtime verification using Chrome DevTools MCP — see the Browser Testing section below.
+**Related:** For behavior that depends on the browser, combine TDD with an available runtime check — see the Browser Testing section below.
 
 ## Discover the Stack First
 
@@ -257,6 +257,8 @@ Preference order (most to least preferred):
 
 **Use mocks only when:** the real implementation is too slow, non-deterministic, or has side effects you can't control (external APIs, email sending). Over-mocking creates tests that pass while production breaks.
 
+For crash or rollback behavior, exercise the real boundary: an injected exception is not process termination, and a mocked transaction call is not a database rollback.
+
 ### Use the Arrange-Act-Assert Pattern
 
 ```typescript
@@ -323,7 +325,7 @@ describe('TaskService', () => {
 
 ## Browser Testing with DevTools
 
-For anything that runs in a browser, unit tests alone aren't enough — you need runtime verification. Use Chrome DevTools MCP to give your agent eyes into the browser: DOM inspection, console logs, network requests, performance traces, and screenshots.
+Choose evidence for the changed behavior. A focused regression test can cover pure logic. For layout, browser events or a user journey, exercise that path with an available, authorized browser or test runner and record what was observed.
 
 ### The DevTools Debugging Workflow
 
@@ -354,7 +356,7 @@ For detailed DevTools setup instructions and workflows, see `browser-testing-wit
 
 ## When to Use Subagents for Testing
 
-For complex bug fixes, spawn a subagent to write the reproduction test:
+Write the reproduction against the reported behavior and verify it fails for the expected reason. When an independent test author would help and delegation is authorized and available, the handoff can look like this:
 
 ```
 Main agent: "Spawn a subagent to write a test that reproduces this bug:
@@ -366,7 +368,7 @@ Main agent: Verifies the test fails, then implements the fix,
 then verifies the test passes.
 ```
 
-This separation ensures the test is written without knowledge of the fix, making it more robust.
+Keep the observed failure and expected behavior in the brief so the test can be evaluated independently of the proposed fix.
 
 ## See Also
 

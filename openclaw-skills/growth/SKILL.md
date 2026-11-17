@@ -2,14 +2,14 @@
 name: growth
 description: 'Use when improving organic acquisition for web pages: SEO meta tags, structured data, social cards, Core Web Vitals, AI-answer citation (GEO), and conversion copy.'
 zh_description: "提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/growth/SKILL.md"
 license: MIT
 tags: ["growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -170,7 +170,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Subcommand Dispatch
 
-Parse the first token of user input and activate the matching Recipe. If the token matches no subcommand, activate `seo` (default).
+Explicit subcommands take priority. Otherwise choose the matching business intent in Output Routing; use `seo` only when intent remains unclear. Load only the references needed for that choice.
 
 | First Token | Recipe Activated |
 |------------|-----------------|
@@ -181,7 +181,7 @@ Parse the first token of user input and activate the matching Recipe. If the tok
 | `keyword` | Keyword |
 | `audit` | Audit |
 | `vitals` | Vitals |
-| _(no match)_ | SEO (default) |
+| _(no explicit subcommand)_ | Match business intent first; `seo` only if still unclear |
 
 Behavior notes per Recipe:
 - `keyword`: Build a keyword universe from seed terms, classify by search intent (informational/navigational/commercial/transactional), cluster by SERP overlap, and surface AI-prompt opportunities for GEO.
@@ -198,7 +198,7 @@ Behavior notes per Recipe:
 | `heading`, `h1`, `h2`, `hierarchy` | Heading audit | Heading structure fix | `reference/seo-checklist.md` |
 | `OG`, `Open Graph`, `Twitter Card`, `social` | Social sharing | OGP/Twitter Card meta | `reference/ogp-twitter-card-guide.md` |
 | `JSON-LD`, `structured data`, `Schema.org` | Structured data | JSON-LD implementation | `reference/json-ld-templates.md` |
-| `LCP`, `INP`, `CLS`, `Core Web Vitals`, `performance` | Core Web Vitals | Ranking impact + p75 measurement gap (CrUX vs Lighthouse); remediation code → `bolt/reference/core-web-vitals.md` |  |
+| `LCP`, `INP`, `CLS`, `Core Web Vitals`, `performance` | Core Web Vitals | Ranking impact + p75 measurement gap (CrUX vs Lighthouse); remediation guidance | `reference/core-web-vitals.md`, `reference/core-web-vitals-deep.md` |
 | `AI Overviews`, `AI Mode`, `GEO`, `AI search`, `citation` | Generative Engine Optimization | Triple schema stack + E-E-A-T + inline citations + platform-specific optimization (ChatGPT/Perplexity/Gemini/Claude/Copilot) | `reference/geo-optimization.md` |
 | `E-E-A-T`, `author`, `expertise`, `trust` | E-E-A-T signals | Author markup, credential schema, experience indicators | `reference/seo-checklist.md` |
 | `CTA`, `conversion`, `signup`, `checkout` | CRO optimization | CTA/form improvement | `reference/cro-patterns.md` |
@@ -208,7 +208,7 @@ Behavior notes per Recipe:
 Routing rules:
 
 - If the signal is SEO-related, read `reference/seo-checklist.md` first.
-- If the signal is Core Web Vitals or performance, read `bolt/reference/core-web-vitals.md` (canonical remediation; ranking signal is CrUX p75, not Lighthouse).
+- If the signal is Core Web Vitals or performance, read local `reference/core-web-vitals.md` and, as needed, `reference/core-web-vitals-deep.md` (ranking signal is CrUX p75, not Lighthouse). Use `bolt/reference/core-web-vitals.md` only if that external capability actually exists in the host.
 - If the signal is CRO, form, or exit-intent, read `reference/cro-patterns.md`.
 - If the signal is OGP or social sharing, read `reference/ogp-twitter-card-guide.md`.
 - If the signal is GEO or AI search, read `reference/geo-optimization.md` first (four-signal framework + AI bot taxonomy + KPIs), then `reference/json-ld-templates.md` (stacked schema) + `reference/seo-checklist.md`.
@@ -273,8 +273,7 @@ Growth receives data and insights from upstream agents. Growth sends hypotheses,
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal growth insights in `.agents/growth.md`; create it if missing. Record patterns and learnings worth preserving.
-- After significant Growth work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Growth | (action) | (files) | (outcome) |`
+- Only when requested by the user or required by an existing project record convention, write one necessary summary of growth patterns to the agreed journal/project log; otherwise include it in the deliverable.
 
 ## AUTORUN Support
 

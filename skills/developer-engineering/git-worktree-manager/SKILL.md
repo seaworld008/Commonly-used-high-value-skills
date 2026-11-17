@@ -2,13 +2,13 @@
 name: git-worktree-manager
 description: 'Create, inspect, and clean up Git worktrees for parallel development, with explicit ownership, environment handling, and port allocation.'
 zh_description: "管理并行开发的 Git worktree、环境和端口分配。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "git", "manager", "worktree"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -21,14 +21,14 @@ complexity: "intermediate"
 
 ## Overview
 
-The Git Worktree Manager skill provides systematic management of Git worktrees for parallel development workflows. It handles worktree creation with automatic port allocation, environment file management, secret copying, and cleanup — enabling developers to run multiple Claude Code instances on separate features simultaneously without conflicts.
+Use these manual templates to isolate branches, runtime configuration and local services across worktrees.
 
 ## Core Capabilities
 
-- **Worktree Lifecycle Management** — create, list, switch, and cleanup worktrees with automated setup
-- **Port Allocation & Isolation** — automatic port assignment per worktree to avoid dev server conflicts
-- **Environment Synchronization** — copy .env files, secrets, and config between main and worktrees
-- **Docker Compose Overrides** — generate per-worktree port override files for multi-service stacks
+- **Worktree lifecycle** — create, list, switch and clean up worktrees
+- **Port allocation** — select unused ports for the services each worktree runs
+- **Environment setup** — use project examples or managed test configuration
+- **Docker Compose overrides** — adapt the port mapping for each stack
 - **Conflict Prevention** — detect and warn about shared resources, database names, and API endpoints
 - **Cleanup & Pruning** — safe removal with stale branch detection and uncommitted work warnings
 
@@ -57,24 +57,13 @@ git worktree add --track -b feature/new-api ../project-new-api origin/main
 
 ### Step 2: Environment Setup
 
-After creating the worktree, automatically:
+Prepare runtime configuration only for a task that needs it.
 
-1. **Copy environment files:**
-   ```bash
-   cp .env ../project-feature-auth/.env
-   cp .env.local ../project-feature-auth/.env.local 2>/dev/null
-   ```
+1. Use the project's example configuration or inject scoped test credentials through its existing mechanism. Copy real credentials only when the user explicitly authorizes the files and destination.
 
-2. **Install dependencies:**
-   ```bash
-   cd ../project-feature-auth
-   [ -f "pnpm-lock.yaml" ] && pnpm install
-   [ -f "yarn.lock" ] && yarn install
-   [ -f "package-lock.json" ] && npm install
-   [ -f "bun.lockb" ] && bun install
-   ```
+2. If execution needs dependencies, use the project's package manager and locked install command within the worktree.
 
-3. **Allocate ports:**
+3. **For local services, check availability and allocate distinct ports.** Example assignments:
    ```
    Main worktree:     localhost:3000 (dev), :5432 (db), :6379 (redis)
    Worktree 1:        localhost:3010 (dev), :5442 (db), :6389 (redis)
@@ -86,7 +75,7 @@ After creating the worktree, automatically:
 For Docker Compose projects, generate per-worktree override:
 
 ```yaml
-# docker-compose.worktree.yml (auto-generated)
+# docker-compose.worktree.yml (example)
 services:
   app:
     ports:
@@ -127,7 +116,7 @@ git checkout feature/api-refactor
 
 ## Claude Code Integration
 
-Each worktree gets auto-generated CLAUDE.md:
+When a project requests worktree-specific instructions, adapt this example:
 
 ```markdown
 # Worktree: feature/auth
@@ -155,7 +144,7 @@ cd ~/project-pr-review && claude
 
 ## Common Pitfalls
 
-1. **Shared node_modules** — Worktrees share git dir but NOT node_modules. Always install deps.
+1. **Dependencies** — Worktrees have separate working files. Prepare dependencies when the task needs execution.
 2. **Port conflicts** — Two dev servers on :3000 = silent failures. Always allocate unique ports.
 3. **Database migrations** — Migrations in one worktree affect all if sharing same DB. Isolate.
 4. **Git hooks** — Live in `.git/hooks` (shared). Worktree-specific hooks need symlinks.
@@ -167,6 +156,6 @@ cd ~/project-pr-review && claude
 1. Name worktrees by purpose: `project-auth`, `project-hotfix-123`, `project-pr-456`
 2. Never create worktrees inside the main repo directory
 3. Keep worktrees short-lived — merge and cleanup within days
-4. Use the setup script — manual creation skips env/port/deps
+4. Use an existing project setup script only after checking its inputs and actions. Otherwise use the applicable steps above.
 5. One Claude Code instance per worktree — isolation is the point
 6. Commit before switching — even WIP commits prevent lost work

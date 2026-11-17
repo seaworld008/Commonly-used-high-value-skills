@@ -2,14 +2,14 @@
 name: golang-observability
 description: 'Instrument Go services using slog, OpenTelemetry, Prometheus and profiling.'
 zh_description: "为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。"
-version: "1.0.0"
+version: "1.0.1"
 author: "samber/cc-skills-golang"
 source: "github:samber/cc-skills-golang"
 source_url: "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability"
 license: "MIT"
 tags: ["go", "opentelemetry", "observability"]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "advanced"
 ---
@@ -152,9 +152,13 @@ if eo, ok := obs.(prometheus.ExemplarObserver); ok {
 
 ## Migrating Legacy Loggers
 
-If the project currently uses `zap`, `logrus`, or `zerolog`, migrate to `log/slog`. It is the standard library logger since Go 1.21, has a stable API, and the ecosystem has consolidated around it. Continuing with third-party loggers means maintaining an extra dependency for no benefit.
+For new projects, evaluate `log/slog`. Preserve an existing structured logger
+(`zap`, `logrus`, `zerolog`) when it meets the project's contract; use a compatible
+bridge to add correlation fields when needed. A local instrumentation request
+does not authorize a logging-library migration. Plan phased migration and
+rollback only when requested or necessary to this task.
 
-**Migration strategy:**
+**Migration strategy (only when in scope):**
 
 1. Add `slog` as the new logger with `slog.SetDefault()`
 2. Bridge handlers during migration route slog output through the existing logger: [samber/slog-zap](https://github.com/samber/slog-zap), [samber/slog-logrus](https://github.com/samber/slog-logrus), [samber/slog-zerolog](https://github.com/samber/slog-zerolog)
@@ -166,7 +170,7 @@ If the project currently uses `zap`, `logrus`, or `zerolog`, migrate to `log/slo
 A feature is not production-ready until it is observable. Before marking a feature as done, verify:
 
 - [ ] **Metrics declared** — counters for operations/errors, histograms for latencies, gauges for saturation. Each metric var has PromQL queries and alert rules as comments above its declaration.
-- [ ] **Logging is proper** — structured key-value pairs with `slog`, context variants used (`slog.InfoContext`), no PII in logs, errors MUST be either logged OR returned (NEVER both).
+- [ ] **Logging is proper** — structured key-value pairs with the project's logger (`slog` examples use `slog.InfoContext`), context propagated, no PII in logs, errors MUST be either logged OR returned (NEVER both).
 - [ ] **Spans created** — every service method, DB query, and external API call has a span with relevant attributes, errors recorded with `span.RecordError()`.
 - [ ] **Dashboards and alerts exist** — the PromQL from your metric comments is wired into Grafana dashboards and Prometheus alerting rules. Ready-to-use alert rules for common infrastructure dependencies are available at [awesome-prometheus-alerts](https://samber.github.io/awesome-prometheus-alerts/).
 - [ ] **RUM events tracked** — key business events tracked server-side (PostHog/Segment), identity key is `user_id` (not email), consent checked before tracking.

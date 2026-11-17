@@ -56,9 +56,8 @@ class DatabaseConfig:
         if self.connection_timeout <= 0:
             raise ValueError("connection_timeout must be positive")
 
-        # Ensure database directory exists
+        # Parsing configuration must not create a persistent store.
         self.path = Path(self.path)
-        self.path.parent.mkdir(parents=True, exist_ok=True)
 
 
 @dataclass
@@ -89,15 +88,11 @@ class PathConfig:
     cache_dir: Path
 
     def __post_init__(self):
-        """Validate and create directories"""
+        """Normalize paths without creating directories."""
         self.config_dir = Path(self.config_dir)
         self.data_dir = Path(self.data_dir)
         self.log_dir = Path(self.log_dir)
         self.cache_dir = Path(self.cache_dir)
-
-        # Create all directories
-        for dir_path in [self.config_dir, self.data_dir, self.log_dir, self.cache_dir]:
-            dir_path.mkdir(parents=True, exist_ok=True)
 
 
 @dataclass
@@ -123,7 +118,7 @@ class ResourceLimits:
 @dataclass
 class FeatureFlags:
     """Feature flags for conditional functionality"""
-    enable_learning: bool = True
+    enable_learning: bool = False
     enable_metrics: bool = True
     enable_health_checks: bool = True
     enable_rate_limiting: bool = True
@@ -242,7 +237,7 @@ class Config:
 
         # Feature flags
         features = FeatureFlags(
-            enable_learning=os.getenv("TRANSCRIPT_FIXER_ENABLE_LEARNING", "1") != "0",
+            enable_learning=os.getenv("TRANSCRIPT_FIXER_ENABLE_LEARNING", "0").lower() in ("1", "true", "yes", "on"),
             enable_metrics=os.getenv("TRANSCRIPT_FIXER_ENABLE_METRICS", "1") != "0",
             enable_auto_approval=os.getenv("TRANSCRIPT_FIXER_AUTO_APPROVE", "0") == "1",
         )
@@ -291,10 +286,14 @@ class Config:
             logger.warning(f"Invalid environment '{env_str}', defaulting to development")
             environment = Environment.DEVELOPMENT
 
+        # Selected configuration directories also scope the default dictionary.
+        paths_data = data.get("paths", {})
+        config_dir = Path(paths_data.get("config_dir", str(Path.home() / ".transcript-fixer")))
+
         # Parse database config
         db_data = data.get("database", {})
         database = DatabaseConfig(
-            path=Path(db_data.get("path", str(Path.home() / ".transcript-fixer" / "corrections.db"))),
+            path=Path(db_data.get("path", str(config_dir / "corrections.db"))),
             max_connections=db_data.get("max_connections", 5),
             connection_timeout=db_data.get("connection_timeout", 30.0),
         )
@@ -309,8 +308,6 @@ class Config:
         )
 
         # Parse path config
-        paths_data = data.get("paths", {})
-        config_dir = Path(paths_data.get("config_dir", str(Path.home() / ".transcript-fixer")))
         paths = PathConfig(
             config_dir=config_dir,
             data_dir=Path(paths_data.get("data_dir", str(config_dir / "data"))),
@@ -329,7 +326,7 @@ class Config:
         # Parse feature flags
         features_data = data.get("features", {})
         features = FeatureFlags(
-            enable_learning=features_data.get("enable_learning", True),
+            enable_learning=features_data.get("enable_learning", False),
             enable_metrics=features_data.get("enable_metrics", True),
             enable_auto_approval=features_data.get("enable_auto_approval", False),
         )
@@ -410,7 +407,7 @@ class Config:
 
         # Check database path
         if not self.database.path.parent.exists():
-            errors.append(f"Database directory doesn't exist: {self.database.path.parent}")
+            warnings.append(f"Database directory is not initialized: {self.database.path.parent}")
 
         # Check paths exist
         for name, path in [

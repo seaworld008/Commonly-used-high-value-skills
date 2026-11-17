@@ -69,14 +69,14 @@ def build_page(config_path, out_path, template=None):
 class Chrome:
     """Headless Chrome driven through --remote-debugging-pipe (no websocket, no third-party packages)."""
 
-    def __init__(self, chrome, width, height, no_sandbox=None):
+    def __init__(self, chrome, width, height, no_sandbox=False):
         self.tmp = tempfile.mkdtemp(prefix="livepanel-")
         r1, w1 = os.pipe()   # we write -> chrome fd 3
         r2, w2 = os.pipe()   # chrome fd 4 -> we read
         args = [chrome, "--headless=new", "--remote-debugging-pipe", f"--user-data-dir={self.tmp}", "--no-first-run",
                 "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1", "--font-render-hinting=none",
                 "--allow-file-access-from-files", "--disable-background-timer-throttling", "--mute-audio", "about:blank"]
-        if no_sandbox or (no_sandbox is None and hasattr(os, "geteuid") and os.geteuid() == 0):
+        if no_sandbox is True:
             args.insert(1, "--no-sandbox")
         env = dict(os.environ, LP_R=str(r1), LP_W=str(w2))
         self.proc = subprocess.Popen(["sh", "-c", 'exec "$@" 3<&"$LP_R" 4>&"$LP_W"', "sh"] + args, pass_fds=(r1, w2), env=env,
@@ -84,10 +84,14 @@ class Chrome:
         os.close(r1); os.close(w2)
         self.wf = os.fdopen(w1, "wb", buffering=0); self.rf = os.fdopen(r2, "rb", buffering=0)
         self.buf = b""; self.n = 0
-        tid = self.call("Target.createTarget", {"url": "about:blank"})["targetId"]
-        self.sid = self.call("Target.attachToTarget", {"targetId": tid, "flatten": True})["sessionId"]
-        self.cmd("Page.enable")
-        self.cmd("Emulation.setDeviceMetricsOverride", {"width": width, "height": height, "deviceScaleFactor": 1, "mobile": False})
+        try:
+            tid = self.call("Target.createTarget", {"url": "about:blank"})["targetId"]
+            self.sid = self.call("Target.attachToTarget", {"targetId": tid, "flatten": True})["sessionId"]
+            self.cmd("Page.enable")
+            self.cmd("Emulation.setDeviceMetricsOverride", {"width": width, "height": height, "deviceScaleFactor": 1, "mobile": False})
+        except (OSError, RuntimeError) as exc:
+            self.close()
+            raise RuntimeError(f"Chrome startup failed, rendering unverified: {exc}") from exc
 
     def call(self, method, params=None, session=None):
         self.n += 1
@@ -147,6 +151,9 @@ class Chrome:
             self.proc.terminate(); self.proc.wait(5)
         except Exception:
             self.proc.kill()
+            self.proc.wait()
+        self.wf.close()
+        self.rf.close()
         shutil.rmtree(self.tmp, ignore_errors=True)
 
     def __enter__(self):

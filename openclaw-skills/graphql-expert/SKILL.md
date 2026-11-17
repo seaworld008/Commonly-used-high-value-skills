@@ -2,13 +2,13 @@
 name: graphql-expert
 description: 'Use when designing GraphQL APIs, reviewing schemas and resolvers, optimizing queries, managing federation, or checking GraphQL security and performance best practices.'
 zh_description: "用于 GraphQL API 设计、Schema/Resolver 评审、查询优化和安全最佳实践。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "expert", "graphql"]'
 created_at: "2026-03-27"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -78,17 +78,26 @@ type Mutation {
 
 ### Resolver 实现示例 (DataLoader)
 ```javascript
-const userLoader = new DataLoader(keys => myDb.batchGetUsers(keys));
+// 每次请求认证后构造 context。仓储按当前身份和租户过滤批查结果。
+function createContext(viewer) {
+  const user = new DataLoader(async keys => {
+    const rows = await myDb.batchGetVisibleUsers(viewer, keys);
+    const byId = new Map(rows.map(row => [row.id, row]));
+    return keys.map(id => byId.get(id) ?? null);
+  });
+  return { viewer, loaders: { user } };
+}
 
 const resolvers = {
   Post: {
     author: (parent, args, context) => {
-      // 解决 N+1 问题的关键：使用 loader
-      return userLoader.load(parent.authorId);
+      return context.loaders.user.load(parent.authorId);
     }
   }
 };
 ```
+
+用两个权限不同的请求读取同一用户 ID，验证各自只得到本请求可见的结果。
 
 ### 查询示例
 ```graphql

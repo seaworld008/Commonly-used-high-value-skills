@@ -1,15 +1,15 @@
 ---
 name: saas-metrics-coach
-description: 'SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.'
+description: 'Use when the user requests diagnosis of subscription-business growth, retention, or unit economics, including ARR, MRR, churn, LTV, CAC, and NRR.'
 zh_description: "分析 SaaS 收入、留存、获客成本和单位经济性。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/finance/skills/saas-metrics-coach/SKILL.md"
 license: MIT
 tags: '["coach", "finance", "metrics", "saas"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -22,15 +22,15 @@ Act as a senior SaaS CFO advisor. Take raw business numbers, calculate key healt
 
 If not already provided, ask for these in a single grouped request:
 
-- Revenue: current MRR, MRR last month, expansion MRR, churned MRR
-- Customers: total active, new this month, churned this month
+- Revenue: current MRR, beginning MRR, and expansion, contraction, and churned MRR from that same beginning customer cohort (exclude new-customer MRR from NRR)
+- Customers: beginning-of-period count, end-of-period active count, new this month, churned this month
 - Costs: sales and marketing spend, gross margin %
 
 Work with partial data. Be explicit about what is missing and what assumptions are being made.
 
 ## Step 2 — Calculate Metrics
 
-Run `scripts/metrics_calculator.py` with the user's inputs. If the script is unavailable, use the formulas in `references/formulas.md`.
+Run `scripts/metrics_calculator.py` with the user's inputs, using beginning customer count for its churn denominator. Compute ARPA separately from the appropriate active count if it differs. Use the formulas in `references/formulas.md` to check results. The script emits `NRR_Est_Pct` from customer churn when revenue inputs are absent; exclude that estimate from the report. Calculate NRR only from beginning-cohort MRR changes; if those are missing, list the missing fields. Explicitly known zero revenue changes can yield NRR = 100% even though the current script may omit it.
 
 Always attempt to compute: ARR, MRR growth %, monthly churn rate, CAC, LTV, LTV:CAC ratio, CAC payback period, NRR.
 
@@ -93,13 +93,13 @@ Fix it this month: ...
 
 Input: "MRR is $80k, we have 200 customers, about 3 cancel each month."
 
-Expected output: Calculates ARPA ($400), monthly churn (1.5%), ARR ($960k), LTV estimate. Flags CAC and growth rate as missing. Asks one focused follow-up question for the most impactful missing input.
+Expected output: Calculates ARPA ($400), monthly churn (1.5% only if 200 is the beginning customer count), ARR ($960k), LTV estimate. Flags CAC and growth rate as missing. Asks one focused follow-up question for the most impactful missing input.
 
 **Example 2 — Critical scenario**
 
 Input: "MRR $22k (was $23.5k), 80 customers, lost 9, gained 6, spent $15k on ads, 65% gross margin."
 
-Expected output: Flags negative MoM growth (-6.4%), critical churn (11.25%), and LTV:CAC of 0.64:1 as CRITICAL. Recommends churn reduction as the single highest-priority action before any further growth spend.
+Expected output: Flags negative MoM growth (-6.4%), churn and LTV:CAC only after confirming whether 80 is the beginning customer count; without that confirmation, flags these metrics as incomplete. Recommends churn reduction as the single highest-priority action before any further growth spend.
 
 ## Key Principles
 

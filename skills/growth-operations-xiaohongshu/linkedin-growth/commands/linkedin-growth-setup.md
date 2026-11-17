@@ -13,8 +13,7 @@ Follow the skill's "First-run setup" section end to end:
    missing, run `npm install --omit=dev` and re-check.
 3. For each failing check, apply the documented remediation:
    - install `linkedin-cli` if absent
-   - if no LinkedIn accounts are connected, ask me for my Linked API Token and
-     Identification Token (from app.linkedapi.io) and run `linkedin setup ...` per account
+   - if no LinkedIn accounts are connected, have the account owner use the trusted local account setup flow (app.linkedapi.io); never request tokens in chat or expose them in logs. Verify the resulting connection status
    - register each connected account into the DB with `node scripts/account.mjs add`,
      asking me for a short name, a daily invite limit, and the daily hours during which
      invites should go out (`--active-start` / `--active-end`, e.g. 09:00–18:00). If I
@@ -29,7 +28,7 @@ Follow the skill's "First-run setup" section end to end:
 6. Ask me about the retry policy: "If someone doesn't accept the request, should we try
    connecting from another account?" — then set it with
    `node scripts/settings.mjs set max_connect_attempts <1|N|all>` (default 1 = no retry).
-7. Once at least one account is registered, turn on the background scheduler with
+7. Only when persistent outreach for these accounts is already authorized, enable or replace the background scheduler with
    `node scripts/schedule.mjs install` and confirm with `node scripts/schedule.mjs status`.
 
 Then summarize in plain language: which accounts are connected, how many invites per day

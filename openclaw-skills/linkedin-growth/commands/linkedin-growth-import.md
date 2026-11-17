@@ -1,6 +1,6 @@
 ---
 description: Import leads from a LinkedIn / Sales Navigator search into the pipeline — search, qualify against the ICP, dedupe, and store with round-robin assignment.
-argument-hint: "[search URL or filters] [list name]"
+argument-hint: "[search URL or term plus filters] [list name]"
 ---
 
 Use the **linkedin-growth** skill to run a Phase A import. Arguments: $ARGUMENTS
@@ -8,14 +8,14 @@ Use the **linkedin-growth** skill to run a Phase A import. Arguments: $ARGUMENTS
 Drive the full import flow:
 
 1. Determine the inputs. If I gave a search URL, detect the type (URL containing
-   `/sales/` → `nv`, otherwise `st`). If I gave filters instead, use them. Ask me for
+   `/sales/` → `nv`, otherwise `st`). For a native search, require `--term` and optionally add filters. Ask me for
    anything missing: which account should run the search (`--searcher`), and a list name
    (`--list`). If I have more than one account, confirm the searcher with me.
 2. **Always ask me the limit** — how many of the found leads to take. I can give a number or
    say "max" for the maximum (Sales Navigator caps at 2500, standard search at 1000). Do not
    assume a default; this question is required every time.
 4. Run `node scripts/import.mjs prepare --searcher <acct> --list "<name>" --type <nv|st>
-   --limit <N|max>` with either `--search-url "<url>"` or the filter flags. (`--limit` is
+   --limit <N|max>` with either `--search-url "<url>"` or `--term` plus optional filters. (`--limit` is
    required; a number above the cap is clamped and reported as `limit_capped_to_max`.)
 5. **Settle the ICP before qualifying** (this is the filtering step — make it explicit, not
    silent). The `prepare` output tells you whether an ICP is configured:

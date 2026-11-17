@@ -2,14 +2,14 @@
 name: docker-expert
 description: 'Use when containerizing an application with Docker, optimizing multi-stage builds and image size, designing Docker Compose services, troubleshooting container networking or volumes, or adding secure image build and CI/CD practices.'
 zh_description: "用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://github.com/sickn33/agentic-awesome-skills/blob/e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5/skills/docker-expert/SKILL.md"
 license: MIT
 tags: '["development", "docker", "expert"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-20"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -57,7 +57,7 @@ complexity: "intermediate"
 
 ## 常用命令/模板
 
-### 故障排查与清理组合
+### 故障排查
 ```bash
 # 查看容器资源占用 (CPU, Memory, Network)
 docker stats --no-stream
@@ -65,13 +65,14 @@ docker stats --no-stream
 # 进入运行中的容器排查网络
 docker exec -it <container_id> /bin/sh -c "ping db_host && nslookup api_service"
 
-# 清理所有未使用的镜像、容器、卷和网络（一键释放磁盘）
-docker system prune -af --volumes
+# 查看主机磁盘占用，定位占用空间的对象
+docker system df -v
 
 # 查看镜像层级与体积详情
 docker history <image_name>
 ```
 
+如任务包含释放空间，先列出拟删除的容器、镜像或卷，核对归属与保留数据，再按授权范围清理。
 ### 多阶段构建 Dockerfile 模板 (Node.js 示例)
 ```dockerfile
 # 阶段 1: 构建 (Build)
@@ -110,8 +111,15 @@ services:
     build: .
     ports:
       - "80:3000"
+    # 应用连接器从 DB_PASSWORD_FILE 读取密码，使用下列参数连接。
     environment:
-      - DB_URL=postgres://user:pass@db:5432/mydb
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: app
+      DB_NAME: mydb
+      DB_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
     depends_on:
       db:
         condition: service_healthy
@@ -121,10 +129,16 @@ services:
 
   db:
     image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_DB: mydb
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD", "pg_isready", "-U", "app", "-d", "mydb"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -135,6 +149,10 @@ networks:
   frontend:
   backend:
     internal: true # 限制后端网络不可访问外网
+
+secrets:
+  db_password:
+    file: ${DB_PASSWORD_SECRET_FILE:?指定受控的数据库密码文件}
 
 volumes:
   db_data:

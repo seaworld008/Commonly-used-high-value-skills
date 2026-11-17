@@ -2,14 +2,14 @@
 name: lark-shared
 description: 'Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identity, business-domain permissions (--domain, including all/docs/drive), missing scopes, revoking authorization, or handling _notice JSON.'
 zh_description: "配置飞书 CLI 的认证、权限和各业务技能共用能力。"
-version: "1.0.13"
+version: "1.0.14"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-shared"
 license: MIT
 tags: '[feishu, lark, lark-cli, auth, configuration]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 metadata:
@@ -42,7 +42,7 @@ metadata:
 
 4. **退出码 10 是高风险确认门禁（`risk: "high-risk-write"`），不是错误**：停下 → **向用户确认**（展示 `action`、`risk` 和关键参数）→ 取得**用户显式同意**后，将 `hint` 指出的确认 flag **追加到你原始 argv 的末尾**后重试；**绝不**静默加确认 flag 绕过 → [`lark-shared-high-risk-approval.md`](references/lark-shared-high-risk-approval.md)。
 
-5. **文件路径只接受相对路径**：`--file`、`--output`、`--output-dir`、`@file` 等路径参数只接受 cwd 下的相对路径，传绝对路径会报 `unsafe file path`。数据输入（`@file`、大 JSON）优先用 stdin 传入，避免路径和转义问题。
+5. **文件路径按命令核对**：优先使用已授权的 cwd 相对路径。区别文档内容引用（`@file`）、文件 flag（如 `--file`）和输出路径（如 `--output`、`--output-dir`）；其他形式按该命令已安装版本的帮助与宿主文件权限选择，不能把某一命令的路径限制推广到全部命令。支持 stdin 的数据输入可优先使用 stdin，避免路径与转义问题。
 
 
 ## Reference 强触发索引

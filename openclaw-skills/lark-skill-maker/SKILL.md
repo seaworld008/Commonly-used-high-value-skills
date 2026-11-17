@@ -2,14 +2,14 @@
 name: lark-skill-maker
 description: 'Use when creating reusable skills around verified Lark CLI or OpenAPI operations, including scoped permissions and multi-step workflow contracts.'
 zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker"
 license: MIT
 tags: '[feishu, lark, lark-cli, skills, agent-workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 metadata:
@@ -52,13 +52,22 @@ lark-cli api POST /open-apis/vc/v1/rooms/search --data '{"query":"5F"}'
 
 ## SKILL.md 模板
 
-文件放在 `skills/lark-<name>/SKILL.md`：
+生成到用户指定的目标技能包，并遵循该宿主布局。在本仓库使用 `skills/<category>/lark-<name>/SKILL.md`，保留以下完整 frontmatter，另按仓库 provenance 规则登记已核实来源。其他宿主不强制采用本库目录。模板中的值须按新技能事实填写：
 
 ```markdown
 ---
 name: lark-<name>
-version: 1.0.0
-description: "<功能描述>。当用户需要<触发场景>时使用。"
+version: "1.0.0"
+description: "<主要任务>。当用户需要<触发场景>时使用。"
+zh_description: "<简明中文用途>"
+author: "<实际作者>"
+source: "<已核实来源或 in-house>"
+source_url: "<来源链接；原创可为空>"
+license: "<经审阅的适用许可证>"
+tags: [lark, "<领域标签>"]
+quality: 2
+created_at: "<YYYY-MM-DD>"
+updated_at: "<YYYY-MM-DD>"
 metadata:
   requires:
     bins: ["lark-cli"]
@@ -67,7 +76,7 @@ metadata:
 
 # <标题>
 
-> **前置条件：** 先阅读 [`../lark-shared/SKILL.md`](../lark-shared/SKILL.md)。
+> **前置条件：** 按目标包布局链接 `lark-shared`；同类别兄弟目录可用 `../lark-shared/SKILL.md`，跨类别时重新计算相对路径。
 
 ## 命令
 

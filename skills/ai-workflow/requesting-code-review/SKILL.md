@@ -2,21 +2,21 @@
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
 zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/requesting-code-review"
 license: MIT
 tags: '["code-review", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Requesting Code Review
 
-Dispatch a code reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history.
+Use an independent code reviewer when delegation is supported and authorized; otherwise review locally with the same checklist and state the independence limit. The reviewer gets precisely crafted context for evaluation — never your session's history.
 
 **Core principle:** Review early, review often.
 
@@ -34,21 +34,37 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 
 ## How to Request
 
-**1. Get git SHAs:**
+**1. Establish the actual review target:**
+
+Inspect the current implementation before choosing a commit range:
+
 ```bash
-BASE_SHA=$(git rev-parse HEAD~1)  # or: git merge-base origin/main HEAD
+git status --short
+git diff
+git diff --staged
+git ls-files --others --exclude-standard
+```
+
+Use the task's known base, not an assumed `HEAD~1`. For fully committed work, identify the intended starting and ending SHAs:
+```bash
+BASE_SHA='REPLACE_WITH_VERIFIED_TASK_BASE_SHA'
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Dispatch code reviewer subagent:**
+For uncommitted implementation, the review target is the current snapshot: relevant committed changes plus staged, unstaged, and task-owned untracked files. Include their actual diffs and contents without unrelated user changes or secrets. Do not make a commit just to request review.
 
-Dispatch a `general-purpose` subagent, filling the template at [code-reviewer.md](code-reviewer.md)
+**2. Request review using available host capabilities:**
+
+If delegation is supported and permitted, discover the host's actual schema and pass the template at [code-reviewer.md](code-reviewer.md). Otherwise apply that template locally. For snapshot review, replace the template's commit-range-only Git section with the exact review files, staged/unstaged diffs, and relevant untracked contents established above; SHA placeholders alone do not describe uncommitted work.
+
+The review is read-only: do not move HEAD or alter the working tree. If tools need a different checkout, use an authorized temporary copy or isolated checkout and preserve the current one.
 
 **Placeholders:**
 - `{DESCRIPTION}` - Brief summary of what you built
 - `{PLAN_OR_REQUIREMENTS}` - What it should do
 - `{BASE_SHA}` - Starting commit
 - `{HEAD_SHA}` - Ending commit
+- Review target - Verified commit range or current snapshot manifest and supplied diffs/contents; explicitly state exclusions
 
 **3. Act on feedback:**
 - Fix Critical issues immediately
@@ -87,7 +103,7 @@ You: [Fix progress indicators]
 
 | Excuse | Reality |
 |--------|---------|
-| "I'll just review the diff myself instead of dispatching a reviewer" | You're the coordinator — reviewing the diff inline burns the context window you need to keep driving the work. Dispatch a reviewer subagent: the diff and the evaluation live in its context, and only the findings come back to you. |
+| "The host has no delegation, so review cannot run" | Review locally with the same requirements and checklist, and state that it was not independent. When delegation is supported and authorized, prefer an independent reviewer. |
 | "The reviewer needs my whole session history to understand the change" | Hand it precisely crafted context, never your session's history. That keeps the reviewer on the work product, not your thought process. |
 
 ## Red Flags

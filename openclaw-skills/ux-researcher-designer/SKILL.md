@@ -2,13 +2,13 @@
 name: ux-researcher-designer
 description: 'Plan and synthesize UX research, personas, journey maps, and usability studies when validating product needs or design decisions.'
 zh_description: "通过用户画像、旅程图和可用性研究验证设计。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "designer", "product", "researcher"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -79,14 +79,17 @@ Use this skill when you need to:
    ]
    ```
 
-2. **Run persona generator**
-   ```bash
-   # Human-readable output
-   python scripts/persona_generator.py
+2. **Build a draft from the study records**. From this skill's directory, load de-identified participant records and consented interview extracts:
+   ```python
+   import json
+   from pathlib import Path
+   from scripts.persona_generator import PersonaGenerator
 
-   # JSON output for integration
-   python scripts/persona_generator.py json
+   users = json.loads(Path("users.json").read_text())
+   interviews = json.loads(Path("interviews.json").read_text())  # list of records with quotes
+   persona = PersonaGenerator().generate_persona_from_data(users, interviews)
    ```
+   Trace each reported quotation to an interview. Label template goals and inferred attributes as hypotheses, and omit fallback quotes from research findings.
 
 3. **Review generated components**
 
@@ -272,13 +275,13 @@ Use this skill when you need to:
 
 ### persona_generator.py
 
-Generates data-driven personas from user research data.
+The CLI demonstrates the output with 30 synthetic users and built-in interview material. Its only argument selects display format. For study data, use the Python method in Workflow 1.
 
 | Argument | Values | Default | Description |
 |----------|--------|---------|-------------|
 | format | (none), json | (none) | Output format |
 
-**Sample Output:**
+**Illustrative output using synthetic data:**
 
 ```
 ============================================================

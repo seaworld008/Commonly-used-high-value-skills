@@ -2,14 +2,14 @@
 name: idea-refine
 description: Explore alternatives and stress-test assumptions when refining a vague idea into a concrete concept or evaluating an early plan.
 zh_description: "澄清初步想法，比较方案并检验关键假设。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine
@@ -37,7 +37,8 @@ Refines raw ideas into sharp, actionable concepts worth building through structu
 This skill is primarily an interactive dialogue. Invoke it with an idea, and the agent will guide you through the process.
 
 ```bash
-# Optional: Initialize the ideas directory
+# Optional: run from the project root to create ./docs/ideas.
+# Replace /path/to/idea-refine with the installed skill directory.
 bash "/path/to/idea-refine/scripts/idea-refine.sh"
 ```
 

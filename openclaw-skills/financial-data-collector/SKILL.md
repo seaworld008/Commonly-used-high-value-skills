@@ -2,13 +2,13 @@
 name: financial-data-collector
 description: 'Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data.'
 zh_description: "用于采集美股上市公司的 SEC 申报与 yfinance 市场数据，整理 DCF 输入并输出带来源标注的结构化数据。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["collector", "data", "finance", "financial"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -43,7 +43,7 @@ For the most portable workflow, prefer the SEC helper first because it uses Pyth
 ## Critical Constraints
 
 **NO FALLBACK values.** If a field cannot be retrieved, set it to `null` with `_source: "missing"`.
-Never substitute defaults (e.g., `beta or 1.0`). The downstream skill decides how to handle missing data.
+Never substitute defaults (e.g., `beta or 1.0`). Prefer disclosed totals; sum components only when all required components are known, distinguishing zero from missing. The collector retains disclosed totals and combines components only when complete, leaving incomplete totals/net debt null and identifying missing components. Independently verify the source disclosures before delivery. The downstream skill decides how to handle missing data.
 
 **Data source attribution is mandatory.** Every data section must have a `_source` field.
 
@@ -63,19 +63,12 @@ python scripts/collect_data.py TICKER --engine yfinance
 python scripts/collect_data.py TICKER --engine yahoo-web
 ```
 
-The recommended collection path collects in this priority:
-1. **yfinance** — full-quality market data, historical financials, beta, analyst estimates
-2. **SEC official APIs** — ticker to CIK mapping, submissions, and companyfacts for filing-grounded checks
-3. **Yahoo web parser** — low-dependency helper path for controlled environments and parser validation
-4. **User supplement** — for years where public data returns NaN (report to user, do not guess)
+The available paths are separate: `collect_data.py` collects via yfinance or the Yahoo web parser; `sec_api.py` is a separate filing helper, not an automatic SEC fallback. Choose the source required by the task, supplement missing years from filings or the user, and do not guess.
 
 SEC parsing helper:
 
 ```bash
-python scripts/sec_api.py AAPL ^
-  --tickers assets/sample_sec_company_tickers.json ^
-  --submissions assets/sample_sec_submissions.json ^
-  --companyfacts assets/sample_sec_companyfacts.json
+python scripts/sec_api.py AAPL --tickers assets/sample_sec_company_tickers.json --submissions assets/sample_sec_submissions.json --companyfacts assets/sample_sec_companyfacts.json
 ```
 
 That path is dependency-light and easier to reuse across AI coding tools.
@@ -88,7 +81,7 @@ That path is dependency-light and easier to reuse across AI coding tools.
 python scripts/validate_data.py path/to/output.json
 ```
 
-Checks: field completeness, cross-field consistency (Market Cap = Price × Shares), range sanity (WACC 5-20%, beta 0.3-3.0), sign conventions, and source attribution.
+Checks include required market fields, Market Cap = Price × Shares, beta range, income-year coverage, CapEx sign, net-debt arithmetic, missing-year metadata, and `_source` in the three annual statement sections. It checks the risk-free-rate input, not a computed WACC range; it does not prove source completeness or the correctness of partial component totals. `auto` behavior follows `resolve_engine`, even if CLI help suggests otherwise.
 
 ### Step 3: Deliver JSON
 

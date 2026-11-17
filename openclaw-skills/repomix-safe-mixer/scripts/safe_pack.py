@@ -2,10 +2,9 @@
 """
 Safe packaging workflow for repomix.
 
-Scans for secrets, reports findings, and optionally packs after user confirmation.
+Packs only after the scanner completes without findings.
 """
 
-import os
 import sys
 import subprocess
 import json
@@ -21,14 +20,24 @@ def run_secret_scan(directory: Path, exclude_patterns: list = None):
     if exclude_patterns:
         cmd.extend(['--exclude'] + exclude_patterns)
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
-
     try:
-        findings = json.loads(result.stdout) if result.stdout.strip() else []
-    except json.JSONDecodeError:
-        print(f"Error: Could not parse scan results", file=sys.stderr)
-        print(f"Scanner output: {result.stdout}", file=sys.stderr)
-        sys.exit(1)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode not in (0, 1) or result.stderr.strip():
+            raise ValueError
+        findings = json.loads(result.stdout)
+        if not isinstance(findings, list) or bool(findings) != (result.returncode == 1):
+            raise ValueError
+        for finding in findings:
+            if not (isinstance(finding, dict)
+                    and isinstance(finding.get('file'), str)
+                    and type(finding.get('line')) is int and finding['line'] > 0
+                    and isinstance(finding.get('type'), str)
+                    and finding.get('match') == '[REDACTED]'
+                    and finding.get('context') == '[REDACTED]'):
+                raise ValueError
+    except (OSError, ValueError, subprocess.SubprocessError):
+        print("Error: Secret scan failed or returned an invalid report. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
 
     return findings
 
@@ -74,8 +83,7 @@ def run_repomix(directory: Path, output_file: Path = None, config_file: Path = N
     result = subprocess.run(cmd, cwd=directory, capture_output=True, text=True)
 
     if result.returncode != 0:
-        print(f"Error: repomix failed", file=sys.stderr)
-        print(result.stderr, file=sys.stderr)
+        print(f"Error: repomix failed with exit code {result.returncode}", file=sys.stderr)
         sys.exit(1)
 
     print(result.stdout)
@@ -87,13 +95,12 @@ def main():
         print("\nOptions:")
         print("  --output <file>     Output file path for repomix")
         print("  --config <file>     Repomix config file")
-        print("  --force             Skip confirmation, pack anyway (dangerous!)")
+        print("  --force             Accepted for compatibility; a clean scan is required")
         print("  --exclude <patterns> Patterns to exclude from secret scanning")
         print("\nExamples:")
         print("  safe_pack.py ./my-project")
         print("  safe_pack.py ./my-project --output package.xml")
         print(r"  safe_pack.py ./my-project --exclude '.*test.*' '.*\.example'")
-        print("  safe_pack.py ./my-project --force  # Dangerous! Skip scan")
         sys.exit(1)
 
     directory = Path(sys.argv[1]).resolve()
@@ -105,7 +112,6 @@ def main():
     # Parse arguments
     output_file = None
     config_file = None
-    force = '--force' in sys.argv
     exclude_patterns = []
 
     if '--output' in sys.argv:
@@ -135,17 +141,9 @@ def main():
 
     # Step 3: Decision point
     if findings:
-        if force:
-            print("⚠️  WARNING: --force flag set, packing anyway despite secrets found!\n")
-        else:
-            print("❌ Cannot pack: Secrets detected!")
-            print("\nRecommended actions:")
-            print("1. Review the findings above")
-            print("2. Replace hardcoded credentials with environment variables")
-            print("3. Run scan_secrets.py to verify cleanup")
-            print("4. Run this script again")
-            print("\nOr use --force to pack anyway (NOT RECOMMENDED)")
-            sys.exit(1)
+        print("❌ Cannot pack: Secrets detected!")
+        print("Review the findings and run the scan again after cleanup.")
+        sys.exit(1)
 
     # Step 4: Pack with repomix
     print(f"📦 Packing {directory} with repomix...\n")
@@ -153,11 +151,7 @@ def main():
 
     print("\n✅ Packaging complete!")
 
-    if findings:
-        print("\n⚠️  WARNING: Package contains secrets (--force was used)")
-        print("   DO NOT share this package publicly!")
-    else:
-        print("   Package is safe to distribute.")
+    print("   No matches in the scanned scope. Review the package file list before sharing.")
 
 if __name__ == '__main__':
     main()

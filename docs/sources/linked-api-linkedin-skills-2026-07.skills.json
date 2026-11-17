@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/Linked-API/linkedin-skills",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "Curated from Linked-API/linkedin-skills with exact-path upstream tracking enabled."
   },
   "official_references": [
@@ -34,16 +34,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/operations-general/linkedin/SKILL.md",
       "source": "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md",
-      "notes": "Imported under MIT at the recorded commit; repository-local authorization boundaries are preserved as a curation supplement. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported under MIT at the recorded commit; repository-local authorization boundaries are preserved as a curation supplement. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at afa06fde1faf7796a99708c7b543ee8ec50f3820; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
         "sync_mode": "monitor",
-        "path_commit": "34e1aab8d2f42858148ad954c511288db624b7ee"
+        "path_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -62,17 +62,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
-            "path_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
-            "content_sha256": "6f1c5f9d30ba126032f8c95ef2ff6796d7ced893bd88922e11a2be2a825efe57",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
+            "path_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
+            "content_sha256": "c1462f73b4b0ab772d17c9db390e95f6cd90381566c5317cb55e5684917cec38",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "ceb4397c28b15dd5388ebc9537defbc527f702ff",
               "content_sha256": "7847c051252042ad9449731b5482c9027395a2501dda2a9efa530637c5a8d4ac",
               "spdx": "MIT",
-              "resolved_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+              "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
               "api_spdx": "MIT"
             }
           }
@@ -121,7 +121,7 @@
         {
           "path": "skills/operations-general/linkedin/SKILL.md",
           "owner": "linkedin",
-          "sha256": "6f1c5f9d30ba126032f8c95ef2ff6796d7ced893bd88922e11a2be2a825efe57",
+          "sha256": "c1462f73b4b0ab772d17c9db390e95f6cd90381566c5317cb55e5684917cec38",
           "mode": "100644"
         }
       ]
@@ -132,16 +132,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
       "source": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth",
-      "notes": "Imported under MIT at the recorded commit; repository-local quality and authorization guidance plus private-cache, fixed Notion endpoint/redirect, and ownership-token lock hardening are preserved as a curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported under MIT at the recorded commit; repository-local quality and authorization guidance plus private-cache, fixed Notion endpoint/redirect, and ownership-token lock hardening are preserved as a curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at afa06fde1faf7796a99708c7b543ee8ec50f3820; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin-growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
         "sync_mode": "monitor",
-        "path_commit": "945636d8b3b4f7cc6e98e5bfa397473e2557147f"
+        "path_commit": "f80e7c3df48e0eb12aaea2a8ca571d7ad233d919"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -330,17 +330,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
-            "path_commit": "945636d8b3b4f7cc6e98e5bfa397473e2557147f",
-            "content_sha256": "6e611ae930c43b0338f1dbc62a0a8a6942ba21a1ce0cf1821f1116e8e2b8867d",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
+            "path_commit": "f80e7c3df48e0eb12aaea2a8ca571d7ad233d919",
+            "content_sha256": "ec54f0023dee0498cbcbe667eb60718090af3d6202ec7d45faa861d68d01dc38",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "ceb4397c28b15dd5388ebc9537defbc527f702ff",
               "content_sha256": "7847c051252042ad9449731b5482c9027395a2501dda2a9efa530637c5a8d4ac",
               "spdx": "MIT",
-              "resolved_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+              "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
               "api_spdx": "MIT"
             }
           }
@@ -393,7 +393,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/EXTENDED.md",
           "owner": "linkedin-growth",
-          "sha256": "cdd1132d5924bb656a9e319ca9a89cab508640d1e8eef5f3b3fa6b47a903651b",
+          "sha256": "44019912c185b022766c0f9e21596322baf458b6bf5e5451d5288455dc50eadb",
           "mode": "100644"
         },
         {
@@ -411,7 +411,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
           "owner": "linkedin-growth",
-          "sha256": "6e611ae930c43b0338f1dbc62a0a8a6942ba21a1ce0cf1821f1116e8e2b8867d",
+          "sha256": "ec54f0023dee0498cbcbe667eb60718090af3d6202ec7d45faa861d68d01dc38",
           "mode": "100644"
         },
         {
@@ -423,13 +423,13 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/commands/linkedin-growth-import.md",
           "owner": "linkedin-growth",
-          "sha256": "28ff2dbf24ecaa6d589ab161e67cc7705e047b690e8fb587320f3616b6693e05",
+          "sha256": "0d80cca339e594a1114fae04d4c3ee370baebc4c014a5b21017422145ad70f07",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/commands/linkedin-growth-setup.md",
           "owner": "linkedin-growth",
-          "sha256": "84170ffbffd4ef0f58ddacb73506562c688a1730d4d019b252812172998f9b8a",
+          "sha256": "d442e9f7332aeae641d15518a34793db3a6717887eb8e32b382ebd3619d47260",
           "mode": "100644"
         },
         {
@@ -662,6 +662,13 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "Linked-API/linkedin-skills@34e1aab8d2f42858148ad954c511288db624b7ee",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Linked-API/linkedin-skills@afa06fde1faf7796a99708c7b543ee8ec50f3820",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

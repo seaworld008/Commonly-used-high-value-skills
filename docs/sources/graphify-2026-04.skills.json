@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/Graphify-Labs/graphify/releases/tag/v0.9.47",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "Official Graphify Codex skill artifact-set mirror. Python package and non-Codex client snapshots are intentionally excluded."
   },
   "official_references": [
@@ -29,16 +29,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
       "source": "https://github.com/Graphify-Labs/graphify/blob/1cd9a36c0c57a661d2d2234bc3207e887e1ba104/graphify/skill-codex.md",
-      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 18cd78f4b8c9698db861aa8d7ad1adbf3c836642; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.95",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+        "ref": "v0.9.111",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
         "sync_mode": "monitor",
-        "path_commit": "8a982c4a927e2f185036c339bee7a999364b8c9a"
+        "path_commit": "d4a5b323ef8501518b82c58a05fe21b35ce24992"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -67,18 +67,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.95",
-            "resolved_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
-            "path_commit": "8a982c4a927e2f185036c339bee7a999364b8c9a",
-            "content_sha256": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "ref": "v0.9.111",
+            "resolved_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
+            "path_commit": "d4a5b323ef8501518b82c58a05fe21b35ce24992",
+            "content_sha256": "e4936fd512c603b5b696ed7d0cc3baa7d5ce9ff0e14577626b598760cecf13d3",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+              "resolved_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -115,13 +115,13 @@
         {
           "path": "skills/developer-engineering/graphify/EXTENDED.md",
           "owner": "graphify",
-          "sha256": "8fc2ff022311091327fc628bf652c0648ef1689a342f43889f0e990aa22a4f14",
+          "sha256": "819cade92e78148b87a984fb85695af6d9375309ef0ba9916c08c28c1784daea",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/SKILL.md",
           "owner": "graphify",
-          "sha256": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
+          "sha256": "e4936fd512c603b5b696ed7d0cc3baa7d5ce9ff0e14577626b598760cecf13d3",
           "mode": "100644"
         },
         {
@@ -133,13 +133,13 @@
         {
           "path": "skills/developer-engineering/graphify/references/exports.md",
           "owner": "graphify",
-          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "sha256": "a026e8d155223b1a3ac70e0db5cf3f728a1088ac226fd33de28f82c53a878fcf",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/extraction-spec.md",
           "owner": "graphify",
-          "sha256": "e14c596c524ae8c41c796788af00ae9574ff7c5fe131ecbd2ca9def92a19a9cb",
+          "sha256": "95dbfd11ad0d5d416f30303837b108476959c4a4a05afd3ec7cde628ffa9ecab",
           "mode": "100644"
         },
         {
@@ -151,13 +151,13 @@
         {
           "path": "skills/developer-engineering/graphify/references/hooks.md",
           "owner": "graphify",
-          "sha256": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
+          "sha256": "c3141e7124be8d1f0e96ff3895220a1b6318a644c4c6a60120e4aa6b1cd92d4a",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/query.md",
           "owner": "graphify",
-          "sha256": "a1bbbe678ce93745a575fd4fb0aef43214b761910af71c63945c20ee7a679e6a",
+          "sha256": "03d7ea695923c08a695421e20b6fb9d98f55976b62dfb066eea062f9393b2db0",
           "mode": "100644"
         },
         {
@@ -169,13 +169,13 @@
         {
           "path": "skills/developer-engineering/graphify/references/update.md",
           "owner": "graphify",
-          "sha256": "5e452b84f910a12338185ad96f161f4ee1a09b1c6d8ee0c93ce1af4700a0e44f",
+          "sha256": "bd76847bfc68d44c1e6f2e8ad8fce10a1208ecb7e6134c6cbbd74634c1489294",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
           "owner": "graphify",
-          "sha256": "784203f027d9bb4a7802948f6ecd88121ff319cee94a41518179e14ce602a02f",
+          "sha256": "d4f114701925ffe589640e6a95aaa35bf408f5ad20fc31d95a6b4e1f0479fe88",
           "mode": "100644"
         },
         {
@@ -248,6 +248,13 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "Graphify-Labs/graphify@92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

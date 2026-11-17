@@ -1,15 +1,15 @@
 ---
 name: lark-event
-description: 'Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tasks, meetings, and drive changes; use for event subscriptions, not historical queries.'
+description: 'Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by event list, including messaging, approvals, tasks, meetings, and supported Drive notices; use for event subscriptions, not historical queries.'
 zh_description: "用于订阅、消费和处理飞书实时事件流，支持消息、任务、会议纪要和画板更新。"
-version: "1.0.11"
+version: "1.0.12"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-event"
 license: MIT
 tags: '[feishu, lark, lark-cli, events, websocket]'
 created_at: "2026-05-19"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 metadata:
@@ -70,8 +70,8 @@ wait
 
 ## Call flow
 
-1. `lark-cli event list --json` → pick a legal key. `--domain <d>` narrows to one domain; the domains are `application`, `approval`, `board`, `card`, `im`, `minutes`, `task`, `vc`. An unknown domain fails with the valid set listed in the hint.
-2. `lark-cli event schema <key> --json` → read `resolved_output_schema` + `jq_root_path` to determine field paths
+1. `lark-cli event list --json` → pick a legal key. `--domain <d>` narrows to one domain; the domains are `application`, `approval`, `board`, `card`, `drive`, `im`, `minutes`, `task`, `vc`. An unknown domain fails with the valid set listed in the hint.
+2. `lark-cli event schema <key> --json` → read `resolved_output_schema` + `jq_root_path` to determine field paths and confirm subscription/cleanup semantics. Only consume keys exposed by the installed `event list`; the catalog does not promise general Drive change monitoring.
 3. `lark-cli event consume <key> [--jq '<expr>']` → consume
 
 ## Subprocess contract
@@ -107,7 +107,7 @@ Orchestrators should treat `reason: limit/timeout/signal` (all exit 0) as "busin
 
 ### Never `kill -9`
 
-**Avoid `kill -9` on consume processes** for EventKeys whose PreConsume registers a server-side subscription **and** unsubscribes on exit (minutes, vc, board keys): `kill -9` skips the OAPI unsubscribe and leaks the server-side subscription (symptoms: "subscription already exists" on restart, duplicate event delivery). Keys whose subscription is a durable relation with no cleanup (task, approval keys) do not leak this way, but SIGTERM or closing stdin remains the right shutdown for every key.
+**Avoid `kill -9` on consume processes** for EventKeys whose PreConsume registers a server-side subscription **and** unsubscribes on exit (minutes, vc, board keys): `kill -9` skips the OAPI unsubscribe and leaks the server-side subscription (symptoms: "subscription already exists" on restart, duplicate event delivery). Keys whose subscription is a durable relation with no cleanup (task, approval, drive keys) do not leak this way, but SIGTERM or closing stdin remains the right shutdown for every key.
 
 ### One consume, one EventKey (multi-key = multi-shell)
 
@@ -162,6 +162,7 @@ Lark-defined semantic tags (**not** JSON Schema's standard `format`). Common val
 |------------|------------------------------------------------------------------------------|---|
 | Application | [`references/lark-event-application.md`](references/lark-event-application.md) | Catalog of Application EventKeys, including `application.bot.menu_v6` for custom bot menu push events + flattened `event_key` / operator fields + jq recipe |
 | Approval   | [`references/lark-event-approval.md`](references/lark-event-approval.md)     | Catalog of 2 Approval EventKeys (`approval.instance.status_changed_v4`, `approval.task.status_changed_v4`) + optional/multi `subscription_type` pre-registration + user-auth subscription lifecycle + flat output field reference |
+| Drive      | [`references/lark-event-drive.md`](references/lark-event-drive.md)           | Catalog of 1 Drive EventKey (`drive.notice.comment_add_v1`) for doc comment / reply notices (@bot or @me) + user vs bot receiver semantics + durable subscription + flat field reference + follow-up comment read |
 | IM         | [`references/lark-event-im.md`](references/lark-event-im.md)                 | Catalog of 12 IM EventKeys + shape notes (flat vs V2 envelope) + `im.message.receive_v1` field gotchas (`sender_id` is open_id only; `.content` is plain text except for `interactive` cards) + common jq recipes (filter by chat_type / message_type / sender); for `card.action.trigger` see also [`../lark-im/references/lark-im-card-action-reply.md`](../lark-im/references/lark-im-card-action-reply.md) |
 | Task       | [`references/lark-event-task.md`](references/lark-event-task.md)             | Catalog of 1 Task EventKey (`task.task.update_user_access_v2`) + Native V2 envelope shape + task commit types + user/bot subscription notes |
 | VC         | [`references/lark-event-vc.md`](references/lark-event-vc.md)                 | Catalog of 7 VC EventKeys (meeting lifecycle `participant_meeting_started/joined/ended_v1`, `vc.note.generated_v1`, recording `recording_started/transcript_generated/ended_v1`) + field reference + source type semantics; the live list is always `lark-cli event list --domain vc --json` |

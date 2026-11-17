@@ -26,7 +26,7 @@ def main():
     ap.add_argument("--audio", choices=["silent", "none"], default="silent", help="add a silent AAC track (some chat apps treat silent-less mp4 as a GIF)")
     ap.add_argument("--html-out", help="also keep the generated self-contained page here (opens live in any browser)")
     ap.add_argument("--keep-frames", help="also write PNG frames into this directory")
-    ap.add_argument("--no-sandbox", action="store_true", help="pass --no-sandbox to Chrome (auto when running as root)")
+    ap.add_argument("--no-sandbox", action="store_true", help="disable the Chrome sandbox in an explicitly approved isolated environment")
     a = ap.parse_args()
 
     chrome = lp.find_chrome(a.chrome)
@@ -46,9 +46,9 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     if a.keep_frames:
         os.makedirs(a.keep_frames, exist_ok=True)
-    ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    with lp.Chrome(chrome, w, h, True if a.no_sandbox else None) as br:
+    with lp.Chrome(chrome, w, h, a.no_sandbox) as br:
         br.open("file://" + os.path.abspath(page) + "?manual")
+        ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         for i in range(n):
             br.seek(i / fps)
             png = br.shot()
@@ -61,7 +61,8 @@ def main():
         if err:
             print("\npage errors:", err, file=sys.stderr)
     ff.stdin.close(); rc = ff.wait()
-    print(f"\nwrote {a.out} ({n} frames, {w}x{h}@{fps})", file=sys.stderr)
+    if rc == 0:
+        print(f"\nwrote {a.out} ({n} frames, {w}x{h}@{fps})", file=sys.stderr)
     sys.exit(rc)
 
 

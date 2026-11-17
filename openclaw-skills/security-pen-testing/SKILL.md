@@ -1,22 +1,22 @@
 ---
 name: security-pen-testing
-description: 'Perform authorized security assessments, vulnerability scans, and penetration tests with explicit targets, scope, evidence, and remediation guidance.'
+description: 'Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 checks, dependency audits, and pentest reports with explicit scope, evidence, and remediation guidance.'
 zh_description: "在授权范围内执行漏洞扫描、渗透测试和修复验证。"
-version: "1.0.4"
+version: "1.0.5"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/security-pen-testing/SKILL.md"
 license: MIT
 tags: '["security", "penetration-testing", "owasp", "vulnerability-scanning", "offensive-security", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 ---
 
 # Security Penetration Testing
 
-Hands-on offensive security testing skill for finding vulnerabilities before attackers do. This is NOT compliance checking (see senior-secops) or security policy writing (see senior-security) — this is about systematic vulnerability discovery through authorized testing.
+Hands-on offensive security testing skill for finding vulnerabilities before attackers do. This is NOT compliance checking (see incident-commander) or security policy writing (see information-security-manager-iso27001) — this is about systematic vulnerability discovery through authorized testing.
 
 ---
 
@@ -49,8 +49,8 @@ This skill provides the methodology, checklists, and automation for **offensive 
 | Skill | Focus | Approach |
 |-------|-------|----------|
 | **security-pen-testing** (this) | Finding vulnerabilities | Offensive — simulate attacker techniques |
-| senior-secops | Security operations | Defensive — monitoring, incident response, SIEM |
-| senior-security | Security policy | Governance — policies, frameworks, risk registers |
+| incident-commander | Security operations | Defensive — monitoring, incident response, SIEM |
+| information-security-manager-iso27001 | Security policy | Governance — policies, frameworks, risk registers |
 | skill-security-auditor | CI/CD gates | Automated — pre-merge security checks |
 
 ### Prerequisites
@@ -71,20 +71,29 @@ python scripts/vulnerability_scanner.py --target web --scope full
 python scripts/vulnerability_scanner.py --target api --scope quick --json
 ```
 
-### Quick Reference
+### Quick Reference (OWASP Top 10:2025)
 
 | # | Category | Key Tests |
 |---|----------|-----------|
-| A01 | Broken Access Control | IDOR, vertical escalation, CORS, JWT claim manipulation, forced browsing |
-| A02 | Cryptographic Failures | TLS version, password hashing, hardcoded keys, weak PRNG |
-| A03 | Injection | SQLi, NoSQLi, command injection, template injection, XSS |
-| A04 | Insecure Design | Rate limiting, business logic abuse, multi-step flow bypass |
-| A05 | Security Misconfiguration | Default credentials, debug mode, security headers, directory listing |
-| A06 | Vulnerable Components | Dependency audit (npm/pip/go), EOL checks, known CVEs |
-| A07 | Auth Failures | Brute force, session cookie flags, session invalidation, MFA bypass |
-| A08 | Integrity Failures | Unsafe deserialization, SRI checks, CI/CD pipeline integrity |
-| A09 | Logging Failures | Auth event logging, sensitive data in logs, alerting thresholds |
-| A10 | SSRF | Internal IP access, cloud metadata endpoints, DNS rebinding |
+| A01 | Broken Access Control | IDOR, vertical escalation, CORS, JWT claim manipulation, forced browsing, SSRF (internal IPs, cloud metadata, DNS rebinding) |
+| A02 | Security Misconfiguration | Default credentials, debug mode, security headers, directory listing |
+| A03 | Software Supply Chain Failures | Dependency audit (npm/pip/go), EOL checks, known CVEs, build and CI/CD provenance |
+| A04 | Cryptographic Failures | TLS version, password hashing, hardcoded keys, weak PRNG |
+| A05 | Injection | SQLi, NoSQLi, command injection, template injection, XSS |
+| A06 | Insecure Design | Rate limiting, business logic abuse, multi-step flow bypass |
+| A07 | Authentication Failures | Brute force, session cookie flags, session invalidation, MFA bypass |
+| A08 | Software or Data Integrity Failures | Unsafe deserialization, SRI checks, unsigned updates |
+| A09 | Security Logging and Alerting Failures | Auth event logging, sensitive data in logs, alerting thresholds |
+| A10 | Mishandling of Exceptional Conditions | Fail-open on errors, unhandled exceptions, stack-trace leakage, partial transactions |
+
+Checklist generation is offline; it does not execute the listed test procedures.
+New scanner JSON includes `scan_metadata.owasp_version: 2025`. Checklist
+`owasp_id` remains the short category code; `check_id` is version-qualified
+(for example `A05:2025-01`). Do not compare bare A-numbers across editions:
+A10:2021 (SSRF) belongs to A01:2025, while A10:2025 covers exceptional conditions.
+Source rule IDs (such as `SQLI-001`), severities, and exit codes are unchanged;
+their category labels now include 2025. The report generator preserves supplied
+category strings, including 2021 or mixed-edition findings, without migration.
 
 ```bash
 # Audit dependencies
@@ -206,7 +215,7 @@ python scripts/pentest_report_generator.py --findings findings.json --format jso
     "severity": "critical",
     "cvss_score": 9.8,
     "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-    "category": "A03:2021 - Injection",
+    "category": "A05:2025 - Injection",
     "description": "The /api/login endpoint is vulnerable to SQL injection via the email parameter.",
     "evidence": "Request: POST /api/login {\"email\": \"' OR 1=1--\", \"password\": \"x\"}\nResponse: 200 OK with admin session token",
     "impact": "Full database access, authentication bypass, potential remote code execution",
@@ -230,7 +239,7 @@ python scripts/pentest_report_generator.py --findings findings.json --format jso
 
 ## Responsible Disclosure Workflow
 
-Responsible disclosure is **mandatory** for any vulnerability found during authorized testing. Standard timeline: report on day 1, follow up at day 7, status update at day 30, public disclosure at day 90.
+Follow the target's approved disclosure policy, recipients and timeline. An assessment request authorizes the internal report; it does not authorize public disclosure. Do not publish by an automatic day-count rule.
 
 **Key principles:** Never exploit beyond proof of concept, encrypt all communications, do not access real user data, document everything with timestamps.
 

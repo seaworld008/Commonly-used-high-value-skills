@@ -30,11 +30,11 @@
 | **L3: Rally Delegation** | `spawn_agent` with Rally prompt | 4+ workers, complex ownership | `spawn_agent(prompt="You are Rally...")` |
 
 **Subagent Tools:** `spawn_agent`, `send_input`, `wait_agent`, `resume_agent`, `close_agent`
-**Config:** `agents.max_depth` (default: 1) controls nesting. Omitted fields inherit from parent session.
+**Host-specific configuration example (verify current help; do not edit global configuration unless requested):** `agents.max_depth` (default: 1) controls nesting. Omitted fields inherit from parent session.
 
 **Prereqs (must hold or internal-fall-back):**
-1. `codex features list | grep multi_agent` → `stable / true` (default true since v0.115+; verify in older builds).
-2. `~/.codex/config.toml` has `[agents] max_depth >= 2`. Default `1` only allows the main session to spawn — a nested orchestrator (e.g. Nexus spawned from a slash command) may already be at depth 1 and unable to recurse.
+1. Example for a host that exposes this CLI: `codex features list | grep multi_agent` → `stable / true` (default true since v0.115+; verify in older builds).
+2. If the selected host uses this setting, verify its actual nesting requirement; do not assume `[agents] max_depth >= 2` for every host. Default `1` only allows the main session to spawn — a nested orchestrator (e.g. Nexus spawned from a slash command) may already be at depth 1 and unable to recurse.
 3. If the model claims `spawn_agent` is missing from its tool inventory while both above are satisfied, attempt the call anyway — Codex exposes the tool lazily ("tool not visible" ≠ "tool not callable").
 
 ```toml
@@ -53,7 +53,7 @@ max_depth = 3
 | **L3: Role-Driven Team** | Plugin-installed team pack (`oh-my-antigravity` etc. via `agy plugin install <url>`) | 4+ workers, complex ownership | Community pattern — `/oma:taskboard` priority queue + approval gates (no Rally equivalent documented) |
 
 **Subagent Tools:** `/agent`, `/tasks`, `/resume`, `/rewind`, `/btw` (read-only side question), `/schedule`, `/goal` (experimental flag status unverified)
-**Config:** Subagent depth-cap key name **unverified** — community guidance says "cap subagent depth" but no JSON/TOML key was found in official docs. Treat as runtime/budget concern via `/usage` polling, not as a config switch.
+**Host-specific configuration example (verify current help; do not edit global configuration unless requested):** Subagent depth-cap key name **unverified** — community guidance says "cap subagent depth" but no JSON/TOML key was found in official docs. Treat as runtime/budget concern via `/usage` polling, not as a config switch.
 **Skill root:** `~/.gemini/antigravity-cli/skills/` (global) or `<repo>/.agents/skills/` (workspace, preferred).
 **Permission model:** `request-review` (default — pause for review) / `proceed-in-sandbox` (containerized auto) / `always-proceed` (host auto, production-forbidden) / `strict` (read-only).
 
@@ -69,7 +69,7 @@ max_depth = 3
 
 ### agy headless capture — the artifact decides success
 
-**Neither stdout nor the exit code is a success signal.** agy needs a real pty (`python3 pty.spawn`; `script -q /dev/null` fails on socket stdin) and never flushes non-TTY stdout, so `exit 0/124` with empty stdout is also what a *successful* run looks like. The prompt-mandated absolute-path artifact plus its `<<<END_OF_OUTPUT>>>` sentinel is the only thing that decides whether a spawn succeeded; inject inputs with `@<path>` (a bare path is read by an internal subagent that dies at the 60s cap).
+**Neither stdout nor the exit code is a success signal.** The recorded agy example needed a real pty; verify the installed version before applying it. This historical behavior is not a universal prerequisite. That example (`python3 pty.spawn`; `script -q /dev/null` fails on socket stdin) and never flushes non-TTY stdout, so `exit 0/124` with empty stdout is also what a *successful* run looks like. The prompt-mandated absolute-path artifact plus its `<<<END_OF_OUTPUT>>>` sentinel is the only thing that decides whether a spawn succeeded; inject inputs with `@<path>` (a bare path is read by an internal subagent that dies at the 60s cap).
 
 Canonical spawn block, verification chain, transcript/log fallbacks, and the typed-retry rule: **`_common/CLI_COMPATIBILITY.md §9.2`** — copy it, do not re-derive. Per-pitfall mechanisms (#76/#115 flush, 60s subagent cap, `--print-timeout` default, inconsistent `--output-format json`, quota/OAuth) are tabled in `_common/CLI_COMPATIBILITY.md §9`; failure-detection contract in `_common/MULTI_ENGINE_RECIPE.md §3.5`.
 
@@ -78,8 +78,8 @@ Canonical spawn block, verification chain, transcript/log fallbacks, and the typ
 
 ## Per-CLI Spawn API + Key Rules (SKILL.md excerpt)
 
-Per-CLI spawn API at a glance — Claude Code `Agent` (L1 fg / L2 background / L3 Rally); Codex `spawn_agent`→`wait_agent` (prereq `multi_agent=true` + `max_depth>=2`); agy `/agent` TUI or `agy -p --dangerously-skip-permissions` headless (prereq TUI main session or OS-level isolation). Full per-CLI prereqs, runtime notes, silent-failure mitigations, and the verified headless template → `reference/execution-layers.md`. Cross-CLI mapping → `_common/CLI_COMPATIBILITY.md`.
+Per-CLI spawn API at a glance — Claude Code `Agent` (L1 fg / L2 background / L3 Rally); Codex delegation via the actual available host tools and permitted capacity; agy `/agent` TUI or `agy -p --dangerously-skip-permissions` headless (prereq TUI main session or OS-level isolation). Full per-CLI prereqs, runtime notes, silent-failure mitigations, and the verified headless template → `reference/execution-layers.md`. Cross-CLI mapping → `_common/CLI_COMPATIBILITY.md`.
 
-**MANDATORY before spawning agy/codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty (`python3 pty.spawn`) — bare `agy -p` and `script -q /dev/null` fail silently; artifact/sentinel capture, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). Silent-output regressions, not edge cases.
+**Version-specific CLI reference, when that runtime is selected** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty (`python3 pty.spawn`) — bare `agy -p` and `script -q /dev/null` fail silently; artifact/sentinel capture, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). Silent-output regressions, not edge cases.
 
 Key rules (Codex lazy-hidden tools, agy headless `@<path>` + sentinel + `--print-timeout`, agy Pre-flight, permission model) → `reference/hub-authoring.md` § Execution-Layer Key Rules.

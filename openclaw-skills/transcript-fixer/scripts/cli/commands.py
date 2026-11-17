@@ -11,7 +11,11 @@ from __future__ import annotations
 
 import argparse
 import os
+import shutil
+import sqlite3
 import sys
+import tempfile
+from contextlib import closing
 from pathlib import Path
 
 from core import (
@@ -32,8 +36,49 @@ def _get_service() -> CorrectionService:
     """Get configured CorrectionService instance."""
     # P1-5 FIX: Use centralized configuration
     config = get_config()
+    config.database.path.parent.mkdir(parents=True, exist_ok=True)
     repository = CorrectionRepository(config.database.path)
     return CorrectionService(repository)
+
+
+def _read_dictionary(db_path: Path, domain: str):
+    """Read a private snapshot: SQLite mode=ro can still create WAL sidecars."""
+    if not db_path.is_file():
+        return {}, []
+
+    sources = [db_path, db_path.with_name(db_path.name + "-wal")]
+
+    def stamps():
+        result = []
+        for source in sources:
+            try:
+                stat = source.stat()
+                result.append((stat.st_dev, stat.st_ino, stat.st_size, stat.st_mtime_ns))
+            except FileNotFoundError:
+                result.append(None)
+        return result
+
+    with tempfile.TemporaryDirectory(prefix="transcript-dictionary-") as task_dir:
+        before = stamps()
+        for source, stamp in zip(sources, before):
+            if stamp is not None:
+                shutil.copyfile(source, Path(task_dir) / source.name)
+        if stamps() != before:
+            raise RuntimeError("Dictionary changed during snapshot; retry correction")
+        snapshot = Path(task_dir) / db_path.name
+        with closing(sqlite3.connect(snapshot.as_uri() + "?mode=ro", uri=True)) as conn:
+            corrections = dict(conn.execute(
+                "SELECT from_text, to_text FROM corrections WHERE is_active = 1 AND domain = ?",
+                (domain,),
+            ))
+            rules = [
+                {"pattern": row[0], "replacement": row[1], "description": row[2]}
+                for row in conn.execute(
+                    "SELECT pattern, replacement, description FROM context_rules "
+                    "WHERE is_active = 1 ORDER BY priority DESC"
+                )
+            ]
+    return corrections, rules
 
 
 def cmd_init(args: argparse.Namespace) -> None:
@@ -77,12 +122,15 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
     output_dir = Path(args.output) if args.output else input_path.parent
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Initialize service
-    service = _get_service()
-
-    # Load corrections and rules
-    corrections = service.get_corrections(args.domain)
-    context_rules = service.load_context_rules()
+    # Ordinary correction does not authorize a persistent learning store.
+    config = get_config()
+    service = None
+    if config.features.enable_learning:
+        service = _get_service()
+        corrections = service.get_corrections(args.domain)
+        context_rules = service.load_context_rules()
+    else:
+        corrections, context_rules = _read_dictionary(config.database.path, args.domain)
 
     # Read input file
     print(f"📖 Reading: {input_path.name}")
@@ -136,28 +184,30 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
             f.write(stage2_text)
         print(f"💾 Saved: {stage2_file.name}\n")
 
-        # Save history for learning
-        service.save_history(
-            filename=str(input_path),
-            domain=args.domain,
-            original_length=len(original_text),
-            stage1_changes=len(stage1_changes),
-            stage2_changes=len(stage2_changes),
-            model="GLM-4.6",
-            changes=stage1_changes + stage2_changes
-        )
+        # History contains transcript text; persist it only with learning enabled.
+        if config.features.enable_learning:
+            service.save_history(
+                filename=str(input_path),
+                domain=args.domain,
+                original_length=len(original_text),
+                stage1_changes=len(stage1_changes),
+                stage2_changes=len(stage2_changes),
+                model="GLM-4.6",
+                changes=stage1_changes + stage2_changes
+            )
 
-        # Run learning engine - AUTO-LEARN from AI results!
-        if stage2_changes:
+        if config.features.enable_learning and stage2_changes:
             print("=" * 60)
             print("🎓 Learning System: Analyzing AI Corrections")
             print("=" * 60)
 
-            config_dir = Path.home() / ".transcript-fixer"
+            config_dir = config.paths.config_dir
             learning = LearningEngine(
                 history_dir=config_dir / "history",
                 learned_dir=config_dir / "learned",
-                correction_service=service
+                correction_service=service,
+                enable_learning=config.features.enable_learning,
+                enable_auto_approval=config.features.enable_auto_approval,
             )
 
             stats = learning.analyze_and_auto_approve(stage2_changes, args.domain)
@@ -172,7 +222,9 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
 
             if stats['pending_review'] > 0:
                 print(f"   ⏳ Pending review: {stats['pending_review']} patterns")
-                print(f"      (Run --review-learned to approve manually)")
+                print("      (CLI review/approval is not implemented; dictionary unchanged)")
+                for suggestion in stats.get('suggestions', []):
+                    print(f"      {suggestion['from']} → {suggestion['to']}")
 
             if stats.get('savings_potential'):
                 print(f"\n   💰 {stats['savings_potential']}")
@@ -182,9 +234,12 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
     # Stage 3: Generate diff report
     if args.stage >= 3:
         print("=" * 60)
-        print("📊 Stage 3: Generating Diff Report")
+        print("📊 Stage 3: Diff Report (not generated automatically)")
         print("=" * 60)
-        print("   Use diff_generator.py to create visual comparison\n")
+        print("   Run scripts/generate_word_diff.py explicitly to create visual comparison\n")
+
+    if service is not None:
+        service.close()
 
     print("✅ Correction complete!")
 

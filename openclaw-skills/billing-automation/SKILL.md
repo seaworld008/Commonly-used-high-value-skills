@@ -2,14 +2,14 @@
 name: billing-automation
 description: 'Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.'
 zh_description: "用于构建订阅计费、自动开票、续费生命周期和催收管理流程。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:wshobson/agents"
 source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/payment-processing/skills/billing-automation/SKILL.md"
 license: MIT
 tags: '["automation", "billing", "workflow"]'
 created_at: "2026-05-28"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -66,8 +66,13 @@ Adjusting charges when:
 
 ## Quick Start
 
+The following is architecture pseudocode, not an installable `billing` SDK.
+No such package is bundled. Bind the engine and subscription types to the
+project's actual payment adapter and implement their dependencies before running.
+
 ```python
-from billing import BillingEngine, Subscription
+from datetime import datetime, timezone
+from billing import BillingEngine, Subscription  # placeholder project adapter
 
 # Initialize billing engine
 billing = BillingEngine()
@@ -76,7 +81,7 @@ billing = BillingEngine()
 subscription = billing.create_subscription(
     customer_id="cus_123",
     plan_id="plan_pro_monthly",
-    billing_cycle_anchor=datetime.now(),
+    billing_cycle_anchor=datetime.now(timezone.utc),
     trial_days=14
 )
 
@@ -86,7 +91,15 @@ billing.process_billing_cycle(subscription.id)
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `references/details.md`. Its classes
+and undefined dependencies are illustrative. In production, calculate periods
+using the business/processor calendar, anchor and timezone; do not copy the
+reference's fixed 30/365-day month/year arithmetic. Specify month-end, leap-year,
+DST and proration rules and test boundary dates.
+
+Use integer minor units or `Decimal` with explicit currency precision and
+rounding. The reference's hardcoded USD / `int(amount * 100)` example is not a
+currency-general conversion or a verified payment integration.
 
 <!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Implementation Checklist

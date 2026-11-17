@@ -2,13 +2,13 @@
 name: financial-analyst
 description: 'Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making'
 zh_description: "分析财务报表、经营表现、估值和情景假设。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyst", "finance", "financial"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -38,7 +38,7 @@ scope analysis goal
 
 ## Overview
 
-Production-ready financial analysis toolkit providing ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. Designed for financial analysts with 3-6 years experience performing financial modeling, forecasting & budgeting, management reporting, business performance analysis, and investment analysis.
+Financial analysis toolkit with input and model checks required before delivery, providing ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. Designed for financial analysts with 3-6 years experience performing financial modeling, forecasting & budgeting, management reporting, business performance analysis, and investment analysis.
 
 ## 5-Phase Workflow
 
@@ -87,9 +87,9 @@ Calculate and interpret financial ratios from financial statement data.
 - **Valuation:** P/E, P/B, P/S, EV/EBITDA, PEG Ratio
 
 ```bash
-python scripts/ratio_calculator.py sample_financial_data.json
-python scripts/ratio_calculator.py sample_financial_data.json --format json
-python scripts/ratio_calculator.py sample_financial_data.json --category profitability
+python scripts/ratio_calculator.py ratio_data.json
+python scripts/ratio_calculator.py ratio_data.json --format json
+python scripts/ratio_calculator.py ratio_data.json --category profitability
 ```
 
 ### 2. DCF Valuation (`scripts/dcf_valuation.py`)
@@ -100,6 +100,8 @@ Discounted Cash Flow enterprise and equity valuation with sensitivity analysis.
 - WACC calculation via CAPM
 - Revenue and free cash flow projections (5-year default)
 - Terminal value via perpetuity growth and exit multiple methods
+- Before interpreting output, verify WACC > terminal growth g. At WACC ≤ g the perpetuity method is unavailable: exclude its valuation and invalid sensitivity cells, state why, and retain only a valid exit-multiple scenario. The script reports that method and affected sensitivity cells as unavailable with diagnostic reasons; a valid alternative remains separate.
+- Per-share values require known positive historical `shares_outstanding`; the script defaults missing shares to one. With missing/invalid shares, omit per-share output and report the missing input.
 - Enterprise value and equity value derivation
 - Two-way sensitivity analysis (discount rate vs growth rate)
 
@@ -202,7 +204,13 @@ python scripts/forecast_builder.py forecast_data.json --scenarios base,bull,bear
 
 ## Input Data Format
 
-All scripts accept JSON input files. See `assets/sample_financial_data.json` for the complete input schema covering all four tools.
+All scripts accept JSON input files. `assets/sample_financial_data.json` is a container of four inputs, not a direct input to any calculator. From the skill directory, extract the matching subobject first:
+
+```bash
+python3 -c 'import json; from pathlib import Path; d=json.loads(Path("assets/sample_financial_data.json").read_text()); pairs={"ratio_analysis":"ratio_data.json","dcf_valuation":"valuation_data.json","budget_variance":"budget_data.json","forecast":"forecast_data.json"}; [Path(v).write_text(json.dumps(d[k])) for k,v in pairs.items()]'
+```
+
+Write these files only in the task's authorized workspace (or adapt the paths to its temporary directory), then use the matching command above.
 
 ## Dependencies
 

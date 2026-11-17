@@ -2,14 +2,14 @@
 name: linkedin-growth
 description: 'Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli and local lead records; outreach requires existing user authorization.'
 zh_description: "构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。"
-version: "1.0.3"
+version: "1.0.4"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth"
 license: MIT
 tags: '[linkedin, lead-generation, growth, outreach, automation]'
 created_at: "2026-07-10"
-updated_at: "2026-09-07"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 ---
@@ -17,7 +17,7 @@ complexity: advanced
 # LinkedIn Growth Skill
 
 This skill turns a Sales Navigator (or regular) search into a managed pipeline:
-**search → qualify (you, via sub-agent) → store → invite on schedule → check pending → withdraw stale**.
+**search → qualify → report** for research-only tasks; with authorized outreach: **commit to send queue → invite on schedule → check pending → withdraw stale**.
 
 All state lives in a local SQLite database. Every LinkedIn action goes through
 `linkedin-cli` (the `linkedin` binary). You orchestrate via the Node scripts
@@ -33,12 +33,12 @@ under `scripts/`.
 | **Batch** | A row in `import_batches`. Created by `import.mjs prepare`; transitions `pending_qualification → committed | aborted`. |
 | **Status** | A lead's lifecycle state: `not_connected → pending → (connected | exhausted | error)`. `not_connected` means ready for an invite from `owner_account` (could be the 1st attempt or a retry under a different account). `connected` = success (terminal). `exhausted` = tried up to `max_connect_attempts` accounts, none accepted (terminal). `error` = an invite failed technically (manual reset). |
 | **Retry policy** | Global `max_connect_attempts` setting. When an account's attempt fails (we withdrew a stale pending, OR the person declined/expired), the lead is reassigned to another untried account and set back to `not_connected` — until `max_connect_attempts` distinct accounts have tried, then it becomes `exhausted`. `1` = no retry (default); `all` = try every active account. |
-| **Phase A** | Import — runs only when the user triggers it. Includes the LLM step (you, via sub-agent). |
+| **Phase A** | Import — runs only when the user triggers it. Includes qualification in the current session or with available, authorized delegation. |
 | **Phase B** | Network maintenance — `network-invite` + `network-pending`. Runs on a schedule. NEVER calls an LLM. |
 
 ## First-run setup
 
-Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
+First inspect existing connection status using available status commands. Install missing dependencies/CLI or configure accounts only within the user's setup authorization. Use a trusted local credential flow; never request tokens in chat or place them in command arguments/reports. [Detailed setup background](EXTENDED.md#section-1) is conditional: its token-request and automatic scheduler steps must follow these limits. A research/import request alone does not authorize installing or replacing a scheduler.
 
 ## Phase A — Importing leads (interactive)
 
@@ -46,6 +46,8 @@ Triggered by the user via wording like:
 - "import leads from this search ..."
 - "add leads from this Sales Navigator URL"
 - "add a list called 'X' from this search"
+
+A research/qualification-only request ends with results in the deliverable or an authorized non-sending file. `prepare` creates local batch records; use it only when such workspace writes are in scope. `commit` has no research-only mode and makes suitable leads eligible for background invites.
 
 ### Step 1 — Prepare
 
@@ -70,7 +72,7 @@ node scripts/import.mjs prepare \
 ```
 
 Auto-detect: if the URL contains `/sales/`, pass `--type nv`; otherwise `--type st`.
-Either `--search-url` or filter flags must be provided.
+Provide `--search-url`, or provide `--term` with optional filter flags. Filters alone are rejected by the downstream CLI. For CLI ≥ 1.2.24, values containing a comma use a JSON string array, e.g. `--locations '["Chicago, Illinois","Denver"]'`; pass the entire array as one argument.
 
 The script:
 1. Runs the LinkedIn search via `linkedin-cli` (workflow run for URL-based, native CLI for filters)
@@ -92,39 +94,33 @@ current `icp_definition`.
 - If `icp_configured` is **false**: interview the user before qualifying. Ask concrete
   questions — which roles/seniority to target, which industries/company types fit, company
   size/stage if relevant, locations to include or exclude, and any hard exclusions
-  (competitors, students, specific titles). Summarize what you heard back to them, then save
-  it straight into the database via stdin (no stray files):
+  (competitors, students, specific titles). Summarize the agreed ICP. For a research-only task, use it in the current session. If saving import settings is in scope, persist it in the database via stdin:
   ```bash
   node scripts/settings.mjs set icp_definition --stdin <<'ICP'
   <the agreed ICP text>
   ICP
   ```
 - If `icp_configured` is **true**: show the user the current ICP in plain language and ask
-  whether to use it as-is or tweak it for this list. If they tweak it, re-save it the same way.
+  whether to use it as-is or tweak it for this list. If they tweak it, use the revision for this task; persist it the same way only when changing saved settings is in scope.
 
 **b. Qualify each candidate.** Read the candidate file (JSON array of
 `{hashed_url, public_url, full_name, position, location}`) and the qualification contract at
 `config/qualification-prompt.md`. Judge every candidate against the ICP. For more than ~25
-candidates, chunk the work and delegate each chunk to a sub-agent (Task tool in Claude Code,
-or the equivalent in other hosts), passing the ICP + the contract + the chunk. Each must
+candidates, chunk the work in the current session or use available, authorized delegation, passing the ICP + the contract + the chunk. Each chunk must
 return `[{hashed_url, suitable, reasoning}]` covering EVERY lead, preserving `hashed_url`,
 where `reasoning` cites the actual ICP criterion that drove the decision.
 
-**Use a cheap, fast model for the qualification sub-agents.** This is a bounded
-classification task (role + location vs ICP → boolean + one-line reason), not deep
-reasoning — so the heaviest model is a waste of money at lead volume. In Claude Code, spawn
-the qualification sub-agents with `model: "haiku"` (the Task tool's `model` parameter); in
-other hosts pick their equivalent small/fast model. Keep the orchestration, the ICP
-interview, and the final report on the main model — only the per-chunk classification goes to
-the cheap tier. If the ICP is unusually nuanced and you see many borderline calls, raise the
-tier for that import. The stored per-lead `reasoning` lets you spot-check cheaply.
+This is a bounded
+classification task. Choose batching and execution according to available host capabilities and authorization; the current session can complete it directly. Delegation and model choice are optional, not prerequisites. Preserve a reason tied to an actual ICP criterion for every candidate.
 
 Concatenate all results and write them to the expected result file path from `prepare`.
 
 (Non-agentic context: the user can write the result file by hand or with any model; nothing
 in the skill enforces a specific provider.)
 
-### Step 3 — Commit
+### Step 3 — Commit to the send queue (authorized outreach only)
+
+Run only when this batch of leads and the sending accounts are covered by existing outreach authorization. Otherwise return the qualification results without committing. A running scheduler may act on committed leads immediately.
 
 ```bash
 node scripts/import.mjs commit --batch <batch-id> --results <result-file>
@@ -132,7 +128,7 @@ node scripts/import.mjs commit --batch <batch-id> --results <result-file>
 
 The script:
 1. Reads results, looks up candidates by `hashed_url`
-2. For each `suitable: true`: round-robin assigns `owner_account` from active (non-paused) accounts in alphabetical order, starting after the last-assigned account (cursor persists across imports). Inserts the lead with `status='not_connected'`.
+2. For each `suitable: true`: assigns `owner_account` to the active account with the shortest projected queue duration (`not_connected` count / daily invite limit), updating load after each assignment. Inserts the lead with `status='not_connected'`.
 3. Updates the batch to `state='committed'` with stats
 4. Returns counts: `suitable`, `unsuitable`, `assigned`, `skippedExisting`, `skippedMissing`
 
@@ -391,8 +387,7 @@ Two separate things:
 
 The scheduler is one OS-native background task (launchd / systemd-user / cron /
 schtasks depending on platform) that wakes the pipeline periodically. The wake-up
-frequency is an internal detail — the user-facing behavior is set by each account's
-active hours and daily limit. Do not surface intervals to the user.
+frequency is an implementation detail; explain the active hours, pace, daily limits and persistent behavior. Install or replace a scheduler only when ongoing outreach is authorized, checking any same-service installation first.
 
 ```bash
 node scripts/schedule.mjs detect                # reports launchd | systemd-user | cron | schtasks
@@ -411,7 +406,7 @@ To inspect what the background runs are doing, read `<data_dir>/logs/<account>-<
 - **The `connected` status on invite** — only set when LinkedIn reports `alreadyConnected` at invite time (the person was already a 1st-degree connection). Real new connections appear via `network-pending` (where `connection status` returns `connected`).
 - **`error` status is terminal until reset** — `lead.mjs reset <hashed-url>` moves it back to `not_connected`. The auto-pipeline does not retry errored leads on its own.
 - **Renaming an account** — leads' `owner_account` is ON UPDATE CASCADE; `rename` is safe. `remove` without `--force` refuses when leads exist; with `--force` they are orphaned (status queries will still include them but no scheduled run touches them).
-- **`schedule.mjs install` without registered accounts** — harmless, but nothing happens until accounts exist. Install order: doctor → add accounts → install scheduler.
+- **`schedule.mjs install` without registered accounts** — still changes persistent system configuration. Only install within authorized ongoing outreach; register accounts and verify policy before enabling it.
 - **Daily quota boundary** — the per-day invite count resets at **local** midnight, not UTC. Quotas and `sent_today` are computed against the local calendar day.
 
 ## Idempotency

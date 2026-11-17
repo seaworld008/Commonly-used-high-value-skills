@@ -2,13 +2,13 @@
 name: ui-design-system
 description: 'Create or maintain UI design tokens, component documentation, responsive rules, and designer-to-developer handoff artifacts.'
 zh_description: "创建和维护设计变量、组件规范及开发交接资料。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "product", "system"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -43,7 +43,7 @@ Use this skill when you need to:
 - "calculate spacing system"
 - "create design system"
 - "generate CSS variables"
-- "export SCSS tokens"
+- "export CSS custom properties"
 - "set up component architecture"
 - "document component library"
 - "calculate responsive breakpoints"
@@ -84,10 +84,8 @@ Use this skill when you need to:
    ```bash
    # CSS custom properties
    python scripts/design_token_generator.py "#0066CC" modern css > design-tokens.css
-
    # SCSS variables
-   python scripts/design_token_generator.py "#0066CC" modern scss > _design-tokens.scss
-
+   python scripts/design_token_generator.py "#0066CC" modern scss > design-tokens.scss
    # JSON for Figma/tooling
    python scripts/design_token_generator.py "#0066CC" modern json > design-tokens.json
    ```
@@ -202,10 +200,6 @@ Use this skill when you need to:
    ```bash
    # For CSS projects
    python scripts/design_token_generator.py "#0066CC" modern css
-
-   # For SCSS projects
-   python scripts/design_token_generator.py "#0066CC" modern scss
-
    # For JavaScript/TypeScript
    python scripts/design_token_generator.py "#0066CC" modern json
    ```
@@ -267,8 +261,9 @@ Generates complete design token system from brand color.
 |----------|--------|---------|-------------|
 | brand_color | Hex color | #0066CC | Primary brand color |
 | style | modern, classic, playful | modern | Design style preset |
-| format | json, css, scss, summary | json | Output format |
+| format | json, css, scss, summary | json | Token export or a console summary |
 
+SCSS exports flattened `$token-path: value;` variables. Compile the generated file in the target project before claiming integration; the three bundled style presets have also passed isolated Sass compilation.
 **Examples:**
 
 ```bash

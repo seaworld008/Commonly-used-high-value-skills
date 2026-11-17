@@ -2,14 +2,14 @@
 name: documentation-and-adrs
 description: 'Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.'
 zh_description: "记录架构决策、接口变化和工程交接信息。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "documentation-and-adrs", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: documentation-and-adrs
@@ -123,8 +123,9 @@ Comment the *why*, not the *what*:
 counter += 1;
 
 // GOOD: Explains non-obvious intent
-// Rate limit uses a sliding window — reset counter at window boundary,
-// not on a fixed schedule, to prevent burst attacks at window edges
+// Rate limit uses a fixed window that opens on the first request after the
+// previous one expires, not on a clock schedule. Known gap: a client can spend
+// the full limit just before a reset and again just after (2x in a moment)
 if (now - windowStart > WINDOW_SIZE_MS) {
   counter = 0;
   windowStart = now;
@@ -276,6 +277,25 @@ After checking the technical content, review the prose for the people who will u
 2. Replace stock introductions, promotional adjectives, and repeated summaries with the concrete information the reader needs. Do not replace an unsupported claim with an invented example or a stronger guarantee. Keep necessary technical repetition and the project's established terminology.
 3. Compare the edited document with the original and its sources. Restore any lost qualifier or caveat, verify command and code examples still work as documented, and explain any unresolved factual question rather than polishing it away.
 
+## Documentation Drift
+
+A document that was true when written still reads as authoritative after the code moves on. When a doc may be stale, decide from version control, not from how confident the doc sounds:
+
+```bash
+code=$(git log -1 --format=%H -- src/rate-limiter.js)
+doc=$(git log -1 --format=%H -- docs/rate-limiter.md)
+if [ "$code" = "$doc" ]; then echo "review: changed together"
+elif git merge-base --is-ancestor "$doc" "$code"; then echo "stale: code changed after the doc"
+elif git merge-base --is-ancestor "$code" "$doc"; then echo "review: doc changed after the code"
+else echo "can't tell"; fi
+```
+
+Commit order is only a triage signal: a newer document can still be incorrect. Inspect the actual code and documentation before declaring it current.
+
+Unordered history (divergent branches, a rebase, a shallow clone) means "can't tell". Say that; never report it as current.
+
+When you correct a doc that has a change log, append a dated entry that says why it changed. Never rewrite or collapse earlier entries: git keeps the old text, but the log is the only record of the reasons.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |
@@ -285,6 +305,7 @@ After checking the technical content, review the prose for the people who will u
 | "Nobody reads docs" | Agents do. Future engineers do. Your 3-months-later self does. |
 | "ADRs are overhead" | A 10-minute ADR prevents a 2-hour debate about the same decision six months later. |
 | "Comments get outdated" | Comments on *why* are stable. Comments on *what* get outdated — that's why you only write the former. |
+| "I'll tidy the change log while I'm in here" | Git holds the old text; the log holds the reasons. Rewriting it destroys the only copy of the reasoning and preserves nothing. |
 
 ## Red Flags
 
@@ -295,6 +316,8 @@ After checking the technical content, review the prose for the people who will u
 - TODO comments that have been there for weeks
 - No ADRs in a project with significant architectural choices
 - Documentation that restates the code instead of explaining intent
+- A change log that has been rewritten rather than appended to
+- A doc called current when the commit order of the doc and its code could not be determined
 
 ## Verification
 
@@ -307,3 +330,5 @@ After documenting:
 - [ ] No commented-out code remains
 - [ ] Rules files (CLAUDE.md etc.) are current and accurate
 - [ ] Prose edits preserve source details, decision trade-offs, and qualifiers without adding unsupported guarantees
+- [ ] Change logs were appended to rather than rewritten
+- [ ] A doc whose staleness could not be determined is reported as "can't tell", not as current

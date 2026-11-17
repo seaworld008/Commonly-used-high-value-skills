@@ -2,12 +2,12 @@
 """
 ISO 27001/27002 Compliance Checker
 
-Verify control implementation status and generate compliance reports.
+Summarize supplied implementation statuses for the bundled control catalog.
 Supports gap analysis and remediation recommendations.
 
 Usage:
     python compliance_checker.py --standard iso27001
-    python compliance_checker.py --standard iso27001 --gap-analysis --output gaps.md
+    python compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis --output gaps.md
 """
 
 import argparse
@@ -114,15 +114,23 @@ REMEDIATION_GUIDANCE = {
 }
 
 
+REPORT_SCOPE = (
+    "Only supplied statuses for the selected controls in the bundled catalog are summarized. "
+    "ISO certification requires a separate assessment."
+)
+
+
+def normalize_status(value: Any) -> str:
+    if isinstance(value, str):
+        status = value.strip().lower()
+        if status in ("implemented", "partial", "not_implemented"):
+            return status
+    return "unknown"
+
+
 def get_control_status(control_id: str, controls_data: Optional[Dict] = None) -> str:
-    """Get implementation status for a control."""
-    if controls_data and control_id in controls_data:
-        return controls_data[control_id]
-    # Default: simulate partial implementation
-    import random
-    random.seed(hash(control_id))
-    statuses = ["implemented", "implemented", "partial", "partial", "not_implemented"]
-    return random.choice(statuses)
+    """Return the reported status, or unknown if no recognized status was supplied."""
+    return normalize_status(controls_data.get(control_id)) if controls_data else "unknown"
 
 
 def load_controls_from_csv(filepath: str) -> Dict[str, str]:
@@ -133,13 +141,22 @@ def load_controls_from_csv(filepath: str) -> Dict[str, str]:
             reader = csv.DictReader(f)
             for row in reader:
                 control_id = row.get("control_id", row.get("id", ""))
-                status = row.get("status", "not_implemented").lower()
                 if control_id:
-                    controls[control_id] = status
+                    controls[control_id] = normalize_status(row.get("status"))
     except FileNotFoundError:
         print(f"Error: Controls file not found: {filepath}", file=sys.stderr)
         sys.exit(1)
     return controls
+
+
+def assessment_metrics(counts: Dict[str, Any], total: int) -> Dict[str, Any]:
+    assessed = total - counts["unknown"]
+    credit = counts["implemented"] + counts["partial"] * 0.5
+    return {
+        "assessed_controls": assessed,
+        "assessment_coverage_percentage": round(100 * assessed / total, 1) if total else 0,
+        "compliance_percentage": round(100 * credit / total, 1) if assessed else None,
+    }
 
 
 def check_compliance(
@@ -154,6 +171,7 @@ def check_compliance(
 
     results = {
         "standard": standard,
+        "scope": REPORT_SCOPE,
         "timestamp": datetime.now().isoformat(),
         "domains": {},
         "summary": {
@@ -161,6 +179,7 @@ def check_compliance(
             "implemented": 0,
             "partial": 0,
             "not_implemented": 0,
+            "unknown": 0,
         },
         "findings": [],
     }
@@ -175,6 +194,7 @@ def check_compliance(
             "implemented": 0,
             "partial": 0,
             "not_implemented": 0,
+            "unknown": 0,
         }
 
         for control in domain_data["controls"]:
@@ -190,38 +210,26 @@ def check_compliance(
             domain_results["controls"].append(control_result)
             results["summary"]["total_controls"] += 1
 
-            if status == "implemented":
-                domain_results["implemented"] += 1
-                results["summary"]["implemented"] += 1
-            elif status == "partial":
-                domain_results["partial"] += 1
-                results["summary"]["partial"] += 1
-            else:
-                domain_results["not_implemented"] += 1
-                results["summary"]["not_implemented"] += 1
+            domain_results[status] += 1
+            results["summary"][status] += 1
 
-                # Add to findings if high priority
-                if control["priority"] in ["critical", "high"]:
-                    results["findings"].append({
-                        "control_id": control["id"],
-                        "control_name": control["name"],
-                        "priority": control["priority"],
-                        "status": status,
-                        "remediation": REMEDIATION_GUIDANCE.get(
-                            control["id"],
-                            "Implement control per ISO 27001 requirements"
-                        ),
-                    })
+            if status == "not_implemented" and control["priority"] in ("critical", "high"):
+                results["findings"].append({
+                    "control_id": control["id"],
+                    "control_name": control["name"],
+                    "priority": control["priority"],
+                    "status": status,
+                    "remediation": REMEDIATION_GUIDANCE.get(
+                        control["id"],
+                        "Implement control per ISO 27001 requirements"
+                    ),
+                })
 
+        domain_results.update(assessment_metrics(domain_results, len(domain_results["controls"])))
         results["domains"][domain_key] = domain_results
 
-    # Calculate compliance percentage
-    total = results["summary"]["total_controls"]
-    implemented = results["summary"]["implemented"]
-    partial = results["summary"]["partial"]
-    results["summary"]["compliance_percentage"] = round(
-        ((implemented + partial * 0.5) / total) * 100, 1
-    ) if total > 0 else 0
+    summary = results["summary"]
+    summary.update(assessment_metrics(summary, summary["total_controls"]))
 
     return results
 
@@ -249,6 +257,10 @@ def generate_gap_analysis(results: Dict[str, Any]) -> List[Dict[str, Any]]:
     return gaps
 
 
+def format_score(score: Optional[float]) -> str:
+    return "Unassessed" if score is None else f"{score}%"
+
+
 def format_output(
     results: Dict[str, Any],
     gap_analysis: bool,
@@ -266,6 +278,8 @@ def format_output(
         f"",
         f"**Generated:** {results['timestamp']}",
         f"",
+        results["scope"],
+        "",
         f"## Summary",
         f"",
         f"| Metric | Value |",
@@ -274,7 +288,13 @@ def format_output(
         f"| Implemented | {results['summary']['implemented']} |",
         f"| Partial | {results['summary']['partial']} |",
         f"| Not Implemented | {results['summary']['not_implemented']} |",
-        f"| **Compliance** | **{results['summary']['compliance_percentage']}%** |",
+        f"| Unknown (unassessed) | {results['summary']['unknown']} |",
+        f"| Assessment coverage | {results['summary']['assessed_controls']}/{results['summary']['total_controls']} "
+        f"({results['summary']['assessment_coverage_percentage']}%) |",
+        f"| **Catalog score** | **{format_score(results['summary']['compliance_percentage'])}** |",
+        "",
+        "The score gives full credit for implemented controls and half credit for partial controls "
+        "across all selected catalog controls. Unknown statuses receive no credit.",
         f"",
     ]
 
@@ -282,19 +302,24 @@ def format_output(
     lines.extend([
         f"## Compliance by Domain",
         f"",
-        f"| Domain | Implemented | Partial | Not Impl | Score |",
-        f"|--------|-------------|---------|----------|-------|",
+        "| Domain | Implemented | Partial | Not Implemented | Unknown | Coverage | Score |",
+        "|--------|-------------|---------|-----------------|---------|----------|-------|",
     ])
 
-    for domain_key, domain_data in results["domains"].items():
-        total = len(domain_data["controls"])
-        score = round(
-            ((domain_data["implemented"] + domain_data["partial"] * 0.5) / total) * 100
-        ) if total > 0 else 0
+    for domain_data in results["domains"].values():
         lines.append(
             f"| {domain_data['name']} | {domain_data['implemented']} | "
-            f"{domain_data['partial']} | {domain_data['not_implemented']} | {score}% |"
+            f"{domain_data['partial']} | {domain_data['not_implemented']} | {domain_data['unknown']} | "
+            f"{domain_data['assessment_coverage_percentage']}% | {format_score(domain_data['compliance_percentage'])} |"
         )
+
+    if results["summary"]["assessed_controls"]:
+        lines.extend(["", "## Reported Control Statuses", "", "| Control | Name | Status |", "|---|---|---|"])
+        for domain_data in results["domains"].values():
+            for control in domain_data["controls"]:
+                if control["status"] != "unknown":
+                    label = control["status"].replace("_", " ").capitalize()
+                    lines.append(f"| {control['id']} | {control['name']} | {label} |")
 
     # Findings
     if results["findings"]:
@@ -345,7 +370,7 @@ def main():
     )
     parser.add_argument(
         "--controls-file", "-c",
-        help="CSV file with current control implementation status"
+        help="CSV with control_id (or id) and status, or a .json object mapping control IDs to statuses"
     )
     parser.add_argument(
         "--gap-analysis", "-g",
@@ -372,7 +397,16 @@ def main():
     # Load control status if provided
     controls_data = None
     if args.controls_file:
-        controls_data = load_controls_from_csv(args.controls_file)
+        if args.controls_file.lower().endswith(".json"):
+            try:
+                with open(args.controls_file, encoding="utf-8") as f:
+                    controls_data = json.load(f)
+            except (OSError, ValueError) as exc:
+                parser.error(str(exc))
+            if not isinstance(controls_data, dict):
+                parser.error("expected a JSON object mapping control IDs to statuses")
+        else:
+            controls_data = load_controls_from_csv(args.controls_file)
 
     # Parse domains
     domains = None

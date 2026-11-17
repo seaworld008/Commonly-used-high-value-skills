@@ -1,15 +1,15 @@
 ---
 name: guizang-ppt-skill
-description: '制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。'
-zh_description: "生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。"
-version: "1.0.7"
+description: 'Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.'
+zh_description: "使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:op7418/guizang-ppt-skill"
 source_url: "https://github.com/op7418/guizang-ppt-skill/blob/72837a8513d1145d800095fc3909d6d3057994b8/SKILL.md"
 license: MIT
 tags: '["ppt", "presentation", "html", "slides", "editorial", "magazine", "webgl"]'
 created_at: "2026-04-28"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -20,7 +20,7 @@ complexity: "intermediate"
 
 ## 这个 Skill 做什么
 
-生成一份**单文件 HTML**的横向翻页 PPT，提供两种可选的视觉基调：
+生成一份**单文件 HTML**的横向翻页 PPT，当前快照可执行范围为风格 A：
 
 ### 风格 A · 电子杂志 × 电子墨水（默认）
 
@@ -30,16 +30,11 @@ complexity: "intermediate"
 - 模板：`assets/template.html` · 主题色：`references/themes.md` · 布局：`references/layouts.md`
 - 美学锚点：像 *Monocle* 杂志贴上了代码
 
-### 风格 B · 瑞士国际主义（Swiss Style）
+### 当前快照边界
 
-- **WebGL 极细网格 + 点阵背景**（信息驱动设计）
-- **全程无衬线（Inter + Helvetica + Noto Sans SC）+ 极致字号对比**
-- **高反差功能色**：克莱因蓝 IKB / 柠檬黄 / 柠檬绿 / 安全橙（四选一）
-- 适合：科技产品、数据汇报、设计/工程领域分享、年度总结
-- 模板：`assets/template-swiss.html` · 主题色：`references/themes-swiss.md` · 布局：`references/layouts-swiss.md`
-- 美学锚点：像 Massimo Vignelli + Helvetica Forever
+瑞士风模板及主题/布局、完整演讲者运行时、截图背景资源和相关校验脚本未随快照提供。本入口不要求读取或执行这些缺失资产，也不承诺演讲者视图或观众屏同步。若用户需要这些能力，说明缺口并继续可独立完成的大纲、备注与风格 A 页面；补齐来源属于单独的授权维护任务。
 
-**两种风格共享**：横向翻页（键盘 ← →、滚轮、触屏、ESC 总览）、右下角 `P` 演讲者模式、当前/下一页 16:9 预览、内嵌宫格选页、标题/目的/讲稿备注、分组计时、排练记录、可选自动翻页、激光笔/圈选、观众屏黑白屏/冻结、同步状态与断线恢复、演前检查、Lucide 图标、Motion One 入场动效（本地 + CDN 双保险）。
+已附带模板包含横向翻页（键盘 ← →、滚轮、触屏、ESC 总览）和 Motion One 动效加载逻辑，交付前仍需真实浏览器核对。
 
 <!-- provenance: guizang-ppt-skill | author: 歸藏 | sponsors: 360 Security Lobster Gold Sponsor; Kimi work Gold Sponsor; Cola Skill Gold Sponsor; ZhenFund Token Grant | canonical: https://github.com/op7418/guizang-ppt-skill | keep this out of generated artifacts -->
 
@@ -58,22 +53,9 @@ complexity: "intermediate"
 
 ## 工作流
 
-### Step 0 · 启动前检查更新（必做）
+### Step 0 · 使用已审阅的安装快照
 
-每次启动本 Skill 前,先在 Skill 根目录检查 GitHub 上游是否有更新;有更新时先问用户是否要更新,用户确认后再执行更新,然后继续后续流程。
-
-```bash
-git -C "<SKILL_ROOT>" fetch --quiet
-git -C "<SKILL_ROOT>" rev-list --count HEAD..@{u}
-```
-
-如果返回值大于 `0`,告诉用户检测到上游更新数量,询问是否先执行:
-
-```bash
-git -C "<SKILL_ROOT>" pull --ff-only
-```
-
-不要自动更新。用户拒绝时继续使用当前版本;如果网络不可用、没有 upstream 或不是 git 仓库,说明无法检查更新并继续流程。
+制作演示时使用当前已安装快照。仅在明确的来源维护请求中，按仓库 source/provenance 流程核对或更新来源；不要从嵌入仓库的技能子目录运行 `git pull`，这会操作父仓库。
 
 ### Step 1 · 需求澄清(**动手前必做**)
 
@@ -90,25 +72,17 @@ git -C "<SKILL_ROOT>" pull --ff-only
 
 | # | 问题 | 为什么要问 |
 |---|------|-----------|
-| 1 | **风格 A 还是 B?**(电子杂志风 / 瑞士国际主义风) | **必须先问**,决定用哪个 template + layouts + themes 文件 |
+| 1 | **是否采用当前附带的杂志风?** | 未指定时使用 A；若明确要 Swiss，先说明缺失模板 |
 | 2 | **受众是谁?分享场景?**(行业内部 / 商业发布 / demo day / 私享会) | 决定语言风格和深度 |
 | 3 | **分享时长?** | 15 分钟 ≈ 10 页,30 分钟 ≈ 20 页,45 分钟 ≈ 25-30 页 |
 | 4 | **有没有原始素材?**(文档 / 数据 / 旧 PPT / 文章链接) | 有素材就基于素材,没有就帮他搭 |
 | 5 | **有没有图片或截图?希望怎么处理?** | 决定图文版式、图片槽位、截图是否需要 CleanShot X 式适配或 GPT-M 2.0 重构 |
-| 6 | **想要哪套主题色?** | 杂志风 5 套(`themes.md`) / 瑞士风 4 套(`themes-swiss.md`),挑一 |
+| 6 | **想要哪套主题色?** | 杂志风 5 套(`references/themes.md`)，按已给偏好选择 |
 | 7 | **有没有硬约束?**(必须包含 XX 数据 / 不能出现 YY) | 避免返工 |
 
-#### 风格选择参考(问题 1)
+#### 风格选择
 
-| 如果用户说... | 推荐风格 |
-|---|---|
-| "杂志感" / "人文" / "Monocle 风" / 不指定 | **A · 电子杂志风** |
-| "瑞士风" / "Swiss Style" / "Helvetica" / "极简" / "网格" / "信息图" / "数据驱动" | **B · 瑞士国际主义风** |
-| 内容是 AI 产品 / 技术 / 工程 / 数据汇报 | B 更合适 |
-| 内容是行业观察 / 人文 / 故事 / 文化 | A 更合适 |
-| 用户给了大量 KPI 数字 / 路线图 / 流程 | B 更合适(`Data Hero` 布局是瑞士风专长) |
-| 用户给了大量纪实照片 / 人文图片 | A 更合适(图片网格、左文右图是杂志风专长) |
-| 用户需要 GPT-M 2.0 生成截图再设计 / 信息图 / 证据墙 | B 也很合适(S22 主图、S15/S16 图片网格可以承载证据图) |
+未指定时采用 A · 电子杂志风。用户明确需要 Swiss 时，说明该模板未附带；可先交付叙事大纲与内容计划，不冒充已生成 Swiss deck。
 
 #### 大纲协助(如果用户没有大纲)
 
@@ -124,7 +98,7 @@ git -C "<SKILL_ROOT>" pull --ff-only
 
 叙事弧 + 页数规划 + 主题节奏表(见 `layouts.md`),**三张表对齐后**再进 Step 2。
 
-如果用于正式演讲,页面计划不能只有“这一页放什么”,还要同时规划“台上说什么”。先读 `references/presenter-mode.md`,给每页确定稳定的 `data-slide-id`,并补齐:
+如果用于正式演讲,页面计划不能只有“这一页放什么”,还要同时规划“台上说什么”。在项目大纲中给每页确定稳定的页面 ID，并补齐下表；这是独立讲述计划，不代表模板实现了演讲者运行时:
 
 | 页码 | 页面 ID | 章节 | 页面目的 | 观众可见信息 | 演讲者补充 | 建议时长 | 转场 | 可选现场信息 |
 |---|---|---|---|---|---|---:|---|---|
@@ -158,7 +132,7 @@ git -C "<SKILL_ROOT>" pull --ff-only
 - **内容要求**:是否必须保留全部文字、品牌、数据?是否有敏感信息要遮挡?
 - **视觉处理**:是否需要主题背景、留边、居中/角落对齐、拆成长截图面板?
 
-默认策略:先让内容适配模板,再处理图片比例。截图需要保真时,先读 `references/screenshot-framing.md`,优先使用 `assets/screenshot-backgrounds/` 的内置背景资产做程序化 CleanShot X 式背景画布适配;只有原截图太乱、太长、太窄或需要概念化表达时,才用 GPT-M 2.0 做截图再设计。
+默认策略:先让内容适配模板,再处理图片比例。截图需要保真时，以已有主题色作背景，程序化缩放、留边和对齐，保留关键文字与数据；截图构图参考和内置截图背景未附带。重画仅适用于用户已授权的概念化再设计，不能把重画结果当作原始证据。
 
 #### Codex 配图生成(可选)
 
@@ -172,36 +146,30 @@ git -C "<SKILL_ROOT>" pull --ff-only
 
 如果用户提供的是截图,先判断是**截图美化**还是**截图再设计**:
 
-- 截图美化:读 `references/screenshot-framing.md`,用内置主题背景 + 程序化缩放/留边/对齐处理,尽量不重画截图内容
+- 截图美化:用已有主题色 + 程序化缩放/留边/对齐处理，尽量不重画截图内容；本快照无内置截图背景
 - 截图再设计:读 `references/image-prompts.md`,按当前版式槽位生成目标比例图片,并保持语言、主题色和边距一致
 
 生成配图时遵守:
 
 - 提示词保持简短,只框定主题、用途、风格和比例,不要写长篇摄影指导
-- 图片风格必须贴合当前 deck 风格:风格 A 用"电子杂志 × 电子墨水";风格 B 用"瑞士国际主义 / Swiss Style"
+- 图片风格必须贴合当前风格 A deck：使用"电子杂志 × 电子墨水"
 - 信息图、图表、截图再设计里的文字语言必须跟随用户正在使用的语言;中文 deck 用中文,英文 deck 用英文
 - 先看 `references/image-prompts.md` 选择图片类型和基础提示词
-- 如果处理用户原始截图,先看 `references/screenshot-framing.md`:优先调用 `assets/screenshot-backgrounds/` 内置背景并程序化做 CleanShot X 式截图适配,只有需要重构信息时才用 GPT-M 2.0 重画
+- 用户原始截图优先程序化缩放/留边适配；只有获准重构信息时才通过可用图像工具重画，并标记为再设计
 - 配图比例必须匹配最终落位:主视觉 16:9,左文右图 16:10 / 4:3,信息图 16:9 / 16:10,截图再设计 16:10,图文混排小图 3:2 / 3:4,网格图统一高度裁切
 - 生成后的图片放到 `images/` 下,命名遵守 `{页号}-{语义}.{ext}`
 
 ### Step 2 · 拷贝模板
 
-**根据 Step 1 选定的风格,拷贝对应的模板**到目标位置（通常是 `项目/XXX/ppt/index.html`），同时在同级建一个 `images/` 文件夹准备接图片。
+**拷贝附带的风格 A 模板**到目标位置（通常是 `项目/XXX/ppt/index.html`），同级创建 `images/` 目录。
 
 ```bash
-mkdir -p "项目/XXX/ppt/images"
-
-# 风格 A · 电子杂志风
+mkdir -p "项目/XXX/ppt/images" "项目/XXX/ppt/assets"
 cp "<SKILL_ROOT>/assets/template.html" "项目/XXX/ppt/index.html"
-
-# 或 风格 B · 瑞士国际主义风
-cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
+cp "<SKILL_ROOT>/assets/motion.min.js" "项目/XXX/ppt/assets/motion.min.js"
 ```
 
-两个 `template*.html` 都是**完整可运行**的文件——CSS、WebGL shader、翻页 JS、演讲者模式、观众屏同步、字体/图标 CDN 全已预设好,只有 `<!-- SLIDES_HERE -->` 占位符和 `SPEAKER_NOTES` 等待你填充。
-
-**注意**:风格 A 和 B **不能混用**。layouts.md 里的类（如 `.h-hero` 衬线大标题、`.display-zh` 等）只在 template.html 有定义；layouts-swiss.md 里的类（如 `.kpi-hero`、`.accent-block`、`.span-N`、`.dots` 等）只在 template-swiss.html 有定义。一份 deck 只能选一套。
+附带模板包含 CSS、WebGL shader、翻页 JS 和字体/图标 CDN 引用；填入 `<!-- SLIDES_HERE -->`，替换占位内容。外部资源可用性与本地模块加载仍需按目标浏览器验证，不承诺离线完整运行。使用 `references/layouts.md` 中与模板实际类名一致的风格 A 布局。
 
 #### 2.1 · 必改占位符（**容易漏**）
 
@@ -238,9 +206,9 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 
 ### Step 3 · 填充内容
 
-#### 3.P · 同步生成演讲备注（正式演讲必做）
+#### 3.P · 生成独立演讲备注（正式演讲需要时）
 
-先读 `references/presenter-mode.md`。每个 `<section class="slide ...">` 必须写唯一且稳定的 `data-slide-id`,再按同样顺序生成一条 `SPEAKER_NOTES` 记录。备注按页面 ID 存储,不要用数组下标或页码作为持久化键,否则页面重排后用户在演讲者视图里改过的备注会串页。
+为每页确定唯一且稳定的页面 ID，在项目大纲或独立备注文件中按 ID 关联讲述内容。当前模板未附带完整演讲者运行时，不要求填入无消费者的 `SPEAKER_NOTES`，也不声称支持演讲者视图内编辑和保存。
 
 内容分工:
 
@@ -258,34 +226,18 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 
 **这是所有生成问题的源头**。layouts 骨架使用了很多类名,如果模板的 `<style>` 里没有对应定义,浏览器会 fallback 到默认样式——大标题字体错、卡片挤成一团、pipeline 糊成一行、图片堆到页面底部。
 
-**两种风格类名互不通用**(再次强调):
-- 风格 A 模板里有 `h-hero`(衬线)、`stat-card`、`grid-2-7-5`、`frame` 等
-- 风格 B 模板里有 `h-hero`(无衬线)、`kpi-hero`、`accent-block`、`span-N`、`dots`、`grid-12` 等
-- 同名 class 在两个模板里**视觉表现完全不同**(例:风格 A 的 `h-hero` 是 Noto Serif SC 衬线,风格 B 的 `h-hero` 是 Inter 无衬线)
+**风格 A 类名以附带模板为准**；不要复制未附带的 Swiss 布局类。
 
 **在写任何 slide 代码之前:**
 
 1. **先 Read 当前用的模板**(至少读到 `<style>` 块末尾):
    - 风格 A → `assets/template.html`
-   - 风格 B → `assets/template-swiss.html`
 2. **对照对应 layouts 文件的 Pre-flight 列表**,确认你要用的每个类都在 `<style>` 里存在
 3. 如果某个类缺失:**在模板的 `<style>` 里补上**,不要在每个 slide 里 inline 重写
 4. **模板是唯一的类名来源**——不要发明新类名,如需自定义用 `style="..."` inline
 
 **风格 A 常见容易遗漏的类**:
 `h-hero` / `h-xl` / `h-sub` / `h-md` / `lead` / `kicker` / `meta-row` / `stat-card` / `stat-label` / `stat-nb` / `stat-unit` / `stat-note` / `pipeline-section` / `pipeline-label` / `pipeline` / `step` / `step-nb` / `step-title` / `step-desc` / `grid-2-7-5` / `grid-2-6-6` / `grid-2-8-4` / `grid-3-3` / `grid-6` / `grid-3` / `grid-4` / `frame` / `frame-img` / `img-cap` / `callout` / `callout-src` / `chrome` / `foot`
-
-**风格 B 常见容易遗漏的类**(2026-05 重构后):
-- 画布:`canvas-card` / `chrome-min`
-- 排版:`h-hero`(无衬线 7.4vw weight 200) / `h-statement`(9.6vw) / `h-xl` / `h-md` / `t-cat`(SemiBold 600 小标) / `t-meta`(mono uppercase) / `lead` / `num-mega` / `mono`
-- 卡片(四类互斥):`card-ink` / `card-accent` / `card-fill` / `card-outlined`
-- 网格:`grid-12` / `grid-2-9` / `grid-2-9-5` / `span-N`
-- 时间线:`timeline-v` + `tl-node` + `tl-axis` + `dot` / `timeline-h` + `tl-h-node` + `tl-h-axis`
-- 图表:`kpi-tower-row` + `bar-tower` / `h-bar-chart` + `bar-row` + `bar-fill` / `spec-bars` + `bar-vert`
-- 装饰:`dot-mat`(SVG mask 实心点)/ `ring-mat`(描边圆)/ `cross-mat`(× 网格)/ `hr-hairline`
-- 版式专属:`cover-split` / `closing-split` / `duo-compare` + `vrule` / `manifesto-top` + `ink-banner-full` / `three-forces` / `loop-diagram` / `matrix-fill` + `matrix-cell` / `brief-grid` + `brief-card` / `system-diagram` / `why-now-grid` / `four-cards` / `stacked-ledger` + `ledger-row` / `tech-spec` / `image-hero` + `hero-img-wrap` + `hero-overlay-block` + `hero-stats`
-- 图片混排:`frame-img` / `fit-contain` / `r-21x9` / `r-16x9` / `r-16x10` / `h-22` / `h-26` / `swiss-img-split` / `swiss-img-grid` / `swiss-img-caption` / `swiss-keyline` / `swiss-lined`
-- spacing token:`--sp-3`...`--sp-13`(8/12/16/24/32/40/48/64/80/96/160 px)
 
 #### 3.0.5 · 规划主题节奏（**和类预检同等重要**)
 
@@ -313,15 +265,15 @@ Read [the detailed procedure and examples](EXTENDED.md#section-5) when working o
 
 先判断图片在这一页里的角色,再决定容器、比例和裁切方式:
 
-- **证据截图 / UI / 代码 / dashboard**:保真优先,先读 `references/screenshot-framing.md`;关键文字和数据不能被裁掉。需要统一比例时,优先程序化背景画布 + `.fit-contain`,不要为了铺满而裁掉 UI 内容。
-- **已按槽位重生成的信息图 / 插图**:按目标槽位铺满,例如 S22 用 `21:9`,S15/S16 用统一 `21:9` 或 `16:10`;不要再用短高度把图缩小成小贴片。
+- **证据截图 / UI / 代码 / dashboard**:保真优先；关键文字和数据不能被裁掉。需要统一比例时,优先程序化背景画布 + `.fit-contain`,不要为了铺满而裁掉 UI 内容。
+- **已按槽位重生成的信息图 / 插图**:按目标槽位铺满,使用附带布局支持的目标比例；不要再用短高度把图缩小成小贴片。
 - **照片 / 产品图 / 人物图**:使用标准比例 + 明确 `object-position`;主体、人脸、产品和关键证据不能被标题、caption 或裁切压住。
 - **文字压图 / 全屏主视觉**:先做 quiet-zone 判断,图里至少要有约 30% 低细节区域承载文字;不通过就换图、换裁切或改成图文分栏。只在必要时加局部 tint,不要整页套黑色/白色遮罩。
 - **多图组**:同一组统一比例、高度、容器处理和 caption 密度;不要一张 `contain`,另一张 `cover`。
 - **生成图是素材,不是整页 slide**:图片内部不要自带页眉、页脚、页码、logo、主标题、装饰边框或署名,避免和 deck chrome 重复。
-- **图文呼吸**:标题、图片、caption、正文必须各自留出间距;生成后用 validator 的 `M1/M2` 检查可见边界、底部空白、nav 安全线和标题间距。
+- **图文呼吸**:标题、图片、caption、正文必须各自留出间距;生成后在浏览器逐页检查可见边界、底部空白、nav 安全线和标题间距；本快照无相关 validator。
 
-#### 3.2.1 · 中文大标题字号分档(风格 B 必做)
+#### 3.2.1 · 中文长标题的排版参考
 
 中文方块字视觉面积大,不能直接套英文 hero 的 6.8-7vw。写中文大标题前先分档:
 
@@ -334,38 +286,18 @@ Read [the detailed procedure and examples](EXTENDED.md#section-5) when working o
 
 如果标题挤占了图片或正文区域,先压缩标题文案,再降字号;不要靠把下方内容推到底来硬塞。
 
-#### 3.2.2 · 瑞士风演示最小字号与字重阶梯(风格 B 必做)
-
-Read [the detailed procedure and examples](EXTENDED.md#section-3) when working on this part of the task.
-
 ### Step 4 · 对照检查清单自检
 
 生成完一定要打开 `references/checklist.md`，逐项对照。里面总结了**真实迭代过程中踩过的所有坑**，P0 级别的问题（emoji、图片撑破、标题换行、字体分工）必须全部通过。
 
-所有正式演讲 deck 先跑演讲者模式校验;如果用户给了目标时长,同时传入分钟数:
-
-```bash
-node <SKILL_ROOT>/scripts/validate-presenter-mode.mjs path/to/index.html
-node <SKILL_ROOT>/scripts/validate-presenter-mode.mjs path/to/index.html --target-minutes 30
-node <SKILL_ROOT>/scripts/check-presenter-runtime-sync.mjs
-```
-
-第一个脚本会拦截缺失/重复页面 ID、备注与页面错位、必填字段或可选字段类型错误、完整时间计划超出 90% 预算,以及计时、排练、自动翻页、标注、演前检查和观众屏恢复控件缺失。第二个脚本会拦截两套模板之间的演讲者 CSS / JS 漂移。
-
 #### 4.0.1 · 先量后改:超出 / 空白 / 标题间距
 
-当一页内容超出或显得巨空时,不要先凭感觉大幅删改。先运行:
+演讲者模式校验、模板运行时同步检查和 Swiss deck validator 均未附带；不要运行不存在的脚本或虚报通过。使用真实浏览器检查并记录：
 
-```bash
-node <SKILL_ROOT>/scripts/validate-swiss-deck.mjs path/to/index.html
-```
-
-看校验输出里的测量项:
-
-- `M1 DOM/visual overflow`:具体超出多少 px,以及最低/最高问题元素
-- `M1 bottom whitespace`:底部空白多少 px,active content height 占比多少
-- `M1 nav-safe`:最低内容是否进入底部分页安全线
-- `M2 title gap`:标题和下一块内容之间的实际距离
+- 内容是否超出画布；标出最低/最高问题元素。
+- 底部空白和有效内容高度是否合适。
+- 最低内容是否进入底部分页安全线。
+- 标题和下一块内容之间的实际间距。
 
 修正阶梯:
 
@@ -374,7 +306,7 @@ node <SKILL_ROOT>/scripts/validate-swiss-deck.mjs path/to/index.html
 - `90-160px` over:轻微压标题或压缩一段正文,必要时拆页。
 - `160px+` over:才考虑换版式、合并模块或删内容。
 
-修完再跑一次 validator。如果 `M1 bottom whitespace` 变大,说明修过头了;恢复部分间距、放大最后一块或把内容组向下回调。
+修完后重新查看受影响页面并对照截图。如果底部空白变大且画面失衡，恢复部分间距、放大最后一块或把内容组向下回调。
 
 #### 4.0 · 不只看代码:必须打开网页做视觉核对
 
@@ -397,10 +329,6 @@ node <SKILL_ROOT>/scripts/validate-swiss-deck.mjs path/to/index.html
 6. **用 Lucide,不用 emoji**
 7. **标题用衬线,正文用非衬线,元数据用等宽**
 
-#### 风格 B · 瑞士国际主义必查
-
-Read [the detailed procedure and examples](EXTENDED.md#section-4) when working on this part of the task.
-
 ### Step 5 · 本地预览
 
 直接在浏览器打开 `index.html` 就行。macOS 下：
@@ -411,7 +339,7 @@ open "项目/XXX/ppt/index.html"
 
 不需要本地服务器。图片走相对路径 `images/xxx.png`。
 
-预览时不能只看普通页面。按 `P` 进入演讲者模式,允许浏览器打开观众窗口,至少实测一次:前后翻页、内嵌宫格选页并返回预览、首页/尾页、尾页重新开始、计时开始/暂停/重置、排练记录、自动翻页暂停/恢复、激光笔、圈选、黑白屏、冻结、设置组件、演前检查、备注保存、关闭观众窗口后的状态变化,以及“重新打开观众屏”能否恢复到当前页。
+预览时逐页实测左右键、滚轮、触屏和 ESC 总览，并检查图片、中文字体、动效稳定后的排版及边界。当前快照不验收未附带的演讲者视图和观众屏同步；浏览器不可用时明确记录视觉检查未运行。
 
 ### Step 6 · 迭代
 
@@ -421,7 +349,7 @@ open "项目/XXX/ppt/index.html"
 
 ## 资源文件导览
 
-Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
+附带 `assets/template.html`、`assets/motion.min.js`；按需读取 `references/themes.md`、`layouts.md`、`components.md`、`checklist.md` 和 `image-prompts.md`。`EXTENDED.md` 保留上游更多设计说明，其中涉及未附带 Swiss/演讲者资产的步骤不适用于当前快照。
 
 ## 核心设计原则（哲学）
 
@@ -436,7 +364,7 @@ Read [the detailed procedure and examples](EXTENDED.md#section-2) when working o
 5. **节奏靠 hero 页** — hero 和 non-hero 交替，才不累眼睛
 6. **术语统一** — Skills 就是 Skills，不要中英混合翻译
 
-### 风格 B · 瑞士国际主义风
+### 风格 B · 瑞士国际主义风（仅设计参考，模板未附带）
 
 > 违反其中任何一条，画面瞬间从瑞士掉到 PowerPoint。
 
@@ -450,7 +378,7 @@ Read [the detailed procedure and examples](EXTENDED.md#section-2) when working o
 
 ## 参考作品
 
-本 skill 的两种风格分别参考了：
+杂志风及保留的 Swiss 设计参考分别借鉴：
 
 **风格 A · 电子杂志风**:
 - 歸藏 "一人公司：被 AI 折叠的组织" 分享（2026-04-22，27 页）

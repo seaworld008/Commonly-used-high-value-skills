@@ -62,6 +62,9 @@ def validate(root: Path, manifest: Path, chunks_dir: Path, count: int) -> list[s
             lines = len(read_regular(source).decode('utf-8', errors='replace').splitlines())
             if coverage[name] != lines:
                 failures.append(f'coverage length mismatch: {name}')
+        elif coverage[name] == 0:
+            # Positive media coverage is an attestation, not proof of full reading or understanding.
+            failures.append(f'non-text coverage must be positive: {name}')
     return failures
 
 

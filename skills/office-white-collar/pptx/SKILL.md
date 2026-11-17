@@ -2,19 +2,24 @@
 name: pptx
 description: 'Create, read, edit, or combine PowerPoint (.pptx) decks, including layouts, notes, comments, and templates. Use when PowerPoint is an input or deliverable.'
 zh_description: "用于创建、编辑和美化 PowerPoint 演示文稿。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Proprietary. LICENSE.txt has complete terms
 tags: '["pptx"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
 
 # PPTX Skill
+
+## LibreOffice Runtime Boundary
+
+Check LibreOffice availability and host permissions before conversion or rendering. The bundled Office helper does not compile or inject a socket shim. If AF_UNIX sockets are restricted, it returns a diagnostic and rendering remains unverified; use a host-permitted conversion path.
+
 
 ## Quick Reference
 
@@ -164,9 +169,9 @@ Choose colors that match your topic — don't default to generic blue. Use these
 
 ## QA (Required)
 
-**Assume there are problems. Your job is to find them.**
+**Inspect every rendered slide against the content and visual checklists.**
 
-Your first render is almost never correct. Approach QA as a bug hunt, not a confirmation step. If you found zero issues on first inspection, you weren't looking hard enough.
+Record actual findings and the inspected scope. A documented inspection with no issues is a valid outcome; do not invent changes to satisfy a cycle count.
 
 ### Content QA
 
@@ -186,12 +191,12 @@ If grep returns results, fix them before declaring success.
 
 ### Visual QA
 
-**⚠️ USE SUBAGENTS** — even for 2-3 slides. You've been staring at the code and will see what you expect, not what's there. Subagents have fresh eyes.
+Use an independent reviewer when available, authorized and proportionate to the deck. Otherwise perform the same checklist review in the current context.
 
 Convert slides to images (see [Converting to Images](#converting-to-images)), then use this prompt:
 
 ```
-Visually inspect these slides. Assume there are issues — find them.
+Visually inspect every supplied slide against the checklist; report actual issues and note slides with no issues found.
 
 Look for:
 - Overlapping elements (text through shapes, lines through words, stacked elements)
@@ -207,7 +212,7 @@ Look for:
 - Text boxes too narrow causing excessive wrapping
 - Leftover placeholder content
 
-For each slide, list issues or areas of concern, even if minor.
+For each slide, list actual issues or record no issues found; mark uninspected slides as unverified.
 
 Read and analyze these images:
 1. /path/to/slide-01.jpg (Expected: [brief description])
@@ -219,12 +224,12 @@ Report ALL issues found, including minor ones.
 ### Verification Loop
 
 1. Generate slides → Convert to images → Inspect
-2. **List issues found** (if none found, look again more critically)
-3. Fix issues
+2. **List actual issues found**, or document an inspection with no issues
+3. Fix actual issues, if any
 4. **Re-verify affected slides** — one fix often creates another problem
 5. Repeat until a full pass reveals no new issues
 
-**Do not declare success until you've completed at least one fix-and-verify cycle.**
+Complete the inspection and recheck any fixes. If inspection finds no issues, no artificial fix-and-verify cycle is required. If rendering is blocked, report visual QA as unverified.
 
 ---
 
@@ -252,5 +257,5 @@ pdftoppm -jpeg -r 150 -f N -l N output.pdf slide-fixed
 - `pip install "markitdown[pptx]"` - text extraction
 - `pip install Pillow` - thumbnail grids
 - `npm install -g pptxgenjs` - creating from scratch
-- LibreOffice (`soffice`) - PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
+- LibreOffice (`soffice`) - PDF conversion (subject to the LibreOffice Runtime Boundary above; restricted-socket environments may block the bundled helper)
 - Poppler (`pdftoppm`) - PDF to images

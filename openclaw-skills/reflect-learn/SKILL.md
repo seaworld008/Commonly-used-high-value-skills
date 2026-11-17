@@ -2,13 +2,13 @@
 name: reflect-learn
 description: Review user corrections or session outcomes to propose durable workflow improvements. Persist memory or edit agent guidance only when requested.
 zh_description: "分析用户纠正和任务结果，提出可复用的改进建议。"
-version: "2.0.3"
+version: "2.0.4"
 author: Claude Code Toolkit
 source: "in-house"
 source_url: ""
 tags: '["learn", "planning", "reflect", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 allowed-tools:
@@ -44,17 +44,17 @@ authorization for that specific destination; a detected signal grants none.
 
 **"Correct once, never again."**
 
-When users correct behavior, those corrections become permanent improvements encoded into the agent system - across all future sessions.
+A correction can inform a durable improvement. Return a proposal by default and apply it to a specific destination when the task authorizes that update.
 
 ## Workflow
 
-### Step 1: Initialize State
+### Step 1: Select the destination
 
-Check and initialize state files using the state manager:
+For analysis alone, proceed to signal detection. Initialize state only when state storage at the selected destination is authorized.
 
 ```bash
-# Check for existing state
-python scripts/state_manager.py init
+# Set REFLECT_STATE_DIR to the authorized state directory first.
+REFLECT_STATE_DIR="${REFLECT_STATE_DIR:?set the approved state directory}" python scripts/state_manager.py init
 
 # State directory is configurable via REFLECT_STATE_DIR env var
 # Default: ~/.reflect/ (portable) or ~/.claude/session/ (Claude Code)
@@ -176,7 +176,7 @@ Produce output in this format:
 - [x] No conflicts with existing rules detected
 - OR: Warning - potential conflict with [file:line]
 
-## Commit Message
+## Commit Message (when a commit was requested)
 
 ```
 reflect: add learnings from session [date]
@@ -193,7 +193,7 @@ Extracted: [N] signals ([H] high, [M] medium, [L] low confidence)
 ## Review Prompt
 
 Apply these changes?
-- `Y` - Apply all changes and commit
+- `Y` - Apply the proposed updates to the listed destinations
 - `N` - Discard all changes
 - `modify` - Adjust specific changes
 - `1,3` - Apply only changes 1 and 3
@@ -203,32 +203,23 @@ Apply these changes?
 
 ### Step 6: Handle User Response
 
-**On `Y` (approve):**
-1. Apply each change using Edit tool
-2. Run `git add` on modified files
-3. Commit with generated message
-4. Update learnings log
-5. Update metrics
+**On approval:** Apply the selected changes to the approved destinations. Stage and commit those files only when the task includes a commit. Write learning logs or metrics only when their destinations and writes are also authorized.
 
-**On `N` (reject):**
-1. Discard proposed changes
-2. Log rejection for analysis
-3. Ask if user wants to modify any signals
+**On rejection:** Discard the proposal and finish.
 
 **On `modify`:**
 1. Present each change individually
 2. Allow editing the proposed addition
 3. Reconfirm before applying
 
-**On selective (e.g., `1,3`):**
-1. Apply only specified changes
-2. Log partial acceptance
-3. Commit only applied changes
+**On selective approval:** Apply only the selected changes under the same destination and action limits.
 
-### Step 7: Update Metrics
+### Step 7: Record metrics when authorized
+
+Use the authorized state directory for the metric update, for example:
 
 ```bash
-python scripts/metrics_updater.py --accepted 3 --rejected 1 --confidence high:2,medium:1
+REFLECT_STATE_DIR="${REFLECT_STATE_DIR:?set the approved metrics directory}" python scripts/metrics_updater.py --accepted 3 --rejected 1 --confidence high:2,medium:1
 ```
 
 ## Toggle Commands
@@ -238,7 +229,7 @@ python scripts/metrics_updater.py --accepted 3 --rejected 1 --confidence high:2,
 ```bash
 /reflect on
 # Sets auto_reflect: true in state file
-# Will trigger on PreCompact hook
+# The toggle applies only to a separately configured PreCompact hook.
 ```
 
 ### Disable Auto-Reflection
@@ -262,7 +253,7 @@ python scripts/metrics_updater.py --accepted 3 --rejected 1 --confidence high:2,
 # Shows low-confidence learnings awaiting validation
 ```
 
-## Output Locations
+## Optional Output Locations
 
 **Project-level (versioned with repo):**
 - `.claude/reflections/YYYY-MM-DD_HH-MM-SS.md` - Full reflection
@@ -286,7 +277,7 @@ Some learnings belong in **auto-memory** (`~/.claude/projects/*/memory/MEMORY.md
 | Tool preference | CLAUDE.md |
 | Domain knowledge | MEMORY.md or compound-docs |
 
-When a signal is LOW confidence and project-specific, prefer writing to MEMORY.md over modifying agents.
+For a low-confidence project-specific signal, propose a memory entry for review.
 
 ## Safety Guardrails
 
@@ -296,9 +287,7 @@ When a signal is LOW confidence and project-specific, prefer writing to MEMORY.m
 - Allow selective application
 
 ### Git Versioning
-- All changes committed with descriptive messages
-- Easy rollback via `git revert`
-- Learning history preserved
+- When a commit is authorized, stage only the approved changes, include a descriptive message and identify the commit for rollback.
 
 ### Incremental Updates
 - Keep changes confined to the rules or sections covered by the requested update
@@ -312,41 +301,13 @@ When a signal is LOW confidence and project-specific, prefer writing to MEMORY.m
 
 ## Integration
 
-### With /handover
-If auto-reflection is enabled, PreCompact hook triggers reflection before handover.
+### Optional PreCompact integration
 
-### With Session Health
-At 70%+ context (Yellow status), reminders to run `/reflect` are injected.
+The bundled Claude Code hook can emit a reminder before compaction. Its auto path checks for a transcript and calls the output generator with empty signals, agent updates and skills. When the helper is available it can write a placeholder and update indexes. Full analysis still requires reviewing the conversation.
 
-### Hook Integration (Claude Code)
+Every invocation writes session and trigger metadata to `~/.claude/logs/reflect_precompact.log` before checking the toggle. Select this integration only when that logging destination is specifically authorized, including in reminder mode. If logging is declined, use manual reflection.
 
-The skill includes hook scripts for automatic integration:
-
-```bash
-# Install hook to your Claude hooks directory
-cp hooks/precompact_reflect.py ~/.claude/hooks/
-```
-
-Configure in `~/.claude/settings.json`:
-
-```json
-{
-  "hooks": {
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/precompact_reflect.py --auto"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-See [hooks/README.md](hooks/README.md) for full configuration options.
+For a requested hook installation, point the host command to the absolute path of `hooks/precompact_reflect.py` in the complete installed skill so the adjacent `scripts/` helpers remain available. Choose `--remind` for a reminder. Select `--auto` only when placeholder and index writes at their project and user destinations are also authorized.
 
 ## Portability
 
@@ -372,7 +333,7 @@ Unlike the previous agent-based approach, this skill executes directly without s
 
 ### Git Operations Optional
 
-Commits are wrapped with availability checks - if not in a git repo, changes are still saved but not committed.
+Use Git only for authorized commits in a repository.
 
 ## Troubleshooting
 

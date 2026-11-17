@@ -2,13 +2,13 @@
 name: product-strategist
 description: 'Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design.'
 zh_description: "制定产品愿景、目标、市场分析和团队发展策略。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "product", "strategist"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -46,7 +46,7 @@ python scripts/okr_cascade_generator.py retention --teams "Engineering,Design,Da
 # Revenue strategy with 40% product contribution
 python scripts/okr_cascade_generator.py revenue --contribution 0.4
 
-# Export as JSON for integration
+# Export a draft for per-KR review
 python scripts/okr_cascade_generator.py growth --json > okrs.json
 ```
 
@@ -133,16 +133,16 @@ Before finalizing:
 
 - [ ] Review generated objectives with stakeholders
 - [ ] Adjust team assignments based on capacity
-- [ ] Validate contribution percentages are realistic
+- [ ] Verify each KR's unit, baseline, target, direction and owner. Allocate contributions only for additive increments.
 - [ ] Ensure no conflicting objectives across teams
 - [ ] Set up tracking cadence (bi-weekly check-ins)
 
 ### Step 7: Export and Track
 
-Export OKRs for your tracking system:
+Export a draft, reconcile its metrics with the reviewed targets, and import the reviewed copy into your tracking system:
 
 ```bash
-# JSON for tools like Lattice, Ally, Workboard
+# Draft JSON for review before import
 python scripts/okr_cascade_generator.py growth --json > q1_okrs.json
 ```
 
@@ -193,97 +193,23 @@ python scripts/okr_cascade_generator.py innovation \
 
 ### Input/Output Examples
 
-#### Example 1: Growth Strategy (Dashboard Output)
+#### Example 1: Review a growth cascade
 
-**Command:**
 ```bash
 python scripts/okr_cascade_generator.py growth
 ```
 
-**Output:**
-```
-============================================================
-OKR CASCADE DASHBOARD
-Quarter: Q1 2025
-Strategy: GROWTH
-Teams: Growth, Platform, Mobile, Data
-Product Contribution: 30%
-============================================================
+Use the generated IDs and parent links to draft the hierarchy. The script reuses one metric across company KRs and scales the end target for product KRs. Review each number before using the draft for planning.
 
-🏢 COMPANY OKRS
+The following review uses the example growth data in `references/examples/sample_growth_okrs.json`:
 
-📌 CO-1: Accelerate user acquisition and market expansion
-   └─ CO-1-KR1: Increase MAU from 100000 to 150000
-   └─ CO-1-KR2: Achieve 150000% MoM growth rate
-   └─ CO-1-KR3: Expand to 150000 new markets
+| Company KR | Unit | Baseline | Target | Direction |
+|---|---|---:|---:|---|
+| Monthly active users | users | 100,000 | 150,000 | increase |
+| Month-over-month growth | % per month | 8 | 15 | increase |
+| Expansion into new markets | markets | 0 | 3 | increase |
 
-📌 CO-2: Achieve product-market fit in new segments
-   └─ CO-2-KR1: Reduce CAC by 150000%
-   └─ CO-2-KR2: Improve activation rate to 150000%
-   └─ CO-2-KR3: Increase MAU from 100000 to 150000
-
-📌 CO-3: Build sustainable growth engine
-   └─ CO-3-KR1: Achieve 150000% MoM growth rate
-   └─ CO-3-KR2: Expand to 150000 new markets
-   └─ CO-3-KR3: Reduce CAC by 150000%
-
-🚀 PRODUCT OKRS
-
-📌 PO-1: Build viral product features and market expansion
-   ↳ Supports: CO-1
-   └─ PO-1-KR1: Increase product MAU from 100000 to 45000.0
-   └─ PO-1-KR2: Achieve 45000.0% feature adoption rate
-
-📌 PO-2: Validate product hypotheses in new segments
-   ↳ Supports: CO-2
-   └─ PO-2-KR1: Reduce product onboarding efficiency by 45000.0%
-   └─ PO-2-KR2: Improve activation rate to 45000.0%
-
-📌 PO-3: Create product-led growth loops engine
-   ↳ Supports: CO-3
-   └─ PO-3-KR1: Achieve 45000.0% feature adoption rate
-   └─ PO-3-KR2: Expand to 45000.0 new markets
-
-👥 TEAM OKRS
-
-Growth Team:
-  📌 GRO-1: Build viral product features through acquisition and activation
-     └─ GRO-1-KR1: [Growth] Increase product MAU from 100000 to 11250.0
-     └─ GRO-1-KR2: [Growth] Achieve 11250.0% feature adoption rate
-
-Platform Team:
-  📌 PLA-1: Build viral product features through infrastructure and reliability
-     └─ PLA-1-KR1: [Platform] Increase product MAU from 100000 to 11250.0
-     └─ PLA-1-KR2: [Platform] Achieve 11250.0% feature adoption rate
-
-
-📊 ALIGNMENT MATRIX
-
-Company → Product → Teams
-----------------------------------------
-
-CO-1
-  ├─ PO-1
-    └─ GRO-1 (Growth)
-    └─ PLA-1 (Platform)
-
-CO-2
-  ├─ PO-2
-
-CO-3
-  ├─ PO-3
-
-
-🎯 ALIGNMENT SCORES
-----------------------------------------
-✓ Vertical Alignment: 100.0%
-! Horizontal Alignment: 75.0%
-✓ Coverage: 100.0%
-✓ Balance: 97.5%
-✓ Overall: 94.0%
-
-✅ Overall alignment is GOOD (≥80%)
-```
+For the 50,000 additional MAU, a 30% product contribution would be 15,000 additional users if attribution is additive and users are counted once. Link the product KR to CO-1-KR1 and assign team contributions only where their populations can be distinguished. Measure rates with their own denominators. Mark a missing baseline, target or unit as pending.
 
 #### Example 2: JSON Output
 
@@ -292,48 +218,7 @@ CO-3
 python scripts/okr_cascade_generator.py retention --json
 ```
 
-**Output (truncated):**
-```json
-{
-  "quarter": "Q1 2025",
-  "strategy": "retention",
-  "company": {
-    "level": "Company",
-    "objectives": [
-      {
-        "id": "CO-1",
-        "title": "Create lasting customer value and loyalty",
-        "owner": "CEO",
-        "key_results": [
-          {
-            "id": "CO-1-KR1",
-            "title": "Improve retention from 100000% to 150000%",
-            "current": 100000,
-            "target": 150000
-          }
-        ]
-      }
-    ]
-  },
-  "product": {
-    "level": "Product",
-    "contribution": 0.3,
-    "objectives": [...]
-  },
-  "teams": [...],
-  "alignment_scores": {
-    "vertical_alignment": 100.0,
-    "horizontal_alignment": 75.0,
-    "coverage": 100.0,
-    "balance": 97.5,
-    "overall": 94.0
-  },
-  "config": {
-    "teams": ["Growth", "Platform", "Mobile", "Data"],
-    "product_contribution": 0.3
-  }
-}
-```
+Inspect the retention JSON's `company`, `product` and `teams` entries. Follow each `contributes_to` link and compare the child's unit, baseline and direction with the parent. Replace reused growth counts with verified retention rates before reporting them.
 
 See `references/examples/sample_growth_okrs.json` for a complete example.
 
@@ -345,7 +230,7 @@ See `references/examples/sample_growth_okrs.json` for a complete example.
 |----------|-------------|
 | `references/okr_framework.md` | OKR methodology, writing guidelines, alignment scoring |
 | `references/strategy_types.md` | Detailed breakdown of all 5 strategy types with examples |
-| `references/examples/sample_growth_okrs.json` | Complete sample output for growth strategy |
+| `references/examples/sample_growth_okrs.json` | Worked growth cascade with separate targets for each KR |
 
 ---
 

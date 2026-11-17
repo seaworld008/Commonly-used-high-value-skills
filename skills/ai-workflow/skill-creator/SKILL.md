@@ -2,13 +2,13 @@
 name: skill-creator
 description: 'Create or improve agent skills, trigger descriptions, and evaluation cases; use when packaging a workflow or measuring skill behavior.'
 zh_description: "创建和改进技能内容、触发描述及行为评测。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["creator", "planning", "skill", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -74,7 +74,7 @@ Check available MCPs - if useful for research (searching docs, finding similar s
 Based on the user interview, fill in these components:
 
 - **name**: Skill identifier
-- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **description**: Name the task and its triggering context. For an internal dashboard builder, “build a dashboard to track company metrics” is a positive example. “Explain this existing chart” is a near miss.
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
 - **the rest of the skill :)**
 
@@ -176,9 +176,9 @@ This section is one continuous sequence — don't stop partway through. Do NOT u
 
 Put results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
 
-### Step 1: Spawn all runs (with-skill AND baseline) in the same turn
+### Step 1: Run paired cases (with-skill and baseline)
 
-For each test case, spawn two subagents in the same turn — one with the skill, one without. This is important: don't spawn the with-skill runs first and then come back for baselines later. Launch everything at once so it all finishes around the same time.
+Run the same prompt and inputs with the candidate and its baseline. Use independent contexts when available and authorized; the runs can proceed in parallel. If only one context is available, record that limitation when reporting comparisons.
 
 **With-skill run:**
 
@@ -392,16 +392,16 @@ Save the eval set to the workspace, then run in the background:
 python -m scripts.run_loop \
   --eval-set <path-to-trigger-eval.json> \
   --skill-path <path-to-skill> \
-  --model <model-id-powering-this-session> \
+  --model <backend-supported-claude-model-id> \
   --max-iterations 5 \
   --verbose
 ```
 
-Use the model ID from your system prompt (the one powering the current session) so the triggering test matches what the user actually experiences.
+Record the host and the model actually used by the evaluation backend. `run_loop` requires an ID supported by `claude`. Standalone `run_eval` can instead use the CLI's configured default.
 
 While it runs, periodically tail the output to give the user updates on which iteration it's on and what the scores look like.
 
-This handles the full optimization loop automatically. It splits the eval set into 60% train and 40% held-out test, evaluates the current description (running each query 3 times to get a reliable trigger rate), then calls Claude with extended thinking to propose improvements based on what failed. It re-evaluates each new description on both train and test, iterating up to 5 times. When it's done, it opens an HTML report in the browser showing the results per iteration and returns JSON with `best_description` — selected by test score rather than train score to avoid overfitting.
+By default the loop reserves 40% of the queries for version selection. It iterates on training failures, evaluates candidates and returns `best_description` based on the reserved queries (called `test` in the output). Report that score as validation. For an independent test score, freeze the chosen description and evaluate fresh queries that played no part in selection.
 
 ### How skill triggering works
 
@@ -415,15 +415,15 @@ Take `best_description` from the JSON output and update the skill's SKILL.md fro
 
 ---
 
-### Package and Present (only if `present_files` tool is available)
+### Package a requested distribution
 
-Check whether you have access to the `present_files` tool. If you don't, skip this step. If you do, package the skill and present the .skill file to the user:
+Keep the repository source manifest complete. The bundled validator accepts only `name`, `description`, `license`, `allowed-tools`, `metadata` and `compatibility` at the top level. For a target using this schema, stage a copy under the skill's name and map extension fields, including version and provenance, into the target's supported metadata. Validate and package the staged directory:
 
 ```bash
-python -m scripts.package_skill <path/to/skill-folder>
+python -m scripts.package_skill <path/to/staged-skill>
 ```
 
-After packaging, direct the user to the resulting `.skill` file path so they can install it.
+For a target accepting the repository manifest, use its matching validator and packaging method. Deliver the resulting artifact using the host's available file mechanism.
 
 ---
 
@@ -443,7 +443,7 @@ In Claude.ai, the core workflow is the same (draft → test → review → impro
 
 **Blind comparison**: Requires subagents. Skip it.
 
-**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file.
+**Packaging**: Use the target manifest and staging procedure above; share the resulting artifact if the host supports file delivery.
 
 ---
 
@@ -455,7 +455,7 @@ If you're in Cowork, the main things to know are:
 - You don't have a browser or display, so when generating the eval viewer, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Then proffer a link that the user can click to open the HTML in their browser.
 - For whatever reason, the Cowork setup seems to disincline Claude from generating the eval viewer after running the tests, so just to reiterate: whether you're in Cowork or in Claude Code, after running tests, you should always generate the eval viewer for the human to look at examples before revising the skill yourself and trying to make corrections, using `generate_review.py` (not writing your own boutique html code). Sorry in advance but I'm gonna go all caps here: GENERATE THE EVAL VIEWER *BEFORE* evaluating inputs yourself. You want to get them in front of the human ASAP!
 - Feedback works differently: since there's no running server, the viewer's "Submit All Reviews" button will download `feedback.json` as a file. You can then read it from there (you may have to request access first).
-- Packaging works — `package_skill.py` just needs Python and a filesystem.
+- For a requested package, use the target-specific validator and staged manifest described above.
 - Description optimization (`run_loop.py` / `run_eval.py`) should work in Cowork just fine since it uses `claude -p` via subprocess, not a browser, but please save it until you've fully finished making the skill and the user agrees it's in good shape.
 
 ---

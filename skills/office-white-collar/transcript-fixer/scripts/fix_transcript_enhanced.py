@@ -4,8 +4,8 @@ Enhanced transcript fixer wrapper with improved user experience.
 
 Features:
 - Custom output directory support
-- Automatic HTML diff opening in browser
-- Smart API key detection from shell config files
+- Optional HTML diff opening with --auto-open
+- API key supplied explicitly via GLM_API_KEY
 - Progress feedback
 
 CRITICAL FIX: Now uses secure API key handling (Critical-2)
@@ -17,9 +17,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-# CRITICAL FIX: Import secure secret handling
 sys.path.insert(0, str(Path(__file__).parent))
-from utils.security import validate_api_key
 
 # CRITICAL FIX: Import path validation (Critical-5)
 from utils.path_validator import PathValidator, PathValidationError, add_allowed_directory
@@ -29,62 +27,8 @@ path_validator = PathValidator()
 
 
 def find_glm_api_key():
-    """
-    Search for GLM API key in common shell config files.
-
-    Looks for keys near ANTHROPIC_BASE_URL or GLM-related configs,
-    not just by exact variable name.
-
-    Returns:
-        str or None: API key if found, None otherwise
-    """
-    shell_configs = [
-        Path.home() / ".zshrc",
-        Path.home() / ".bashrc",
-        Path.home() / ".bash_profile",
-        Path.home() / ".profile",
-    ]
-
-    for config_file in shell_configs:
-        if not config_file.exists():
-            continue
-
-        try:
-            with open(config_file, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-
-            # Look for ANTHROPIC_BASE_URL with bigmodel
-            for i, line in enumerate(lines):
-                if 'ANTHROPIC_BASE_URL' in line and 'bigmodel.cn' in line:
-                    # Check surrounding lines for API key
-                    start = max(0, i - 2)
-                    end = min(len(lines), i + 3)
-
-                    for check_line in lines[start:end]:
-                        # Look for uncommented export with token/key
-                        if check_line.strip().startswith('#'):
-                            # Check if it's a commented export with token
-                            if 'export' in check_line and ('TOKEN' in check_line or 'KEY' in check_line):
-                                parts = check_line.split('=', 1)
-                                if len(parts) == 2:
-                                    key = parts[1].strip().strip('"').strip("'")
-                                    # Never emit any portion of the credential.
-                                    if validate_api_key(key):
-                                        print(f"✓ Found API key configuration in {config_file}")
-                                        return key
-                        elif 'export' in check_line and ('TOKEN' in check_line or 'KEY' in check_line):
-                            parts = check_line.split('=', 1)
-                            if len(parts) == 2:
-                                key = parts[1].strip().strip('"').strip("'")
-                                # Never emit any portion of the credential.
-                                if validate_api_key(key):
-                                    print(f"✓ Found API key configuration in {config_file}")
-                                    return key
-        except Exception as e:
-            print(f"⚠️  Could not read {config_file}: {e}", file=sys.stderr)
-            continue
-
-    return None
+    """Read only the explicitly supplied process environment; never shell files."""
+    return os.environ.get('GLM_API_KEY')
 
 
 def open_html_in_browser(html_path):
@@ -115,7 +59,7 @@ def open_html_in_browser(html_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Enhanced transcript fixer with auto-open HTML diff",
+        description="Enhanced transcript fixer with optional HTML diff opening",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -137,8 +81,8 @@ Examples:
                        help='Domain for corrections (default: general)')
     parser.add_argument('--stage', type=int, default=3, choices=[1, 2, 3],
                        help='Processing stage: 1=dict, 2=AI, 3=both (default: 3)')
-    parser.add_argument('--auto-open', action='store_true', default=True,
-                       help='Automatically open HTML diff in browser (default: True)')
+    parser.add_argument('--auto-open', action='store_true', default=False,
+                       help='Automatically open HTML diff in browser (default: False)')
     parser.add_argument('--no-auto-open', dest='auto_open', action='store_false',
                        help='Do not open HTML diff automatically')
 
@@ -175,16 +119,10 @@ Examples:
 
     # Check/find API key if Stage 2 or 3
     if args.stage in [2, 3]:
-        api_key = os.environ.get('GLM_API_KEY')
+        api_key = find_glm_api_key()
         if not api_key:
-            print("🔍 GLM_API_KEY not set, searching shell configs...")
-            api_key = find_glm_api_key()
-            if api_key:
-                os.environ['GLM_API_KEY'] = api_key
-            else:
-                print("❌ GLM_API_KEY not found. Please set it or run with --stage 1")
-                print("   Get API key from: https://open.bigmodel.cn/")
-                sys.exit(1)
+            print("❌ GLM_API_KEY not set. Supply it explicitly or run with --stage 1")
+            sys.exit(1)
 
     # Get script directory
     script_dir = Path(__file__).parent
@@ -243,13 +181,14 @@ Examples:
             print("\n🌐 Opening HTML diff in browser...")
             open_html_in_browser(html_file)
         else:
-            print(f"\n⚠️  HTML diff not generated (may require Stage 2/3)")
+            print(f"\n⚠️  HTML diff not generated; run scripts/generate_word_diff.py explicitly")
 
     print("\n✅ Processing complete!")
     print(f"\n📄 Output files in: {output_dir}")
-    print(f"   - {input_path.stem}_stage1.md (dictionary corrections)")
-    print(f"   - {input_path.stem}_stage2.md (AI corrections - final version)")
-    print(f"   - {input_path.stem}_对比.html (visual diff)")
+    for suffix in ('_stage1.md', '_stage2.md', '_对比.html'):
+        produced = output_dir / f"{input_path.stem}{suffix}"
+        if produced.exists():
+            print(f"   - {produced.name}")
 
 
 if __name__ == '__main__':

@@ -2,14 +2,14 @@
 name: native-mcp
 description: 'Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP connections, tool registration, authentication, and reconnection diagnostics.'
 zh_description: "用于配置 Hermes Agent 内置 MCP 客户端：服务器发现、stdio/HTTP 连接、工具注册、认证和重连排查。"
-version: "1.0.2"
+version: "1.0.3"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/mcp/native-mcp/SKILL.md"
 license: MIT
 tags: '[MCP, Tools, Integrations]'
 created_at: "2026-04-13"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -34,21 +34,15 @@ For ad-hoc, one-off MCP tool calls from the terminal without configuring anythin
 
 ## Prerequisites
 
-- **mcp Python package** -- optional dependency; install with `pip install mcp`. If not installed, MCP support is silently disabled.
+- **MCP Python dependencies** -- check the active Hermes installation. For PM-managed installs, maintain its recorded environment through Hermes PM rather than installing into an unrelated Python environment.
 - **Node.js** -- required for `npx`-based MCP servers (most community servers)
 - **uv** -- required for `uvx`-based MCP servers (Python-based servers)
 
-Install the MCP SDK:
-
-```bash
-pip install mcp
-# or, if using uv:
-uv pip install mcp
-```
+If dependencies are missing, use the installed version's documented PM/installation mechanism within the authorized setup scope. Do not bypass it with direct pip installation or an unreviewed upgrade.
 
 ## Quick Start
 
-Add MCP servers to `~/.hermes/config.yaml` under the `mcp_servers` key:
+Resolve the active Hermes home from `$HERMES_HOME` (including profiles) before configuration. Under existing setup authorization, use the installed Hermes configuration/MCP operations to maintain `mcp_servers`; do not hand-edit `config.yaml`. The YAML below illustrates the settings shape, not a command to write a file.
 
 ```yaml
 mcp_servers:
@@ -57,7 +51,7 @@ mcp_servers:
     args: ["mcp-server-time"]
 ```
 
-Restart Hermes Agent. On startup it will:
+Apply the installed version's required reload or restart. On startup it will:
 1. Connect to the server
 2. Discover available tools
 3. Register them with the prefix `mcp_time_*`
@@ -69,6 +63,8 @@ You can then use the tools naturally -- just ask the agent to get the current ti
 
 Each entry under `mcp_servers` is a server name mapped to its config. There are two transport types: **stdio** (command-based) and **HTTP** (url-based).
 
+Keep credentials in the active Hermes home's `.env` or supported secret store, and use the installed version's documented secret-reference mechanism. Empty `env`/`headers` maps below omit authentication intentionally: do not replace them with literal secrets in settings or assume an unverified interpolation syntax. Authenticate only after checking the installed mechanism and allowed subprocess variables.
+
 ### Stdio Transport (command + args)
 
 ```yaml
@@ -76,8 +72,7 @@ mcp_servers:
   server_name:
     command: "npx"             # (required) executable to run
     args: ["-y", "pkg-name"]   # (optional) command arguments, default: []
-    env:                       # (optional) environment variables for the subprocess
-      SOME_API_KEY: "value"
+    env: {}                    # approved non-secret subprocess settings only
     timeout: 120               # (optional) per-tool-call timeout in seconds, default: 120
     connect_timeout: 60        # (optional) initial connection timeout in seconds, default: 60
 ```
@@ -88,8 +83,7 @@ mcp_servers:
 mcp_servers:
   server_name:
     url: "https://my-server.example.com/mcp"   # (required) server URL
-    headers:                                     # (optional) HTTP headers
-      Authorization: "Bearer sk-..."
+    headers: {}                                  # secret references configured via installed mechanism
     timeout: 180               # (optional) per-tool-call timeout in seconds, default: 120
     connect_timeout: 60        # (optional) initial connection timeout in seconds, default: 60
 ```
@@ -114,7 +108,7 @@ Note: A server config must have either `command` (stdio) or `url` (HTTP), not bo
 
 When Hermes Agent starts, `discover_mcp_tools()` is called during tool initialization:
 
-1. Reads `mcp_servers` from `~/.hermes/config.yaml`
+1. Reads `mcp_servers` from the active Hermes home's settings
 2. For each server, spawns a connection in a dedicated background event loop
 3. Initializes the MCP session and calls `list_tools()` to discover available tools
 4. Registers each tool in the Hermes tool registry
@@ -159,7 +153,7 @@ The most common transport. Hermes launches the MCP server as a subprocess and co
 mcp_servers:
   filesystem:
     command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/projects"]
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/authorized-project"]
 ```
 
 The subprocess inherits a **filtered** environment (see Security section below) plus any variables you specify in `env`.
@@ -172,8 +166,7 @@ For remote or shared MCP servers. Requires the `mcp` package to include HTTP cli
 mcp_servers:
   remote_api:
     url: "https://mcp.example.com/mcp"
-    headers:
-      Authorization: "Bearer sk-..."
+    headers: {}  # configure authentication using the installed secret-reference mechanism
 ```
 
 If HTTP support is not available in your installed `mcp` version, the server will fail with an ImportError and other servers will continue normally.
@@ -194,9 +187,7 @@ mcp_servers:
   github:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
-    env:
-      # Only this token is passed to the subprocess
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."
+    env: {}  # explicitly authorize the required token reference through installed secret configuration
 ```
 
 ### Credential Stripping in Error Messages
@@ -212,15 +203,11 @@ If an MCP tool call fails, any credential-like patterns in the error message are
 
 ### "MCP SDK not available -- skipping MCP tool discovery"
 
-The `mcp` Python package is not installed. Install it:
-
-```bash
-pip install mcp
-```
+Check whether MCP dependencies are missing in the active Hermes environment. Repair them using that installation's documented PM mechanism within setup authorization; do not install into an arbitrary Python environment.
 
 ### "No MCP servers configured"
 
-No `mcp_servers` key in `~/.hermes/config.yaml`, or it's empty. Add at least one server.
+Check `mcp_servers` in the active Hermes home's settings using the installed configuration/MCP operations. Add the requested server only within the current setup scope.
 
 ### "Failed to connect to MCP server 'X'"
 
@@ -232,11 +219,7 @@ Common causes:
 
 ### "MCP server 'X' requires HTTP transport but mcp.client.streamable_http is not available"
 
-Your `mcp` package version doesn't include HTTP client support. Upgrade:
-
-```bash
-pip install --upgrade mcp
-```
+Verify HTTP support in the active installation. For PM-managed installs, repair the recorded environment through the installed Hermes PM mechanism; do not blindly upgrade `mcp` through pip.
 
 ### Tools not appearing
 
@@ -268,11 +251,13 @@ Registers tools like `mcp_time_get_current_time`.
 mcp_servers:
   filesystem:
     command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/documents"]
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/authorized-project"]
     timeout: 30
 ```
 
 Registers tools like `mcp_filesystem_read_file`, `mcp_filesystem_write_file`, `mcp_filesystem_list_directory`.
+
+Replace `/path/to/authorized-project` with the user's explicitly allowed project directory. Do not grant a shared temporary root or a broader home directory by default.
 
 ### GitHub Server with Authentication
 
@@ -281,8 +266,7 @@ mcp_servers:
   github:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
-    env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+    env: {}  # supply an approved token reference via the installed secret mechanism
     timeout: 60
 ```
 
@@ -295,7 +279,6 @@ mcp_servers:
   company_api:
     url: "https://mcp.mycompany.com/v1/mcp"
     headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
       X-Team-Id: "engineering"
     timeout: 180
     connect_timeout: 30
@@ -311,18 +294,16 @@ mcp_servers:
 
   filesystem:
     command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"]
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/authorized-project"]
 
   github:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
-    env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+    env: {}  # supply an approved token reference via the installed secret mechanism
 
   company_api:
     url: "https://mcp.internal.company.com/mcp"
-    headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
+    headers: {}  # supply an approved authorization reference via the installed secret mechanism
     timeout: 300
 ```
 

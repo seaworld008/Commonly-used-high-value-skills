@@ -2,13 +2,13 @@
 name: database-designer
 description: 'Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.'
 zh_description: "设计和优化数据库结构、查询及迁移方案。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["database", "designer", "development"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -37,10 +37,9 @@ A comprehensive database design skill that provides expert-level analysis, optim
 - **Index Type Selection**: B-tree, hash, partial, covering, and specialized indexes
 
 ### Migration Management
-- **Zero-Downtime Migrations**: Expand-contract pattern implementation
-- **Schema Evolution**: Safe column additions, deletions, and type changes
-- **Data Migration Scripts**: Automated data transformation and validation
-- **Rollback Strategy**: Complete reversal capabilities with validation
+- **Expand-contract planning**: Draft schema changes and stage the application cutover.
+- **Data migration**: Supply write synchronization and validation for the target workload.
+- **Rollback strategy**: Review reverse SQL and rehearse data restoration for destructive changes.
 - **Execution Planning**: Ordered migration steps with dependency resolution
 
 ## Database Design Principles
@@ -282,32 +281,30 @@ CREATE TABLE relationships (
 
 ## Migration Strategies
 
-### Zero-Downtime Migration (Expand-Contract Pattern)
+### Expand-contract migration under continuing writes
 
 **Phase 1: Expand**
 ```sql
 -- Add new column without constraints
 ALTER TABLE users ADD COLUMN new_email VARCHAR(255);
 
--- Backfill data in batches
-UPDATE users SET new_email = email WHERE id BETWEEN 1 AND 1000;
--- Continue in batches...
+-- First deploy dual writes or a trigger for every writer, including old app versions.
+-- Backfill bounded primary-key batches, preserving newer synchronized values.
+UPDATE users SET new_email = email WHERE id BETWEEN 1 AND 1000 AND new_email IS NULL;
+-- Cover every key range and reconcile both columns under concurrent writes.
 
 -- Add constraints after backfill
 ALTER TABLE users ADD CONSTRAINT users_new_email_unique UNIQUE (new_email);
 ALTER TABLE users ALTER COLUMN new_email SET NOT NULL;
 ```
 
-**Phase 2: Contract**
-```sql
--- Update application to use new column
--- Deploy application changes
--- Verify new column is being used
+**Phase 2: Cut over, then contract**
 
--- Remove old column
+Switch readers to the verified new column while maintaining both copies through the rollback window. Check constraints, locks and observed mismatches before retiring old readers and writers. Rehearse restore from backup or a lossless mapping before dropping the old column.
+
+```sql
+-- After old clients are retired, remove the synchronization and old column in a coordinated release.
 ALTER TABLE users DROP COLUMN email;
--- Rename new column
-ALTER TABLE users RENAME COLUMN new_email TO email;
 ```
 
 ### Data Type Changes
@@ -458,7 +455,7 @@ def get_user(user_id):
 ### Migration Generator
 - **Input**: Current and target schemas
 - **Analysis**: Schema differences, dependency resolution, risk assessment
-- **Output**: Migration scripts, rollback plans, validation queries
+- **Output**: Draft forward/reverse SQL and checks. The generated column-change sequence copies existing values once. Its reverse `ADD COLUMN` recreates structure only. Supply synchronization, batched reconciliation and a tested data recovery plan before use.
 
 ## Best Practices
 

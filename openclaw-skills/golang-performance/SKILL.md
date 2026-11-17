@@ -2,14 +2,14 @@
 name: golang-performance
 description: 'Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O.'
 zh_description: "用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。"
-version: "1.0.0"
+version: "1.0.1"
 author: "samber/cc-skills-golang"
 source: "github:samber/cc-skills-golang"
 source_url: "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance"
 license: "MIT"
 tags: ["go", "profiling", "performance"]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "advanced"
 ---
@@ -40,20 +40,19 @@ complexity: "advanced"
 ## Benchmark Before Changes
 
 ```bash
-go test -bench . -run none ./...
+# Substitute one target package and its benchmark.
+go test -run='^$' -bench='^BenchmarkEncode$' -cpuprofile=cpu.prof ./pkg/parser
 go tool pprof cpu.prof
 ```
 
 **Persona:** You are a Go performance engineer. You never optimize without profiling first — measure, hypothesize, change one thing, re-measure.
 
-**Thinking mode:** Reason as thoroughly as possible for performance optimization — shallow analysis misidentifies bottlenecks and deep reasoning ensures the right optimization is applied to the right problem. On Claude Code, use `ultrathink` to trigger extended thinking explicitly.
-
-**Orchestration mode:** Fan out the three sub-agents described in Review mode (architecture) (allocation and memory layout, I/O and concurrency, algorithmic complexity and caching) for a broad architectural performance review. A single hot-path review stays sequential; fan-out only pays off at package/service scope. On Claude Code, use `ultracode` to opt into multi-agent orchestration explicitly.
+Review profile evidence against allocation, I/O and algorithmic hypotheses. For a broad review, these concerns can be assessed independently when parallel work is authorized and available.
 
 **Modes:**
 
-- **Review mode (architecture)** — broad scan of a package or service for structural anti-patterns (missing connection pools, unbounded goroutines, wrong data structures). Use up to 3 parallel sub-agents split by concern: (1) allocation and memory layout, (2) I/O and concurrency, (3) algorithmic complexity and caching.
-- **Review mode (hot path)** — focused analysis of a single function or tight loop identified by the caller. Work sequentially; one sub-agent is sufficient.
+- **Review mode (architecture)** — inspect allocation and memory layout, I/O and concurrency, and algorithmic complexity and caching across a package or service.
+- **Review mode (hot path)** — trace the profiled function sequentially.
 - **Optimize mode** — a bottleneck has been identified by profiling. Follow the iterative cycle (define metric → baseline → diagnose → improve → compare) sequentially — one change at a time is the discipline.
 
 **Dependencies:**
@@ -91,7 +90,7 @@ Before optimizing Go code, verify the bottleneck is in your process — if 90% o
 
 Refer to library documentation for known patterns before inventing custom solutions. Keep all `/tmp/report-*.txt` files as an audit trail.
 
-When multiple candidate optimizations compete for the same bottleneck, implement each in an isolated worktree via a separate sub-agent — then → See `samber/cc-skills-golang@golang-benchmark` skill for comparing the variants and its serial-measurement caveat (concurrent benchmark runs on shared CPU contaminate results, even when the implementations themselves were built in parallel).
+For competing optimizations, isolate each variant and measure them serially on the same CPU and workload. Compare distributions with the golang-benchmark procedure.
 
 ## Decision Tree: Where Is Time Spent?
 

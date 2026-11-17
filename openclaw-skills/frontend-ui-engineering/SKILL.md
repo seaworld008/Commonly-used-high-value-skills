@@ -2,14 +2,14 @@
 name: frontend-ui-engineering
 description: 'Build accessible, responsive interfaces and components with production UI states, project conventions, and browser validation.'
 zh_description: "实现可访问、响应式的前端界面和交互状态。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: frontend-ui-engineering
@@ -28,6 +28,10 @@ Build production-quality user interfaces that are accessible, performant, and vi
 - Implementing responsive layouts
 - Adding interactivity or state management
 - Fixing visual or UX issues
+
+## Verify With What the Project Has
+
+Run the project's own test, type-check, or lint commands. Don't install a framework, test runner, or type checker just to check your work; if the project has none, review the code against the [Verification](#verification) list and say what you could not run.
 
 ## Component Architecture
 
@@ -91,20 +95,20 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
 ```tsx
 // Container: handles data
 export function TaskListContainer() {
-  const { tasks, isLoading, error, refetch } = useTasks();
+  const { tasks, isLoading, error, refetch, toggleTask, deleteTask } = useTasks();
 
   if (isLoading) return <TaskListSkeleton />;
   if (error) return <ErrorState message="Failed to load tasks" retry={refetch} />;
   if (tasks.length === 0) return <EmptyState message="No tasks yet" />;
 
-  return <TaskList tasks={tasks} />;
+  return <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />;
 }
 
 // Presentation: handles rendering
-export function TaskList({ tasks }: { tasks: Task[] }) {
+export function TaskList({ tasks, onToggle, onDelete }: { tasks: Task[] } & Pick<TaskItemProps, 'onToggle' | 'onDelete'>) {
   return (
     <ul role="list" className="divide-y">
-      {tasks.map(task => <TaskItem key={task.id} task={task} />)}
+      {tasks.map(task => <TaskItem key={task.id} task={task} onToggle={onToggle} onDelete={onDelete} />)}
     </ul>
   );
 }
@@ -189,6 +193,8 @@ Don't skip heading levels. Don't use heading styles for non-heading content.
 
 Every component must meet these standards:
 
+For menus, dialogs, tabs, listboxes and comboboxes, follow the [WAI-ARIA APG pattern](https://www.w3.org/WAI/ARIA/apg/patterns/) exactly.
+
 ### Keyboard Navigation
 
 ```tsx
@@ -224,17 +230,30 @@ Every component must meet these standards:
 ### Focus Management
 
 ```tsx
-// Move focus when content changes
+// Native modal lifecycle; DialogProps includes isOpen and onClose.
 function Dialog({ isOpen, onClose }: DialogProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const titleId = useId();
 
   useEffect(() => {
-    if (isOpen) closeRef.current?.focus();
+    const dialog = dialogRef.current;
+    if (!dialog || !isOpen) return;
+    const trigger = document.activeElement instanceof HTMLElement
+      ? document.activeElement : null;
+    if (!dialog.open) dialog.showModal();
+    closeRef.current?.focus();
+    return () => {
+      if (dialog.open) dialog.close();
+      if (trigger?.isConnected) trigger.focus();
+    };
   }, [isOpen]);
 
-  // Trap focus inside dialog when open
+  // showModal() provides modal focus containment and makes background inert.
   return (
-    <dialog open={isOpen}>
+    <dialog ref={dialogRef} aria-labelledby={titleId}
+      onCancel={(event) => { event.preventDefault(); onClose(); }}>
+      <h2 id={titleId}>Dialog</h2>
       <button ref={closeRef} onClick={onClose}>Close</button>
       {/* dialog content */}
     </dialog>
@@ -242,11 +261,13 @@ function Dialog({ isOpen, onClose }: DialogProps) {
 }
 ```
 
+The parent must update `isOpen` in `onClose`. Import `useRef`, `useEffect`, and `useId` from React; verify Tab/Shift+Tab, Escape, and return focus in supported browsers, or use the project's tested Dialog component.
+
 ### Meaningful Empty and Error States
 
 ```tsx
 // Don't show blank screens
-function TaskList({ tasks }: { tasks: Task[] }) {
+function TaskList({ tasks, onCreateTask }: { tasks: Task[]; onCreateTask: () => void }) {
   if (tasks.length === 0) {
     return (
       <div role="status" className="text-center py-12">
@@ -284,7 +305,7 @@ Test at these breakpoints: 320px, 768px, 1024px, 1440px.
 // Skeleton loading (not spinners for content)
 function TaskListSkeleton() {
   return (
-    <div className="space-y-3" aria-busy="true" aria-label="Loading tasks">
+    <div className="space-y-3" role="status" aria-busy="true" aria-label="Loading tasks">
       {Array.from({ length: 3 }).map((_, i) => (
         <div key={i} className="h-12 bg-muted animate-pulse rounded" />
       ))}
@@ -340,7 +361,7 @@ For detailed accessibility requirements and testing tools, see `references/acces
 
 ## Verification
 
-After building UI:
+After building UI, check what you can with the project's own tooling, and review the rest against this list. Don't add dependencies or install toolchains only to verify; say which checks you couldn't run.
 
 - [ ] Component renders without console errors
 - [ ] All interactive elements are keyboard accessible (Tab through the page)

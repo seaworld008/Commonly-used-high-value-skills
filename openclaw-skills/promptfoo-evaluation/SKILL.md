@@ -2,13 +2,13 @@
 name: promptfoo-evaluation
 description: 'Configure and run Promptfoo evaluations, assertions, rubrics, and datasets when testing LLM prompts or comparing model behavior.'
 zh_description: "配置和运行 Promptfoo 提示词、模型及输出质量评测。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "evaluation", "promptfoo"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -399,10 +399,13 @@ providers:
 defaultTest:
   assert:
     - type: python
-      value: file://scripts/metrics.py:check_length
+      value: file://scripts/reduction_metrics.py:check_reduction_ratio
 ```
 
-**Python assertion for text metrics:**
+**Project-local assertion to implement before running this configuration:**
+Save the following as `scripts/reduction_metrics.py` in the evaluation project.
+It is not bundled. The bundled `scripts/metrics.py:check_length` checks absolute
+character length (`min_chars` / `max_chars`, defaults 1 / 3000), not reduction.
 
 ```python
 import re
@@ -411,7 +414,7 @@ def strip_tags(text: str) -> str:
     """Remove HTML tags for pure text."""
     return re.sub(r'<[^>]+>', '', text)
 
-def check_length(output: str, context: dict) -> dict:
+def check_reduction_ratio(output: str, context: dict) -> dict:
     """Check output length constraints."""
     raw_input = context['vars'].get('raw_input', '')
 
@@ -450,7 +453,9 @@ tiaogaoren/
 └── results/
 ```
 
-**See:** `./tiaogaoren/` (example project root) for full implementation.
+The tree above is a project structure illustration. This skill bundles
+`scripts/metrics.py` and API references; it does not include a complete
+`tiaogaoren/` project. Implement and test project-local metrics before evaluation.
 
 ## Resources
 

@@ -2,13 +2,13 @@
 name: agent-workflow-designer
 description: 'Design agent orchestration, handoffs, state, recovery, and evaluation when a workflow needs multiple coordinated agents or tools.'
 zh_description: "设计多智能体协作流程、任务交接、状态管理和故障恢复。"
-version: "1.1.2"
+version: "1.1.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "designer", "planning", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -255,7 +255,7 @@ SPECIALIST_SYSTEMS = {
 
 class HierarchicalOrchestrator:
     def __init__(self):
-        self.client = anthropic.Anthropic()
+        self.client = anthropic.Anthropic(timeout=60.0, max_retries=2)
     
     def run(self, user_request: str) -> str:
         # 1. Orchestrator creates plan
@@ -299,7 +299,17 @@ class HierarchicalOrchestrator:
         return "Previous results:\n" + "\n\n".join(deps) if deps else ""
     
     def _topological_sort(self, subtasks: list) -> list:
-        # Simple ordered execution respecting depends_on
+        # Validate model-generated plans before executing any specialist.
+        ids = [task["id"] for task in subtasks]
+        if len(set(ids)) != len(ids):
+            raise ValueError("Duplicate task IDs")
+        known = set(ids)
+        for task in subtasks:
+            if task["agent"] not in SPECIALIST_SYSTEMS:
+                raise ValueError(f"Unknown agent: {task['agent']}")
+            missing = set(task.get("depends_on", [])) - known
+            if missing:
+                raise ValueError(f"Unknown dependencies for {task['id']}: {missing}")
         ordered, remaining = [], list(subtasks)
         completed = set()
         while remaining:
@@ -309,6 +319,10 @@ class HierarchicalOrchestrator:
                     completed.add(task["id"])
                     remaining.remove(task)
                     break
+            else:
+                blocked = {t["id"]: [d for d in t.get("depends_on", []) if d not in completed]
+                           for t in remaining}
+                raise ValueError(f"Cyclic dependencies: {blocked}")
         return ordered
 ```
 

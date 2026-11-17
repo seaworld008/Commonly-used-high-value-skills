@@ -27,6 +27,7 @@ Pick the analysis shape from the failure's structure, not from habit.
 
 ## Stall Protocol
 
+If two failed attempts share the same premise, first make one observation that could falsify that premise before changing more code.
+
 - A hypothesis with no supporting evidence after 3 investigative probes → switch to the next.
-- All 3 hypotheses exhausted without progress → escalate to Multi-Engine Mode, or request
-  additional context from the reporter.
+- All 3 hypotheses exhausted without progress → re-evaluate premises and missing evidence. Use independent investigation only when supported and authorized; ask the reporter only for evidence unavailable from the current environment.

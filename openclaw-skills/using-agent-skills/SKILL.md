@@ -2,14 +2,14 @@
 name: using-agent-skills
 description: 'Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.'
 zh_description: "用于选择、加载和正确使用 Agent Skills 完成任务。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "using-agent-skills", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 upstream_slug: using-agent-skills
@@ -23,14 +23,14 @@ Agent Skills is a collection of engineering workflow skills organized by develop
 
 ## Skill Discovery
 
-When a task arrives, identify the development phase and apply the corresponding skill:
+When the next method is unclear, use this map to select the relevant phase:
 
 ```
 Task arrives
     │
     ├── Don't know what you want yet? ──────→ interview-me
     ├── Have a rough concept, need variants? → idea-refine
-    ├── New project/feature/change? ──→ spec-driven-development
+    ├── Feature boundaries unclear? ───→ spec-driven-development
     ├── Have a spec, need tasks? ──────→ planning-and-task-breakdown
     ├── Implementing code? ────────────→ incremental-implementation
     │   ├── UI work? ─────────────────→ frontend-ui-engineering
@@ -136,22 +136,16 @@ These are the subtle errors that look like productivity but create problems:
 6. Overcomplicating code and APIs
 7. Modifying code or comments orthogonal to the task
 8. Removing things you don't fully understand
-9. Building without a spec because "it's obvious"
+9. Building while material acceptance criteria remain unresolved
 10. Skipping verification because "it looks right"
 
 ## Skill Rules
 
-1. **Check for an applicable skill before starting work.** Skills encode processes that prevent common mistakes.
-
-2. **Skills are workflows, not suggestions.** Follow the steps in order. Don't skip verification steps.
-
-3. **Multiple skills can apply.** A feature implementation might involve `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `code-review-and-quality` → `code-simplification` → `shipping-and-launch` in sequence.
-
-4. **When in doubt, start with a spec.** If the task is non-trivial and there's no spec, begin with `spec-driven-development`.
+Use the method already selected for the task. When a handoff needs another skill, select the one that supplies the missing method or evidence. Enter specification work only for unresolved requirements; use the existing acceptance criteria to verify a well-defined task.
 
 ## Lifecycle Sequence
 
-For a complete feature, the typical skill sequence is:
+One possible sequence for a complete feature is:
 
 ```
 1.  interview-me                → Extract what the user actually wants

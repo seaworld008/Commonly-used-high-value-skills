@@ -179,7 +179,7 @@ class CodeQLSecurityBatchCTests(unittest.TestCase):
             self.assertEqual(0o600, stat.S_IMODE(output.stat().st_mode))
             self.assertNotIn("incident.commander@company.com", accepted.stdout)
 
-    def test_transcript_key_discovery_logs_location_without_key_fragments(self):
+    def test_transcript_key_discovery_never_reads_shell_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             home = Path(tmp)
             secret = "super-secret-api-key-1234567890"
@@ -197,13 +197,14 @@ class CodeQLSecurityBatchCTests(unittest.TestCase):
                 "import sys;"
                 f"sys.path.insert(0, {str(script_dir)!r});"
                 "import fix_transcript_enhanced as module;"
-                f"assert module.find_glm_api_key() == {secret!r}"
+                "assert not module.find_glm_api_key()"
             )
             result = subprocess.run(
                 [sys.executable, "-c", program],
                 env={
                     **os.environ,
                     "HOME": str(home),
+                    "GLM_API_KEY": "",
                     "PYTHONDONTWRITEBYTECODE": "1",
                 },
                 check=True,
@@ -212,7 +213,7 @@ class CodeQLSecurityBatchCTests(unittest.TestCase):
             )
 
             combined = result.stdout + result.stderr
-            self.assertIn(str(home / ".zshrc"), combined)
+            self.assertNotIn(str(home / ".zshrc"), combined)
             self.assertNotIn(secret, combined)
             self.assertNotIn(secret[:4], combined)
             self.assertNotIn(secret[-4:], combined)

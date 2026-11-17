@@ -53,11 +53,11 @@ Before flagging any issue, you MUST research the codebase to understand:
 - Test files (unless explicitly reviewing test security)
 - Dead code, commented code, documentation strings
 - Patterns using **constants** or **server-controlled configuration**
-- Code paths that require prior authentication to reach (note the auth requirement instead)
+- Prior authentication is an attacker precondition, not an exclusion. Review authorization, tenant isolation, low-privilege users, session boundaries and post-login injection normally; record the required role and attacker control.
 
-### Server-Controlled Values (NOT Attacker-Controlled)
+### Establish Whether Configuration Is Trusted
 
-These are configured by operators, not controlled by attackers:
+Operator-controlled configuration can be trusted only after checking who can change it and whether attacker-controlled data is appended or selected later. A trusted base URL does not automatically make an appended path safe. The table below lists starting points to verify, not blanket exclusions:
 
 | Source | Example | Why It's Safe |
 |--------|---------|---------------|

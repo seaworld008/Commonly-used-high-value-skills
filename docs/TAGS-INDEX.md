@@ -539,7 +539,7 @@
 | [doubt-driven-development](skills/ai-workflow/doubt-driven-development) | ai-workflow | ★★★★★ | Review high-risk or uncertain engineering decisions adversarially when independe |
 | [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Build accessible, responsive interfaces and components with production UI states |
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
-| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Implement changes through independently verifiable behavior increments or depend |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
 | [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Use when a task needs several specialist agents: classify it, pick the minimum a |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
@@ -658,7 +658,7 @@
 | [doubt-driven-development](skills/ai-workflow/doubt-driven-development) | ai-workflow | ★★★★★ | Review high-risk or uncertain engineering decisions adversarially when independe |
 | [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Build accessible, responsive interfaces and components with production UI states |
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
-| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Implement changes through independently verifiable behavior increments or depend |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
 | [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Use when a task needs several specialist agents: classify it, pick the minimum a |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
@@ -702,7 +702,7 @@
 | [doubt-driven-development](skills/ai-workflow/doubt-driven-development) | ai-workflow | ★★★★★ | Review high-risk or uncertain engineering decisions adversarially when independe |
 | [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Build accessible, responsive interfaces and components with production UI states |
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
-| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Implement changes through independently verifiable behavior increments or depend |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
@@ -738,7 +738,7 @@
 | [doubt-driven-development](skills/ai-workflow/doubt-driven-development) | ai-workflow | ★★★★★ | Review high-risk or uncertain engineering decisions adversarially when independe |
 | [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Build accessible, responsive interfaces and components with production UI states |
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
-| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Implement changes through independently verifiable behavior increments or depend |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
@@ -760,7 +760,7 @@
 | [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by even |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（ |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
@@ -790,7 +790,7 @@
 | [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by even |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（ |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
@@ -819,7 +819,7 @@
 | [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by even |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（ |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
@@ -847,8 +847,8 @@
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 | [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK mod |
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when a system handles personal data: PII discovery, data-flow mapping, conse |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when asked to identify personal data, map privacy data flows, evaluate conse |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Map regulatory controls, assess audit evidence and draft policies for SOC 2, PCI |
 | [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Use when assessing security ownership from git history: who owns sensitive code, |
 | [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
 | [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
@@ -857,12 +857,12 @@
 | [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when inspecting production errors in Sentry read-only: list issues and event |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Read Sentry issues and events with a scoped token to summarize production error  |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installing, trusting, or updating them: stati |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 | [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★★☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Use when checking language or framework security best practices, producing secur |
@@ -902,7 +902,7 @@
 | [levy](skills/finance-investing/levy) | finance-investing | ★★★★★ | Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides |
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | Use when the user requests diagnosis of subscription-business growth, retention, |
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
 | [earnings-call-analyzer](skills/finance-investing/earnings-call-analyzer) | finance-investing | ★★☆☆☆ | Use when summarizing earnings calls, extracting management tone changes, surfaci |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
@@ -932,7 +932,7 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Use when defining product metrics and tracking: north-star metric trees, event s |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
 
@@ -1087,7 +1087,7 @@
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
 | [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | Use when provisioning infrastructure or dev environments: Terraform or OpenTofu  |
 | [shard](skills/deployment-platforms/shard) | deployment-platforms | ★★★★★ | Designing multi-tenant architectures with tenant isolation strategies, RLS, rout |
-| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
+| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Create Vercel preview or production deployments when the user selects Vercel or  |
 
 ## designer
 
@@ -1111,7 +1111,7 @@
 |-------|----------|---------|-------------|
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Use when reviewing API designs for consistency, usability, versioning, error sem |
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Generate API tests from routes and contracts for authentication, validation, pag |
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
@@ -1171,7 +1171,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Build MCP servers that expose external APIs or services through well-scoped tool |
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
@@ -1251,7 +1251,7 @@
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## deploy
 
@@ -1262,7 +1262,7 @@
 | [cloudflare-deploy](skills/deployment-platforms/cloudflare-deploy) | deployment-platforms | ★★★★★ | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and r |
 | [netlify-deploy](skills/deployment-platforms/netlify-deploy) | deployment-platforms | ★★★★★ | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when t |
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
-| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
+| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Create Vercel preview or production deployments when the user selects Vercel or  |
 
 ## docs
 
@@ -1294,7 +1294,7 @@
 |-------|----------|---------|-------------|
 | [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Use when designing or auditing repository layout: directory structure, docs and  |
 | [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | Curating cross-agent knowledge and institutional memory: extracts patterns from  |
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Use when turning a diff, PR, or commit range into learning material: change rati |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Turn diffs, PRs, or commit ranges into audience-specific learning material expla |
 | [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a conversation, decision, or rough notes into a structured Noti |
 
 ## kubernetes
@@ -1447,9 +1447,9 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## animation
 
@@ -1617,7 +1617,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 
@@ -1647,7 +1647,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
 
@@ -1669,7 +1669,7 @@
 |-------|----------|---------|-------------|
 | [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | Optimize React and Next.js rendering, data fetching, bundles, and runtime perfor |
 | [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
-| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
+| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Create Vercel preview or production deployments when the user selects Vercel or  |
 
 ## web
 
@@ -1697,7 +1697,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 
 ## analyst
 
@@ -1903,7 +1903,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 | [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
 
 ## incident
@@ -1949,7 +1949,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Use when a user needs reproducible repository sizing, language composition, file |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | Use when the user requests diagnosis of subscription-business growth, retention, |
 
 ## minutes
 
@@ -1994,7 +1994,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 
 ## plans
 
@@ -2038,7 +2038,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 创建、读取和编辑飞书幻灯片与页面；支持飞书或 doubao.com 的 /slides/ 链接和 token。文件导入导出转 lark-drive，独立画板转  |
 
 ## prisma
@@ -2093,7 +2093,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Build a SaaS application or vertical slice from a validated brief, covering auth |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | Use when the user requests diagnosis of subscription-business growth, retention, |
 
 ## sast
 
@@ -2119,7 +2119,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 创建、读取和编辑飞书幻灯片与页面；支持飞书或 doubao.com 的 /slides/ 链接和 token。文件导入导出转 lark-drive，独立画板转  |
 
 ## strategy
@@ -2245,7 +2245,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for authorized X/Twitter REST reads and account-change confirmation pl |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 
 ## academic
@@ -2662,7 +2662,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when a system handles personal data: PII discovery, data-flow mapping, conse |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when asked to identify personal data, map privacy data flows, evaluate conse |
 
 ## cloud-storage
 
@@ -2678,7 +2678,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | Use when the user requests diagnosis of subscription-business growth, retention, |
 
 ## code analysis
 
@@ -2806,7 +2806,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Map regulatory controls, assess audit evidence and draft policies for SOC 2, PCI |
 
 ## components
 
@@ -3102,7 +3102,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 
 ## email
 
@@ -3142,7 +3142,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by even |
 
 ## execution
 
@@ -3262,7 +3262,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## frontend-ui-engineering
 
@@ -3414,7 +3414,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## hub
 
@@ -3502,7 +3502,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Implement changes through independently verifiable behavior increments or depend |
 
 ## input
 
@@ -3662,7 +3662,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## loc
 
@@ -3702,7 +3702,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 
 ## mail
 
@@ -3902,7 +3902,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 
 ## offline
 
@@ -4094,7 +4094,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## pdf
 
@@ -4110,7 +4110,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 
 ## performance-optimization
 
@@ -4174,7 +4174,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 
 ## pptx
 
@@ -4670,7 +4670,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when inspecting production errors in Sentry read-only: list issues and event |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Read Sentry issues and events with a scoped token to summarize production error  |
 
 ## setup
 
@@ -5014,7 +5014,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Use when turning a diff, PR, or commit range into learning material: change rati |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Turn diffs, PRs, or commit ranges into audience-specific learning material expla |
 
 ## tone
 
@@ -5158,7 +5158,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
 
 ## warden
 
@@ -5182,7 +5182,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
+| [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | Create browser-based HTML slide decks from supplied content using the bundled ma |
 
 ## websocket
 
@@ -5190,7 +5190,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by even |
 
 ## whiteboard
 

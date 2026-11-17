@@ -2,14 +2,14 @@
 name: lark-workflow-meeting-summary
 description: '会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。'
 zh_description: "用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。"
-version: "1.0.7"
+version: "1.0.8"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary"
 license: MIT
 tags: '[feishu, lark, lark-cli, meetings, summary]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 metadata:
@@ -29,12 +29,12 @@ metadata:
 
 ## 前置条件
 
-仅支持 **user 身份**。执行前确保已授权：
+仅支持 **user 身份**；查询、读取正文与写入各步骤显式使用 `--as user`。缺权限时沿同一身份处理，不回退 bot；已有授权可直接执行，仅在缺少所需 scope 且配置在授权范围内时使用下列登录示例：
 
 ```bash
-lark-cli auth login --domain vc        # 基础（查询+纪要）
-lark-cli auth login --domain vc,drive   # 含读取纪要文档正文、生成文档
-lark-cli auth login --domain vc,drive,minutes  # 含无 note_id 时的妙记备选路径
+lark-cli auth login --domain vc --as user # 基础（查询+纪要）
+lark-cli auth login --domain vc,drive --as user # 含读取纪要文档正文、生成文档
+lark-cli auth login --domain vc,drive,minutes --as user # 含无 note_id 时的妙记备选路径
 ```
 
 ## 工作流
@@ -52,7 +52,8 @@ lark-cli auth login --domain vc,drive,minutes  # 含无 note_id 时的妙记备�
                drive metas batch_query 纪要元数据
                    │
                    ▼
-               结构化报告
+               只要目录：结构化链接索引
+               内容回顾：docs +fetch 正文 → 按需逐字稿 → 有证据的决议/行动项报告
 ```
 
 ### Step 1: 确定时间范围
@@ -65,7 +66,7 @@ lark-cli auth login --domain vc,drive,minutes  # 含无 note_id 时的妙记备�
 
 ```bash
 # page-size 最大为 30
-lark-cli vc +search --start "<YYYY-MM-DD>" --end "<YYYY-MM-DD>" --format json --page-size 30
+lark-cli vc +search --start "<YYYY-MM-DD>" --end "<YYYY-MM-DD>" --format json --page-size 30 --as user
 ```
 
 - 时间范围拆分：搜索的时间范围最大为 1 个月。搜索更长时间范围的会议，需要拆分为多次时间范围为一个月查询。
@@ -79,10 +80,10 @@ lark-cli vc +search --start "<YYYY-MM-DD>" --end "<YYYY-MM-DD>" --format json --
 1. 查询会议关联的纪要信息
 ```bash
 # 首先获取 note_id 和 minute_token
-lark-cli vc +detail --meeting-ids "id1,id2,...,idN"
+lark-cli vc +detail --meeting-ids "id1,id2,...,idN" --as user
 
 # 然后用 note_id 获取文档 tokens（如有多个需分别获取）
-lark-cli note +detail --note-id "note_id"
+lark-cli note +detail --note-id "note_id" --as user
 ```
 - 根据上一步搜集到的 `meeting-id` 查询。
 - 单次最多查询 50 个，超过 50 个需分批调用。
@@ -100,7 +101,7 @@ lark-cli note +detail --note-id "note_id"
 
 > **逐字稿路由按 `note_display_type` 决定**（详见 [基于 note_id 查询智能纪要及关联产物](../lark-meeting/scenes/query-note-and-artifacts.md)）：
 > - `normal`：逐字稿是独立文档，链接/正文走 `verbatim_doc_token`。
-> - `unified`：逐字稿**不是独立文档**，没有可分享的逐字稿文档链接；需要逐字稿内容时用 `note +transcript --note-id <note_id>`（[lark-meeting](../lark-meeting/SKILL.md)）拉取到本地，报告中标注"unified 纪要"即可。
+> - `unified`：逐字稿**不是独立文档**，没有可分享的逐字稿文档链接；需要逐字稿内容时用 `note +transcript --note-id <note_id> --as user`（[lark-meeting](../lark-meeting/SKILL.md)）拉取到本地，报告中标注"unified 纪要"即可。
 
 2. 获取纪要文档和逐字稿文档链接
 ```bash
@@ -109,10 +110,18 @@ lark-cli schema drive.metas.batch_query
 
 # 批量获取纪要文档与逐字稿链接: 一次最多查询 10 个文档
 # 仅对 note_doc_token 与 normal 纪要的 verbatim_doc_token 查询链接
-lark-cli drive metas batch_query --data '{"request_docs": [{"doc_type": "docx", "doc_token": "<doc_token>"}], "with_url": true}'
+lark-cli drive metas batch_query --data '{"request_docs": [{"doc_type": "docx", "doc_token": "<doc_token>"}], "with_url": true}' --as user
 ```
 
-### Step 4: 整理纪要报告
+### Step 4: 读取所需正文并整理报告
+
+仅要会议目录时，列元数据和链接即可。要求回顾内容、决议或行动项时，先按 `lark-doc` 的读取参考，用上一步的 `note_doc_token` 读取正文：
+
+```bash
+lark-cli docs +fetch --doc "<note_doc_token>" --doc-format markdown --as user
+```
+
+再按需读取逐字稿：`normal` 用 `verbatim_doc_token` 走同身份的 `docs +fetch`；`unified` 用 `note +transcript --note-id <note_id> --as user`。无正文读取权限时标记“未读”，只保留已知元数据，不从标题或 URL 推断决议。每项决议和行动项关联正文/逐字稿证据，区分智能纪要总结与原始发言。
 
 根据时间跨度选择输出格式：
 
@@ -124,9 +133,9 @@ lark-cli drive metas batch_query --data '{"request_docs": [{"doc_type": "docx", 
 阅读 [`../lark-doc/SKILL.md`](../lark-doc/SKILL.md) 学习云文档技能。
 
 ```bash
-lark-cli docs +create --doc-format markdown --content $'<title>会议纪要汇总 (<start> - <end>)</title>\n<内容>'
+lark-cli docs +create --doc-format markdown --content $'<title>会议纪要汇总 (<start> - <end>)</title>\n<内容>' --as user
 # 或追加到已有文档
-lark-cli docs +update --doc "<url_or_token>" --command append --doc-format markdown --content $'<内容>'
+lark-cli docs +update --doc "<url_or_token>" --command append --doc-format markdown --content $'<内容>' --as user
 ```
 
 ## 参考

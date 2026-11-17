@@ -4,7 +4,8 @@ Script Tester - Tests Python scripts in a skill directory
 
 This script validates and tests Python scripts within a skill directory by checking
 syntax, imports, runtime execution, argparse functionality, and output formats.
-It ensures scripts meet quality standards and function correctly.
+Runtime checks execute reviewed scripts with host permissions and a timeout.
+Use an isolated host environment when required.
 
 Usage:
     python script_tester.py <skill_path> [--timeout SECONDS] [--json] [--verbose]
@@ -119,9 +120,9 @@ class TestSuite:
         }
         
         # Determine overall status
-        if self.summary["failed"] == 0 and self.summary["no_tests"] == 0:
+        if self.summary["passed"] == len(statuses):
             self.summary["overall_status"] = "PASS"
-        elif self.summary["passed"] > 0:
+        elif self.summary["passed"] or self.summary["partial"]:
             self.summary["overall_status"] = "PARTIAL"
         else:
             self.summary["overall_status"] = "FAIL"
@@ -215,20 +216,15 @@ class ScriptTester:
             # Test 4: Main guard validation
             self._test_main_guard(content, result)
             
-            # Test 5: Runtime execution tests
-            if result.tests.get("syntax_valid", {}).get("passed", False):
-                self._test_script_execution(script_path, result)
-                
-            # Test 6: Help functionality
-            if result.tests.get("syntax_valid", {}).get("passed", False):
-                self._test_help_functionality(script_path, result)
-                
-            # Test 7: Sample data processing (if available)
+            stdout = None
+            help_output = ""
+            if result.tests["syntax_valid"]["passed"]:
+                stdout = self._test_script_execution(script_path, result)
+                help_output = self._test_help_functionality(script_path, result)
+
             self._test_sample_data_processing(script_path, result)
-            
-            # Test 8: Output format validation
-            self._test_output_formats(script_path, result)
-            
+            self._test_output_formats(script_path, result, stdout, help_output)
+
         except Exception as e:
             result.add_error(f"Unexpected error during testing: {str(e)}")
             
@@ -395,15 +391,15 @@ class ScriptTester:
                 cwd=script_path.parent
             )
             
-            # Script might exit with error code if no args provided, but shouldn't crash
-            if process.returncode in (0, 1, 2):  # 0=success, 1=general error, 2=misuse
-                result.add_test("basic_execution", True, 
-                               f"Script runs without crashing (exit code: {process.returncode})")
-            else:
-                result.add_test("basic_execution", False,
-                               f"Script crashed with exit code {process.returncode}",
-                               {"stdout": process.stdout, "stderr": process.stderr})
-                               
+            if process.returncode == 0:
+                result.add_test("basic_execution", True, "No-argument invocation exited successfully")
+                return process.stdout
+
+            result.add_test("basic_execution", False,
+                            f"No-argument invocation exited with code {process.returncode}. "
+                            "Check the CLI's required arguments.",
+                            {"stdout": process.stdout, "stderr": process.stderr})
+
         except subprocess.TimeoutExpired:
             result.add_test("basic_execution", False, 
                            f"Script execution timed out after {self.timeout} seconds")
@@ -442,6 +438,7 @@ class ScriptTester:
                                    "Help text is too brief or missing key sections",
                                    {"help_output": help_output})
                     result.add_warning("Help text could be more comprehensive")
+                return help_output
                     
             else:
                 result.add_test("help_functionality", False, 
@@ -517,56 +514,35 @@ class ScriptTester:
                            "Failed to process any sample data files")
             result.add_error("Script cannot process sample data")
             
-    def _test_output_formats(self, script_path: Path, result: ScriptTestResult):
-        """Test output format compliance"""
-        self.log_verbose("Testing output formats...")
-        
-        # Test if script supports JSON output
+    def _test_output_formats(self, script_path: Path, result: ScriptTestResult,
+                             stdout: Optional[str], help_output: Optional[str]):
+        """Check observed stdout from successful invocations."""
         json_support = False
         human_readable_support = False
-        
-        try:
-            # Read script content to check for output format indicators
-            content = script_path.read_text(encoding='utf-8')
-            
-            # Look for JSON-related code
-            if any(indicator in content.lower() for indicator in ['json.dump', 'json.load', '"json"', '--json']):
+        if stdout and stdout.strip():
+            try:
+                json.loads(stdout)
                 json_support = True
-                
-            # Look for human-readable output indicators
-            if any(indicator in content for indicator in ['print(', 'format(', 'f"', "f'"]):
+            except ValueError:
                 human_readable_support = True
-                
-            # Try running with --json flag if it looks like it supports it
-            if '--json' in content:
-                try:
-                    process = subprocess.run(
-                        [sys.executable, str(script_path), '--json', '--help'],
-                        capture_output=True,
-                        text=True,
-                        timeout=10,
-                        cwd=script_path.parent
-                    )
-                    if process.returncode == 0:
-                        json_support = True
-                except:
-                    pass
-                    
-            # Evaluate dual output support
-            if json_support and human_readable_support:
-                result.add_test("output_formats", True, "Supports both JSON and human-readable output")
-            elif json_support or human_readable_support:
-                format_type = "JSON" if json_support else "human-readable"
-                result.add_test("output_formats", False,
-                               f"Supports only {format_type} output",
-                               {"json_support": json_support, "human_readable_support": human_readable_support})
-                result.add_warning("Consider adding dual output format support")
-            else:
-                result.add_test("output_formats", False, "No clear output format support detected")
-                result.add_warning("Output format support is unclear")
-                
-        except Exception as e:
-            result.add_test("output_formats", False, f"Error testing output formats: {str(e)}")
+
+        if not json_support and '--json' in (help_output or '').split():
+            try:
+                process = subprocess.run(
+                    [sys.executable, str(script_path), '--json'],
+                    capture_output=True, text=True, timeout=self.timeout, cwd=script_path.parent
+                )
+                if process.returncode == 0:
+                    json.loads(process.stdout)
+                    json_support = True
+            except (OSError, ValueError, subprocess.TimeoutExpired):
+                pass
+
+        verified = json_support and human_readable_support
+        message = ("Observed both JSON and plain-text output" if verified else
+                   "Dual output unverified. Check output with the CLI's required arguments.")
+        result.add_test("output_formats", verified, message,
+                        {"json_support": json_support, "human_readable_support": human_readable_support})
 
 
 class TestReportFormatter:
@@ -660,7 +636,8 @@ class TestReportFormatter:
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description="Test Python scripts in a skill directory",
+        description="Test reviewed Python scripts with host permissions and a timeout. "
+                    "The tester provides no OS sandbox or network isolation.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

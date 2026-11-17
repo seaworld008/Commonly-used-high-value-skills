@@ -2,14 +2,14 @@
 name: scout
 description: 'Use when investigating a bug report: reproduce it, test hypotheses one variable at a time, trace the root cause, and assess impact before any fix is written.'
 zh_description: "调查缺陷时使用：复现问题、逐一验证假设、定位根因并评估影响，在修复前完成。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scout/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "scout"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -33,8 +33,8 @@ CAPABILITIES_SUMMARY:
 - intermittent_bug_investigation: Reproducibility-score triage of flaky tests and race symptoms
 - fix_prompt_generation: Paste-ready LLM Fix Prompt per confirmed root cause
 - recommended_fix_impact_scope: 5-axis blast radius (callers/tests/types/configs/docs) with Ripple auto-flag
-- video_bug_report_investigation: Screen-recording reports — local frame extraction to Codex CLI, schema-validated JSON into the report
-- tri_engine_investigate: `multi` recipe — parallel RCA across Codex + Antigravity + Claude with Pattern H scoring, primary RCA plus preserved alternatives
+- video_bug_report_investigation: Review authorized, redacted frames using the embedded evidence template.
+- tri_engine_investigate: Compare independently developed RCA hypotheses when the host supports authorized delegation. Preserve the primary explanation and alternatives.
 
 COLLABORATION_PATTERNS:
 - Triage -> Scout: Incident reports requiring RCA
@@ -181,7 +181,7 @@ Full phase contracts live in the "Read First" references.
 | 5 Whys | `5whys` | | Iterative why-chain to systemic cause; stop at process/design, not a person | `reference/5whys-rca.md` |
 | Fishbone / Ishikawa | `fishbone` | | Categorical RCA across 6M | `reference/fishbone-6m.md` |
 | Timeline Reconstruction | `timeline` | | Second-by-second incident timeline; feeds Triage post-mortems | `reference/timeline-reconstruction.md` |
-| Video Bug Report | `video` | | Screen-recording report; frame extractor -> `codex exec --image`, schema-validated (confidence >= 0.7) | `reference/video-bug-analysis.md` |
+| Video Bug Report | `video` | | Review redacted frames with the embedded prompt and schema when authorized image analysis is available. Otherwise record visible evidence and gaps. | `reference/video-bug-analysis.md` |
 
 ### Signal Keywords → Recipe
 
@@ -192,7 +192,7 @@ Natural-language input without a subcommand; explicit subcommand wins: `bug`/err
 Parse the first token of user input:
 - If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`bug` = Focused Hunt). Apply TRIAGE guardrails (3 hypotheses) and escalate to another Recipe if evidence warrants.
-- Auto-promotion: after 3 stalled hypotheses → promote to `multi` Recipe (Multi-Engine Mode).
+- After three stalled hypotheses, revisit assumptions and discriminating evidence. Use `multi` only when authorized and supported by the host.
 - If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`. If investigation reveals a security concern, escalate to Sentinel via `SCOUT_TO_SENTINEL_HANDOFF`.
 
 ## Output Requirements
@@ -208,6 +208,14 @@ Minimum report content:
 - `Recommended Fix Impact Scope`: 5-axis blast radius (callers / tests / types / configs / docs) with file paths per axis or `none`; flag whether `ripple` is recommended before implementation
 - `Regression Prevention`: suggested tests for Radar
 
+For example, a redacted recording alone can support this observation:
+
+```text
+00:04  User selects Save.
+00:06  The form still shows the edited value, without a confirmation.
+Visible evidence: missing confirmation. The recording does not show the response or persisted state.
+Next check: compare the save response and stored value for this one action.
+```
 Mandatory when root cause is confirmed:
 - `LLM Fix Prompt`: paste-ready instruction prompt for a downstream coding LLM. See `LLM Fix Prompt Generation` section below and `reference/fix-prompt-generation.md` for verbs, schema, and suppression rules.
 
@@ -264,7 +272,7 @@ Cross-cluster escalation (LENS↔SCOUT, unified confidence scale): `_common/INVE
 | `reference/memory-investigation.md` | `memory` recipe — heap-snapshot diff, retainer paths, OOM/GC pressure. |
 | `reference/flake-investigation.md` | `flake` recipe — reproducibility rate, environment/timing classification. |
 | `reference/advanced-reproduction-triage.md` | Time-travel debugging, flaky-test strategy, `RICE`/`ICE` severity scoring. |
-| `reference/video-bug-analysis.md` | `video` recipe or `P06` inferred — frame extractor contract, Codex invocation, JSON schema, privacy rules. |
+| `reference/video-bug-analysis.md` | Video review template with an embedded prompt and schema, privacy rules and a proposed extractor. Standalone prompt, schema and extractor files are not bundled. |
 | `reference/fix-prompt-generation.md` | Authoring `## LLM Fix Prompt`, choosing the verb, or deciding suppression. |
 | `reference/tri-engine-investigate.md` | `multi` recipe — activation, fan-out, CLUSTER/Confidence/Perspective rules, GROUND, SYNTHESIZE, JSON schema, prompts, and degraded mode. |
 | `reference/handoff-formats.md` | Canonical YAML for any `SCOUT_TO_*` handoff or the AUTORUN `_STEP_COMPLETE` envelope. |
@@ -276,7 +284,7 @@ Cross-cluster escalation (LENS↔SCOUT, unified confidence scale): `_common/INVE
 
 ## Multi-Engine Mode
 
-`multi` Recipe: parallel RCA across Codex + Antigravity + Claude subagents, Pattern H Hybrid scoring (confidence CONFIRMED/LIKELY/CANDIDATE x perspective CONVERGENT/DIVERGENT). Ships a Primary RCA backed by consensus plus preserved Alternative Hypotheses, with explicit verification ordering in the Builder handoff.
+When authorized contributors are available, compare independent hypotheses using Pattern H (confidence × convergence). Record the primary RCA, alternatives and verification order. With one investigator, evaluate the alternatives directly.
 
 Full mechanics, GROUND protocol, SYNTHESIZE merge, engine-attribution tags, and degraded-mode rules: `reference/tri-engine-investigate.md`. Base protocol: `_common/SUBAGENT.md`, `_common/MULTI_ENGINE_RECIPE.md`.
 
@@ -284,8 +292,8 @@ Full mechanics, GROUND protocol, SYNTHESIZE merge, engine-attribution tags, and 
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal only recurring patterns in `.agents/scout.md`.
-- Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Scout | (action) | (files) | (outcome) |`.
+- When project logging is authorized, record recurring patterns in `.agents/scout.md`.
+- Under that convention, record the action, files and outcome in `.agents/PROJECT.md`.
 
 ## AUTORUN Support
 
@@ -301,29 +309,3 @@ Scout-specific findings to surface in handoff:
 - Confidence (HIGH | MEDIUM | LOW)
 - Root cause location (file:line or 'unconfirmed')
 - Reproduction status (reproduced | partially reproduced | not reproduced)
-
-## Local Execution Contract
-
-Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
-
-```yaml
-goal: "What measurable outcome should change?"
-scope:
-  included: []
-  excluded: []
-inputs:
-  required: []
-  optional: []
-constraints:
-  safety: []
-  compatibility: []
-deliverables: []
-validation:
-  checks: []
-  evidence: []
-risks:
-  - risk: ""
-    mitigation: ""
-```
-
-Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

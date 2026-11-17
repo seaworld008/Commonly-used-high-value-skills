@@ -42,7 +42,7 @@ detect = json.loads(Path('graphify-out/.graphify_detect.json').read_text(encodin
 # every source file (#1392). Video is transcribed to a document in Step 2.5 first.
 all_files = [f for cat in ('document', 'paper', 'image') for f in detect['files'].get(cat, [])]
 
-cached_nodes, cached_edges, cached_hyperedges, uncached = check_semantic_cache(all_files, root='INPUT_PATH', prompt_file='SPEC_PATH')
+cached_nodes, cached_edges, cached_hyperedges, uncached = check_semantic_cache(all_files, root=Path('graphify-out/.graphify_root').read_text(encoding='utf-8'), prompt_file='SPEC_PATH')
 
 # Always (re)write the cache file: write hits, else DELETE any leftover from a prior
 # run so Part C never merges a stale .graphify_cached.json (#1392).
@@ -152,7 +152,7 @@ uncached = [line for line in Path('graphify-out/.graphify_uncached.txt').read_te
 # so the next --update re-dispatches it instead of serving a truncated extraction forever
 # (#2225). Same contract the library path uses for a truncated LLM response (#933/#1950).
 partial = [line for line in Path('graphify-out/.graphify_partial.txt').read_text(encoding=\"utf-8\").splitlines() if line] if Path('graphify-out/.graphify_partial.txt').exists() else []
-saved = save_semantic_cache(new.get('nodes', []), new.get('edges', []), new.get('hyperedges', []), root='INPUT_PATH', allowed_source_files=uncached, prompt_file='SPEC_PATH', partial_source_files=partial)
+saved = save_semantic_cache(new.get('nodes', []), new.get('edges', []), new.get('hyperedges', []), root=Path('graphify-out/.graphify_root').read_text(encoding='utf-8'), allowed_source_files=uncached, prompt_file='SPEC_PATH', partial_source_files=partial)
 note = f' ({len(partial)} left partial for retry)' if partial else ''
 print(f'Cached {saved} files' + note)
 "
@@ -225,7 +225,7 @@ _corpus = detect.get('all_files') or detect['files']
 # live forever. Name those files so they stay unstamped and are retried next run (#2225).
 _pf = Path('graphify-out/.graphify_partial.txt')
 _partial = {l.strip() for l in _pf.read_text(encoding=\"utf-8\").splitlines() if l.strip()} if _pf.exists() else set()
-_manifest_files = _stamped_manifest_files(_corpus, extract, Path('INPUT_PATH'), partial_source_files=_partial)
+_manifest_files = _stamped_manifest_files(_corpus, extract, Path(Path('graphify-out/.graphify_root').read_text(encoding='utf-8')), partial_source_files=_partial)
 # Files dispatched this run (the changed subset) but NOT stamped above still carry
 # a stale semantic_hash from a prior run; clear it so detect_incremental re-queues
 # them instead of reading them as unchanged (#1948).
@@ -237,7 +237,7 @@ _cleared = _dispatched - _stamped
 # files newly excluded since last run are dropped rather than masquerading as
 # deletions; untouched files' prior rows are still preserved (#1908).
 _scan = {f for fl in _corpus.values() for f in fl}
-save_manifest(_manifest_files, root='INPUT_PATH', scan_corpus=_scan, clear_semantic=_cleared or None)
+save_manifest(_manifest_files, root=Path('graphify-out/.graphify_root').read_text(encoding='utf-8'), scan_corpus=_scan, clear_semantic=_cleared or None)
 
 # Update cumulative cost tracker
 input_tok = extract.get('input_tokens', 0)
@@ -267,7 +267,7 @@ find graphify-out -maxdepth 1 -name '.graphify_chunk_*.json' -delete 2>/dev/null
 rm -f graphify-out/.needs_update 2>/dev/null || true
 ```
 
-Replace INPUT_PATH with the actual path (same value used in Steps 4-5) so the manifest is relativized to the scan root.
+Read the persisted scan root used in Steps 4-5 so the manifest is relativized to the same root.
 
 Tell the user (omit the obsidian line unless --obsidian was given):
 ```

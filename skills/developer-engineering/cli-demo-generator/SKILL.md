@@ -2,13 +2,13 @@
 name: cli-demo-generator
 description: Create terminal recordings and animated CLI demo GIFs from command workflows or VHS tape files.
 zh_description: "把命令行操作制作成终端录屏和动态演示 GIF。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cli", "demo", "development", "generator"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -35,7 +35,7 @@ Use the `auto_generate_demo.py` script for quick, automated demo creation. This 
 
 **Basic Usage:**
 ```bash
-scripts/auto_generate_demo.py \
+python3 scripts/auto_generate_demo.py \
   -c "npm install my-package" \
   -c "npm run build" \
   -o demo.gif
@@ -43,7 +43,7 @@ scripts/auto_generate_demo.py \
 
 **With Options:**
 ```bash
-scripts/auto_generate_demo.py \
+python3 scripts/auto_generate_demo.py \
   -c "command1" \
   -c "command2" \
   -o output.gif \
@@ -93,7 +93,7 @@ demos:
 
 **Usage:**
 ```bash
-scripts/batch_generate.py config.yaml --output-dir ./demos
+python3 scripts/batch_generate.py config.yaml --output-dir ./demos
 ```
 
 **When to Use Batch Generation:**
@@ -108,7 +108,7 @@ Use `record_interactive.sh` for recording live terminal sessions.
 
 **Usage:**
 ```bash
-scripts/record_interactive.sh output.gif \
+bash scripts/record_interactive.sh output.gif \
   --theme "Dracula" \
   --width 1400
 ```
@@ -147,7 +147,7 @@ Consult `references/vhs_syntax.md` for complete VHS syntax reference.
 Use automated generation for quick results:
 
 ```bash
-scripts/auto_generate_demo.py \
+python3 scripts/auto_generate_demo.py \
   -c "echo 'Hello World'" \
   -c "ls -la" \
   -o hello-demo.gif \
@@ -159,7 +159,7 @@ scripts/auto_generate_demo.py \
 Create a batch configuration file and use batch generation:
 
 1. Create `demos-config.yaml` with all demo definitions
-2. Run: `scripts/batch_generate.py demos-config.yaml --output-dir ./output`
+2. Run: `python3 scripts/batch_generate.py demos-config.yaml --output-dir ./output`
 3. All demos generate automatically with consistent settings
 
 ### For Interactive/Complex Workflows
@@ -167,7 +167,7 @@ Create a batch configuration file and use batch generation:
 Use interactive recording to capture real behavior:
 
 ```bash
-scripts/record_interactive.sh my-workflow.gif
+bash scripts/record_interactive.sh my-workflow.gif
 # Type commands naturally
 # Ctrl+D when done
 ```
@@ -249,7 +249,7 @@ sudo apt install asciinema
 User request: "Create a demo showing npm install"
 
 ```bash
-scripts/auto_generate_demo.py \
+python3 scripts/auto_generate_demo.py \
   -c "npm install my-package" \
   -o install-demo.gif \
   --title "Package Installation"
@@ -260,7 +260,7 @@ scripts/auto_generate_demo.py \
 User request: "Create a demo showing project setup with git clone, install, and run"
 
 ```bash
-scripts/auto_generate_demo.py \
+python3 scripts/auto_generate_demo.py \
   -c "git clone https://github.com/user/repo.git" \
   -c "cd repo" \
   -c "npm install" \
@@ -292,7 +292,7 @@ demos:
 
 2. Generate all:
 ```bash
-scripts/batch_generate.py features-demos.yaml --output-dir ./demos
+python3 scripts/batch_generate.py features-demos.yaml --output-dir ./demos
 ```
 
 ### Example 4: Interactive Session
@@ -300,7 +300,7 @@ scripts/batch_generate.py features-demos.yaml --output-dir ./demos
 User request: "Record me using my CLI tool interactively"
 
 ```bash
-scripts/record_interactive.sh my-session.gif --theme "Tokyo Night"
+bash scripts/record_interactive.sh my-session.gif --theme "Tokyo Night"
 # User types commands naturally
 # Ctrl+D to finish
 ```

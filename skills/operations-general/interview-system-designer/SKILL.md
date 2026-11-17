@@ -2,13 +2,13 @@
 name: interview-system-designer
 description: 'Design hiring interviews, competency matrices, question banks, scoring rubrics, and interviewer calibration for a specified role.'
 zh_description: "设计招聘面试、能力矩阵、题库和评分标准。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["designer", "interview", "productivity", "system"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -47,7 +47,7 @@ python loop_designer.py --role "Senior Software Engineer" --level senior --team 
 python question_bank_generator.py --role "Product Manager" --level senior --competencies leadership,strategy,analytics --output questions/
 
 # Analyze interview calibration across multiple candidates and interviewers
-python hiring_calibrator.py --input interview_data.json --output calibration_report.json --analysis-type full
+python hiring_calibrator.py --input interview_data.json --output calibration_report.json --analysis-type comprehensive
 ```
 
 ---
@@ -77,7 +77,9 @@ python loop_designer.py --role "Staff Data Scientist" --level staff --team ml-pl
 python loop_designer.py --role "Engineering Manager" --level senior --competencies leadership,technical,strategy
 
 # Create loop for multiple levels
-python loop_designer.py --role "Backend Engineer" --levels junior,mid,senior --output loops/backend/
+for level in junior mid senior; do
+  python loop_designer.py --role "Backend Engineer" --level "$level" --output "loops/backend/$level/"
+done
 ```
 
 ### 2. Question Bank Generator
@@ -103,7 +105,9 @@ python question_bank_generator.py --role "Frontend Engineer" --competencies reac
 python question_bank_generator.py --role "Product Manager" --question-types behavioral,leadership --output pm_questions/
 
 # Generate questions for all levels
-python question_bank_generator.py --role "DevOps Engineer" --levels junior,mid,senior,staff
+for level in junior mid senior staff; do
+  python question_bank_generator.py --role "DevOps Engineer" --level "$level" --output "questions/devops/$level/"
+done
 ```
 
 ### 3. Hiring Calibrator

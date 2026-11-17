@@ -117,13 +117,13 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
 def test_graphify_curated_references_match_reviewed_hashes() -> None:
     expected_hashes = {
         "add-watch.md": "50a05e49cf382441afb8cbeb7fb68018c5458e7e2db35f01b61d199ba5b73772",
-        "exports.md": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
-        "extraction-spec.md": "e14c596c524ae8c41c796788af00ae9574ff7c5fe131ecbd2ca9def92a19a9cb",
+        "exports.md": "a026e8d155223b1a3ac70e0db5cf3f728a1088ac226fd33de28f82c53a878fcf",
+        "extraction-spec.md": "95dbfd11ad0d5d416f30303837b108476959c4a4a05afd3ec7cde628ffa9ecab",
         "github-and-merge.md": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",
-        "hooks.md": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
-        "query.md": "a1bbbe678ce93745a575fd4fb0aef43214b761910af71c63945c20ee7a679e6a",
+        "hooks.md": "c3141e7124be8d1f0e96ff3895220a1b6318a644c4c6a60120e4aa6b1cd92d4a",
+        "query.md": "03d7ea695923c08a695421e20b6fb9d98f55976b62dfb066eea062f9393b2db0",
         "transcribe.md": "ceda4b469c0d34361552c0902e5d3a8f34516175791bd18e3bed71d98dc31971",
-        "update.md": "5e452b84f910a12338185ad96f161f4ee1a09b1c6d8ee0c93ce1af4700a0e44f",
+        "update.md": "bd76847bfc68d44c1e6f2e8ad8fce10a1208ecb7e6134c6cbbd74634c1489294",
     }
     assert {
         path.name: _sha256(path)

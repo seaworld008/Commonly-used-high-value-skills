@@ -2,14 +2,14 @@
 name: prisma-upgrade-v7
 description: 'Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating generated-client imports, driver adapters, module format, or configuration.'
 zh_description: "用于 Prisma ORM 6 到 7 的 SQL 项目迁移、驱动适配器、客户端导入与配置升级。"
-version: "1.0.2"
+version: "1.0.3"
 author: Prisma
 source: "github:prisma/skills"
 source_url: "https://github.com/prisma/skills/blob/82b88dd82801e958706f8265c29c910e6f0ebfa4/prisma-upgrade-v7/SKILL.md"
 license: MIT
 tags: '["prisma", "database", "typescript", "transactions", "migration"]'
 created_at: "2026-09-22"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 ---
@@ -248,8 +248,8 @@ npx prisma migrate dev  # if needed
 - Ensure `prisma generate` ran successfully
 
 ### SSL certificate errors
-- Add `ssl: { rejectUnauthorized: false }` to the adapter config if you need to preserve old behavior
-- Or configure your certificates properly with `NODE_EXTRA_CA_CERTS` / OpenSSL CA settings
+- Fix the certificate chain, hostname and trusted CA first; keep certificate verification enabled. Configure the trusted CA using the selected driver's supported settings (see the CA example in `references/driver-adapters.md`).
+- Only for an explicitly selected, one-off local diagnostic may `ssl: { rejectUnauthorized: false }` be used temporarily. Do not commit or deploy it to production. Apply this restriction to the self-signed-certificate workaround in the reference too.
 
 ### Connection timeout issues
 - Driver adapters use the underlying driver's defaults, which differ from v6

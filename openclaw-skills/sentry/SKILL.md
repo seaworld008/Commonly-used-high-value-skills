@@ -1,14 +1,14 @@
 ---
 name: sentry
-description: 'Use when inspecting production errors in Sentry read-only: list issues and events, summarize error trends, and check service health with a scoped auth token.'
-zh_description: "用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。"
-version: "1.0.1"
+description: Read Sentry issues and events with a scoped token to summarize production error trends and event details.
+zh_description: "只读查询 Sentry issues 与 events，汇总线上错误趋势和事件详情。"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["security", "sentry"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,7 +17,7 @@ complexity: "intermediate"
 
 ## Quick start
 
-- If not already authenticated, ask the user to provide a valid `SENTRY_AUTH_TOKEN` (read-only scopes such as `project:read`, `event:read`) or to log in and create one before running commands.
+- Use a locally configured read-only token with the required project and event scopes.
 - Set `SENTRY_AUTH_TOKEN` as an env var.
 - Optional defaults: `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_BASE_URL`.
 - Defaults: org/project `{your-org}`/`{your-project}`, time range `24h`, environment `prod`, limit 20 (max 50).
@@ -34,22 +34,19 @@ If the token is missing, give the user these steps:
 
 Use `scripts/sentry_api.py` for deterministic API calls. It handles pagination and retries once on transient errors.
 
-## Skill path (set once)
+## Script location
 
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-export SENTRY_API="$CODEX_HOME/skills/sentry/scripts/sentry_api.py"
+# From the current installed skill directory:
+SENTRY_API="$PWD/scripts/sentry_api.py"
 ```
 
-User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills`).
+Pass global options such as `--org` and `--project` before the subcommand.
 
 ### 1) List issues (ordered by most recent)
 
 ```bash
-python3 "$SENTRY_API" \
-  list-issues \
-  --org {your-org} \
-  --project {your-project} \
+python3 "$SENTRY_API" --org {your-org} --project {your-project} list-issues \
   --environment prod \
   --time-range 24h \
   --limit 20 \
@@ -59,10 +56,7 @@ python3 "$SENTRY_API" \
 ### 2) Resolve an issue short ID to issue ID
 
 ```bash
-python3 "$SENTRY_API" \
-  list-issues \
-  --org {your-org} \
-  --project {your-project} \
+python3 "$SENTRY_API" --org {your-org} --project {your-project} list-issues \
   --query "ABC-123" \
   --limit 1
 ```
@@ -89,10 +83,7 @@ python3 "$SENTRY_API" \
 ### 5) Event detail (no stack traces by default)
 
 ```bash
-python3 "$SENTRY_API" \
-  event-detail \
-  --org {your-org} \
-  --project {your-project} \
+python3 "$SENTRY_API" --org {your-org} --project {your-project} event-detail \
   abcdef1234567890
 ```
 
@@ -120,7 +111,7 @@ Always use these endpoints (GET only):
 - Event detail: include culprit, timestamp, environment, release, url.
 - If no results, state explicitly.
 - Redact PII in output (emails, IPs). Do not print raw stack traces.
-- Never echo auth tokens.
+- The helper can include the raw server body and request URL on stderr for HTTP failures. Keep stderr out of shared logs. Report only the status and a redacted summary. Never echo tokens.
 
 ## Golden test inputs
 

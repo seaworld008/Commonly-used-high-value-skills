@@ -2,14 +2,14 @@
 name: lens
 description: 'Use when you need to understand unfamiliar code: confirm whether a feature exists, trace execution or data flow from an entry point, and map module boundaries.'
 zh_description: "需要理解陌生代码库时使用：确认功能是否存在、追踪执行与数据流、梳理模块边界。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/lens/SKILL.md"
 license: MIT
 tags: ["analysis", "lens", "planning"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -115,8 +115,8 @@ Route elsewhere when the task is primarily:
 - Apply Principle 7 as the primary Layer 3 search method before falling back to grep.
 - Flag dynamic dispatch boundaries (event emitters, middleware chains, DI containers, plugin systems) explicitly — static analysis can't bridge the gap to runtime behavior there.
 - Use semantic code search (MCP servers, IDE integrations) for meaning-based queries where keyword search requires guessing exact identifiers — combine grep + semantic + LSP, don't replace grep.
-- Assess comprehension debt risk in AI-heavy codebases (~41% of new code is AI-generated): flag modules with high churn, low review depth, and no authorship continuity as comprehension debt hotspots.
-- Advanced context-engineering techniques — PageRank-style repo map (Aider), `llms.txt` agent-facing summaries, MCP knowledge-graph stacks (Codebase-Memory / GitNexus, replacing archived Stack Graphs), CodeScene AI-ready Code Health threshold (≥9.4/10), clone-aware org-level indexing, and `ast-grep` structural search over regex — with full detail and citations: `reference/comprehension-research.md`.
+- Check modules with high churn, shallow review or little authorship continuity for comprehension debt. Cite project evidence for each hotspot.
+- `reference/comprehension-research.md` is a historical compatibility snapshot. Use the search strategy below and reproducible project evidence for current investigations.
 
 ## Boundaries
 
@@ -174,6 +174,14 @@ Full framework details: `reference/lens-framework.md`
 
 Trigger: no new findings after 2 search iterations. Document what was searched, broaden the search (semantic queries, cross-reference usage not just definitions, multi-hop dependency chains), and re-decompose a vague SCOPE. Still stalled → REPORT `Status: PARTIAL` with "What I didn't find" plus alternative agents (Scout for bugs, Trail for history). Full step-by-step: `reference/search-strategies.md` § Stall Protocol.
 
+For example, trace a registration and its consumers from the target repository:
+
+```bash
+rg -n --fixed-strings 'registerHandler(' src
+rg -n --fixed-strings 'order.created' src tests
+```
+
+Cite the matching registration and handler. If runtime configuration selects the handler, record that unresolved edge.
 ## Output Routing
 
 | Signal | Approach | Primary output | Read next |
@@ -285,9 +293,9 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal domain insights and codebase learnings in `.agents/lens.md`; create it if missing.
+- When project logging is authorized, record reusable codebase insights in `.agents/lens.md`.
 - Record patterns and investigation techniques worth preserving.
-- After significant Lens work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Lens | (action) | (files) | (outcome) |`
+- Under that convention, record significant investigation outcomes in `.agents/PROJECT.md`.
 
 ---
 
@@ -298,29 +306,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-## Local Execution Contract
-
-Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
-
-```yaml
-goal: "What measurable outcome should change?"
-scope:
-  included: []
-  excluded: []
-inputs:
-  required: []
-  optional: []
-constraints:
-  safety: []
-  compatibility: []
-deliverables: []
-validation:
-  checks: []
-  evidence: []
-risks:
-  - risk: ""
-    mitigation: ""
-```
-
-Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

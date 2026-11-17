@@ -2,13 +2,13 @@
 name: find-skills
 description: 'Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.'
 zh_description: "在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。"
-version: "1.1.0"
+version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["find", "planning", "skills", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -21,7 +21,7 @@ complexity: "intermediate"
 
 ## 触发条件 / When to Use
 
-- 用户问“有没有技能能做 X”“该用哪个技能”，或任务类型在本会话中首次出现。
+- 用户问“有没有技能能做 X”“该用哪个技能”，或现有能力缺口不明确、需要检索。
 - 当前加载的技能无法覆盖任务，需要确认缺口是否已有现成能力。
 - 多个技能职责相近，需要说明各自边界并选出一个入口。
 - 用户要求安装、替换或升级某个技能，需要先给出候选对比。

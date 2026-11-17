@@ -2,14 +2,14 @@
 name: agent-hub
 description: 'Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.'
 zh_description: "需要多个智能体并行竞争同一任务时使用：在隔离的 Git worktree 中产出方案、评估结果并合并胜出版本。"
-version: "1.0.14"
+version: "1.0.15"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -30,13 +30,13 @@ installation or a reason to invent host commands.
 
 | Command | Description |
 |---------|-------------|
-| `/hub:hub-init` | Create a new collaboration session — task, agent count, eval criteria |
-| `/hub:spawn` | Launch N parallel subagents in isolated worktrees |
-| `/hub:hub-status` | Show DAG state, agent progress, branch status |
-| `/hub:eval` | Rank agent results by metric or LLM judge |
-| `/hub:merge` | Merge winning branch, archive losers |
-| `/hub:board` | Read/write the agent message board |
-| `/hub:hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| `/hub-init` | Create a new collaboration session — task, agent count, eval criteria |
+| `/agenthub:spawn` | Launch N parallel subagents in isolated worktrees |
+| `/hub-status` | Show DAG state, agent progress, branch status |
+| `/agenthub:eval` | Rank agent results by metric or LLM judge |
+| `/agenthub:merge` | Merge winning branch, archive losers |
+| `/agenthub:board` | Read/write the agent message board |
+| `/hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
 ## Agent Templates
 
@@ -75,34 +75,34 @@ INIT → DISPATCH → MONITOR → EVALUATE → MERGE
 
 ### 1. Init
 
-Run `/hub:hub-init` to create a session. This generates:
+Run `/hub-init` to create a session. This generates:
 - `.agenthub/sessions/{session-id}/config.yaml` — task config
 - `.agenthub/sessions/{session-id}/state.json` — state machine
 - `.agenthub/board/` — message board channels
 
 ### 2. Dispatch
 
-Run `/hub:spawn` to launch agents. For each agent 1..N:
+Run `/agenthub:spawn` to launch agents. For each agent 1..N:
 - Post task assignment to `.agenthub/board/dispatch/`
 - Spawn via Agent tool with `isolation: "worktree"`
 - All agents launched in a single message (parallel)
 
 ### 3. Monitor
 
-Run `/hub:hub-status` to check progress:
+Run `/hub-status` to check progress:
 - `dag_analyzer.py --status --session {id}` shows branch state
 - Board `progress/` channel has agent updates
 
 ### 4. Evaluate
 
-Run `/hub:eval` to rank results:
+Run `/agenthub:eval` to rank results:
 - **Metric mode**: run eval command in each worktree, parse numeric result
 - **Judge mode**: read diffs, coordinator ranks by quality
 - **Hybrid**: metric first, LLM-judge for ties
 
 ### 5. Merge
 
-Run `/hub:merge` to finalize:
+Run `/agenthub:merge` to finalize:
 - `git merge --no-ff` winner into base branch
 - Tag losers: `git tag hub/archive/{session}/agent-{i}`
 - Clean up worktrees
@@ -203,6 +203,8 @@ python scripts/result_ranker.py --session {id} \
 
 The ranker runs the eval command in each agent's worktree directory and parses the metric from stdout.
 
+With the bundled ranker, pass `--direction higher` explicitly for throughput, coverage, or any metric where larger is better. Its current argparse default is `lower` and overrides the session's `direction` when the flag is omitted; session configuration alone is insufficient. Check the recorded direction before selecting a winner.
+
 ### LLM Judge
 
 Best for: code quality, readability, architecture decisions.
@@ -227,9 +229,9 @@ State transitions managed by `session_manager.py`:
 
 | From | To | Trigger |
 |------|----|---------|
-| `init` | `running` | `/hub:spawn` completes |
+| `init` | `running` | `/agenthub:spawn` completes |
 | `running` | `evaluating` | All agents return |
-| `evaluating` | `merged` | `/hub:merge` completes |
+| `evaluating` | `merged` | `/agenthub:merge` completes |
 | `evaluating` | `archived` | No winner / all failed |
 
 ## Proactive Triggers
@@ -303,3 +305,5 @@ Review a configured evaluation command before `result_ranker.py` executes it;
 it is shell code, not an inert metric name. Do not accept commands from an
 untrusted candidate result. Cleanup uses Git's normal dirty-worktree protection
 and leaves refused removals visible. Do not retry those removals with force.
+
+Load [coordination strategies](references/coordination-strategies.md) or [DAG patterns](references/dag-patterns.md) only for those tasks. These command names belong to the separately installed plugin; the portable skill does not register them.

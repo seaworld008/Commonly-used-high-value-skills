@@ -35,7 +35,7 @@ CREATE TABLE documents (
 );
 ```
 
-The AI Gateway requires a paid Neon plan and prepaid gateway credits. Check the
+The AI Gateway requires prepaid gateway credits; the reviewed upstream supports every Neon plan, including Free. Confirm current plan eligibility in the [AI Gateway documentation](https://neon.com/docs/ai-gateway/overview). Check the
 branch's `GET /v1/models` response and use only models with `enabled: true`.
 For a locked model, inspect the reason on the branch's AI Gateway Console page;
 a missing CLI warning does not establish access. Plan changes, credit purchases,

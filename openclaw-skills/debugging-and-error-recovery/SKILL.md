@@ -2,14 +2,14 @@
 name: debugging-and-error-recovery
 description: 'Diagnose failing tests, broken builds, and unexpected runtime behavior through reproduction, evidence, root-cause analysis, and focused recovery.'
 zh_description: "复现故障、定位根因并验证修复与恢复结果。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "debugging-and-error-recovery", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: debugging-and-error-recovery
@@ -93,7 +93,7 @@ npm test -- --grep "test name"
 npm test -- --verbose
 
 # Run in isolation (rules out test pollution)
-npm test -- --testPathPattern="specific-file" --runInBand
+npm test -- specific-file --runInBand
 ```
 
 ### Step 2: Localize
@@ -243,14 +243,15 @@ function renderChart(data: ChartData[]) {
   if (data.length === 0) {
     return <EmptyState message="No data available for this period" />;
   }
-  try {
-    return <Chart data={data} />;
-  } catch (error) {
-    console.error('Chart render failed:', error);
-    return <ErrorState message="Unable to display chart" />;
-  }
+  return (
+    <ChartErrorBoundary>
+      <Chart data={data} />
+    </ChartErrorBoundary>
+  );
 }
 ```
+
+`ChartErrorBoundary` denotes the project's tested React Error Boundary, with an `ErrorState` fallback and error reporting. It must be implemented or imported before use; `try/catch` around JSX creation cannot catch a child's later render error. Event-handler and asynchronous failures need their own handling.
 
 ## Instrumentation Guidelines
 

@@ -2,13 +2,13 @@
 name: competitors-analysis
 description: Compare competitor repositories using verified code and source evidence when technical competitive analysis or repository profiling is requested.
 zh_description: "用于基于已核实的代码和来源证据对比竞品代码仓库，开展技术竞品分析或仓库画像。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analysis", "competitors", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 context: fork
@@ -34,7 +34,7 @@ Use this skill when the user wants to:
 Recommended flow:
 
 ```text
-clone repo locally
+use the provided checkout (clone only if needed and authorized)
 -> inspect source files and metadata
 -> cite every factual claim
 -> write profile from evidence only
@@ -47,12 +47,12 @@ clone repo locally
 
 ### Pre-Analysis Checklist
 
-- [ ] 仓库已克隆到本地 `~/Workspace/competitors/{product}/`
+- [ ] 优先使用已提供的可读 checkout；记录路径和 `git rev-parse HEAD`
 - [ ] 可以 `ls` 查看目录结构
 - [ ] 可以 `cat package.json` (或等效配置文件) 读取版本信息
-- [ ] 可以 `git log -1` 确认代码是最新的
+- [ ] 可以 `git log -1` 标明分析版本；未经远端核对不声称最新
 
-**如果以上任何一项未完成，停止分析，先完成克隆操作。**
+**缺少支撑某项断言的源码时，将该项标为未核实；先检查已有 checkout，只有确需获取且在授权范围内时才克隆。**
 
 ### Forbidden Patterns (禁止的表述)
 
@@ -75,18 +75,14 @@ clone repo locally
 
 ## Analysis Workflow
 
-### Step 1: Clone Repository (必须)
+### Step 1: 定位源码与分析版本
 
 ```bash
-# 创建产品竞品目录
-mkdir -p ~/Workspace/competitors/{product-name}
-
-# 克隆竞品仓库 (SSH，失败则重试)
-cd ~/Workspace/competitors/{product-name}
-git clone git@github.com:org/repo.git
+# 仅在缺少 checkout 且已授权获取源码时，使用任务工作目录与可用访问方式
+git clone https://github.com/org/repo.git <authorized-workdir>/repo
 ```
 
-**网络问题处理**: 中国网络环境可能需要多次重试。
+已有 checkout 可直接只读分析；不要求家目录、SSH 或网络更新。记录 commit 和未核实的时效性。
 
 ### Step 2: Gather Facts (收集事实)
 
@@ -162,7 +158,7 @@ grep -n "class.*Manager" src/helpers/*.js  # 找到核心类
 ## Directory Structure
 
 ```
-~/Workspace/competitors/
+<authorized-workdir>/competitors/
 ├── flowzero/              # Flowzero 的竞品
 │   ├── openwhispr/        # git clone 的仓库
 │   └── ...
@@ -225,10 +221,10 @@ grep -n "class.*Manager" src/helpers/*.js  # 找到核心类
 
 ## Common Mistakes to Avoid
 
-### 1. 跳过克隆直接分析
+### 1. 缺少源码证据便作断言
 
 ❌ 错误: 从 GitHub 网页或 WebFetch 获取信息后直接写分析
-✅ 正确: 必须 `git clone` 到本地，用 `Read` 工具读取文件
+✅ 正确: 使用已提供的 checkout 与宿主可用的文件读取能力逐项核对；只有缺少源码且获取已授权时才克隆。
 
 ### 2. 混合事实和推测
 
@@ -273,7 +269,7 @@ grep -n "class.*Manager" src/helpers/*.js  # 找到核心类
 
 ## Scripts
 
-See [scripts/update-competitors.sh](scripts/update-competitors.sh) for repository management.
+See [scripts/update-competitors.sh](scripts/update-competitors.sh) for a repository-management template. Its product name is a placeholder and repository mapping is empty: copy it into an authorized workspace and configure both before use. Set `COMPETITORS_BASE` to the authorized directory instead of using its home-directory default. `pull` changes checkouts and is inappropriate for a read-only task.
 
 ```bash
 ./scripts/update-competitors.sh clone   # 克隆所有竞品

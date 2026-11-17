@@ -49,6 +49,7 @@ FIELD_ALIASES = {
     "total_debt": ["Total Debt"],
     "long_term_debt": ["Long Term Debt"],
     "short_term_debt": ["Short Long Term Debt", "Current Debt"],
+    "cash_and_short_investments": ["Cash Cash Equivalents And Short Term Investments"],
     "cash": ["Cash And Cash Equivalents"],
     "short_investments": ["Other Short Term Investments", "Short Term Investments"],
     "current_assets": ["Current Assets"],
@@ -209,29 +210,54 @@ def collect_cash_flow(ticker_obj, years: list[int]) -> dict:
 
 
 def collect_balance_sheet(ticker_obj, latest_year: int) -> dict:
-    """Collect balance sheet data for the latest year."""
+    """Collect latest-year balances; null aggregates are explained in _missing_fields.
+
+    cash_and_equivalents retains the existing cash + short-investments scope.
+    Prefer a disclosed combined total; otherwise require both components.
+    """
+    def unavailable(source):
+        fields = ("total_debt", "cash_and_equivalents", "net_debt")
+        return {str(latest_year): {
+            **dict.fromkeys(fields),
+            "_missing_fields": {field: source for field in fields},
+            "_source": source,
+        }}
+
     try:
         bs = ticker_obj.balance_sheet
     except Exception:
-        return {str(latest_year): {"_source": "yfinance error"}}
+        return unavailable("yfinance error")
 
     if bs is None or bs.empty:
-        return {str(latest_year): {"_source": "yfinance returned empty"}}
+        return unavailable("yfinance returned empty")
 
     col = get_year_col(bs, latest_year)
     if col is None:
-        return {str(latest_year): {"_source": f"yfinance has no column for {latest_year}"}}
+        return unavailable(f"yfinance has no column for {latest_year}")
 
+    missing_fields = {}
     total_debt = safe_get(bs, "total_debt", col)
     if total_debt is None:
-        lt = safe_get(bs, "long_term_debt", col) or 0
-        st = safe_get(bs, "short_term_debt", col) or 0
-        total_debt = lt + st if (lt or st) else None
+        lt = safe_get(bs, "long_term_debt", col)
+        st = safe_get(bs, "short_term_debt", col)
+        if lt is not None and st is not None:
+            total_debt = lt + st
+        else:
+            missing = [name for name, value in (("long_term_debt", lt), ("short_term_debt", st)) if value is None]
+            missing_fields["total_debt"] = "yfinance: total_debt unavailable; missing " + ", ".join(missing)
 
-    cash = safe_get(bs, "cash", col)
-    short_inv = safe_get(bs, "short_investments", col)
-    cash_equiv = (cash or 0) + (short_inv or 0) if (cash is not None or short_inv is not None) else None
+    cash_equiv = safe_get(bs, "cash_and_short_investments", col)
+    if cash_equiv is None:
+        cash = safe_get(bs, "cash", col)
+        short_inv = safe_get(bs, "short_investments", col)
+        if cash is not None and short_inv is not None:
+            cash_equiv = cash + short_inv
+        else:
+            missing = [name for name, value in (("cash", cash), ("short_investments", short_inv)) if value is None]
+            missing_fields["cash_and_equivalents"] = "yfinance: combined cash total unavailable; missing " + ", ".join(missing)
     net_debt = (total_debt - cash_equiv) if (total_debt is not None and cash_equiv is not None) else None
+    if net_debt is None:
+        missing_fields["net_debt"] = "yfinance: requires known total_debt and cash_and_equivalents"
 
     return {
         str(latest_year): {
@@ -242,6 +268,7 @@ def collect_balance_sheet(ticker_obj, latest_year: int) -> dict:
             "current_liabilities": safe_get(bs, "current_liabilities", col),
             "total_assets": safe_get(bs, "total_assets", col),
             "total_equity": safe_get(bs, "total_equity", col),
+            "_missing_fields": missing_fields,
             "_source": "yfinance",
         }
     }

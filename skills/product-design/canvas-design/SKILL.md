@@ -2,14 +2,14 @@
 name: canvas-design
 description: 'Create original static visual designs such as posters, artwork, and compositions as PNG or PDF artifacts.'
 zh_description: "创作海报、静态视觉设计和 PNG、PDF 艺术作品。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["canvas", "design", "product"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -40,12 +40,12 @@ extract conceptual seed
 ### Minimal Output Pattern
 
 ```text
-design-philosophy.md
+design-philosophy.md (when requested)
 artifact.pdf or artifact.png
 ```
 
 Complete this in two steps:
-1. Design Philosophy Creation (.md file)
+1. Develop the design philosophy to guide the composition.
 2. Express by creating it on a canvas (.pdf file or .png file)
 
 First, undertake this task:
@@ -120,7 +120,7 @@ Visual expression: Grid-based precision, bold photography or stark graphics, dra
 - **PURE DESIGN**: This is about making ART OBJECTS, not documents with decoration
 - **EXPERT CRAFTSMANSHIP**: Repeatedly emphasize the final work must look meticulously crafted, labored over with care, the product of countless hours by someone at the top of their field
 
-**The design philosophy should be 4-6 paragraphs long.** Fill it with poetic design philosophy that brings together the core vision. Avoid repeating the same points. Keep the design philosophy generic without mentioning the intention of the art, as if it can be used wherever. Output the design philosophy as a .md file.
+Develop the design philosophy in 4–6 paragraphs around the core vision. Keep each paragraph distinct and describe the aesthetic in terms that can guide composition.
 
 ---
 
@@ -145,23 +145,19 @@ To create museum or magazine quality work, use the design philosophy as the foun
 
 **Text as a contextual element**: Text is always minimal and visual-first, but let context guide whether that means whisper-quiet labels or bold typographic gestures. A punk venue poster might have larger, more aggressive type than a minimalist ceramics studio identity. Most of the time, font should be thin. All use of fonts must be design-forward and prioritize visual communication. Regardless of text scale, nothing falls off the page and nothing overlaps. Every element must be contained within the canvas boundaries with proper margins. Check carefully that all text, graphics, and visual elements have breathing room and clear separation. This is non-negotiable for professional execution. **IMPORTANT: Use different fonts if writing text. Search the `./canvas-fonts` directory. Regardless of approach, sophistication is non-negotiable.**
 
-Download and use whatever fonts are needed to make this a reality. Get creative by making the typography actually part of the art itself -- if the art is abstract, bring the font onto the canvas, not typeset digitally.
+Choose typefaces from `./canvas-fonts` or other fonts already authorized for the work. Use their letterforms as part of the composition.
 
 To push boundaries, follow design instinct/intuition while using the philosophy as a guiding principle. Embrace ultimate design freedom and choice. Push aesthetics and design to the frontier. 
 
 **CRITICAL**: To achieve human-crafted quality (not AI-generated), create work that looks like it took countless hours. Make it appear as though someone at the absolute top of their field labored over every detail with painstaking care. Ensure the composition, spacing, color choices, typography - everything screams expert-level craftsmanship. Double-check that nothing overlaps, formatting is flawless, every detail perfect. Create something that could be shown to people to prove expertise and rank as undeniably impressive.
 
-Output the final result as a single, downloadable .pdf or .png file, alongside the design philosophy used as a .md file.
+Deliver the requested PDF or PNG. Include a Markdown design statement when requested.
 
 ---
 
 ## FINAL STEP
 
-**IMPORTANT**: The user ALREADY said "It isn't perfect enough. It must be pristine, a masterpiece if craftsmanship, as if it were about to be displayed in a museum."
-
-**CRITICAL**: To refine the work, avoid adding more graphics; instead refine what has been created and make it extremely crisp, respecting the design philosophy and the principles of minimalism entirely. Rather than adding a fun filter or refactoring a font, consider how to make the existing composition more cohesive with the art. If the instinct is to call a new function or draw a new shape, STOP and instead ask: "How can I make what's already here more of a piece of art?"
-
-Take a second pass. Go back to the code and refine/polish further to make this a philosophically designed masterpiece.
+Review the exported page at its intended size. Check margins, clipping, unintended overlaps and typographic hierarchy. Refine the composition where those checks reveal a problem.
 
 ## MULTI-PAGE OPTION
 

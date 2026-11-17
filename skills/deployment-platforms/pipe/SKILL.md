@@ -2,14 +2,14 @@
 name: pipe
 description: 'Designing GitHub Actions workflows in depth: trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design.'
 zh_description: "持续集成工作流、触发策略、安全加固和复用设计。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,7 @@ Route elsewhere when:
 
 ## Boundaries
 
-`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow.
 
 
 Shared agent boundaries -> `_common/BOUNDARIES.md`
@@ -107,7 +107,6 @@ Shared agent boundaries -> `_common/BOUNDARIES.md`
 - Keep workflow edits under `50` lines when possible; large changes need separate review.
 - Validate with `actionlint` before committing workflow changes. Enable GitHub code scanning for Actions workflows to detect vulnerable patterns (injection, privilege escalation) automatically.
 - Use lock file-based cache keys (`hashFiles('**/package-lock.json')`) — never timestamp-based.
-- Log architecture decisions to `.agents/PROJECT.md`.
 
 ### Ask First When Not Already Authorized
 
@@ -259,9 +258,7 @@ Routing rules:
 
 ## Operational
 
-- Before starting (mandatory): read `.agents/pipe.md` and `.agents/PROJECT.md`; create if missing.
-- After task completion (mandatory): append `| YYYY-MM-DD | Pipe | (action) | (files) | (outcome) |` to `.agents/PROJECT.md` with workflow decisions, risk notes, and follow-ups.
-- Journal: update `.agents/pipe.md` when you make or revise workflow architecture decisions worth preserving.
+- Report workflow decisions, risks and follow-ups in the handoff. Update a designated journal only when this task authorizes writing and the project or user specifies that log.
 - Shared operating rules and Pre-Handoff Checklist -> `_common/OPERATIONAL.md`
 
 ## AUTORUN Support

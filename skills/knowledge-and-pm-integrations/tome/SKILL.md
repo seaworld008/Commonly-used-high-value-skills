@@ -1,15 +1,15 @@
 ---
 name: tome
-description: 'Use when turning a diff, PR, or commit range into learning material: change rationale, terminology, flow explanations, and glossaries for a chosen audience level.'
-zh_description: "需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。"
-version: "1.0.4"
+description: 'Turn diffs, PRs, or commit ranges into audience-specific learning material explaining rationale, terms, and flows; also turn supplied technical drafts, concepts, or interviews into platform-ready articles or series.'
+zh_description: "需要把代码变更整理成学习材料，或把技术草稿、概念和采访整理成文章或系列时使用。"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/tome/SKILL.md"
 license: MIT
 tags: ["knowledge", "tome"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---

@@ -2,14 +2,14 @@
 name: git-workflow-and-versioning
 description: 'Manage branches, commits, conflicts, semantic versions, and changelogs when preparing Git changes or releases.'
 zh_description: "管理 Git 分支、提交、冲突、版本和变更记录。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "git-workflow-and-versioning", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: git-workflow-and-versioning
@@ -23,7 +23,7 @@ Git is your safety net. Treat commits as save points, branches as sandboxes, and
 
 ## When to Use
 
-Always. Every code change flows through git.
+Use when the task involves branch, commit, conflict, version, changelog, or release decisions. Routine file edits do not automatically require this workflow.
 
 ## Core Principles
 
@@ -198,7 +198,7 @@ Agent starts work
     └── Feature complete → All commits form a clean history
 ```
 
-This pattern means you never lose more than one increment of work. If an agent goes off the rails, `git reset --hard HEAD` takes you back to the last successful state.
+Before recovery, inspect `git status --short`, `git diff`, and `git diff --staged` and establish ownership of each change. Undo only this task's identified patch; preserve pre-existing staged and unstaged work. For a committed failed increment, prefer a targeted revert. Use hard reset only with explicit authorization to discard the verified scope; a dedicated branch alone does not establish ownership of working-tree changes.
 
 ## Change Summaries
 
@@ -228,8 +228,8 @@ Before every commit:
 # 1. Check what you're about to commit
 git diff --staged
 
-# 2. Ensure no secrets
-git diff --staged | grep -i "password\|secret\|api_key\|token"
+# 2. Ensure no secrets (lists matching file names only — any output means review them)
+git diff --staged -i -G'password|secret|api_key|token' --name-only
 
 # 3. Run tests
 npm test

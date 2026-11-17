@@ -84,7 +84,7 @@
             "ref": "72837a8513d1145d800095fc3909d6d3057994b8",
             "resolved_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
             "path_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
-            "content_sha256": "904754b9e87523c901d6a2a4329fd55ddcef5630ce73ae0f7e2be246fcfcf6bf",
+            "content_sha256": "d885b9dd1e5e76a7ec1d7da6ce103bced7ecb3027a15ba33a6c64c37d9bde70a",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -183,7 +183,7 @@
         },
         {
           "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md",
-          "sha256": "904754b9e87523c901d6a2a4329fd55ddcef5630ce73ae0f7e2be246fcfcf6bf",
+          "sha256": "d885b9dd1e5e76a7ec1d7da6ce103bced7ecb3027a15ba33a6c64c37d9bde70a",
           "owner": "guizang-ppt-skill",
           "mode": "100644"
         },

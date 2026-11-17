@@ -2,56 +2,44 @@
 name: playwright
 description: 'Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.'
 zh_description: "需要在终端用 playwright-cli 自动化真实浏览器时使用：页面导航、表单填写、快照截图、数据提取和界面流程调试。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["automation", "playwright", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Playwright CLI Skill
 
-Drive a real browser from the terminal using `playwright-cli`. Prefer the bundled wrapper script so the CLI works even when it is not globally installed.
+Drive a real browser using an already available, supported `playwright-cli` or
+host browser capability. Match the commands and documentation to that version.
 Treat this skill as CLI-first automation. Do not pivot to `@playwright/test` unless the user explicitly asks for test files.
 
-## Prerequisite check (required)
+## Capability Discovery
 
-Before proposing commands, check whether `npx` is available (the wrapper depends on it):
-
-```bash
-command -v npx >/dev/null 2>&1
-```
-
-If it is not available, pause and ask the user to install Node.js/npm (which provides `npx`). Provide these steps verbatim:
-
-```bash
-# Verify Node/npm are installed
-node --version
-npm --version
-
-# If missing, install Node.js/npm, then:
-npm install -g @playwright/cli@latest
-playwright-cli --help
-```
-
-Once `npx` is present, proceed with the wrapper script. A global install of `playwright-cli` is optional.
+Check the project's installed CLI and the host's browser tools before choosing
+an execution path. Missing `npx` alone is not a reason to stop all work. If a
+dependency must be acquired, reuse existing installation authorization, choose
+a compatible fixed version and an isolated local runner; do not install globally
+as a loading side effect. Without browser capability, complete independent static
+work and state which browser acceptance checks were not run.
 
 ## Skill path (set once)
 
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-export PWCLI="$CODEX_HOME/skills/playwright/scripts/playwright_cli.sh"
+PWCLI="/absolute/path/to/verified/installed/playwright-cli"
 ```
 
-User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills`).
+Resolve `PWCLI` from the selected installed CLI; keep host environment variables
+unchanged. Resolve any bundled helper from the actual loaded skill directory.
 
 ## Quick start
 
-Use the wrapper script:
+Use the verified installed CLI selected above:
 
 ```bash
 "$PWCLI" open https://playwright.dev --headed
@@ -62,12 +50,8 @@ Use the wrapper script:
 "$PWCLI" screenshot
 ```
 
-If the user prefers a global install, this is also valid:
-
-```bash
-npm install -g @playwright/cli@latest
-playwright-cli --help
-```
+Use only commands supported by that CLI version. Installation, if necessary,
+is a separate scoped dependency change under existing authorization.
 
 ## Core workflow
 
@@ -130,13 +114,19 @@ Refs can go stale. When a command fails due to a missing ref, snapshot again.
 
 ## Wrapper script
 
-The wrapper script uses `npx --package @playwright/cli playwright-cli` so the CLI can run without a global install:
+The bundled `scripts/playwright_cli.sh` actually executes
+`npx --yes --package @playwright/cli playwright-cli`: it may download an unpinned
+package even for `--help`. It preserves explicit `--session` or injects
+`PLAYWRIGHT_CLI_SESSION`, but does not enforce a fixed dependency version.
+Use an existing verified CLI directly; use a separately pinned local invocation
+only when acquisition is authorized. Do not treat the wrapper as an offline or
+version-locked runner. For the selected CLI:
 
 ```bash
 "$PWCLI" --help
 ```
 
-Prefer the wrapper unless the repository already standardizes on a global install.
+Keep the session and fresh-snapshot loop with the selected supported runner.
 
 ## References
 

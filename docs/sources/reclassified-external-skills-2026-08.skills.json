@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-11-04",
+    "checked_at": "2026-11-17",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -430,6 +430,76 @@
       "target": "Jeffallan/claude-skills@77121971ad13322776f26bd5969ecec1f24a4851",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@67c1961b180dc92cf08983344627109e983e8f51",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@f9dfed93f903a05c235cf1752513d853bce65759",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "akin-ozer/cc-devops-skills@276af751e659315aaf56d3ad13d7c26f4e72e28a",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "alirezarezvani/claude-skills@f8593c4941210a621a6629ce1da9e07897976d5f",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@a582c51ee29d0f35e6ac321340796f77d43da733",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@65922d293cba61a40d5edf61a9eb4b6b0e799788",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "supabase/agent-skills@c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "entrypoint-resource-closure-review",
+      "target": "microsoft/azure-skills@65922d293cba61a40d5edf61a9eb4b6b0e799788",
+      "result": "success",
+      "evidence": "Verified and bundled the MIT-licensed azure-aks-nap-readiness reference at the already-reviewed immutable commit; checked local resource closure."
     }
   ],
   "skills": [
@@ -439,16 +509,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/aws-solution-architect/SKILL.md",
       "source": "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-11-17: commit-aware semantic review at f8593c4941210a621a6629ce1da9e07897976d5f; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
         "sync_mode": "monitor",
-        "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
+        "path_commit": "b078bb8996405fe980c384136f6ed9226cbf2489"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -508,17 +578,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
-            "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
-            "content_sha256": "0b0e73ca32fdcfa75d609d3b30b04147f72809c6ea5eac67b5e6df06abd103b1",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
+            "path_commit": "b078bb8996405fe980c384136f6ed9226cbf2489",
+            "content_sha256": "5293992ec8af0d54567dc24483d9bacc86eead40e673dd8688e902758415cd0f",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+              "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
               "api_spdx": "MIT"
             }
           }
@@ -527,7 +597,7 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/aws-solution-architect/SKILL.md",
-          "sha256": "0b0e73ca32fdcfa75d609d3b30b04147f72809c6ea5eac67b5e6df06abd103b1",
+          "sha256": "5293992ec8af0d54567dc24483d9bacc86eead40e673dd8688e902758415cd0f",
           "owner": "aws-solution-architect",
           "mode": "100644"
         },
@@ -587,16 +657,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/azure-kubernetes/SKILL.md",
       "source": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 65922d293cba61a40d5edf61a9eb4b6b0e799788; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. Bundled the reviewed base NAP-readiness reference required by the new entrypoint; no AKS runtime operation performed.",
       "upstream": {
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "65922d293cba61a40d5edf61a9eb4b6b0e799788",
         "sync_mode": "monitor",
-        "path_commit": "f49ac319a7d3b715e4e39cd95a61572a0af7f2ed"
+        "path_commit": "e484244aad82d80bd640d44b2bea92b03bddf559"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -886,22 +956,27 @@
               "source": "LICENSE",
               "target": "skills/devops-sre/azure-kubernetes/LICENSE.upstream.txt",
               "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/azure-aks-nap-readiness.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-nap-readiness.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
-            "path_commit": "f49ac319a7d3b715e4e39cd95a61572a0af7f2ed",
-            "content_sha256": "f274c6a66ec4b9a65c293430a89291f8fd4de4e23c9c345332abe06bc14efb95",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "65922d293cba61a40d5edf61a9eb4b6b0e799788",
+            "path_commit": "e484244aad82d80bd640d44b2bea92b03bddf559",
+            "content_sha256": "99fb197244b1082fc4f8bf42b3df50573158b90bbe67a3e8415945a51108748b",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+              "resolved_commit": "65922d293cba61a40d5edf61a9eb4b6b0e799788",
               "api_spdx": "MIT"
             }
           }
@@ -911,7 +986,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "f274c6a66ec4b9a65c293430a89291f8fd4de4e23c9c345332abe06bc14efb95",
+          "sha256": "99fb197244b1082fc4f8bf42b3df50573158b90bbe67a3e8415945a51108748b",
           "mode": "100644"
         },
         {
@@ -1235,13 +1310,19 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/references/optional-aks-operations.md",
           "owner": "azure-kubernetes",
-          "sha256": "1039c4433965c110343b398b0f4efa2b40be32d733532b529dbd2b396fb84c20",
+          "sha256": "3d08c4042744ef22186af83137da608d07e61f4d25a45fa30d7f08cf7159605a",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/LICENSE.upstream.txt",
           "owner": "azure-kubernetes",
           "sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-nap-readiness.md",
+          "owner": "azure-kubernetes",
+          "sha256": "8e37bdabcd3cf538fef2437a8f514f381e65888747601b9238fb415bd604cee1",
           "mode": "100644"
         }
       ]
@@ -1252,13 +1333,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/cc-devops-skills/SKILL.md",
       "source": "https://github.com/akin-ozer/cc-devops-skills",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-11-17: commit-aware semantic review at 276af751e659315aaf56d3ad13d7c26f4e72e28a; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "akin-ozer/cc-devops-skills",
         "path": "README.md",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
         "sync_mode": "monitor",
         "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56"
@@ -1284,8 +1365,8 @@
             "resolved_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
             "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56",
             "content_sha256": "9d253f88c04ec3556e91756a025318c438df66516c4702ecb768ad1a148168e4",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f49a4e16e68b128803cc2dcea614603632b04eac",
@@ -1342,7 +1423,7 @@
             "ref": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
             "resolved_commit": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
             "path_commit": "df08c3f9cad7dec3aff91914a3cf6fb1e810a52c",
-            "content_sha256": "ff5abc5b6a753852a48667844e00360728b875f6072b655cc31d4cc25dd7b9c4",
+            "content_sha256": "de66c44bbf0c73bfc3550db660ec5c028fa41262dbc173eda31eba095cb0b479",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -1360,7 +1441,7 @@
         {
           "path": "skills/developer-engineering/docker-expert/SKILL.md",
           "owner": "docker-expert",
-          "sha256": "ff5abc5b6a753852a48667844e00360728b875f6072b655cc31d4cc25dd7b9c4",
+          "sha256": "de66c44bbf0c73bfc3550db660ec5c028fa41262dbc173eda31eba095cb0b479",
           "mode": "100644"
         }
       ]
@@ -1371,14 +1452,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/gha-security-review/SKILL.md",
       "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/gha-security-review/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "getsentry/skills",
         "path": "skills/gha-security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
         "sync_mode": "monitor",
         "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e"
       },
@@ -1444,17 +1525,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+            "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
             "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e",
-            "content_sha256": "1303ee58e94777a6f36d16ada296966e046d99c32f9e9571c682a912ed941a70",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "3a43c7f200008f82d90de592a0685a718296de24a22257766b529c19b87bbaba",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+              "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1464,7 +1545,7 @@
         {
           "path": "skills/security-and-reliability/gha-security-review/SKILL.md",
           "owner": "gha-security-review",
-          "sha256": "1303ee58e94777a6f36d16ada296966e046d99c32f9e9571c682a912ed941a70",
+          "sha256": "3a43c7f200008f82d90de592a0685a718296de24a22257766b529c19b87bbaba",
           "mode": "100644"
         },
         {
@@ -1529,14 +1610,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
       "source": "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 67c1961b180dc92cf08983344627109e983e8f51; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Jeffallan/claude-skills",
         "path": "skills/kubernetes-specialist/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "67c1961b180dc92cf08983344627109e983e8f51",
         "sync_mode": "monitor",
         "path_commit": "130a59c36026feab1b9ff601600b3ed9def2acc0"
       },
@@ -1557,17 +1638,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+            "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
             "path_commit": "130a59c36026feab1b9ff601600b3ed9def2acc0",
-            "content_sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "d3ddf2fbe59c116d48be35ed57b042fc1d3473d532aafa9d7d1b2657fc106154",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+              "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
               "api_spdx": "MIT"
             }
           }
@@ -1577,7 +1658,7 @@
         {
           "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
           "owner": "kubernetes-specialist",
-          "sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
+          "sha256": "d3ddf2fbe59c116d48be35ed57b042fc1d3473d532aafa9d7d1b2657fc106154",
           "mode": "100644"
         }
       ]
@@ -1588,16 +1669,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
       "source": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.\n2026-11-04: three-way review of upstream ae9babb (neondatabase/agent-skills#172 consolidation). Absorbed the egress optimization section, the hot-read caching note, the @neon/auth rename, neon-realtime routing, and the new branching.md and egress-optimization.md references verbatim; retained the local scope/authorization boundary, the no-auto-install policy, and vendor-neutral embedding guidance. Replaces the retired neon-postgres-egress-optimizer skill.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.\n2026-11-04: three-way review of upstream ae9babb (neondatabase/agent-skills#172 consolidation). Absorbed the egress optimization section, the hot-read caching note, the @neon/auth rename, neon-realtime routing, and the new branching.md and egress-optimization.md references verbatim; retained the local scope/authorization boundary, the no-auto-install policy, and vendor-neutral embedding guidance. Replaces the retired neon-postgres-egress-optimizer skill. 2026-11-17: commit-aware semantic review at 60b9a53fdd08c3be22781c5e51f6b689a77d3e39; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
-        "last_synced_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
         "sync_mode": "monitor",
-        "path_commit": "96e53a4a6ebf5960d6f50f0c9f859877ab3243ad"
+        "path_commit": "a874fd709f0bcad54d085d442b7962470b53c234"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1646,17 +1727,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
-            "path_commit": "96e53a4a6ebf5960d6f50f0c9f859877ab3243ad",
-            "content_sha256": "643886832b2b1ae70d18da968a7b8e8c8f21717133bb9983605406391240e78a",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04",
+            "resolved_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
+            "path_commit": "a874fd709f0bcad54d085d442b7962470b53c234",
+            "content_sha256": "b92395131d458fa6001e571d1576612e7a43319b6baea5b618eba74a8436af2c",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
+              "resolved_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1666,7 +1747,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "643886832b2b1ae70d18da968a7b8e8c8f21717133bb9983605406391240e78a",
+          "sha256": "b92395131d458fa6001e571d1576612e7a43319b6baea5b618eba74a8436af2c",
           "mode": "100644"
         },
         {
@@ -1702,7 +1783,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/references/vector-search.md",
           "owner": "neon-postgres",
-          "sha256": "f6fe1535f18b4a8574a8daaf5ae95a61f607f616a01256e7eb76e05abe705fb6",
+          "sha256": "784b3b3f45468c449cc09d3f3a3f30f248d289a9716cf7783ff6dbcb999b1033",
           "mode": "100644"
         }
       ]
@@ -1760,14 +1841,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
       "source": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 9c61ab243def98f72da12abd41cfcf5bcd91af9d; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1794,17 +1875,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+            "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "ff4072d884ee27cff877bf0e4d1e054b52f3502c66c1d65e79a6af4250b27ace",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+              "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
               "api_spdx": "MIT"
             }
           }
@@ -1814,7 +1895,7 @@
         {
           "path": "skills/developer-engineering/nextjs-app-router/SKILL.md",
           "owner": "nextjs-app-router",
-          "sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
+          "sha256": "ff4072d884ee27cff877bf0e4d1e054b52f3502c66c1d65e79a6af4250b27ace",
           "mode": "100644"
         },
         {
@@ -1831,14 +1912,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
       "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/python-development/skills/python-performance-optimization/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 9c61ab243def98f72da12abd41cfcf5bcd91af9d; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1870,17 +1951,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+            "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+              "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
               "api_spdx": "MIT"
             }
           }
@@ -1963,14 +2044,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
       "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "getsentry/skills",
         "path": "skills/security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
         "sync_mode": "monitor",
         "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7"
       },
@@ -2096,17 +2177,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+            "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
             "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7",
-            "content_sha256": "a50aa1cda0635118effa2c595097f9949d7631d7a874e4130388b736b05bdb33",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "b8c71083445cc9f387ff063fa69d1cbf499dad25561139929cd96e8a1a6c3a3d",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+              "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -2122,7 +2203,7 @@
         {
           "path": "skills/security-and-reliability/security-review/SKILL.md",
           "owner": "security-review",
-          "sha256": "a50aa1cda0635118effa2c595097f9949d7631d7a874e4130388b736b05bdb33",
+          "sha256": "b8c71083445cc9f387ff063fa69d1cbf499dad25561139929cd96e8a1a6c3a3d",
           "mode": "100644"
         },
         {
@@ -2253,13 +2334,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/supabase/SKILL.md",
       "source": "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 551274ed2fe97c8fea1325f7ceb05803a542f8df; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the upstream changelog entry for scoped PAT guidance; retain local restricted auth and execution policy. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 551274ed2fe97c8fea1325f7ceb05803a542f8df; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the upstream changelog entry for scoped PAT guidance; retain local restricted auth and execution policy. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at c9be0e931b7930f7d02126d04774d904c381e7d7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "supabase/agent-skills",
         "path": "skills/supabase/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
         "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df"
@@ -2300,8 +2381,8 @@
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
             "content_sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
@@ -2374,13 +2455,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
       "source": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at c9be0e931b7930f7d02126d04774d904c381e7d7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "supabase/agent-skills",
         "path": "skills/supabase-postgres-best-practices/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
         "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da"
@@ -2581,8 +2662,8 @@
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
             "content_sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
@@ -2819,14 +2900,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
       "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 9c61ab243def98f72da12abd41cfcf5bcd91af9d; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -2858,17 +2939,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+            "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+              "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
               "api_spdx": "MIT"
             }
           }
@@ -2901,14 +2982,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
       "source": "https://skills.sh/jeffallan/claude-skills/terraform-engineer",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 67c1961b180dc92cf08983344627109e983e8f51; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Jeffallan/claude-skills",
         "path": "skills/terraform-engineer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "67c1961b180dc92cf08983344627109e983e8f51",
         "sync_mode": "monitor",
         "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
       },
@@ -2929,17 +3010,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+            "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
             "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
-            "content_sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "25b7d1c2afcac2f4810187e65dece999cfd4cf7e4b1fe113d226b980ffdb77a7",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+              "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
               "api_spdx": "MIT"
             }
           }
@@ -2949,7 +3030,7 @@
         {
           "path": "skills/developer-engineering/terraform-engineer/SKILL.md",
           "owner": "terraform-engineer",
-          "sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
+          "sha256": "25b7d1c2afcac2f4810187e65dece999cfd4cf7e4b1fe113d226b980ffdb77a7",
           "mode": "100644"
         }
       ]
@@ -3908,7 +3989,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "3798a7954ee2d7bc6ff09decf6d96cd7fdd13152",
-            "content_sha256": "5e1ddb123fbdeb01cdf35a99107c1137ddebcec3dca1e3f976f95f5908f08413",
+            "content_sha256": "1488daff60dec7a9ab61b91dc500ba6974ddbfe7c1c2144464172337fc546b64",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3936,7 +4017,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md",
-          "sha256": "5e1ddb123fbdeb01cdf35a99107c1137ddebcec3dca1e3f976f95f5908f08413",
+          "sha256": "1488daff60dec7a9ab61b91dc500ba6974ddbfe7c1c2144464172337fc546b64",
           "owner": "vercel-react-view-transitions",
           "mode": "100644"
         },
@@ -3978,16 +4059,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
       "source": "https://github.com/Xquik-dev/x-twitter-scraper/blob/645ccfbad23f258ed9efb24de1ead641f15938e1/skills/x-twitter-scraper/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt no credentialed redirects, 2xx-only success, no secrets in process arguments and untrusted error isolation; retain local REST execution/MCP planning-only restrictions. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt no credentialed redirects, 2xx-only success, no secrets in process arguments and untrusted error isolation; retain local REST execution/MCP planning-only restrictions. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at f9dfed93f903a05c235cf1752513d853bce65759; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "Xquik-dev/x-twitter-scraper",
         "path": "skills/x-twitter-scraper/SKILL.md",
         "ref": "master",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
         "sync_mode": "monitor",
-        "path_commit": "0fae3588968a6fe11074744c4432618a3841c9d0"
+        "path_commit": "5aaf62333441d771133398337a055b17e81fa740"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -4047,17 +4128,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "master",
-            "resolved_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
-            "path_commit": "0fae3588968a6fe11074744c4432618a3841c9d0",
-            "content_sha256": "5447ea643a1be9b1fd9183b5d14ce2fd903ac7efefa8661fc266b8e45b73dc55",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
+            "path_commit": "5aaf62333441d771133398337a055b17e81fa740",
+            "content_sha256": "637d909a31337d2ca65eb45c244683bbab84360fc4497b83d35adaef36d82d72",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
               "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
               "spdx": "MIT",
-              "resolved_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+              "resolved_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
               "api_spdx": "MIT"
             }
           }
@@ -4448,7 +4529,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
           "owner": "x-twitter-scraper",
-          "sha256": "5447ea643a1be9b1fd9183b5d14ce2fd903ac7efefa8661fc266b8e45b73dc55",
+          "sha256": "637d909a31337d2ca65eb45c244683bbab84360fc4497b83d35adaef36d82d72",
           "mode": "100644"
         },
         {
@@ -4586,7 +4667,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
           "owner": "x-twitter-scraper",
-          "sha256": "a2b60242e854ac2f9dc1cf3b164353d85ac330e97a360efcb72c53ec11da37fc",
+          "sha256": "78acfb3993d26e31b4b8eb7b9084bc6c143fb05edfc6ba9bc418724294680ea1",
           "mode": "100644"
         },
         {
@@ -4634,7 +4715,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
           "owner": "x-twitter-scraper",
-          "sha256": "4fb5c4b98602e90ba771703ba3b1b7a48af3e946e3549107f8489f146b39f377",
+          "sha256": "cddd4fa3127ff96a0b0a165526ff6749a4e1a3b029d1579233b445b873fcb377",
           "mode": "100644"
         },
         {

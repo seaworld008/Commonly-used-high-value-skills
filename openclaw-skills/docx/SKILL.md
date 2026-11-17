@@ -2,19 +2,24 @@
 name: docx
 description: 'Create, read, edit, or review Word documents (.docx), including styles, tables, headers, tracked changes, and comments. Use when Word is the input or required deliverable.'
 zh_description: "用于创建、编辑和检查 Word `.docx` 文档。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Proprietary. LICENSE.txt has complete terms
 tags: '["docx"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
 
 # DOCX creation, editing, and analysis
+
+## LibreOffice Runtime Boundary
+
+Check LibreOffice availability and host permissions before conversion or rendering. The bundled Office helper does not compile or inject a socket shim. If AF_UNIX sockets are restricted, it returns a diagnostic and rendering remains unverified; use a host-permitted conversion path.
+
 
 ## Overview
 
@@ -355,7 +360,7 @@ Extracts XML, pretty-prints, merges adjacent runs, and converts smart quotes to 
 
 Edit files in `unpacked/word/`. See XML Reference below for patterns.
 
-**Use "Claude" as the author** for tracked changes and comments, unless the user explicitly requests use of a different name.
+Use the user/project-specified review author for tracked changes and comments; otherwise use a neutral label such as `AI Assistant`. Never attribute edits to a person or product that did not perform them.
 
 **Use the Edit tool directly for string replacement. Do not write Python scripts.** Scripts introduce unnecessary complexity. The Edit tool shows exactly what is being replaced.
 
@@ -420,7 +425,7 @@ After running `comment.py` (see Step 2), add markers to document.xml. For replie
 ```xml
 <!-- Comment markers are direct children of w:p, never inside w:r -->
 <w:commentRangeStart w:id="0"/>
-<w:del w:id="1" w:author="Claude" w:date="2025-01-01T00:00:00Z">
+<w:del w:id="1" w:author="AI Assistant" w:date="2025-01-01T00:00:00Z">
   <w:r><w:delText>deleted</w:delText></w:r>
 </w:del>
 <w:r><w:t> more text</w:t></w:r>
@@ -470,5 +475,5 @@ After running `comment.py` (see Step 2), add markers to document.xml. For replie
 
 - **pandoc**: Text extraction
 - **docx**: `npm install -g docx` (new documents)
-- **LibreOffice**: PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
+- **LibreOffice**: PDF conversion (subject to the LibreOffice Runtime Boundary above; restricted-socket environments may block the bundled helper)
 - **Poppler**: `pdftoppm` for images

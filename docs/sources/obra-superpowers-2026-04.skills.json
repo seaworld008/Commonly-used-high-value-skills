@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -44,14 +44,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
-      "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/dispatching-parallel-agents/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc"
       },
@@ -72,17 +72,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc",
             "content_sha256": "11012cd290b13da76b221b1989b13df425d6d32ca701f80556f6de0b22ec2c3f",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -104,16 +104,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/executing-plans/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
-      "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
-        "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+        "path_commit": "22f0b463e7a5e579904dd6211a520321035526f7"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -132,17 +132,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-            "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+            "path_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "content_sha256": "2909d80e5a9921015f2db93952de08ae5fa7bf1e180c75d2e89edec3b14e1632",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -164,14 +164,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
-      "notes": "Imported to formalize the endgame for feature branches after implementation and verification. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to formalize the endgame for feature branches after implementation and verification. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/finishing-a-development-branch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
       },
@@ -192,17 +192,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-            "content_sha256": "403138a56b993ed064fb5014c111374848c94c7b71b4d11922784caab9eaa26b",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "bdff799650be39b0427f3ec8b15ff0b58988de541f37c10ed9308bfd53b0e874",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -212,7 +212,7 @@
         {
           "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
           "owner": "finishing-a-development-branch",
-          "sha256": "403138a56b993ed064fb5014c111374848c94c7b71b4d11922784caab9eaa26b",
+          "sha256": "bdff799650be39b0427f3ec8b15ff0b58988de541f37c10ed9308bfd53b0e874",
           "mode": "100644"
         }
       ]
@@ -223,14 +223,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/receiving-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/receiving-code-review",
-      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/receiving-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57"
       },
@@ -251,17 +251,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57",
-            "content_sha256": "c4307f97ba19cab5c9e7b51a07e5f4991e01521cfa48d2ba8cd45d7312cebad5",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "dbc2e527cb28ac776e373df966d50bef4ce5afa27dc059832909f27e0ad1ff5e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -271,7 +271,7 @@
         {
           "path": "skills/ai-workflow/receiving-code-review/SKILL.md",
           "owner": "receiving-code-review",
-          "sha256": "c4307f97ba19cab5c9e7b51a07e5f4991e01521cfa48d2ba8cd45d7312cebad5",
+          "sha256": "dbc2e527cb28ac776e373df966d50bef4ce5afa27dc059832909f27e0ad1ff5e",
           "mode": "100644"
         }
       ]
@@ -282,14 +282,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/requesting-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/requesting-code-review",
-      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3"
       },
@@ -310,17 +310,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
-            "content_sha256": "ebc49c8f5014484032d0386e791f621de8ed569ab551f9928e6c0b91f7c33c00",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "27e12dfdfca4ce3e09a0a4afb3c4f346043e0bfadde8c8a53f16f0d92d02b302",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -352,7 +352,7 @@
         {
           "path": "skills/ai-workflow/requesting-code-review/SKILL.md",
           "owner": "requesting-code-review",
-          "sha256": "ebc49c8f5014484032d0386e791f621de8ed569ab551f9928e6c0b91f7c33c00",
+          "sha256": "27e12dfdfca4ce3e09a0a4afb3c4f346043e0bfadde8c8a53f16f0d92d02b302",
           "mode": "100644"
         },
         {
@@ -369,16 +369,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/subagent-driven-development/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/subagent-driven-development/SKILL.md",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/subagent-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
-        "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+        "path_commit": "22f0b463e7a5e579904dd6211a520321035526f7"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -412,17 +412,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-            "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-            "content_sha256": "ab3bd7e2ff7a193712b90f4013c38ce569f69d8d3cb65f91beb2ee1aa9231ba7",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+            "path_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+            "content_sha256": "4af6e783ec63b616b0e125190f6f94e730c2d7cef04d231d20ee318daa49cc50",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -470,7 +470,7 @@
         {
           "path": "skills/ai-workflow/subagent-driven-development/SKILL.md",
           "owner": "subagent-driven-development",
-          "sha256": "ab3bd7e2ff7a193712b90f4013c38ce569f69d8d3cb65f91beb2ee1aa9231ba7",
+          "sha256": "4af6e783ec63b616b0e125190f6f94e730c2d7cef04d231d20ee318daa49cc50",
           "mode": "100644"
         },
         {
@@ -512,14 +512,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/systematic-debugging",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-04: upstream deleted the CREATION-LOG and test-pressure/test-academic sidecars; the local copies were removed with them (SKILL.md never referenced them).",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-04: upstream deleted the CREATION-LOG and test-pressure/test-academic sidecars; the local copies were removed with them (SKILL.md never referenced them). 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3"
       },
@@ -565,17 +565,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
             "content_sha256": "5e72b7493e3da074780d18f6f8dff3ab070642751ed6e8cf82927ecd66334647",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -626,14 +626,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-git-worktrees/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
-      "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/using-git-worktrees/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f"
       },
@@ -654,17 +654,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f",
-            "content_sha256": "43fdcea94699a232d7374215cf1e3a51279cd24b5d1440ccdf1d1c0b353af18e",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "32b0b09fcfd4580ffde2fe394b8e119c94c1524a824a758a1bbee8199539fb9e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -674,7 +674,7 @@
         {
           "path": "skills/ai-workflow/using-git-worktrees/SKILL.md",
           "owner": "using-git-worktrees",
-          "sha256": "43fdcea94699a232d7374215cf1e3a51279cd24b5d1440ccdf1d1c0b353af18e",
+          "sha256": "32b0b09fcfd4580ffde2fe394b8e119c94c1524a824a758a1bbee8199539fb9e",
           "mode": "100644"
         }
       ]
@@ -685,14 +685,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-superpowers/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/using-superpowers/SKILL.md",
-      "notes": "Imported as the umbrella process skill that forces proper skill discovery before action. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported as the umbrella process skill that forces proper skill discovery before action. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71"
       },
@@ -719,17 +719,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
-            "content_sha256": "a51c857f6c0977a946b43cd5a5855fce2edc2ebd856cc6cbde7d1e75dc6aa9b6",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "cae024a54cfb88f5398767cbaca47fd564dc1147b2c57ffb0ac623aab57f22c0",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -739,7 +739,7 @@
         {
           "path": "skills/ai-workflow/using-superpowers/SKILL.md",
           "owner": "using-superpowers",
-          "sha256": "a51c857f6c0977a946b43cd5a5855fce2edc2ebd856cc6cbde7d1e75dc6aa9b6",
+          "sha256": "cae024a54cfb88f5398767cbaca47fd564dc1147b2c57ffb0ac623aab57f22c0",
           "mode": "100644"
         },
         {
@@ -792,14 +792,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/verification-before-completion/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/verification-before-completion",
-      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/verification-before-completion/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b"
       },
@@ -820,17 +820,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b",
-            "content_sha256": "08d0db3630db62ba4c95acbc1123cb8ae63f0d043121e59a7c35fc27068666d0",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "a63d225704e60e7598f69954f438ad1df4f33ae591ab9769e8ce90c8203c5f86",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -840,7 +840,7 @@
         {
           "path": "skills/ai-workflow/verification-before-completion/SKILL.md",
           "owner": "verification-before-completion",
-          "sha256": "08d0db3630db62ba4c95acbc1123cb8ae63f0d043121e59a7c35fc27068666d0",
+          "sha256": "a63d225704e60e7598f69954f438ad1df4f33ae591ab9769e8ce90c8203c5f86",
           "mode": "100644"
         }
       ]
@@ -851,14 +851,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/writing-skills/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
-      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository. Local module-scope overlay added 2026-09-28; upstream JavaScript is unchanged. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. Reviewed 2026-10-26 through 2ce8aa15d05bd57213e6f746f953aafb7ded7a8b: track three upstream reference relocations while retaining installed target paths and local links; retain curated authoring and evaluation guidance rather than copying mandatory delegation or unmeasured token-saving claims.",
+      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository. Local module-scope overlay added 2026-09-28; upstream JavaScript is unchanged. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. Reviewed 2026-10-26 through 2ce8aa15d05bd57213e6f746f953aafb7ded7a8b: track three upstream reference relocations while retaining installed target paths and local links; retain curated authoring and evaluation guidance rather than copying mandatory delegation or unmeasured token-saving claims. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
         "sync_mode": "monitor",
         "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
       },
@@ -899,17 +899,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+            "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-            "content_sha256": "4b398f5215721f21ed3226e9a1c81d502db1cbc11e6f2b5ac17db7cd88cc60f0",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "content_sha256": "aad29971c6a2b4b587b30cd89bb753b84cccd0a51bff0ea0f0ecbae9e070e01f",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
               "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
               "spdx": "MIT",
-              "resolved_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+              "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
               "api_spdx": "MIT"
             }
           }
@@ -962,7 +962,7 @@
         {
           "path": "skills/ai-workflow/writing-skills/SKILL.md",
           "owner": "writing-skills",
-          "sha256": "4b398f5215721f21ed3226e9a1c81d502db1cbc11e6f2b5ac17db7cd88cc60f0",
+          "sha256": "aad29971c6a2b4b587b30cd89bb753b84cccd0a51bff0ea0f0ecbae9e070e01f",
           "mode": "100644"
         },
         {
@@ -1057,6 +1057,13 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "obra/superpowers@2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

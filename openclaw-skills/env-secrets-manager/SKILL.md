@@ -2,13 +2,13 @@
 name: env-secrets-manager
 description: 'Manage environment files, required-variable validation, secret storage, leak detection, and credential rotation across development and production.'
 zh_description: "管理环境变量、密钥存储、泄露检测和凭据轮换。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["devops", "env", "manager", "secrets", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -153,6 +153,10 @@ Read [the detailed procedure and examples](EXTENDED.md#section-1) when working o
 Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
 
 ### Scan Git History (post-incident)
+Save this example as `scripts/scan-history.sh` in the target project when that
+file creation is in scope; it is a documented recipe, not a bundled scanner.
+It examines added patch lines only, not every reachable file/blob or deleted
+secret, so an empty result is not a comprehensive history audit.
 ```bash
 #!/bin/bash
 # scripts/scan-history.sh — scan entire git history for leaked secrets
@@ -167,13 +171,23 @@ PATTERNS=(
   "xox[baprs]-[0-9A-Za-z]{10,}"
 )
 
+# ERE matching; emit metadata only, never matching content.
+set -o pipefail
 for pattern in "${PATTERNS[@]}"; do
-  echo "Scanning for: $pattern"
-  git log --all -p --no-color 2>/dev/null | \
-    grep -n "$pattern" | \
-    grep "^+" | \
-    grep -v "^+++" | \
-    head -10
+  git log --all -p --no-color --format='commit %H' --no-ext-diff -U0 |
+    awk -v pattern="$pattern" '
+      /^commit / { commit=$2; file=""; next }
+      /^\+\+\+ / { file=substr($0, 5); next }
+      /^@@ / {
+        split($3, pos, ","); line=substr(pos[1], 2)+0; next
+      }
+      /^\+/ {
+        if (substr($0, 2) ~ pattern)
+          printf "%s %s:%d [REDACTED]\n", commit, file, line
+        line++; next
+      }
+      /^ / { line++ }
+    ' || exit 1
 done
 
 # Alternative: use truffleHog or gitleaks for comprehensive scanning
@@ -187,9 +201,14 @@ done
 
 ```bash
 #!/bin/bash
-# Install the pre-commit hook
-HOOK_PATH=".git/hooks/pre-commit"
-
+# First inspect core.hooksPath and any existing hook framework; integrate there.
+# Only for an authorized new hook with no existing framework:
+HOOK_PATH="$(git rev-parse --git-path hooks/pre-commit)" || exit 1
+if [ -e "$HOOK_PATH" ] || [ -L "$HOOK_PATH" ]; then
+  echo "Existing hook: review and integrate without overwriting." >&2
+  exit 1
+fi
+set -C  # refuse a concurrent overwrite
 cat > "$HOOK_PATH" << 'HOOK'
 #!/bin/bash
 # Pre-commit: scan for secrets before every commit
@@ -237,26 +256,19 @@ When a secret is leaked or compromised:
 
 ### Step 1 — Detect & Confirm
 ```bash
-# Confirm which secret was exposed
-git log --all -p --no-color | grep -A2 -B2 "AKIA\|sk_live_\|SECRET"
-
-# Check if secret is in any open PRs
-gh pr list --state open | while read pr; do
-  gh pr diff $(echo $pr | awk '{print $1}') | grep -E "AKIA|sk_live_" && echo "Found in PR: $pr"
-done
+# Use the redacted history scan above; report commit/file/line and a marker.
+bash scripts/scan-history.sh
+# Inspect suspected values only in an authorized restricted viewer.
+# Apply equivalent redacted checks to scoped PR diffs; do not print raw patches.
 ```
 
 ### Step 2 — Identify Exposure Window
 ```bash
-# Find first commit that introduced the secret
-git log --all -p --no-color -- "*.env" "*.json" "*.yaml" "*.ts" "*.py" | \
-  grep -B 10 "THE_LEAKED_VALUE" | grep "^commit" | tail -1
-
-# Get commit date
-git show --format="%ci" COMMIT_HASH | head -1
-
-# Check if secret appears in public repos (GitHub)
-gh api search/code -X GET -f q="THE_LEAKED_VALUE" | jq '.total_count, .items[].html_url'
+# Use metadata from the redacted scan to identify candidate commits.
+git show -s --format="%H %cI" COMMIT_HASH
+# Confirm the exposure window in a restricted local review.
+# Do not send the full secret to remote code search by default; that requires
+# a separate, explicit data-egress basis. Metadata alone does not prove exposure.
 ```
 
 ### Step 3 — Rotate Credential
@@ -332,9 +344,9 @@ vault kv put secret/myapp/prod \
   DATABASE_URL="postgres://user:pass@host/db" \
   APP_SECRET="$(openssl rand -base64 32)"
 
-# Read secrets into env
-eval $(vault kv get -format=json secret/myapp/prod | \
-  jq -r '.data.data | to_entries[] | "export \(.key)=\(.value)"')
+# Read via the Vault SDK in the application or an authorized launcher.
+# Map validated variable names to literal values in the child environment.
+# Never generate shell code from secret values or interpret it with eval/source.
 
 # In CI/CD (GitHub Actions)
 # Use vault-action: hashicorp/vault-action@v2
@@ -349,13 +361,8 @@ aws ssm put-parameter \
   --type "SecureString" \
   --key-id "alias/myapp-secrets"
 
-# Read all params for an app/env into shell
-eval $(aws ssm get-parameters-by-path \
-  --path "/myapp/prod/" \
-  --with-decryption \
-  --query "Parameters[*].[Name,Value]" \
-  --output text | \
-  awk '{split($1,a,"/"); print "export " a[length(a)] "=\"" $2 "\""}')
+# Retrieve parameters via the application SDK and pass literal string values
+# through an environment mapping to a child process; do not build shell exports.
 
 # In Node.js at startup
 # Use @aws-sdk/client-ssm to pull params before server starts
@@ -363,20 +370,11 @@ eval $(aws ssm get-parameters-by-path \
 
 ### 1Password CLI
 ```bash
-# Authenticate
-eval $(op signin)
-
-# Get a specific field
-op read "op://MyVault/MyApp Prod/STRIPE_SECRET_KEY"
-
-# Export all fields from an item as env vars
-op item get "MyApp Prod" --format json | \
-  jq -r '.fields[] | select(.value != null) | "export \(.label)=\"\(.value)\""' | \
-  grep -E "^export [A-Z_]+" | source /dev/stdin
-
-# .env injection
-op inject -i .env.tpl -o .env
-# .env.tpl uses {{ op://Vault/Item/field }} syntax
+# Reuse an authorized 1Password session; do not print field values.
+# Use the installed CLI version's supported child-process injection with
+# secret references, or an SDK mapping. Never eval/source secret-derived text.
+# If an authorized workflow needs a file, create a restricted new destination,
+# refuse overwrite, and keep it out of Git; prefer process injection.
 ```
 
 ### Doppler
@@ -391,8 +389,8 @@ doppler run -- npm run dev
 # Export to .env (local dev only — never commit output)
 doppler secrets download --no-file --format env > .env.local
 
-# Pull specific secret
-doppler secrets get DATABASE_URL --plain
+# Retrieve a specific secret through an authorized SDK/child-process mapping;
+# do not print its plaintext value into terminal or conversation logs.
 
 # Sync to another environment
 doppler secrets upload --project myapp --config staging < .env.staging.example

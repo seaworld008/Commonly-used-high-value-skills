@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/ayghri/i-have-adhd",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "External skills registered by scripts/ingest_skill.py."
   },
   "official_references": [
@@ -29,13 +29,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/operations-general/i-have-adhd/SKILL.md",
       "source": "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md",
-      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 1ecea1993b7fce257ffbd686c070948b5e07eda6; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "ayghri/i-have-adhd",
         "path": "skills/i-have-adhd/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
         "sync_mode": "monitor",
         "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396"
@@ -84,8 +84,8 @@
               "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -122,14 +122,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/prisma-client-api/SKILL.md",
       "source": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api",
-      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at a6f192959cf43b08aa330fe1ffca090267215812; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "prisma/skills",
         "path": "prisma-client-api/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
         "sync_mode": "monitor",
         "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca"
       },
@@ -196,7 +196,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+            "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
             "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca",
             "content_sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
             "license_checkpoint": {
@@ -204,11 +204,11 @@
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
               "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
               "spdx": "MIT",
-              "resolved_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+              "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -282,14 +282,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
       "source": "https://github.com/prisma/skills/blob/82b88dd82801e958706f8265c29c910e6f0ebfa4/prisma-upgrade-v7/SKILL.md",
-      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at a6f192959cf43b08aa330fe1ffca090267215812; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "prisma/skills",
         "path": "prisma-upgrade-v7/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
         "sync_mode": "monitor",
         "path_commit": "5011471f09700f1e13af69b6c334c7740869b4fc"
       },
@@ -351,19 +351,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+            "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
             "path_commit": "5011471f09700f1e13af69b6c334c7740869b4fc",
-            "content_sha256": "de1873522c63c17084510cb4d02e33406751921af6ff405c6dca2ca82ea8ee2e",
+            "content_sha256": "df682a599a443302ee0f8b552e5e1f3feadb6b57b6a7a1db0f806a97dcaa6859",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
               "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
               "spdx": "MIT",
-              "resolved_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+              "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -377,7 +377,7 @@
         {
           "path": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
           "owner": "prisma-upgrade-v7",
-          "sha256": "de1873522c63c17084510cb4d02e33406751921af6ff405c6dca2ca82ea8ee2e",
+          "sha256": "df682a599a443302ee0f8b552e5e1f3feadb6b57b6a7a1db0f806a97dcaa6859",
           "mode": "100644"
         },
         {
@@ -431,17 +431,18 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-model/SKILL.md",
       "source": "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-model",
-      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes.",
+      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "kind": "overlay",
       "sync_mode": "monitor",
       "upstream": {
         "repo": "getsentry/skills",
         "path": "skills/security-model/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+        "sync_mode": "monitor",
+        "path_commit": "2960faf806231e253302a410b9e97e7682aa8b64"
       },
       "origins": [
         {
@@ -504,19 +505,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
-            "path_commit": "31cd1798979b19501efb3996d918bda272705cc9",
-            "content_sha256": "70c485a6a602b9f269d74c32147337b445a6e99fbaa21ee3407de8c08f4f8873",
+            "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+            "path_commit": "2960faf806231e253302a410b9e97e7682aa8b64",
+            "content_sha256": "2c674530ed927a2832136721019e7cb9e7e9d3a3aca3be76b5965208ca8a4d6d",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+              "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
               "api_spdx": "Apache-2.0"
             },
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         },
         {
@@ -592,7 +593,7 @@
         {
           "path": "skills/security-and-reliability/security-model/SKILL.md",
           "owner": "security-model",
-          "sha256": "70c485a6a602b9f269d74c32147337b445a6e99fbaa21ee3407de8c08f4f8873",
+          "sha256": "2c674530ed927a2832136721019e7cb9e7e9d3a3aca3be76b5965208ca8a4d6d",
           "mode": "100644"
         },
         {
@@ -622,7 +623,7 @@
         {
           "path": "skills/security-and-reliability/security-model/upstream/ENTRY.md",
           "owner": "security-model",
-          "sha256": "77dc0c410029c23e35a11317182385c8770da7e1bb35a74b4d169f7933804cfd",
+          "sha256": "ae7bab80af7fca8c8cf65231631a082c7eb462e75f354aa9c040142508671c89",
           "mode": "100644"
         },
         {
@@ -634,13 +635,13 @@
         {
           "path": "skills/security-and-reliability/security-model/upstream/SOURCES.md",
           "owner": "security-model",
-          "sha256": "8cf77f0aebeb5f6eff9f2e977e7bac15cb5e44bdc3cdd50d6aba23bb475d2dd9",
+          "sha256": "9a3902dab2806d919609c48394ef38b67a3f682c89e19a638e19d826884f50c0",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-model/upstream/SPEC.md",
           "owner": "security-model",
-          "sha256": "39e1a533d5cb5a922a6d713de37a31fc32ea4d2ec1e76959e9745827b6e3b040",
+          "sha256": "f6b6aca4b0d7ad47d7081b905a806e2c16ea5fc81010954ce84b8dfd17a6ad4b",
           "mode": "100644"
         },
         {
@@ -675,17 +676,18 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/shadcn/SKILL.md",
       "source": "https://github.com/shadcn-ui/ui/tree/8f04138777c1b6996e709993362a7b0a12888ecf/skills/shadcn",
-      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes.",
+      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes. 2026-11-17: commit-aware semantic review at 968d8cb9dc42ae5d52e8fd356cf84596ec832a26; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "kind": "overlay",
       "sync_mode": "monitor",
       "upstream": {
         "repo": "shadcn-ui/ui",
         "path": "skills/shadcn/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "968d8cb9dc42ae5d52e8fd356cf84596ec832a26",
+        "sync_mode": "monitor",
+        "path_commit": "4233ed1caded8c38f4bc14b14afe1f93ebcaf966"
       },
       "origins": [
         {
@@ -813,7 +815,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
+            "resolved_commit": "968d8cb9dc42ae5d52e8fd356cf84596ec832a26",
             "path_commit": "4233ed1caded8c38f4bc14b14afe1f93ebcaf966",
             "content_sha256": "944e09447b836527fce34780fa61e87380bfb40943207fdfe72779993d1b24cf",
             "license_checkpoint": {
@@ -821,11 +823,11 @@
               "blob_sha": "fad4d887a681dd49233e5ed01ee2c7a1513089a0",
               "content_sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
               "spdx": "MIT",
-              "resolved_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
+              "resolved_commit": "968d8cb9dc42ae5d52e8fd356cf84596ec832a26",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         },
         {
@@ -1053,6 +1055,34 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "prisma/skills@ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "ayghri/i-have-adhd@1ecea1993b7fce257ffbd686c070948b5e07eda6",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@a582c51ee29d0f35e6ac321340796f77d43da733",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "prisma/skills@a6f192959cf43b08aa330fe1ffca090267215812",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "shadcn-ui/ui@968d8cb9dc42ae5d52e8fd356cf84596ec832a26",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

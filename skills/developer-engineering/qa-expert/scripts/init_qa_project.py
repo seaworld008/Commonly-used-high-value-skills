@@ -12,29 +12,52 @@ Example:
     python scripts/init_qa_project.py my-app ./tests
 """
 
-import os
 import sys
 import csv
 from pathlib import Path
 from datetime import datetime
 
+DOCS = Path("tests/docs")
+TEMPLATES = DOCS / "templates"
+DIRECTORIES = (DOCS, TEMPLATES, Path("tests/e2e"), Path("tests/fixtures"))
+TRACKING = TEMPLATES / "TEST-EXECUTION-TRACKING.csv"
+BUGS = TEMPLATES / "BUG-TRACKING-TEMPLATE.csv"
+BASELINE = DOCS / "BASELINE-METRICS.md"
+WEEKLY = TEMPLATES / "WEEKLY-PROGRESS-REPORT.md"
+MASTER = DOCS / "MASTER-QA-PROMPT.md"
+README = DOCS / "README.md"
+TARGET_FILES = (TRACKING, BUGS, BASELINE, WEEKLY, MASTER, README)
+
+
+def check_targets(base_path):
+    """Detect conflicts across the complete plan before creating anything."""
+    for directory in (Path("tests"), *DIRECTORIES):
+        path = base_path / directory
+        if path.is_symlink() or (path.exists() and not path.is_dir()):
+            raise FileExistsError(f"Conflicting QA directory: {path}")
+
+    conflicts = []
+    for name in TARGET_FILES:
+        path = base_path / name
+        try:
+            path.lstat()
+        except FileNotFoundError:
+            continue
+        conflicts.append(path)
+    if conflicts:
+        raise FileExistsError("QA targets already exist:\n" + "\n".join(map(str, conflicts)))
+
+
 def create_directory_structure(base_path):
     """Create QA project directory structure."""
-    dirs = [
-        "tests/docs",
-        "tests/docs/templates",
-        "tests/e2e",
-        "tests/fixtures"
-    ]
-
-    for dir_path in dirs:
+    for dir_path in DIRECTORIES:
         full_path = base_path / dir_path
         full_path.mkdir(parents=True, exist_ok=True)
         print(f"✅ Created: {full_path}")
 
 def create_test_execution_tracking(base_path, project_name):
     """Create TEST-EXECUTION-TRACKING.csv with headers."""
-    csv_path = base_path / "tests/docs/templates/TEST-EXECUTION-TRACKING.csv"
+    csv_path = base_path / TRACKING
 
     headers = [
         "Test Case ID", "Category", "Priority", "Test Name",
@@ -43,7 +66,7 @@ def create_test_execution_tracking(base_path, project_name):
         "Notes", "Screenshot/Log"
     ]
 
-    with open(csv_path, 'w', newline='') as f:
+    with open(csv_path, 'x', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         # Add example row
@@ -57,7 +80,7 @@ def create_test_execution_tracking(base_path, project_name):
 
 def create_bug_tracking_template(base_path):
     """Create BUG-TRACKING-TEMPLATE.csv."""
-    csv_path = base_path / "tests/docs/templates/BUG-TRACKING-TEMPLATE.csv"
+    csv_path = base_path / BUGS
 
     headers = [
         "Bug ID", "Title", "Severity", "Component", "Test Case ID",
@@ -67,7 +90,7 @@ def create_bug_tracking_template(base_path):
         "Resolution", "Resolved Date", "Verified By", "Verification Date"
     ]
 
-    with open(csv_path, 'w', newline='') as f:
+    with open(csv_path, 'x', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         # Add example bug
@@ -170,8 +193,8 @@ def create_baseline_metrics(base_path, project_name):
 **Next Steps**: Begin Week 1 testing with baseline established.
 """
 
-    file_path = base_path / "tests/docs/BASELINE-METRICS.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / BASELINE
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -273,8 +296,8 @@ def create_weekly_report_template(base_path):
 **Date**: [Date]
 """
 
-    file_path = base_path / "tests/docs/templates/WEEKLY-PROGRESS-REPORT.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / WEEKLY
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -354,8 +377,8 @@ The master prompt automatically:
 **Usage**: Copy the master prompt above and paste it to start autonomous QA execution.
 """
 
-    file_path = base_path / "tests/docs/MASTER-QA-PROMPT.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / MASTER
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -436,8 +459,8 @@ def create_readme(base_path, project_name):
 **Contact**: QA Lead - [Your Name]
 """
 
-    file_path = base_path / "tests/docs/README.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / README
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -456,7 +479,11 @@ def main():
     print(f"\n🚀 Initializing QA Project: {project_name}")
     print(f"   Location: {base_path}\n")
 
-    # Create directory structure
+    try:
+        check_targets(base_path)
+    except OSError as error:
+        sys.exit(str(error))
+
     create_directory_structure(base_path)
 
     # Create tracking files

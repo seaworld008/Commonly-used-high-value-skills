@@ -2,20 +2,20 @@
 name: transcript-fixer
 description: 'Correct speech-recognition errors, homophones, and mixed Chinese/English terminology in transcripts while preserving source meaning and speaker attribution.'
 zh_description: "修正语音识别错误、同音词和中英文混合术语。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["fixer", "transcript"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Transcript Fixer
 
-Correct speech-to-text transcription errors through dictionary-based rules, AI-powered corrections, and automatic pattern detection. Build a personalized knowledge base that learns from each correction.
+Correct speech-to-text transcription errors through dictionary-based rules, AI-powered corrections, and automatic pattern detection. Maintain a reusable correction dictionary only when persistence is explicitly in scope.
 
 ## When to Use This Skill
 
@@ -26,63 +26,43 @@ Correct speech-to-text transcription errors through dictionary-based rules, AI-p
 
 ## Prerequisites
 
-**Python execution must use `uv`** - never use system Python directly.
-
-If `uv` is not installed:
-```bash
-# macOS/Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Windows PowerShell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+Use an available Python environment that satisfies the scripts' dependencies; `uv` is one option. Install tools only within existing task authorization. Keep original transcripts unchanged and write corrections to the requested output path.
 
 ## Quick Start
 
-**Recommended: Use Enhanced Wrapper** (auto-detects API key, opens HTML diff):
+For a one-off correction, inspect the supplied transcript and apply source-supported terminology fixes to a separate output. Mark uncertain substitutions rather than inventing meaning or speaker identities. Review the diff against the original.
+
+### Current CLI Boundaries
+
+- The enhanced wrapper reads only an explicitly supplied process `GLM_API_KEY`; it does not search shell startup files or unrelated credentials. Missing credentials are a configuration gap, not permission to search login files.
+- The wrapper does not open a browser by default. Use `--auto-open` only when browser opening is requested and permitted. It does not create the diff itself.
+- Learning is disabled by default. Persistence and automatic approval are separately gated by `enable_learning` and `enable_auto_approval`; enable them only within authorized dictionary maintenance. With learning disabled, an existing dictionary is read through a private snapshot, without writing global WAL sidecars.
+- `--review-learned` and `--approve` are placeholder handlers that print "not yet implemented". They do not review or approve suggestions.
+- Stage 3 only prints a diff-generation hint. It does not create `*_对比.html`.
+
+### Explicit Dictionary Maintenance
+
+Only when initializing or updating the configured persistent dictionary is authorized:
 
 ```bash
-# First time: Initialize database
 uv run scripts/fix_transcription.py --init
-
-# Process transcript with enhanced UX
-uv run scripts/fix_transcript_enhanced.py input.md --output ./corrected
-```
-
-The enhanced wrapper automatically:
-- Detects GLM API key from shell configs (checks lines near `ANTHROPIC_BASE_URL`)
-- Moves output files to specified directory
-- Opens HTML visual diff in browser for immediate feedback
-
-**Alternative: Use Core Script Directly**:
-
-```bash
-# 1. Set API key (if not auto-detected)
-export GLM_API_KEY="<api-key>"  # From https://open.bigmodel.cn/
-
-# 2. Add common corrections (5-10 terms)
 uv run scripts/fix_transcription.py --add "错误词" "正确词" --domain general
-
-# 3. Run full correction pipeline
-uv run scripts/fix_transcription.py --input meeting.md --stage 3
-
-# 4. Review learned patterns after 3-5 runs
-uv run scripts/fix_transcription.py --review-learned
 ```
 
-**Output files**:
-- `*_stage1.md` - Dictionary corrections applied
-- `*_stage2.md` - AI corrections applied (final version)
-- `*_对比.html` - Visual diff (open in browser for best experience)
+AI processing through the core CLI uses `--input meeting.md --stage 2` (or `3`) and requires the global-history/learning authorization above. Do not claim a user-selected/project-scoped learner is implemented; that requires a code fix.
 
-**Generate word-level diff** (recommended for reviewing corrections):
+**Actual processing outputs**:
+- `*_stage1.md`: dictionary corrections for stages that run stage 1.
+- `*_stage2.md`: AI-processed text when the AI stage completes; verify against source.
+- HTML diff: a separate explicit operation, not a guaranteed pipeline output.
+
+**Generate word-level diff** from the source and corrected file:
+
 ```bash
 uv run scripts/generate_word_diff.py original.md corrected.md output.html
 ```
 
-This creates an HTML file showing word-by-word differences with clear highlighting:
-- 🔴 `japanese 3 pro` → 🟢 `Gemini 3 Pro` (complete word replacements)
-- Easy to spot exactly what changed without character-level noise
+This creates an HTML comparison for review. Open it only when browser access is allowed and requested; its existence does not prove that proposed corrections are accurate.
 
 ## Example Session
 
@@ -104,32 +84,26 @@ This creates an HTML file showing word-by-word differences with clear highlighti
 框架系统需要优化，目前性能不够好。  ← "股价"→"框架" corrected by AI
 ```
 
-**Learned pattern detected:**
-```
-✓ Detected: "股价" → "框架" (confidence: 85%, count: 1)
-  Run --review-learned after 2 more occurrences to approve
-```
+**Review candidate (illustrative, not an executed learning result):**
+
+`股价` → `框架` may fit the surrounding technical context. Confirm it against the original audio/context before accepting; do not persist a context-specific substitution automatically.
 
 ## Core Workflow
 
-Three-stage pipeline stores corrections in `~/.transcript-fixer/corrections.db`:
+1. Preserve the original transcript and identify the authorized correction/output scope.
+2. Apply dictionary or contextual corrections with uncertainty markers and speaker attribution intact.
+3. Review decisions, names, numbers and changed wording against the source.
+4. Explicitly generate the word-level diff when needed.
+5. Persist only approved reusable corrections in an authorized store. Use the selected configuration/dictionary directory; the learner checks learning and auto-approval independently and defaults to review-only behavior.
 
-1. **Initialize** (first time): `uv run scripts/fix_transcription.py --init`
-2. **Add domain corrections**: `--add "错误词" "正确词" --domain <domain>`
-3. **Process transcript**: `--input file.md --stage 3`
-4. **Review learned patterns**: `--review-learned` and `--approve` high-confidence suggestions
-
-**Stages**: Dictionary (instant, free) → AI via GLM API (parallel) → Full pipeline
-**Domains**: `general`, `embodied_ai`, `finance`, `medical`, or custom names including Chinese (e.g., `火星加速器`, `具身智能`)
-**Learning**: Patterns appearing ≥3 times at ≥80% confidence move from AI to dictionary
+**CLI stages**: Dictionary → AI via GLM API → full pipeline with a printed diff hint. Stages do not implement a complete approval workflow.
+**Domains**: `general`, `embodied_ai`, `finance`, `medical`, or user-selected domain names.
 
 See `references/workflow_guide.md` for detailed workflows, `references/script_parameters.md` for complete CLI reference, and `references/team_collaboration.md` for collaboration patterns.
 
 ## Critical Workflow: Dictionary Iteration
 
-**MUST save corrections after each fix.** This is the skill's core value.
-
-After fixing errors manually, immediately save to dictionary:
+Correction does not authorize global learning. Save only user-approved, reusable corrections when dictionary maintenance is in scope; otherwise return review-only suggestions. For authorized dictionary additions:
 ```bash
 uv run scripts/fix_transcription.py --add "错误词" "正确词" --domain general
 ```
@@ -140,10 +114,10 @@ See `references/iteration_workflow.md` for complete iteration guide with checkli
 
 When GLM API is unavailable (503, network issues), the script outputs `[CLAUDE_FALLBACK]` marker.
 
-Claude Code should then:
-1. Analyze the text directly for ASR errors
-2. Fix using Edit tool
-3. **MUST save corrections to dictionary** with `--add`
+The current host can then:
+1. Analyze the supplied text for ASR errors.
+2. Correct within the authorized output scope using available tools.
+3. Return uncertain/reusable candidates for review; persist only approved corrections when authorized.
 
 ## Database Operations
 
@@ -170,10 +144,10 @@ sqlite3 ~/.transcript-fixer/corrections.db "SELECT value FROM system_config WHER
 
 **Scripts:**
 - `ensure_deps.py` - Initialize shared virtual environment (run once, optional)
-- `fix_transcript_enhanced.py` - Enhanced wrapper (recommended for interactive use)
+- `fix_transcript_enhanced.py` - Wrapper with shell-credential search and default browser opening; subject to the CLI boundaries above
 - `fix_transcription.py` - Core CLI (for automation)
 - `generate_word_diff.py` - Generate word-level diff HTML for reviewing corrections
-- `examples/bulk_import.py` - Bulk import example
+- `scripts/examples/bulk_import.py` - Bulk import example
 
 **References** (load as needed):
 - **Critical**: `database_schema.md` (read before DB operations), `iteration_workflow.md` (dictionary iteration best practices)
@@ -185,7 +159,7 @@ sqlite3 ~/.transcript-fixer/corrections.db "SELECT value FROM system_config WHER
 ## Troubleshooting
 
 Verify setup health with `uv run scripts/fix_transcription.py --validate`. Common issues:
-- Missing database → Run `--init`
+- Missing database → Initialize only when persistent dictionary setup is authorized; otherwise continue direct correction
 - Missing API key → `export GLM_API_KEY="<key>"` (obtain from https://open.bigmodel.cn/)
 - Permission errors → Check `~/.transcript-fixer/` ownership
 

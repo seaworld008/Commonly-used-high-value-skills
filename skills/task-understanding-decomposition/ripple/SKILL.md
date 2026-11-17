@@ -2,14 +2,14 @@
 name: ripple
 description: 'Use before a risky change to estimate its blast radius: dependency chains, breaking changes, pattern consistency, a weighted risk score, and a go or no-go call.'
 zh_description: "实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ripple/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "ripple"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -132,7 +132,7 @@ Beyond direct dependency tracing, detect second-order effects that emerge from c
 
 **Blast radius thresholds** (derived from industry benchmarks):
 - **Files affected ≥ 15:** Recommend PR splitting via Guardian
-- **PR size tiers** (LinearB 2026 benchmarks — 8.1M+ PRs across 4,800 teams + Google research): elite < 105 LOC, target ≤ 200 LOC, hard limit 400 LOC (must split). Review quality drops sharply above 200 LOC; cognitive load on reviewers increases exponentially with diff size. Flag any single PR > 400 LOC for mandatory splitting via Guardian
+- **PR size:** For large changes, recommend a split when independent pieces can be reviewed and rolled back safely. Explain the dependency or review risk that motivates the split.
 - **Highly churned files (≥ 3 changes in last 30 days):** Elevate risk — high-churn files correlate with higher defect density (Springer: PR-based CIA file metrics)
 - **Test coverage < 80% in changed files:** Flag mandatory test additions via Radar
 - **Depth L3+ dependencies found:** Reduce confidence rating, recommend manual verification
@@ -268,16 +268,11 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 - Scout investigates root cause; Ripple maps the blast radius of the proposed fix
 - Sentinel assesses security posture; Ripple identifies security-adjacent files affected by a change
 
-**Agent Teams pattern** (Pattern D: Specialist Team, 2 workers):
-VERTICAL and HORIZONTAL phases are independent — parallelize when analysis scope spans 10+ files:
-- `vertical-analyst` (`subagent_type: Explore`, model: `sonnet`): dependency chain tracing, breaking change classification, churn/bug history overlay
-- `horizontal-analyst` (`subagent_type: Explore`, model: `sonnet`): naming conventions, file structure, API/type pattern compliance
-- Ownership: both read-only; no file conflict. Results merge in RISK_SCORE phase.
-- Skip parallelization for < 10 files — spawn overhead exceeds benefit.
+Trace dependencies vertically and check naming, structure and API consistency horizontally. Run the checks sequentially or in parallel according to risk and available capabilities. When delegation is authorized, assign independent read-only scopes and merge evidence in RISK_SCORE.
 
 ## Multi-Engine Mode
 
-Three AI engines independently analyze change impact — engine dispatch & loose prompt rules → `_common/SUBAGENT.md` § MULTI_ENGINE. Triggered by Ripple's judgment or Nexus `multi-engine` instruction.
+Use independent reviewers when available and authorized by the task. A single investigator can perform both passes.
 
 **Loose Prompt context:** Role + change description + dependencies + output format. Do NOT pass risk templates or classification criteria.
 **Pattern:** Union | **Merge:** Collect all → consolidate same-location findings (multi-engine = higher confidence) → sort by severity → compose final cross-engine report.
@@ -290,9 +285,9 @@ Three AI engines independently analyze change impact — engine dispatch & loose
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-**Before starting (mandatory):** read `.agents/ripple.md` and `.agents/PROJECT.md`; create if missing.
-**Journal** (`.agents/ripple.md`): record only novel impact-analysis patterns, cross-cutting risk surfaces, false-positive calibration notes, and reusable consistency-rule discoveries.
-**After task completion (mandatory):** append `| YYYY-MM-DD | Ripple | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
+Return the impact and risk list in the response by default.
+When project logging is requested or established, record reusable impact patterns in `.agents/ripple.md`.
+Under that same convention, append the action, affected files and outcome to `.agents/PROJECT.md`.
 Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 
 ## Reference Map
@@ -307,7 +302,7 @@ Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 | `reference/blast-radius-quant.md` | Blast-radius quantification (customers, SLO burn, revenue, region/AZ, tenant fan-out, data classification, SEV mapping) |
 | `reference/rollback-plan-design.md` | Reversibility contract (forward-compat, dual-write, backfill, reverse-migration, abort criteria, time-to-rollback) |
 | `reference/canary-scope-design.md` | Canary cohort selection, metric gates, ramp schedule, auto-promote/abort thresholds |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Ripple-specific Output/Next schema. |
+| `reference/autorun-schema.md` | Historical snapshot for interpreting older outputs. For current host integration see AUTORUN Support below. |
 
 ## AUTORUN Support
 

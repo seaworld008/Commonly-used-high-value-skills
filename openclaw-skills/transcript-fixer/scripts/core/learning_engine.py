@@ -73,7 +73,8 @@ class LearningEngine:
     AUTO_APPROVE_FREQUENCY = 5  # Must appear at least 5 times
     AUTO_APPROVE_CONFIDENCE = 0.85  # Must have 85%+ confidence
 
-    def __init__(self, history_dir: Path, learned_dir: Path, correction_service=None):
+    def __init__(self, history_dir: Path, learned_dir: Path, correction_service=None,
+                 *, enable_learning: bool = False, enable_auto_approval: bool = False):
         """
         Initialize learning engine
 
@@ -88,6 +89,8 @@ class LearningEngine:
         self.rejected_file = learned_dir / "rejected.json"
         self.auto_approved_file = learned_dir / "auto_approved.json"
         self.correction_service = correction_service
+        self.enable_learning = enable_learning
+        self.enable_auto_approval = enable_auto_approval
 
         # CRITICAL FIX: Lock files for thread-safe operations
         # Each JSON file gets its own lock file
@@ -122,6 +125,7 @@ class LearningEngine:
                 data.append(new_item)
                 self._save_suggestions(data, self.pending_file)
         """
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
         lock = FileLock(str(lock_path), timeout=self.lock_timeout)
 
         try:
@@ -148,6 +152,9 @@ class LearningEngine:
         Returns:
             List of new suggestions for user review
         """
+        if not self.enable_learning:
+            return []
+
         # Load all history
         patterns = self._extract_patterns()
 
@@ -440,13 +447,10 @@ class LearningEngine:
 
     def analyze_and_auto_approve(self, changes: List, domain: str = "general") -> Dict:
         """
-        Analyze AI changes and auto-approve high-confidence patterns
+        Analyze AI changes only when learning is explicitly enabled.
 
-        This is the CORE learning loop:
-        1. Group changes by pattern
-        2. Find high-frequency, high-confidence patterns
-        3. Auto-add to dictionary (no manual review needed)
-        4. Track auto-approvals for transparency
+        Dictionary writes additionally require enable_auto_approval. Otherwise
+        suggestions are returned for review without persisting them.
 
         Args:
             changes: List of AIChange objects from recent AI processing
@@ -461,8 +465,9 @@ class LearningEngine:
                 "savings_potential": str
             }
         """
-        if not changes:
-            return {"total_changes": 0, "unique_patterns": 0, "auto_approved": 0, "pending_review": 0}
+        if not self.enable_learning or not changes:
+            return {"total_changes": len(changes), "unique_patterns": 0,
+                    "auto_approved": 0, "pending_review": 0, "suggestions": []}
 
         # Group changes by pattern
         patterns = {}
@@ -491,7 +496,8 @@ class LearningEngine:
             avg_confidence = sum(confidences) / len(confidences)
 
             # Auto-approve if meets strict criteria
-            if (frequency >= self.AUTO_APPROVE_FREQUENCY and
+            if (self.enable_auto_approval and
+                frequency >= self.AUTO_APPROVE_FREQUENCY and
                 avg_confidence >= self.AUTO_APPROVE_CONFIDENCE):
 
                 if self.correction_service:
@@ -524,6 +530,8 @@ class LearningEngine:
         if auto_approved_patterns:
             self._save_auto_approved(auto_approved_patterns)
 
+        stats["suggestions"] = pending_patterns
+
         # Calculate savings potential
         total_dict_covered = sum(p["frequency"] for p in auto_approved_patterns)
         if total_dict_covered > 0:
@@ -550,7 +558,7 @@ class LearningEngine:
                 with open(self.auto_approved_file, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if content:
-                        data = json.load(json.loads(content) if isinstance(content, str) else f)
+                        data = json.loads(content)
                         existing = data.get("auto_approved", [])
 
             # Append new

@@ -2,14 +2,14 @@
 name: aws-solution-architect
 description: 'Design or review AWS architecture and infrastructure as code for serverless systems, migrations, scaling, reliability, and cost constraints.'
 zh_description: "用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect"
 license: "MIT"
 tags: '["architect", "aws", "development", "solution"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -37,23 +37,19 @@ Collect application specifications:
 
 ### Step 2: Design Architecture
 
-Run the architecture designer to get pattern recommendations:
+Use a Python process with the installed skill directory on its import path and the task's working directory for input and output. The three bundled modules expose classes.
 
-```bash
-python scripts/architecture_designer.py --input requirements.json
+```python
+import json
+from pathlib import Path
+from scripts.architecture_designer import ArchitectureDesigner
+
+requirements = json.loads(Path("requirements.json").read_text())
+design = ArchitectureDesigner(requirements).recommend_architecture_pattern()
+Path("design.json").write_text(json.dumps(design, indent=2))
 ```
 
-**Example output:**
-
-```json
-{
-  "recommended_pattern": "serverless_web",
-  "service_stack": ["S3", "CloudFront", "API Gateway", "Lambda", "DynamoDB", "Cognito"],
-  "estimated_monthly_cost_usd": 35,
-  "pros": ["Low ops overhead", "Pay-per-use", "Auto-scaling"],
-  "cons": ["Cold starts", "15-min Lambda limit", "Eventual consistency"]
-}
-```
+Inspect `pattern_name`, the recommended services and the assumptions behind the estimate.
 
 Select from recommended patterns:
 - **Serverless Web**: S3 + CloudFront + API Gateway + Lambda + DynamoDB
@@ -69,12 +65,17 @@ See `references/architecture_patterns.md` for detailed pattern specifications.
 
 Create infrastructure-as-code for the selected pattern:
 
-```bash
-# Serverless stack (CloudFormation)
-python scripts/serverless_stack.py --app-name my-app --region us-east-1
+```python
+import json
+from pathlib import Path
+from scripts.serverless_stack import ServerlessStackGenerator
+
+requirements = json.loads(Path("requirements.json").read_text())
+template = ServerlessStackGenerator("my-app", requirements).generate_cloudformation_template()
+Path("template.yaml").write_text(template)
 ```
 
-**Example CloudFormation YAML output (core serverless resources):**
+**Illustrative SAM resource layout:**
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
@@ -148,33 +149,22 @@ const db = new rds.ServerlessCluster(this, 'AppDb', {
 
 Analyze estimated costs and optimization opportunities:
 
-```bash
-python scripts/cost_optimizer.py --resources current_setup.json --monthly-spend 2000
+```python
+import json
+from pathlib import Path
+from scripts.cost_optimizer import CostOptimizer
+
+inventory = json.loads(Path("current_setup.json").read_text())
+monthly_spend = float(input("Observed monthly spend in USD: "))
+analysis = CostOptimizer(inventory, monthly_spend).analyze_and_optimize()
+Path("cost_analysis.json").write_text(json.dumps(analysis, indent=2))
 ```
 
-**Example output:**
-
-```json
-{
-  "current_monthly_usd": 2000,
-  "recommendations": [
-    { "action": "Right-size RDS db.r5.2xlarge → db.r5.large", "savings_usd": 420, "priority": "high" },
-    { "action": "Purchase 1-yr Compute Savings Plan at 40% utilization", "savings_usd": 310, "priority": "high" },
-    { "action": "Move S3 objects >90 days to Glacier Instant Retrieval", "savings_usd": 85, "priority": "medium" }
-  ],
-  "total_potential_savings_usd": 815
-}
-```
-
-Output includes:
-- Monthly cost breakdown by service
-- Right-sizing recommendations
-- Savings Plans opportunities
-- Potential monthly savings
+Review `current_monthly_spend`, `potential_monthly_savings`, `recommendations` and `priority_actions`. Savings are estimates derived from the supplied inventory. Validate them against current usage and pricing before taking action.
 
 ### Step 5: Deploy
 
-Deploy the generated infrastructure:
+For an authorized deployment, validate the chosen template and deploy it to the selected account and region:
 
 ```bash
 # CloudFormation
@@ -212,14 +202,7 @@ aws cloudwatch put-metric-alarm --alarm-name high-errors ...
    ```
 2. Review CloudWatch Logs for Lambda or ECS errors.
 3. Fix the template or resource configuration.
-4. Delete the failed stack before retrying:
-   ```bash
-   aws cloudformation delete-stack --stack-name my-app-stack
-   # Wait for deletion
-   aws cloudformation wait stack-delete-complete --stack-name my-app-stack
-   # Redeploy
-   aws cloudformation create-stack ...
-   ```
+4. Inspect stack status, retained resources, dependencies and backups. Choose an update, rollback or recovery path supported in that state. Delete and recreate only a confirmed disposable stack when deletion of that specific stack is authorized.
 
 **Common failure causes:**
 - IAM permission errors → verify `--capabilities CAPABILITY_IAM` and role trust policies
@@ -234,9 +217,7 @@ aws cloudwatch put-metric-alarm --alarm-name high-errors ...
 
 Generates architecture patterns based on requirements.
 
-```bash
-python scripts/architecture_designer.py --input requirements.json --output design.json
-```
+Call `ArchitectureDesigner(requirements).recommend_architecture_pattern()` as in Step 2.
 
 **Input:** JSON with app type, scale, budget, compliance needs
 **Output:** Recommended pattern, service stack, cost estimate, pros/cons
@@ -245,11 +226,9 @@ python scripts/architecture_designer.py --input requirements.json --output desig
 
 Creates serverless CloudFormation templates.
 
-```bash
-python scripts/serverless_stack.py --app-name my-app --region us-east-1
-```
+Call `ServerlessStackGenerator(app_name, requirements).generate_cloudformation_template()` as in Step 3.
 
-**Output:** Production-ready CloudFormation YAML with:
+**Output:** CloudFormation template for review and validation with:
 - API Gateway + Lambda
 - DynamoDB table
 - Cognito user pool
@@ -260,9 +239,7 @@ python scripts/serverless_stack.py --app-name my-app --region us-east-1
 
 Analyzes costs and recommends optimizations.
 
-```bash
-python scripts/cost_optimizer.py --resources inventory.json --monthly-spend 5000
-```
+Call `CostOptimizer(inventory, monthly_spend).analyze_and_optimize()` as in Step 4.
 
 **Output:** Recommendations for:
 - Idle resource removal
@@ -372,7 +349,7 @@ Provide these details for architecture design:
 
 ### IaC Templates
 
-- **CloudFormation YAML**: Production-ready SAM/CFN templates
+- **CloudFormation YAML**: Generated SAM/CFN template for validation
 - **CDK TypeScript**: Type-safe infrastructure code
 - **Terraform HCL**: Multi-cloud compatible configs
 

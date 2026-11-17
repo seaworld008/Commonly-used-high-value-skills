@@ -113,7 +113,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "bd6dac16d7dbac4ff4ce69e1cfa7c4866e4101cc6b83041837edb8632e6dd03f",
+            "content_sha256": "fa853c04c553e2429b6ea2d3acc1eb3b610b6d28462ff6595322db1451fd9e1e",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -129,7 +129,7 @@
         {
           "path": "skills/developer-engineering/agent-designer/SKILL.md",
           "owner": "agent-designer",
-          "sha256": "bd6dac16d7dbac4ff4ce69e1cfa7c4866e4101cc6b83041837edb8632e6dd03f",
+          "sha256": "fa853c04c553e2429b6ea2d3acc1eb3b610b6d28462ff6595322db1451fd9e1e",
           "mode": "100644"
         },
         {
@@ -242,7 +242,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5f75ac7b0957e66802d746cdae873117353af42d7677e7a4f67be07fe30331ca",
+            "content_sha256": "fd0b63b44677f44fd43ff084eeea3d612cc0094982cf5b536ac9ebea6b60a9a8",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -252,7 +252,7 @@
         {
           "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md",
           "owner": "agent-workflow-designer",
-          "sha256": "5f75ac7b0957e66802d746cdae873117353af42d7677e7a4f67be07fe30331ca",
+          "sha256": "fd0b63b44677f44fd43ff084eeea3d612cc0094982cf5b536ac9ebea6b60a9a8",
           "mode": "100644"
         }
       ]
@@ -308,7 +308,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a51c7df49b6ae16e0b2dbba7ad910f7613bc2a1926a23330fc46548a9129f4be",
+            "content_sha256": "281b80941a9914e4183aa5d590c941d70012add56ded15e0dcf56b4a2d0b81fd",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -318,7 +318,7 @@
         {
           "path": "skills/product-design/agile-product-owner/SKILL.md",
           "owner": "agile-product-owner",
-          "sha256": "a51c7df49b6ae16e0b2dbba7ad910f7613bc2a1926a23330fc46548a9129f4be",
+          "sha256": "281b80941a9914e4183aa5d590c941d70012add56ded15e0dcf56b4a2d0b81fd",
           "mode": "100644"
         },
         {
@@ -392,7 +392,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "779ee87762bdbc3c56d4397e0b666610af3ad6abbc3a9480a82a8de9898a4176",
+            "content_sha256": "b67a4064ad39d0d228c7a638403c1c5741dd3ef6623002bb8d6521ad0fa609b5",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -408,7 +408,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/algorithmic-art/SKILL.md",
           "owner": "algorithmic-art",
-          "sha256": "779ee87762bdbc3c56d4397e0b666610af3ad6abbc3a9480a82a8de9898a4176",
+          "sha256": "b67a4064ad39d0d228c7a638403c1c5741dd3ef6623002bb8d6521ad0fa609b5",
           "mode": "100644"
         },
         {
@@ -537,7 +537,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ed235881cfc758c7a705861cb279d266dc43ade63ee124eb585d3ca0a4f4fd20",
+            "content_sha256": "bfc797d698eabb3e2a3341e3b37aedcd67ada2e63a9ddd33ea08082c16e7eb8c",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -547,7 +547,7 @@
         {
           "path": "skills/developer-engineering/api-design-reviewer/SKILL.md",
           "owner": "api-design-reviewer",
-          "sha256": "ed235881cfc758c7a705861cb279d266dc43ade63ee124eb585d3ca0a4f4fd20",
+          "sha256": "bfc797d698eabb3e2a3341e3b37aedcd67ada2e63a9ddd33ea08082c16e7eb8c",
           "mode": "100644"
         },
         {
@@ -623,7 +623,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "78f8d1463ee549f46e6d1bc486c35a79cb15f27f0123622612c43eba9a862ad6",
+            "content_sha256": "2f259e8dfa1a6857e7b747582d02c5af723d3bf14d819bdab3fab29afd7b0dc1",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -633,7 +633,7 @@
         {
           "path": "skills/developer-engineering/api-test-suite-builder/SKILL.md",
           "owner": "api-test-suite-builder",
-          "sha256": "78f8d1463ee549f46e6d1bc486c35a79cb15f27f0123622612c43eba9a862ad6",
+          "sha256": "2f259e8dfa1a6857e7b747582d02c5af723d3bf14d819bdab3fab29afd7b0dc1",
           "mode": "100644"
         },
         {
@@ -765,7 +765,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "89159a39fe6f0abb2dc9cde718c4cd380f31c07e216c163fa60994ad1342a38c",
+            "content_sha256": "1505d48d62a7d72de7cd4415aa8319f4b1821e2ab8359aec96f849876fee0842",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -787,7 +787,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md",
           "owner": "app-store-optimization",
-          "sha256": "89159a39fe6f0abb2dc9cde718c4cd380f31c07e216c163fa60994ad1342a38c",
+          "sha256": "1505d48d62a7d72de7cd4415aa8319f4b1821e2ab8359aec96f849876fee0842",
           "mode": "100644"
         },
         {
@@ -1613,7 +1613,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "24a21ebd36ab3465625c2bbc27e789b31a6acfa1f241cad9eb86a4d996f38284",
+            "content_sha256": "997a497ec1ee902bdce46faa8341d6f2c10038202911011e6c838386f982af11",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -1629,7 +1629,7 @@
         {
           "path": "skills/product-design/canvas-design/SKILL.md",
           "owner": "canvas-design",
-          "sha256": "24a21ebd36ab3465625c2bbc27e789b31a6acfa1f241cad9eb86a4d996f38284",
+          "sha256": "997a497ec1ee902bdce46faa8341d6f2c10038202911011e6c838386f982af11",
           "mode": "100644"
         },
         {
@@ -2357,7 +2357,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ecb2ea56b91c570683467b41007c77cbc7dc35e307e274a63d4a4eef2bc1038c",
+            "content_sha256": "836ec2c3c5d3f338dbb9b5ac0aef64631cc4007e27a3902d35309ba87d1816fa",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -2367,7 +2367,7 @@
         {
           "path": "skills/developer-engineering/cli-demo-generator/SKILL.md",
           "owner": "cli-demo-generator",
-          "sha256": "ecb2ea56b91c570683467b41007c77cbc7dc35e307e274a63d4a4eef2bc1038c",
+          "sha256": "836ec2c3c5d3f338dbb9b5ac0aef64631cc4007e27a3902d35309ba87d1816fa",
           "mode": "100644"
         },
         {
@@ -4011,7 +4011,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3943705d4ddb29a0ab5318e9314ac54f67f42524af98144b5983a3810c4b8f54",
+            "content_sha256": "adc401598d7ebcb5b263b54873c790736b5fe55849c2b07cd1ba58d2e720d5ca",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -4027,7 +4027,7 @@
         {
           "path": "skills/deployment-platforms/cloudflare-deploy/SKILL.md",
           "owner": "cloudflare-deploy",
-          "sha256": "3943705d4ddb29a0ab5318e9314ac54f67f42524af98144b5983a3810c4b8f54",
+          "sha256": "adc401598d7ebcb5b263b54873c790736b5fe55849c2b07cd1ba58d2e720d5ca",
           "mode": "100644"
         },
         {
@@ -5953,7 +5953,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "540e76056450f6169e8928f555ad05afc0d5c5d9dafffb2c39f62b894d8e239c",
+            "content_sha256": "d5023845b9398e20ef1f83d105fc174c20e8b5d953df41f71058790f60708f8b",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -5963,7 +5963,7 @@
         {
           "path": "skills/devops-sre/cloudflare-troubleshooting/SKILL.md",
           "owner": "cloudflare-troubleshooting",
-          "sha256": "540e76056450f6169e8928f555ad05afc0d5c5d9dafffb2c39f62b894d8e239c",
+          "sha256": "d5023845b9398e20ef1f83d105fc174c20e8b5d953df41f71058790f60708f8b",
           "mode": "100644"
         },
         {
@@ -6039,7 +6039,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9b1a258a7a6608c1372f2aa94e81f015ed100f0a8bf8e9aa5a1f8dfb6374f6a1",
+            "content_sha256": "547d18dd6dc326d1e38cde6b9739c90717c1a9373f5dc57e84163db9e508e4ef",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6049,7 +6049,7 @@
         {
           "path": "skills/developer-engineering/codebase-onboarding/SKILL.md",
           "owner": "codebase-onboarding",
-          "sha256": "9b1a258a7a6608c1372f2aa94e81f015ed100f0a8bf8e9aa5a1f8dfb6374f6a1",
+          "sha256": "547d18dd6dc326d1e38cde6b9739c90717c1a9373f5dc57e84163db9e508e4ef",
           "mode": "100644"
         },
         {
@@ -6147,7 +6147,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "de2bb927b6f4f27fea731835afd3fb99a2b888aca4c3a6636dc848ca7a10596e",
+            "content_sha256": "07d52eb08cbbe04c8546725345b3f0d06373f1b5b326a377f6fb5230501f50d2",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6157,7 +6157,7 @@
         {
           "path": "skills/product-design/competitive-teardown/SKILL.md",
           "owner": "competitive-teardown",
-          "sha256": "de2bb927b6f4f27fea731835afd3fb99a2b888aca4c3a6636dc848ca7a10596e",
+          "sha256": "07d52eb08cbbe04c8546725345b3f0d06373f1b5b326a377f6fb5230501f50d2",
           "mode": "100644"
         }
       ]
@@ -6218,7 +6218,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "35af1b805bd9f9732388dbbad6575a614478af2e289119f7f74ac0a54354c02c",
+            "content_sha256": "d24cfd86b87790b9448a693b5f794544ee6af25d475b69b024e828f0bb47bd8a",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6234,7 +6234,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md",
           "owner": "competitors-analysis",
-          "sha256": "35af1b805bd9f9732388dbbad6575a614478af2e289119f7f74ac0a54354c02c",
+          "sha256": "d24cfd86b87790b9448a693b5f794544ee6af25d475b69b024e828f0bb47bd8a",
           "mode": "100644"
         },
         {
@@ -6308,7 +6308,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9b4ec247e8f956e8f9abacdacf7c6473127522e52903f7c76d8da16fb1253893",
+            "content_sha256": "e939d14d721403719f3fa32cdcc750dbf768553eb595ae8291a4262d6bbd9216",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -6318,7 +6318,7 @@
         {
           "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md",
           "owner": "comps-valuation-analyst",
-          "sha256": "9b4ec247e8f956e8f9abacdacf7c6473127522e52903f7c76d8da16fb1253893",
+          "sha256": "e939d14d721403719f3fa32cdcc750dbf768553eb595ae8291a4262d6bbd9216",
           "mode": "100644"
         },
         {
@@ -6336,7 +6336,7 @@
         {
           "path": "skills/finance-investing/comps-valuation-analyst/scripts/calculate_comps.py",
           "owner": "comps-valuation-analyst",
-          "sha256": "9d751804830ea21cd585b5f1ac3e1635d373887f3aa17bc2d1b0061c64065b99",
+          "sha256": "e250ee6ef64f7f0290618a3ffd5462cb08a90813a355450f42ed63caa053c205",
           "mode": "100644"
         }
       ]
@@ -6422,7 +6422,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ec4fb8915d3d1e583aa9bae81c05d2c17b85718d12c710713fd34329d98f39e7",
+            "content_sha256": "31bdb93b98dcf52ed7f631361700b5167e76f9d399875b1f111d5d242aed8f1b",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6432,7 +6432,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/content-creator/SKILL.md",
           "owner": "content-creator",
-          "sha256": "ec4fb8915d3d1e583aa9bae81c05d2c17b85718d12c710713fd34329d98f39e7",
+          "sha256": "31bdb93b98dcf52ed7f631361700b5167e76f9d399875b1f111d5d242aed8f1b",
           "mode": "100644"
         },
         {
@@ -6597,7 +6597,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "62154d7cfec6b1b1fa7a4b974171bdd3e2ce07724a490d19453e0b9056124344",
+            "content_sha256": "0d69740bba31dd51d016d50ccd3cc3373eed8048ff488c302bb0894daaafbcc2",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6613,7 +6613,7 @@
         {
           "path": "skills/developer-engineering/database-designer/SKILL.md",
           "owner": "database-designer",
-          "sha256": "62154d7cfec6b1b1fa7a4b974171bdd3e2ce07724a490d19453e0b9056124344",
+          "sha256": "0d69740bba31dd51d016d50ccd3cc3373eed8048ff488c302bb0894daaafbcc2",
           "mode": "100644"
         },
         {
@@ -6737,7 +6737,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "890547056128aa3ca0c69e947a21548a42a6559d7812973071617b26ff02cff2",
+            "content_sha256": "82ce3bef350bf3e281b724510687d52ab67003a62ec44e8329961b03ebf82a2b",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6747,7 +6747,7 @@
         {
           "path": "skills/developer-engineering/database-schema-designer/SKILL.md",
           "owner": "database-schema-designer",
-          "sha256": "890547056128aa3ca0c69e947a21548a42a6559d7812973071617b26ff02cff2",
+          "sha256": "82ce3bef350bf3e281b724510687d52ab67003a62ec44e8329961b03ebf82a2b",
           "mode": "100644"
         },
         {
@@ -6824,7 +6824,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "777a8298ce9336f1fd787ee1c48a451f9ca8113f86230fc964127c52e8938ca5",
+            "content_sha256": "7f96d68584a9ca162732e29a032622eb0e4b63690210ce040dc353c4f9f2b872",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -6840,7 +6840,7 @@
         {
           "path": "skills/ai-workflow/deep-research/SKILL.md",
           "owner": "deep-research",
-          "sha256": "777a8298ce9336f1fd787ee1c48a451f9ca8113f86230fc964127c52e8938ca5",
+          "sha256": "7f96d68584a9ca162732e29a032622eb0e4b63690210ce040dc353c4f9f2b872",
           "mode": "100644"
         },
         {
@@ -7162,7 +7162,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4c0590c080ebc27e077b248d8ef2582004d46aef1063eefda0a022b30e5e1510",
+            "content_sha256": "43a65c1a557d427d4df3c3759c7021a5629ed1b8eb66a3bdd328ebcbacd442a9",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -7178,7 +7178,7 @@
         {
           "path": "skills/ai-agent-platform/develop-web-game/SKILL.md",
           "owner": "develop-web-game",
-          "sha256": "4c0590c080ebc27e077b248d8ef2582004d46aef1063eefda0a022b30e5e1510",
+          "sha256": "43a65c1a557d427d4df3c3759c7021a5629ed1b8eb66a3bdd328ebcbacd442a9",
           "mode": "100644"
         },
         {
@@ -7638,7 +7638,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fe5f8367b956e767368de0bca43f360181515f218d3c78a6c448edccde0f8ae7",
+            "content_sha256": "b57a62eb7e194c755060a653d40b4f33d19711c8cb589040920741afa1fe6165",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -7654,7 +7654,7 @@
         {
           "path": "skills/office-white-collar/docx/SKILL.md",
           "owner": "docx",
-          "sha256": "fe5f8367b956e767368de0bca43f360181515f218d3c78a6c448edccde0f8ae7",
+          "sha256": "b57a62eb7e194c755060a653d40b4f33d19711c8cb589040920741afa1fe6165",
           "mode": "100644"
         },
         {
@@ -7936,7 +7936,7 @@
         {
           "path": "skills/office-white-collar/docx/scripts/office/soffice.py",
           "owner": "docx",
-          "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "sha256": "375571eb0359ca6c069901fbf7f25934d13c1ea6fd7bccff143b45b08c4c7f18",
           "mode": "100644"
         },
         {
@@ -8076,7 +8076,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1232416ac1fe7cda7a4416556ec1bc3b5770aeab25721dc3f68b81cfffe6f2e3",
+            "content_sha256": "6bcd2d2a25056ef0ff9de06dcf68d4525ac75c0f854a1e99f762687cc6573220",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -8086,7 +8086,7 @@
         {
           "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md",
           "owner": "earnings-call-analyzer",
-          "sha256": "1232416ac1fe7cda7a4416556ec1bc3b5770aeab25721dc3f68b81cfffe6f2e3",
+          "sha256": "6bcd2d2a25056ef0ff9de06dcf68d4525ac75c0f854a1e99f762687cc6573220",
           "mode": "100644"
         },
         {
@@ -8150,7 +8150,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "575e55b4ed7fdf90b2609e83082830e29e2d0ef582d5897bd454592dbec40320",
+            "content_sha256": "7fc097f2f463f68a33aa857ea3ff1f77d7bc9eae00c9a37fc98a99302a873be8",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -8160,7 +8160,7 @@
         {
           "path": "skills/devops-sre/env-secrets-manager/SKILL.md",
           "owner": "env-secrets-manager",
-          "sha256": "575e55b4ed7fdf90b2609e83082830e29e2d0ef582d5897bd454592dbec40320",
+          "sha256": "7fc097f2f463f68a33aa857ea3ff1f77d7bc9eae00c9a37fc98a99302a873be8",
           "mode": "100644"
         },
         {
@@ -8222,7 +8222,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "55a4fd4a32a25770a5d2202e8deff4200d7a3dfcf5234af98a8af1d550ca11e6",
+            "content_sha256": "067034a9a3f0eada3b459bc158d7bad2b576fee861fa359550ec39b2ff855674",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -8232,7 +8232,7 @@
         {
           "path": "skills/finance-investing/event-driven-tracker/SKILL.md",
           "owner": "event-driven-tracker",
-          "sha256": "55a4fd4a32a25770a5d2202e8deff4200d7a3dfcf5234af98a8af1d550ca11e6",
+          "sha256": "067034a9a3f0eada3b459bc158d7bad2b576fee861fa359550ec39b2ff855674",
           "mode": "100644"
         },
         {
@@ -8301,7 +8301,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1e090d7758c468ee90c7110ca9af6be7036ab60f3b926375f9eb99abc8af9b53",
+            "content_sha256": "129a4454ed60e40f24d6408a464948fce756082fb9979e7146fbf2e622b41e62",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -8323,7 +8323,7 @@
         {
           "path": "skills/operations-general/fact-checker/SKILL.md",
           "owner": "fact-checker",
-          "sha256": "1e090d7758c468ee90c7110ca9af6be7036ab60f3b926375f9eb99abc8af9b53",
+          "sha256": "129a4454ed60e40f24d6408a464948fce756082fb9979e7146fbf2e622b41e62",
           "mode": "100644"
         }
       ]
@@ -8379,7 +8379,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9305e1af907982f3c1a62a91e498b6168603466cbfa6f7900c6e1af017843e7d",
+            "content_sha256": "daf239ebd7b29f7e7fb53dad89c86605e5a071d2fe142bdf079944565cf699f4",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -8389,7 +8389,7 @@
         {
           "path": "skills/finance-investing/factor-backtester/SKILL.md",
           "owner": "factor-backtester",
-          "sha256": "9305e1af907982f3c1a62a91e498b6168603466cbfa6f7900c6e1af017843e7d",
+          "sha256": "daf239ebd7b29f7e7fb53dad89c86605e5a071d2fe142bdf079944565cf699f4",
           "mode": "100644"
         },
         {
@@ -8483,7 +8483,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "43850de9536a99339dd86a2c61fb7a6977d7d1dd43db1b1b3edbe6b93b415044",
+            "content_sha256": "6bb5c05db5138b5b9cf92dec1ce862818798ace6ac90deaae6b06c5a0a63715a",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -8499,7 +8499,7 @@
         {
           "path": "skills/ai-agent-platform/figma/SKILL.md",
           "owner": "figma",
-          "sha256": "43850de9536a99339dd86a2c61fb7a6977d7d1dd43db1b1b3edbe6b93b415044",
+          "sha256": "6bb5c05db5138b5b9cf92dec1ce862818798ace6ac90deaae6b06c5a0a63715a",
           "mode": "100644"
         },
         {
@@ -8601,7 +8601,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "63066764bb4d239dae61110c55880f0ab7ac3d187f501bf8bde74eeb4eb908a7",
+            "content_sha256": "a4d3d9e8fe2338515ea7ddd5caabf6d456fb46669d5f67677749b45eadb387f2",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -8617,7 +8617,7 @@
         {
           "path": "skills/ai-agent-platform/figma-implement-design/SKILL.md",
           "owner": "figma-implement-design",
-          "sha256": "63066764bb4d239dae61110c55880f0ab7ac3d187f501bf8bde74eeb4eb908a7",
+          "sha256": "a4d3d9e8fe2338515ea7ddd5caabf6d456fb46669d5f67677749b45eadb387f2",
           "mode": "100644"
         },
         {
@@ -8742,7 +8742,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "98cc5c391ae368aee4acc1ee72735bfb99799ea708127f79b6cb07eac5227f93",
+            "content_sha256": "8a50df5d76e5b6b7a4f8c2f993d94bf7b8e7c96ae2ce3f9d098c986e07fd39cb",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -8752,7 +8752,7 @@
         {
           "path": "skills/finance-investing/financial-analyst/SKILL.md",
           "owner": "financial-analyst",
-          "sha256": "98cc5c391ae368aee4acc1ee72735bfb99799ea708127f79b6cb07eac5227f93",
+          "sha256": "8a50df5d76e5b6b7a4f8c2f993d94bf7b8e7c96ae2ce3f9d098c986e07fd39cb",
           "mode": "100644"
         },
         {
@@ -8812,7 +8812,7 @@
         {
           "path": "skills/finance-investing/financial-analyst/scripts/dcf_valuation.py",
           "owner": "financial-analyst",
-          "sha256": "54b471ccff7a38d750009905fc507b74592b2af97875a31da8a6f63c4db24958",
+          "sha256": "81863334b3b1eb7cabc75a849eb7f730fcd2d223d3a346f49b579b8c2eaf1ca5",
           "mode": "100644"
         },
         {
@@ -8935,7 +8935,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e45e85b117ecd0bfd71832094dd1c4e7803d967ea3c4525757b486bc911a45f7",
+            "content_sha256": "3afb01e9d93450b559f495c0d7b2bf58f8d84ba396ebb8b6069e89a90c5bedf7",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -8951,7 +8951,7 @@
         {
           "path": "skills/finance-investing/financial-data-collector/SKILL.md",
           "owner": "financial-data-collector",
-          "sha256": "e45e85b117ecd0bfd71832094dd1c4e7803d967ea3c4525757b486bc911a45f7",
+          "sha256": "3afb01e9d93450b559f495c0d7b2bf58f8d84ba396ebb8b6069e89a90c5bedf7",
           "mode": "100644"
         },
         {
@@ -9011,7 +9011,7 @@
         {
           "path": "skills/finance-investing/financial-data-collector/scripts/collect_data.py",
           "owner": "financial-data-collector",
-          "sha256": "c9d23ba85e5e242ae8ff68af23d5dd5b23523943c29ceeced4a9ae9ab5b00fe2",
+          "sha256": "5e12de0ad5d5ec3daad9e36ec25b30c160a61ce5360ef13b4cc7f57513a87036",
           "mode": "100644"
         },
         {
@@ -9075,7 +9075,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9a101412f8bfc69a13f2dd0a52ffb4ee11bbd7f9fe7636be51905b96b9e54e29",
+            "content_sha256": "245c7225f5b99a236ab1d743fcd156e0c4d05597ad65fc384107fc8fcb0d7a55",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -9091,7 +9091,7 @@
         {
           "path": "skills/developer-engineering/frontend-design/SKILL.md",
           "owner": "frontend-design",
-          "sha256": "9a101412f8bfc69a13f2dd0a52ffb4ee11bbd7f9fe7636be51905b96b9e54e29",
+          "sha256": "245c7225f5b99a236ab1d743fcd156e0c4d05597ad65fc384107fc8fcb0d7a55",
           "mode": "100644"
         }
       ]
@@ -9157,7 +9157,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "286746277ff214949e1d20b2b7f1ab800d37660f46880ee75b0b31bbe6376d3c",
+            "content_sha256": "13f92c3390e66771af4f68f9880b03e6fd16ee2da4e6c6637a4c60ca05f1b7df",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -9173,7 +9173,7 @@
         {
           "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md",
           "owner": "gh-address-comments",
-          "sha256": "286746277ff214949e1d20b2b7f1ab800d37660f46880ee75b0b31bbe6376d3c",
+          "sha256": "13f92c3390e66771af4f68f9880b03e6fd16ee2da4e6c6637a4c60ca05f1b7df",
           "mode": "100644"
         },
         {
@@ -9344,7 +9344,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a7659ca434d8bc5da75ae6566afec4edcc6c25a5df9461e04e38f26b052c47b5",
+            "content_sha256": "18bc86ccc542479cb72789b67a4440c6f2d6fc67148c43ab86130d3517c6b7ea",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -9354,7 +9354,7 @@
         {
           "path": "skills/developer-engineering/git-worktree-manager/SKILL.md",
           "owner": "git-worktree-manager",
-          "sha256": "a7659ca434d8bc5da75ae6566afec4edcc6c25a5df9461e04e38f26b052c47b5",
+          "sha256": "18bc86ccc542479cb72789b67a4440c6f2d6fc67148c43ab86130d3517c6b7ea",
           "mode": "100644"
         }
       ]
@@ -9415,7 +9415,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6aee04e08ce486b580c1dc990e6ecb3a7dd838d6b5fdb90e2aedb26c1a053af4",
+            "content_sha256": "c842201db03f37dbd8b3dff8559c2470c36d937bd609dae3b04d2a445adea665",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -9431,7 +9431,7 @@
         {
           "path": "skills/developer-engineering/github-contributor/SKILL.md",
           "owner": "github-contributor",
-          "sha256": "6aee04e08ce486b580c1dc990e6ecb3a7dd838d6b5fdb90e2aedb26c1a053af4",
+          "sha256": "c842201db03f37dbd8b3dff8559c2470c36d937bd609dae3b04d2a445adea665",
           "mode": "100644"
         },
         {
@@ -9611,7 +9611,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b8d2c12060758999684174b754ed5a3004d83550660a377f8404f386269e4f1f",
+            "content_sha256": "c7d889ad18ef807c84534ed33879006ddde3de80dfe855fa60b7aa9aaa94aee8",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -9627,7 +9627,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/SKILL.md",
           "owner": "gpt-image2",
-          "sha256": "b8d2c12060758999684174b754ed5a3004d83550660a377f8404f386269e4f1f",
+          "sha256": "c7d889ad18ef807c84534ed33879006ddde3de80dfe855fa60b7aa9aaa94aee8",
           "mode": "100644"
         },
         {
@@ -9639,7 +9639,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/scripts/gpt-image2.mjs",
           "owner": "gpt-image2",
-          "sha256": "508b5fbb9aa93a1d6db35c7038bd30093fb5fa38e1e08d41de3356a089014347",
+          "sha256": "0b97f1952dc1ae679b178bc0257a5f1975c0fe6f62546e899195a7b3f4d1ab76",
           "mode": "100644"
         }
       ]
@@ -9680,7 +9680,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "16016d2a6375c885eae6f069c53616c66463d6390637d91c10fbf4054041cf2f",
+            "content_sha256": "eee156d6c7b83cd9c9b9465fe4926880f5b4eb20191519d3dbf61e8bbe8c82a5",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -9690,7 +9690,7 @@
         {
           "path": "skills/developer-engineering/graphql-expert/SKILL.md",
           "owner": "graphql-expert",
-          "sha256": "16016d2a6375c885eae6f069c53616c66463d6390637d91c10fbf4054041cf2f",
+          "sha256": "eee156d6c7b83cd9c9b9465fe4926880f5b4eb20191519d3dbf61e8bbe8c82a5",
           "mode": "100644"
         }
       ]
@@ -9731,7 +9731,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2947b4b037cf2f0cc8760d19ee9ac45373f1f8a86bf0f110efd6ff80c06df617",
+            "content_sha256": "4c59ec8edf622b43045fd5239a3f2fd8ebc01cf68dfc998405d7431437a46036",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -9741,7 +9741,7 @@
         {
           "path": "skills/security-and-reliability/grype-syft-sbom-scanner/SKILL.md",
           "owner": "grype-syft-sbom-scanner",
-          "sha256": "2947b4b037cf2f0cc8760d19ee9ac45373f1f8a86bf0f110efd6ff80c06df617",
+          "sha256": "4c59ec8edf622b43045fd5239a3f2fd8ebc01cf68dfc998405d7431437a46036",
           "mode": "100644"
         }
       ]
@@ -9827,8 +9827,8 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "d4eeaea682f76a2bf8a482a7241b3875ad2ad7a96a440e218174400c7b043750",
-          "graphify": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
+          "hermes-agent": "d4c402cd65e8900f470beca9a7fb494320a5acfa97db75713ec2e5c81c53916c",
+          "graphify": "e4936fd512c603b5b696ed7d0cc3baa7d5ce9ff0e14577626b598760cecf13d3",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
         }
@@ -9880,7 +9880,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "22362aa3948df93fca08fa3fcfc8d27919f32162518dd9792c16d47dbfecf8c5",
+            "content_sha256": "697b2377fd04271ad37bcbae447f4041e0e3d6b59b04a1711058f929650b009b",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -9896,7 +9896,7 @@
         {
           "path": "skills/developer-engineering/i18n-expert/SKILL.md",
           "owner": "i18n-expert",
-          "sha256": "22362aa3948df93fca08fa3fcfc8d27919f32162518dd9792c16d47dbfecf8c5",
+          "sha256": "697b2377fd04271ad37bcbae447f4041e0e3d6b59b04a1711058f929650b009b",
           "mode": "100644"
         },
         {
@@ -9993,7 +9993,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c04737fc1cb5b9ef26d6c6536090291e72ef40d1c21f550ab46de777fcffa72a",
+            "content_sha256": "9be5cb53e9a50fa15c341975e5147882170952c360a32acef391f118f1b8f933",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -10009,7 +10009,7 @@
         {
           "path": "skills/multimodal-media/imagegen/SKILL.md",
           "owner": "imagegen",
-          "sha256": "c04737fc1cb5b9ef26d6c6536090291e72ef40d1c21f550ab46de777fcffa72a",
+          "sha256": "9be5cb53e9a50fa15c341975e5147882170952c360a32acef391f118f1b8f933",
           "mode": "100644"
         },
         {
@@ -10229,7 +10229,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "352913d93f9e067afa0cbbd4baae16c5d798b18cf53e53ba15e36cc9695ea0b6",
+            "content_sha256": "2562ffbd1fd03b77c34f0b6cbd8ccaae7762ecdb8c48e706245b9dea5c95261f",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -10245,7 +10245,7 @@
         {
           "path": "skills/devops-sre/incident-commander/SKILL.md",
           "owner": "incident-commander",
-          "sha256": "352913d93f9e067afa0cbbd4baae16c5d798b18cf53e53ba15e36cc9695ea0b6",
+          "sha256": "2562ffbd1fd03b77c34f0b6cbd8ccaae7762ecdb8c48e706245b9dea5c95261f",
           "mode": "100644"
         },
         {
@@ -10500,7 +10500,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "90832cdc90bb10c6d8f2de9234d4aa8a837e1c830c18ee78836253807f7b09de",
+            "content_sha256": "929ab2b0d41cd6e32513ac17aee6ae3291200f31af873c55a8e5d90f452d72be",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -10528,7 +10528,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/SKILL.md",
           "owner": "input-guard",
-          "sha256": "90832cdc90bb10c6d8f2de9234d4aa8a837e1c830c18ee78836253807f7b09de",
+          "sha256": "929ab2b0d41cd6e32513ac17aee6ae3291200f31af873c55a8e5d90f452d72be",
           "mode": "100644"
         },
         {
@@ -10564,7 +10564,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/get_taxonomy.py",
           "owner": "input-guard",
-          "sha256": "0aa42daf43da0179990d55e799a77d49e90de9e4bb22fe159542becbd8a04117",
+          "sha256": "96a8d87180ba787006c49161af2d70fca91c0e2c7299d80bde81bb1bd9f697de",
           "mode": "100644"
         },
         {
@@ -10700,7 +10700,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2dee1bf1517f08ad20525217591cb946e794137b2de93e431bfffe8a762dda14",
+            "content_sha256": "1ab2aa5cad3db8464a458dd9249daaf7bc25369c8251e7ed9ab37edc0d63656e",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -10716,7 +10716,7 @@
         {
           "path": "skills/operations-general/interview-system-designer/SKILL.md",
           "owner": "interview-system-designer",
-          "sha256": "2dee1bf1517f08ad20525217591cb946e794137b2de93e431bfffe8a762dda14",
+          "sha256": "1ab2aa5cad3db8464a458dd9249daaf7bc25369c8251e7ed9ab37edc0d63656e",
           "mode": "100644"
         },
         {
@@ -10844,7 +10844,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c11875a030cbd57755c627397de57428547846eb78b4abd573744a72a439595d",
+            "content_sha256": "25a08336ecb501598a003edc284eb093ae61f06eb7eb4fe9ffd8892780fb7bcd",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -10854,7 +10854,7 @@
         {
           "path": "skills/finance-investing/investment-memo-writer/SKILL.md",
           "owner": "investment-memo-writer",
-          "sha256": "c11875a030cbd57755c627397de57428547846eb78b4abd573744a72a439595d",
+          "sha256": "25a08336ecb501598a003edc284eb093ae61f06eb7eb4fe9ffd8892780fb7bcd",
           "mode": "100644"
         },
         {
@@ -10968,7 +10968,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4dd0013c707d867b4b73663e303df58529076dd7b97269210d9e2343386ff60b",
+            "content_sha256": "e15afc3f0117c6159154d386185c0c2e158cc6368c444114899bc3f48bb90141",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -10984,7 +10984,7 @@
         {
           "path": "skills/engineering-workflow-automation/jupyter-notebook/SKILL.md",
           "owner": "jupyter-notebook",
-          "sha256": "4dd0013c707d867b4b73663e303df58529076dd7b97269210d9e2343386ff60b",
+          "sha256": "e15afc3f0117c6159154d386185c0c2e158cc6368c444114899bc3f48bb90141",
           "mode": "100644"
         },
         {
@@ -11090,7 +11090,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "57091cc48febcab403e295ae384f1be116f40ba0d6c820e7ce19f134679405e1",
+            "content_sha256": "06ceeff95822a59de1a574c4c35205eee534de67bf78be5f24018c1175e297a1",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -11100,13 +11100,13 @@
         {
           "path": "skills/security-and-reliability/link-checker/SKILL.md",
           "owner": "link-checker",
-          "sha256": "57091cc48febcab403e295ae384f1be116f40ba0d6c820e7ce19f134679405e1",
+          "sha256": "06ceeff95822a59de1a574c4c35205eee534de67bf78be5f24018c1175e297a1",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/link-checker/scripts/check_links.py",
           "owner": "link-checker",
-          "sha256": "2b12a78e2331c5e3b939b01a948851c952a4b6d00d438345b09fa1b702dec565",
+          "sha256": "84b68e7d0aaa05543f7e64855e5ed233e743a6b1809a818ae6d9d768b1c5f590",
           "mode": "100755"
         }
       ]
@@ -11162,7 +11162,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1791b68ffc6f957a6463b911f6d39b762ab72c54d381d27fefe5883a706c5366",
+            "content_sha256": "62be0bdd4f87ae6723df5e0e17a8da58b8cac86a76d7d410b6357637badf2352",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -11172,7 +11172,7 @@
         {
           "path": "skills/finance-investing/macro-regime-monitor/SKILL.md",
           "owner": "macro-regime-monitor",
-          "sha256": "1791b68ffc6f957a6463b911f6d39b762ab72c54d381d27fefe5883a706c5366",
+          "sha256": "62be0bdd4f87ae6723df5e0e17a8da58b8cac86a76d7d410b6357637badf2352",
           "mode": "100644"
         },
         {
@@ -11271,7 +11271,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3812f49fd9a9d4768a6b032fd99e0470ef18feb6e2f35114fa9256c74e823a31",
+            "content_sha256": "b6729714c36e94786416c3a9b352f63ac94485b1e7f40e87d606913425afc49a",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -11281,7 +11281,7 @@
         {
           "path": "skills/office-white-collar/markdown-tools/SKILL.md",
           "owner": "markdown-tools",
-          "sha256": "3812f49fd9a9d4768a6b032fd99e0470ef18feb6e2f35114fa9256c74e823a31",
+          "sha256": "b6729714c36e94786416c3a9b352f63ac94485b1e7f40e87d606913425afc49a",
           "mode": "100644"
         },
         {
@@ -11395,7 +11395,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c2d3217518b232d0fd3d558f7ddd155c605c991125f9970d8ca802318b6e69c6",
+            "content_sha256": "154c9df7020aeee5962ad1c48f90c24a5854bd81c159289acfc558de5a880482",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -11405,7 +11405,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/marketing-demand-acquisition/SKILL.md",
           "owner": "marketing-demand-acquisition",
-          "sha256": "c2d3217518b232d0fd3d558f7ddd155c605c991125f9970d8ca802318b6e69c6",
+          "sha256": "154c9df7020aeee5962ad1c48f90c24a5854bd81c159289acfc558de5a880482",
           "mode": "100644"
         },
         {
@@ -11616,7 +11616,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1a1b536474ef865b9645b099225c3d0c3e84747cb1934894f3f5fc0d99ea7406",
+            "content_sha256": "329a5154d98a030535b80f32ee95b14345d74c5927911d5b66aa167f867daf7c",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -11632,7 +11632,7 @@
         {
           "path": "skills/developer-engineering/mcp-builder/SKILL.md",
           "owner": "mcp-builder",
-          "sha256": "1a1b536474ef865b9645b099225c3d0c3e84747cb1934894f3f5fc0d99ea7406",
+          "sha256": "329a5154d98a030535b80f32ee95b14345d74c5927911d5b66aa167f867daf7c",
           "mode": "100644"
         },
         {
@@ -11741,7 +11741,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2c77bee9a6906a9a45fd646554610b04d9c35651e69a3b329c10641839f45413",
+            "content_sha256": "e7f80f2ca6884bd2bbdf4003761b46197e8a1775e36c0fad104cb8dc01e61efe",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -11751,7 +11751,7 @@
         {
           "path": "skills/office-white-collar/meeting-minutes-taker/SKILL.md",
           "owner": "meeting-minutes-taker",
-          "sha256": "2c77bee9a6906a9a45fd646554610b04d9c35651e69a3b329c10641839f45413",
+          "sha256": "e7f80f2ca6884bd2bbdf4003761b46197e8a1775e36c0fad104cb8dc01e61efe",
           "mode": "100644"
         },
         {
@@ -11836,7 +11836,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "55b4bea0043d5c6bdb409ee15dc087798f905f87031285b0562b1ccdd94acbe2",
+            "content_sha256": "296cc5d77510c438fd9c9fbb07a9e80ab516234f464f0249e4993441da9c4930",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -11846,7 +11846,7 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/SKILL.md",
           "owner": "mermaid-tools",
-          "sha256": "55b4bea0043d5c6bdb409ee15dc087798f905f87031285b0562b1ccdd94acbe2",
+          "sha256": "296cc5d77510c438fd9c9fbb07a9e80ab516234f464f0249e4993441da9c4930",
           "mode": "100644"
         },
         {
@@ -11858,7 +11858,7 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/extract-and-generate.sh",
           "owner": "mermaid-tools",
-          "sha256": "02d1fbeea936fb6ab8890c9a7b3468baa2f1d7172dd803b1d39cfd4ed25f5f0b",
+          "sha256": "dc4ab4b7fb80c2f50ab809e39da688cca3bbeb7b2e73ba23dee40f77ef36e4be",
           "mode": "100644"
         },
         {
@@ -11870,7 +11870,7 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/puppeteer-config.json",
           "owner": "mermaid-tools",
-          "sha256": "62868aec744a24c6f548047cb718692d35d14c768c0edfe23964e7796e4ed0bf",
+          "sha256": "87f947e7aed012cb499cafc30039f9eee7d2b70cd50eb0b562124c06e376c12c",
           "mode": "100644"
         }
       ]
@@ -12006,7 +12006,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "010e501b68fb4d07497eaff26f8572000bdfe2a44785d08406bcdb0bbd579d5e",
+            "content_sha256": "7e1e7ec1a22d2c68a2c6688ebe712fe532de817a9d6bd9e55f29d3f1d64ea93d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -12022,7 +12022,7 @@
         {
           "path": "skills/developer-engineering/migration-architect/SKILL.md",
           "owner": "migration-architect",
-          "sha256": "010e501b68fb4d07497eaff26f8572000bdfe2a44785d08406bcdb0bbd579d5e",
+          "sha256": "7e1e7ec1a22d2c68a2c6688ebe712fe532de817a9d6bd9e55f29d3f1d64ea93d",
           "mode": "100644"
         },
         {
@@ -12176,7 +12176,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "729fb62d9b764798d077af785691a8a77574eea7f3c585e0a890f5e911cd29cb",
+            "content_sha256": "c188bea01da608bb9df95f79a42d3c295c2c7d874341f2ac96bda25250528f3d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -12186,7 +12186,7 @@
         {
           "path": "skills/developer-engineering/monorepo-navigator/SKILL.md",
           "owner": "monorepo-navigator",
-          "sha256": "729fb62d9b764798d077af785691a8a77574eea7f3c585e0a890f5e911cd29cb",
+          "sha256": "c188bea01da608bb9df95f79a42d3c295c2c7d874341f2ac96bda25250528f3d",
           "mode": "100644"
         },
         {
@@ -12268,7 +12268,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "61b3aa40783a4cf69c5774a1cdcca444feba5b50d2e8efa6b59fe8626fe9b1db",
+            "content_sha256": "72a8c180a525ff769544e4a1fffff4f5f886370a3891a8e2bd970915469653b6",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12284,7 +12284,7 @@
         {
           "path": "skills/deployment-platforms/netlify-deploy/SKILL.md",
           "owner": "netlify-deploy",
-          "sha256": "61b3aa40783a4cf69c5774a1cdcca444feba5b50d2e8efa6b59fe8626fe9b1db",
+          "sha256": "72a8c180a525ff769544e4a1fffff4f5f886370a3891a8e2bd970915469653b6",
           "mode": "100644"
         },
         {
@@ -12446,7 +12446,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a80f5d7e3d250034c0a3d343aa245bc2070ad9f017c40d619e9e56a2891be05e",
+            "content_sha256": "59517b1c67c4ccc090a98564aaad3d07119e1d05d8d54ea42102c6cf6225e521",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12462,7 +12462,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-knowledge-capture/SKILL.md",
           "owner": "notion-knowledge-capture",
-          "sha256": "a80f5d7e3d250034c0a3d343aa245bc2070ad9f017c40d619e9e56a2891be05e",
+          "sha256": "59517b1c67c4ccc090a98564aaad3d07119e1d05d8d54ea42102c6cf6225e521",
           "mode": "100644"
         },
         {
@@ -12689,7 +12689,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9236b00ae05119f0ce5dd07f678eb4f13652d85246e01ea3cf0b4f9f3f17f184",
+            "content_sha256": "32dc2980cf65b03b1323bc28190681ecfea51a901d1581901973590c26c9dd15",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12705,7 +12705,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-meeting-intelligence/SKILL.md",
           "owner": "notion-meeting-intelligence",
-          "sha256": "9236b00ae05119f0ce5dd07f678eb4f13652d85246e01ea3cf0b4f9f3f17f184",
+          "sha256": "32dc2980cf65b03b1323bc28190681ecfea51a901d1581901973590c26c9dd15",
           "mode": "100644"
         },
         {
@@ -12958,7 +12958,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f1ca356255cdab9e01fa9809d5d80777f42d547ac275875f5d62bf887178dd19",
+            "content_sha256": "7803467b8d126bf2f704351d31dbfff23909ecc243c3fc51436c43af233e7fa4",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12974,7 +12974,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-research-documentation/SKILL.md",
           "owner": "notion-research-documentation",
-          "sha256": "f1ca356255cdab9e01fa9809d5d80777f42d547ac275875f5d62bf887178dd19",
+          "sha256": "7803467b8d126bf2f704351d31dbfff23909ecc243c3fc51436c43af233e7fa4",
           "mode": "100644"
         },
         {
@@ -13231,7 +13231,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "35f30086139015ffc79c9bed79b982f0aab703fea18ef7f0a45ea2ec4ae05a22",
+            "content_sha256": "26047e8e5d47daa3cefa7fa1ff0f98311ecdbb443747d65e28d3ff63b2245982",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -13247,7 +13247,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-spec-to-implementation/SKILL.md",
           "owner": "notion-spec-to-implementation",
-          "sha256": "35f30086139015ffc79c9bed79b982f0aab703fea18ef7f0a45ea2ec4ae05a22",
+          "sha256": "26047e8e5d47daa3cefa7fa1ff0f98311ecdbb443747d65e28d3ff63b2245982",
           "mode": "100644"
         },
         {
@@ -13683,7 +13683,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4aeca7349efac9c695e327e65771bed960abb83d48e96b668bc8c5e08713445b",
+            "content_sha256": "6b5878305178fceed1233140c0b230cb2d6a02a1c5ea674e97cefcfa2a49df7c",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -13693,7 +13693,7 @@
         {
           "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md",
           "owner": "options-strategy-evaluator",
-          "sha256": "4aeca7349efac9c695e327e65771bed960abb83d48e96b668bc8c5e08713445b",
+          "sha256": "6b5878305178fceed1233140c0b230cb2d6a02a1c5ea674e97cefcfa2a49df7c",
           "mode": "100644"
         },
         {
@@ -13752,7 +13752,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1a9c9fed23a0edf2815632e37d2f3b6a7dbae870dba47f6cbcc446d1f1fbd17a",
+            "content_sha256": "87112ea20de547bb494dff12797123d5f669196fdf20d593b9519b86a6ab1aa7",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -13762,7 +13762,7 @@
         {
           "path": "skills/security-and-reliability/osv-scanner/SKILL.md",
           "owner": "osv-scanner",
-          "sha256": "1a9c9fed23a0edf2815632e37d2f3b6a7dbae870dba47f6cbcc446d1f1fbd17a",
+          "sha256": "87112ea20de547bb494dff12797123d5f669196fdf20d593b9519b86a6ab1aa7",
           "mode": "100644"
         }
       ]
@@ -13868,7 +13868,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d217160ceaaf0e1184f12b7e21dccdd2efcd76fa66c8cf4eeadda3769a72832a",
+            "content_sha256": "438f0a5f3fe9ea15ccd8e2e4bfdc564be8307c0d3505bea2982f62d63941189d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -13884,7 +13884,7 @@
         {
           "path": "skills/office-white-collar/pdf/SKILL.md",
           "owner": "pdf",
-          "sha256": "d217160ceaaf0e1184f12b7e21dccdd2efcd76fa66c8cf4eeadda3769a72832a",
+          "sha256": "438f0a5f3fe9ea15ccd8e2e4bfdc564be8307c0d3505bea2982f62d63941189d",
           "mode": "100644"
         },
         {
@@ -14002,7 +14002,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9b7968fb055b9b7e9a18c9f36e9e7537551a32cd4374990739ee9028148a694a",
+            "content_sha256": "e50a367e2fb2abdd6ed2a750dad29121305edd819bc092d82d685f9617e21295",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -14012,7 +14012,7 @@
         {
           "path": "skills/developer-engineering/performance-profiler/SKILL.md",
           "owner": "performance-profiler",
-          "sha256": "9b7968fb055b9b7e9a18c9f36e9e7537551a32cd4374990739ee9028148a694a",
+          "sha256": "e50a367e2fb2abdd6ed2a750dad29121305edd819bc092d82d685f9617e21295",
           "mode": "100644"
         },
         {
@@ -14099,7 +14099,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1aab22da2bb0cfe979216d7e1eb256326687bd2c14bf927626d7d00b23092f93",
+            "content_sha256": "b1e7060512d2eda0945186f50a67520bc45a450155532886b31e2068fd2653ee",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -14121,7 +14121,7 @@
         {
           "path": "skills/engineering-workflow-automation/playwright/SKILL.md",
           "owner": "playwright",
-          "sha256": "1aab22da2bb0cfe979216d7e1eb256326687bd2c14bf927626d7d00b23092f93",
+          "sha256": "b1e7060512d2eda0945186f50a67520bc45a450155532886b31e2068fd2653ee",
           "mode": "100644"
         },
         {
@@ -14279,7 +14279,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "96070463513e2a0dbbd76967d0cc30c09ae0763bc947293dc9ac193980d39ec8",
+            "content_sha256": "5dde4bac459e1dc4e29f9019b98063e0ae4e5ae92fc36ccf0f4467ad5043f4ff",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -14289,7 +14289,7 @@
         {
           "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md",
           "owner": "portfolio-risk-manager",
-          "sha256": "96070463513e2a0dbbd76967d0cc30c09ae0763bc947293dc9ac193980d39ec8",
+          "sha256": "5dde4bac459e1dc4e29f9019b98063e0ae4e5ae92fc36ccf0f4467ad5043f4ff",
           "mode": "100644"
         },
         {
@@ -14716,7 +14716,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "87a473811703deaf4b16aeea54a286d0fa5eba743a17abc34bb5eb31845f0a2c",
+            "content_sha256": "6661c00fbf9096739f42e10325c4eae83ae3f93ef8930e86c330900817594bde",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -14732,7 +14732,7 @@
         {
           "path": "skills/office-white-collar/pptx/SKILL.md",
           "owner": "pptx",
-          "sha256": "87a473811703deaf4b16aeea54a286d0fa5eba743a17abc34bb5eb31845f0a2c",
+          "sha256": "6661c00fbf9096739f42e10325c4eae83ae3f93ef8930e86c330900817594bde",
           "mode": "100644"
         },
         {
@@ -15098,7 +15098,7 @@
         {
           "path": "skills/office-white-collar/pptx/scripts/office/soffice.py",
           "owner": "pptx",
-          "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "sha256": "375571eb0359ca6c069901fbf7f25934d13c1ea6fd7bccff143b45b08c4c7f18",
           "mode": "100644"
         },
         {
@@ -15187,7 +15187,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "0ed7e74d0359d5d9cbe9843b90e2ef413ae90d9e7eda7f7d8b7f5b5c3fbe5405",
+            "content_sha256": "c2922cca1166822d48baf16d5b98f9c8dfe2b111fd210946d55802c0997ee853",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15197,7 +15197,7 @@
         {
           "path": "skills/developer-engineering/pr-review-expert/SKILL.md",
           "owner": "pr-review-expert",
-          "sha256": "0ed7e74d0359d5d9cbe9843b90e2ef413ae90d9e7eda7f7d8b7f5b5c3fbe5405",
+          "sha256": "c2922cca1166822d48baf16d5b98f9c8dfe2b111fd210946d55802c0997ee853",
           "mode": "100644"
         }
       ]
@@ -15263,7 +15263,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "14b3d430c0a7ae1dfe91249d37e31d2ed8cb48b157b54787fabf990eae9d2c41",
+            "content_sha256": "32b2e012ae264d009f73302c94afc246f27d783bb5e6362279e8bfe8063eb71c",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15273,7 +15273,7 @@
         {
           "path": "skills/product-design/product-manager-toolkit/SKILL.md",
           "owner": "product-manager-toolkit",
-          "sha256": "14b3d430c0a7ae1dfe91249d37e31d2ed8cb48b157b54787fabf990eae9d2c41",
+          "sha256": "32b2e012ae264d009f73302c94afc246f27d783bb5e6362279e8bfe8063eb71c",
           "mode": "100644"
         },
         {
@@ -15364,7 +15364,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "56b244f859e08d7498eb5f002ce7084c9b78bab6200264ecf284237c9f8afe5d",
+            "content_sha256": "aaa2c64ffdaf0a59e65833620c8301025d67d2f4ec9aa5f1f3a4e3554d916ffd",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15374,7 +15374,7 @@
         {
           "path": "skills/product-design/product-strategist/SKILL.md",
           "owner": "product-strategist",
-          "sha256": "56b244f859e08d7498eb5f002ce7084c9b78bab6200264ecf284237c9f8afe5d",
+          "sha256": "aaa2c64ffdaf0a59e65833620c8301025d67d2f4ec9aa5f1f3a4e3554d916ffd",
           "mode": "100644"
         },
         {
@@ -15464,7 +15464,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "64b7bcfe8a73d8f503f42e320d16ab4b873ee4c01952b595e611739b848aeef8",
+            "content_sha256": "4fd878962e26b5e37ce18c5d88b12c8c3a654182977650ac817325cc95232a48",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15480,7 +15480,7 @@
         {
           "path": "skills/ai-workflow/prompt-optimizer/SKILL.md",
           "owner": "prompt-optimizer",
-          "sha256": "64b7bcfe8a73d8f503f42e320d16ab4b873ee4c01952b595e611739b848aeef8",
+          "sha256": "4fd878962e26b5e37ce18c5d88b12c8c3a654182977650ac817325cc95232a48",
           "mode": "100644"
         },
         {
@@ -15560,7 +15560,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "34b1b2a2747d90d1aa87087867205f6209d2de14627431e9b093f113abc30334",
+            "content_sha256": "fc1a52c4d0af44ef871e248930a8a236bf537b4bcb4c93f268714866942a4f9d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15576,7 +15576,7 @@
         {
           "path": "skills/developer-engineering/promptfoo-evaluation/SKILL.md",
           "owner": "promptfoo-evaluation",
-          "sha256": "34b1b2a2747d90d1aa87087867205f6209d2de14627431e9b093f113abc30334",
+          "sha256": "fc1a52c4d0af44ef871e248930a8a236bf537b4bcb4c93f268714866942a4f9d",
           "mode": "100644"
         },
         {
@@ -15674,7 +15674,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "65305a25ea8eb640fc67adb2ca90e42ac25547e5f5b0cd5353ffdb3564c557a4",
+            "content_sha256": "c92cb9b2114501ad990165d00fe38d0d0abdd713a6871b516a68174b8e60d2c5",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -15690,7 +15690,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/SKILL.md",
           "owner": "qa-expert",
-          "sha256": "65305a25ea8eb640fc67adb2ca90e42ac25547e5f5b0cd5353ffdb3564c557a4",
+          "sha256": "c92cb9b2114501ad990165d00fe38d0d0abdd713a6871b516a68174b8e60d2c5",
           "mode": "100644"
         },
         {
@@ -15738,7 +15738,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/scripts/init_qa_project.py",
           "owner": "qa-expert",
-          "sha256": "e35d9d4a939a63ae1f678ff4bd4acbd42a68d03a6879be0b1ddb7a30e2b1a271",
+          "sha256": "e9069782c50268bb01e429342fdffb7b114353d8a01c679596d8cb633677d748",
           "mode": "100644"
         }
       ]
@@ -16078,7 +16078,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "189faedbf05e4df9660280b2ffc19d27ab852adafda102f68a363f02c571d120",
+            "content_sha256": "0487b33ea01d3cfd91157fb558e640bd75c7d36a0a0fe5422f85d74d74038c2f",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -16100,7 +16100,7 @@
         {
           "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
           "owner": "reflect-learn",
-          "sha256": "189faedbf05e4df9660280b2ffc19d27ab852adafda102f68a363f02c571d120",
+          "sha256": "0487b33ea01d3cfd91157fb558e640bd75c7d36a0a0fe5422f85d74d74038c2f",
           "mode": "100644"
         },
         {
@@ -16343,7 +16343,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "72ec85dbf6499776f03ba33ff629f9dc4a26510caf050a43032502b690efb1a7",
+            "content_sha256": "1f953ca2fa93c301ee1738f18cd7b966d283716f35ca37764e031977dde4e6ea",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -16359,7 +16359,7 @@
         {
           "path": "skills/devops-sre/release-manager/SKILL.md",
           "owner": "release-manager",
-          "sha256": "72ec85dbf6499776f03ba33ff629f9dc4a26510caf050a43032502b690efb1a7",
+          "sha256": "1f953ca2fa93c301ee1738f18cd7b966d283716f35ca37764e031977dde4e6ea",
           "mode": "100644"
         },
         {
@@ -16673,7 +16673,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "74b6e71dbe48fb7dbe8d125eb0733d68043c0cd1693ab75e9849f251279866c3",
+            "content_sha256": "9e9a5522f2580818cd4453b279c1897f3b965c7b3aecd72737ed631f885d0a95",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -16689,7 +16689,7 @@
         {
           "path": "skills/deployment-platforms/render-deploy/SKILL.md",
           "owner": "render-deploy",
-          "sha256": "74b6e71dbe48fb7dbe8d125eb0733d68043c0cd1693ab75e9849f251279866c3",
+          "sha256": "9e9a5522f2580818cd4453b279c1897f3b965c7b3aecd72737ed631f885d0a95",
           "mode": "100644"
         },
         {
@@ -16859,7 +16859,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c38e786b95d843f7fa7993ebffee2da85b63efe0e83419ad42e7def25451bda5",
+            "content_sha256": "c2af7d925db2a23999cd3824bec72bf4e541f0045bc4f09171bf4549c5c12a0f",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-08-31"
           }
@@ -16869,7 +16869,7 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
           "owner": "repomix-safe-mixer",
-          "sha256": "c38e786b95d843f7fa7993ebffee2da85b63efe0e83419ad42e7def25451bda5",
+          "sha256": "c2af7d925db2a23999cd3824bec72bf4e541f0045bc4f09171bf4549c5c12a0f",
           "mode": "100644"
         },
         {
@@ -16881,13 +16881,13 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/safe_pack.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "271873181539aa490833254319e4f263547cd225142095a92dd42b41b39c9652",
+          "sha256": "4faf399b9d6405ef4406190d318701531dbb6428ad58336b64adf8caff89b96a",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/scan_secrets.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "5f2e0f618ffb2d15a5552e426e1be4fe613264c3db97ebde03806ade2113d5ea",
+          "sha256": "da0bb52a474697067eb33068d8e38d5bfaaca31956c30300f150f7f35ce757e0",
           "mode": "100644"
         }
       ]
@@ -17206,7 +17206,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "344e4718a0feb99188afd98decc935208989039dde3bd36d2bf5f543aa6fa650",
+            "content_sha256": "4d511bb98870c007d13bb9f46586ba36191c433604251d80f8b426c4d2e8d66a",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -17216,7 +17216,7 @@
         {
           "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md",
           "owner": "sec-filing-reviewer",
-          "sha256": "344e4718a0feb99188afd98decc935208989039dde3bd36d2bf5f543aa6fa650",
+          "sha256": "4d511bb98870c007d13bb9f46586ba36191c433604251d80f8b426c4d2e8d66a",
           "mode": "100644"
         },
         {
@@ -17386,7 +17386,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4db2acd0105711f9393ad1fb6ea2d8c7f679ad7c4cdd4ce05fbf68383fc02c79",
+            "content_sha256": "81f7175e29bf9318142311a97de6442dfd76b6634a8e76ea38d6d008829d0946",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17402,7 +17402,7 @@
         {
           "path": "skills/security-and-reliability/security-best-practices/SKILL.md",
           "owner": "security-best-practices",
-          "sha256": "4db2acd0105711f9393ad1fb6ea2d8c7f679ad7c4cdd4ce05fbf68383fc02c79",
+          "sha256": "81f7175e29bf9318142311a97de6442dfd76b6634a8e76ea38d6d008829d0946",
           "mode": "100644"
         },
         {
@@ -17544,7 +17544,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d67141bdd045b18425b2470deac07fcf907d4233382a9beed9acf5ecc7f94211",
+            "content_sha256": "a1434c6fa020665a04d14acbe383ac741d547b84ce861996614331558e0ba9e7",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17560,7 +17560,7 @@
         {
           "path": "skills/security-and-reliability/security-ownership-map/SKILL.md",
           "owner": "security-ownership-map",
-          "sha256": "d67141bdd045b18425b2470deac07fcf907d4233382a9beed9acf5ecc7f94211",
+          "sha256": "a1434c6fa020665a04d14acbe383ac741d547b84ce861996614331558e0ba9e7",
           "mode": "100644"
         },
         {
@@ -17657,7 +17657,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c160a69178eebfb9a81adedff1bfb1c40fea04efe19b38db163a6811c447889d",
+            "content_sha256": "dab34c41624a621c9ce2239bb1d88ca973ad36ff90a37537c0571a059ee35ee3",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17673,7 +17673,7 @@
         {
           "path": "skills/security-and-reliability/security-threat-model/SKILL.md",
           "owner": "security-threat-model",
-          "sha256": "c160a69178eebfb9a81adedff1bfb1c40fea04efe19b38db163a6811c447889d",
+          "sha256": "dab34c41624a621c9ce2239bb1d88ca973ad36ff90a37537c0571a059ee35ee3",
           "mode": "100644"
         },
         {
@@ -17732,7 +17732,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "35c636cab7eed617218ee0b6995b19795ce70e4dba4734e4c020cd4c3414e8c1",
+            "content_sha256": "aca650d08df9fb95a1f9997f1c99ed31360da2fe0f01f0445b7a7cba23b2d04d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -17742,7 +17742,7 @@
         {
           "path": "skills/security-and-reliability/semgrep-appsec-scanner/SKILL.md",
           "owner": "semgrep-appsec-scanner",
-          "sha256": "35c636cab7eed617218ee0b6995b19795ce70e4dba4734e4c020cd4c3414e8c1",
+          "sha256": "aca650d08df9fb95a1f9997f1c99ed31360da2fe0f01f0445b7a7cba23b2d04d",
           "mode": "100644"
         }
       ]
@@ -17808,7 +17808,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c049ab5503d7436e2daad034d7e951bb628892f6f98bd09e3175db0747fa6c61",
+            "content_sha256": "c7a4af61a3c0a5398dbf9e481fc94862254ceb3c1e72d202fe8a8f3dd42bbed1",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17824,7 +17824,7 @@
         {
           "path": "skills/security-and-reliability/sentry/SKILL.md",
           "owner": "sentry",
-          "sha256": "c049ab5503d7436e2daad034d7e951bb628892f6f98bd09e3175db0747fa6c61",
+          "sha256": "c7a4af61a3c0a5398dbf9e481fc94862254ceb3c1e72d202fe8a8f3dd42bbed1",
           "mode": "100644"
         },
         {
@@ -17848,7 +17848,7 @@
         {
           "path": "skills/security-and-reliability/sentry/scripts/sentry_api.py",
           "owner": "sentry",
-          "sha256": "688e4ba95c4a9780d1c15b4afbefaca9c1255a10d032dd66cfca160c89ad4608",
+          "sha256": "4f9cda0bcf4653d01387bb17753fe08248289384c8c3968a9734d826190977ef",
           "mode": "100644"
         }
       ]
@@ -17909,7 +17909,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ede942fd0d0e19165a1819765ee7c217c807cfaa848f50bd396347231408687e",
+            "content_sha256": "9b29e3f31e409de4d456a43ad8e5a8a15f33ffad6206f1087694136338af987d",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -17925,7 +17925,7 @@
         {
           "path": "skills/ai-workflow/skill-reviewer/SKILL.md",
           "owner": "skill-reviewer",
-          "sha256": "ede942fd0d0e19165a1819765ee7c217c807cfaa848f50bd396347231408687e",
+          "sha256": "9b29e3f31e409de4d456a43ad8e5a8a15f33ffad6206f1087694136338af987d",
           "mode": "100644"
         },
         {
@@ -18059,7 +18059,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8501aff2ed325061eb3ca5f70efdfaa276b967267132a5d71b35d38d7a912204",
+            "content_sha256": "7c5f248a3059cc148a6ece9ce43d3d97a4119802afa33657ee4aaf738862c005",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -18075,7 +18075,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/SKILL.md",
           "owner": "skill-tester",
-          "sha256": "8501aff2ed325061eb3ca5f70efdfaa276b967267132a5d71b35d38d7a912204",
+          "sha256": "7c5f248a3059cc148a6ece9ce43d3d97a4119802afa33657ee4aaf738862c005",
           "mode": "100644"
         },
         {
@@ -18153,7 +18153,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/scripts/script_tester.py",
           "owner": "skill-tester",
-          "sha256": "e2c73561f35e4afd5064a3581e8da2a4082821947af292ba7b804799eeb8ad9a",
+          "sha256": "7f63eced8c3a029791da6667b88243f5b5ec07cb311ff3cc72572f1bdb0fbfd4",
           "mode": "100644"
         },
         {
@@ -18230,7 +18230,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2b1b0258a35ae42ec381a8dab85b9040db102b32934ef2f24880cc2967b89fc4",
+            "content_sha256": "b72d07467ae587efa264fe171dd9592d6740f1ae9ee0d9568a60086861515a45",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -18246,7 +18246,7 @@
         {
           "path": "skills/operations-general/slack-gif-creator/SKILL.md",
           "owner": "slack-gif-creator",
-          "sha256": "2b1b0258a35ae42ec381a8dab85b9040db102b32934ef2f24880cc2967b89fc4",
+          "sha256": "b72d07467ae587efa264fe171dd9592d6740f1ae9ee0d9568a60086861515a45",
           "mode": "100644"
         },
         {
@@ -18347,7 +18347,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1e28a390d44a3c5eb368954c551b1f1e872e107e5cec9063b5acf39e5f3c168b",
+            "content_sha256": "a071a644faa8868d7d265a4f1a21d9c931c425d275f665815e97343b02c0b8ea",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -18363,7 +18363,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md",
           "owner": "social-media-analyzer",
-          "sha256": "1e28a390d44a3c5eb368954c551b1f1e872e107e5cec9063b5acf39e5f3c168b",
+          "sha256": "a071a644faa8868d7d265a4f1a21d9c931c425d275f665815e97343b02c0b8ea",
           "mode": "100644"
         },
         {
@@ -18499,7 +18499,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "02c05a0834e404e920bd2e00e906a92a72cacec142a2c80a7112d34850c5e27d",
+            "content_sha256": "e7b44eace7ab0f7cf4b69a9fe35f6259b76e813869c8781d897fc5620bec3098",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -18515,7 +18515,7 @@
         {
           "path": "skills/multimodal-media/sora/SKILL.md",
           "owner": "sora",
-          "sha256": "02c05a0834e404e920bd2e00e906a92a72cacec142a2c80a7112d34850c5e27d",
+          "sha256": "e7b44eace7ab0f7cf4b69a9fe35f6259b76e813869c8781d897fc5620bec3098",
           "mode": "100644"
         },
         {
@@ -18703,7 +18703,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5b795a6ea7bb9071379c99a40f9449f0d12dbb4f91197aa15d38f4fc6b719b98",
+            "content_sha256": "9ea321b5cc724de5af1b4c09d1c0f4aea4b3e53a57d6eda264bc8af7713ee4a4",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -18719,7 +18719,7 @@
         {
           "path": "skills/multimodal-media/speech/SKILL.md",
           "owner": "speech",
-          "sha256": "5b795a6ea7bb9071379c99a40f9449f0d12dbb4f91197aa15d38f4fc6b719b98",
+          "sha256": "9ea321b5cc724de5af1b4c09d1c0f4aea4b3e53a57d6eda264bc8af7713ee4a4",
           "mode": "100644"
         },
         {
@@ -18859,7 +18859,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "aa3bcd52a0f1652b1d270c26e22f2c325d92798463cbd7626067919ca7990723",
+            "content_sha256": "03e71384805a78d93a3e42bfa2beab144844b518a0a9e17ac797e523076f946e",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-11-04"
           }
@@ -18869,7 +18869,7 @@
         {
           "path": "skills/finance-investing/stock-screener-builder/SKILL.md",
           "owner": "stock-screener-builder",
-          "sha256": "aa3bcd52a0f1652b1d270c26e22f2c325d92798463cbd7626067919ca7990723",
+          "sha256": "03e71384805a78d93a3e42bfa2beab144844b518a0a9e17ac797e523076f946e",
           "mode": "100644"
         },
         {
@@ -19226,7 +19226,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1f5696d4a3f8ad841484c1e8fc8826537fe68bb5f92c51c656778e8de21d8925",
+            "content_sha256": "672ae4231a9d8d97942f2f92d6e782ae9f40d2766b3e46a91e62d8a841310068",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -19242,7 +19242,7 @@
         {
           "path": "skills/operations-general/theme-factory/SKILL.md",
           "owner": "theme-factory",
-          "sha256": "1f5696d4a3f8ad841484c1e8fc8826537fe68bb5f92c51c656778e8de21d8925",
+          "sha256": "672ae4231a9d8d97942f2f92d6e782ae9f40d2766b3e46a91e62d8a841310068",
           "mode": "100644"
         },
         {
@@ -19379,7 +19379,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f1d6d43ec7c6cf25110e5b7989bfda4c94965208b8d291ea23daf8a89c89b4bc",
+            "content_sha256": "af9f8efa0038c07bac523e3f7b842bb0cc41d06c5ceeeef46f8255c3699655df",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -19395,7 +19395,7 @@
         {
           "path": "skills/multimodal-media/transcribe/SKILL.md",
           "owner": "transcribe",
-          "sha256": "f1d6d43ec7c6cf25110e5b7989bfda4c94965208b8d291ea23daf8a89c89b4bc",
+          "sha256": "af9f8efa0038c07bac523e3f7b842bb0cc41d06c5ceeeef46f8255c3699655df",
           "mode": "100644"
         },
         {
@@ -19806,7 +19806,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f24e3341a0f6924375d651833df3f33f7a46389a6ebe0dfa1ca751a54be3579e",
+            "content_sha256": "4ba4351599346259960ba736a9b6785cbb6ee1dab392ed31f223d7df808ae5fa",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -19822,7 +19822,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/SKILL.md",
           "owner": "transcript-fixer",
-          "sha256": "f24e3341a0f6924375d651833df3f33f7a46389a6ebe0dfa1ca751a54be3579e",
+          "sha256": "4ba4351599346259960ba736a9b6785cbb6ee1dab392ed31f223d7df808ae5fa",
           "mode": "100644"
         },
         {
@@ -19942,7 +19942,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/cli/commands.py",
           "owner": "transcript-fixer",
-          "sha256": "4121fdeadc61de801ade34ef82fb872027d3d6e024b0fdf10160ba34df0fcbb9",
+          "sha256": "82d8d0e2dbf0c66eee3aa68588d8fb0921ab2a57bc55c955831e8fc300a085f6",
           "mode": "100644"
         },
         {
@@ -19996,7 +19996,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/core/learning_engine.py",
           "owner": "transcript-fixer",
-          "sha256": "0c19597c8e0371ec893a0058ca2d0a9d085d4547b868ce337520f14f6d6392f3",
+          "sha256": "29d2e234d3527ba7b16793592d73f8b9c0a5bec113a2de36c791c0402e5d37ef",
           "mode": "100644"
         },
         {
@@ -20020,7 +20020,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/fix_transcript_enhanced.py",
           "owner": "transcript-fixer",
-          "sha256": "4fe8bfd7034e09e7644427e2bed2dc028befa822ce721cc614c0a3fd4799145c",
+          "sha256": "562827337ac99eca9e948c1d1a8608be4ea8292f0bc1cab99fa75cc60c0f7bfd",
           "mode": "100644"
         },
         {
@@ -20104,7 +20104,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/utils/config.py",
           "owner": "transcript-fixer",
-          "sha256": "8b6f62b244e194c5ed92ab9cb98461bde0409d798476ad450968da9b0e4ea70f",
+          "sha256": "cb33e6b6e64a056af83ea69a8311f6f1aabc031e9f59e8e732bdb4906f0659d6",
           "mode": "100644"
         },
         {
@@ -20265,7 +20265,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5d2083db849cab04f0ce09c5228fdcec9822805bcea83d01df1adb33a6b28bf2",
+            "content_sha256": "15fb6844e11c475b7e326251aed616dbaefa2799786ef13fa35b9e4079fa68d7",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -20275,7 +20275,7 @@
         {
           "path": "skills/security-and-reliability/trivy-vulnerability-scanner/SKILL.md",
           "owner": "trivy-vulnerability-scanner",
-          "sha256": "5d2083db849cab04f0ce09c5228fdcec9822805bcea83d01df1adb33a6b28bf2",
+          "sha256": "15fb6844e11c475b7e326251aed616dbaefa2799786ef13fa35b9e4079fa68d7",
           "mode": "100644"
         }
       ]
@@ -20316,7 +20316,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "986497802fe1d6e61ebf506031b3cc2462eed4ed69719d6d9071c0e19fa2af71",
+            "content_sha256": "1da97485d4e3bb948f0781ea6e4ce1efe872ac6aa0a3da9564154ac99f13a719",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -20326,7 +20326,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/tweetclaw-source-research/SKILL.md",
           "owner": "tweetclaw-source-research",
-          "sha256": "986497802fe1d6e61ebf506031b3cc2462eed4ed69719d6d9071c0e19fa2af71",
+          "sha256": "1da97485d4e3bb948f0781ea6e4ce1efe872ac6aa0a3da9564154ac99f13a719",
           "mode": "100644"
         }
       ]
@@ -20382,7 +20382,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c000c45d59d47400fcf9c0597444877106705c82de3b35c1334ba700106cc718",
+            "content_sha256": "bbad60c604254704ced9a23ef190a35691c00b86bcfc282ce3b22f3e2e37338e",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -20398,7 +20398,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md",
           "owner": "twitter-reader",
-          "sha256": "c000c45d59d47400fcf9c0597444877106705c82de3b35c1334ba700106cc718",
+          "sha256": "bbad60c604254704ced9a23ef190a35691c00b86bcfc282ce3b22f3e2e37338e",
           "mode": "100644"
         },
         {
@@ -20527,7 +20527,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "981044cf73505517e8ef52c40375c0f1fcb85a8079b93b0487edf1ac20c688be",
+            "content_sha256": "6dbd49a4afecb56d54a40b5b124c6a48c75e06c1623e6785475ac979c56397c9",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -20537,7 +20537,7 @@
         {
           "path": "skills/product-design/ui-design-system/SKILL.md",
           "owner": "ui-design-system",
-          "sha256": "981044cf73505517e8ef52c40375c0f1fcb85a8079b93b0487edf1ac20c688be",
+          "sha256": "6dbd49a4afecb56d54a40b5b124c6a48c75e06c1623e6785475ac979c56397c9",
           "mode": "100644"
         },
         {
@@ -20567,7 +20567,7 @@
         {
           "path": "skills/product-design/ui-design-system/scripts/design_token_generator.py",
           "owner": "ui-design-system",
-          "sha256": "95752d620c74dc24a39fd6f612f336dc90086280b034ed0be5a24efcd79b8522",
+          "sha256": "fe57446f5c44806c487ffe9c930edb8789c1642dfb32ddb1fe13dd7fa9288226",
           "mode": "100644"
         }
       ]
@@ -20684,7 +20684,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6b28615667885c6bf8907169805df1c73070df05c400afe67498acb400732cf2",
+            "content_sha256": "4022c2865954e0477d8083ab77eedc823801405e1a77bf36ac1e91a1c1259d17",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -20694,7 +20694,7 @@
         {
           "path": "skills/product-design/ux-researcher-designer/SKILL.md",
           "owner": "ux-researcher-designer",
-          "sha256": "6b28615667885c6bf8907169805df1c73070df05c400afe67498acb400732cf2",
+          "sha256": "4022c2865954e0477d8083ab77eedc823801405e1a77bf36ac1e91a1c1259d17",
           "mode": "100644"
         },
         {
@@ -20790,7 +20790,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "cd0abede816c5923986340edd5bd59ca17a9c2a027296248c35757d4e778661a",
+            "content_sha256": "a837520568db9fac0d4bea443399315257f427f818629ce8e319b6f6537efbec",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -20806,7 +20806,7 @@
         {
           "path": "skills/deployment-platforms/vercel-deploy/SKILL.md",
           "owner": "vercel-deploy",
-          "sha256": "cd0abede816c5923986340edd5bd59ca17a9c2a027296248c35757d4e778661a",
+          "sha256": "a837520568db9fac0d4bea443399315257f427f818629ce8e319b6f6537efbec",
           "mode": "100644"
         },
         {
@@ -20871,7 +20871,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8ffcc98559456323438303f65969b50291ae7dda28db06e41bb962f21a585477",
+            "content_sha256": "8805ddc0fed93a925d98e4ad4a65e6727e65fb995eab5f4b598b0a09f705f3c8",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -20881,7 +20881,7 @@
         {
           "path": "skills/security-and-reliability/vuls-linux-cve-scanner/SKILL.md",
           "owner": "vuls-linux-cve-scanner",
-          "sha256": "8ffcc98559456323438303f65969b50291ae7dda28db06e41bb962f21a585477",
+          "sha256": "8805ddc0fed93a925d98e4ad4a65e6727e65fb995eab5f4b598b0a09f705f3c8",
           "mode": "100644"
         }
       ]
@@ -20942,7 +20942,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "55be83111388ee3673a9637df90b46d25dee017d004184bc5926cec335f06141",
+            "content_sha256": "a1f2abfd5269998fbb429e2274faca19df4e18361218a2d056ef184e23a6eb56",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -20958,7 +20958,7 @@
         {
           "path": "skills/developer-engineering/web-artifacts-builder/SKILL.md",
           "owner": "web-artifacts-builder",
-          "sha256": "55be83111388ee3673a9637df90b46d25dee017d004184bc5926cec335f06141",
+          "sha256": "a1f2abfd5269998fbb429e2274faca19df4e18361218a2d056ef184e23a6eb56",
           "mode": "100644"
         },
         {
@@ -21093,7 +21093,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2d3577154f057a693b0e5c8e92010b19c4ecbda6c47ba9a82d42dc2caef9b85a",
+            "content_sha256": "6b469d4b13f540b3454931123836bcb613e47024442dd65b351fd1c83d07f912",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -21109,7 +21109,7 @@
         {
           "path": "skills/developer-engineering/webapp-testing/SKILL.md",
           "owner": "webapp-testing",
-          "sha256": "2d3577154f057a693b0e5c8e92010b19c4ecbda6c47ba9a82d42dc2caef9b85a",
+          "sha256": "6b469d4b13f540b3454931123836bcb613e47024442dd65b351fd1c83d07f912",
           "mode": "100644"
         },
         {
@@ -21179,7 +21179,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f7eae6cfe9f97c1471babeac3ba9f82920fece663bd912afef4850194ab3e117",
+            "content_sha256": "e0af32c0ff88dd7bac439c76875f7728f67b42281373cec41a627e27de2640f8",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -21189,7 +21189,7 @@
         {
           "path": "skills/ai-workflow/writing-plans/SKILL.md",
           "owner": "writing-plans",
-          "sha256": "f7eae6cfe9f97c1471babeac3ba9f82920fece663bd912afef4850194ab3e117",
+          "sha256": "e0af32c0ff88dd7bac439c76875f7728f67b42281373cec41a627e27de2640f8",
           "mode": "100644"
         },
         {
@@ -21536,7 +21536,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b76f382d38d1d8b4891373ba6d4a33b815daf4c9e7b34803f2bae2d38c1c3a91",
+            "content_sha256": "b0f885ab89406f02c571029798d6a530aaf2b4cf9f938cb070e39cbd3d74a8c9",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -21552,7 +21552,7 @@
         {
           "path": "skills/office-white-collar/xlsx/SKILL.md",
           "owner": "xlsx",
-          "sha256": "b76f382d38d1d8b4891373ba6d4a33b815daf4c9e7b34803f2bae2d38c1c3a91",
+          "sha256": "b0f885ab89406f02c571029798d6a530aaf2b4cf9f938cb070e39cbd3d74a8c9",
           "mode": "100644"
         },
         {
@@ -21852,7 +21852,7 @@
         {
           "path": "skills/office-white-collar/xlsx/scripts/office/soffice.py",
           "owner": "xlsx",
-          "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "sha256": "375571eb0359ca6c069901fbf7f25934d13c1ea6fd7bccff143b45b08c4c7f18",
           "mode": "100644"
         },
         {
@@ -21906,7 +21906,7 @@
         {
           "path": "skills/office-white-collar/xlsx/scripts/recalc.py",
           "owner": "xlsx",
-          "sha256": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "sha256": "92f7941b4250dcf70b8b29a7420101c218aa96d980e63ced421532c486058c9f",
           "mode": "100644"
         }
       ]
@@ -21967,7 +21967,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "791a6872bb42d430167691254d5ec7dd3ebac41c617a66255ecfe4a13435b331",
+            "content_sha256": "e02e0ee89512e5e9d147c28ea16d87f89ee76934f9cd7c53c461eb370808f9cf",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -21983,7 +21983,7 @@
         {
           "path": "skills/engineering-workflow-automation/yeet/SKILL.md",
           "owner": "yeet",
-          "sha256": "791a6872bb42d430167691254d5ec7dd3ebac41c617a66255ecfe4a13435b331",
+          "sha256": "e02e0ee89512e5e9d147c28ea16d87f89ee76934f9cd7c53c461eb370808f9cf",
           "mode": "100644"
         },
         {

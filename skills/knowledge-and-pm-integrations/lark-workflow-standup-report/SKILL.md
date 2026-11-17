@@ -2,14 +2,14 @@
 name: lark-workflow-standup-report
 description: '日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的安排。'
 zh_description: "用于汇总指定日期的飞书日程与未完成任务，生成站会或日程待办摘要。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-standup-report"
 license: MIT
 tags: '[feishu, lark, lark-cli, standup, reporting]'
 created_at: "2026-05-19"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 metadata:
@@ -31,10 +31,10 @@ metadata:
 
 ## 前置条件
 
-仅支持 **user 身份**。执行前确保已授权：
+仅支持 **user 身份**；查询、读取正文与写入各步骤显式使用 `--as user`。缺权限时沿同一身份处理，不回退 bot；已有授权可直接执行，仅在缺少所需 scope 且配置在授权范围内时使用下列登录示例：
 
 ```bash
-lark-cli auth login --domain calendar,task
+lark-cli auth login --domain calendar,task --as user
 ```
 
 ## 工作流
@@ -51,10 +51,10 @@ lark-cli auth login --domain calendar,task
 
 ```bash
 # 今天（默认，无需额外参数）
-lark-cli calendar +agenda
+lark-cli calendar +agenda --as user
 
 # 指定日期范围（必须使用 ISO 8601 格式，不支持 "tomorrow" 等自然语言）
-lark-cli calendar +agenda --start "2026-03-26T00:00:00+08:00" --end "2026-03-26T23:59:59+08:00"
+lark-cli calendar +agenda --start "2026-03-26T00:00:00+08:00" --end "2026-03-26T23:59:59+08:00" --as user
 ```
 
 > **注意**：`--start` / `--end` 仅支持 ISO 8601 格式（如 `2026-01-01` 或 `2026-01-01T15:04:05+08:00`）和 Unix timestamp，**不支持** `"tomorrow"`、`"next monday"` 等自然语言。需要 AI 根据当前日期自行计算目标日期。
@@ -65,16 +65,18 @@ lark-cli calendar +agenda --start "2026-03-26T00:00:00+08:00" --end "2026-03-26T
 
 ```bash
 # 默认 pending 摘要：必须显式过滤未完成任务（最多 20 条）
-lark-cli task +get-my-tasks --complete=false
+lark-cli task +get-my-tasks --complete=false --as user
 
 # 只看指定日期前到期的未完成任务（推荐用于摘要场景，减少数据量）
-lark-cli task +get-my-tasks --complete=false --due-end "2026-03-27T23:59:59+08:00"
+lark-cli task +get-my-tasks --complete=false --due-end "2026-03-27T23:59:59+08:00" --as user
 
 # 获取全部未完成任务（超过 20 条时）
-lark-cli task +get-my-tasks --complete=false --page-all
+lark-cli task +get-my-tasks --complete=false --page-all --as user
 ```
 
 > **注意**：`+get-my-tasks` 不带 `--complete` 时会**同时返回已完成和未完成任务**，会把已完成任务当成"待办"展示进摘要里。站会/日报这种 pending 汇总场景**必须**显式带上 `--complete=false`，不要省略。
+>
+> 按查询范围检查分页：要全量摘要时翻完所有页；若只查询默认 20 条或受限范围，注明已取数量与仍有后续页，不将其称为全部待办。
 >
 > 数据量层面也建议加过滤：
 > - 用 `--due-end` 过滤出目标日期前到期的任务
@@ -114,8 +116,8 @@ lark-cli task +get-my-tasks --complete=false --page-all
    | `needs_action` | 待确认 |
    | `tentative` | 暂定 |
 3. **日程排序**：按开始时间升序排列
-4. **冲突检测**：按时间排序后，检查相邻日程是否有时间重叠（前一个 end\_time > 后一个 start\_time），有则在小结中列出冲突组
-5. **已拒绝日程**：标注"已拒绝"但不计入忙碌时段和冲突检测
+4. **冲突检测**：先过滤已拒绝及不占忙的日程；按开始时间扫描，维护结束时间仍大于当前开始时间的全部活跃日程，当前日程与每个活跃项比较，列出实际重叠组。不能只比较相邻项，例如 A 09–12、B 09:30–10、C 10:30–11 时 A/B 与 A/C 均冲突。
+5. **空闲时段**：将有效忙碌区间裁剪到查询窗口并求并集，以该并集的补集计算空闲；已拒绝或不占忙日程可展示状态，但不占用空闲时间。
 6. **待办排序**：按截止时间升序，已过期的标注"已过期"，无截止时间的排在最后
 
 ## 权限表

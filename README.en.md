@@ -363,7 +363,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`frontend-ui-engineering`](./skills/ai-workflow/frontend-ui-engineering/): Build accessible, responsive interfaces and components with production UI states, project conventions, and browser validation.
 - [`git-workflow-and-versioning`](./skills/ai-workflow/git-workflow-and-versioning/): Manage branches, commits, conflicts, semantic versions, and changelogs when preparing Git changes or releases.
 - [`idea-refine`](./skills/ai-workflow/idea-refine/): Explore alternatives and stress-test assumptions when refining a vague idea into a concrete concept or evaluating an early plan.
-- [`incremental-implementation`](./skills/ai-workflow/incremental-implementation/): Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step.
+- [`incremental-implementation`](./skills/ai-workflow/incremental-implementation/): Implement changes through independently verifiable behavior increments or dependent steps when the work is too large to land atomically.
 - [`interview-me`](./skills/ai-workflow/interview-me/): Interview the user when they request guided discovery or when unresolved goals, audience, or constraints materially affect a proposed solution.
 - [`nexus`](./skills/ai-workflow/nexus/): Use when a task needs several specialist agents: classify it, pick the minimum agent chain, run or autorun that chain, coordinate parallel branches, and verify the merged result.
 - [`nlpm-audit`](./skills/ai-workflow/nlpm-audit/): Audit SKILL.md, AGENTS.md, prompts, hooks, and plugin manifests for instruction conflicts, quality, broken references, and manifest-to-disk drift.
@@ -457,7 +457,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`macro-regime-monitor`](./skills/finance-investing/macro-regime-monitor/): Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.
 - [`options-strategy-evaluator`](./skills/finance-investing/options-strategy-evaluator/): Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.
 - [`portfolio-risk-manager`](./skills/finance-investing/portfolio-risk-manager/): Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.
-- [`saas-metrics-coach`](./skills/finance-investing/saas-metrics-coach/): SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.
+- [`saas-metrics-coach`](./skills/finance-investing/saas-metrics-coach/): Use when the user requests diagnosis of subscription-business growth, retention, or unit economics, including ARR, MRR, churn, LTV, CAC, and NRR.
 - [`sec-filing-reviewer`](./skills/finance-investing/sec-filing-reviewer/): Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.
 - [`stock-screener-builder`](./skills/finance-investing/stock-screener-builder/): Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.
 
@@ -478,14 +478,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`social-media-analyzer`](./skills/growth-operations-xiaohongshu/social-media-analyzer/): Analyze social campaign engagement, ROI, audience behavior, and platform comparisons from supplied or retrieved performance data.
 - [`tweetclaw-source-research`](./skills/growth-operations-xiaohongshu/tweetclaw-source-research/): Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis.
 - [`twitter-reader`](./skills/growth-operations-xiaohongshu/twitter-reader/): Read Twitter/X posts and threads from supplied URLs, including author, text, timestamp, and available media, using the documented retrieval tools.
-- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/): Use Xquik for X/Twitter research and connected-account actions; Radar and support workflows require a named request. Offline text analysis does not need this skill.
+- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/): Use Xquik for authorized X/Twitter REST reads and account-change confirmation plans executed by supported clients; Radar and support workflows require a named request.
 
 <a id="cat-office-white-collar"></a>
 ### 8. Office and Documents (office-white-collar, 13)
 
 - [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/): Create an offline static HTML technical report only when expressly requested, without running untrusted HTML, shell commands or network requests.
 - [`docx`](./skills/office-white-collar/docx/): Create, read, edit, or review Word documents (.docx), including styles, tables, headers, tracked changes, and comments. Use when Word is the input or required deliverable.
-- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/): Build a horizontally paged, single-file HTML slide deck in magazine or Swiss style, with speaker notes, presenter view, and audience-screen sync.
+- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/): Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/): Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, images, and structure with the appropriate extraction tool.
 - [`meeting-minutes-taker`](./skills/office-white-collar/meeting-minutes-taker/): Turn meeting transcripts into accurate minutes with decisions, actions, owners, and source evidence; also review or merge minutes and resolve speaker ambiguity.
 - [`mermaid-tools`](./skills/office-white-collar/mermaid-tools/): Extract Mermaid diagrams from Markdown and render PNG images with the bundled tools when a diagram image or batch conversion is needed.
@@ -509,7 +509,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`lark-contact`](./skills/knowledge-and-pm-integrations/lark-contact/): Lark Contacts: resolve names or emails to open_id, look up a person's profile, department, and status, and search visible bots and agents.
 - [`lark-doc`](./skills/knowledge-and-pm-integrations/lark-doc/): Read, create, and edit Lark Docx and Wiki documents, including inline images, attachments, and mind notes; handles /docx/ and /wiki/ links.
 - [`lark-drive`](./skills/knowledge-and-pm-integrations/lark-drive/): Manage Lark Drive files, folders, metadata, permissions, and versions, plus Word, Markdown, Excel, CSV, and PPTX import and export.
-- [`lark-event`](./skills/knowledge-and-pm-integrations/lark-event/): Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tasks, meetings, and drive changes; use for event subscriptions, not historical queries.
+- [`lark-event`](./skills/knowledge-and-pm-integrations/lark-event/): Consume Lark/Feishu events as NDJSON with lark-cli for EventKeys exposed by event list, including messaging, approvals, tasks, meetings, and supported Drive notices; use for event subscriptions, not historical queries.
 - [`lark-im`](./skills/knowledge-and-pm-integrations/lark-im/): Lark Messenger: send and reply to messages, search chat history, manage group chats and members, transfer files, send urgent alerts, and handle interactive cards.
 - [`lark-mail`](./skills/knowledge-and-pm-integrations/lark-mail/): Lark Mail: draft, read, search, reply to, and forward email, and manage folders, labels, mail contacts, and inbox rules.
 - [`lark-markdown`](./skills/knowledge-and-pm-integrations/lark-markdown/): Read, create, upload, partially edit, and compare Markdown files stored in Lark Drive.
@@ -533,7 +533,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`notion-research-documentation`](./skills/knowledge-and-pm-integrations/notion-research-documentation/): Use when synthesizing several Notion pages into a cited brief, comparison, or recommendation report that links back to its source pages.
 - [`notion-spec-to-implementation`](./skills/knowledge-and-pm-integrations/notion-spec-to-implementation/): Use when turning a Notion PRD or feature spec into a linked implementation plan and tasks, then keeping spec, plan, and task status in sync.
 - [`obsidian`](./skills/knowledge-and-pm-integrations/obsidian/): Use when reading, searching, creating, or editing notes in an authorized Obsidian vault while preserving frontmatter, wikilinks, and unrelated notes.
-- [`tome`](./skills/knowledge-and-pm-integrations/tome/): Use when turning a diff, PR, or commit range into learning material: change rationale, terminology, flow explanations, and glossaries for a chosen audience level.
+- [`tome`](./skills/knowledge-and-pm-integrations/tome/): Turn diffs, PRs, or commit ranges into audience-specific learning material explaining rationale, terms, and flows; also turn supplied technical drafts, concepts, or interviews into platform-ready articles or series.
 
 <a id="cat-operations-general"></a>
 ### 10. General Operations (operations-general, 11)
@@ -571,9 +571,9 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ### 12. Security and Reliability (security-and-reliability, 23)
 
 - [`breach`](./skills/security-and-reliability/breach/): Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK models, attack scenarios, AI and LLM red teaming, purple-team exercises, and control validation.
-- [`cloak`](./skills/security-and-reliability/cloak/): Use when a system handles personal data: PII discovery, data-flow mapping, consent management, GDPR or CCPA obligations, DPIAs, and privacy-by-design controls.
+- [`cloak`](./skills/security-and-reliability/cloak/): Use when asked to identify personal data, map privacy data flows, evaluate consent, or conduct a DPIA or privacy-by-design review.
 - [`codeql-security-scanner`](./skills/security-and-reliability/codeql-security-scanner/): Use when running CodeQL semantic code scanning: build databases, run security or custom query suites, and produce SARIF for GitHub code scanning.
-- [`comply`](./skills/security-and-reliability/comply/): Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.
+- [`comply`](./skills/security-and-reliability/comply/): Map regulatory controls, assess audit evidence and draft policies for SOC 2, PCI DSS, HIPAA or ISO 27001 reviews.
 - [`firebase-security-rules-auditor`](./skills/security-and-reliability/firebase-security-rules-auditor/): Use when auditing changed Firestore or Cloud Storage rules for authorization, tenant isolation, field validation, privilege escalation, and emulator coverage.
 - [`gha-security-review`](./skills/security-and-reliability/gha-security-review/): Audit GitHub Actions workflows for unsafe triggers, expression injection, credential exposure, and supply-chain attack paths.
 - [`grype-syft-sbom-scanner`](./skills/security-and-reliability/grype-syft-sbom-scanner/): Use when generating an SBOM with Syft and scanning images, filesystems, packages, archives, or existing SBOMs for known vulnerabilities with Grype.
@@ -585,14 +585,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/): Use when checking language or framework security best practices, producing security review reports, identifying insecure defaults, and recommending secure-by-default improvements.
 - [`security-model`](./skills/security-and-reliability/security-model/): Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that security review tools consume, including trust boundaries, invariants, inheritance, and reportability.
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/): Use when assessing security ownership from git history: who owns sensitive code, bus factor, CODEOWNERS drift, and co-change risk hotspots.
-- [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/): Perform authorized security assessments, vulnerability scans, and penetration tests with explicit targets, scope, evidence, and remediation guidance.
+- [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/): Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 checks, dependency audits, and pentest reports with explicit scope, evidence, and remediation guidance.
 - [`security-review`](./skills/security-and-reliability/security-review/): Review code changes for injection, XSS, authentication, authorization, cryptography, and other security defects with evidence-based severity.
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/): Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/): Use when running Semgrep SAST on source code: registry or custom rules, secrets detection, supply-chain dependency findings, and result triage.
-- [`sentry`](./skills/security-and-reliability/sentry/): Use when inspecting production errors in Sentry read-only: list issues and events, summarize error trends, and check service health with a scoped auth token.
+- [`sentry`](./skills/security-and-reliability/sentry/): Read Sentry issues and events with a scoped token to summarize production error trends and event details.
 - [`skill-security-auditor`](./skills/security-and-reliability/skill-security-auditor/): Audit external agent skills before installing, trusting, or updating them: static scans plus manual review of instructions, scripts, permissions, dependencies, provenance, and data exfiltration.
 - [`trivy-vulnerability-scanner`](./skills/security-and-reliability/trivy-vulnerability-scanner/): Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or IaC with Trivy for CVEs, misconfigurations, secrets, and license issues.
-- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/): Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, containers, WordPress, libraries, or network devices.
+- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/): Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hosts, patch prioritization and post-update reboot checks.
 
 <a id="cat-multimodal-media"></a>
 ### 13. Multimodal Media (multimodal-media, 11)
@@ -618,7 +618,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`render-deploy`](./skills/deployment-platforms/render-deploy/): Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.
 - [`scaffold`](./skills/deployment-platforms/scaffold/): Use when provisioning infrastructure or dev environments: Terraform or OpenTofu modules, Docker Compose setups, multi-cloud layouts, secret management, and IaC cost gates.
 - [`shard`](./skills/deployment-platforms/shard/): Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.
-- [`vercel-deploy`](./skills/deployment-platforms/vercel-deploy/): Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+- [`vercel-deploy`](./skills/deployment-platforms/vercel-deploy/): Create Vercel preview or production deployments when the user selects Vercel or the repository already binds the project to Vercel.
 
 <a id="cat-memory-safety"></a>
 ### 15. Memory and Safety (openclaw-memory-and-safety, 7)

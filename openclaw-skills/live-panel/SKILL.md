@@ -2,14 +2,14 @@
 name: live-panel
 description: Render animated system architecture panels into self-contained HTML and MP4.
 zh_description: "将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。"
-version: "1.0.2"
+version: "1.0.3"
 author: "ythx-101/live-panel-skill"
 source: "github:ythx-101/live-panel-skill"
 source_url: "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/"
 license: "MIT"
 tags: ["architecture", "animation", "video"]
 created_at: "2026-10-12"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "advanced"
 ---
@@ -47,7 +47,7 @@ topology, and keep an explicit illustrative-data label until real inputs exist.
 - Linux and macOS are supported by the POSIX DevTools pipe; Windows requires WSL.
 - Check available executables first. Installation is a separate, authorized task.
 - Use a blank isolated browser session and bounded duration/resolution.
-- Do not use `--no-sandbox` outside an explicitly approved isolated environment.
+- Do not use `--no-sandbox` outside an explicitly approved isolated environment. The bundled helper leaves the sandbox enabled regardless of user ID; only the explicit flag disables it. If the environment cannot run safely, report rendering blocked.
 - Write outputs in the requested output directory, not over tracked templates.
 
 ## Rendering Workflow

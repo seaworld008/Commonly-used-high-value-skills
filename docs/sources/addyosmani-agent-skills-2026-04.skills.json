@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-10-16",
+    "checked_at": "2026-11-17",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -24,16 +24,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/api-and-interface-design/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the executable catch/rethrow fix (throw e), preserving the idempotency design. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the executable catch/rethrow fix (throw e), preserving the idempotency design. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/api-and-interface-design/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "5f7865623e92bba6462e2ee5c3c629998d4e0ddf"
+        "path_commit": "63128d0d4515cc074f304c3a429343c5afeff978"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -52,17 +52,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "5f7865623e92bba6462e2ee5c3c629998d4e0ddf",
-            "content_sha256": "91110988625fd686200050eb070f63e688fef6de446b11256155b1729cfa3deb",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "63128d0d4515cc074f304c3a429343c5afeff978",
+            "content_sha256": "65e572fc1ed96a1fa40d839c57076f0557d626f6961744bc6f09ba0afff232b8",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -124,7 +124,7 @@
         {
           "path": "skills/ai-workflow/api-and-interface-design/SKILL.md",
           "owner": "api-and-interface-design",
-          "sha256": "91110988625fd686200050eb070f63e688fef6de446b11256155b1729cfa3deb",
+          "sha256": "65e572fc1ed96a1fa40d839c57076f0557d626f6961744bc6f09ba0afff232b8",
           "mode": "100644"
         },
         {
@@ -178,16 +178,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186"
+        "path_commit": "57bfe5ddc533f43bd5d65b9f83665fda4c329bf1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -206,17 +206,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186",
-            "content_sha256": "1c4a89b01e2c517fac4a5311b9c5fd0b825c6d9a16de6671b4e8c9facf8b7e7f",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "57bfe5ddc533f43bd5d65b9f83665fda4c329bf1",
+            "content_sha256": "b0d2a2363f094a6ab083d9827c9b3290c516343a17c311baeb272c9ca5f51522",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -278,7 +278,7 @@
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
           "owner": "browser-testing-with-devtools",
-          "sha256": "1c4a89b01e2c517fac4a5311b9c5fd0b825c6d9a16de6671b4e8c9facf8b7e7f",
+          "sha256": "b0d2a2363f094a6ab083d9827c9b3290c516343a17c311baeb272c9ca5f51522",
           "mode": "100644"
         },
         {
@@ -332,16 +332,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/ci-cd-and-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
+        "path_commit": "a4a21f6390a83e62dc3c69a91e25ad7984a7bbd6"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -360,17 +360,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
-            "content_sha256": "0e6d5fb1b02b54b6c2c87328780dad8f785c50fd2d4210ac13db8af93a0e9bb2",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "a4a21f6390a83e62dc3c69a91e25ad7984a7bbd6",
+            "content_sha256": "8a78915995b707a9c9846b21f2425b7307bcdb19d0d9c87c243469c473eab003",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -432,7 +432,7 @@
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
           "owner": "ci-cd-and-automation",
-          "sha256": "0e6d5fb1b02b54b6c2c87328780dad8f785c50fd2d4210ac13db8af93a0e9bb2",
+          "sha256": "8a78915995b707a9c9846b21f2425b7307bcdb19d0d9c87c243469c473eab003",
           "mode": "100644"
         },
         {
@@ -486,16 +486,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt a bounded mutation-test experiment only in an authorized isolated copy; omit the unbundled constraint-driven-development dependency. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt a bounded mutation-test experiment only in an authorized isolated copy; omit the unbundled constraint-driven-development dependency. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "28f435ea69a78531ec00779c7f3b78c64ce95896"
+        "path_commit": "34e42d37e98798a517773af3e2a14cf7fb64db84"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -514,17 +514,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "28f435ea69a78531ec00779c7f3b78c64ce95896",
-            "content_sha256": "4924b4507d591404c9cb944f9151a87fbcd585de5730d207bf631b3f9c9eedc5",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "34e42d37e98798a517773af3e2a14cf7fb64db84",
+            "content_sha256": "917368fde8d08e5a20eaba584c461ceb26adbd6d13527ba45e1f1aad19a587c1",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -586,7 +586,7 @@
         {
           "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
           "owner": "code-review-and-quality",
-          "sha256": "4924b4507d591404c9cb944f9151a87fbcd585de5730d207bf631b3f9c9eedc5",
+          "sha256": "917368fde8d08e5a20eaba584c461ceb26adbd6d13527ba45e1f1aad19a587c1",
           "mode": "100644"
         },
         {
@@ -640,16 +640,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-simplification/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-simplification/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
+        "path_commit": "f1f6fbf3981076da73455bf3b754f5864208a93d"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -668,17 +668,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
-            "content_sha256": "e28788040cce2d7a9df222da1457b00f1a065fde247093bc085669b274b464e0",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "f1f6fbf3981076da73455bf3b754f5864208a93d",
+            "content_sha256": "dcf1c11cacc4e25cfd54c16b8251f5d30db900c453c8d576bf71acc77dc3fc88",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -740,7 +740,7 @@
         {
           "path": "skills/ai-workflow/code-simplification/SKILL.md",
           "owner": "code-simplification",
-          "sha256": "e28788040cce2d7a9df222da1457b00f1a065fde247093bc085669b274b464e0",
+          "sha256": "dcf1c11cacc4e25cfd54c16b8251f5d30db900c453c8d576bf71acc77dc3fc88",
           "mode": "100644"
         },
         {
@@ -794,16 +794,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/context-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/context-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed"
+        "path_commit": "583df9afd8abd0e9cbe9f25c0927ed74c0c72028"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -822,17 +822,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed",
-            "content_sha256": "b4d634681a8ca27ee1c2b8672643727386f57556082419ae26a973a84dbe2494",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "583df9afd8abd0e9cbe9f25c0927ed74c0c72028",
+            "content_sha256": "950a64d18b79874342b7b015cf3b108755f9a05ad8327adb5ef1309135f930ae",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -894,7 +894,7 @@
         {
           "path": "skills/ai-workflow/context-engineering/SKILL.md",
           "owner": "context-engineering",
-          "sha256": "b4d634681a8ca27ee1c2b8672643727386f57556082419ae26a973a84dbe2494",
+          "sha256": "950a64d18b79874342b7b015cf3b108755f9a05ad8327adb5ef1309135f930ae",
           "mode": "100644"
         },
         {
@@ -948,16 +948,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
+        "path_commit": "9097b64fa76d34df1800c7343e9bfb985e208d88"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -976,17 +976,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "e8e0b32265e0c2cf75e974012ff68f215015db6ef55be72b902aa5c3b1609e2b",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "9097b64fa76d34df1800c7343e9bfb985e208d88",
+            "content_sha256": "3a2dd51f63d2c6b82408e604d1850e8f37917bb062c75ad37ad389e9bef6a3c0",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1048,7 +1048,7 @@
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
           "owner": "debugging-and-error-recovery",
-          "sha256": "e8e0b32265e0c2cf75e974012ff68f215015db6ef55be72b902aa5c3b1609e2b",
+          "sha256": "3a2dd51f63d2c6b82408e604d1850e8f37917bb062c75ad37ad389e9bef6a3c0",
           "mode": "100644"
         },
         {
@@ -1102,16 +1102,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf"
+        "path_commit": "9f91cc4d66197f29e5e0a2a6c32a2392a2903afa"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1130,17 +1130,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf",
-            "content_sha256": "310668339b5922f4a274f12cbcfb0924d0c10d80aba7861655a4cad752fc83e2",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "9f91cc4d66197f29e5e0a2a6c32a2392a2903afa",
+            "content_sha256": "cfe4a349aee58f9e646dbef0b418155eef730b6bb4d6f2722d7b17683b0b9f8c",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1202,7 +1202,7 @@
         {
           "path": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
           "owner": "deprecation-and-migration",
-          "sha256": "310668339b5922f4a274f12cbcfb0924d0c10d80aba7861655a4cad752fc83e2",
+          "sha256": "cfe4a349aee58f9e646dbef0b418155eef730b6bb4d6f2722d7b17683b0b9f8c",
           "mode": "100644"
         },
         {
@@ -1256,16 +1256,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Add Proposed to the ADR status lifecycle; preserve local templates. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Add Proposed to the ADR status lifecycle; preserve local templates. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/documentation-and-adrs/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "30f886278158cad70f6682dcaf7889338bf01444"
+        "path_commit": "551c59cfddb6428be85364ba7588cf92c4c51448"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1284,17 +1284,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "30f886278158cad70f6682dcaf7889338bf01444",
-            "content_sha256": "c723d0d64d1e3561e22a1f66fbcb027931f4a68adb9660712ff8e10b7e76bb76",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "551c59cfddb6428be85364ba7588cf92c4c51448",
+            "content_sha256": "be9d986634b55a5f2ecedf4495ff570f8d0eadd9e0307344883d9326d1c2ccce",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1356,7 +1356,7 @@
         {
           "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
           "owner": "documentation-and-adrs",
-          "sha256": "c723d0d64d1e3561e22a1f66fbcb027931f4a68adb9660712ff8e10b7e76bb76",
+          "sha256": "be9d986634b55a5f2ecedf4495ff570f8d0eadd9e0307344883d9326d1c2ccce",
           "mode": "100644"
         },
         {
@@ -1410,16 +1410,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/doubt-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/doubt-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/doubt-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
+        "path_commit": "c55b84224fa8d7baa3b4480ff7d9272f657df3ab"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1438,17 +1438,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "dfec409de7723e08770bf391f8b8b09217aace41f38c7cb8cfe24e470653fc87",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "c55b84224fa8d7baa3b4480ff7d9272f657df3ab",
+            "content_sha256": "9b16198eea7c884feb33d5e6e145929d6b794ffb84dea1f3a19b7e8e87bf1884",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1510,7 +1510,7 @@
         {
           "path": "skills/ai-workflow/doubt-driven-development/SKILL.md",
           "owner": "doubt-driven-development",
-          "sha256": "dfec409de7723e08770bf391f8b8b09217aace41f38c7cb8cfe24e470653fc87",
+          "sha256": "9b16198eea7c884feb33d5e6e145929d6b794ffb84dea1f3a19b7e8e87bf1884",
           "mode": "100644"
         },
         {
@@ -1564,16 +1564,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "3e1e0a2db595ab2abe89b1204f7eabb67a24eb90"
+        "path_commit": "dab5364fbf57fbc5ff6c28b0d5b0801a67e8fe26"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1592,17 +1592,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "3e1e0a2db595ab2abe89b1204f7eabb67a24eb90",
-            "content_sha256": "3b7ab60d9d166b8b87980bcb303080e834925378c6eb0977b63f86e417de76b1",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "dab5364fbf57fbc5ff6c28b0d5b0801a67e8fe26",
+            "content_sha256": "4060055a1b682aaa69689d092a08c80dc31b26fb3f95183bb2992a77c14415c4",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1664,7 +1664,7 @@
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
           "owner": "frontend-ui-engineering",
-          "sha256": "3b7ab60d9d166b8b87980bcb303080e834925378c6eb0977b63f86e417de76b1",
+          "sha256": "4060055a1b682aaa69689d092a08c80dc31b26fb3f95183bb2992a77c14415c4",
           "mode": "100644"
         },
         {
@@ -1718,16 +1718,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/git-workflow-and-versioning/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
+        "path_commit": "884f64649779cd92804417c0baf564813b111bfc"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1746,17 +1746,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "3d0d7619102e492687fb47a129c032fcf46b16234d0ff23286990ac26885f2c8",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "884f64649779cd92804417c0baf564813b111bfc",
+            "content_sha256": "523eff30bcae414d82e7021a292f2e19cb803fa66d3efb0cba0cad0a63c1939a",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1818,7 +1818,7 @@
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
           "owner": "git-workflow-and-versioning",
-          "sha256": "3d0d7619102e492687fb47a129c032fcf46b16234d0ff23286990ac26885f2c8",
+          "sha256": "523eff30bcae414d82e7021a292f2e19cb803fa66d3efb0cba0cad0a63c1939a",
           "mode": "100644"
         },
         {
@@ -1872,16 +1872,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/idea-refine/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/idea-refine/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "f3400940f6961e68fa56bdb6214d0183d8d8ae49"
+        "path_commit": "24596abf8689b895737c5681a642682c66f58058"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1920,17 +1920,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "f3400940f6961e68fa56bdb6214d0183d8d8ae49",
-            "content_sha256": "2604c810b57cadf469b9c0524654cc46707e3704435c0ff88bf5e53698e9d283",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "24596abf8689b895737c5681a642682c66f58058",
+            "content_sha256": "51a207c3e251699231d292ae233dae2a0ce5ffe093f97688b6013e97f7b5b09e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -1992,7 +1992,7 @@
         {
           "path": "skills/ai-workflow/idea-refine/SKILL.md",
           "owner": "idea-refine",
-          "sha256": "2604c810b57cadf469b9c0524654cc46707e3704435c0ff88bf5e53698e9d283",
+          "sha256": "51a207c3e251699231d292ae233dae2a0ce5ffe093f97688b6013e97f7b5b09e",
           "mode": "100644"
         },
         {
@@ -2070,14 +2070,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/incremental-implementation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/incremental-implementation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -2098,17 +2098,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "b3b27039df63f3fbd73a5a1a686895c6836bf692f2dbba660794af2b385eb842",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "680d7574edf882379b0bae1441b2dce1a5557bf59f33c60cb269aa6fb6c1b0dc",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2170,7 +2170,7 @@
         {
           "path": "skills/ai-workflow/incremental-implementation/SKILL.md",
           "owner": "incremental-implementation",
-          "sha256": "b3b27039df63f3fbd73a5a1a686895c6836bf692f2dbba660794af2b385eb842",
+          "sha256": "680d7574edf882379b0bae1441b2dce1a5557bf59f33c60cb269aa6fb6c1b0dc",
           "mode": "100644"
         },
         {
@@ -2224,14 +2224,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/interview-me/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/interview-me/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
         "path_commit": "1d32b886c25d189b6dd6a455e76728bcaefb96b0"
       },
@@ -2252,17 +2252,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
             "path_commit": "1d32b886c25d189b6dd6a455e76728bcaefb96b0",
-            "content_sha256": "80390dbc7b507206cb6fdfc3b201467a6d1de637383d4646140d17d8121cb67d",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "234c347a49d6fabf0a0fe215d08571e90f713dcad89bc624c8353c47031beb27",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2324,7 +2324,7 @@
         {
           "path": "skills/ai-workflow/interview-me/SKILL.md",
           "owner": "interview-me",
-          "sha256": "80390dbc7b507206cb6fdfc3b201467a6d1de637383d4646140d17d8121cb67d",
+          "sha256": "234c347a49d6fabf0a0fe215d08571e90f713dcad89bc624c8353c47031beb27",
           "mode": "100644"
         },
         {
@@ -2378,14 +2378,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/observability-and-instrumentation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/observability-and-instrumentation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
         "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1"
       },
@@ -2406,17 +2406,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
             "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1",
             "content_sha256": "fefe29304982c20774bd067c2747cbf41ef1fe1e9228b5573b77d0a7734f72ea",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2532,16 +2532,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/performance-optimization/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Move worked examples into the new bundled optimization-patterns reference; repair relative checklist links and preserve local guidance. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Move worked examples into the new bundled optimization-patterns reference; repair relative checklist links and preserve local guidance. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "35c3acb42ed12d48e630efd45d639003952946b5"
+        "path_commit": "ee3e8504246bd2ee1be3f3670555e48c9c62212a"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2565,17 +2565,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "35c3acb42ed12d48e630efd45d639003952946b5",
-            "content_sha256": "63c0d390cc6e9163d66384066fa40abeabd910b5247c17a85cec4a5da7a03612",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "ee3e8504246bd2ee1be3f3670555e48c9c62212a",
+            "content_sha256": "e0ebc1818566ca5f945cc40cb210c1269cec0fc3e94631320b2a1e2b8b1241ae",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2637,7 +2637,7 @@
         {
           "path": "skills/ai-workflow/performance-optimization/SKILL.md",
           "owner": "performance-optimization",
-          "sha256": "63c0d390cc6e9163d66384066fa40abeabd910b5247c17a85cec4a5da7a03612",
+          "sha256": "e0ebc1818566ca5f945cc40cb210c1269cec0fc3e94631320b2a1e2b8b1241ae",
           "mode": "100644"
         },
         {
@@ -2697,16 +2697,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/planning-and-task-breakdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020"
+        "path_commit": "3be977869a2cc4a2619a7d18895e1cc9123db399"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2725,17 +2725,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
-            "content_sha256": "9ba974dfe853a56104baca08d15ede1434daa112cdb3d083b04e6dcf4e7746d7",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "3be977869a2cc4a2619a7d18895e1cc9123db399",
+            "content_sha256": "dcd19869425bb2fb75408dc0058feeccb67eefcbbda136a4f53f8c2b96064509",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2797,7 +2797,7 @@
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
           "owner": "planning-and-task-breakdown",
-          "sha256": "9ba974dfe853a56104baca08d15ede1434daa112cdb3d083b04e6dcf4e7746d7",
+          "sha256": "dcd19869425bb2fb75408dc0058feeccb67eefcbbda136a4f53f8c2b96064509",
           "mode": "100644"
         },
         {
@@ -2851,16 +2851,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/security-and-hardening/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "d1463fd0d6675c6e145d9c57802d70faf84d1f51"
+        "path_commit": "58433ebf697f6a72b1d73e071b45504e78c8d934"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2884,17 +2884,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "d1463fd0d6675c6e145d9c57802d70faf84d1f51",
-            "content_sha256": "0b49415593e03326261773bcb913666d230d4f5dc32b97645411f4be44b6812b",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "58433ebf697f6a72b1d73e071b45504e78c8d934",
+            "content_sha256": "1fd45d92df666473a37860d9805212c4cf10dee4a1d398027fe826b5bf7b9d40",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -2967,7 +2967,7 @@
         {
           "path": "skills/ai-workflow/security-and-hardening/SKILL.md",
           "owner": "security-and-hardening",
-          "sha256": "0b49415593e03326261773bcb913666d230d4f5dc32b97645411f4be44b6812b",
+          "sha256": "1fd45d92df666473a37860d9805212c4cf10dee4a1d398027fe826b5bf7b9d40",
           "mode": "100644"
         },
         {
@@ -2985,7 +2985,7 @@
         {
           "path": "skills/ai-workflow/security-and-hardening/references/hardening-patterns.md",
           "owner": "security-and-hardening",
-          "sha256": "2e1b93a502b4cdb0258404441f3aab029b0cce4003fbbcc61af9a2de18bab9ab",
+          "sha256": "451abdcef110e61470d8969151986f397b84c6eb2770d7788787b2b857c31e33",
           "mode": "100644"
         },
         {
@@ -3027,16 +3027,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/shipping-and-launch/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Remove nonexistent Prisma rollback command; require a project-verified command or runbook. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Remove nonexistent Prisma rollback command; require a project-verified command or runbook. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/shipping-and-launch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "a31135a26d4adbfb0687544f0bd736a73163e78a"
+        "path_commit": "dde32ac9be1b74bcc65bf489429e9f0a40c053bc"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3055,17 +3055,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "a31135a26d4adbfb0687544f0bd736a73163e78a",
-            "content_sha256": "ed53d225da72806c768a814870aa7a176ae90d4c3eec271d22036bd4653deea4",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "dde32ac9be1b74bcc65bf489429e9f0a40c053bc",
+            "content_sha256": "902e98cf64d3fe24f71f5641d7d2c4caae8941d11f6e8a9e17d561481f36edcc",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -3127,7 +3127,7 @@
         {
           "path": "skills/ai-workflow/shipping-and-launch/SKILL.md",
           "owner": "shipping-and-launch",
-          "sha256": "ed53d225da72806c768a814870aa7a176ae90d4c3eec271d22036bd4653deea4",
+          "sha256": "902e98cf64d3fe24f71f5641d7d2c4caae8941d11f6e8a9e17d561481f36edcc",
           "mode": "100644"
         },
         {
@@ -3181,16 +3181,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/source-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/source-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
+        "path_commit": "76cbb8a28a47e022c262a81d3340e4e1e079ae54"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3209,17 +3209,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "f161a1a243462030782a502f1f0e0abf6de2874609be092748a6d515e158d14d",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "76cbb8a28a47e022c262a81d3340e4e1e079ae54",
+            "content_sha256": "980a38473dce1d447810bd46af862b22ec754db7fac07150e2f45e2afc32b671",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -3281,7 +3281,7 @@
         {
           "path": "skills/ai-workflow/source-driven-development/SKILL.md",
           "owner": "source-driven-development",
-          "sha256": "f161a1a243462030782a502f1f0e0abf6de2874609be092748a6d515e158d14d",
+          "sha256": "980a38473dce1d447810bd46af862b22ec754db7fac07150e2f45e2afc32b671",
           "mode": "100644"
         },
         {
@@ -3335,16 +3335,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/spec-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the local authorization-aware flow; reject a new forced turn/approval gate that conflicts with repository and current-user authorization. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the local authorization-aware flow; reject a new forced turn/approval gate that conflicts with repository and current-user authorization. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/spec-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "7ade9d30f21ab3d4b0c7d3c98309e67d27403b78"
+        "path_commit": "480bed13919a6c03193725b4313b7c1a61a83c51"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3363,17 +3363,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "7ade9d30f21ab3d4b0c7d3c98309e67d27403b78",
-            "content_sha256": "8422bf617465a888cbf11e32462ad362685d8c0f6c3243b88e9df153cfc2abfa",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "480bed13919a6c03193725b4313b7c1a61a83c51",
+            "content_sha256": "6842cd82fb54f970d930a78ea80ef2de520b757c48e31cc55f18c179fc1e823e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -3435,7 +3435,7 @@
         {
           "path": "skills/ai-workflow/spec-driven-development/SKILL.md",
           "owner": "spec-driven-development",
-          "sha256": "8422bf617465a888cbf11e32462ad362685d8c0f6c3243b88e9df153cfc2abfa",
+          "sha256": "6842cd82fb54f970d930a78ea80ef2de520b757c48e31cc55f18c179fc1e823e",
           "mode": "100644"
         },
         {
@@ -3489,16 +3489,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/test-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/test-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
-        "path_commit": "7c4714658f4f8450c27c2c972b5def502d66f86a"
+        "path_commit": "53bd30db8c02ca952364a124ca89e31651cfd9d0"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3517,17 +3517,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
-            "path_commit": "7c4714658f4f8450c27c2c972b5def502d66f86a",
-            "content_sha256": "7496c4a4a057148ae1c623b8f9541a66ad6f8ebf5fa1f244ba5b3b31ae31e1b0",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+            "path_commit": "53bd30db8c02ca952364a124ca89e31651cfd9d0",
+            "content_sha256": "813e5546c329dd5413dc7b08220d04eb03a05dc6e645a5616685f35624381004",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -3589,7 +3589,7 @@
         {
           "path": "skills/ai-workflow/test-driven-development/SKILL.md",
           "owner": "test-driven-development",
-          "sha256": "7496c4a4a057148ae1c623b8f9541a66ad6f8ebf5fa1f244ba5b3b31ae31e1b0",
+          "sha256": "813e5546c329dd5413dc7b08220d04eb03a05dc6e645a5616685f35624381004",
           "mode": "100644"
         },
         {
@@ -3643,14 +3643,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-agent-skills/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -3671,17 +3671,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "20a1af331668a427eecc2eac3b23c7708074cff95ba1c755b76f9225d5975492",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "46315f1d346fb7046b3ecf5c6234c69f44af7a35dec614612e0ba036afed7d0a",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+              "resolved_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
               "api_spdx": "MIT"
             }
           }
@@ -3958,7 +3958,7 @@
         {
           "path": "skills/ai-workflow/using-agent-skills/SKILL.md",
           "owner": "using-agent-skills",
-          "sha256": "20a1af331668a427eecc2eac3b23c7708074cff95ba1c755b76f9225d5975492",
+          "sha256": "46315f1d346fb7046b3ecf5c6234c69f44af7a35dec614612e0ba036afed7d0a",
           "mode": "100644"
         },
         {
@@ -4326,6 +4326,13 @@
       "date": "2026-10-16",
       "method": "commit-aware-manual-monitor-review",
       "target": "addyosmani/agent-skills@aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "addyosmani/agent-skills@39b723ceebf81474d0557c1fecd01eddab585563",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

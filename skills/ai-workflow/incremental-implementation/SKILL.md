@@ -1,15 +1,15 @@
 ---
 name: incremental-implementation
-description: 'Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step.'
+description: Implement changes through independently verifiable behavior increments or dependent steps when the work is too large to land atomically.
 zh_description: "将功能拆成可验证的小步改动并逐步完成实现。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "incremental-implementation", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: incremental-implementation
@@ -23,12 +23,12 @@ Build in thin vertical slices — implement one piece, test it, verify it, then 
 
 ## When to Use
 
-- Implementing any multi-file change
+- Implementing behavior that needs multiple independently verifiable increments or dependent steps
 - Building a new feature from a task breakdown
 - Refactoring existing code
 - Any time you're tempted to write more than ~100 lines before testing
 
-**When NOT to use:** Single-file, single-function changes where the scope is already minimal.
+**When NOT to use:** Changes whose scope is already atomic, including mechanical multi-file edits. File count alone is not a reason to split a change.
 
 ## The Increment Cycle
 

@@ -2,13 +2,13 @@
 name: figma-implement-design
 description: 'Implement UI from Figma URLs or node IDs with visual fidelity, project conventions, and design assets. Requires an available Figma MCP connection.'
 zh_description: "用于将 Figma 设计转化为可实现的前端界面和组件。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "design", "figma", "implement"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -55,16 +55,11 @@ This skill provides a structured workflow for translating Figma designs into pro
 
 ### Step 0: Set up Figma MCP (if not already configured)
 
-If any MCP call fails because Figma MCP is not connected, pause and set it up:
+Discover the host's actual Figma connection and diagnose the error first; a failed call does not by itself require installation or authentication.
 
-1. Add the Figma MCP:
-   - `codex mcp add figma --url https://mcp.figma.com/mcp`
-2. Enable remote MCP client:
-   - Set `[features].rmcp_client = true` in `config.toml` **or** run `codex --enable rmcp_client`
-3. Log in with OAuth:
-   - `codex mcp login figma`
+If connection setup is already authorized, follow the installed host's documented MCP configuration and OAuth flow, protecting credentials. Do not assume a particular feature flag or mandatory restart: confirm those against the installed version.
 
-After successful login, the user will have to restart codex. You should finish your answer and tell them so when they try again they can continue with Step 1.
+Otherwise report the missing design connection and continue preparation that does not depend on unavailable design data. Ask only for required configuration authority or missing design material. Pause dependent design work only when it cannot proceed without that input.
 
 ### Step 1: Get Node ID
 

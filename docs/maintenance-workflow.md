@@ -75,7 +75,7 @@ complexity: intermediate
 
 ## 完整流水线
 
-在项目 Python 环境安装 `pyyaml pytest jsonschema`；使用一个顺序执行、失败即停的跨平台入口：
+在项目 Python 环境安装 `pyyaml pytest jsonschema openpyxl filelock click rich`；使用一个顺序执行、失败即停的跨平台入口：
 
 ```bash
 python scripts/validate_repository.py --refresh

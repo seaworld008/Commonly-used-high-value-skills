@@ -8,10 +8,10 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills/task-understanding-decomposition/grill-me"
-PIN = "24fe0ef7737efae15c87225755e9f6f5965e4888"
+PIN = "d1478fcb140db0b93c0c8df17bcfd311844749d0"
 UPSTREAM_BLOBS = {
     "references/upstream-grill-me.md": "3947ff9c4ad980d14fc07fccbf659d47c114e81d",
-    "references/upstream-grilling.md": "8ca78c6d8f901aab0c5a1f896034b70e666ff2a3",
+    "references/upstream-grilling.md": "d2f09a18e6a6c65c55f1271ba08dfeaf06f0bed3",
     "LICENSE.upstream.txt": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
 }
 

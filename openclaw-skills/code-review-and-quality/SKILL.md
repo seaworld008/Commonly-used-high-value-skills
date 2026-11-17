@@ -2,14 +2,14 @@
 name: code-review-and-quality
 description: 'Review a diff, pull request, or pasted code for correctness, regressions, security, maintainability, and missing tests.'
 zh_description: "审查代码正确性、可维护性、安全性和验证证据。"
-version: "1.0.6"
+version: "1.0.7"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-review-and-quality", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality
@@ -190,6 +190,8 @@ For each file changed:
 
 ### Step 4: Categorize Findings
 
+Before reporting a finding, check it against the callers, guards and tests that reach the changed code, and drop it if they rule it out. Label defects that already exist in the base separately from regressions this change introduces. Zero findings is a valid result; do not invent one.
+
 Label every comment with its severity so the author knows what's required vs optional:
 
 | Prefix | Meaning | Author Action |
@@ -248,7 +250,7 @@ After any refactoring or implementation change, check for orphaned code:
 
 1. Identify code that is now unreachable or unused
 2. List it explicitly
-3. **Ask before deleting:** "Should I remove these now-unused elements: [list]?"
+3. In review-only work, report removal candidates. With implementation or cleanup authorization, remove code made provably unused by this change and verify its callers. Ask only when ownership, scope, or compatibility remains unclear.
 
 Don't leave dead code lying around — it confuses future readers and agents. But don't silently delete things you're not sure about. When in doubt, ask.
 
@@ -257,7 +259,7 @@ DEAD CODE IDENTIFIED:
 - formatLegacyDate() in src/utils/date.ts — replaced by formatDate()
 - OldTaskCard component in src/components/ — replaced by TaskCard
 - LEGACY_API_URL constant in src/config.ts — no remaining references
-→ Safe to remove these?
+→ Review-only: recommend removal. Authorized implementation: remove after verifying no consumers.
 ```
 
 ## Review Speed

@@ -5,6 +5,7 @@ import os
 import re
 import sys
 import time
+from http import HTTPStatus
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -64,18 +65,22 @@ def request_json(url, token, retries=1):
                 data = json.loads(body) if body else None
                 return data, resp.headers
         except HTTPError as err:
-            body = err.read().decode("utf-8", "ignore")
+            err.close()
             if attempt < retries and (err.code >= 500 or err.code == 429):
                 attempt += 1
                 time.sleep(1)
                 continue
-            raise RuntimeError(f"HTTP {err.code} for {url}: {body or 'request failed'}") from err
-        except URLError as err:
+            try:
+                summary = HTTPStatus(err.code).phrase
+            except ValueError:
+                summary = "Request failed"
+            raise RuntimeError(f"HTTP {err.code}: {summary}") from None
+        except URLError:
             if attempt < retries:
                 attempt += 1
                 time.sleep(1)
                 continue
-            raise RuntimeError(f"Network error for {url}: {err.reason}") from err
+            raise RuntimeError("Network error contacting Sentry") from None
 
 
 def build_url(base_url, path, params=None):

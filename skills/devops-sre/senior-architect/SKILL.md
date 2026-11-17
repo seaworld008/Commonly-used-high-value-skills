@@ -2,14 +2,14 @@
 name: senior-architect
 description: 'Design or review system architecture, technical tradeoffs, dependencies, and scalability; produce diagrams and decision records grounded in requirements.'
 zh_description: "分析系统架构、依赖、扩展性和关键技术取舍。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md"
 license: MIT
 tags: '["architect", "devops", "senior", "sre"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -94,7 +94,10 @@ graph TD
 
 ### 2. Dependency Analyzer
 
-Analyzes project dependencies for coupling, circular dependencies, and outdated packages.
+Reports manifest direct/development dependencies and heuristic internal-module
+cycles/coupling. It does not resolve the full transitive tree, query registry
+versions or verify CVEs. Use the project's existing dependency/audit tooling for
+those results and record its evidence separately.
 
 **Solves:** "I need to understand my dependency tree and identify potential issues"
 
@@ -102,10 +105,9 @@ Analyzes project dependencies for coupling, circular dependencies, and outdated 
 **Output:** Analysis report (JSON or human-readable)
 
 **Analyzes:**
-- Dependency tree (direct and transitive)
-- Circular dependencies between modules
-- Coupling score (0-100)
-- Outdated packages
+- Direct and development dependencies parsed from supported manifests
+- Heuristic circular dependencies between internal modules
+- Heuristic coupling score (0-100)
 
 **Supported package managers:**
 - npm/yarn (`package.json`)
@@ -128,20 +130,21 @@ python scripts/dependency_analyzer.py ./project --check circular
 python scripts/dependency_analyzer.py ./project --verbose
 ```
 
-**Example output:**
+**Illustrative report fields (values are not measured results):**
 ```
 Dependency Analysis Report
 ==========================
-Total dependencies: 47 (32 direct, 15 transitive)
-Coupling score: 72/100 (moderate)
+Direct dependencies: 32
+Dev dependencies: 15
+Internal modules: 8
+Coupling score: 72/100 (high - consider refactoring)
 
 Issues found:
 - CIRCULAR: auth → user → permissions → auth
-- OUTDATED: lodash 4.17.15 → 4.17.21 (security)
 
 Recommendations:
 1. Extract shared interface to break circular dependency
-2. Update lodash to fix CVE-2020-8203
+2. Verify any version/CVE concerns separately with project dependency tooling
 ```
 
 ---

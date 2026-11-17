@@ -2,13 +2,13 @@
 name: agile-product-owner
 description: 'Manage product backlogs and sprints: user stories, acceptance criteria, epic breakdown, prioritization, estimates, and delivery tracking.'
 zh_description: "管理产品待办、用户故事、验收条件和迭代计划。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agile", "design", "owner", "product"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 triggers:
@@ -56,7 +56,7 @@ define product goal
 
 ## User Story Generation Workflow
 
-Create INVEST-compliant user stories from requirements:
+Draft user stories from requirements and review them against INVEST:
 
 1. Identify the persona (who benefits from this feature)
 2. Define the action or capability needed
@@ -279,7 +279,7 @@ Prioritize backlog using value and effort assessment.
 
 ### INVEST Criteria Validation
 
-Before adding to sprint, validate each story:
+Before adding a story to the sprint, have the team confirm its value, dependencies, flexibility and estimate using the questions below. The generator assumes value and negotiability and uses word count as an estimability hint.
 
 | Criterion | Question | Pass If... |
 |-----------|----------|------------|
@@ -332,7 +332,7 @@ python scripts/user_story_generator.py sprint 30
 ```
 
 Generates:
-- INVEST-compliant user stories
+- Story drafts with heuristic INVEST prompts
 - Given-When-Then acceptance criteria
 - Story point estimates (Fibonacci scale)
 - Priority assignments
@@ -359,7 +359,7 @@ Acceptance Criteria:
   4. Should complete within 2 seconds
   5. Must be accessible via keyboard navigation
 
-INVEST Checklist:
+Heuristic INVEST checklist (confirm with the team):
   ✓ Independent
   ✓ Negotiable
   ✓ Valuable

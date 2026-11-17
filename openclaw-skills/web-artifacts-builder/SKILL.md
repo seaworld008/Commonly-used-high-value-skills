@@ -2,14 +2,14 @@
 name: web-artifacts-builder
 description: 'Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui when multiple components, routing, or state are needed.'
 zh_description: "用于构建复杂多组件 HTML/React 网页 artifacts，尤其适合需要状态、路由或 shadcn/ui 的场景。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["artifacts", "builder", "development", "web"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -20,10 +20,12 @@ To build powerful frontend claude.ai artifacts, follow these steps:
 1. Initialize the frontend repo using `scripts/init-artifact.sh`
 2. Develop your artifact by editing the generated code
 3. Bundle all code into a single HTML file using `scripts/bundle-artifact.sh`
-4. Display artifact to user
-5. (Optional) Test the artifact
+4. Check standalone opening and key interactions before delivery
+5. Display the artifact with the actual verification status
 
-**Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui
+**Stack**: React + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui.
+The initializer uses an unpinned create-vite and does not fix the React version;
+inspect the generated manifest/lockfile and verify compatibility.
 
 ## Design & Style Guidelines
 
@@ -33,11 +35,24 @@ VERY IMPORTANT: To avoid what is often referred to as "AI slop", avoid using exc
 
 ### Step 1: Initialize Project
 
-Run the initialization script to create a new React project:
+Resolve the loaded skill's real directory before changing directories:
 ```bash
-bash scripts/init-artifact.sh <project-name>
+ARTIFACT_SKILL_DIR="/absolute/path/to/loaded/web-artifacts-builder"
+```
+Inspect arguments, the new destination and available project package runners
+first. The bundled initializer runs `npm install -g pnpm` when pnpm is missing,
+even before checking arguments. Do not invoke it in that state. Reuse an existing
+project runner, or acquire a compatible pinned runner locally under the task's
+existing installation authorization; otherwise scaffold manually with available
+tools. Do not install global packages as a side effect of loading this skill.
+
+When pnpm is already available and a fresh scaffold is authorized:
+```bash
+bash "$ARTIFACT_SKILL_DIR/scripts/init-artifact.sh" <project-name>
 cd <project-name>
 ```
+Record the resolved template/dependency versions and validate them; the current
+initializer does not pin create-vite or guarantee a compatible dependency set.
 
 This creates a fully configured project with:
 - ✅ React + TypeScript (via Vite)
@@ -46,7 +61,8 @@ This creates a fully configured project with:
 - ✅ 40+ shadcn/ui components pre-installed
 - ✅ All Radix UI dependencies included
 - ✅ Parcel configured for bundling (via .parcelrc)
-- ✅ Node 18+ compatibility (auto-detects and pins Vite version)
+- Node-major detection and a Vite 5.4.11 pin for Node 18; this is not a complete
+  compatibility check for the unpinned scaffold and other dependencies
 
 ### Step 2: Develop Your Artifact
 
@@ -56,7 +72,7 @@ To build the artifact, edit the generated files. See **Common Development Tasks*
 
 To bundle the React app into a single HTML artifact:
 ```bash
-bash scripts/bundle-artifact.sh
+bash "$ARTIFACT_SKILL_DIR/scripts/bundle-artifact.sh"
 ```
 
 This creates `bundle.html` - a self-contained artifact with all JavaScript, CSS, and dependencies inlined. This file can be directly shared in Claude conversations as an artifact.
@@ -69,15 +85,17 @@ This creates `bundle.html` - a self-contained artifact with all JavaScript, CSS,
 - Builds with Parcel (no source maps)
 - Inlines all assets into single HTML using html-inline
 
-### Step 4: Share Artifact with User
+### Step 4: Check the Bundled Artifact
 
-Finally, share the bundled HTML file in conversation with the user so they can view it as an artifact.
+Before delivery, open `bundle.html` independently of the development server and
+check key interactions and representative viewport sizes with available tools.
+A successful build alone does not prove standalone behavior. If browser or
+execution capability is unavailable, state which checks were not run and give
+concrete acceptance steps.
 
-### Step 5: Testing/Visualizing the Artifact (Optional)
+### Step 5: Share Artifact with User
 
-Note: This is a completely optional step. Only perform if necessary or requested.
-
-To test/visualize the artifact, use available tools (including other Skills or built-in tools like Playwright or Puppeteer). In general, avoid testing the artifact upfront as it adds latency between the request and when the finished artifact can be seen. Test later, after presenting the artifact, if requested or if issues arise.
+Share the bundled HTML and report build, standalone and interaction results.
 
 ## Reference
 

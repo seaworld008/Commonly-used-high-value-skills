@@ -32,8 +32,10 @@ const hashedPassword = await hash(plaintext, SALT_ROUNDS);
 const isValid = await compare(plaintext, hashedPassword);
 
 // Session management
+const SESSION_SECRET = process.env.SESSION_SECRET;  // From environment, not code
+if (!SESSION_SECRET) throw new Error('SESSION_SECRET not configured');
 app.use(session({
-  secret: process.env.SESSION_SECRET,  // From environment, not code
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -65,6 +67,11 @@ const clean = DOMPurify.sanitize(userInput);
 // Always check authorization, not just authentication
 app.patch('/api/tasks/:id', authenticate, async (req, res) => {
   const task = await taskService.findById(req.params.id);
+  if (!task) {
+    return res.status(404).json({
+      error: { code: 'NOT_FOUND', message: 'Task not found' }
+    });
+  }
 
   // Check that the authenticated user owns this resource
   if (task.ownerId !== req.user.id) {
@@ -288,8 +295,10 @@ if (!success) return res.status(429).end();
 
 **Always check before committing:**
 ```bash
-# Check for accidentally staged secrets
-git diff --cached | grep -i "password\|secret\|api_key\|token"
+# Check for accidentally staged secrets — prints only the names of files whose
+# staged diff matches, so the raw value never lands in terminal output or agent
+# tool logs. Any output means review those files before committing.
+git diff --cached -i -G'password|secret|api_key|token' --name-only
 ```
 
 **If a secret is ever committed, rotate it.** Deleting the line or rewriting history is not enough — assume it's compromised the moment it reaches a remote. Revoke and reissue the key first, then purge it from history.

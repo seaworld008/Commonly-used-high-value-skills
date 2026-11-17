@@ -2,14 +2,14 @@
 name: nexus
 description: 'Use when a task needs several specialist agents: classify it, pick the minimum agent chain, run or autorun that chain, coordinate parallel branches, and verify the merged result.'
 zh_description: "任务需要多个专家智能体协作时使用：分类任务、选择最小链路、编排执行并验证汇总结果。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/nexus/SKILL.md"
 license: MIT
 tags: ["ai", "nexus", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -181,6 +181,8 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 ## Execution Model
 
 **Orchestrator detection** — establish the host runtime and advertised delegation capabilities before the first spawn; discover actual schemas rather than identifying a host solely from a familiar tool name. Bind the runtime adapter and authorized model choice. Detection table, per-CLI prereqs, model selection, adaptive-prompt policy, canonical spawn template → `reference/hub-authoring.md` § Execution Model + `reference/execution-layers.md`.
+
+For the `spec` recipe's build-path handoff, preserve the user-selected model or inherit the host's current setting. The fixed generation/model in `reference/spec-recipe.md` is a historical example, not a "latest" claim or executor default. An authorized model comparison must use actual available models (`MODEL_A`/`MODEL_B`) and record versions, families, and cost; discover executor capabilities rather than assuming fixed flags.
 
 **Spawn decision** — Core Rule #3 decides: no spawn tool → internal (log the verified blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Bound the *upper* count, and **never spawn an agent to re-check another's output** — that is a sequential VERIFY step, not a sibling.
 

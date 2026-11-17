@@ -2,14 +2,14 @@
 name: arena
 description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
 zh_description: "用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/arena/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -90,7 +90,7 @@ COMPETE when: multiple valid approaches, quality comparison, high uncertainty. C
 | **Quick** | Lightweight 2-variant comparison | Lightweight 2-subtask execution |
 
 **Solo:** Sequential CLI, 2-variant/subtask. **Team:** Parallel via Agent Teams API + `git worktree`, 3+. **Quick:** ≤ 3 files, ≤ 2 criteria, ≤ 50 lines.
-See `references/engine-cli-guide.md` (Solo) · `references/team-mode-guide.md` (Team) · `references/evaluation-framework.md` + `references/collaborate-mode-guide.md` (Quick).
+See `references/engine-cli-guide.md` (Solo) · `references/team-mode-guide.md` (Team) · `references/evaluation-framework.md` + `references/collaborate-mode-guide.md` (Quick). CLI examples are historical shapes: discover installed engines and their actual flags before use. Preserve user-selected models; otherwise inherit the host setting. Only for an authorized model comparison, bind `MODEL_A`/`MODEL_B` to available models and record their versions, families, and costs. Fixed models or engine defaults in the reference do not override that selection.
 
 
 ## Core Contract
@@ -131,9 +131,9 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - (COLLABORATE) Assign shared registration files (routing tables, config files, barrel exports, component registries) to exactly one subtask — these are documented collision hotspots in parallel agent execution.
 - Evaluate per `references/evaluation-framework.md`.
 - Verify build + tests.
-- Log to `.agents/PROJECT.md`.
+- Log to `.agents/PROJECT.md` only under an existing project convention or task authorization; otherwise report in the response.
 - Collect session results after every execution (lightweight learning — AT-01).
-- Record user paradigm/engine overrides in journal.
+- Record user paradigm/engine overrides in an authorized journal or the response.
 
 ### Ask First When Not Already Authorized
 
@@ -196,6 +196,8 @@ See `references/engine-cli-guide.md` · `references/team-mode-guide.md` · `refe
 **COLLABORATE: SPEC → DECOMPOSE → SCOPE LOCK → EXECUTE → REVIEW → INTEGRATE → VERIFY**
 Validate spec → Split into non-overlapping subtasks by engine strength → Lock per-subtask scopes → Run on `arena/task-{id}` branches → Quality gate per subtask → Merge all in dependency order (Arena resolves conflicts) → Full verification (build+tests+`codex review`+interface check).
 See `references/collaborate-mode-guide.md`.
+
+For failed adoption or hybrid integration, inspect status and staged/unstaged diffs and establish ownership before undoing changes. Revert the specific committed hybrid, undo only the task-owned patch, or retry in a disposable copy. Do not use the decision-template reference's unconditional `git reset --hard HEAD~1`; hard reset requires explicit discard authorization for the verified scope.
 
 ## Recipes
 

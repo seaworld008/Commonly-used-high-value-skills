@@ -2,13 +2,13 @@
 name: mermaid-tools
 description: Extract Mermaid diagrams from Markdown and render PNG images with the bundled tools when a diagram image or batch conversion is needed.
 zh_description: "提取 Markdown 中的 Mermaid 图并渲染为图片。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["mermaid", "tools"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,7 +17,7 @@ complexity: "intermediate"
 
 ## Overview
 
-This skill enables extraction of Mermaid diagrams from markdown files and generation of high-quality PNG images. The skill bundles all necessary scripts (`extract-and-generate.sh`, `extract_diagrams.py`, and `puppeteer-config.json`) in the `scripts/` directory for portability and reliability.
+This skill enables extraction of Mermaid diagrams from markdown files and generation of high-quality PNG images. The skill bundles `extract-and-generate.sh`, `extract_diagrams.py`, and `puppeteer-config.json`. External `mmdc` and Chrome are required. The current rendering shell script targets configured Linux/WSL environments: it fixes Chrome at `/usr/bin/google-chrome-stable` and uses GNU `stat -c` and `sort -V`; it is not a portable macOS renderer.
 
 ## Core Workflow
 
@@ -26,8 +26,7 @@ This skill enables extraction of Mermaid diagrams from markdown files and genera
 Extract Mermaid diagrams from a markdown file and generate PNG images using the bundled `extract-and-generate.sh` script:
 
 ```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-./extract-and-generate.sh "<markdown_file>" "<output_directory>"
+bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 **Parameters:**
@@ -36,8 +35,7 @@ cd ~/.claude/skills/mermaid-tools/scripts
 
 **Example:**
 ```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-./extract-and-generate.sh "/path/to/document.md" "/path/to/output"
+bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "/path/to/document.md" "/path/to/output"
 ```
 
 ### What the Script Does
@@ -45,8 +43,8 @@ cd ~/.claude/skills/mermaid-tools/scripts
 1. **Extracts** all Mermaid code blocks from the markdown file
 2. **Numbers** them sequentially (01, 02, 03, etc.) in order of appearance
 3. **Generates** `.mmd` files for each diagram
-4. **Creates** high-resolution PNG images with smart sizing
-5. **Validates** all generated PNG files
+4. **Attempts to create** high-resolution PNG images with smart sizing
+5. **Validates expected PNG files** and returns nonzero if any validation fails. Review the per-file summary and inspect the generated diagrams for semantic/visual correctness.
 
 ### Output Files
 
@@ -63,8 +61,7 @@ The numbering ensures diagrams maintain their order from the source document.
 Override default dimensions using environment variables:
 
 ```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-MERMAID_WIDTH=1600 MERMAID_HEIGHT=1200 ./extract-and-generate.sh "<markdown_file>" "<output_directory>"
+MERMAID_WIDTH=1600 MERMAID_HEIGHT=1200 bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 **Available variables:**
@@ -75,15 +72,13 @@ MERMAID_WIDTH=1600 MERMAID_HEIGHT=1200 ./extract-and-generate.sh "<markdown_file
 ### High-Resolution Output for Presentations
 
 ```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-MERMAID_WIDTH=2400 MERMAID_HEIGHT=1800 MERMAID_SCALE=4 ./extract-and-generate.sh "<markdown_file>" "<output_directory>"
+MERMAID_WIDTH=2400 MERMAID_HEIGHT=1800 MERMAID_SCALE=4 bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 ### Print-Quality Output
 
 ```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-MERMAID_SCALE=5 ./extract-and-generate.sh "<markdown_file>" "<output_directory>"
+MERMAID_SCALE=5 bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 ## Smart Sizing Feature
@@ -101,18 +96,13 @@ Context-aware naming in the extraction process helps trigger appropriate smart s
 
 ### Use Bundled Scripts
 
-**CRITICAL**: Use the bundled `extract-and-generate.sh` script from this skill's `scripts/` directory. All necessary dependencies are bundled together.
+Use the extraction helper at the actual installed `<SKILL_ROOT>`. The shell script resolves its helper/config paths from its own location; changing the working directory is not required. Use absolute input/output paths.
 
-### Change to Script Directory
+### Browser Isolation and Acceptance
 
-Run the script from its own directory to properly locate dependencies (`extract_diagrams.py` and `puppeteer-config.json`):
+The bundled `puppeteer-config.json` keeps Chrome sandboxing enabled. If the configured browser cannot run within host permissions, report rendering blocked or use an available permitted renderer; do not add sandbox-disabling flags as an automatic fix.
 
-```bash
-cd ~/.claude/skills/mermaid-tools/scripts
-./extract-and-generate.sh "<markdown_file>" "<output_directory>"
-```
-
-Running the script without changing to the scripts directory first may fail due to missing dependencies.
+The renderer also needs a code fix to aggregate PNG validation failures and return nonzero. Until then, verify the expected diagram count, each file's existence/nonzero size and PNG signature, then inspect rendering. Missing or invalid outputs mean partial/failed delivery even if the script prints all-success.
 
 ## Prerequisites Verification
 
@@ -139,12 +129,12 @@ Quick fixes for common issues:
 
 **Permission denied:**
 ```bash
-chmod +x ~/.claude/skills/mermaid-tools/scripts/extract-and-generate.sh
+bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 **Low quality output:**
 ```bash
-MERMAID_SCALE=3 ./extract-and-generate.sh "<markdown_file>" "<output_directory>"
+MERMAID_SCALE=3 bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "<markdown_file>" "<output_directory>"
 ```
 
 **Chrome/Puppeteer errors:**
@@ -160,7 +150,7 @@ This skill bundles all necessary scripts for Mermaid diagram generation:
 - **extract_diagrams.py** - Python script for extracting Mermaid code blocks from markdown
 - **puppeteer-config.json** - Chrome/Puppeteer configuration for WSL2 environment
 
-All scripts must be run from the `scripts/` directory to properly locate dependencies.
+The shell script locates bundled helpers from its own directory; substitute the actual installation path in examples.
 
 ### references/setup_and_troubleshooting.md
 

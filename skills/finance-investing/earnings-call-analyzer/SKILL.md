@@ -2,13 +2,13 @@
 name: earnings-call-analyzer
 description: 'Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.'
 zh_description: "用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyzer", "call", "earnings", "finance"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 将冗长、充满术语的业绩电话会转录文本（Transcripts）转化为极速投资简报，精准捕捉管理层语气变化、指引（Guidance）语言、资本配置逻辑以及潜在风险信号。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装文本处理与情感分析库
-pip install pandas nltk textblob
-# 下载分段脚本
-npx clawhub install earnings-call-analyzer
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+只统计输入 segments 中的关键词，返回 signal_counts、management_tone 和 summary。季度对比、数值指引抽取、回避性判断和图表需另行分析；词频标签不能证明管理层意图。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -90,8 +90,8 @@ npx clawhub install earnings-call-analyzer
 
 ### 快速分析脚本命令
 ```bash
-# 传入 JSON 格式的 Transcript
-python scripts/analyze_earnings_call.py --input assets/jpm_q4_2025.json --compare assets/jpm_q3_2025.json
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/analyze_earnings_call.py assets/sample_earnings_call.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

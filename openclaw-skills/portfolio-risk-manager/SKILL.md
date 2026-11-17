@@ -2,13 +2,13 @@
 name: portfolio-risk-manager
 description: 'Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.'
 zh_description: "用于投资组合风险分析、仓位约束和风险报告生成。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "manager", "portfolio", "risk"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 像专业的风险会议（Risk Meeting）一样汇总投资组合：分析集中度（Concentration）、敞口（Exposure）、贝塔（Beta）、波动率（Volatility），识别组合在哪些领域过度倾斜。本技能旨在将杂乱的持仓清单转化为具有前瞻性的风险视图，辅助投资经理在调仓前进行全方位的“健康体检”。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装投资组合分析与统计库
-pip install pandas numpy pyportfolioopt scipy
-# 准备持仓数据
-npx clawhub install portfolio-risk-manager
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+计算加权 beta、前五大集中度、行业/地区权重及忽略相关性的 naive_portfolio_volatility；后者不能作为完整组合波动率。build_optimizer_inputs.py 只输出均值、协方差与初始权重，不求解最优组合；returns 必须同频、等长且日期对齐。VaR、压力测试、相关性分析和跟踪误差需要独立计算。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -68,14 +68,17 @@ npx clawhub install portfolio-risk-manager
 ### 投资组合 JSON 模板 (Portfolio JSON)
 ```json
 {
-  "portfolio_name": "Growth_Strategy_2026",
-  "base_currency": "USD",
+  "portfolio_name": "Global Compounders",
+  "cash_weight": 0.08,
   "holdings": [
-    { "ticker": "NVDA", "weight": 0.12, "beta": 1.65, "sector": "Semiconductors" },
-    { "ticker": "MSFT", "weight": 0.10, "beta": 1.15, "sector": "Software" },
-    { "ticker": "JPM", "weight": 0.08, "beta": 0.95, "sector": "Finance" }
-  ],
-  "benchmark": "S&P 500"
+    {"ticker": "AAPL", "weight": 0.18, "beta": 1.1, "volatility": 0.24, "sector": "Technology", "region": "US"},
+    {"ticker": "MSFT", "weight": 0.17, "beta": 0.95, "volatility": 0.21, "sector": "Technology", "region": "US"},
+    {"ticker": "NOVO", "weight": 0.14, "beta": 0.8, "volatility": 0.19, "sector": "Healthcare", "region": "Europe"},
+    {"ticker": "TSM", "weight": 0.13, "beta": 1.05, "volatility": 0.28, "sector": "Technology", "region": "Asia"},
+    {"ticker": "SPGI", "weight": 0.12, "beta": 0.9, "volatility": 0.18, "sector": "Financials", "region": "US"},
+    {"ticker": "MELI", "weight": 0.1, "beta": 1.2, "volatility": 0.31, "sector": "Consumer", "region": "LatAm"},
+    {"ticker": "ASML", "weight": 0.08, "beta": 1.0, "volatility": 0.27, "sector": "Technology", "region": "Europe"}
+  ]
 }
 ```
 
@@ -106,11 +109,11 @@ npx clawhub install portfolio-risk-manager
 
 ### 快速风险评估命令
 ```bash
-# 运行描述性风险分析
-python scripts/portfolio_risk.py --input assets/my_holdings.json --benchmark spy
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/portfolio_risk.py assets/sample_portfolio.json
 
-# 构建优化器输入数据（协方差矩阵等）
-python scripts/build_optimizer_inputs.py --returns assets/historical_returns.json
+# 同频、等长且日期对齐的收益序列；仅生成优化器输入
+python3 scripts/build_optimizer_inputs.py assets/sample_returns.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

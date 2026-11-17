@@ -2,14 +2,14 @@
 name: lark-whiteboard
 description: 'Use when querying, exporting, or editing Lark whiteboards, including preview images, raw node structures, and structured canvas updates.'
 zh_description: "用于查询、导出和编辑飞书云文档中的画板内容和节点结构。"
-version: "1.0.9"
+version: "1.0.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-whiteboard"
 license: MIT
 tags: '[feishu, lark, lark-cli, whiteboard, diagram]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 3
 complexity: advanced
 metadata:
@@ -20,7 +20,7 @@ metadata:
 
 > [!IMPORTANT]
 > - 运行 `lark-cli --version`，确认可用，无需询问用户。
-> - 运行 `npx -y @larksuite/whiteboard-cli@^0.2.13 -v`，确认可用，无需询问用户。
+> - 查询、预览和导出仅需已有 `lark-cli`，不运行会下载依赖的 `npx` 自检。需要 DSL 转 raw 时，先检查本地转换器；只有现有授权包含安装时才安装缺项，再按更新参考调用。
 
 **CRITICAL — 开始前 MUST 先用 Read 工具读取 [`../lark-shared/SKILL.md`](../lark-shared/SKILL.md)，其中包含认证、权限处理**
 

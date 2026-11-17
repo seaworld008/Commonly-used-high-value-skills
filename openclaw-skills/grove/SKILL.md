@@ -2,14 +2,14 @@
 name: grove
 description: 'Use when designing or auditing repository layout: directory structure, docs and test organization, structural anti-patterns, monorepo health, and incremental migrations.'
 zh_description: "设计或审计仓库结构时使用：目录布局、文档与测试组织、结构反模式和渐进迁移。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/grove/SKILL.md"
 license: MIT
 tags: ["grove", "knowledge"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -174,7 +174,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 
 Parse the first token of user input:
 - If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`audit` = Structure Audit). Apply normal SURVEY → PLAN → VERIFY → PRESENT workflow.
+- Otherwise select by the Signal Keywords / business intent table; only if intent remains unclear use `audit` (Structure Audit). Apply SURVEY → PLAN → VERIFY → PRESENT.
 
 ## Output Requirements
 
@@ -231,8 +231,7 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal structural patterns in `.agents/grove.md`; create it if missing. Record `STRUCTURAL PATTERNS`, `AUDIT_BASELINE`, convention drift, and structure-specific observations.
-- After significant Grove work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Grove | (action) | (files) | (outcome) |`
+- Only when requested by the user or required by an existing project record convention, write one necessary summary of structural patterns, audit baseline or convention drift to the agreed journal/project log; otherwise include it in the deliverable.
 
 ## AUTORUN Support
 

@@ -2,14 +2,14 @@
 name: triage
 description: 'Use when responding to a live production incident: classify severity, scope impact, coordinate mitigation and stakeholder updates, then drive root cause and a blameless postmortem.'
 zh_description: "处理线上事故时使用：定级、评估影响、协调止损与沟通，并推进根因分析和复盘。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/triage/SKILL.md"
 license: MIT
 tags: ["devops", "sre", "triage"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -24,7 +24,7 @@ CAPABILITIES_SUMMARY:
 - rca_coordination: RCA coordination via Scout with evidence chain tracking
 - fix_coordination: Fix coordination via Builder with rollback readiness verification
 - verification_coordination: Post-incident verification via Radar with regression checks
-- postmortem_authoring: Blameless postmortem with 5 Whys, timeline, and actionable follow-ups
+- postmortem_authoring: Evidence-based causal narrative, timeline, and actionable follow-ups; 5 Whys optional
 - zoom_ladder_and_action_classes: Magnification ladder (Runtime → Code/State → Component → System → Team → Time) returning abstract causes to verifiable controls; action items typed by leverage (Containment/Detection/Diagnosis/Recovery/Prevention/Governance/Learning) orthogonal to P0-P2
 - runbook_management: Pattern detection and lessons-learned capture
 - metrics_tracking: MTTD/MTTA/MTTR tracking and benchmarking per severity level
@@ -135,7 +135,7 @@ Read `reference/response-workflow.md` for containment options, mitigation templa
 | PIR | Customers, partners, executives | After `SEV1/SEV2` resolution |
 | Executive Summary | Quick sharing | On request |
 
-- Required sections: Summary, Timeline, Root Cause (`5 Whys`), Detection & Response, Action Items (`P0/P1/P2` priority **× class**), Lessons Learned.
+- Required sections: Summary, Timeline, Root Cause (evidence-backed causal narrative and failed defenses), Detection & Response, Action Items (`P0/P1/P2` priority **× class**), Lessons Learned. For SEV1/2 use the narrative review method above; 5 Whys/fault trees are optional supplements, not mandatory five-level Q&A. When using `reference/postmortem-templates.md`, replace its fixed five-Why scaffold with this narrative structure.
 - Action item classes: `Containment | Detection | Diagnosis | Recovery | Prevention | Governance | Learning` — priority says *when*, class says *what leverage*. Class definitions and the repeat-incident check → `reference/scale-and-action-items.md`.
 - Deadlines: `SEV1: 24h` · `SEV2: 48h` · `SEV3/4: 1 week (if warranted)`.
 - Read `reference/postmortem-templates.md` when drafting postmortems, PIRs, or executive summaries.
@@ -241,7 +241,7 @@ Per-Recipe behavior notes -> `reference/first-response.md` § Per-Recipe Behavio
 |--------|----------|----------------|-----------|
 | Active production incident | Full incident workflow (DETECT→LEARN) | Incident report + timeline + action items | `reference/response-workflow.md` |
 | SEV1/SEV2 with security indicators | Security incident flow (Pattern C) | Security incident report + Sentinel handoff | `reference/runbooks-communication.md` |
-| Post-resolution review requested | Postmortem authoring (Pattern D) | Blameless postmortem with 5 Whys + action items | `reference/postmortem-templates.md` |
+| Post-resolution review requested | Postmortem authoring (Pattern D) | Blameless causal narrative + action items; optional 5 Whys | `reference/postmortem-templates.md` |
 | Multiple services degraded | Multi-service coordination (Pattern F) | Per-service impact map + parallel Scout handoffs | `reference/collaboration-flows.md` |
 | Severity re-assessment needed | Re-triage with new evidence | Updated severity + revised containment plan | `reference/runbooks-communication.md` |
 | High false-positive alert volume (>25% critical, >50% high) | Alert fatigue remediation | Beacon handoff for alert tuning + threshold review | `reference/runbooks-communication.md` |

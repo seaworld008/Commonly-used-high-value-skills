@@ -2,13 +2,13 @@
 name: comps-valuation-analyst
 description: 'Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.'
 zh_description: "依据可比公司和统一财务口径开展相对估值分析。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyst", "comps", "finance", "valuation"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -20,10 +20,8 @@ complexity: "intermediate"
 ## 安装与前提条件
 
 ```bash
-# 确保已安装必要的金融分析库
-pip install pandas numpy openbb
-# 准备输入数据
-cat assets/sample_comps_input.json
+# 在技能目录使用 Python 3；计算器仅依赖标准库
+python3 scripts/calculate_comps.py assets/sample_comps_input.json
 ```
 
 ## 触发条件 / When to Use
@@ -66,22 +64,9 @@ cat assets/sample_comps_input.json
 ## 常用命令/模板 / Common Patterns
 
 ### 可比估值分析输入 JSON 模板 (Input Template)
-```json
-{
-  "target_company": {
-    "ticker": "TECH",
-    "market_cap": 5000,
-    "net_debt": 200,
-    "ebitda_ltm": 400,
-    "net_income_ltm": 150
-  },
-  "peers": [
-    { "ticker": "PEER_A", "ev_ebitda": 12.5, "pe": 25.0, "growth": 0.15 },
-    { "ticker": "PEER_B", "ev_ebitda": 10.2, "pe": 18.5, "growth": 0.08 },
-    { "ticker": "PEER_C", "ev_ebitda": 14.0, "pe": 30.0, "growth": 0.20 }
-  ]
-}
-```
+输入以 `assets/sample_comps_input.json` 为准：目标对象为 `subject_company`，包含 `ticker`、`current_price`、`ebitda`、`eps`、`revenue`、`net_debt`、`shares_outstanding`；同行使用 `ev_ebitda`、`pe_ratio`、`ev_sales`。金额与股数单位须一致。运行结果为 JSON。
+
+在调用前排除不适用倍数：EBITDA ≤ 0 时不采用 EV/EBITDA，EPS ≤ 0 时不采用 P/E；对应同行倍数字段可置 `null`。以收入倍数等适用方法另行分析并注明原因。脚本会将不适用的方法标为不可估并附原因；仍应核对输入口径。EV 法每股估价必须有已知的正数股数和已核实净债务；缺失时对应 EV 每股估价应保持不可估，不使用一股或零净债务作为假设，可仅交付有效方法与缺项，不能采信混合均价。
 
 ### 估值结论摘要模板 (Executive Summary)
 ```markdown
@@ -99,7 +84,7 @@ cat assets/sample_comps_input.json
 ## 进阶应用场景 / Advanced Use Cases
 
 ### 1. 动态估值瀑布图 (Valuation Football Field)
-- 结合 DCF, Comps, Precedent Transactions 的多种估值方法，利用脚本自动生成“足球场图”，直观展示估值交集。
+- 结合 DCF, Comps, Precedent Transactions 的多种估值方法，根据 JSON 结果另行制作“足球场图”（随附脚本不生成图表），直观展示估值交集。
 
 ### 2. 情绪溢价实时监控
 - 结合客户端内置 Web Search 或 `deep-research` 检索可授权访问的最新卖方资料，分析市场情绪对特定倍数的影响。
@@ -107,7 +92,7 @@ cat assets/sample_comps_input.json
 ## 边界与限制 / Boundaries
 
 - **周期性陷阱**：在行业周期顶点时，Comps 往往会给出过于乐观的估值。
-- **负利润处理**：当 EBITDA 为负时，EV/EBITDA 失效，必须强制切换到 EV/Sales 或用户定义的非财务指标（如 EV/Active Users）。
+- **负利润处理**：当 EBITDA 为负时，EV/EBITDA 失效，在报告中标为不适用并排除，另选 EV/Sales 或用户定义的非财务指标（如 EV/Active Users）。
 - **流动性折价**：对于小市值或交易不活跃的公司，Comps 的结果可能需要额外施加 20-30% 的流动性折价（Illiquidity Discount）。
 - **幸存者偏差**：同行组中仅包含目前存活良好的公司，忽略了已退市或破产的对标项。
 - **会计政策差异**：非 GAAP 数据调整可能存在主观性，需在报告中显式说明调整逻辑。

@@ -2,14 +2,14 @@
 name: xlsx
 description: 'Create, read, edit, repair, or convert spreadsheet files (.xlsx, .xlsm, .csv, .tsv), including formulas, charts, and formatting. Use when a spreadsheet is the main input or deliverable.'
 zh_description: "创建和编辑电子表格、公式、图表及数据格式。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Proprietary. LICENSE.txt has complete terms
 tags: '["xlsx"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -81,7 +81,9 @@ A user may ask you to create, edit, or analyze the contents of an .xlsx file. Yo
 
 ## Important Requirements
 
-**LibreOffice Required for Formula Recalculation**: You can assume LibreOffice is installed for recalculating formula values using the `scripts/recalc.py` script. The script automatically configures LibreOffice on first run, including in sandboxed environments where Unix sockets are restricted (handled by `scripts/office/soffice.py`)
+**Formula recalculation requires an allowed runtime**: Check LibreOffice availability and host permissions. `scripts/recalc.py` uses a task-private UserInstallation profile and macro; it never configures user macros. Report unavailable/blocked execution as unverified.
+
+The Office helper never compiles or loads an `LD_PRELOAD` shim. A restricted socket environment fails explicitly rather than changing isolation.
 
 ## Reading and analyzing data
 
@@ -144,12 +146,9 @@ This applies to ALL calculations - totals, percentages, ratios, differences, etc
 2. **Create/Load**: Create new workbook or load existing file
 3. **Modify**: Add/edit data, formulas, and formatting
 4. **Save**: Write to file
-5. **Recalculate formulas (MANDATORY IF USING FORMULAS)**: Use the scripts/recalc.py script
-   ```bash
-   python scripts/recalc.py output.xlsx
-   ```
+5. **Recalculate formulas when formulas are used**: Use an allowed isolated runtime as described above. The bundled script requires code fixes before it can satisfy that boundary; if unavailable, deliver with formula results explicitly unverified.
 6. **Verify and fix any errors**: 
-   - The script returns JSON with error details
+   - Record runtime completion and formula-cache coverage as well as JSON error details; the bundled script’s `success` alone is insufficient
    - If `status` is `errors_found`, check `error_summary` for specific error types and locations
    - Fix the identified errors and recalculate again
    - Common errors to fix:
@@ -216,7 +215,7 @@ wb.save('modified.xlsx')
 
 ## Recalculating formulas
 
-Excel files created or modified by openpyxl contain formulas as strings but not calculated values. Use the provided `scripts/recalc.py` script to recalculate formulas:
+Excel files created or modified by openpyxl contain formula strings but may lack calculated values. Use the bundled CLI with an authorized workbook path; it creates an isolated temporary LibreOffice profile:
 
 ```bash
 python scripts/recalc.py <excel_file> [timeout_seconds]
@@ -227,12 +226,11 @@ Example:
 python scripts/recalc.py output.xlsx 30
 ```
 
-The script:
-- Automatically sets up LibreOffice macro on first run
-- Recalculates all formulas in all sheets
-- Scans ALL cells for Excel errors (#REF!, #DIV/0!, etc.)
-- Returns JSON with detailed error locations and counts
-- Works on both Linux and macOS
+Runtime result contract:
+- The macro and LibreOffice settings live in a private temporary profile, not the user's profile.
+- Python enforces the timeout; timeout or a nonzero process exit is a recalculation failure.
+- Missing completion evidence or missing formula caches produces `unverified`, not success.
+- Cached Excel errors are reported with counts and locations. Spot-check expected values separately; completion does not prove the business formulas are correct.
 
 ## Formula Verification Checklist
 
@@ -257,7 +255,7 @@ Quick checks to ensure formulas work correctly:
 - [ ] **Test edge cases**: Include zero, negative, and very large values
 
 ### Interpreting scripts/recalc.py Output
-The script returns JSON with error details:
+The script returns JSON with error details. Read the completion and cache evidence as well as error counts. `success` still does not certify that the formulas encode the intended business model:
 ```json
 {
   "status": "success",           // or "errors_found"
@@ -283,7 +281,7 @@ The script returns JSON with error details:
 - Use `data_only=True` to read calculated values: `load_workbook('file.xlsx', data_only=True)`
 - **Warning**: If opened with `data_only=True` and saved, formulas are replaced with values and permanently lost
 - For large files: Use `read_only=True` for reading or `write_only=True` for writing
-- Formulas are preserved but not evaluated - use scripts/recalc.py to update values
+- Formulas are preserved but not evaluated; update values through an allowed isolated runtime, subject to the recalculation boundary above
 
 ### Working with pandas
 - Specify data types to avoid inference issues: `pd.read_excel('file.xlsx', dtype={'id': str})`

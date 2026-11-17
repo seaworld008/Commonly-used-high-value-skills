@@ -2,13 +2,13 @@
 name: social-media-analyzer
 description: 'Analyze social campaign engagement, ROI, audience behavior, and platform comparisons from supplied or retrieved performance data.'
 zh_description: "分析社交媒体互动、受众、活动收益和跨平台表现。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyzer", "growth", "marketing", "media", "social"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 triggers:
@@ -38,7 +38,7 @@ Analyze social media campaign performance:
 1. Validate input data completeness (reach > 0, dates valid)
 2. Calculate engagement metrics per post
 3. Aggregate campaign-level metrics
-4. Calculate ROI if ad spend provided
+4. Calculate cost metrics when spend is provided; calculate actual ROI/ROAS only with attributable value/revenue
 5. Compare against platform benchmarks
 6. Identify top and bottom performers
 7. Generate recommendations
@@ -102,14 +102,11 @@ Engagement Rate = (Likes + Comments + Shares + Saves) / Reach × 100
 
 ## ROI Calculation
 
-Calculate return on ad spend:
+Separate observed costs from scenario value:
 
-1. Sum total engagements across posts
-2. Calculate cost per engagement (CPE)
-3. Calculate cost per click (CPC) if clicks available
-4. Estimate engagement value using benchmark rates
-5. Calculate ROI percentage
-6. **Validation:** ROI = (Value - Spend) / Spend × 100
+1. Sum engagements and compute CPE/CPC from actual spend.
+2. The bundled calculator assigns a fixed illustrative $2.50 to every engagement. Its `estimated_value` and `roi_percentage` are scenario outputs, not attributed revenue or realized ROI.
+3. Actual ROAS requires attributable revenue / ad spend; actual ROI additionally needs the agreed value/cost basis. If revenue is missing, list it as missing and do not recommend budget expansion from simulated returns.
 
 ### ROI Formulas
 
@@ -120,25 +117,9 @@ Calculate return on ad spend:
 | Cost Per Thousand (CPM) | (Spend / Impressions) × 1000 |
 | Return on Ad Spend (ROAS) | Revenue / Ad Spend |
 
-### Engagement Value Estimates
+### Engagement Value Assumption
 
-| Action | Value | Rationale |
-|--------|-------|-----------|
-| Like | $0.50 | Brand awareness |
-| Comment | $2.00 | Active engagement |
-| Share | $5.00 | Amplification |
-| Save | $3.00 | Intent signal |
-| Click | $1.50 | Traffic value |
-
-### ROI Interpretation
-
-| ROI % | Rating | Recommendation |
-|-------|--------|----------------|
-| > 500% | Excellent | Scale budget significantly |
-| 200-500% | Good | Increase budget moderately |
-| 100-200% | Acceptable | Optimize before scaling |
-| 0-100% | Break-even | Review targeting and creative |
-| < 0% | Negative | Pause and restructure |
+The current implementation uses total engagements × $2.50 regardless of action type. It does not accept a valuation input. Show this fixed assumption beside any scenario output; if the task needs different assumptions, calculate and label them separately. Do not apply the script's ROI-based scaling recommendations without actual revenue evidence.
 
 ---
 
@@ -178,28 +159,15 @@ See `references/platform-benchmarks.md` for complete benchmark data.
 
 ## Tools
 
-### Calculate Metrics
+### Calculate Metrics and Analyze Performance
+
+Both scripts expose Python classes and have no CLI entry. From the skill directory:
 
 ```bash
-python scripts/calculate_metrics.py assets/sample_input.json
+python3 -c 'import sys,json; from pathlib import Path; sys.path.insert(0,"scripts"); from calculate_metrics import SocialMediaMetricsCalculator; from analyze_performance import PerformanceAnalyzer; d=json.loads(Path("assets/sample_input.json").read_text()); r=SocialMediaMetricsCalculator(d).analyze_all(); a=PerformanceAnalyzer(r["campaign_metrics"],r["roi_metrics"]); print(json.dumps({**r,"insights":a.generate_insights()},indent=2))'
 ```
 
-Calculates engagement rate, CTR, reach rate for each post and campaign totals.
-
-### Analyze Performance
-
-```bash
-python scripts/analyze_performance.py assets/sample_input.json
-```
-
-Generates full performance analysis with ROI, benchmarks, and recommendations.
-
-**Output includes:**
-- Campaign-level metrics
-- Post-by-post breakdown
-- Benchmark comparisons
-- Top performers ranked
-- Actionable recommendations
+The current campaign aggregate counts likes + comments + shares, while per-post rates also include saves. Keep these definitions explicit; their rates are not directly interchangeable. The calculator returns campaign metrics, scenario ROI and top posts; the analyzer consumes the calculated campaign and ROI objects for benchmark comparisons and insights. Review any recommendation against the scenario limitation above before including it in the report.
 
 ---
 
@@ -231,26 +199,26 @@ See `assets/sample_input.json`:
 
 ### Sample Output
 
-See `assets/expected_output.json`:
+Current output excerpt for the complete `assets/sample_input.json` (the historical `assets/expected_output.json` differs from current implementation):
 
 ```json
 {
   "campaign_metrics": {
-    "total_engagements": 1521,
-    "avg_engagement_rate": 8.36,
+    "total_engagements": 1374,
+    "avg_engagement_rate": 7.549450549450549,
     "ctr": 1.55
   },
   "roi_metrics": {
     "total_spend": 500.0,
-    "cost_per_engagement": 0.33,
-    "roi_percentage": 660.5
+    "cost_per_engagement": 0.36,
+    "roi_percentage": 587.0
   },
   "insights": {
     "overall_health": "excellent",
     "benchmark_comparison": {
       "engagement_status": "excellent",
       "engagement_benchmark": "1.22%",
-      "engagement_actual": "8.36%"
+      "engagement_actual": "7.55%"
     }
   }
 }
@@ -259,10 +227,10 @@ See `assets/expected_output.json`:
 ### Interpretation
 
 The sample campaign shows:
-- **Engagement rate 8.36%** vs 1.22% benchmark = Excellent (6.8x above average)
+- **Campaign engagement rate 7.55%** vs built-in 1.22% benchmark = Excellent (about 6.2x)
 - **CTR 1.55%** vs 0.22% benchmark = Excellent (7x above average)
-- **ROI 660%** = Outstanding return on $500 spend
-- **Recommendation:** Scale budget, replicate successful elements
+- **Scenario ROI 587%** uses an assumed engagement value; it does not establish realized return on $500 spend.
+- **Recommendation:** Test successful creative elements; verify attributed revenue and conversion quality before deciding whether to increase spend.
 
 ---
 

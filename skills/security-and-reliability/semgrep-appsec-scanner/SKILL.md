@@ -2,13 +2,13 @@
 name: semgrep-appsec-scanner
 description: 'Use when running Semgrep SAST on source code: registry or custom rules, secrets detection, supply-chain dependency findings, and result triage.'
 zh_description: "用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。"
-version: "1.0.1"
+version: "1.0.2"
 author: seaworld008
 source: "in-house"
 source_url: ""
 tags: '[security, sast, semgrep, code-scanning, supply-chain, secrets, ci, appsec]'
 created_at: "2026-05-20"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 ---
@@ -110,7 +110,7 @@ Use custom rules when the project has a known unsafe wrapper or banned API:
 ```yaml
 rules:
   - id: no-dangerous-shell
-    message: Avoid shell=True with interpolated input.
+    message: Review this subprocess.run call with shell=True.
     severity: ERROR
     languages: [python]
     patterns:
@@ -136,16 +136,22 @@ For dependency findings:
 
 ### Pull Request CI
 
+Set `SEMGREP_CI_IMAGE` to a reviewed, digest-pinned CI image providing a shell and the project's Semgrep CLI version. The example uses the checked-in rule directory shown below.
+
 ```yaml
 name: semgrep
 on: [pull_request]
 jobs:
   semgrep:
     runs-on: ubuntu-latest
+    container:
+      image: ${{ vars.SEMGREP_CI_IMAGE }}
     steps:
       - uses: actions/checkout@v4
       - name: Semgrep scan
-        run: semgrep scan --config auto --error
+        run: |
+          semgrep --version
+          semgrep scan --config .semgrep/rules --error
 ```
 
 ### Project Rule Directory

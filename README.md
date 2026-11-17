@@ -478,14 +478,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`social-media-analyzer`](./skills/growth-operations-xiaohongshu/social-media-analyzer/)：分析社交媒体互动、受众、活动收益和跨平台表现。
 - [`tweetclaw-source-research`](./skills/growth-operations-xiaohongshu/tweetclaw-source-research/)：通过 TweetClaw 收集和核实 X 平台研究资料。
 - [`twitter-reader`](./skills/growth-operations-xiaohongshu/twitter-reader/)：用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。
-- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)：用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。
+- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)：在宿主权限内读取 Xquik 数据，规划导出与监控；账户变更生成确认计划，由受支持客户端执行。
 
 <a id="cat-office-white-collar"></a>
 ### 8. 办公与文档（office-white-collar，13）
 
 - [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/)：仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
 - [`docx`](./skills/office-white-collar/docx/)：用于创建、编辑和检查 Word `.docx` 文档。
-- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)：生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
+- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)：使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/)：把文档转换为保留结构、表格和图片的 Markdown。
 - [`meeting-minutes-taker`](./skills/office-white-collar/meeting-minutes-taker/)：从会议转录中整理准确的决策、行动项和责任人。
 - [`mermaid-tools`](./skills/office-white-collar/mermaid-tools/)：提取 Markdown 中的 Mermaid 图并渲染为图片。
@@ -533,7 +533,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`notion-research-documentation`](./skills/knowledge-and-pm-integrations/notion-research-documentation/)：需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。
 - [`notion-spec-to-implementation`](./skills/knowledge-and-pm-integrations/notion-spec-to-implementation/)：需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。
 - [`obsidian`](./skills/knowledge-and-pm-integrations/obsidian/)：用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。
-- [`tome`](./skills/knowledge-and-pm-integrations/tome/)：需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。
+- [`tome`](./skills/knowledge-and-pm-integrations/tome/)：需要把代码变更整理成学习材料，或把技术草稿、概念和采访整理成文章或系列时使用。
 
 <a id="cat-operations-general"></a>
 ### 10. 通用运营（operations-general，11）
@@ -570,8 +570,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-security-reliability"></a>
 ### 12. 安全治理与稳定性（security-and-reliability，23）
 
-- [`breach`](./skills/security-and-reliability/breach/)：开展授权红队演练或威胁建模时使用：攻击场景、AI 红队测试、紫队演练和防护验证。
-- [`cloak`](./skills/security-and-reliability/cloak/)：系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。
+- [`breach`](./skills/security-and-reliability/breach/)：为授权红队和威胁建模工作设计桌面场景、检测覆盖与修复验收。
+- [`cloak`](./skills/security-and-reliability/cloak/)：用于识别个人信息、梳理隐私数据流、评估同意机制或开展隐私影响评估。
 - [`codeql-security-scanner`](./skills/security-and-reliability/codeql-security-scanner/)：用于通过 CodeQL 执行语义代码扫描、安全查询和自定义规则，并输出 SARIF 接入 GitHub Code Scanning。
 - [`comply`](./skills/security-and-reliability/comply/)：核对法规与合规框架要求，整理控制证据和整改计划。
 - [`firebase-security-rules-auditor`](./skills/security-and-reliability/firebase-security-rules-auditor/)：审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。
@@ -589,10 +589,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`security-review`](./skills/security-and-reliability/security-review/)：依据代码证据审查注入、认证、授权和加密漏洞。
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/)：用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)：用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。
-- [`sentry`](./skills/security-and-reliability/sentry/)：用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
+- [`sentry`](./skills/security-and-reliability/sentry/)：只读查询 Sentry issues 与 events，汇总线上错误趋势和事件详情。
 - [`skill-security-auditor`](./skills/security-and-reliability/skill-security-auditor/)：安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。
 - [`trivy-vulnerability-scanner`](./skills/security-and-reliability/trivy-vulnerability-scanner/)：用于通过 Trivy 扫描仓库、镜像、文件系统、SBOM、Kubernetes 和 IaC 中的漏洞、错误配置、密钥与许可证问题。
-- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、依赖库和网络设备执行无代理 CVE 扫描。
+- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)：通过 Vuls 对授权的 Linux 或 FreeBSD 主机进行本地或 SSH 漏洞扫描，安排补丁优先级并核验重启需求。
 
 <a id="cat-multimodal-media"></a>
 ### 13. 多模态内容（multimodal-media，11）

@@ -2,13 +2,13 @@
 name: develop-web-game
 description: 'Build or iterate on HTML/JS web games with Playwright input bursts, gameplay screenshots, state inspection, and console checks.'
 zh_description: "用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "develop", "game", "web"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-28"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -34,7 +34,7 @@ User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills
 3. **Ensure integration points.** Provide a single canvas and `window.render_game_to_text` so the test loop can read state.
 4. **Add `window.advanceTime(ms)`.** Strongly prefer a deterministic step hook so the Playwright script can advance frames reliably; without it, automated tests can be flaky.
 5. **Initialize progress.md.** If `progress.md` exists, read it first and confirm the original user prompt is recorded at the top (prefix with `Original prompt:`). Also note any TODOs and suggestions left by the previous agent. If missing, create it and write `Original prompt: <prompt>` at the top before appending updates.
-6. **Verify Playwright availability.** Ensure `playwright` is available (local dependency or global install). If unsure, check `npx` first.
+6. **Verify Playwright availability.** Check that the helper's own module resolution can import `playwright` and that its Chromium executable is available (see prerequisites). `npx` availability is not this check.
 7. **Run the Playwright test script.** You must run `$WEB_GAME_CLIENT` after each meaningful change; do not invent a new client unless required.
 8. **Use the payload reference.** Base actions on `$WEB_GAME_ACTIONS` to avoid guessing keys.
 9. **Inspect state.** Capture screenshots and text state after each burst.
@@ -138,15 +138,12 @@ At the end of your work, leave TODOs and suggestions for the next agent in `prog
 
 ## Playwright Prerequisites
 
-- Prefer a local `playwright` dependency if the project already has it.
-- If unsure whether Playwright is available, check for `npx`:
+- Check Node/npm availability; if absent, report the prerequisite rather than automatically installing a global toolchain.
+- Resolve `playwright` from the helper's actual directory, not just the project's current directory. For an installed helper, this check uses the same ESM resolution base and does not launch a browser:
+  ```bash
+  (cd -- "$(dirname -- "$WEB_GAME_CLIENT")" && node --input-type=module -e 'import { chromium } from "playwright"; import { existsSync } from "node:fs"; if (!existsSync(chromium.executablePath())) throw new Error("Chromium executable missing"); console.log("playwright resolved; Chromium executable present");')
   ```
-  command -v npx >/dev/null 2>&1
-  ```
-- If `npx` is missing, install Node/npm and then install Playwright globally:
-  ```
-  npm install -g @playwright/mcp@latest
-  ```
+- This checks module resolution and executable presence; only a permitted browser launch proves runtime availability. Fill missing `playwright` and Chromium dependencies only in the task's authorized dependency environment; report an unavailable browser check otherwise. Installing `@playwright/mcp` globally does not establish this helper's dependencies.
 - Do not switch to `@playwright/test` unless explicitly asked; stick to the client script.
 
 ## Scripts

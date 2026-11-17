@@ -2,14 +2,14 @@
 name: information-security-manager-iso27001
 description: 'Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.'
 zh_description: "建立和审计 ISO 27001 信息安全管理体系及风险控制。"
-version: "1.0.2"
+version: "1.0.3"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md"
 license: MIT
 tags: '["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 ---
@@ -64,7 +64,7 @@ python scripts/compliance_checker.py --standard iso27001 --controls-file control
 ### Generate Gap Analysis Report
 
 ```bash
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output gaps.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis --output gaps.md
 ```
 
 ---
@@ -107,39 +107,39 @@ python scripts/risk_assessment.py --assets assets.csv --output risks.json
 
 ### compliance_checker.py
 
-Verify ISO 27001/27002 control implementation status.
+Summarize the implementation statuses you supply for the bundled control catalog. Both standard options use the same local catalog. The report covers only the selected catalog controls. A full ISO assessment and certification decision require independent review.
 
 **Usage:**
 
 ```bash
-# Check all ISO 27001 controls
+# List the bundled controls as unassessed until statuses are supplied
 python scripts/compliance_checker.py --standard iso27001
 
 # Gap analysis with recommendations
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis
 
 # Check specific control domains
-python scripts/compliance_checker.py --standard iso27001 --domains "access-control,cryptography"
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --domains "people,technological"
 
 # Export compliance report
-python scripts/compliance_checker.py --standard iso27001 --output compliance_report.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.json --output compliance_report.md
 ```
 
 **Parameters:**
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--standard` | Yes | Standard to check: `iso27001`, `iso27002`, `hipaa` |
-| `--controls-file` | No | CSV with current control status |
+| `--standard` | Yes | `iso27001` or `iso27002` |
+| `--controls-file` | No | CSV with `control_id` (or `id`) and `status`, or a `.json` mapping such as `{"A.5.1": "implemented"}` |
 | `--gap-analysis` | No | Include remediation recommendations |
 | `--domains` | No | Specific control domains to check |
 | `--output` | No | Output file path |
 
-**Output:**
-- Control implementation status
-- Compliance percentage by domain
-- Gap analysis with priorities
-- Remediation recommendations
+**Interpreting the report**
+
+- Supply `implemented`, `partial`, or `not_implemented` based on your control records. A missing control, blank field, or unrecognized value is `unknown`. With no input every control is unassessed.
+- Assessment coverage is the count of controls with recognized statuses divided by all selected catalog controls. The catalog score uses the same denominator, with one point for implemented and half a point for partial. If no controls have been assessed, the JSON score is `null` and Markdown shows `Unassessed`.
+- Findings and remediation cover high and critical priority controls explicitly reported as `not_implemented`. Collect evidence for unknown controls before drawing conclusions.
 
 ---
 
@@ -174,7 +174,7 @@ python scripts/risk_assessment.py --scope "full-organization" --template general
 Map risks to ISO 27002 controls:
 
 ```bash
-python scripts/compliance_checker.py --standard iso27002 --gap-analysis --output control_gaps.md
+python scripts/compliance_checker.py --standard iso27002 --controls-file controls.csv --gap-analysis --output control_gaps.md
 ```
 
 Control categories:
@@ -358,10 +358,10 @@ Run periodic checks:
 
 ```bash
 # Monthly compliance check
-python scripts/compliance_checker.py --standard iso27001 --output monthly_$(date +%Y%m).md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --output monthly_$(date +%Y%m).md
 
 # Quarterly gap analysis
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output quarterly_gaps.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis --output quarterly_gaps.md
 ```
 
 ---
@@ -403,28 +403,19 @@ python scripts/risk_assessment.py --scope "patient-data-system" --template healt
 | R002 | Mitigate | Add input validation, WAF | 14 days |
 | R003 | Mitigate | Enforce MFA for all admins | 7 days |
 
-### Step 4: Verify Implementation
+### Step 4: Report Assessed Controls
+
+If the control owners' records support these three statuses, save them as `implemented_controls.csv`.
+
+```csv
+control_id,status
+A.8.24,implemented
+A.8.5,implemented
+A.8.26,partial
+```
 
 ```bash
-python scripts/compliance_checker.py --controls-file implemented_controls.csv
+python scripts/compliance_checker.py --standard iso27001 --domains technological --controls-file implemented_controls.csv
 ```
 
-**Verification output:**
-
-```
-Control Implementation Status
-=============================
-Cryptography (A.8.24): IMPLEMENTED
-  - AES-256 at rest: YES
-  - TLS 1.3 in transit: YES
-
-Access Control (A.8.5): IMPLEMENTED
-  - MFA enabled: YES
-  - Admin accounts: 100% coverage
-
-Application Security (A.8.26): PARTIAL
-  - Input validation: YES
-  - WAF deployed: PENDING
-
-Overall Compliance: 87%
-```
+With the bundled technological catalog, this example reports 2 implemented, 1 partial and 25 unknown. Assessment coverage is 3/28 (10.7%) and the catalog score is 2.5/28 (8.9%).

@@ -2,14 +2,14 @@
 name: context-engineering
 description: Diagnose missing or overloaded agent context and configure project instructions when setup or context quality is the task.
 zh_description: "智能体上下文缺失或过载时使用：诊断上下文质量，并配置项目规则文件等指令。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "context-engineering", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: context-engineering
@@ -23,11 +23,13 @@ Feed agents the right information at the right time. Context is the single bigge
 
 ## When to Use
 
-- Starting a new coding session
+- Diagnosing missing or overloaded context in a coding session
 - Agent output quality is declining (wrong patterns, hallucinated APIs, ignoring conventions)
-- Switching between different parts of a codebase
+- A code-area switch has exposed a concrete context gap or conflicting instructions
 - Setting up a new project for AI-assisted development
 - The agent is not following project conventions
+
+Routine startup reading or moving between files does not by itself activate this workflow.
 
 ## The Context Hierarchy
 
@@ -62,7 +64,7 @@ Create a rules file that persists across sessions. This is the highest-leverage 
 ## Commands
 - Build: `npm run build`
 - Test: `npm test`
-- Lint: `npm run lint --fix`
+- Lint: `npm run lint -- --fix`
 - Dev: `npm run dev`
 - Type check: `npx tsc --noEmit`
 

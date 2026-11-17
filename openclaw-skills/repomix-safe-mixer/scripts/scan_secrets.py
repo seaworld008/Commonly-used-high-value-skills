@@ -10,7 +10,7 @@ import re
 import sys
 import json
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict
 
 # Common secret patterns (regex)
 SECRET_PATTERNS = {
@@ -24,14 +24,14 @@ SECRET_PATTERNS = {
     'generic_api_key': r'(?i)(?:api[_-]?key|apikey).{0,20}[=:]\s*["\']?([0-9a-zA-Z_\-]{20,})["\']?',
     'r2_account_id': r'[0-9a-f]{32}(?=\.r2\.cloudflarestorage\.com)',
     'jwt_token': r'eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}',
-    'private_key': r'-----BEGIN (?:RSA|EC|OPENSSH|DSA) PRIVATE KEY-----',
+    'private_key': r'-----BEGIN (?:(?:RSA|EC|OPENSSH|DSA|ENCRYPTED) )?PRIVATE KEY-----',
     'oauth_secret': r'(?i)(?:client_secret|oauth).{0,20}[=:]\s*["\']?([0-9a-zA-Z_\-]{20,})["\']?',
 }
 
 # File extensions to scan
 SCANNABLE_EXTENSIONS = {
     '.ts', '.tsx', '.js', '.jsx', '.py', '.md', '.json', '.yaml', '.yml',
-    '.env', '.env.example', '.env.local', '.env.production', '.env.development',
+    '.env', '.pem', '.key',
     '.sh', '.bash', '.zsh', '.sql', '.go', '.java', '.rb', '.php', '.cs'
 }
 
@@ -62,23 +62,20 @@ def scan_file(file_path: Path, base_dir: Path) -> List[SecretFinding]:
     """Scan a single file for secrets."""
     findings = []
 
-    try:
-        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-            for line_num, line in enumerate(f, 1):
-                for pattern_name, pattern in SECRET_PATTERNS.items():
-                    matches = re.finditer(pattern, line)
-                    for match in matches:
-                        # Skip common false positives
-                        if should_skip_match(line, match.group()):
-                            continue
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line_num, line in enumerate(f, 1):
+            for pattern_name, pattern in SECRET_PATTERNS.items():
+                matches = re.finditer(pattern, line)
+                for match in matches:
+                    # Skip common false positives
+                    if should_skip_match(line, match.group()):
+                        continue
 
-                        findings.append(SecretFinding(
-                            file_path=str(file_path.relative_to(base_dir)),
-                            line_num=line_num,
-                            pattern_name=pattern_name,
-                        ))
-    except Exception as e:
-        print(f"Warning: Could not scan {file_path}: {e}", file=sys.stderr)
+                    findings.append(SecretFinding(
+                        file_path=str(file_path.relative_to(base_dir)),
+                        line_num=line_num,
+                        pattern_name=pattern_name,
+                    ))
 
     return findings
 
@@ -108,7 +105,10 @@ def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[
     findings = []
     exclude_patterns = exclude_patterns or []
 
-    for root, dirs, files in os.walk(directory):
+    def traversal_error(error):
+        raise error
+
+    for root, dirs, files in os.walk(directory, onerror=traversal_error):
         # Skip excluded directories
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
 
@@ -122,7 +122,8 @@ def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[
             file_path = root_path / file
 
             # Only scan relevant file types
-            if file_path.suffix not in SCANNABLE_EXTENSIONS:
+            is_env = file == ".env" or file.startswith(".env.")
+            if not is_env and file_path.suffix not in SCANNABLE_EXTENSIONS:
                 continue
 
             # Skip if matches exclude pattern
@@ -165,13 +166,13 @@ def main():
         print("  scan_secrets.py ./my-project")
         print("  scan_secrets.py ./my-project --json")
         print("  scan_secrets.py ./my-project --exclude '.*test.*' '.*example.*'")
-        sys.exit(1)
+        sys.exit(2)
 
     directory = Path(sys.argv[1]).resolve()
 
     if not directory.is_dir():
         print(f"Error: {directory} is not a directory", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(2)
 
     # Parse arguments
     json_output = '--json' in sys.argv
@@ -182,7 +183,11 @@ def main():
         exclude_patterns = [arg for arg in sys.argv[exclude_idx + 1:] if not arg.startswith('--')]
 
     # Scan
-    findings = scan_directory(directory, exclude_patterns)
+    try:
+        findings = scan_directory(directory, exclude_patterns)
+    except (OSError, UnicodeError, re.error):
+        print("Error: Secret scan incomplete. Check file access, encoding and exclusions.", file=sys.stderr)
+        sys.exit(2)
 
     # Output
     if json_output:

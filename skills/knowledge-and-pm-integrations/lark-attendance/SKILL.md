@@ -2,14 +2,14 @@
 name: lark-attendance
 description: 'Use when querying Lark attendance records, checking missing clock-ins, and preparing traceable explanations for attendance exceptions.'
 zh_description: "用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance"
 license: MIT
 tags: '[feishu, lark, lark-cli, attendance]'
 created_at: "2026-05-19"
-updated_at: "2026-10-12"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 metadata:
@@ -22,29 +22,11 @@ metadata:
 
 **CRITICAL — 开始前 MUST 先用 Read 工具读取 [`../lark-shared/SKILL.md`](../lark-shared/SKILL.md)，其中包含认证、权限处理**
 
-## 默认参数自动填充规则
+## 参数与授权对象
 
-调用任何 API 时，以下参数 **必须自动填充，禁止向用户询问**：
+按当前方法 schema 分别构造 `--params` 与 `--data`。员工编号类型与查询编号必须对应用户已授权的对象；不要把姓名当编号，不为所有调用固定 `employee_type` 或 `user_ids`。
 
-| 参数 | 固定值 | 说明                                 |
-|------|--------|------------------------------------|
-| `employee_type` | `"employee_no"` | `employee_type`始终等于`"employee_no"` |
-| `user_ids` | `[]`（空数组） | `user_ids`始终等于`[]`                 |
-
-### 填充示例
-
-当构建 `--params` 参数时，自动注入上述字段：
-- `employee_type` 保持 `"employee_no"` 不变
-
-当构建 `--data` 参数时，自动注入上述字段：
-```json
-{
-  "user_ids": [],
-  ...用户提供的参数
-}
-```
-
-> **注意**：`user_ids` 数组保持为空[]，`employee_type` 保持 `"employee_no"` 不变。
+只有已确认空数组的服务端语义与本次查询范围相符时才传 `user_ids=[]`；本包不能证明空数组代表当前用户、全员或其他范围。已有明确对象和编号时直接使用，不重复询问。
 
 ## API Resources
 
@@ -92,11 +74,10 @@ lark-cli schema attendance.user_tasks.query
 按照 schema 生成参数后再调用：
 
 ```bash
-lark-cli attendance user_tasks query --params '<schema-confirmed-json>' --as user
+lark-cli attendance user_tasks query --params '<schema-confirmed-query-json>' --data '<schema-confirmed-body-json>' --as user
 ```
 
-参数必须保留默认值 `employee_type=employee_no` 与 `user_ids=[]`，除非当前
-schema 明确要求不同值。一次只查询必要的日期范围；需要翻页时使用返回的分页游标，
+上例为参数位置示意；只有当前 schema 声明相应位置时才传该 flag。编号类型、编号和空数组含义须与授权范围一致。一次只查询必要的日期范围；需要翻页时使用返回的分页游标，
 不要通过重复请求扩大范围。
 
 ### 4. 解释结果而不是猜测原因
@@ -120,7 +101,7 @@ schema 明确要求不同值。一次只查询必要的日期范围；需要翻�
 身份：user（不要记录 access token）
 范围：<业务时区下的开始/结束日期>
 请求：attendance.user_tasks.query
-参数来源：本次 schema 输出；employee_type=employee_no；user_ids=[]
+参数来源：本次 schema 输出；<编号类型与已授权查询对象；不含多余个人资料>
 结果：<记录数量 / 空结果 / 错误>
 时区：<显示时区>
 证据：<脱敏后的返回字段或原始输出位置>
@@ -134,7 +115,7 @@ schema 明确要求不同值。一次只查询必要的日期范围；需要翻�
 
 - [ ] 已读取 `lark-shared` 并确认 `--as user` 与授权范围。
 - [ ] 已在同一轮执行 `lark-cli schema attendance.user_tasks.query`。
-- [ ] 参数只包含 schema 声明的字段，并保留默认参数规则。
+- [ ] 参数只包含 schema 声明的字段，params/data 位置与已授权对象一致；空数组语义已核实或未使用。
 - [ ] 日期范围、时区、分页游标和原始结果已记录。
 - [ ] 空结果、权限错误和临时失败没有被改写成考勤结论。
 - [ ] 输出已脱敏，且没有执行任何写入或权限变更命令。

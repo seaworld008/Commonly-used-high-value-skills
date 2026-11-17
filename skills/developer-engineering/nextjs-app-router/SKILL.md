@@ -2,14 +2,14 @@
 name: nextjs-app-router
 description: 'Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when building Next.js applications, implementing SSR/SSG, or optimizing React Server Components.'
 zh_description: "用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/wshobson/agents/nextjs-app-router-patterns"
 license: "MIT"
 tags: '["app", "development", "nextjs", "router"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-20"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -115,10 +115,10 @@ Detailed pattern documentation lives in `references/details.md`. Read that file 
 - **Use Suspense boundaries** - Enable streaming for slow data
 - **Leverage parallel routes** - Independent loading states
 - **Use Server Actions** - For mutations with progressive enhancement
+- **Pass React-serializable props from Server to Client Components.** For example, render `<ClientCard title={post.title} />` with the string read on the server. Check special types against the project's React version.
 
 ### Don'ts
 
-- **Don't pass serializable data** - Server → Client boundary limitations
 - **Don't use hooks in Server Components** - No useState, useEffect
 - **Don't fetch in Client Components** - Use Server Components or React Query
 - **Don't over-nest layouts** - Each layout adds to the component tree

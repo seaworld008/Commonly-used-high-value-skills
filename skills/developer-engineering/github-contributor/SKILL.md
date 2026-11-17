@@ -2,13 +2,13 @@
 name: github-contributor
 description: Find suitable open-source contribution opportunities and prepare focused GitHub pull requests with project-specific validation and review context.
 zh_description: "寻找开源贡献机会并准备可审查的 GitHub PR。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["contributor", "development", "github"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -151,7 +151,7 @@ gh search repos "topic:cli" --sort=stars --limit=20
 Pre-PR Checklist:
 - [ ] Read CONTRIBUTING.md
 - [ ] Check existing PRs for similar changes
-- [ ] Comment on issue to claim it
+- [ ] Check the project's issue-claim convention. Draft any needed comment for a preparation request; post only with authorization.
 - [ ] Understand project conventions
 - [ ] Set up development environment
 ```
@@ -246,11 +246,11 @@ Level 4: Maintainer status
 Contribution Workflow:
 - [ ] Find project with "good first issue"
 - [ ] Read contribution guidelines
-- [ ] Comment on issue to claim
-- [ ] Fork and set up locally
+- [ ] Check whether the project expects an issue claim and whether public posting is authorized
+- [ ] Use an existing checkout or fork only within the requested delivery scope
 - [ ] Make focused changes
 - [ ] Test thoroughly
-- [ ] Write clear PR description
+- [ ] Draft the PR description; submit only when the task includes remote delivery
 - [ ] Respond to review feedback
 - [ ] Celebrate when merged! 🎉
 ```
