@@ -198,7 +198,7 @@ def test_taxonomy_reads_are_offline(taxonomy, tmp_path, monkeypatch, capsys):
     monkeypatch.setitem(sys.modules, "requests", Mock())
     scanner = load_script(GUARD, "llm_scanner", monkeypatch)
     monkeypatch.setattr(scanner, "_detect_provider", lambda: ("openai", "fixture", "mock-model"))
-    model = Mock(return_value={"choices": [{"message": {"content": '{"verdict":"SAFE"}'}}]})
+    model = Mock(return_value={"choices": [{"message": {"content": '{"verdict":"SAFE","severity":"SAFE","confidence":1,"threats":[],"reasoning":"Fixture."}'}}]})
     monkeypatch.setattr(scanner, "_call_openai", model)
     assert scanner.scan_with_llm("fixture").verdict == "SAFE"
     assert "bundled" in model.call_args.args[2]

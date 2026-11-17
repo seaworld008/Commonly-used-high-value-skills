@@ -4,6 +4,7 @@ import fsSync from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inflateSync } from "node:zlib";
 
 const DEFAULT_PROMPT = "";
 const DEFAULT_MODEL = "gpt-image-2";
@@ -597,6 +598,246 @@ function inferReferenceImageMimeType(raw) {
   return inferMimeTypeFromMagic(raw);
 }
 
+function requireImageStructure(condition) {
+  if (!condition) throw new Error("图片结构不完整、编码错误或格式尚不支持校验");
+}
+
+const PNG_CRC_TABLE = Array.from({ length: 256 }, (_, value) => {
+  for (let bit = 0; bit < 8; bit += 1) value = (value >>> 1) ^ ((value & 1) ? 0xedb88320 : 0);
+  return value >>> 0;
+});
+
+function validatePNG(raw) {
+  let offset = 8;
+  let header;
+  let palette = false;
+  let dataEnded = false;
+  const compressed = [];
+  while (offset + 12 <= raw.length) {
+    const length = raw.readUInt32BE(offset);
+    const end = offset + 12 + length;
+    requireImageStructure(end <= raw.length);
+    const type = raw.toString("latin1", offset + 4, offset + 8);
+    requireImageStructure(/^[A-Za-z]{4}$/.test(type) && type[2] === type[2].toUpperCase());
+    let crc = 0xffffffff;
+    for (let i = offset + 4; i < end - 4; i += 1) crc = PNG_CRC_TABLE[(crc ^ raw[i]) & 255] ^ (crc >>> 8);
+    requireImageStructure(((crc ^ 0xffffffff) >>> 0) === raw.readUInt32BE(end - 4));
+    const chunk = raw.subarray(offset + 8, end - 4);
+    requireImageStructure(header || type === "IHDR");
+    if (type === "IHDR") {
+      requireImageStructure(!header && length === 13);
+      header = chunk;
+      const depths = { 0: [1, 2, 4, 8, 16], 2: [8, 16], 3: [1, 2, 4, 8], 4: [8, 16], 6: [8, 16] };
+      requireImageStructure(chunk.readUInt32BE(0) > 0 && chunk.readUInt32BE(0) <= 0x7fffffff &&
+        chunk.readUInt32BE(4) > 0 && chunk.readUInt32BE(4) <= 0x7fffffff &&
+        depths[chunk[9]]?.includes(chunk[8]) && chunk[10] === 0 && chunk[11] === 0 && chunk[12] <= 1);
+    } else if (type === "PLTE") {
+      requireImageStructure(!palette && !compressed.length && length > 0 && length <= 768 && length % 3 === 0 &&
+        ![0, 4].includes(header[9]) && (header[9] !== 3 || length / 3 <= 2 ** header[8]));
+      palette = true;
+    } else if (type === "IDAT") {
+      requireImageStructure(!dataEnded && (header[9] !== 3 || palette));
+      compressed.push(chunk);
+    } else if (type === "IEND") {
+      requireImageStructure(length === 0 && end === raw.length && compressed.length > 0);
+      const width = header.readUInt32BE(0);
+      const height = header.readUInt32BE(4);
+      const bits = ({ 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 })[header[9]] * header[8];
+      // Adam7 uses seven independently filtered passes; no pixel reconstruction is done.
+      const passes = header[12] ? [[0, 0, 8, 8], [4, 0, 8, 8], [0, 4, 4, 8],
+        [2, 0, 4, 4], [0, 2, 2, 4], [1, 0, 2, 2], [0, 1, 1, 2]] : [[0, 0, 1, 1]];
+      const rows = passes.map(([x, y, dx, dy]) => {
+        const w = Math.max(0, Math.ceil((width - x) / dx));
+        const h = Math.max(0, Math.ceil((height - y) / dy));
+        return [w ? 1 + Math.ceil(w * bits / 8) : 0, h];
+      });
+      const expected = rows.reduce((total, [stride, h]) => total + stride * h, 0);
+      requireImageStructure(expected > 0 && expected <= 256 * 1024 * 1024);
+      const packed = Buffer.concat(compressed);
+      const inflated = inflateSync(packed, { maxOutputLength: expected, info: true });
+      requireImageStructure(inflated.engine.bytesWritten === packed.length && inflated.buffer.length === expected);
+      let rowOffset = 0;
+      for (const [stride, h] of rows) {
+        if (!stride) continue;
+        for (let row = 0; row < h; row += 1, rowOffset += stride) requireImageStructure(inflated.buffer[rowOffset] <= 4);
+      }
+      return;
+    } else {
+      // Unknown critical chunks and animation need a decoder we do not bundle.
+      requireImageStructure(type[0] === type[0].toLowerCase() && !["acTL", "fcTL", "fdAT"].includes(type));
+    }
+    if (compressed.length && type !== "IDAT") dataEnded = true;
+    offset = end;
+  }
+  requireImageStructure(false);
+}
+
+function validateJPEG(raw) {
+  let offset = 2;
+  let frame;
+  let scans = 0;
+  const quantization = new Set();
+  const huffman = new Set();
+  const dcComponents = new Set();
+  while (offset < raw.length) {
+    requireImageStructure(raw[offset++] === 0xff);
+    while (raw[offset] === 0xff) offset += 1;
+    const marker = raw[offset++];
+    if (marker === 0xd9) {
+      requireImageStructure(frame && scans > 0 && dcComponents.size === frame.components.size && offset === raw.length);
+      return;
+    }
+    requireImageStructure(offset + 2 <= raw.length);
+    const length = raw.readUInt16BE(offset);
+    requireImageStructure(length >= 2 && offset + length <= raw.length);
+    const segment = raw.subarray(offset + 2, offset + length);
+    offset += length;
+    if ([0xc0, 0xc1, 0xc2].includes(marker)) {
+      requireImageStructure(!frame && segment.length >= 6 && segment[0] === 8 &&
+        segment.readUInt16BE(1) > 0 && segment.readUInt16BE(3) > 0 &&
+        segment[5] >= 1 && segment[5] <= 4 && segment.length === 6 + 3 * segment[5]);
+      const components = new Map();
+      for (let i = 6; i < segment.length; i += 3) {
+        requireImageStructure(!components.has(segment[i]) && (segment[i + 1] >> 4) >= 1 && (segment[i + 1] >> 4) <= 4 &&
+          (segment[i + 1] & 15) >= 1 && (segment[i + 1] & 15) <= 4 && segment[i + 2] <= 3);
+        components.set(segment[i], segment[i + 2]);
+      }
+      frame = { marker, components };
+    } else if (marker === 0xdb || marker === 0xc4) {
+      let pos = 0;
+      while (pos < segment.length) {
+        const selector = segment[pos++];
+        requireImageStructure((selector & 15) <= 3 && (selector >> 4) <= 1);
+        if (marker === 0xdb) {
+          const bytes = 1 + (selector >> 4);
+          requireImageStructure(pos + 64 * bytes <= segment.length);
+          for (let i = 0; i < 64; i += 1, pos += bytes) requireImageStructure(segment.readUIntBE(pos, bytes) > 0);
+          quantization.add(selector & 15);
+        } else {
+          requireImageStructure(pos + 16 <= segment.length);
+          const symbols = segment.subarray(pos, pos + 16).reduce((sum, n) => sum + n, 0);
+          requireImageStructure(symbols > 0 && symbols <= 256);
+          let slots = 1;
+          for (const count of segment.subarray(pos, pos + 16)) {
+            slots = 2 * slots - count;
+            requireImageStructure(slots >= 0);
+          }
+          pos += 16 + symbols;
+          huffman.add(selector);
+        }
+        requireImageStructure(pos <= segment.length);
+      }
+      requireImageStructure(pos > 0);
+    } else if (marker === 0xda) {
+      requireImageStructure(frame && segment.length >= 6 && segment[0] > 0 &&
+        segment[0] <= frame.components.size && segment.length === 4 + 2 * segment[0]);
+      const selected = new Set();
+      const spectral = segment.subarray(-3);
+      requireImageStructure(spectral[0] <= spectral[1] && spectral[1] <= 63 &&
+        (spectral[2] >> 4) <= 13 && (spectral[2] & 15) <= 13);
+      if (frame.marker !== 0xc2) requireImageStructure(spectral[0] === 0 && spectral[1] === 63 && spectral[2] === 0);
+      else requireImageStructure((spectral[0] !== 0 || spectral[1] === 0) &&
+        (spectral[0] === 0 || segment[0] === 1) &&
+        ((spectral[2] >> 4) === 0 || (spectral[2] >> 4) === (spectral[2] & 15) + 1));
+      for (let i = 1; i < segment.length - 3; i += 2) {
+        const id = segment[i];
+        const tables = segment[i + 1];
+        requireImageStructure(frame.components.has(id) && !selected.has(id) &&
+          quantization.has(frame.components.get(id)) && (tables >> 4) <= 3 && (tables & 15) <= 3 &&
+          (spectral[0] !== 0 || huffman.has(tables >> 4)) &&
+          (spectral[1] === 0 || huffman.has(16 + (tables & 15))));
+        selected.add(id);
+        if (spectral[0] === 0 && (spectral[2] >> 4) === 0) dcComponents.add(id);
+      }
+      let entropyBytes = 0;
+      while (offset < raw.length) {
+        if (raw[offset] !== 0xff) { entropyBytes += 1; offset += 1; continue; }
+        let next = offset + 1;
+        while (raw[next] === 0xff) next += 1;
+        if (raw[next] === 0x00 || (raw[next] >= 0xd0 && raw[next] <= 0xd7)) {
+          if (raw[next] === 0x00) entropyBytes += 1;
+          offset = next + 1;
+        } else break;
+      }
+      requireImageStructure(entropyBytes > 0);
+      scans += 1;
+    } else if (marker === 0xdd) {
+      requireImageStructure(segment.length === 2);
+    } else {
+      requireImageStructure((marker >= 0xe0 && marker <= 0xef) || marker === 0xfe);
+    }
+  }
+  requireImageStructure(false);
+}
+
+function validateWebP(raw) {
+  requireImageStructure(raw.length >= 20 && raw.readUInt32LE(4) + 8 === raw.length);
+  let offset = 12;
+  let canvas;
+  let dimensions;
+  let alpha = false;
+  const seen = new Set();
+  while (offset + 8 <= raw.length) {
+    const type = raw.toString("latin1", offset, offset + 4);
+    const length = raw.readUInt32LE(offset + 4);
+    const end = offset + 8 + length;
+    requireImageStructure(end + (length & 1) <= raw.length && (!(length & 1) || raw[end] === 0));
+    const chunk = raw.subarray(offset + 8, end);
+    requireImageStructure(!seen.has(type));
+    seen.add(type);
+    if (type === "VP8X") {
+      requireImageStructure(offset === 12 && length === 10 && (chunk[0] & 0xc3) === 0 && chunk.readUIntLE(1, 3) === 0);
+      canvas = [1 + chunk.readUIntLE(4, 3), 1 + chunk.readUIntLE(7, 3), chunk[0]];
+    } else if (type === "VP8 " || type === "VP8L") {
+      requireImageStructure(!dimensions);
+      if (type === "VP8 ") {
+        requireImageStructure(length > 10 && (chunk[0] & 1) === 0 && ((chunk[0] >> 1) & 7) <= 3 &&
+          (chunk[0] & 16) !== 0 && chunk.subarray(3, 6).equals(Buffer.from([0x9d, 0x01, 0x2a])) &&
+          (chunk.readUIntLE(0, 3) >> 5) > 0 && (chunk.readUIntLE(0, 3) >> 5) <= length - 10);
+        dimensions = [chunk.readUInt16LE(6) & 0x3fff, chunk.readUInt16LE(8) & 0x3fff];
+      } else {
+        requireImageStructure(length > 5 && chunk[0] === 0x2f && (chunk[4] >> 5) === 0 && !alpha);
+        const bits = chunk.readUInt32LE(1);
+        dimensions = [1 + (bits & 0x3fff), 1 + ((bits >>> 14) & 0x3fff)];
+      }
+      requireImageStructure(dimensions.every((n) => n > 0) &&
+        (!canvas || (canvas[0] === dimensions[0] && canvas[1] === dimensions[1])));
+    } else if (type === "ALPH") {
+      requireImageStructure(canvas && (canvas[2] & 16) !== 0 && !dimensions && length > 1 &&
+        (chunk[0] & 0xc0) === 0 && (chunk[0] & 3) <= 1 && ((chunk[0] >> 4) & 3) <= 1 &&
+        ((chunk[0] & 3) !== 0 || length === 1 + canvas[0] * canvas[1]));
+      alpha = true;
+    } else if (["ICCP", "EXIF", "XMP "].includes(type)) {
+      const flag = { ICCP: 32, EXIF: 8, "XMP ": 4 }[type];
+      requireImageStructure(canvas && (canvas[2] & flag) !== 0 && length > 0 &&
+        (type === "ICCP" ? !dimensions && !alpha : dimensions));
+    } else {
+      requireImageStructure(type !== "ANIM" && type !== "ANMF");
+    }
+    offset = end + (length & 1);
+  }
+  requireImageStructure(offset === raw.length && dimensions && (!alpha || seen.has("VP8 ")));
+  if (canvas) {
+    for (const [type, flag] of [["ICCP", 32], ["EXIF", 8], ["XMP ", 4]]) {
+      requireImageStructure(Boolean(canvas[2] & flag) === seen.has(type));
+    }
+    requireImageStructure(!(canvas[2] & 16) || alpha || seen.has("VP8L"));
+  }
+}
+
+function validateGeneratedImage({ raw, mimeType }) {
+  // Output validation is deliberately limited to static PNG, Huffman DCT JPEG,
+  // and static WebP. Reference MIME detection remains independent. These checks
+  // validate structure, not JPEG/WebP entropy decoding or pixel rendering.
+  const validate = { "image/png": validatePNG, "image/jpeg": validateJPEG, "image/webp": validateWebP }[mimeType];
+  requireImageStructure(validate && raw.length > 0 && raw.length <= MAX_REFERENCE_IMAGE_BYTES);
+  try {
+    validate(raw);
+  } catch {
+    requireImageStructure(false);
+  }
+}
+
 export async function loadReferenceImages(imagePaths) {
   if (imagePaths.length > MAX_REFERENCE_IMAGES) {
     throw new Error(`参考图最多支持 ${MAX_REFERENCE_IMAGES} 张`);
@@ -863,6 +1104,9 @@ export async function downloadImageURL(url, timeoutMs) {
     if (raw.length === 0) {
       throw new Error("download returned an empty image");
     }
+    if (contentLengthHeader && raw.length !== Number(contentLengthHeader)) {
+      throw new Error("download content-length does not match received bytes");
+    }
     const detectedMimeType = normalizeImageMimeType(inferMimeTypeFromMagic(raw));
     if (!SUPPORTED_REFERENCE_IMAGE_MIME_TYPES.has(detectedMimeType)) {
       throw new Error("downloaded image format is not supported or cannot be identified");
@@ -979,6 +1223,7 @@ async function main() {
       } else {
         throw new Error("缺少图片载荷");
       }
+      validateGeneratedImage(image);
       await fs.mkdir(options.outDir, { recursive: true });
       const filename = path.join(options.outDir, `gpt-image2_${ts}_${index + 1}${suffixFromMime(image.mimeType)}`);
       await fs.writeFile(filename, image.raw);
@@ -991,7 +1236,7 @@ async function main() {
   }
   const missing = Math.max(0, expected - saved);
   const summary = `已保存 ${saved} 张，预期 ${expected} 张，缺少 ${missing} 张`;
-  if (missing || failed) throw new Error(`${summary}，失败条目 ${failed} 个`);
+  if (saved !== expected || failed) throw new Error(`${summary}，失败条目 ${failed} 个`);
   console.log(summary);
 }
 

@@ -10285,7 +10285,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "9a4f27e47494c40c48d0dab3f9638de34bdd746b76b707a3d69a527dd60cf635",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         },
         {
@@ -11995,7 +12003,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "20b68cf58497cb28f721f4076dbda92048819a54744fba4becef497a2fdbfd4f",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-05-28"
+            "last_synced_at": "2026-05-28",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],

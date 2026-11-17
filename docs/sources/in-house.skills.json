@@ -6173,7 +6173,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/competitors-analysis",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -6219,7 +6219,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "d24cfd86b87790b9448a693b5f794544ee6af25d475b69b024e828f0bb47bd8a",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -6246,7 +6246,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/competitors-analysis/references/profile_template.md",
           "owner": "competitors-analysis",
-          "sha256": "269fd4294879b5f73079d72a32f337129aeb02e1102552fc4a9835b08982fc4f",
+          "sha256": "837676466fda113b465cfa2b2638897210f1b318d402e78b62ffab734ddda888",
           "mode": "100644"
         },
         {
@@ -9639,7 +9639,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/scripts/gpt-image2.mjs",
           "owner": "gpt-image2",
-          "sha256": "0e46d56ac7e254d1c7eecb622a6803db2cef292a979f691965ede87ec9ee6835",
+          "sha256": "5120034388061dc1c901443fce6bde0efc098f6d3c0b600de3b0904ed7a7cce8",
           "mode": "100644"
         }
       ]
@@ -10570,7 +10570,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/llm_scanner.py",
           "owner": "input-guard",
-          "sha256": "290500216c864b09f0ddada46c542404d3b7fc97935b9bce61a5550873a0453a",
+          "sha256": "8715eab990733f30d7f29f412bc87deb90910f70211118b1bae3fc19fb4496a3",
           "mode": "100644"
         },
         {
@@ -10582,7 +10582,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/scan.py",
           "owner": "input-guard",
-          "sha256": "34c0727c7addf3e29ec66aee303f57849ba7c887364b9a6b2b9d83b275e669d6",
+          "sha256": "d7eddb265fd487aecdbbfc709f2fb8aacd2d7ae7225c64754a7ebfb53dff1217",
           "mode": "100644"
         },
         {
@@ -16881,13 +16881,13 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/safe_pack.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "2ff05a93cc25f19119c5cc29631fda239597d8becd908f697047c4262e5f1d31",
+          "sha256": "a8d1e42e97a6970531a5ef0746036faa3bf68e781dba1226efa31cde1b14b259",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/scan_secrets.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "48386b6de825b576f2ac37f55d3d78a322330d9ace6b88c3a9d0fa93104bb047",
+          "sha256": "c1f123ae36e285eb7bc992fc14669bc5dbef9baef2ee855751317f6ffaabb3e8",
           "mode": "100644"
         }
       ]
@@ -22261,7 +22261,7 @@
         {
           "path": "skills/office-white-collar/xlsx/scripts/recalc.py",
           "owner": "xlsx",
-          "sha256": "99b86eb8788a8153046b3bd89b6f8262f412c2418f042ac206788e781d236908",
+          "sha256": "fccc07bbfa4105241db24de58ec81b1820096199562ebcb224969e490faecae9",
           "mode": "100644"
         }
       ]

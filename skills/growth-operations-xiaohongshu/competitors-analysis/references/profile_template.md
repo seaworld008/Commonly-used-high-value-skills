@@ -122,4 +122,4 @@
 
 ---
 
-*返回 [README.md](../README.md)*
+*返回 [技能入口](../SKILL.md)*

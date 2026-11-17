@@ -89,7 +89,7 @@
             "ref": "72837a8513d1145d800095fc3909d6d3057994b8",
             "resolved_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
             "path_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
-            "content_sha256": "2b4bd5e5c65fad82c3bcc8d89025c8696bb0a386f7bb4fc96b693058518a869e",
+            "content_sha256": "db1326c9198c6dba9222b5af4a9125fdb209c6dec930acfe10f24de240dc1b8d",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -128,6 +128,36 @@
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20"
           }
+        },
+        {
+          "repo": "framer/motion",
+          "path": "LICENSE.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [
+            {
+              "source": "LICENSE.md",
+              "target": "skills/office-white-collar/guizang-ppt-skill/LICENSE.motion.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "fe1009f6a225bdb24562f762ecfe03eebc6a01ed",
+            "resolved_commit": "fe1009f6a225bdb24562f762ecfe03eebc6a01ed",
+            "path_commit": "e94dad607d92ec074fe202d0a70ba6666b939843",
+            "content_sha256": "835262a9cbe18af107043fab492b1922dd5ecc8db76f22f95149bc0143ac9847",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
+            "license_checkpoint": {
+              "path": "LICENSE.md",
+              "blob_sha": "2fb8bacf91a68fe918b15eccf165bb4c3623c641",
+              "content_sha256": "835262a9cbe18af107043fab492b1922dd5ecc8db76f22f95149bc0143ac9847",
+              "spdx": "MIT",
+              "resolved_commit": "fe1009f6a225bdb24562f762ecfe03eebc6a01ed"
+            }
+          },
+          "notes": "License notice for bundled motion@11.11.17 identified in the preserved jsDelivr asset header; npm integrity and GitHub gitHead LICENSE.md bytes independently matched. Runtime asset remains byte-preserved from the reviewed Guizang snapshot."
         }
       ],
       "managed_files": [
@@ -139,7 +169,7 @@
         },
         {
           "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md",
-          "sha256": "2b4bd5e5c65fad82c3bcc8d89025c8696bb0a386f7bb4fc96b693058518a869e",
+          "sha256": "db1326c9198c6dba9222b5af4a9125fdb209c6dec930acfe10f24de240dc1b8d",
           "owner": "guizang-ppt-skill",
           "mode": "100644"
         },
@@ -195,6 +225,12 @@
           "path": "skills/office-white-collar/guizang-ppt-skill/LICENSE.upstream.txt",
           "owner": "guizang-ppt-skill",
           "sha256": "2b33f1f1d11c7bc2dc2985f4a7f014338323ff58a1cd6ae91c16b727275a3df3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/guizang-ppt-skill/LICENSE.motion.txt",
+          "owner": "guizang-ppt-skill",
+          "sha256": "835262a9cbe18af107043fab492b1922dd5ecc8db76f22f95149bc0143ac9847",
           "mode": "100644"
         }
       ]

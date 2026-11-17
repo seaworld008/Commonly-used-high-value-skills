@@ -8,6 +8,7 @@ import json
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -18,27 +19,47 @@ MACRO_FILENAME = "Module1.xba"
 RECALCULATE_MACRO = """<?xml version="1.0" encoding="UTF-8"?>
 <script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic">
     Sub RecalculateAndSave()
-      ThisComponent.calculateAll()
-      ThisComponent.store()
-      ThisComponent.close(True)
+      Dim doc As Object
+      Dim loadProperties(2) As New com.sun.star.beans.PropertyValue
       Dim receipt As Integer
+      On Error GoTo Failed
+      loadProperties(0).Name = "Hidden"
+      loadProperties(0).Value = True
+      loadProperties(1).Name = "MacroExecutionMode"
+      loadProperties(1).Value = com.sun.star.document.MacroExecMode.NEVER_EXECUTE
+      loadProperties(2).Name = "UpdateDocMode"
+      loadProperties(2).Value = com.sun.star.document.UpdateDocMode.NO_UPDATE
+      doc = StarDesktop.loadComponentFromURL("{document_uri}", "_blank", 0, loadProperties())
+      If IsNull(doc) Or IsEmpty(doc) Then GoTo Failed
+      doc.calculateAll()
+      doc.store()
+      doc.close(True)
       receipt = FreeFile
-      Open "__RECEIPT__" For Output As #receipt
+      Open "{receipt_path}" For Output As #receipt
       Print #receipt, "recalculated"
       Close #receipt
+      StarDesktop.terminate()
+      Exit Sub
+    Failed:
+      On Error Resume Next
+      If receipt &lt;&gt; 0 Then Close #receipt
+      Kill "{receipt_path}"
+      doc.close(True)
       StarDesktop.terminate()
     End Sub
 </script:module>"""
 
 
-def setup_libreoffice_macro(profile_dir, completion_file):
-    """Install the macro only inside a caller-owned temporary profile."""
+def setup_libreoffice_macro(profile_dir, completion_file, filename):
+    """Install into an initialized, caller-owned temporary profile only."""
     basic_dir = Path(profile_dir) / "user" / "basic"
     macro_dir = basic_dir / "Standard"
-    macro_dir.mkdir(parents=True)
+    macro_dir.mkdir(parents=True, exist_ok=True)
     receipt_path = escape(str(completion_file).replace('"', '""'))
+    document_uri = escape(Path(filename).resolve().as_uri())
     (macro_dir / MACRO_FILENAME).write_text(
-        RECALCULATE_MACRO.replace("__RECEIPT__", receipt_path), encoding="utf-8"
+        RECALCULATE_MACRO.format(document_uri=document_uri, receipt_path=receipt_path),
+        encoding="utf-8"
     )
     (macro_dir / "script.xlb").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -107,29 +128,38 @@ def recalc(filename, timeout=30):
         return {"status": "recalculation_failed", "error": "Timeout must be positive"}
 
     try:
+        deadline = time.monotonic() + timeout
         env = get_soffice_env()
         with tempfile.TemporaryDirectory(prefix="xlsx-recalc-") as task_dir:
             task_path = Path(task_dir)
             profile = task_path / "profile"
             completion_file = task_path / "recalculated.ok"
-            setup_libreoffice_macro(profile, completion_file)
-            cmd = [
+            base_cmd = [
                 "soffice",
                 f"-env:UserInstallation={profile.as_uri()}",
                 "--headless",
                 "--norestore",
-                str(Path(filename).resolve()),
-                "vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application",
             ]
-            result = subprocess.run(
-                cmd, capture_output=True, text=True, env=env, timeout=timeout
-            )
-            if result.returncode != 0:
-                return {
-                    "status": "recalculation_failed",
-                    "error": result.stderr or "LibreOffice recalculation failed",
-                    "returncode": result.returncode,
-                }
+            # LibreOffice seeds Standard/Module1.xba on first launch. Wait for
+            # that initialization to finish before installing our own module.
+            for phase, cmd in (
+                ("profile initialization", base_cmd + ["--terminate_after_init"]),
+                ("recalculation", base_cmd + ["macro:///Standard.Module1.RecalculateAndSave()"]),
+            ):
+                if phase == "recalculation":
+                    setup_libreoffice_macro(profile, completion_file, filename)
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(cmd, timeout)
+                result = subprocess.run(
+                    cmd, capture_output=True, text=True, env=env, timeout=remaining
+                )
+                if result.returncode != 0:
+                    return {
+                        "status": "recalculation_failed",
+                        "error": result.stderr or f"LibreOffice {phase} failed",
+                        "returncode": result.returncode,
+                    }
             if (not completion_file.is_file()
                     or completion_file.read_text(encoding="utf-8").strip() != "recalculated"):
                 return {

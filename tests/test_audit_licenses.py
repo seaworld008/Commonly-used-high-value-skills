@@ -1,4 +1,3 @@
-import hashlib
 import importlib.util
 import json
 import subprocess
@@ -6,6 +5,8 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+
+from tests.test_bundled_license_evidence import tracking_for_notice
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -97,6 +98,21 @@ class AuditLicensesTests(unittest.TestCase):
             self.assertIn("# License Audit Report", written_md)
             self.assertIn("Total skills", written_md)
 
+    def test_v1_external_metadata_fallback_remains_labeled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            repo_skill = "skills/category/legacy/SKILL.md"
+            mapping = self.make_v2_repo(root, origins=[], repo_skill=repo_skill,
+                                        frontmatter_source="fixture/upstream")
+            mapping.write_text(json.dumps({
+                "schema_version": 1, "skills": [{"repo_skill": repo_skill}],
+            }))
+            [row] = self.module.audit(root)
+            self.assertEqual("OK", row["status"])
+            self.assertEqual("frontmatter_v1_fallback", row["evidence"])
+            self.assertEqual([], row["origins"])
+            self.assertEqual(1, self.module.summarize([row])["v1_fallback_skills"])
+
     def test_v2_external_origin_license_is_source_of_truth(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -110,12 +126,8 @@ class AuditLicensesTests(unittest.TestCase):
                         "path": "skills/fixture/SKILL.md",
                         "license": "MIT",
                         "tracking": {
-                            "channel": "release", "ref": "v1.0.0", "resolved_commit": commit,
-                            "license_checkpoint": {
-                                "path": "LICENSE", "spdx": "MIT", "resolved_commit": commit,
-                                "content_sha256": hashlib.sha256(notice).hexdigest(),
-                                "blob_sha": hashlib.sha1(f"blob {len(notice)}\0".encode() + notice).hexdigest(),
-                            },
+                            "channel": "release", "ref": "v1.0.0",
+                            **tracking_for_notice(notice, commit=commit),
                         },
                     }
                 ],
@@ -256,6 +268,7 @@ class AuditLicensesTests(unittest.TestCase):
                         "repo": "example/bundle",
                         "path": "packages/runtime",
                         "license": "MIT",
+                        "tracking": tracking_for_notice((REPO_ROOT / "LICENSE").read_bytes()),
                     }
                 ],
                 kind="bundle",
@@ -368,6 +381,7 @@ class AuditLicensesTests(unittest.TestCase):
                         "repo": "example/bundle",
                         "path": "packages/runtime",
                         "license": "MIT",
+                        "tracking": tracking_for_notice((REPO_ROOT / "LICENSE").read_bytes()),
                     }
                 ],
                 kind="bundle",

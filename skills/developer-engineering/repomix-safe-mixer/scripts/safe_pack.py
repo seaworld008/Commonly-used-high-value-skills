@@ -10,23 +10,55 @@ import subprocess
 import json
 import os
 import stat
+import importlib.util
+from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
 
 SCAN_TIMEOUT_SECONDS = 60
+
+# Load the sibling explicitly so this file also works when imported by path.
+_scan_spec = importlib.util.spec_from_file_location(
+    '_safe_pack_scan', Path(__file__).with_name('scan_secrets.py'))
+_scan_module = importlib.util.module_from_spec(_scan_spec)
+_scan_spec.loader.exec_module(_scan_module)
+ScanRoot = _scan_module.ScanRoot
+_active_root = ContextVar('safe_pack_root', default=None)
+
+
+@contextmanager
+def packing_root(directory):
+    """Share one pinned root across scanning, reporting and process launch."""
+    active = _active_root.get()
+    if active is not None:
+        if Path(directory) != active.path:
+            raise OSError("Packaging root differs from the scanned root")
+        active.verify()
+        yield active
+        active.verify()
+    else:
+        with ScanRoot(directory) as root:
+            token = _active_root.set(root)
+            try:
+                yield root
+                root.verify()
+            finally:
+                _active_root.reset(token)
+
 
 def run_secret_scan(directory: Path, exclude_patterns: list = None):
     """Run secret scanner and return findings."""
     script_dir = Path(__file__).parent
     scan_script = script_dir / 'scan_secrets.py'
 
-    cmd = [sys.executable, str(scan_script), str(directory), '--json']
-
-    if exclude_patterns:
-        cmd.extend(['--exclude'] + exclude_patterns)
-
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True,
-                                timeout=SCAN_TIMEOUT_SECONDS)
+        with packing_root(directory) as root:
+            cmd = [sys.executable, str(scan_script), str(root.path), '--json',
+                   '--root-identity', json.dumps(root.snapshot())]
+            if exclude_patterns:
+                cmd.extend(['--exclude'] + exclude_patterns)
+            result = subprocess.run(cmd, capture_output=True, text=True,
+                                    timeout=SCAN_TIMEOUT_SECONDS)
         if result.returncode not in (0, 1) or result.stderr.strip():
             raise ValueError
         findings = json.loads(result.stdout)
@@ -106,8 +138,18 @@ def run_repomix(directory: Path, output_file: Path = None, config_file: Path = N
     if output_file:
         cmd.extend(['--output', str(output_file)])
 
-    # Change to directory before running repomix
-    result = subprocess.run(cmd, cwd=directory, capture_output=True, text=True)
+    # Reopening cwd by pathname alone would reintroduce the scan-to-pack race.
+    # This CLI launches from one thread; the child validates the original
+    # ancestry and fchdir's to the held FD immediately before exec.
+    try:
+        if os.name != 'posix' or not hasattr(os, 'fchdir'):
+            raise OSError("Safe pack working-directory setup is unavailable")
+        with packing_root(directory) as root:
+            result = subprocess.run(cmd, cwd=root.path, capture_output=True, text=True,
+                                    pass_fds=(root.fd,), preexec_fn=root.enter_for_pack)
+    except (OSError, subprocess.SubprocessError):
+        print("Error: Packaging root changed or safe launch failed. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
 
     if result.returncode != 0:
         print(f"Error: repomix failed with exit code {result.returncode}", file=sys.stderr)
@@ -130,11 +172,7 @@ def main():
         print(r"  safe_pack.py ./my-project --exclude '.*test.*' '.*\.example'")
         sys.exit(1)
 
-    directory = Path(sys.argv[1]).resolve()
-
-    if not directory.is_dir():
-        print(f"Error: {directory} is not a directory", file=sys.stderr)
-        sys.exit(1)
+    directory = Path(sys.argv[1])
 
     # Parse arguments
     output_file = None
@@ -160,6 +198,16 @@ def main():
             if not arg.startswith('--') and arg != str(directory)
         ]
 
+    try:
+        with packing_root(directory) as root:
+            _scan_and_pack(root, output_file, config_file, exclude_patterns)
+    except (OSError, RuntimeError):
+        print("Error: Scan root changed or cannot be pinned safely. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
+
+
+def _scan_and_pack(root, output_file, config_file, exclude_patterns):
+    directory = root.path
     print(f"🔍 Scanning {directory} for hardcoded secrets...\n")
 
     # Step 1: Scan for secrets
@@ -176,7 +224,9 @@ def main():
 
     # Step 4: Pack with repomix
     print(f"📦 Packing {directory} with repomix...\n")
+    root.verify()
     run_repomix(directory, output_file, config_file)
+    root.verify()
 
     print("\n✅ Packaging complete!")
 

@@ -91,17 +91,21 @@ def local_links(text: str):
 def check(root: Path, *, include_exports: bool = False) -> list[str]:
     root = root.resolve()
     failures = []
-    canonical = sorted((root / 'skills').glob('*/*/SKILL.md'))
+    canonical = sorted((root / 'skills').rglob('SKILL.md'))
     trees = [(root, canonical)]
     if include_exports:
         exports = root / 'openclaw-skills'
         if not exports.is_dir():
             failures.append('openclaw-skills: missing export tree (--include-exports requires generated exports)')
         for source in canonical:
-            entry = exports / source.parent.name / 'SKILL.md'
+            # Nested entrypoints are installed inside their owning public skill.
+            relative = source.relative_to(root / 'skills')
+            if len(relative.parts) < 3:
+                continue
+            entry = exports / Path(*relative.parts[1:])
             if not entry.is_file():
                 failures.append(f'{entry.relative_to(root)}: missing exported entrypoint')
-        trees.append((exports, sorted(exports.glob('*/SKILL.md'))))
+        trees.append((exports, sorted(exports.rglob('SKILL.md'))))
     for boundary, entries in trees:
         pending = list(entries)
         visited = set()

@@ -16,7 +16,7 @@ MODELS = {
     "OPENAI_API_KEY": "openai-fixture", "INPUT_GUARD_OPENAI_MODEL": "openai-model",
     "ANTHROPIC_API_KEY": "anthropic-fixture", "INPUT_GUARD_ANTHROPIC_MODEL": "anthropic-model",
 }
-BUNDLED = {"categories": [{"name": "Bundled", "threats": [{"name": "Bundled threat"}]}]}
+BUNDLED = {"categories": [{"id": "manipulation", "name": "Bundled", "threats": [{"name": "Bundled threat"}]}]}
 FRESH = {"categories": [{"name": "Fresh", "threats": [{"name": "Fresh threat"}]}]}
 
 
@@ -71,7 +71,10 @@ def guard(monkeypatch, tmp_path, capsys):
 
 
 def reply(provider, verdict="SAFE", severity="SAFE"):
-    content = json.dumps({"verdict": verdict, "severity": severity, "confidence": 0.9, "threats": []})
+    content = json.dumps({"verdict": verdict, "severity": severity, "confidence": 0.9, "reasoning": "Fixture assessment.",
+                          "threats": [] if verdict == "SAFE" else [
+                              {"category": "manipulation", "threat_type": "Bundled threat",
+                               "description": "Fixture finding.", "evidence": "fixture"}]})
     return ({"choices": [{"message": {"content": content}}]} if provider == "openai"
             else {"content": [{"text": content}]})
 

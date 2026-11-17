@@ -115,18 +115,24 @@ def fake_office(monkeypatch, module, *, receipt=True, returncode=0, timeout=Fals
 
     def run(cmd, **kwargs):
         assert cmd[0] == "soffice"  # No external timeout executable.
-        assert kwargs["timeout"] == 7
+        assert 0 < kwargs["timeout"] <= 7
         profile_arg = next(arg for arg in cmd if arg.startswith("-env:UserInstallation="))
         profile = Path(unquote(urlparse(profile_arg.split("=", 1)[1]).path))
         assert profile.is_relative_to(Path(os.environ["TMPDIR"]))
         assert profile.parent.stat().st_mode & 0o777 == 0o700
         macro = profile / "user/basic/Standard/Module1.xba"
-        assert macro.is_file()
-        assert (macro.parent / "script.xlb").is_file()
-        assert (profile / "user/basic/script.xlc").is_file()
         calls.append(profile)
         if timeout:
             raise subprocess.TimeoutExpired(cmd, kwargs["timeout"])
+        if "--terminate_after_init" in cmd:
+            assert not macro.exists()
+            macro.parent.mkdir(parents=True)
+            macro.write_text("first-run preset")
+            return subprocess.CompletedProcess(cmd, returncode, "", "failed" if returncode else "")
+        assert macro.is_file()
+        assert "loadComponentFromURL" in macro.read_text()
+        assert (macro.parent / "script.xlb").is_file()
+        assert (profile / "user/basic/script.xlc").is_file()
         if receipt:
             (profile.parent / "recalculated.ok").write_text("recalculated\n")
         return subprocess.CompletedProcess(cmd, returncode, "", "failed" if returncode else "")
@@ -156,7 +162,8 @@ def test_recalc_preserves_user_macros_and_cleans_private_profile(
     assert user_macro.read_bytes() == original
     assert home_before == {p.relative_to(Path.home()): p.read_bytes()
                            for p in Path.home().rglob("*") if p.is_file()}
-    assert len(calls) == 1
+    assert len(calls) == 2
+    assert calls[0] == calls[1]
     assert not calls[0].parent.exists()
 
 

@@ -2,7 +2,7 @@
 name: guizang-ppt-skill
 description: 'Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.'
 zh_description: "使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。"
-version: "1.0.9"
+version: "1.0.10"
 author: "seaworld008"
 source: "github:op7418/guizang-ppt-skill"
 source_url: "https://github.com/op7418/guizang-ppt-skill/blob/72837a8513d1145d800095fc3909d6d3057994b8/SKILL.md"
@@ -102,6 +102,8 @@ hero 页承担封面、幕封和转折，正文页留给阅读；背景效果应
 mkdir -p "项目/XXX/ppt/images" "项目/XXX/ppt/assets"
 cp "<SKILL_ROOT>/assets/template.html" "项目/XXX/ppt/index.html"
 cp "<SKILL_ROOT>/assets/motion.min.js" "项目/XXX/ppt/assets/motion.min.js"
+cp "<SKILL_ROOT>/LICENSE.upstream.txt" "项目/XXX/ppt/LICENSE.guizang.txt"
+cp "<SKILL_ROOT>/LICENSE.motion.txt" "项目/XXX/ppt/LICENSE.motion.txt"
 ```
 
 实际模板的 `#deck` 内只有 `<!-- SLIDES_HERE -->` 插槽，尚无示例 slide。
@@ -217,7 +219,8 @@ Google Fonts 和 Lucide 仍使用远程资源；不能把整个 deck 宣称为�
 - 动效：内容最终可见，步骤推进顺序正确，返回页面和切换窗口后仍可读。
 - 依赖：图片和本地 Motion 路径存在；在线、断网和目标屏幕分别记录结果。
 
-交付 `index.html`、实际引用的 `images/`、`assets/motion.min.js` 和必要的项目大纲。
+交付 `index.html`、实际引用的 `images/`、`assets/motion.min.js`、`LICENSE.guizang.txt`、`LICENSE.motion.txt` 和必要的项目大纲。
+模板的 op7418 通知与 Motion 11.11.17 的 Framer MIT 通知都须随成品保留，不只留在已安装的技能中。
 报告页数、主题、文件位置及已执行检查，分清静态通过、真实浏览器通过和待验项目。
 根据反馈优先删减文案、拆页、换布局，再调整字号、间距和图片高度。
 

@@ -3,11 +3,12 @@
 
 Policy:
   - Provenance v2 ``origins[]`` is the source of truth. Every external origin
-    MUST declare an allowed SPDX license identifier on the origin itself.
+    must carry a reviewed license_checkpoint at its own resolved commit
+    matching its allowed SPDX identifier.
   - Active canonical copies must also ship the reviewed upstream license bytes
     in the individual skill's install tree.
   - Provenance v1 repositories fall back to SKILL.md ``source``/``license``
-    frontmatter until their mappings are migrated.
+    frontmatter for metadata-only review until their mappings are migrated.
   - Local-only provenance entries and in-house frontmatter fallbacks are exempt.
 
 Exit code:
@@ -23,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+import hashlib
 import json
 import os
 import re
@@ -30,11 +32,9 @@ from typing import Any
 from pathlib import Path
 
 try:
-    from provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, sha256_file
-    from github_artifact_provider import GitHubArtifactProvider
+    from provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, safe_relative_path, sha256_file
 except ModuleNotFoundError:  # package imports in tests
-    from scripts.provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, sha256_file
-    from scripts.github_artifact_provider import GitHubArtifactProvider
+    from scripts.provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, safe_relative_path, sha256_file
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -157,26 +157,32 @@ def _origin_is_external(origin: dict[str, Any], entry_kind: str) -> bool:
     return True
 
 
-def _checkpoint_digest(origin: dict) -> str | None:
+def _checkpoint_error(origin: dict) -> str:
     tracking = origin.get("tracking")
-    if not isinstance(tracking, dict):
-        return None
-    checkpoint = tracking.get("license_checkpoint")
+    if not isinstance(tracking, dict) or "license_checkpoint" not in tracking:
+        return "missing license_checkpoint"
+    checkpoint = tracking["license_checkpoint"]
     if not isinstance(checkpoint, dict):
-        return None
-    digest = checkpoint.get("content_sha256")
-    commit = checkpoint.get("resolved_commit")
-    if (
-        isinstance(origin.get("license"), str)
-        and checkpoint.get("spdx") == origin["license"]
-        and isinstance(commit, str)
-        and COMMIT_RE.fullmatch(commit)
-        and commit == tracking.get("resolved_commit")
-        and isinstance(digest, str)
-        and SHA256_RE.fullmatch(digest)
+        return "invalid license_checkpoint"
+    for field, pattern in (
+        ("resolved_commit", COMMIT_RE),
+        ("blob_sha", COMMIT_RE),
+        ("content_sha256", SHA256_RE),
     ):
-        return digest.lower()
-    return None
+        value = checkpoint.get(field)
+        if not isinstance(value, str) or not pattern.fullmatch(value):
+            return f"invalid license_checkpoint.{field}"
+    path = checkpoint.get("path")
+    if not safe_relative_path(path) or any(ord(char) < 32 for char in path):
+        return "invalid license_checkpoint.path"
+    if checkpoint["resolved_commit"] != tracking.get("resolved_commit"):
+        return "license_checkpoint.resolved_commit inconsistent with origin tracking"
+    spdx = checkpoint.get("spdx")
+    if spdx != origin["license"] or spdx not in PERMISSIVE_LICENSES:
+        return "license_checkpoint.spdx inconsistent with origin license"
+    if checkpoint.get("api_spdx") not in (None, "NOASSERTION", origin["license"]):
+        return "license_checkpoint.api_spdx inconsistent with origin license"
+    return ""
 
 
 def _shipped_files(skill_dir: Path, repo_root: Path) -> dict[str, str]:
@@ -192,55 +198,57 @@ def _shipped_files(skill_dir: Path, repo_root: Path) -> dict[str, str]:
 
 
 def _has_notice_body(path: Path, spdx: str) -> bool:
-    """A digest can also lock an empty file or a bare license declaration."""
-    labels = {"", spdx.casefold(), f"{spdx.casefold()} license"}
-    with path.open(encoding="utf-8-sig", errors="replace") as handle:
-        for line in handle:
-            line = line.strip().casefold()
-            if line not in labels and not line.startswith("spdx-license-identifier:"):
-                return True
-    return False
+    """Require actual grant terms, not arbitrary nonempty checkpointed text."""
+    raw = path.read_bytes()
+    # This exact Vercel README was manually reviewed at b8caa260...: its
+    # explicit License/MIT declaration is preserved with separate full terms.
+    # A changed README needs a fresh review; arbitrary READMEs are not grants.
+    if (spdx == "MIT" and hashlib.sha256(raw).hexdigest()
+            == "c0a05286fc2a9d52ec2480bf070867665b9357beef37c9c2812e5b2ece571b6a"):
+        return True
+    text = " ".join(raw.decode("utf-8-sig", errors="replace").casefold().split())
+    clauses = {
+        "MIT": ("permission is hereby granted", "free of charge", "subject to the following conditions",
+                "the software is provided", "without warranty"),
+        "Apache-2.0": ("apache license", "version 2.0", "terms and conditions for use, reproduction, and distribution",
+                       "limitations under the license"),
+        "ISC": ("permission to use, copy, modify", "for any purpose", "is hereby granted",
+                "copyright notice", "the software is provided"),
+        "0BSD": ("permission to use, copy, modify", "for any purpose", "is hereby granted",
+                 "the software is provided"),
+        "BSD-2-Clause": ("redistribution and use in source and binary forms", "redistributions of source code",
+                         "redistributions in binary form", "this software is provided"),
+        "BSD-3-Clause": ("redistribution and use in source and binary forms", "redistributions of source code",
+                         "redistributions in binary form", "neither the name", "this software is provided"),
+        "MPL-2.0": ("mozilla public license", "version 2.0", "covered software", "grants"),
+        "Unlicense": ("free and unencumbered software", "public domain", "anyone is free", "the software is provided"),
+        "CC0-1.0": ("cc0 1.0 universal", "waiver", "public license fallback"),
+        "CC-BY-4.0": ("attribution 4.0 international", "public license", "licensed rights", "attribution"),
+    }.get(spdx)
+    return bool(clauses and all(clause in text for clause in clauses))
 
 
 def _bundled_license(
-    origin: dict, entry: dict, shipped: dict[str, str], reviewed: set[str], repo_root: Path,
+    checkpoint: dict, shipped: dict[str, str], repo_root: Path,
 ) -> tuple[str | None, str]:
-    tracking = origin.get("tracking") or {}
-    if not isinstance(tracking, dict):
-        return None, "invalid origin tracking"
-    if "license_checkpoint" in tracking:
-        expected = _checkpoint_digest(origin)
-        if expected is None:
-            return None, "invalid or inconsistent license_checkpoint"
-        for path, digest in shipped.items():
-            if digest == expected:
-                if not _has_notice_body(repo_root / path, origin["license"]):
-                    return None, f"{path} contains no upstream license body"
-                return path, ""
-        return None, f"no installed file matches license_checkpoint SHA-256 {expected}"
-
-    # Older snapshots can lock an upstream LICENSE through its artifact and
-    # managed file. The local lock alone cannot identify the license family.
-    # Compare the bytes to a reviewed license for this upstream or to the
-    # existing full-text template detector. Never borrow another skill's file.
-    locked = {f.get("path"): f.get("sha256") for f in entry.get("managed_files", [])
-              if isinstance(f, dict) and isinstance(f.get("path"), str)}
-    for artifact in origin.get("artifacts", []):
-        if not isinstance(artifact, dict) or not isinstance(artifact.get("target"), str):
+    expected = checkpoint["content_sha256"].lower()
+    for path, digest in shipped.items():
+        if digest != expected:
             continue
-        source = Path(str(artifact.get("source") or "")).name
-        target = artifact["target"]
-        if not re.fullmatch(r"(?:licen[cs]e|copying|notice|copyright)(?:[.-].+)?", source, re.I):
-            continue
-        digest = shipped.get(target)
-        if not digest or digest != locked.get(target):
-            continue
-        path = repo_root / target
-        if digest in reviewed and _has_notice_body(path, origin["license"]):
-            return target, ""
-        if GitHubArtifactProvider._detect_license_spdx(path.read_bytes()) == (origin["license"],):
-            return target, ""
-    return None, "no verifiable origin-mapped upstream license in the installed skill"
+        installed = repo_root / path
+        blob_sha = checkpoint["blob_sha"].lower()
+        algorithm = hashlib.sha1 if len(blob_sha) == 40 else hashlib.sha256
+        with installed.open("rb") as handle:
+            size = os.fstat(handle.fileno()).st_size
+            blob = algorithm(f"blob {size}\0".encode("ascii"))
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                blob.update(chunk)
+        if blob.hexdigest() != blob_sha:
+            return None, f"{path} does not match license_checkpoint.blob_sha"
+        if not _has_notice_body(installed, checkpoint["spdx"]):
+            return None, f"{path} contains no upstream license body"
+        return path, ""
+    return None, f"no installed file matches license_checkpoint SHA-256 {expected}"
 
 
 def _origin_license_row(
@@ -248,6 +256,7 @@ def _origin_license_row(
     *,
     mapping: str,
     index: int,
+    require_checkpoint: bool = True,
 ) -> dict[str, Any]:
     license_tag = str(origin.get("license") or "").strip()
     repo = str(origin.get("repo") or origin.get("source") or "")
@@ -258,9 +267,12 @@ def _origin_license_row(
     elif license_tag not in PERMISSIVE_LICENSES:
         status = "UNKNOWN"
         note = f"license {license_tag!r} is not in the allowed SPDX set"
+    elif require_checkpoint and (error := _checkpoint_error(origin)):
+        status = "MISSING"
+        note = f"{repo}: {error}"
     else:
         status = "OK"
-        note = ""
+        note = "" if require_checkpoint else "retired metadata only; no distributed artifacts or immutable-license claim"
     return {
         "mapping": mapping,
         "origin_index": index,
@@ -278,7 +290,6 @@ def _aggregate_v2_row(
     fm: dict[str, str],
     claim: dict[str, Any],
     skill_md: Path | None,
-    reviewed: dict[tuple[str, str], set[str]],
     repo_root: Path,
 ) -> dict[str, Any]:
     entry = claim["entry"]
@@ -294,17 +305,22 @@ def _aggregate_v2_row(
     origins = entry.get("origins")
     if not isinstance(origins, list):
         origins = []
+    retired_metadata_only = (
+        entry.get("status") == "retired" and not repo_skill
+        and not entry.get("managed_files")
+        and all(isinstance(origin, dict) and not origin.get("artifacts") for origin in origins)
+    )
     for index, origin in enumerate(origins):
         if not isinstance(origin, dict):
             continue
         if _origin_is_external(origin, entry_kind):
-            row = _origin_license_row(origin, mapping=claim["mapping"], index=index)
+            row = _origin_license_row(origin, mapping=claim["mapping"], index=index,
+                                      require_checkpoint=not retired_metadata_only)
             if check_distribution and row["status"] == "OK":
                 if shipped is None:
                     shipped = _shipped_files(skill_md.parent, repo_root) if skill_md else {}
-                key = (row["repo"].lower(), row["license"])
                 path, error = _bundled_license(
-                    origin, entry, shipped, reviewed.get(key, set()), repo_root,
+                    origin["tracking"]["license_checkpoint"], shipped, repo_root,
                 )
                 if error:
                     row.update(status="MISSING", note=f"{row['repo']}: {error}")
@@ -456,16 +472,6 @@ def audit(
     provenance_entries = load_provenance_entries(repo_root, mapping_paths)
     rows: list[dict[str, Any]] = []
     skills = _skill_entries(repo_root)
-    reviewed: dict[tuple[str, str], set[str]] = defaultdict(set)
-    for claim in provenance_entries:
-        origins = claim["entry"].get("origins")
-        if not isinstance(origins, list):
-            continue
-        for origin in origins:
-            if isinstance(origin, dict) and (digest := _checkpoint_digest(origin)):
-                repo = str(origin.get("repo") or origin.get("source") or "").lower()
-                if repo:
-                    reviewed[(repo, origin["license"])].add(digest)
 
     # Provenance v2 is the primary audit collection. Iterate every mapping entry
     # once, including metadata-only records for non-installed bundles.
@@ -490,7 +496,6 @@ def audit(
                 fm=fm,
                 claim=claim,
                 skill_md=skill_md,
-                reviewed=reviewed,
                 repo_root=repo_root,
             )
         )
@@ -563,7 +568,7 @@ def write_markdown_report(
         f"- Noncanonical v2 entries: **{payload['noncanonical_v2_entries']}**",
         f"- Tracked origins: **{payload['tracked_origins']}**",
         f"- External origins: **{payload['external_origins']}**",
-        f"- v1 frontmatter fallbacks: **{payload['v1_fallback_skills']}**",
+        f"- v1 frontmatter fallbacks (metadata only): **{payload['v1_fallback_skills']}**",
         f"- Exempt (in-house): **{payload['exempt']}**",
         f"- OK: **{payload['ok']}**",
         f"- Missing: **{payload['missing']}**",
@@ -629,7 +634,7 @@ def main() -> int:
         print(f"  Noncanonical entries:  {payload['noncanonical_v2_entries']}")
         print(f"  Tracked origins:       {payload['tracked_origins']}")
         print(f"  External origins:      {payload['external_origins']}")
-        print(f"  v1 fallbacks:          {payload['v1_fallback_skills']}")
+        print(f"  v1 fallbacks (metadata only): {payload['v1_fallback_skills']}")
         print(f"  EXEMPT (in-house): {payload['exempt']}")
         print(f"  OK:                {payload['ok']}")
         print(f"  MISSING:           {len(missing)}")

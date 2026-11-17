@@ -14,23 +14,27 @@ NOTICE = Path("references/upstream-terms.txt")
 COMMIT = "a" * 40
 
 
+def tracking_for_notice(notice, spdx="MIT", commit=COMMIT):
+    return {
+        "resolved_commit": commit,
+        "license_checkpoint": {
+            "path": "LICENSE", "spdx": spdx, "resolved_commit": commit,
+            "blob_sha": hashlib.sha1(f"blob {len(notice)}\0".encode() + notice).hexdigest(),
+            "content_sha256": hashlib.sha256(notice).hexdigest(),
+        },
+    }
+
+
 def origin(repo, notice):
     return {
         "repo": repo,
         "license": "MIT",
         "artifacts": [{"source": "LICENSE", "target": (SKILL / NOTICE).as_posix()}],
-        "tracking": {
-            "resolved_commit": COMMIT,
-            "license_checkpoint": {
-                "path": "LICENSE", "spdx": "MIT", "resolved_commit": COMMIT,
-                "blob_sha": hashlib.sha1(f"blob {len(notice)}\0".encode() + notice).hexdigest(),
-                "content_sha256": hashlib.sha256(notice).hexdigest(),
-            },
-        },
+        "tracking": tracking_for_notice(notice),
     }
 
 
-class BundledLicenseTests(unittest.TestCase):
+class BundledLicenseFixture(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
@@ -65,6 +69,8 @@ class BundledLicenseTests(unittest.TestCase):
         self.assertEqual(expected_exit, result.returncode, result.stdout + result.stderr)
         return json.loads(result.stdout)["rows"][0]
 
+
+class BundledLicenseTests(BundledLicenseFixture):
     def test_reviewed_bytes_survive_single_skill_install(self):
         self.file.write_bytes(self.notice)
         # The upstream checkpoint is sufficient even for a renamed, unlisted file.
@@ -124,25 +130,31 @@ class BundledLicenseTests(unittest.TestCase):
         (self.file.parent / "second.txt").write_bytes(other)
         self.assertEqual("OK", self.audit(0, "--strict")["status"])
 
-    def test_standalone_legacy_license_must_match_the_full_declared_license(self):
+    def test_standalone_license_must_match_checkpoint_spdx_and_full_text(self):
         apache = (REPO / "skills/developer-engineering/mcp-builder/LICENSE.txt").read_bytes()
         self.file.write_bytes(apache)
         upstream = self.entry["origins"][0]
-        del upstream["tracking"]["license_checkpoint"]
+        upstream["tracking"] = tracking_for_notice(apache, spdx="Apache-2.0")
         self.entry["managed_files"][0]["sha256"] = hashlib.sha256(apache).hexdigest()
-        self.assertEqual("MISSING", self.audit(1)["status"])  # still declares MIT
+        self.assertIn("license_checkpoint.spdx", self.audit(1)["note"])  # still declares MIT
         upstream["license"] = "Apache-2.0"
+        checkpoint = upstream["tracking"].pop("license_checkpoint")
+        self.assertIn("missing license_checkpoint", self.audit(1)["note"])
+        upstream["tracking"]["license_checkpoint"] = checkpoint
         self.assertEqual("OK", self.audit(0)["status"])
         excerpt = apache[:200]
         self.file.write_bytes(excerpt)
         self.entry["managed_files"][0]["sha256"] = hashlib.sha256(excerpt).hexdigest()
         self.assertEqual("MISSING", self.audit(1)["status"])
 
-    def test_legacy_snapshot_requires_origin_mapped_locked_notice(self):
+    def test_snapshot_requires_own_checkpoint_and_installed_notice(self):
         self.file.write_bytes(self.notice)
         self.entry["kind"] = "snapshot"
         peer = {"kind": "reference_only", "origins": [origin("fixture/upstream", self.notice)]}
-        del self.entry["origins"][0]["tracking"]["license_checkpoint"]
+        tracking = self.entry["origins"][0]["tracking"]
+        checkpoint = tracking.pop("license_checkpoint")
+        self.assertIn("missing license_checkpoint", self.audit(1, extra_entries=[peer])["note"])
+        tracking["license_checkpoint"] = checkpoint
         self.assertEqual("OK", self.audit(0, extra_entries=[peer])["status"])
         self.file.write_bytes(b"MIT")
         self.assertEqual("MISSING", self.audit(1, extra_entries=[peer])["status"])
@@ -151,11 +163,16 @@ class BundledLicenseTests(unittest.TestCase):
         self.file.write_bytes(self.notice)
         self.entry["managed_files"][0]["sha256"] = hashlib.sha256(self.notice).hexdigest()
         self.entry["origins"][0]["artifacts"][0]["target"] = "skills/category/sibling/LICENSE"
+        sibling = self.root / "skills/category/sibling/LICENSE"
+        sibling.parent.mkdir()
+        self.file.rename(sibling)
         self.assertEqual("MISSING", self.audit(1, extra_entries=[peer])["status"])
 
-    def test_reference_only_checks_metadata_without_requiring_a_bundled_file(self):
+    def test_reference_only_requires_its_checkpoint_without_a_bundled_file(self):
         self.entry["kind"] = "reference_only"
         self.assertEqual("OK", self.audit(0)["status"])
+        del self.entry["origins"][0]["tracking"]["license_checkpoint"]
+        self.assertIn("missing license_checkpoint", self.audit(1)["note"])
         self.entry["origins"][0]["license"] = "GPL-3.0-only"
         self.assertEqual("UNKNOWN", self.audit(1)["status"])
 

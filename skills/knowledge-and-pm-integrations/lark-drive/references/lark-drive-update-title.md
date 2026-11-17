@@ -40,7 +40,7 @@ lark-cli drive +update-title \
 - **`file` 类型会校验后缀**：`--type file` 的标题就是完整文件名。CLI 会比对 `--title` 与当前文件名的后缀：没有后缀时默认补上当前后缀（输出里用 `extension_appended` 说明），后缀不一致时拦截（`a.md` → `a.txt`）。要跳过校验加 `--on-extension-mismatch=allow`
 - **wiki 不解包**：`--type wiki` 用 `/wiki/` URL 里的 `wiki_token`，传底层文档 token 会 `981003`
 - **不支持旧版 doc 和思维笔记**：服务端不支持改这两类的标题（`type=doc` / `type=mindnote` 返回 `981002 params error`），CLI 在本地就拒绝，不会白发一次写请求
-- **不支持妙搭 apps**：要改妙搭应用标题，切换到 [`lark-apps`](../../lark-apps/SKILL.md) 业务域处理
+- **不支持妙搭 apps**：要改妙搭应用标题，切换到 [`lark-apps`](https://github.com/larksuite/cli/blob/3d82c85419ad7560ad017db7a3972a596b5fbeb1/skills/lark-apps/SKILL.md) 业务域处理
 
 ## 输出
 

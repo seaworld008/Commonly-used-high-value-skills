@@ -4730,7 +4730,7 @@
       "name": "guizang-ppt-skill",
       "category": "office-white-collar",
       "description": "Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "author": "seaworld008",
       "source": "github:op7418/guizang-ppt-skill",
       "source_url": "https://github.com/op7418/guizang-ppt-skill/blob/72837a8513d1145d800095fc3909d6d3057994b8/SKILL.md",
@@ -4747,7 +4747,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-28",
       "updated_at": "2026-11-17",
-      "line_count": 246,
+      "line_count": 249,
       "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md"
     },
     {

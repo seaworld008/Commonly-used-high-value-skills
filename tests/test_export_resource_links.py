@@ -105,6 +105,19 @@ def test_explicit_exports_flag_requires_export_tree_and_entries(tmp_path):
     assert any('compete/SKILL.md' in message for message in references.check(tmp_path, include_exports=True))
 
 
+def test_nested_installed_entrypoints_require_their_own_resources(tmp_path):
+    write(tmp_path, 'skills/category/parent/SKILL.md', '# Parent\nChild is selected by name.\n')
+    write(tmp_path, 'skills/category/parent/child/SKILL.md', '[Constraint](references/spec.yaml)\n')
+    write(tmp_path, 'skills/category/parent/child/references/spec.yaml', 'version: 1\n')
+    exporter.export_openclaw_skills(tmp_path / 'skills', tmp_path / 'openclaw-skills')
+    assert references.check(tmp_path, include_exports=True) == []
+    (tmp_path / 'openclaw-skills/parent/child/references/spec.yaml').unlink()
+    assert any('spec.yaml' in message for message in references.check(tmp_path, include_exports=True))
+    (tmp_path / 'openclaw-skills/parent/child/SKILL.md').unlink()
+    assert any('missing exported entrypoint' in message and 'parent/child/SKILL.md' in message
+               for message in references.check(tmp_path, include_exports=True))
+
+
 def test_canonical_resources_are_checked_recursively_with_cycles(tmp_path):
     fixture(tmp_path)
     write(tmp_path, 'skills/growth/compete/references/a b(1).md', '[broken](absent.md)')

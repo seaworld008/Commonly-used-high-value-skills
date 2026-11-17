@@ -917,13 +917,13 @@
         {
           "path": "skills/developer-engineering/shadcn/upstream/cli.md",
           "owner": "shadcn",
-          "sha256": "a381e35bf36fe7bb851952c13707e01e82434fd7a4a4e53f6df26c6370838904",
+          "sha256": "261d1215eca7dddc39e1bf8cc5db0997a6ad32ce94a59b6a3753758fdcefa740",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/shadcn/upstream/customization.md",
           "owner": "shadcn",
-          "sha256": "a19e81c78843df255e85755e52659268d793845add845b34ad8091f62bff3af9",
+          "sha256": "942489c9b02dd30e49e86e9b1ec35c929b0becdfa162fbb8cb8841ccdca51bad",
           "mode": "100644"
         },
         {

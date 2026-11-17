@@ -746,7 +746,7 @@
       "path": "skills/developer-engineering/rust-engineer/SKILL.md",
       "review": "full-entry-audit-3",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "schema",
@@ -5948,7 +5948,7 @@
         "status": "verified_in_repo",
         "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
         "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md",
-        "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
+        "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
         "upstream": {
           "repo": "getsentry/skills",
           "path": "skills/security-review/SKILL.md",
@@ -6075,11 +6075,6 @@
               {
                 "source": "skills/security-review/references/xss.md",
                 "target": "skills/security-and-reliability/security-review/references/xss.md",
-                "type": "file"
-              },
-              {
-                "source": "LICENSE",
-                "target": "skills/security-and-reliability/security-review/LICENSE.upstream.txt",
                 "type": "file"
               }
             ],
@@ -6234,15 +6229,10 @@
             "owner": "security-review",
             "sha256": "4735df1e581b757b078605fbc27d37e85cfe182c45ab326c9e536c71a930680c",
             "mode": "100644"
-          },
-          {
-            "path": "skills/security-and-reliability/security-review/LICENSE.upstream.txt",
-            "owner": "security-review",
-            "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
-            "mode": "100644"
           }
         ]
-      }
+      },
+      "record_baseline": "194439d734965efa8328ce473608115084f1d347"
     }
   ],
   "final_source_scope": {

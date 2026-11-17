@@ -467,6 +467,9 @@ def test_real_xlsx_caches_classification_and_cli_exit(
         profiles.append(profile)
         assert profile.is_relative_to(Path(os.environ["TMPDIR"]))
         assert profile.parent.stat().st_mode & 0o777 == 0o700
+        if "--terminate_after_init" in cmd:
+            assert not (profile / "user/basic/Standard/Module1.xba").exists()
+            return subprocess.CompletedProcess(cmd, 0, "", "")
         assert (profile / "user/basic/Standard/Module1.xba").is_file()
         (profile.parent / "recalculated.ok").write_text("recalculated\n")
         return subprocess.CompletedProcess(cmd, 0, "", "")

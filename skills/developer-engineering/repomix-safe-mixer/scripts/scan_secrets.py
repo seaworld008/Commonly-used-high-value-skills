@@ -43,6 +43,119 @@ SKIP_DIRS = {
     '.next', '.nuxt', 'vendor', 'target', 'bin', 'obj', '.terraform'
 }
 REDACTED = '[REDACTED]'
+DIR_FD_SUPPORTED = (os.open in os.supports_dir_fd and os.stat in os.supports_dir_fd
+                    and os.stat in os.supports_follow_symlinks)
+
+
+class ScanRoot:
+    """Pin the initial root inode and every ancestor; never rebase a scan."""
+
+    def __init__(self, directory, expected=None):
+        # An inherited identity already names a canonical path. Resolving it
+        # again would let a replacement link redefine the authorization root.
+        self.path = (Path(directory).absolute() if expected is not None
+                     else Path(directory).resolve(strict=True))
+        self.fd = None
+        self._fds = []
+        self.identities = None
+        if expected is not None:
+            identities = expected.get('identities') if isinstance(expected, dict) else None
+            if (not isinstance(expected, dict) or expected.get('path') != str(self.path)
+                    or not isinstance(identities, list)
+                    or len(identities) != len(self.path.parts)
+                    or any(not isinstance(pair, list) or len(pair) != 2
+                           or any(type(value) is not int or value < 0 for value in pair)
+                           for pair in identities)):
+                raise OSError("Invalid scan root identity")
+            self.identities = [tuple(pair) for pair in identities]
+
+    @staticmethod
+    def identity(info):
+        return info.st_dev, info.st_ino
+
+    def _open_chain(self):
+        if (not DIR_FD_SUPPORTED
+                or not all(hasattr(os, flag) for flag in
+                           ('O_DIRECTORY', 'O_NOFOLLOW', 'O_NONBLOCK'))):
+            raise OSError("Safe directory-relative opens are unavailable")
+        flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+        fds = [os.open(self.path.anchor, flags)]
+        identities = []
+        try:
+            for index, part in enumerate(self.path.parts):
+                fd = fds[-1]
+                if index:
+                    before = os.stat(part, dir_fd=fd, follow_symlinks=False)
+                    fd = os.open(part, flags, dir_fd=fd)
+                    fds.append(fd)
+                    if self.identity(os.fstat(fd)) != self.identity(before):
+                        raise OSError("Scan root component changed during open")
+                info = os.fstat(fd)
+                if not stat.S_ISDIR(info.st_mode):
+                    raise OSError("Scan root component is not a directory")
+                identity = self.identity(info)
+                if self.identities is not None and identity != self.identities[index]:
+                    raise OSError("Scan root or ancestor changed")
+                identities.append(identity)
+            return fds, identities
+        except BaseException:
+            for fd in reversed(fds):
+                os.close(fd)
+            raise
+
+    def __enter__(self):
+        before = self.path.stat()
+        # Retain ancestors too, so their inode numbers cannot be recycled
+        # while a child checks the identity handed off by its parent.
+        self._fds, self.identities = self._open_chain()
+        self.fd = self._fds[-1]
+        try:
+            if self.identity(before) != self.identities[-1]:
+                raise OSError("Scan root changed during initialization")
+            self.verify()
+            return self
+        except BaseException:
+            self.__exit__(None, None, None)
+            raise
+
+    def __exit__(self, *unused):
+        for fd in reversed(self._fds):
+            os.close(fd)
+        self._fds = []
+        self.fd = None
+
+    def __fspath__(self):
+        return str(self.path)
+
+    def verify(self):
+        fds, _ = self._open_chain()
+        try:
+            if self.identity(os.fstat(self.fd)) != self.identities[-1]:
+                raise OSError("Pinned scan root changed")
+        finally:
+            for fd in reversed(fds):
+                os.close(fd)
+
+    def snapshot(self):
+        return {'path': str(self.path), 'identities': self.identities}
+
+    def enter_for_pack(self):
+        """Child-only cwd setup: validate and use the pinned inode before exec."""
+        self.verify()
+        os.fchdir(self.fd)
+        self.verify()
+
+
+@contextmanager
+def pinned_scan_root(directory):
+    if isinstance(directory, ScanRoot):
+        directory.verify()
+        yield directory
+        directory.verify()
+    else:
+        with ScanRoot(directory) as root:
+            yield root
+            root.verify()
 
 class SecretFinding:
     """Represents a detected secret."""
@@ -63,7 +176,14 @@ class SecretFinding:
 @contextmanager
 def open_scannable_file(file_path: Path, base_dir: Path):
     """Open only a regular file beneath the root, including during path races."""
-    root = base_dir.resolve(strict=True)
+    with pinned_scan_root(base_dir) as root:
+        with _open_scannable_file(file_path, root) as stream:
+            yield stream
+
+
+@contextmanager
+def _open_scannable_file(file_path: Path, anchor: ScanRoot):
+    root = anchor.path
     try:
         resolved = file_path.resolve(strict=True)
         relative = resolved.relative_to(root)
@@ -74,7 +194,8 @@ def open_scannable_file(file_path: Path, base_dir: Path):
         raise OSError("Scan target is not a regular file")
 
     # Anchor every component so replaced parents cannot redirect the open.
-    directory_fd = os.open(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    anchor.verify()
+    directory_fd = os.dup(anchor.fd)
     fd = None
     try:
         for part in relative.parts[:-1]:
@@ -89,6 +210,7 @@ def open_scannable_file(file_path: Path, base_dir: Path):
                 or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
             raise OSError("Scan target changed during open")
         # Verify the visible path again after acquiring the FD, before reading.
+        anchor.verify()
         try:
             current = file_path.resolve(strict=True)
             current.relative_to(root)
@@ -152,14 +274,25 @@ def should_skip_match(line: str, match: str) -> bool:
 
 def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[SecretFinding]:
     """Scan a directory recursively for secrets."""
+    with pinned_scan_root(directory) as anchor:
+        return _scan_directory(anchor, exclude_patterns)
+
+
+def _scan_directory(anchor: ScanRoot, exclude_patterns):
     findings = []
     exclude_patterns = exclude_patterns or []
 
     def traversal_error(error):
         raise error
 
-    for root, dirs, files in os.walk(directory, onerror=traversal_error):
-        root_path = Path(root)
+    if not hasattr(os, 'fwalk'):
+        raise OSError("Safe descriptor-relative traversal is unavailable")
+    # Directory enumeration must use the same anchor as file reads. A path-
+    # based walk could otherwise list a replacement tree before verification.
+    for root, dirs, files, _ in os.fwalk('.', dir_fd=anchor.fd,
+                                        onerror=traversal_error, follow_symlinks=False):
+        anchor.verify()
+        root_path = anchor.path / root
 
         # Skip if matches exclude pattern
         if any(re.search(pattern, str(root_path)) for pattern in exclude_patterns):
@@ -169,7 +302,7 @@ def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS
                    and not any(re.search(pattern, str(root_path / d))
                                for pattern in exclude_patterns)]
-        # os.walk skips linked directories; do not silently claim a full scan.
+        # fwalk skips linked directories; do not silently claim a full scan.
         if any((root_path / d).is_symlink() for d in dirs):
             raise OSError("Directory links cannot be scanned completely")
 
@@ -185,7 +318,7 @@ def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[
             if any(re.search(pattern, str(file_path)) for pattern in exclude_patterns):
                 continue
 
-            file_findings = scan_file(file_path, directory)
+            file_findings = scan_file(file_path, anchor)
             findings.extend(file_findings)
 
     return findings
@@ -223,11 +356,7 @@ def main():
         print("  scan_secrets.py ./my-project --exclude '.*test.*' '.*example.*'")
         sys.exit(2)
 
-    directory = Path(sys.argv[1]).resolve()
-
-    if not directory.is_dir():
-        print(f"Error: {directory} is not a directory", file=sys.stderr)
-        sys.exit(2)
+    directory = Path(sys.argv[1])
 
     # Parse arguments
     json_output = '--json' in sys.argv
@@ -239,8 +368,18 @@ def main():
 
     # Scan
     try:
-        findings = scan_directory(directory, exclude_patterns)
-    except (OSError, UnicodeError, re.error):
+        expected = None
+        if '--root-identity' in sys.argv:
+            # Internal handoff from safe_pack; the parent keeps the root FD
+            # alive, preventing inode reuse while the child validates it.
+            expected = json.loads(sys.argv[sys.argv.index('--root-identity') + 1])
+            if not isinstance(expected, dict):
+                raise ValueError("Invalid inherited root identity")
+        with ScanRoot(directory, expected) as root:
+            directory = root.path
+            findings = scan_directory(root, exclude_patterns)
+            root.verify()
+    except (OSError, UnicodeError, ValueError, IndexError, RuntimeError, re.error):
         print("Error: Secret scan incomplete. Check file access, encoding and exclusions.", file=sys.stderr)
         sys.exit(2)
 
