@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1136 skill-tag mappings across 511 tags.
+> Auto-generated from 1138 skill-tag mappings across 512 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -27,7 +27,7 @@
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`api`](#api) (6)
-- [`code-review`](#code-review) (5)
+- [`code-review`](#code-review) (6)
 - [`database`](#database) (5)
 - [`expert`](#expert) (5)
 - [`manager`](#manager) (5)
@@ -50,7 +50,6 @@
 - [`performance`](#performance) (4)
 - [`react`](#react) (4)
 - [`research`](#research) (4)
-- [`review`](#review) (4)
 - [`safety`](#safety) (4)
 - [`secrets`](#secrets) (4)
 - [`skill`](#skill) (4)
@@ -71,6 +70,7 @@
 - [`migration`](#migration) (3)
 - [`observability`](#observability) (3)
 - [`office`](#office) (3)
+- [`review`](#review) (3)
 - [`reviewer`](#reviewer) (3)
 - [`sbom`](#sbom) (3)
 - [`social-media`](#social-media) (3)
@@ -85,6 +85,7 @@
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
 - [`app`](#app) (2)
+- [`application-security`](#application-security) (2)
 - [`auditor`](#auditor) (2)
 - [`authorization`](#authorization) (2)
 - [`azure`](#azure) (2)
@@ -158,7 +159,6 @@
 - [`analytics`](#analytics) (1)
 - [`android`](#android) (1)
 - [`api-and-interface-design`](#api-and-interface-design) (1)
-- [`application-security`](#application-security) (1)
 - [`approval`](#approval) (1)
 - [`apps`](#apps) (1)
 - [`arena`](#arena) (1)
@@ -505,6 +505,7 @@
 - [`visual-regression`](#visual-regression) (1)
 - [`visualization`](#visualization) (1)
 - [`voice`](#voice) (1)
+- [`vulnerability`](#vulnerability) (1)
 - [`vulnerability-research`](#vulnerability-research) (1)
 - [`vuls`](#vuls) (1)
 - [`warden`](#warden) (1)
@@ -622,7 +623,7 @@
 | [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | Use when managing Kubernetes clusters, debugging Pods and workloads, designing H |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | Master Next.js 14+ App Router with Server Components, streaming, parallel routes |
 | [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
-| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Use when writing or reviewing Rust code, designing safe APIs, debugging ownershi |
+| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Implement and review Rust code: ownership, typed errors, trait contracts, async  |
 | [supabase](skills/developer-engineering/supabase) | developer-engineering | ★★★★☆ | Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions |
 | [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | Build scalable design systems with Tailwind CSS v4, design tokens, component lib |
@@ -850,7 +851,6 @@
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when asked to identify personal data, map privacy data flows, evaluate conse |
 | [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Map regulatory controls, assess audit evidence and draft policies for SOC 2, PCI |
 | [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Use when assessing security ownership from git history: who owns sensitive code, |
-| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
 | [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 | [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
@@ -858,6 +858,7 @@
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★☆ | Review code diffs and application vulnerabilities by tracing attacker-controlled |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Read Sentry issues and events with a scoped token to summarize production error  |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installing, trusting, or updating them: stati |
@@ -1118,7 +1119,7 @@
 
 ## code-review
 
-**5 skills**
+**6 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -1127,6 +1128,7 @@
 | [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
 | [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★☆ | Review code diffs and application vulnerabilities by tracing attacker-controlled |
 
 ## database
 
@@ -1374,17 +1376,6 @@
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Use when building, querying, ingesting sources into, or auditing an interlinked  |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when synthesizing several Notion pages into a cited brief, comparison, or re |
 
-## review
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [pr-review-expert](skills/developer-engineering/pr-review-expert) | developer-engineering | ★★★★★ | Review GitHub PRs or GitLab MRs for correctness, security, compatibility, and af |
-| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
-| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
-| [improve-codebase-architecture](skills/developer-engineering/improve-codebase-architecture) | developer-engineering | ★★★☆☆ | Review module boundaries, interface depth and high-leverage refactors with evide |
-
 ## safety
 
 **4 skills**
@@ -1591,6 +1582,16 @@
 | [prism](skills/office-white-collar/prism) | office-white-collar | ★★★★★ | Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/In |
 | [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | Use when creating or improving a talk or slide deck: Markdown slides (Marp, reve |
 
+## review
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [pr-review-expert](skills/developer-engineering/pr-review-expert) | developer-engineering | ★★★★★ | Review GitHub PRs or GitLab MRs for correctness, security, compatibility, and af |
+| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
+| [improve-codebase-architecture](skills/developer-engineering/improve-codebase-architecture) | developer-engineering | ★★★☆☆ | Review module boundaries, interface depth and high-leverage refactors with evide |
+
 ## reviewer
 
 **3 skills**
@@ -1726,6 +1727,15 @@
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | Master Next.js 14+ App Router with Server Components, streaming, parallel routes |
 
+## application-security
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★☆ | Review code diffs and application vulnerabilities by tracing attacker-controlled |
+
 ## auditor
 
 **2 skills**
@@ -1831,7 +1841,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Use when writing or reviewing Rust code, designing safe APIs, debugging ownershi |
+| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Implement and review Rust code: ownership, typed errors, trait contracts, async  |
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | Use when designing Terraform IaC, reviewing modules, managing state, planning pr |
 
 ## evaluation
@@ -2367,14 +2377,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
-
-## application-security
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
 
 ## approval
 
@@ -4502,7 +4504,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Use when writing or reviewing Rust code, designing safe APIs, debugging ownershi |
+| [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | Implement and review Rust code: ownership, typed errors, trait contracts, async  |
 
 ## safe
 
@@ -5143,6 +5145,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [voice](skills/product-design/voice) | product-design | ★★★★★ | Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and fe |
+
+## vulnerability
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★☆ | Review code diffs and application vulnerabilities by tracing attacker-controlled |
 
 ## vulnerability-research
 

@@ -9,8 +9,9 @@ indirect instruction extraction, etc.).
 
 Provider detection order:
 1. OPENAI_API_KEY → OpenAI API (model configurable with INPUT_GUARD_OPENAI_MODEL)
-2. ANTHROPIC_API_KEY → Anthropic API (uses claude-sonnet-4-5)
-3. OpenClaw gateway chat completions endpoint (fallback)
+2. ANTHROPIC_API_KEY → Anthropic API (requires a configured model)
+Credentials and model settings come from the environment by default. Set
+INPUT_GUARD_CREDENTIAL_SOURCE=gateway to select OpenClaw gateway config instead.
 
 The LLM scanner is NOT a replacement for pattern-based scanning.
 It's a second layer that provides semantic understanding.
@@ -134,62 +135,39 @@ class LLMResponse:
     tokens_used: int    # Approximate token usage
 
 
+def _credential_config():
+    source = os.environ.get("INPUT_GUARD_CREDENTIAL_SOURCE", "env")
+    if source == "env":
+        return os.environ
+    if source == "gateway":
+        try:
+            result = subprocess.run(
+                ["openclaw", "gateway", "config.get"], capture_output=True,
+                text=True, check=True, timeout=10,
+            )
+            config = json.loads(result.stdout)
+            if isinstance(config, dict) and isinstance(config.get("env"), dict):
+                return config["env"]
+        except (OSError, subprocess.SubprocessError, ValueError):
+            pass
+    return {}
+
+
+def _provider_settings(config, provider):
+    if provider not in ("openai", "anthropic"):
+        return ("none", "", "")
+    prefix = provider.upper()
+    key = config.get(f"{prefix}_API_KEY")
+    model = (config.get(f"INPUT_GUARD_{prefix}_MODEL") or config.get(f"{prefix}_MODEL")
+             or ("gpt-5-mini" if provider == "openai" else ""))
+    return (provider, key, model)
+
+
 def _detect_provider() -> Tuple[str, str, str]:
-    """
-    Detect available LLM provider.
-
-    Returns: (provider, api_key, model)
-    """
-    # 1. OpenAI
-    openai_key = os.environ.get("OPENAI_API_KEY")
-    if openai_key:
-        model = (
-            os.environ.get("INPUT_GUARD_OPENAI_MODEL")
-            or os.environ.get("OPENAI_MODEL")
-            or "gpt-5-mini"
-        )
-        return ("openai", openai_key, model)
-
-    # 2. Anthropic
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
-    if anthropic_key:
-        model = (
-            os.environ.get("INPUT_GUARD_ANTHROPIC_MODEL")
-            or os.environ.get("ANTHROPIC_MODEL")
-        )
-        if model:
-            return ("anthropic", anthropic_key, model)
-
-    # 3. Try OpenClaw gateway config
-    try:
-        result = subprocess.run(
-            ["openclaw", "gateway", "config.get"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        config = json.loads(result.stdout)
-
-        if config.get("env", {}).get("OPENAI_API_KEY"):
-            model = (
-                config["env"].get("INPUT_GUARD_OPENAI_MODEL")
-                or config["env"].get("OPENAI_MODEL")
-                or "gpt-5-mini"
-            )
-            return ("openai", config["env"]["OPENAI_API_KEY"], model)
-
-        if config.get("env", {}).get("ANTHROPIC_API_KEY"):
-            model = (
-                config["env"].get("INPUT_GUARD_ANTHROPIC_MODEL")
-                or config["env"].get("ANTHROPIC_MODEL")
-            )
-            if model:
-                return ("anthropic", config["env"]["ANTHROPIC_API_KEY"], model)
-
-    except Exception:
-        pass
-
-    # 4. No provider available
+    config = _credential_config()
+    for provider in ("openai", "anthropic"):
+        if config.get(f"{provider.upper()}_API_KEY"):
+            return _provider_settings(config, provider)
     return ("none", "", "")
 
 
@@ -213,6 +191,7 @@ def _call_openai(api_key: str, model: str, system_prompt: str, user_text: str,
             "response_format": {"type": "json_object"},
         },
         timeout=timeout,
+        allow_redirects=False,
     )
     response.raise_for_status()
     return response.json()
@@ -238,6 +217,7 @@ def _call_anthropic(api_key: str, model: str, system_prompt: str, user_text: str
             "temperature": 0.1,
         },
         timeout=timeout,
+        allow_redirects=False,
     )
     response.raise_for_status()
     return response.json()
@@ -276,14 +256,7 @@ def _parse_llm_response(raw_text: str) -> Dict:
             except json.JSONDecodeError:
                 pass
 
-        # Couldn't parse — return error structure
-        return {
-            "verdict": "SUSPICIOUS",
-            "confidence": 0.5,
-            "severity": "MEDIUM",
-            "threats": [],
-            "reasoning": f"LLM response could not be parsed as JSON: {raw_text[:200]}",
-        }
+        raise ValueError("Invalid LLM analysis") from None
 
 
 def scan_with_llm(
@@ -304,21 +277,13 @@ def scan_with_llm(
     Returns:
         LLMResponse with analysis results, or None if no provider available
     """
-    # Detect provider
-    detected_provider, api_key, default_model = _detect_provider()
-    use_provider = provider or detected_provider
+    if provider is None:
+        use_provider, api_key, default_model = _detect_provider()
+    else:
+        use_provider, api_key, default_model = _provider_settings(_credential_config(), provider)
     use_model = model or default_model
-
-    if use_provider == "none":
-        return None
-
-    # Override api_key if provider was forced
-    if provider == "openai":
-        api_key = os.environ.get("OPENAI_API_KEY", api_key)
-    elif provider == "anthropic":
-        api_key = os.environ.get("ANTHROPIC_API_KEY", api_key)
-
-    if not api_key:
+    if (not isinstance(api_key, str) or not api_key.strip()
+            or not isinstance(use_model, str) or not use_model.strip()):
         return None
 
     # Build prompt with taxonomy
@@ -341,25 +306,30 @@ def scan_with_llm(
             tokens = result.get("usage", {}).get("input_tokens", 0) + result.get("usage", {}).get("output_tokens", 0)
         else:
             return None
+        parsed = _parse_llm_response(raw_text)
+        if (not isinstance(parsed, dict)
+                or parsed.get("verdict") not in ("SAFE", "SUSPICIOUS", "MALICIOUS")
+                or parsed.get("severity", "MEDIUM") not in SEVERITY_ORDER
+                or not isinstance(parsed.get("confidence", 0.5), (int, float))
+                or not 0 <= parsed.get("confidence", 0.5) <= 1
+                or not isinstance(parsed.get("threats", []), list)
+                or not all(isinstance(threat, dict) for threat in parsed.get("threats", []))):
+            raise ValueError("Invalid LLM analysis")
     except requests.exceptions.Timeout:
-        return LLMResponse(
-            verdict="ERROR", confidence=0, severity="SAFE",
-            threats=[], reasoning="LLM API call timed out",
-            raw="", model=use_model, latency_ms=int((time.time() - start) * 1000),
-            tokens_used=0,
-        )
-    except requests.exceptions.RequestException as e:
-        return LLMResponse(
-            verdict="ERROR", confidence=0, severity="SAFE",
-            threats=[], reasoning=f"LLM API call failed: {str(e)[:200]}",
-            raw="", model=use_model, latency_ms=int((time.time() - start) * 1000),
-            tokens_used=0,
-        )
+        failure = "LLM API call timed out"
+    except requests.exceptions.RequestException:
+        failure = "LLM API call failed"
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError):
+        failure = "Invalid LLM analysis"
+    else:
+        failure = None
 
     latency = int((time.time() - start) * 1000)
-
-    # Parse response
-    parsed = _parse_llm_response(raw_text)
+    if failure:
+        return LLMResponse(
+            verdict="ERROR", confidence=0, severity="ERROR", threats=[], reasoning=failure,
+            raw="", model=use_model, latency_ms=latency, tokens_used=0,
+        )
 
     return LLMResponse(
         verdict=parsed.get("verdict", "SUSPICIOUS"),
@@ -525,5 +495,7 @@ if __name__ == "__main__":
         print(f"\nReasoning: {result.reasoning}")
 
     # Exit code: 0 for SAFE/LOW, 1 for MEDIUM+
-    sev_val = SEVERITY_ORDER.get(result.severity, 0)
+    if result.verdict == "ERROR":
+        sys.exit(2)
+    sev_val = SEVERITY_ORDER[result.severity]
     sys.exit(0 if sev_val <= 1 else 1)

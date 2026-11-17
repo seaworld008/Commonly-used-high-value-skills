@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-11-04",
+    "checked_at": "2026-11-17",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -8657,7 +8657,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/financial-analyst",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -8743,7 +8743,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "8a50df5d76e5b6b7a4f8c2f993d94bf7b8e7c96ae2ce3f9d098c986e07fd39cb",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -8812,7 +8812,7 @@
         {
           "path": "skills/finance-investing/financial-analyst/scripts/dcf_valuation.py",
           "owner": "financial-analyst",
-          "sha256": "81863334b3b1eb7cabc75a849eb7f730fcd2d223d3a346f49b579b8c2eaf1ca5",
+          "sha256": "d941bd68f3944bc2427ba42b0fd6104335e524ed20e26f168c163db551afea83",
           "mode": "100644"
         },
         {
@@ -9571,7 +9571,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/gpt-image2",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -9612,7 +9612,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "c7d889ad18ef807c84534ed33879006ddde3de80dfe855fa60b7aa9aaa94aee8",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -9639,7 +9639,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/scripts/gpt-image2.mjs",
           "owner": "gpt-image2",
-          "sha256": "0b97f1952dc1ae679b178bc0257a5f1975c0fe6f62546e899195a7b3f4d1ab76",
+          "sha256": "0e46d56ac7e254d1c7eecb622a6803db2cef292a979f691965ede87ec9ee6835",
           "mode": "100644"
         }
       ]
@@ -10405,7 +10405,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/input-guard",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -10501,7 +10501,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "929ab2b0d41cd6e32513ac17aee6ae3291200f31af873c55a8e5d90f452d72be",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -10564,13 +10564,13 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/get_taxonomy.py",
           "owner": "input-guard",
-          "sha256": "96a8d87180ba787006c49161af2d70fca91c0e2c7299d80bde81bb1bd9f697de",
+          "sha256": "0e573ac1056005dc2e1f5af9d8eb842ac63f417e8066914109c795f2dccedffa",
           "mode": "100644"
         },
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/llm_scanner.py",
           "owner": "input-guard",
-          "sha256": "49f09488b219dcce7acc82a05f97c771eedaffc6502a2ab50a2b6414b0fab8f4",
+          "sha256": "290500216c864b09f0ddada46c542404d3b7fc97935b9bce61a5550873a0453a",
           "mode": "100644"
         },
         {
@@ -10582,7 +10582,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/scripts/scan.py",
           "owner": "input-guard",
-          "sha256": "2f8e9cb41283c3df03a96206c4803d266954db7db1f3ab3afec902843ded908d",
+          "sha256": "34c0727c7addf3e29ec66aee303f57849ba7c887364b9a6b2b9d83b275e669d6",
           "mode": "100644"
         },
         {
@@ -11060,8 +11060,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/link-checker",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11090,9 +11090,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "06ceeff95822a59de1a574c4c35205eee534de67bf78be5f24018c1175e297a1",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "db56b7a2ee828b04202b6b823a5a24ea3a32503714ddbf464704716b3316ba7b",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -11100,7 +11100,7 @@
         {
           "path": "skills/security-and-reliability/link-checker/SKILL.md",
           "owner": "link-checker",
-          "sha256": "06ceeff95822a59de1a574c4c35205eee534de67bf78be5f24018c1175e297a1",
+          "sha256": "db56b7a2ee828b04202b6b823a5a24ea3a32503714ddbf464704716b3316ba7b",
           "mode": "100644"
         },
         {
@@ -11791,7 +11791,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/mermaid-tools",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -11837,7 +11837,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "296cc5d77510c438fd9c9fbb07a9e80ab516234f464f0249e4993441da9c4930",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -11858,13 +11858,13 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/extract-and-generate.sh",
           "owner": "mermaid-tools",
-          "sha256": "dc4ab4b7fb80c2f50ab809e39da688cca3bbeb7b2e73ba23dee40f77ef36e4be",
+          "sha256": "aa376967cabeb0d6212c921ab4ce06f0268a82abea4e8d061ddb857cf49c60b0",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/extract_diagrams.py",
           "owner": "mermaid-tools",
-          "sha256": "e0eef21a581214b5ae5d72a36a14b044eacfc67545e8fa8153dcbde54a97f2ff",
+          "sha256": "8d99ae0a0ac3f47dd57679c5cd91d26c56fcb9f73b202f73954e310d878cfe47",
           "mode": "100644"
         },
         {
@@ -15604,8 +15604,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/qa-expert",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -15674,9 +15674,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c92cb9b2114501ad990165d00fe38d0d0abdd713a6871b516a68174b8e60d2c5",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "58ed22b2b195d8c609288af83c7fd2442561ef89336f29df36141957370d7236",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -15690,7 +15690,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/SKILL.md",
           "owner": "qa-expert",
-          "sha256": "c92cb9b2114501ad990165d00fe38d0d0abdd713a6871b516a68174b8e60d2c5",
+          "sha256": "58ed22b2b195d8c609288af83c7fd2442561ef89336f29df36141957370d7236",
           "mode": "100644"
         },
         {
@@ -15738,7 +15738,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/scripts/init_qa_project.py",
           "owner": "qa-expert",
-          "sha256": "e9069782c50268bb01e429342fdffb7b114353d8a01c679596d8cb633677d748",
+          "sha256": "696606ef0b85bba047aec35dc702657894198f7a06f0048b64743301601dd9ca",
           "mode": "100644"
         }
       ]
@@ -16819,8 +16819,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/repomix-safe-mixer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-08-31",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -16859,9 +16859,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c2af7d925db2a23999cd3824bec72bf4e541f0045bc4f09171bf4549c5c12a0f",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-08-31"
+            "content_sha256": "d36524d65984a6663cfc20f2986f20fe67166711617bcbe4ca41ccdda9e631ff",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -16869,7 +16869,7 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
           "owner": "repomix-safe-mixer",
-          "sha256": "c2af7d925db2a23999cd3824bec72bf4e541f0045bc4f09171bf4549c5c12a0f",
+          "sha256": "d36524d65984a6663cfc20f2986f20fe67166711617bcbe4ca41ccdda9e631ff",
           "mode": "100644"
         },
         {
@@ -16881,13 +16881,13 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/safe_pack.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "4faf399b9d6405ef4406190d318701531dbb6428ad58336b64adf8caff89b96a",
+          "sha256": "2ff05a93cc25f19119c5cc29631fda239597d8becd908f697047c4262e5f1d31",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/scan_secrets.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "da0bb52a474697067eb33068d8e38d5bfaaca31956c30300f150f7f35ce757e0",
+          "sha256": "48386b6de825b576f2ac37f55d3d78a322330d9ace6b88c3a9d0fa93104bb047",
           "mode": "100644"
         }
       ]
@@ -16939,6 +16939,68 @@
           "path": "skills/openclaw-memory-and-safety/runbook-generator/SKILL.md",
           "owner": "runbook-generator",
           "sha256": "e92099a6bddcfd6b57684a6e33e98a4fc06f656bc56956ff135bcc057cb80760",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "rust-engineer",
+      "normalized_slug": "rust-engineer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
+      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/rust-engineer",
+        "ref": "main",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/developer-engineering/rust-engineer",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/developer-engineering/rust-engineer/LICENSE",
+              "target": "skills/developer-engineering/rust-engineer/LICENSE",
+              "type": "file"
+            },
+            {
+              "source": "skills/developer-engineering/rust-engineer/SKILL.md",
+              "target": "skills/developer-engineering/rust-engineer/SKILL.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "f02ec8747487970a9b8fcc3f4c9474823b830bfcb4901b9db01dbdc6860dc8cf",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
+          }
+        }
+      ],
+      "sync_mode": "local-only",
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/rust-engineer/LICENSE",
+          "owner": "rust-engineer",
+          "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/rust-engineer/SKILL.md",
+          "owner": "rust-engineer",
+          "sha256": "f02ec8747487970a9b8fcc3f4c9474823b830bfcb4901b9db01dbdc6860dc8cf",
           "mode": "100644"
         }
       ]
@@ -17602,6 +17664,299 @@
       ]
     },
     {
+      "video_name": "security-review",
+      "normalized_slug": "security-review",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
+      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/security-review",
+        "ref": "main",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/security-and-reliability/security-review",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/security-and-reliability/security-review/LICENSE",
+              "target": "skills/security-and-reliability/security-review/LICENSE",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/SKILL.md",
+              "target": "skills/security-and-reliability/security-review/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/SOURCE-NOTICE.md",
+              "target": "skills/security-and-reliability/security-review/SOURCE-NOTICE.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+              "target": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/languages/javascript.md",
+              "target": "skills/security-and-reliability/security-review/languages/javascript.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/languages/python.md",
+              "target": "skills/security-and-reliability/security-review/languages/python.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/api-security.md",
+              "target": "skills/security-and-reliability/security-review/references/api-security.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/authentication.md",
+              "target": "skills/security-and-reliability/security-review/references/authentication.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/authorization.md",
+              "target": "skills/security-and-reliability/security-review/references/authorization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/business-logic.md",
+              "target": "skills/security-and-reliability/security-review/references/business-logic.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/cryptography.md",
+              "target": "skills/security-and-reliability/security-review/references/cryptography.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/csrf.md",
+              "target": "skills/security-and-reliability/security-review/references/csrf.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/data-protection.md",
+              "target": "skills/security-and-reliability/security-review/references/data-protection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/deserialization.md",
+              "target": "skills/security-and-reliability/security-review/references/deserialization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/error-handling.md",
+              "target": "skills/security-and-reliability/security-review/references/error-handling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/file-security.md",
+              "target": "skills/security-and-reliability/security-review/references/file-security.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/injection.md",
+              "target": "skills/security-and-reliability/security-review/references/injection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/logging.md",
+              "target": "skills/security-and-reliability/security-review/references/logging.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+              "target": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/modern-threats.md",
+              "target": "skills/security-and-reliability/security-review/references/modern-threats.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/ssrf.md",
+              "target": "skills/security-and-reliability/security-review/references/ssrf.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/supply-chain.md",
+              "target": "skills/security-and-reliability/security-review/references/supply-chain.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-review/references/xss.md",
+              "target": "skills/security-and-reliability/security-review/references/xss.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "7f8ecb713d555719813ab5b766d1f4da73a0b583057226b26ca767b2349ce24b",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
+          }
+        }
+      ],
+      "sync_mode": "local-only",
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/security-review/LICENSE",
+          "owner": "security-review",
+          "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/SKILL.md",
+          "owner": "security-review",
+          "sha256": "7f8ecb713d555719813ab5b766d1f4da73a0b583057226b26ca767b2349ce24b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/SOURCE-NOTICE.md",
+          "owner": "security-review",
+          "sha256": "1cd3627e5b60f4dbf08f7ee9a021a4dcf15ad1664134924b8f073b73531922e0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+          "owner": "security-review",
+          "sha256": "e79c9d916988ba1db8c518a74e70a4ea9613b95e8bbc880f90318efad391f5c8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/languages/javascript.md",
+          "owner": "security-review",
+          "sha256": "e7a79c2eab228b9833bd530b3096254fa491badec9e4ef70bf60503a135e6561",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/languages/python.md",
+          "owner": "security-review",
+          "sha256": "79b3fd5a016aa168fe7da1b3941025eb278d1b0cbb527256c16388ba903c003a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/api-security.md",
+          "owner": "security-review",
+          "sha256": "ce1e612ba166f72039f6042b7558b778f433dc7b8d7b430737c6a07b1263689e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/authentication.md",
+          "owner": "security-review",
+          "sha256": "b5af0ecf773d002f6ee27a00964006d13429f0f8417817e0df39aca128c18703",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/authorization.md",
+          "owner": "security-review",
+          "sha256": "414a242339c730cf4fdfe1f91c53568d299f09c8ae469f3cd8cfc124f30f648e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/business-logic.md",
+          "owner": "security-review",
+          "sha256": "ef3bb80cbc75984592ba809f47ca3028cd3c4ee842d31c9f4d4729c696f94d83",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/cryptography.md",
+          "owner": "security-review",
+          "sha256": "583e98d64e5192fadc5c05f7e771b46b3b6c6780fe5e5ff02ad498d63086e45f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/csrf.md",
+          "owner": "security-review",
+          "sha256": "a70d604197cbdfa1d63af9deb3d9c999d18d89990d76474a639b14cfabf76ea4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/data-protection.md",
+          "owner": "security-review",
+          "sha256": "540181d809e784ba60123a0f79328ffc88467a5ee8dbc88062026a9723f48435",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/deserialization.md",
+          "owner": "security-review",
+          "sha256": "2a725d67bd9d6d6c3b51a8292846662f1ba515790095a6148bdb2b90b4b75efc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/error-handling.md",
+          "owner": "security-review",
+          "sha256": "831025d8a52272bd861dcb52385cf22419638cfc83e8ab2bc4875872a3544352",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/file-security.md",
+          "owner": "security-review",
+          "sha256": "ba6c3edf65eeb63f3b3a5734387ecb990bc843c6d2dd9b6fa2ee002c6816884d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/injection.md",
+          "owner": "security-review",
+          "sha256": "6b0ff25ac3fac0ea9b2fbb85b530dcb30b06afed46e37fa9c5c241fa5a80c383",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/logging.md",
+          "owner": "security-review",
+          "sha256": "3b648097a1ad499a8337bc93d46b6ca22a3a68f30f83c8fca21170eee0cf3007",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+          "owner": "security-review",
+          "sha256": "eac9e729ecb90decd9350bf57a30a512b8623107146ef23a8a9d63251f2f8cb8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/modern-threats.md",
+          "owner": "security-review",
+          "sha256": "f18f5495f5951c05eb1e9ba58e9e757568651bcc5250f208899375d7c0766464",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/ssrf.md",
+          "owner": "security-review",
+          "sha256": "9f6d9b1298740aabe30ba7a312585bd2a35b78327b081a96f3a05e27a1bf85c9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/supply-chain.md",
+          "owner": "security-review",
+          "sha256": "4cdc29811ce3a5a9b266883eb1ce49f4b791d8f7cff360f29c6acd6e4508e76c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/xss.md",
+          "owner": "security-review",
+          "sha256": "c028d41e85312a057c93da0f1164e2517433047534c6f50d153aa2b912ae274e",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
       "video_name": "security-threat-model",
       "normalized_slug": "security-threat-model",
       "status": "in_house",
@@ -17758,7 +18113,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/sentry",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-04-13",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -17809,7 +18164,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "c7a4af61a3c0a5398dbf9e481fc94862254ceb3c1e72d202fe8a8f3dd42bbed1",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-04-13"
           }
         }
@@ -17848,7 +18203,7 @@
         {
           "path": "skills/security-and-reliability/sentry/scripts/sentry_api.py",
           "owner": "sentry",
-          "sha256": "4f9cda0bcf4653d01387bb17753fe08248289384c8c3968a9734d826190977ef",
+          "sha256": "2c28fb388242a8b5a81420855bcd3e4a549e5337414318df665e6a4e87279348",
           "mode": "100644"
         }
       ]
@@ -19441,8 +19796,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/transcript-fixer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -19806,9 +20161,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4ba4351599346259960ba736a9b6785cbb6ee1dab392ed31f223d7df808ae5fa",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ee41f40351711395c89da5836586c8ec9797a363147746cbd54685298f1c27e4",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -19822,7 +20177,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/SKILL.md",
           "owner": "transcript-fixer",
-          "sha256": "4ba4351599346259960ba736a9b6785cbb6ee1dab392ed31f223d7df808ae5fa",
+          "sha256": "ee41f40351711395c89da5836586c8ec9797a363147746cbd54685298f1c27e4",
           "mode": "100644"
         },
         {
@@ -19906,7 +20261,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/references/workflow_guide.md",
           "owner": "transcript-fixer",
-          "sha256": "095c1f13fad47e865730f6e994bdaf1c985c11ccd3c3ae046e79e975a37e2038",
+          "sha256": "8db832cb3e8b19bce3d10161a597cf1c14c47ac4b78cd61abcb943047cd255f3",
           "mode": "100644"
         },
         {
@@ -19942,7 +20297,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/cli/commands.py",
           "owner": "transcript-fixer",
-          "sha256": "82d8d0e2dbf0c66eee3aa68588d8fb0921ab2a57bc55c955831e8fc300a085f6",
+          "sha256": "757b5f6574cd8661ce213b5cd05888894b48cd19d79c17095e0e12f8ec7ba40e",
           "mode": "100644"
         },
         {
@@ -19960,7 +20315,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/core/ai_processor_async.py",
           "owner": "transcript-fixer",
-          "sha256": "bdb89ff1cfa5bb3d5a611e8f49772beeac03dafb3bb11df08de0b915462a9658",
+          "sha256": "45d0be2c3ed020c17907bac997d5b3938e565e296dfc77d24f7457a0c0b7c854",
           "mode": "100644"
         },
         {
@@ -19984,7 +20339,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/core/correction_service.py",
           "owner": "transcript-fixer",
-          "sha256": "de9d9d9a2d9da41f43f94f86ceb09fb7a3663f20d35bcba605afe15964e77d31",
+          "sha256": "ef6f736377f8d47215f599c9f87d9aa683823352560eb05830d1332110f08443",
           "mode": "100644"
         },
         {
@@ -20020,7 +20375,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/fix_transcript_enhanced.py",
           "owner": "transcript-fixer",
-          "sha256": "562827337ac99eca9e948c1d1a8608be4ea8292f0bc1cab99fa75cc60c0f7bfd",
+          "sha256": "ec5aaae71244b7d12b78777d9d43e7d4dee1ff5d89dfb0b4cce73715f857efb4",
           "mode": "100644"
         },
         {
@@ -20477,7 +20832,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ui-design-system",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -20528,7 +20883,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "6dbd49a4afecb56d54a40b5b124c6a48c75e06c1623e6785475ac979c56397c9",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -20567,7 +20922,7 @@
         {
           "path": "skills/product-design/ui-design-system/scripts/design_token_generator.py",
           "owner": "ui-design-system",
-          "sha256": "fe57446f5c44806c487ffe9c930edb8789c1642dfb32ddb1fe13dd7fa9288226",
+          "sha256": "77c8702b7ff3abc7bf8c7de224b492b191557423afab27311bd7ccfbc0b5fc50",
           "mode": "100644"
         }
       ]
@@ -21211,7 +21566,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/xlsx",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
+        "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-09-06",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -21537,7 +21892,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "b0f885ab89406f02c571029798d6a530aaf2b4cf9f938cb070e39cbd3d74a8c9",
-            "last_checked_at": "2026-09-22",
+            "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
         }
@@ -21906,7 +22261,7 @@
         {
           "path": "skills/office-white-collar/xlsx/scripts/recalc.py",
           "owner": "xlsx",
-          "sha256": "92f7941b4250dcf70b8b29a7420101c218aa96d980e63ced421532c486058c9f",
+          "sha256": "99b86eb8788a8153046b3bd89b6f8262f412c2418f042ac206788e781d236908",
           "mode": "100644"
         }
       ]
@@ -22392,6 +22747,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 129 local skills"
+    },
+    {
+      "date": "2026-11-17",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 131 local skills"
     }
   ],
   "schema_version": 2

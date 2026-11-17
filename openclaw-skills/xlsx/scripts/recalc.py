@@ -61,10 +61,7 @@ def _inspect_caches(filename):
     try:
         wb_formulas = load_workbook(filename, data_only=False)
         try:
-            excel_errors = (
-                "#VALUE!", "#DIV/0!", "#REF!", "#NAME?", "#NULL!", "#NUM!", "#N/A",
-            )
-            error_details = {err: [] for err in excel_errors}
+            error_details = {}
             formula_count = 0
             missing = []
 
@@ -78,11 +75,10 @@ def _inspect_caches(filename):
                             formula_count += 1
                             if cached.value is None:
                                 missing.append(location)
-                        if isinstance(cached.value, str):
-                            for err in excel_errors:
-                                if err in cached.value:
-                                    error_details[err].append(location)
-                                    break
+                        # OOXML error cells carry type e. Text may mention an
+                        # error literally; new Excel error values are open-ended.
+                        if cached.data_type == "e":
+                            error_details.setdefault(cached.value, []).append(location)
 
             total_errors = sum(len(items) for items in error_details.values())
             return {

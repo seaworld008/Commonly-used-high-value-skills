@@ -34,7 +34,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
       "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/payment-processing/skills/billing-automation/SKILL.md",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 9c61ab243def98f72da12abd41cfcf5bcd91af9d; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 9c61ab243def98f72da12abd41cfcf5bcd91af9d; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
@@ -61,6 +61,11 @@
             {
               "source": "plugins/payment-processing/skills/billing-automation/references/details.md",
               "target": "skills/engineering-workflow-automation/billing-automation/references/details.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/engineering-workflow-automation/billing-automation/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -94,6 +99,12 @@
           "path": "skills/engineering-workflow-automation/billing-automation/references/details.md",
           "owner": "billing-automation",
           "sha256": "71967552e1dfdf4ee23e94f18e8788b1a42a27213139f169adc86a15624c243f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/billing-automation/LICENSE.upstream.txt",
+          "owner": "billing-automation",
+          "sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
           "mode": "100644"
         }
       ]

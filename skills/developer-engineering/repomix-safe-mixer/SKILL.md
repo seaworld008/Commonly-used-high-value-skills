@@ -29,18 +29,9 @@ scan cannot guarantee that a package is safe to share.
 
 ### Standard Safe Packaging
 
-The required gate is **clean / findings / scan-error**: package only after all
-targets were scanned successfully and the result is clean. The bundled
-`safe_pack.py` is a legacy convenience wrapper, not an enforcing security gate:
-it ignores the scan return code and treats empty stdout as `[]`. The scanner
-only warns on read errors; its suffix filter misses `.env` / `.env.*`, and its
-private-key pattern misses unqualified `BEGIN PRIVATE KEY`.
+The gate distinguishes **clean / findings / scan-error**. `safe_pack.py` proceeds only after a completed clean scan. Findings and scan failures have distinct nonzero exits; `--force` does not bypass either. The scanner includes env files and ordinary PEM keys.
 
-Until these code defects are fixed, use a reviewed scanner covering the actual
-package manifest (including env files and ordinary PEM keys), verify its return
-code, JSON top-level type and scan completeness, then package separately. Empty
-output, stderr warnings or an unread target mean **scan-error**, not clean.
-Do not use the following legacy wrapper examples as release approval.
+Check the actual packing manifest and scanner limitations. A clean pattern scan means no matches in the completed scope, not a guarantee that no secret exists. Keep explicit config paths intact and review exclusions before sharing.
 
 ```bash
 python3 scripts/safe_pack.py <directory>
@@ -49,7 +40,7 @@ python3 scripts/safe_pack.py <directory>
 **Current wrapper behavior**:
 1. Invokes the bundled pattern scanner
 2. Reports parsed findings with redacted locations
-3. Blocks on nonempty findings unless `--force` is given
+3. Blocks on findings or an incomplete scan; `--force` cannot bypass the gate
 4. Packs on empty findings even when completeness is unproven
 
 **Example**:
@@ -107,7 +98,7 @@ shareable packages or as a workaround for scan errors.
 ```bash
 python3 scripts/safe_pack.py \
   ./my-project \
-  --force  # bypasses findings block, not scanning
+  --force  # legacy compatibility flag; cannot bypass findings or scan errors
 ```
 
 ## Standalone Secret Scanning

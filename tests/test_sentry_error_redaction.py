@@ -5,6 +5,7 @@ import json
 import runpy
 import sys
 import time
+from types import SimpleNamespace
 import urllib.error
 import urllib.request
 from http import HTTPStatus
@@ -24,7 +25,7 @@ def cli(monkeypatch):
     monkeypatch.setattr(time, "sleep", lambda _: None)
 
     def invoke(send, *flags):
-        monkeypatch.setattr(urllib.request, "urlopen", send)
+        monkeypatch.setattr(urllib.request, "build_opener", lambda *handlers: SimpleNamespace(open=send))
         monkeypatch.setattr(sys, "argv", [str(SCRIPT), "--org", "fixture-org",
                                           "--project", "fixture-project", *flags,
                                           "list-issues", "--query", "fixture-private-query"])

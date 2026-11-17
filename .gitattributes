@@ -8,3 +8,13 @@ skills/*/README.md linguist-generated=true
 # spacing that would otherwise be rewritten by the repository whitespace gate.
 skills/ai-agent-platform/hermes-agent/references/*.md whitespace=-blank-at-eof
 openclaw-skills/hermes-agent/references/*.md whitespace=-blank-at-eof
+
+# Byte-preserved immutable upstream license notices contain trailing spaces.
+skills/engineering-workflow-automation/billing-automation/LICENSE.upstream.txt whitespace=-blank-at-eol
+openclaw-skills/billing-automation/LICENSE.upstream.txt whitespace=-blank-at-eol
+skills/developer-engineering/nextjs-app-router/LICENSE.upstream.txt whitespace=-blank-at-eol
+openclaw-skills/nextjs-app-router/LICENSE.upstream.txt whitespace=-blank-at-eol
+skills/developer-engineering/python-performance/LICENSE.upstream.txt whitespace=-blank-at-eol
+openclaw-skills/python-performance/LICENSE.upstream.txt whitespace=-blank-at-eol
+skills/developer-engineering/tailwind-design-system/LICENSE.upstream.txt whitespace=-blank-at-eol
+openclaw-skills/tailwind-design-system/LICENSE.upstream.txt whitespace=-blank-at-eol

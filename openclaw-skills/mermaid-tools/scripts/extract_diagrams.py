@@ -3,6 +3,8 @@
 Extract Mermaid diagrams from markdown file and create numbered .mmd files
 """
 
+import argparse
+import os
 import re
 import sys
 from pathlib import Path
@@ -10,12 +12,8 @@ from pathlib import Path
 def extract_mermaid_diagrams(markdown_file, output_dir):
     """Extract Mermaid diagrams from markdown file and create numbered .mmd files"""
     
-    try:
-        with open(markdown_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-    except Exception as e:
-        print(f"ERROR: Cannot read markdown file: {e}")
-        return []
+    with open(markdown_file, 'r', encoding='utf-8') as f:
+        content = f.read()
     
     # Find all mermaid code blocks with their content
     mermaid_pattern = r'```mermaid\n(.*?)\n```'
@@ -112,23 +110,24 @@ def extract_mermaid_diagrams(markdown_file, output_dir):
     created_files = []
     for diagram in diagrams:
         mmd_file = output_path / f"{diagram['name']}.mmd"
-        try:
-            with open(mmd_file, 'w', encoding='utf-8') as f:
-                f.write(diagram['content'])
-            created_files.append(str(mmd_file))
-            print(f"Created: {mmd_file}")
-        except Exception as e:
-            print(f"ERROR: Cannot create {mmd_file}: {e}")
+        with open(mmd_file, 'w', encoding='utf-8') as f:
+            f.write(diagram['content'])
+        created_files.append(str(mmd_file))
+        print(f"Created: {mmd_file}")
     
     return created_files
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python3 extract_diagrams.py <markdown_file> <output_directory>")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("markdown_file")
+    parser.add_argument("output_directory")
+    parser.add_argument("--manifest", help="write this batch's NUL-separated .mmd filenames")
+    args = parser.parse_args()
+    try:
+        files = extract_mermaid_diagrams(args.markdown_file, args.output_directory)
+        if args.manifest:
+            Path(args.manifest).write_bytes(b"".join(os.fsencode(Path(f).name) + b"\0" for f in files))
+    except Exception as exc:
+        print(f"ERROR: Failed to extract diagrams: {exc}", file=sys.stderr)
         sys.exit(1)
-    
-    markdown_file = sys.argv[1]
-    output_dir = sys.argv[2]
-    
-    files = extract_mermaid_diagrams(markdown_file, output_dir)
     print(f"\nExtracted {len(files)} diagrams successfully")

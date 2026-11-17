@@ -320,9 +320,9 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 
 | Skill | Relationship |
 |-------|-------------|
-| [incident-commander](../../devops-sre/incident-commander/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
+| [incident-commander](../incident-commander/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
 | [information-security-manager-iso27001](../information-security-manager-iso27001/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](../../developer-engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| [dependency-auditor](../dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
 | [security-review](../security-review/SKILL.md) | Code review practices — includes security review checklist |
 
 ## Bundled Scanner Limits

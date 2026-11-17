@@ -1,353 +1,96 @@
-# Authentication Security Reference
+# 身份恢复与会话生命周期审查
 
-## Password Requirements
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-### Strength Requirements
+## 数据流与攻击前提
 
-| Context | Minimum Length | Maximum Length |
-|---------|---------------|----------------|
-| With MFA | 8 characters | At least 64 characters |
-| Without MFA | 15 characters | At least 64 characters |
+凭据或身份提供方响应进入验证器，验证器生成主体，会话再把后续请求关联到该主体。
+攻击者可设置普通 HTTP 头、窃取旧会话、反复尝试口令或向错误受众重放有效令牌。
+“请求已认证”必须有对应验证步骤；客户端传来的用户名、角色和租户不能自证身份。
+反向代理身份头只有在入口清除伪造头、阻断绕过路径并验证代理来源后才能作为证明。
 
-**Composition Rules:**
-- Allow all printable characters including spaces and Unicode
-- No mandatory complexity rules (uppercase, numbers, symbols)
-- No periodic forced password changes
-- Check against breached password databases (e.g., Have I Been Pwned)
-- Implement password strength meters (e.g., zxcvbn)
-
-### Password Storage
-
-**Recommended Algorithms (in order of preference):**
-
-1. **Argon2id** (preferred)
-   ```
-   Memory: minimum 19 MiB (19456 KB)
-   Iterations: minimum 2
-   Parallelism: 1
-   ```
-
-2. **scrypt**
-   ```
-   CPU/memory cost (N): 2^17
-   Block size (r): 8
-   Parallelization (p): 1
-   ```
-
-3. **bcrypt** (legacy systems)
-   ```
-   Work factor: minimum 10 (ideally 12+)
-   Maximum password length: 72 bytes
-   ```
-
-4. **PBKDF2** (FIPS-required environments)
-   ```
-   Iterations: minimum 600,000 with HMAC-SHA-256
-   ```
-
-**Never Use:**
-- MD5, SHA1, SHA256 without key stretching
-- Plain hashing without salt
-- Reversible encryption for passwords
-
-### Vulnerable Patterns
+## 自写示例：把自报用户名当成认证
 
 ```python
-# VULNERABLE: MD5 hash
+def unsafe_identity(headers):
+    return {'user_id': headers['X-User']}
+```
+
+下面是单进程内存会话的教学实现，随机 token 用于客户端，服务器仅存 token 摘要。
+`sessions` 与 `users` 只能由可信应用代码修改，`now` 来自服务器时钟而非请求字段。
+用户表记录当前启用状态，停用账号不会因旧会话仍存在而继续登录。
+
+```python
 import hashlib
-password_hash = hashlib.md5(password.encode()).hexdigest()
-
-# VULNERABLE: SHA256 without salt/iterations
-password_hash = hashlib.sha256(password.encode()).hexdigest()
-
-# SAFE: bcrypt
-import bcrypt
-password_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt(rounds=12))
-
-# SAFE: Argon2
-from argon2 import PasswordHasher
-ph = PasswordHasher()
-password_hash = ph.hash(password)
-```
-
----
-
-## Error Messages
-
-### Generic Response Principle
-
-Return identical error messages regardless of the specific failure reason.
-
-**Login Responses:**
-```
-# WRONG: Reveals valid usernames
-"User not found"
-"Invalid password"
-"Account locked"
-
-# CORRECT: Generic message
-"Login failed; Invalid user ID or password."
-```
-
-**Password Recovery:**
-```
-# WRONG: Reveals valid emails
-"Email not found"
-"Password reset email sent"
-
-# CORRECT: Generic message
-"If that email address is in our database, we will send you an email to reset your password."
-```
-
-**Account Creation:**
-```
-# WRONG: Reveals existing accounts
-"Email already registered"
-
-# CORRECT: Generic message
-"A link to activate your account has been emailed to the address provided."
-```
-
----
-
-## Brute Force Protection
-
-### Account Lockout
-
-```python
-# Configuration
-LOCKOUT_THRESHOLD = 5  # Failed attempts before lockout
-OBSERVATION_WINDOW = 15 * 60  # 15 minutes
-LOCKOUT_DURATION = 30 * 60  # 30 minutes
-
-# Implementation
-class LoginAttemptTracker:
-    def record_failed_attempt(self, account_id):
-        # Track by account, NOT by IP
-        # IP-based tracking allows bypassing via distributed attacks
-        pass
-
-    def is_locked(self, account_id):
-        # Check if account is locked
-        pass
-
-    def allow_password_reset_when_locked(self):
-        # Prevent lockout from becoming DoS
-        return True
-```
-
-### Exponential Backoff
-
-```python
-def get_lockout_duration(failed_attempts):
-    # Double duration with each lockout
-    base_duration = 60  # 1 minute
-    return base_duration * (2 ** (failed_attempts // LOCKOUT_THRESHOLD - 1))
-```
-
-### Rate Limiting
-
-```python
-# Per-IP rate limiting (defense in depth)
-RATE_LIMIT = "10/minute"
-
-# Per-account rate limiting
-ACCOUNT_RATE_LIMIT = "5/minute"
-```
-
----
-
-## Multi-Factor Authentication
-
-### MFA Effectiveness
-
-Microsoft research indicates MFA blocks 99.9% of account compromises.
-
-### MFA Implementation Checklist
-
-- [ ] Require MFA for all users (not just optional)
-- [ ] Support multiple MFA methods (TOTP, WebAuthn, SMS as fallback)
-- [ ] Implement MFA bypass codes for recovery (store securely)
-- [ ] Require re-authentication before disabling MFA
-- [ ] Log all MFA events
-
-### WebAuthn/FIDO2 (Preferred)
-
-```javascript
-// Registration
-const publicKeyCredential = await navigator.credentials.create({
-    publicKey: {
-        challenge: serverChallenge,
-        rp: { name: "Example Corp", id: "example.com" },
-        user: { id: userId, name: username, displayName: displayName },
-        pubKeyCredParams: [{ type: "public-key", alg: -7 }],  // ES256
-        authenticatorSelection: { userVerification: "preferred" }
-    }
-});
-```
-
-**Benefits:**
-- Phishing-resistant (bound to origin)
-- No shared secrets to steal
-- Hardware-backed security
-
----
-
-## Session Security
-
-### Session ID Requirements
-
-- **Entropy**: Minimum 64 bits of randomness
-- **Length**: At least 16 characters (hex) or 128 bits
-- **Generation**: Cryptographically secure random generator only
-
-```python
-# VULNERABLE: Predictable session ID
-session_id = str(user_id) + str(int(time.time()))
-
-# SAFE: Cryptographically random
+import re
 import secrets
-session_id = secrets.token_hex(32)  # 256 bits
+
+def mint_session(sessions, user_id, now):
+    token = secrets.token_hex(32)
+    digest = hashlib.sha256(token.encode('ascii')).hexdigest()
+    sessions[digest] = {'user_id': user_id, 'expires': now + 1800, 'revoked': False}
+    return token
+
+def authenticate(token, sessions, users, now):
+    if type(token) is not str or not re.fullmatch(r'[0-9a-f]{64}', token):
+        raise PermissionError('invalid session')
+    digest = hashlib.sha256(token.encode('ascii')).hexdigest()
+    session = sessions.get(digest)
+    if session is None or session['revoked'] or now >= session['expires']:
+        raise PermissionError('invalid session')
+    user = users.get(session['user_id'])
+    if user is None or not user['enabled']:
+        raise PermissionError('invalid session')
+    return {'user_id': session['user_id']}
 ```
 
-### Cookie Security Attributes
+`mint_session` 只能在真实凭据验证成功后调用，不能暴露为“传入 user_id 即发会话”的接口。
+这里对高熵随机 token 使用 SHA-256；该选择不能用于人类口令存储。
+跨进程部署需要共享会话存储、到期清理与可靠撤销，不能依赖每个 worker 的独立字典。
+认证返回主体仍不授予业务权限，资源操作另见[授权审查](authorization.md)。
 
-```
-Set-Cookie: session_id=abc123;
-    Secure;          # HTTPS only
-    HttpOnly;        # No JavaScript access
-    SameSite=Lax;    # CSRF protection
-    Path=/;          # Scope
-    Max-Age=3600;    # Expiration
-```
+## 不同凭据必须核对的约束
 
-### Session Lifecycle
+- 口令使用项目支持的专用慢哈希库和成本参数，验证失败与账号不存在对外表现一致。
+- 登录限速覆盖账号与网络来源，记录安全事件但不记录口令、验证码或会话原值。
+- 登录和权限升级后更换会话，撤销旧值；退出、改密与停用要有明确撤销范围。
+- Cookie 会话设置 `Secure`、`HttpOnly`、合理的 `SameSite`、作用域和过期；同时处理 CSRF。
+- 密码重置和验证码使用随机、短期、单次凭据，绑定账号与用途，消费须原子化。
+- OAuth/OIDC 回调绑定发起会话、state、nonce 与 PKCE；核对重定向 URI 和身份提供方。
+- JWT 用受支持库验证签名、允许算法、issuer、audience 与时间；`decode` 不等于验证。
+- `kid` 只能查受控密钥集合，不得变成任意文件路径或请求令牌提供的远程 URL。
+- MFA 后才能授予需要 MFA 的会话级别；重置和备用通道不能成为更弱的绕过入口。
 
-```python
-# VULNERABLE: Not regenerating session on login (Session Fixation)
-def login(username, password):
-    user = authenticate(username, password)
-    session['user_id'] = user.id  # Same session ID - attacker can pre-set it!
+## 正反验收输入
 
-# SAFE: Regenerate session ID after authentication
-def login(user, password):
-    if authenticate(user, password):
-        # CRITICAL: Generate new session ID to prevent fixation
-        session.regenerate()
-        session['user_id'] = user.id
+| 输入或事件 | 预期 |
+| --- | --- |
+| 发给启用用户的 token，在到期前使用 | 返回该用户主体 |
+| 只发送 `X-User: admin` | 不创建会话，不获得管理员身份 |
+| 格式合法但未签发的 64 位十六进制值 | 拒绝 |
+| token 修改一个字符 | 拒绝，不返回原用户 |
+| `now` 恰好等于 expires | 拒绝 |
+| 会话 revoked 或用户 enabled 为 false | 拒绝旧 token |
 
-# Regenerate after privilege changes
-def elevate_privileges():
-    session.regenerate()
-    session['is_admin'] = True
+登录失败测试只在合成账户执行，不对真实账号做口令喷洒，也不在报告中粘贴有效 token。
 
-# Proper logout - invalidate both server and client
-def logout():
-    session.invalidate()  # Server-side invalidation
-    response.delete_cookie('session_id')
-```
+## 易误报与适用边界
 
-### Session Timeouts
+机器身份、客户端证书与 API key 不必采用 Cookie，但同样要验证来源、权限范围和撤销。
+随机 token 的快速摘要不是口令哈希缺陷；须先确认输入具有足够熵且不是用户口令。
+统一失败响应不能独自消除计时差异和账号枚举，需在实际登录处理链测量。
+示例不含口令验证、Cookie 发送或分布式存储，不能直接替换完整认证系统。
 
-| Type | Purpose | Typical Value |
-|------|---------|---------------|
-| **Idle Timeout** | Inactive session | 15-30 minutes |
-| **Absolute Timeout** | Maximum lifetime | 4-8 hours |
+## 实际验证证据
 
-### Concurrent Session Control
+记录会话产生点、所有身份入口、有效期边界、撤销传播时间和代理绕过路径的结果。
+浏览器里核对实际 Cookie 属性和重登录行为，不能仅依据应用配置文件判断。
+身份提供方集成需使用测试租户核对错误 audience、回调错配和旧授权响应，不能外测真实用户。
 
-```python
-# Option 1: Allow only one session per user
-def login(user):
-    invalidate_all_sessions(user.id)
-    return create_session(user)
+## 官方接口核对入口
 
-# Option 2: Limit concurrent sessions
-MAX_SESSIONS = 3
-def login(user):
-    sessions = get_sessions_by_user(user.id)
-    if len(sessions) >= MAX_SESSIONS:
-        oldest = min(sessions, key=lambda s: s['created_at'])
-        invalidate_session(oldest['id'])
-    return create_session(user)
-```
+- [Python secrets](https://docs.python.org/3/library/secrets.html)
+- [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
+- [OAuth PKCE](https://www.rfc-editor.org/rfc/rfc7636.html)
 
----
-
-## Re-authentication Requirements
-
-Require fresh credentials before:
-- Password changes
-- Email address changes
-- MFA configuration changes
-- Sensitive financial transactions
-- Account deletion
-
-```python
-def requires_recent_auth(max_age=300):  # 5 minutes
-    """Decorator requiring recent authentication."""
-    def decorator(f):
-        def wrapper(*args, **kwargs):
-            last_auth = session.get('last_auth_time')
-            if not last_auth or time.time() - last_auth > max_age:
-                raise ReauthenticationRequired()
-            return f(*args, **kwargs)
-        return wrapper
-    return decorator
-
-@requires_recent_auth(max_age=300)
-def change_password(old_password, new_password):
-    pass
-```
-
----
-
-## Email Address Changes
-
-### With MFA Enabled
-
-1. Verify current session authentication
-2. Request MFA verification
-3. Send notification to current email address
-4. Send confirmation link to new email address
-5. Require clicking link within time limit (e.g., 8 hours)
-
-### Without MFA
-
-1. Verify current session authentication
-2. Require current password verification
-3. Send notification to current email address
-4. Send confirmation link to both addresses
-5. Require confirmation from both within time limit
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Weak hashing
-grep -rn "md5\|sha1\|sha256" --include="*.py" --include="*.js" | grep -i password
-grep -rn "hashlib\\.md5\|hashlib\\.sha" --include="*.py"
-
-# Predictable session IDs
-grep -rn "uuid1\|time\\(\\).*session\|user.*id.*session" --include="*.py"
-
-# Missing cookie security
-grep -rn "Set-Cookie" --include="*.py" --include="*.js" | grep -v -i "secure\|httponly"
-
-# Error message leakage
-grep -rn "not found\|invalid password\|does not exist" --include="*.py" --include="*.js"
-
-# Session handling
-grep -rn "session\\.regenerate\|regenerate_id\|new_session" --include="*.py" --include="*.php"
-```
-
----
-
-## References
-
-- [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
-- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
-- [CWE-287: Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
-- [CWE-384: Session Fixation](https://cwe.mitre.org/data/definitions/384.html)
+先核对当前项目认证库、Cookie 中间件与 IdP 配置版本，再决定具体参数和迁移方案。

@@ -528,27 +528,35 @@ def main():
         print("✅ SAFE — Empty input.")
         sys.exit(0)
 
-    use_llm = args.llm or args.llm_only or args.llm_auto
-
     # ---------------------------------------------------------------
     # LLM-only mode: skip pattern matching entirely
     # ---------------------------------------------------------------
     if args.llm_only:
+        failure = None
         try:
             from llm_scanner import scan_with_llm, SEVERITY_ORDER
-        except ImportError:
-            print("❌ LLM scanner module not found. Ensure llm_scanner.py is in the same directory.", file=sys.stderr)
-            sys.exit(1)
 
-        llm_result = scan_with_llm(
-            text,
-            provider=args.llm_provider,
-            model=args.llm_model,
-            timeout=args.llm_timeout,
-        )
-        if llm_result is None:
-            print("❌ No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.", file=sys.stderr)
-            sys.exit(1)
+            llm_result = scan_with_llm(
+                text, provider=args.llm_provider, model=args.llm_model, timeout=args.llm_timeout,
+            )
+            if llm_result is None:
+                failure = "No LLM provider available. Configure the selected provider's key and model."
+            elif llm_result.verdict == "ERROR":
+                failure = llm_result.reasoning
+        except ImportError:
+            failure = "LLM scanner or dependency unavailable"
+        except Exception:
+            failure = "LLM scan failed"
+
+        if failure is not None:
+            if args.json:
+                print(json.dumps({"mode": "llm-only", "severity": "ERROR", "score": None,
+                                  "llm": {"verdict": "ERROR", "reasoning": failure}}))
+            elif args.quiet:
+                print("ERROR")
+            else:
+                print(f"ERROR — {failure}", file=sys.stderr)
+            sys.exit(2)
 
         if args.json:
             out = {

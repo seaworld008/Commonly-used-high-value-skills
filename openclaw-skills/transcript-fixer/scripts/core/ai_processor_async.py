@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils.logging_config import TimedLogger, ErrorCounter
-from utils.retry_logic import retry_async, RetryConfig
+from utils.retry_logic import RetryConfig, calculate_delay, is_transient_error
 
 # Setup logger
 logger = logging.getLogger(__name__)
@@ -177,14 +177,13 @@ class AIProcessorAsync:
             )
 
         logger.info(
-            f"Starting batch processing",
-            total_chunks=len(chunks),
-            model=self.model,
-            max_concurrent=self.max_concurrent
+            "Starting batch processing",
+            extra={"total_chunks": len(chunks), "model": self.model,
+                   "max_concurrent": self.max_concurrent}
         )
 
         # CRITICAL FIX: Error rate monitoring
-        error_counter = ErrorCounter(threshold=0.3)  # Abort if >30% fail
+        error_counter = ErrorCounter(threshold=0.3)
 
         # CRITICAL FIX: Calculate change sampling rate to limit memory
         # For large files, only track a sample of changes
@@ -213,25 +212,10 @@ class AIProcessorAsync:
         for i, (chunk, result) in enumerate(zip(chunks, results), 1):
             if isinstance(result, Exception):
                 logger.error(
-                    f"Chunk {i} raised exception",
-                    chunk_index=i,
-                    error=str(result),
-                    exc_info=True
+                    "Chunk failed after model attempts",
+                    extra={"chunk_index": i, "error_type": type(result).__name__}
                 )
-                corrected_chunks.append(chunk)
                 error_counter.failure()
-
-                # CRITICAL FIX: Check error rate threshold
-                if error_counter.should_abort():
-                    stats = error_counter.get_stats()
-                    logger.critical(
-                        f"Error rate exceeded threshold, aborting",
-                        **stats
-                    )
-                    raise RuntimeError(
-                        f"Error rate {stats['window_failure_rate']:.1%} exceeds "
-                        f"threshold {stats['threshold']:.1%}. Processed {i}/{len(chunks)} chunks."
-                    )
             else:
                 corrected_chunks.append(result)
                 error_counter.success()
@@ -274,14 +258,41 @@ class AIProcessorAsync:
         stats = error_counter.get_stats()
         logger.info(
             "Batch processing completed",
-            total_chunks=len(chunks),
-            successes=stats['total_successes'],
-            failures=stats['total_failures'],
-            failure_rate=stats['window_failure_rate'],
-            changes_extracted=len(all_changes)
+            extra={"total_chunks": len(chunks),
+                   "successes": stats['total_successes'],
+                   "failures": stats['total_failures'],
+                   "failure_rate": stats['window_failure_rate'],
+                   "changes_extracted": len(all_changes),
+                   "status": "failed" if stats['total_failures'] else "success"}
         )
 
+        # Do not deliver an unchanged failed chunk as an AI-corrected result.
+        if stats['total_failures']:
+            first_error = next(result for result in results if isinstance(result, Exception))
+            raise RuntimeError(
+                f"AI correction failed for {stats['total_failures']}/{len(chunks)} chunks"
+            ) from first_error
+
         return "\n\n".join(corrected_chunks), all_changes
+
+    async def _request_with_retry(self, chunk: str, context: str, model: str,
+                                  attempts: int, chunk_index: int) -> str:
+        """Preserve transient retries without logging provider exception bodies."""
+        config = RetryConfig(max_attempts=attempts, base_delay=1.0)
+        for attempt in range(attempts):
+            try:
+                return await self._process_chunk_async(chunk, context, model)
+            except Exception as exc:
+                retrying = is_transient_error(exc) and attempt + 1 < attempts
+                logger.warning(
+                    "Model request failed",
+                    extra={"chunk_index": chunk_index, "model": model,
+                           "attempt": attempt + 1, "retrying": retrying,
+                           "error_type": type(exc).__name__}
+                )
+                if not retrying:
+                    raise
+                await asyncio.sleep(calculate_delay(attempt, config))
 
     async def _process_chunk_with_semaphore(
         self,
@@ -291,82 +302,51 @@ class AIProcessorAsync:
         semaphore: asyncio.Semaphore,
         total_chunks: int
     ) -> str:
-        """
-        Process chunk with concurrency control.
-
-        CRITICAL FIX: Now uses structured logging and retry logic
-        """
+        """Try the primary model, then the fallback; never silently reuse text."""
         async with semaphore:
             logger.info(
-                f"Processing chunk {chunk_index}/{total_chunks}",
-                chunk_index=chunk_index,
-                total_chunks=total_chunks,
-                chunk_length=len(chunk)
+                "Processing chunk",
+                extra={"chunk_index": chunk_index, "total_chunks": total_chunks,
+                       "chunk_length": len(chunk)}
             )
-
             try:
-                # Use retry logic with exponential backoff
-                @retry_async(RetryConfig(max_attempts=3, base_delay=1.0))
-                async def process_with_retry():
-                    return await self._process_chunk_async(chunk, context, self.model)
-
-                with timed_logger.timed("chunk_processing", chunk_index=chunk_index):
-                    result = await process_with_retry()
-
+                result = await self._request_with_retry(
+                    chunk, context, self.model, 3, chunk_index
+                )
                 logger.info(
-                    f"Chunk {chunk_index} completed successfully",
-                    chunk_index=chunk_index
+                    "Chunk completed with primary model",
+                    extra={"chunk_index": chunk_index, "model": self.model}
                 )
                 return result
-
-            except Exception as e:
+            except Exception as primary_error:
                 logger.warning(
-                    f"Chunk {chunk_index} failed with primary model: {e}",
-                    chunk_index=chunk_index,
-                    error_type=type(e).__name__,
-                    exc_info=True
+                    "Chunk failed with primary model",
+                    extra={"chunk_index": chunk_index, "model": self.model,
+                           "error_type": type(primary_error).__name__}
                 )
+                if not self.fallback_model or self.fallback_model == self.model:
+                    raise RuntimeError("Primary model failed; no fallback configured") from primary_error
 
-                # Retry with fallback model
-                if self.fallback_model and self.fallback_model != self.model:
-                    logger.info(
-                        f"Retrying chunk {chunk_index} with fallback model: {self.fallback_model}",
-                        chunk_index=chunk_index,
-                        fallback_model=self.fallback_model
+                logger.info(
+                    "Retrying chunk with fallback model",
+                    extra={"chunk_index": chunk_index, "fallback_model": self.fallback_model}
+                )
+                try:
+                    result = await self._request_with_retry(
+                        chunk, context, self.fallback_model, 2, chunk_index
                     )
-
-                    try:
-                        @retry_async(RetryConfig(max_attempts=2, base_delay=1.0))
-                        async def fallback_with_retry():
-                            return await self._process_chunk_async(chunk, context, self.fallback_model)
-
-                        result = await fallback_with_retry()
-                        logger.info(
-                            f"Chunk {chunk_index} succeeded with fallback model",
-                            chunk_index=chunk_index
-                        )
-                        return result
-
-                    except Exception as e2:
-                        logger.error(
-                            f"Chunk {chunk_index} failed with fallback model: {e2}",
-                            chunk_index=chunk_index,
-                            error_type=type(e2).__name__,
-                            exc_info=True
-                        )
-
-                # CLAUDE_FALLBACK: Signal Claude Code to take over manual correction
-                print("[CLAUDE_FALLBACK] GLM API unavailable. Claude Code should analyze this text for ASR errors:")
-                print("---")
-                print(chunk[:2000] if len(chunk) > 2000 else chunk)
-                print("---")
-                print("After fixing, MUST save corrections: --add \"错误词\" \"正确词\" --domain general")
-
-                logger.warning(
-                    f"Using original text for chunk {chunk_index} after all retries failed",
-                    chunk_index=chunk_index
+                except Exception as fallback_error:
+                    logger.error(
+                        "Chunk failed with fallback model",
+                        extra={"chunk_index": chunk_index, "model": self.fallback_model,
+                               "error_type": type(fallback_error).__name__}
+                    )
+                    raise RuntimeError("Primary and fallback models failed") from fallback_error
+                logger.info(
+                    "Chunk succeeded with fallback model",
+                    extra={"chunk_index": chunk_index, "model": self.fallback_model}
                 )
-                return chunk
+                return result
 
     def _split_into_chunks(self, text: str) -> List[str]:
         """

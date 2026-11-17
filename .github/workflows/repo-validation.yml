@@ -35,7 +35,7 @@ jobs:
           node-version: "22"
 
       - name: Install test dependencies
-        run: python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich
+        run: python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich httpx
 
       - name: Refresh and validate repository
         run: python scripts/validate_repository.py --refresh

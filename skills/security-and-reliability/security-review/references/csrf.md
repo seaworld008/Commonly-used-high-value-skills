@@ -1,398 +1,95 @@
-# Cross-Site Request Forgery (CSRF) Prevention Reference
+# 浏览器附带凭据的跨站写操作审查
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-CSRF attacks trick authenticated users into performing unintended actions by exploiting the browser's automatic credential transmission. The attack works because browsers automatically include cookies with requests to a domain, regardless of the request's origin.
+## 数据流与攻击前提
 
-## Attack Scenario
+恶意站点诱导浏览器发送请求，浏览器可能自动附带目标站点的 Cookie 或其他环境凭据。
+目标服务若只确认会话有效而不确认用户有意从可信页面发起操作，就可能执行跨站写入。
+关注改密、转账、改邮箱、绑定账户、退出和登录等状态变化，不只检查表单页面。
+SameSite 的 site 与 Origin 的源不是同一范围；受攻击者控制的同站子域也需要评估。
 
-```html
-<!-- Attacker's page -->
-<img src="https://bank.com/transfer?to=attacker&amount=10000">
-
-<!-- Or form submission -->
-<form action="https://bank.com/transfer" method="POST" id="evil">
-    <input name="to" value="attacker">
-    <input name="amount" value="10000">
-</form>
-<script>document.getElementById('evil').submit();</script>
-```
-
-When a logged-in user visits the attacker's page, their browser makes the request with their session cookie.
-
----
-
-## Primary Defenses
-
-### 1. Synchronizer Token Pattern
-
-Generate and validate a unique token per session.
+## 自写示例：把有效会话当成充分条件
 
 ```python
-import secrets
-
-# Generate token on session creation
-def create_csrf_token(session_id):
-    token = secrets.token_urlsafe(32)
-    store_csrf_token(session_id, token)
-    return token
-
-# Include in forms
-def render_form():
-    token = get_csrf_token(session.id)
-    return f'''
-    <form method="POST">
-        <input type="hidden" name="csrf_token" value="{token}">
-        <!-- form fields -->
-    </form>
-    '''
-
-# Validate on submission
-def validate_csrf():
-    submitted_token = request.form.get('csrf_token')
-    stored_token = get_csrf_token(session.id)
-
-    if not submitted_token or not secrets.compare_digest(submitted_token, stored_token):
-        raise CSRFValidationError()
+def unsafe_email_change(session, body):
+    if session is None:
+        raise PermissionError('login required')
+    return {'user_id': session['user_id'], 'new_email': body['email']}
 ```
 
-### 2. Double Submit Cookie Pattern (Stateless)
-
-Use a cryptographically signed token that doesn't require server-side storage.
+这段代码若由接收表单的路由调用，攻击站点可能在受害者 Cookie 下提交新邮箱。
+修正示例是只接受 JSON POST 的同源页面接口守卫，执行成功后才进入业务处理。
+`session['csrf']` 由服务用 `secrets.token_hex(32)` 生成并绑定会话，仅发给可信页面。
 
 ```python
 import hmac
-import hashlib
-import time
+import re
 
-SECRET_KEY = os.environ['CSRF_SECRET']
+APP_ORIGIN = 'https://app.example.invalid'
 
-def generate_csrf_token(session_id):
-    """Generate signed token tied to session."""
-    timestamp = int(time.time())
-    message = f"{session_id}:{timestamp}"
-    signature = hmac.new(
-        SECRET_KEY.encode(),
-        message.encode(),
-        hashlib.sha256
-    ).hexdigest()
-    return f"{timestamp}:{signature}"
-
-def validate_csrf_token(token, session_id):
-    """Validate token matches session and isn't expired."""
-    try:
-        timestamp, signature = token.split(':')
-        timestamp = int(timestamp)
-
-        # Check expiry (1 hour)
-        if time.time() - timestamp > 3600:
-            return False
-
-        # Verify signature
-        message = f"{session_id}:{timestamp}"
-        expected = hmac.new(
-            SECRET_KEY.encode(),
-            message.encode(),
-            hashlib.sha256
-        ).hexdigest()
-
-        return secrets.compare_digest(signature, expected)
-    except:
-        return False
+def require_csrf(method, origin, content_type, token, session):
+    if session is None:
+        raise PermissionError('login required')
+    if method != 'POST':
+        raise ValueError('method not allowed')
+    if origin != APP_ORIGIN:
+        raise PermissionError('untrusted origin')
+    if type(content_type) is not str or content_type.split(';', 1)[0].strip().lower() != 'application/json':
+        raise ValueError('unsupported media type')
+    expected = session.get('csrf')
+    if any(type(v) is not str or not re.fullmatch(r'[0-9a-f]{64}', v) for v in (token, expected)):
+        raise PermissionError('invalid csrf token')
+    if not hmac.compare_digest(token, expected):
+        raise PermissionError('invalid csrf token')
 ```
 
-### 3. SameSite Cookie Attribute
-
-```python
-# Modern browsers respect SameSite attribute
-response.set_cookie(
-    'session_id',
-    value=session_id,
-    samesite='Lax',   # Or 'Strict' for maximum protection
-    secure=True,
-    httponly=True
-)
-```
-
-**SameSite Values:**
-
-| Value | Behavior |
-|-------|----------|
-| **Strict** | Never sent cross-site |
-| **Lax** | Sent only with safe methods (GET) on top-level navigation |
-| **None** | Always sent (requires Secure) |
-
-### 4. Custom Request Headers
-
-For AJAX/API requests, require a custom header that can't be set cross-origin without CORS.
-
-```javascript
-// Client
-fetch('/api/transfer', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': getCSRFToken()  // Or any custom header
-    },
-    body: JSON.stringify(data)
-});
-```
-
-```python
-# Server
-@app.before_request
-def verify_csrf_header():
-    if request.method in ('POST', 'PUT', 'DELETE', 'PATCH'):
-        token = request.headers.get('X-CSRF-Token')
-        if not validate_csrf_token(token):
-            return jsonify({'error': 'CSRF validation failed'}), 403
-```
-
----
-
-## Framework Implementations
-
-### Django
-
-```python
-# Enabled by default via middleware
-MIDDLEWARE = [
-    'django.middleware.csrf.CsrfViewMiddleware',
-    ...
-]
-
-# In templates
-<form method="POST">
-    {% csrf_token %}
-    ...
-</form>
-
-# For AJAX
-<script>
-const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-fetch('/api/endpoint', {
-    method: 'POST',
-    headers: {'X-CSRFToken': csrftoken},
-    ...
-});
-</script>
-```
-
-### Flask
-
-```python
-from flask_wtf.csrf import CSRFProtect
-
-csrf = CSRFProtect(app)
-
-# In templates
-<form method="POST">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    ...
-</form>
-
-# Exempt specific routes if needed (be careful!)
-@csrf.exempt
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    pass
-```
-
-### Express.js
-
-```javascript
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true });
-
-app.use(csrfProtection);
-
-app.get('/form', (req, res) => {
-    res.render('form', { csrfToken: req.csrfToken() });
-});
-
-// In template
-<form method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    ...
-</form>
-```
-
----
-
-## Origin and Referer Validation
-
-As a supplementary defense:
-
-```python
-def verify_origin():
-    """Verify request origin matches expected domain."""
-    origin = request.headers.get('Origin')
-    referer = request.headers.get('Referer')
-
-    # Prefer Origin header
-    if origin:
-        if not is_trusted_origin(origin):
-            return False
-        return True
-
-    # Fall back to Referer
-    if referer:
-        parsed = urlparse(referer)
-        if not is_trusted_origin(f"{parsed.scheme}://{parsed.netloc}"):
-            return False
-        return True
-
-    # No origin info - could be same-origin or direct request
-    # Decision depends on security requirements
-    return True  # Or False for strict validation
-
-def is_trusted_origin(origin):
-    TRUSTED = {'https://example.com', 'https://admin.example.com'}
-    return origin in TRUSTED
-```
-
----
-
-## Fetch Metadata Headers
-
-Modern browsers send additional headers that indicate request context:
-
-```python
-def check_fetch_metadata():
-    """Use Fetch Metadata headers for CSRF protection."""
-    sec_fetch_site = request.headers.get('Sec-Fetch-Site')
-    sec_fetch_mode = request.headers.get('Sec-Fetch-Mode')
-
-    # Allow same-origin requests
-    if sec_fetch_site == 'same-origin':
-        return True
-
-    # Allow navigation requests (clicking links)
-    if sec_fetch_site == 'none' and sec_fetch_mode == 'navigate':
-        return True
-
-    # Block cross-origin state-changing requests
-    if request.method in ('POST', 'PUT', 'DELETE', 'PATCH'):
-        if sec_fetch_site in ('cross-site', 'same-site'):
-            return False
-
-    return True
-```
-
----
-
-## Client-Side CSRF
-
-Modern variant where JavaScript code uses attacker-controlled input:
-
-```javascript
-// VULNERABLE: URL fragment used in request
-const param = window.location.hash.substring(1);
-fetch(`/api/action?${param}`, { method: 'POST' });
-
-// Attack: https://example.com#action=delete&target=all
-
-// SAFE: Validate before use
-const allowedActions = ['view', 'refresh'];
-const param = window.location.hash.substring(1);
-const parsed = new URLSearchParams(param);
-if (allowedActions.includes(parsed.get('action'))) {
-    fetch(`/api/action?${param}`, { method: 'POST' });
-}
-```
-
----
-
-## Common Mistakes
-
-### 1. GET Requests for State Changes
-
-```python
-# VULNERABLE: State change via GET
-@app.route('/delete/<id>')
-def delete_item(id):
-    Item.delete(id)  # Attacker: <img src="/delete/123">
-
-# SAFE: Use POST for state changes
-@app.route('/delete/<id>', methods=['POST'])
-@csrf_required
-def delete_item(id):
-    Item.delete(id)
-```
-
-### 2. CORS Misconfiguration
-
-```python
-# VULNERABLE: Allows any origin with credentials
-@app.after_request
-def add_cors(response):
-    response.headers['Access-Control-Allow-Origin'] = request.headers.get('Origin')
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-
-# SAFE: Explicit allowlist
-ALLOWED_ORIGINS = {'https://trusted.com'}
-
-@app.after_request
-def add_cors(response):
-    origin = request.headers.get('Origin')
-    if origin in ALLOWED_ORIGINS:
-        response.headers['Access-Control-Allow-Origin'] = origin
-        response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-```
-
-### 3. Token in URL
-
-```html
-<!-- VULNERABLE: Token exposed in URL (logged, cached, referer) -->
-<a href="/action?csrf_token=abc123">Do Action</a>
-
-<!-- SAFE: Token in form -->
-<form method="POST" action="/action">
-    <input type="hidden" name="csrf_token" value="abc123">
-    <button type="submit">Do Action</button>
-</form>
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Missing CSRF protection
-grep -rn "@app\.route.*POST\|@router\.post" --include="*.py" | grep -v "csrf"
-
-# State-changing GET requests
-grep -rn "\.delete\|\.update\|\.create" --include="*.py" | grep "GET"
-
-# CORS wildcards
-grep -rn "Access-Control-Allow-Origin.*\*" --include="*.py"
-
-# Framework CSRF disabled
-grep -rn "csrf_exempt\|WTF_CSRF_ENABLED.*False\|csrf.*disable" --include="*.py"
-```
-
----
-
-## Testing Checklist
-
-- [ ] All state-changing requests require POST/PUT/DELETE
-- [ ] CSRF tokens included in all forms
-- [ ] CSRF tokens validated on submission
-- [ ] SameSite cookie attribute set (Lax or Strict)
-- [ ] Custom headers required for API requests
-- [ ] Origin/Referer validated as secondary defense
-- [ ] Fetch Metadata headers checked where supported
-- [ ] CORS properly configured (no wildcard with credentials)
-- [ ] Token not exposed in URL/logs
-- [ ] GET requests never change state
-
----
-
-## References
-
-- [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
-- [CWE-352: Cross-Site Request Forgery](https://cwe.mitre.org/data/definitions/352.html)
-- [Fetch Metadata Headers](https://web.dev/fetch-metadata/)
-- [SameSite Cookies Explained](https://web.dev/samesite-cookies-explained/)
+适配器从单一 Origin 头和专用 token 头取值，拒绝重复头，不接受 URL 查询参数中的 token。
+不得让请求 Host 或未验证的代理转发头决定 `APP_ORIGIN`；部署时替换为审核过的实际源。
+不带 Origin、值为 `null`、格式异常或来源不同的请求按本接口约定拒绝。
+需要非浏览器客户端时定义独立的非 Cookie 凭据入口，不能给此守卫加任意缺头放行分支。
+JSON 和自定义头只是额外约束；宽松 CORS 或同源脚本被控制时不能依靠预检保证安全。
+
+## 必须与路由共同落实的控制
+
+- GET、HEAD 和 OPTIONS 不改变业务状态；不能在守卫前完成写入或发送外部请求。
+- 登录后更换会话及 CSRF token，退出时销毁；登录接口也需绑定发起会话防止登录 CSRF。
+- Cookie 设置 Secure、HttpOnly 与合适的 SameSite，缩小 Domain/Path 范围并核对代理 TLS 终止。
+- CORS 凭据响应只授予明确可信源，不把任意请求 Origin 反射成允许源。
+- token 不进入 URL、访问日志、分析事件或跨源页面，错误响应不回显它。
+- HTML 表单流程若必须支持，应使用会话 token 和对应媒体类型的独立验证路径。
+- 更改邮箱、支付等高风险动作还需授权和再次确认；CSRF 验证不会授予业务权限。
+- 存在 XSS 时，同源恶意脚本通常可调用接口或读取 token，必须另行修复脚本注入。
+
+## 正反验收输入
+
+| 输入组合 | 预期 |
+| --- | --- |
+| 正常会话、准确 Origin、JSON POST、匹配 token | 进入业务处理 |
+| 跨源站点表单提交且带有效会话 | 拒绝，不写数据库 |
+| Origin 为 `null`、缺失或带额外后缀 | 拒绝 |
+| 同源但 token 缺失、取自另一会话或被改动 | 拒绝 |
+| 正确 token 但 GET 或 text/plain | 拒绝，不改变状态 |
+| 守卫失败时业务函数计数器 | 保持零，证明无先行副作用 |
+
+只使用受控测试站点和假账户；没有授权时不在真实用户浏览器中投递表单。
+
+## 易误报与适用边界
+
+仅通过显式 Authorization bearer token 认证、完全不接受环境凭据的入口可能不具备相同 CSRF 前提。
+应核查 Cookie 回退、Basic 认证和代理身份等实际路径，不能只看文档声称使用 bearer。
+本例故意拒绝缺 Origin 的客户端；兼容需求应设计可证明的替代路径，不静默放开。
+CSRF token 不解决 XSS、跨租户越权或被盗会话；同站子域和嵌入页面还需浏览器实际验收。
+
+## 实际验证证据
+
+保留路由方法、凭据类型、实际 Cookie 属性与各拒绝路径的数据库前后状态。
+真实浏览器核对跨站/同站子域、预检、重定向和会话轮换，记录请求头及无敏感值结果。
+单元调用守卫只证明条件分支，不能证明浏览器发哪些 Cookie 或代理保留哪些头。
+
+## 官方接口核对入口
+
+- [Fetch 的源、凭据与 CORS 模型](https://fetch.spec.whatwg.org/)
+- [HTML 表单模型](https://html.spec.whatwg.org/multipage/forms.html)
+
+先核对项目框架 CSRF 中间件、代理和目标浏览器版本，不以名称相似推断行为相同。

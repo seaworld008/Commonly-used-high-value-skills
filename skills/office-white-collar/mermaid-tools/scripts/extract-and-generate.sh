@@ -35,6 +35,7 @@ fi
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
+OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd)"
 
 # Configuration
 CHROME_PATH="${PUPPETEER_EXECUTABLE_PATH:-/usr/bin/google-chrome-stable}"
@@ -68,10 +69,11 @@ echo
 
 # Extract Mermaid diagrams from markdown
 echo "Extracting Mermaid diagrams from markdown..."
-python3 "$EXTRACTOR_SCRIPT" "$MARKDOWN_FILE" "$OUTPUT_DIR"
-
-if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to extract diagrams from markdown"
+batch=$(mktemp -d "${TMPDIR:-$OUTPUT_DIR}/mermaid-batch.XXXXXXXX")
+trap 'rm -rf -- "$batch"' EXIT
+manifest="$batch/inputs"
+if ! python3 "$EXTRACTOR_SCRIPT" "$MARKDOWN_FILE" "$OUTPUT_DIR" --manifest "$manifest"; then
+    echo "ERROR: Failed to extract diagrams from markdown" >&2
     exit 1
 fi
 
@@ -86,16 +88,16 @@ DEFAULT_WIDTH="${MERMAID_WIDTH:-1200}"
 DEFAULT_HEIGHT="${MERMAID_HEIGHT:-800}"
 SCALE_FACTOR="${MERMAID_SCALE:-2}"
 
-# Process all .mmd files in order
-mmd_files=(*.mmd)
+# Only consume the successful extraction's manifest, never historical inputs.
+mmd_files=()
+while IFS= read -r -d '' mmd_file; do
+    mmd_files+=("$mmd_file")
+done < "$manifest"
 
-if [ ${#mmd_files[@]} -eq 1 ] && [ "${mmd_files[0]}" = "*.mmd" ]; then
-    echo "No .mmd files found in output directory"
+if [ ${#mmd_files[@]} -eq 0 ]; then
+    echo "No Mermaid diagrams extracted from this document"
     exit 0
 fi
-
-# Sort files numerically by their prefix
-IFS=$'\n' mmd_files=($(sort -V <<< "${mmd_files[*]}"))
 
 echo "Found ${#mmd_files[@]} Mermaid diagram(s) to process"
 echo
@@ -134,8 +136,8 @@ PY
 }
 
 # Check only files produced by this run, even if a previous batch left PNGs here.
-stage=$(mktemp -d "./.mermaid-png.XXXXXXXX")
-trap 'rm -rf -- "$stage"' EXIT
+stage="$batch/png"
+mkdir "$stage"
 for mmd_file in "${mmd_files[@]}"; do
     if [ ! -f "$mmd_file" ]; then
         failed+=("${mmd_file%.mmd}.png (missing diagram input)")
@@ -205,8 +207,6 @@ echo "All PNG diagrams generated and validated successfully!"
 echo
 
 echo "Generated files (in sequence order):"
-ls -la [0-9][0-9]-*.png 2>/dev/null | awk '{printf "  %s (%s bytes)\n", $9, $5}' || echo "  No numbered PNG files found"
-
-echo
-echo "Generated files (all):"
-ls -la *.png 2>/dev/null | awk '{printf "  %s (%s bytes)\n", $9, $5}' || echo "  No PNG files found"
+for mmd_file in "${mmd_files[@]}"; do
+    printf '  %s\n' "${mmd_file%.mmd}.png"
+done

@@ -42,12 +42,12 @@ wc -l urls.txt
 
 ### 2. 检查可达性与跳转链
 
-脚本 `scripts/check_links.py` 提取绝对 URL，可输出逐跳状态、最终地址和风险提示。默认会自动访问重定向目标，并在 HEAD 返回 403、405 或 501 时改用 GET。它只在初始 URL 之间按初始主机延时，每跳和回退请求没有独立限速。
+脚本 `scripts/check_links.py` 提取绝对 URL，可输出逐跳状态、最终地址和风险提示。同主机重定向会逐跳校验，跨主机时停止并标记复核；HEAD 返回 403、405 或 501 时可回退 GET。每个实际请求（含跳转和回退）都按目标主机限速。
 先用 `--list-only` 列清单。无法确认网络授权时只交付清单。需要限定目标时，对每次请求先核对协议、主机和路径，并按实际目标主机限速。
 脚本可标记 `plain-http`、`shortener`、`punycode`、`cross-domain-redirect`、`permanent-redirect`、`long-redirect-chain` 和 `executable-download`。JSON 包含各跳状态，默认 TSV 汇总首尾地址与提示。
 ```bash
 python3 scripts/check_links.py --list-only README.md docs/*.md   # 只列出 URL，不发请求
-# 只有授权覆盖整条链、网络环境约束实际目标且允许上述请求频率时才使用自动跟随：
+# 在已授权的网络范围内检查；跨主机跳转由结果列出待复核：
 python3 scripts/check_links.py --json --timeout 10 --delay 1 README.md
 ```
 

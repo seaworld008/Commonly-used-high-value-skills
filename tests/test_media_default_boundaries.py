@@ -50,7 +50,7 @@ def test_image_codex_probes(tmp_path, flags, env, dotenv, reads, expected):
         const fs = require("node:fs");
         const path = require("node:path");
         const files = {
-          "config.toml": '[model_providers.test]\nbase_url = "https://codex.invalid"',
+          "config.toml": 'model_provider = "test"\n[model_providers.test]\nbase_url = "https://codex.invalid"',
           "auth.json": '{"OPENAI_API_KEY":"fake"}',
         };
         for (const method of ["existsSync", "readFileSync"]) {

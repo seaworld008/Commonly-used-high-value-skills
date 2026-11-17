@@ -4,14 +4,15 @@
 Policy:
   - Provenance v2 ``origins[]`` is the source of truth. Every external origin
     MUST declare an allowed SPDX license identifier on the origin itself.
+  - Active canonical copies must also ship the reviewed upstream license bytes
+    in the individual skill's install tree.
   - Provenance v1 repositories fall back to SKILL.md ``source``/``license``
     frontmatter until their mappings are migrated.
-  - Skills with `source: in-house` are exempt (licensed under the repo's own
-    LICENSE file).
+  - Local-only provenance entries and in-house frontmatter fallbacks are exempt.
 
 Exit code:
-  0  every external origin carries an allowed SPDX license
-  1  one or more external origins are missing or use a disallowed identifier
+  0  all applicable metadata and distribution checks passed
+  1  missing evidence or a disallowed identifier
 
 Usage:
     python scripts/audit_licenses.py           # report + exit code
@@ -23,9 +24,17 @@ from __future__ import annotations
 import argparse
 from collections import defaultdict
 import json
+import os
 import re
 from typing import Any
 from pathlib import Path
+
+try:
+    from provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, sha256_file
+    from github_artifact_provider import GitHubArtifactProvider
+except ModuleNotFoundError:  # package imports in tests
+    from scripts.provenance_v2 import ACTIVE_STATUSES, COMMIT_RE, SHA256_RE, sha256_file
+    from scripts.github_artifact_provider import GitHubArtifactProvider
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -132,7 +141,7 @@ def _origin_is_external(origin: dict[str, Any], entry_kind: str) -> bool:
 
     if normalized_repo in LOCAL_REPOS or normalized_repo.startswith("local-repo/"):
         return False
-    if repo in INHOUSE_SOURCES:
+    if repo and repo in INHOUSE_SOURCES:
         return False
 
     remote_locator = any(
@@ -146,6 +155,92 @@ def _origin_is_external(origin: dict[str, Any], entry_kind: str) -> bool:
     # An unclassified v2 origin is treated as external. This is intentionally
     # conservative: missing provenance must not create a license exemption.
     return True
+
+
+def _checkpoint_digest(origin: dict) -> str | None:
+    tracking = origin.get("tracking")
+    if not isinstance(tracking, dict):
+        return None
+    checkpoint = tracking.get("license_checkpoint")
+    if not isinstance(checkpoint, dict):
+        return None
+    digest = checkpoint.get("content_sha256")
+    commit = checkpoint.get("resolved_commit")
+    if (
+        isinstance(origin.get("license"), str)
+        and checkpoint.get("spdx") == origin["license"]
+        and isinstance(commit, str)
+        and COMMIT_RE.fullmatch(commit)
+        and commit == tracking.get("resolved_commit")
+        and isinstance(digest, str)
+        and SHA256_RE.fullmatch(digest)
+    ):
+        return digest.lower()
+    return None
+
+
+def _shipped_files(skill_dir: Path, repo_root: Path) -> dict[str, str]:
+    """Index packaged regular files without following links or manifest paths."""
+    files = {}
+    for directory, dirs, names in os.walk(skill_dir, followlinks=False):
+        dirs[:] = sorted(set(dirs) - {"__pycache__", ".data", ".git", "node_modules"})
+        for name in sorted(names):
+            path = Path(directory) / name
+            if name != "__pycache__" and not path.is_symlink() and path.is_file():
+                files[path.relative_to(repo_root).as_posix()] = sha256_file(path)
+    return files
+
+
+def _has_notice_body(path: Path, spdx: str) -> bool:
+    """A digest can also lock an empty file or a bare license declaration."""
+    labels = {"", spdx.casefold(), f"{spdx.casefold()} license"}
+    with path.open(encoding="utf-8-sig", errors="replace") as handle:
+        for line in handle:
+            line = line.strip().casefold()
+            if line not in labels and not line.startswith("spdx-license-identifier:"):
+                return True
+    return False
+
+
+def _bundled_license(
+    origin: dict, entry: dict, shipped: dict[str, str], reviewed: set[str], repo_root: Path,
+) -> tuple[str | None, str]:
+    tracking = origin.get("tracking") or {}
+    if not isinstance(tracking, dict):
+        return None, "invalid origin tracking"
+    if "license_checkpoint" in tracking:
+        expected = _checkpoint_digest(origin)
+        if expected is None:
+            return None, "invalid or inconsistent license_checkpoint"
+        for path, digest in shipped.items():
+            if digest == expected:
+                if not _has_notice_body(repo_root / path, origin["license"]):
+                    return None, f"{path} contains no upstream license body"
+                return path, ""
+        return None, f"no installed file matches license_checkpoint SHA-256 {expected}"
+
+    # Older snapshots can lock an upstream LICENSE through its artifact and
+    # managed file. The local lock alone cannot identify the license family.
+    # Compare the bytes to a reviewed license for this upstream or to the
+    # existing full-text template detector. Never borrow another skill's file.
+    locked = {f.get("path"): f.get("sha256") for f in entry.get("managed_files", [])
+              if isinstance(f, dict) and isinstance(f.get("path"), str)}
+    for artifact in origin.get("artifacts", []):
+        if not isinstance(artifact, dict) or not isinstance(artifact.get("target"), str):
+            continue
+        source = Path(str(artifact.get("source") or "")).name
+        target = artifact["target"]
+        if not re.fullmatch(r"(?:licen[cs]e|copying|notice|copyright)(?:[.-].+)?", source, re.I):
+            continue
+        digest = shipped.get(target)
+        if not digest or digest != locked.get(target):
+            continue
+        path = repo_root / target
+        if digest in reviewed and _has_notice_body(path, origin["license"]):
+            return target, ""
+        if GitHubArtifactProvider._detect_license_spdx(path.read_bytes()) == (origin["license"],):
+            return target, ""
+    return None, "no verifiable origin-mapped upstream license in the installed skill"
 
 
 def _origin_license_row(
@@ -182,10 +277,19 @@ def _aggregate_v2_row(
     *,
     fm: dict[str, str],
     claim: dict[str, Any],
+    skill_md: Path | None,
+    reviewed: dict[tuple[str, str], set[str]],
+    repo_root: Path,
 ) -> dict[str, Any]:
     entry = claim["entry"]
     entry_kind = str(entry.get("kind") or "")
     repo_skill = str(entry.get("repo_skill") or "")
+    check_distribution = (
+        bool(repo_skill)
+        and entry_kind != "reference_only"
+        and (skill_md is not None or entry.get("status") in ACTIVE_STATUSES)
+    )
+    shipped = None
     external_origins: list[dict[str, Any]] = []
     origins = entry.get("origins")
     if not isinstance(origins, list):
@@ -194,13 +298,19 @@ def _aggregate_v2_row(
         if not isinstance(origin, dict):
             continue
         if _origin_is_external(origin, entry_kind):
-            external_origins.append(
-                _origin_license_row(
-                    origin,
-                    mapping=claim["mapping"],
-                    index=index,
+            row = _origin_license_row(origin, mapping=claim["mapping"], index=index)
+            if check_distribution and row["status"] == "OK":
+                if shipped is None:
+                    shipped = _shipped_files(skill_md.parent, repo_root) if skill_md else {}
+                key = (row["repo"].lower(), row["license"])
+                path, error = _bundled_license(
+                    origin, entry, shipped, reviewed.get(key, set()), repo_root,
                 )
-            )
+                if error:
+                    row.update(status="MISSING", note=f"{row['repo']}: {error}")
+                else:
+                    row["bundled_license"] = path
+            external_origins.append(row)
     # Mirror-like entries represent copied artifacts and must identify an
     # auditable external origin. A composite is local orchestration over
     # separately claimed dependencies, while a reference-only entry may merely
@@ -320,16 +430,45 @@ def _frontmatter_row(
     }
 
 
+def _skill_entries(repo_root: Path) -> dict[str, Path]:
+    def directories(parent: Path) -> list[Path]:
+        return sorted(
+            p for p in parent.iterdir()
+            if not p.name.startswith(".") and not p.is_symlink() and p.is_dir()
+        )
+
+    root = repo_root / "skills"
+    entries = {}
+    if root.is_symlink() or not root.is_dir():
+        return entries
+    for category in directories(root):
+        for directory in directories(category):
+            path = directory / "SKILL.md"
+            if not path.is_symlink() and path.is_file():
+                entries[path.relative_to(repo_root).as_posix()] = path
+    return entries
+
+
 def audit(
     repo_root: Path = REPO_ROOT,
     mapping_paths: list[Path] | None = None,
 ) -> list[dict[str, Any]]:
     provenance_entries = load_provenance_entries(repo_root, mapping_paths)
     rows: list[dict[str, Any]] = []
+    skills = _skill_entries(repo_root)
+    reviewed: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for claim in provenance_entries:
+        origins = claim["entry"].get("origins")
+        if not isinstance(origins, list):
+            continue
+        for origin in origins:
+            if isinstance(origin, dict) and (digest := _checkpoint_digest(origin)):
+                repo = str(origin.get("repo") or origin.get("source") or "").lower()
+                if repo:
+                    reviewed[(repo, origin["license"])].add(digest)
 
     # Provenance v2 is the primary audit collection. Iterate every mapping entry
-    # once so noncanonical bundles and snapshots receive exactly the same
-    # license gate as canonical skills.
+    # once, including metadata-only records for non-installed bundles.
     v2_claimed_skills: set[str] = set()
     for claim in provenance_entries:
         entry = claim["entry"]
@@ -339,10 +478,10 @@ def audit(
 
         repo_skill = str(entry.get("repo_skill") or "")
         fm: dict[str, str] = {}
+        skill_md = skills.get(repo_skill)
         if repo_skill:
             v2_claimed_skills.add(repo_skill)
-            skill_md = repo_root / repo_skill
-            if skill_md.is_file():
+            if skill_md is not None:
                 fm = parse_frontmatter(
                     skill_md.read_text(encoding="utf-8", errors="replace")
                 )
@@ -350,16 +489,18 @@ def audit(
             _aggregate_v2_row(
                 fm=fm,
                 claim=claim,
+                skill_md=skill_md,
+                reviewed=reviewed,
+                repo_root=repo_root,
             )
         )
 
     # Preserve the v1/frontmatter fallback only for canonical skills that are
     # not already represented by a v2 entry.
-    for skill_md in sorted((repo_root / "skills").glob("*/*/SKILL.md")):
-        fm = parse_frontmatter(skill_md.read_text(encoding="utf-8", errors="replace"))
-        rel = skill_md.relative_to(repo_root).as_posix()
+    for rel, skill_md in skills.items():
         if rel in v2_claimed_skills:
             continue
+        fm = parse_frontmatter(skill_md.read_text(encoding="utf-8", errors="replace"))
         rows.append(_frontmatter_row(skill_md=skill_md, repo_root=repo_root, fm=fm))
     return rows
 
@@ -494,7 +635,7 @@ def main() -> int:
         print(f"  MISSING:           {len(missing)}")
         print(f"  DISALLOWED SPDX:   {len(unknown)}")
         for r in missing:
-            print(f"    MISSING  {r['skill']} ({r['source']})")
+            print(f"    MISSING  {r['skill']} ({r['source']}): {r['note']}")
         for r in unknown:
             print(f"    DISALLOWED  {r['skill']} ({r['source']}): {r['license']}")
 

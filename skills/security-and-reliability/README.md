@@ -33,7 +33,7 @@
 | `security-model` | 维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。 | [目录](./security-model/) | [SKILL.md](./security-model/SKILL.md) |
 | `security-ownership-map` | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 | [目录](./security-ownership-map/) | [SKILL.md](./security-ownership-map/SKILL.md) |
 | `security-pen-testing` | 在授权范围内执行漏洞扫描、渗透测试和修复验证。 | [目录](./security-pen-testing/) | [SKILL.md](./security-pen-testing/SKILL.md) |
-| `security-review` | 依据代码证据审查注入、认证、授权和加密漏洞。 | [目录](./security-review/) | [SKILL.md](./security-review/SKILL.md) |
+| `security-review` | 用于代码差异与应用漏洞审查，沿攻击者输入追踪边界、控制与危险操作，交付有证据的缺陷、最小修复及正反验收。 | [目录](./security-review/) | [SKILL.md](./security-review/SKILL.md) |
 | `security-threat-model` | 用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。 | [目录](./security-threat-model/) | [SKILL.md](./security-threat-model/SKILL.md) |
 | `semgrep-appsec-scanner` | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 | [目录](./semgrep-appsec-scanner/) | [SKILL.md](./semgrep-appsec-scanner/SKILL.md) |
 | `sentry` | 只读查询 Sentry issues 与 events，汇总线上错误趋势和事件详情。 | [目录](./sentry/) | [SKILL.md](./sentry/SKILL.md) |

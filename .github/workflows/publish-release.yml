@@ -80,7 +80,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich
+          python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich httpx
           python scripts/validate_repository.py --refresh
           git diff --exit-code
           npm test

@@ -1,210 +1,215 @@
-# Extended procedures and examples
+# 杂志网页演示：案例、诊断与验收
 
-Use [SKILL.md](SKILL.md) to select the task. Read only the sections it links for the current step.
+本文是 [SKILL.md](SKILL.md) 的按需扩展，属于固定 MIT 快照的本地改编。
+只描述随包杂志模板和参考资料所支持的制作方法。
+代码片段插入项目副本 `index.html` 的 `#deck`，不修改技能资产。
 
-<a id="section-1"></a>
+## 来源与核验口径
 
-#### 3.1 · 挑布局
+- 原始技能：歸藏，`op7418/guizang-ppt-skill`。
+- 固定引用：`72837a8513d1145d800095fc3909d6d3057994b8`。
+- 入口依据：本次维护提供的完整 MIT 快照入口文本。
+- 资产依据：`assets/template.html`、`assets/motion.min.js` 及 `references/` 下 5 个文件。
+- 维护交接确认：以上 7 个文件逐字节等于该 MIT 快照。
+- 维护交接提供的 MIT 许可证 SHA256：`2b33f1f1d11c7bc2dc2985f4a7f014338323ff58a1cd6ae91c16b727275a3df3`。
+- 本次文档重建未重新获取或独立核验许可证正文；许可证分发由来源维护环节处理。
+- 此授权范围不表示当前 AGPL 上游已经改回 MIT，也不覆盖后来混入的项目附属文档。
+- 本地改编日期：2026-11-17；修正运行依赖、空插槽、字体和裁切表述，整理制作案例。
 
-**不要从零写 slide**。打开对应的 layouts 文件,里面有 10 种现成布局骨架,每种都是完整可粘贴的 `<section>` 代码块。
+## 8 页案例：一次工作流程分享
 
-**风格 A** → `references/layouts.md`:
+假定用户已经给出流程素材、两张真实截图和一个经确认的效率指标。
+以下只是版式计划，指标和截图由用户素材填充，不使用参考骨架里的示例业绩。
+目标是让观众看懂“原流程遇到什么问题，改了什么，证据是什么，下一步做什么”。
 
-| Layout | 用途 |
-|---|---|
-| 1. 开场封面 | 第 1 页 |
-| 2. 章节幕封 | 每幕开场 |
-| 3. 数据大字报 | 抛硬数据 |
-| 4. 左文右图(Quote + Image) | 身份反差 / 故事 |
-| 5. 图片网格 | 多图对比 / 截图实证 |
-| 6. 两列流水线(Pipeline) | 工作流程 |
-| 7. 悬念收束 / 问题页 | 幕末 / 收尾 |
-| 8. 大引用页(Big Quote) | 衬线金句 / takeaway |
-| 9. 并列对比(Before / After) | 旧模式 vs 新模式 |
-| 10. 图文混排(Lead Image + Side Text) | 信息密集的图文页 |
+| 页 | 页面目的与主张 | 布局 | 主题 | 素材或验收重点 |
+|---|---|---|---|---|
+| 01 | 用一个问题引出工作方式变化 | 1 封面 | `hero dark` | 短标题、分享者、日期 |
+| 02 | 展示一个关键指标 | 3 数据大字报 | `light` | 数字、单位、口径、来源 |
+| 03 | 解释原流程的痛点 | 4 左文右图 | `dark` | 真实截图、短解释 |
+| 04 | 展示改动后的步骤 | 6 流水线 | `light` | 步骤顺序、输入与产出 |
+| 05 | 从做法转到证据 | 2 章节幕封 | `hero light` | 一个转折标题 |
+| 06 | 比较前后界面 | 5 图片网格 | `light` | 等高面板、同口径图注 |
+| 07 | 提炼方法的适用边界 | 8 大引用 | `dark` | 判断与限制，引用有归属 |
+| 08 | 留下可执行的下一步 | 7 问题或收束 | `hero dark` | 一个行动或问题 |
 
-**风格 B** → 先读 `references/swiss-layout-lock.md`,再读 `references/layouts-swiss.md`。
+这张表同时约束叙事和亮暗节奏，避免粘贴骨架后正文全是浅底。
+如果只有一张截图，把第 06 页改为图文混排，不复制同一张图冒充两份证据。
+如果没有可靠指标，把第 02 页换成问题或背景，不制造漂亮的大数字。
+如果第 04 页有超过 6 个步骤，拆成两页或两组流程，不把步骤名缩到无法投影阅读。
+缺少某页素材时，在大纲里标记待补，先完成不依赖该素材的页面。
 
-瑞士主题默认进入 **Swiss locked mode**:
+## 最小页面与内容替换
 
-- 正文页只能使用原始参考 PPT 登记的 22 个版式 `S01-S22`;新增首页/尾页只能使用 Skill 明确提供的 `SWISS-COVER-ASCII` / `SWISS-CLOSING-ASCII`。
-- 每个 `<section class="slide">` 必须写 `data-layout="Sxx"`。没有 `data-layout` 就视为未登记版式。
-- 不允许临时发明 `P23/P24`、`Swiss Image Split`、`Evidence Grid` 这类原始 22P 之外的正文结构,除非用户明确要求实验版式。
-- 顶部中文标题默认左对齐、处在左上内容轴。不要把小标题放左列、大标题放右列,造成视觉居中;只有原始 statement/split 版式允许强中心叙事。
-- SVG 只负责几何图形。不要在 SVG 里写文字标签,所有标签改用 HTML 网格/卡片/caption。
-- 地理/历史/城市路线/地点关系页使用 `S08 + Swiss Map Component`:先读 `references/swiss-map-component.md`,仍保留 `data-layout="S08"`。
+模板实际使用 `<div id="deck">`，并非带三张示例页的 `<main>`。
+将 `<!-- SLIDES_HERE -->` 替换为至少一个 section，保留模板其余结构。
+以下片段展示短标题、正文及上下元数据的分工，可作为第一张页面的检查样本。
 
-原始 22 个正文版式如下:
-
-| Layout | 用途 |
-|---|---|
-| S01 Index Cover | 原始索引封面 |
-| S02 Vertical Timeline + KPI | 演化对比 / 年代变迁 |
-| S03 Split Statement | 核心论点 / 左右分屏 |
-| S04 Six Cells | 6 项概念定义 |
-| S05 Three Layers | 三层架构 |
-| S06 KPI Tower | 4 项数据视觉化高度差 |
-| S07 H-Bar Chart | 5-10 项排名比较 |
-| S08 Duo Compare | Before/After 对照 |
-| S09 Dot Matrix Statement | 大引述 / statement |
-| S10 Split Closing | 收束页 |
-| S11 Horizontal Timeline | 4-7 步流程 |
-| S12 Manifesto + Ink Banner | 阶段性结论 |
-| S13 Three Forces | 3 个对等概念深化 |
-| S14 Loop Form | 自学闭环 / 自动化 |
-| S15 Matrix + Hero Stat | 8-12 项矩阵 + 总数据 |
-| S16 Multi-card Brief | 6 项快讯小卡 |
-| S17 System Diagram | 三层架构 / 生态地图 |
-| S18 Why Now | 三论点 + 数据支撑 |
-| S19 Four Cards | 4 项等权特性 |
-| S20 Stacked KPI Ledger | 纵向账单数据 |
-| S21 Tech Spec Sheet | 产品规格 / benchmark |
-| S22 Image Hero | 21:9 顶图 + 标题块 + 三列 KPI |
-
-**登记扩展**:`S08 + Swiss Map Component` 用于地点、人物住所、路线、城市关系。它不是新 layout,而是 S08 右侧插槽的 MapLibre 地图组件;必须按 `references/swiss-map-component.md` 的点位、连线、卡片和右上角缩放/拖动控制实现。
-
-选对应 layout,粘过去,改文案和图片路径即可。**务必先完成 3.0 预检**。
-
-**风格 B 版式多样性硬规则**:
-- 7-8 页 deck 至少使用 **6 个不同 S 编号版式**;10 页以上至少使用 8 个不同版式。
-- 如果用户说"测试模板 / 看看效果 / 多一点版式",必须覆盖:一个封面、一个收尾、至少 1 个对比或时间线(S08/S11/S02)、至少 1 个结构图(S14/S17/S15)、至少 1 个图片版式(S22 或 S15/S16 图片格改造)。
-- 不允许连续 3 页使用同一种主体结构,例如连续三页 `head + grid + card`。
-- 图片页不能偷懒发明新结构。2-3 张图时,用 S15/S16 的原始网格骨架改造成图片格;单张大图用 S22。
-- 开写 HTML 前先列一张 `页码 → data-layout → 选用理由 → 图片槽位` 草稿;交付前运行 `node <SKILL_ROOT>/scripts/validate-swiss-deck.mjs index.html`。校验器会先做静态结构检查;如果环境中能解析到 Playwright,还会做真实渲染后的可见边界、底部空白、nav 安全线和标题间距测量。
-
-<a id="section-2"></a>
-
-## 资源文件导览
-
-```
-guizang-ppt-skill/
-├── SKILL.md                  ← 你正在读
-├── assets/
-│   ├── template.html         ← 风格 A · 电子杂志风模板（种子文件）
-│   ├── template-swiss.html   ← 风格 B · 瑞士国际主义风模板（种子文件）
-│   ├── screenshot-backgrounds/ ← 截图美化内置背景(WebP):style-a 5 套 / style-b 4 套
-│   └── motion.min.js         ← Motion One 本地副本（离线兜底,约 64KB,共用）
-├── scripts/
-│   ├── validate-swiss-deck.mjs ← 风格 B 静态校验:登记版式、图片槽位、SVG 文本、标题对齐
-│   └── validate-presenter-mode.mjs ← 两种风格共用:页面 ID、演讲备注、时长和演讲者运行时校验
-└── references/
-    ├── components.md         ← 组件手册（字体、色、网格、图标、callout、stat、pipeline、动效... 风格 A 适用）
-    ├── layouts.md            ← 风格 A · 10 种页面布局骨架（可直接粘贴,含动效标记）
-    ├── swiss-layout-lock.md  ← 风格 B · 原始 22P 版式锁,正文页必须按这里登记
-    ├── layouts-swiss.md      ← 风格 B · 原始 22P 骨架说明 + 少量明确标注的实验区
-    ├── swiss-map-component.md ← 风格 B · S08 地图扩展组件(MapLibre 点位/连线/卡片/控制)
-    ├── themes.md             ← 风格 A · 5 套主题色预设（只能选不能自定义）
-    ├── themes-swiss.md       ← 风格 B · 4 套瑞士风主题色预设（IKB / 柠檬黄 / 柠檬绿 / 安全橙）
-    ├── image-prompts.md      ← GPT-M 2.0 配图类型、比例和基础提示词
-    ├── screenshot-framing.md ← CleanShot X 式截图适配语义 + 内置背景资产映射
-    ├── presenter-mode.md     ← 演讲者 UI、AI 备注结构、观众屏同步与恢复契约
-    └── checklist.md          ← 质量检查清单（P0/P1/P2/P3 分级）
+```html
+<section class="slide hero dark">
+  <div class="chrome">
+    <span>工作方法分享</span><span>01 / 08</span>
+  </div>
+  <div class="frame" style="justify-content:center;gap:3vh">
+    <p class="kicker" data-anim>从一次真实的流程变化讲起</p>
+    <h1 class="h-hero" style="white-space:nowrap" data-anim>重新协作</h1>
+    <p class="body-zh" style="max-width:52vw" data-anim>
+      先讲清输入与结果，再解释工具如何参与。
+    </p>
+  </div>
+  <div class="foot"><span>流程与证据</span><span>开场</span></div>
+</section>
 ```
 
-**加载顺序建议**：
-1. 先读完 `SKILL.md`(这个文件)了解整体
-2. Step 1 需求澄清**第一问**先确定风格 A 还是 B,然后:
-   - 风格 A:读 `themes.md` 帮用户选一套主题色
-   - 风格 B:读 `themes-swiss.md` 帮用户选一套主题色
-3. **动手前 Read 对应模板的 `<style>` 块**——这是类名的唯一来源,缺类会导致整页样式崩
-   - 风格 A → `assets/template.html`
-   - 风格 B → `assets/template-swiss.html`
-4. 读对应的 layouts 文件挑布局:
-   - 风格 A → `layouts.md`(顶部有 Pre-flight 类名清单、主题节奏规划、动效 recipe 决策树)
-   - 风格 B → **先读 `swiss-layout-lock.md`**,再读 `layouts-swiss.md`;正文页必须从 S01-S22 选择,每页写 `data-layout`
-5. 如果风格 B 需要地点、路线、人物住所或城市关系地图,读 `swiss-map-component.md`
-6. 如果在 Codex 中生成配图,读 `image-prompts.md` 挑图片类型、比例和基础提示词;如果是用户原始截图,先读 `screenshot-framing.md`,优先使用 `assets/screenshot-backgrounds/` 的内置背景资产
-7. 细节调整时读 `components.md` 查组件(含 Motion 动效系统章节,主要服务风格 A;风格 B 的组件细节在 `layouts-swiss.md` 附录)
-8. 正式演讲先读 `presenter-mode.md`,生成稳定页面 ID 和 `SPEAKER_NOTES`
-9. 生成后先运行 `validate-presenter-mode.mjs`;风格 B 再运行 `validate-swiss-deck.mjs`,最后读 `checklist.md` 自检
+页码、标题、页眉和正文都应随项目更换。
+上例 `01 / 08` 是 8 页案例中的手工页码，不会自动随导航更新。
+模板脚本只依据 `.slide` 数量建立圆点及翻页范围。
+新增或删页后，重新核对所有可见页码和总数。
 
-**动效相关**:模板已把 Motion One 的加载和 recipe 逻辑内嵌到底部 module script。你不需要改 JS,只需要按 `layouts.md` / `layouts-swiss.md` 的骨架在 HTML 里加 `data-anim` / `data-animate` 即可。离线演示靠 `assets/motion.min.js`,断网时自动降级为"无动画但内容可读"。风格 B 模板必须保留 `B` 键低功耗模式:切换后停止 WebGL/ASCII canvas RAF,取消正在运行的 Web Animations,并把当前页内容直接 reveal 到静态最终态。
+## 图文页：先选槽位，再放图片
 
-<a id="section-3"></a>
+图文页用已定义的双列 grid，文字和图片分别位于两个 cell。
+标题较高时，可以小幅调整图片上边距以对齐正文，但须在低高度窗口再验。
+不要用页底绝对定位制造“对齐”，它会侵入页脚或导航。
 
-#### 3.2.2 · 瑞士风演示最小字号与字重阶梯(风格 B 必做)
+```html
+<section class="slide dark">
+  <div class="chrome"><span>流程观察</span><span>03 / 08</span></div>
+  <div class="frame grid-2-7-5" style="padding-top:4vh">
+    <div>
+      <p class="kicker" data-anim>问题出在交接处</p>
+      <h2 class="h-xl" data-anim>信息断层</h2>
+      <p class="body-zh" style="margin-top:3vh" data-anim>
+        用真实素材解释一个可观察到的问题，避免堆叠多个结论。
+      </p>
+    </div>
+    <div data-anim>
+      <figure class="frame-img r-16x10 fit-contain">
+        <img src="images/03-workflow.png" alt="原流程交接界面的完整截图">
+      </figure>
+      <p class="img-cap">真实截图 · 图注补充来源与必要上下文</p>
+    </div>
+  </div>
+  <div class="foot"><span>原流程</span><span>问题与证据</span></div>
+</section>
+```
 
-瑞士风用于投屏演示时,小字不能按网页注释的 10-12px 写。默认遵守以下下限:
+`fit-contain` 适合必须完整展示的 UI、图表、标注和信息图。
+照片使用默认 `cover` 时检查人物、顶部和左右边缘，不能仅凭 `top center` 推断没有裁切。
+照片的构图确实允许裁切时再接受 cover；关键信息被切掉就换图、换槽位或改 contain。
+网格中使用 `.frame-img.h-22` 或 `.h-26`，同组统一高度，不混用 aspect-ratio。
+同一组对比截图保留相近缩放和图注口径，避免视觉大小暗示不存在的差异。
+如果单张截图过长，拆成若干局部时注明局部范围，仍保留原始图片供核对。
 
-| 文本类型 | 最小字号 |
-|---|---|
-| 正文段落 / 主要说明 | `18px` |
-| 卡片描述 / 列表 / 时间线说明 / caption / 图注 | `16px` |
-| meta / kicker / mono label / 图表标签 | `14px` |
+## 数据页与引用页的内容纪律
 
-如果内容放不下,先删减文案、拆成两页、换更适合的 Sxx 版式,不要把字号压到 10/11/12/13px。尤其是中文 deck,不要为了塞三行解释把 `body-sm`、caption、timeline label 改小。
+大字报用 `.stat-card` 组织标签、数字、单位和注释。
+一个指标优先讲清意义，多个指标使用统一统计口径。
+来源不足时保留“待确认”状态，不将参考布局中的数字替换成另一个猜测值。
 
-**字号与字重阶梯(瑞士风核心)** — "越大越细,越小越粗"不是感性描述,而是具体映射:
-
-| 字号区间 | 推荐字重 | 典型场景 |
+| 元素 | 类名 | 应填写的信息 |
 |---|---|---|
-| ≥ 8vw | 200 (ExtraLight) | 封面大字、巨号 KPI、h-statement |
-| 4-7.9vw | 200-300 | 章节标题(h-xl/h-xl-zh)、大编号 |
-| 1.8-3.9vw | 300-400 | 中型标题、takeaway 标题(≈1.8vw)、中号数字 |
-| 1-1.7vw / 16-20px | 400-500 | 正文段落、卡片描述、说明文字 |
-| 13-15px(小字) | 500-600 | meta、kicker、角标、图表标签、caption 强调 |
+| 指标名称 | `stat-label` | 统计对象，避免只有抽象口号 |
+| 主数字 | `stat-nb` | 已确认数值 |
+| 单位 | `stat-unit` | 天、次、百分比等，含义明确 |
+| 注释 | `stat-note` | 口径、时间范围、比较基线 |
+| 来源 | `callout-src` 或普通注释 | 可核对的素材出处 |
 
-**硬规则:**
-- 同一页内,字号越小的元素字重必须 ≥ 字号越大的元素(不允许 16px 正文用 300 而 1.8vw 标题用 500)
-- 16px 左右的小字拒绝使用 weight 300(太细不可读),最低 400,推荐 500
-- 封面/IkB 反白大标题内强调字用 `italic + weight 300`,不要用 accent 色(蓝压蓝看不见)
+大引用以判断和语言节奏为主，用 `data-animate="quote"`。
+每行文字放在带 `data-anim="line"` 的元素中，便于逐行进入。
+他人引文保留归属，自拟观点不伪装为外部引用。
+长句分行按语义切分，不把一整段正文放大来代替编辑。
 
-组件细节(字体、颜色、网格、图标、callout、stat-card 等)在 `references/components.md`。
+## 动效 recipe 与导航诊断
 
-<a id="section-4"></a>
+| Recipe | 选择方式 | 内容标记 | 预期行为 |
+|---|---|---|---|
+| cascade | 普通页默认 | `data-anim` | 按 DOM 顺序进入 |
+| hero | hero 页自动，或显式指定 | `data-anim` | 较舒缓的开场揭示 |
+| quote | `data-animate="quote"` | `data-anim="line"` | 引文逐行进入 |
+| directional | `data-animate="directional"` | `left`、`divider`、`right` | 左列、分隔、右列依次出现 |
+| pipeline | `data-animate="pipeline"` | `step`，可配 `arrow` | 向前操作逐步揭示，结束后翻页 |
 
-#### 风格 B · 瑞士国际主义必查
+recipe 名称放在 section 的 `data-animate`，元素角色放在 `data-anim`。
+自定义名字没有随包 recipe 实现，不应仅写属性就承诺新的动画行为。
+出现空白内容时，先看是否挂上 `motion-ready` 却未完成揭示。
+再核对 `data-anim` 层级及当前 section 的 recipe；不要盲目增加更多动画。
+返回已播放页面时检查是否正常重置，快速翻页后检查文字能否最终完整显示。
 
-1. **全程无衬线**——任何衬线字体出现都是错的(检查 `font-family` 没用 `--serif` 类变量)
-2. **只有一个 accent 色**——一份 deck 不能同时出现 IKB 蓝 + 柠檬黄 + 安全橙等多个高亮色
-3. **不允许渐变 / 阴影 / 圆角**——所有色块直角纯色,任何 `box-shadow` / `linear-gradient` / `border-radius` > 0 都要砍掉(rule 横线除外)
-4. **极致字号对比**——主标题与正文比例 ≥ 8:1
-5. **大字号必须双约束限高**——`font-size:min(Xvw, Yvh)`,只用 vw 在标准 16:9 屏会溢出(吸取 P15/P20/P22 教训)
-6. **大字字重 200**(ExtraLight)——字号越大越细,瑞士风灵魂;**禁止** 600/700/800 大字
-7. **卡片填充类型互斥**——`card-ink` / `card-accent` / `card-fill` / `card-outlined` 四类**不能混用**(禁止"蓝底+蓝描边"、"灰底+描边"等)
-8. **多卡并列时统一样式**——3-12 张卡用同一类(优先 `card-fill` 灰底);只突出一项时单独换 `card-accent`,且**只允许一张**
-9. **直角到底**——任何 `border-radius` 都不允许;装饰用 8×8 直角小方块,**不要** 9px 圆形点
-10. **图标用 lucide,不自己画 SVG**——`<i data-lucide="name"></i>` + `lucide.createIcons()`,选棱角风格(避免圆胖)
-11. **时间线对齐**——axis 列固定 12px + dot 绝对定位,**不要**用 grid `justify-self`(会与虚线错位)
-12. **章节级标题与内容间距 ≥ 9vh**——避免拥挤(吸取 P15/P16 教训)
-13. **每页一个语义化动效 recipe**——不是统一 fade-up,数字 scale 弹入、bar scaleY 拉起、SVG stroke 描线、节点序列点亮等;**禁止**所有页用同一个 generic 配方
-14. **playSlide 入口 reveal 容器**——`[data-anim]` 容器先强制 opacity:1,recipe 内再用 motion `{opacity:[0,1]}` 覆盖,否则有些页会"看不见"
-15. **ESC 索引页可见性**——cloned slide 必须有 CSS override 让 `[data-anim]` 在缩略图里 opacity:1
-16. **Helvetica/Inter 兜底中文字体**——Windows 用户没有"苹方",必须 fallback 到 `"Microsoft YaHei UI", "Noto Sans SC"`
-17. **字体粗细体例**:大字 200 / 正文 300 / `t-cat` SemiBold 600 / `t-meta` mono uppercase
-18. **保留低功耗快捷键**——右下角必须提示 `B 静态`;按 `B` 切换 `body.low-power`,停止 WebGL/ASCII canvas RAF 和 Motion 入场动画
-19. **装饰元素严格在 grid 内**——bars 矩阵、点阵、ring-mat 不能贴边或溢出页面
-20. **底部内容预留 nav 空间**——nav 在 ~97vh,内容收尾不要过 93vh(吸取 P22 KPI 大字溢底教训)
-21. **图片容器直角无阴影**——`.frame-img` 不加 `border-radius` / `box-shadow`;边界只用 hairline
-22. **S15/S16/S22 图片同组一致**——同一组图片统一比例、高度、边距、线条粗细;信息图/UI 图加 `.fit-contain`
-23. **组件角色要正确**——S15/S16 图片格需要 caption 信息锚点;S22 的 KPI/说明是必选;数据专用版式必须有真实数据,不能靠文案硬填
-24. **通用/非通用版式要分清**——S03/S08/S11/S19 较通用;S06/S07/S20/S21/S22 是数据/案例专用;S14/S15/S17 是结构专用
+流水线的空格、向右键、正向滚轮或左滑操作可被步骤推进逻辑消耗。
+最后一步揭示完后，下一次向前操作才进入下一页。
+圆点跳页不等于依次推进，验收时应分别覆盖两种路径。
+ESC 打开索引后点击缩略页，应关闭索引并切到该页。
+索引只是 DOM 克隆视图，不把它描述为已生成的截图或导出文件。
 
-<a id="section-5"></a>
+## 依赖与降级
 
-#### 3.2 · 图片比例规范
+| 依赖 | 模板中的位置或方式 | 实际限制与核对方法 |
+|---|---|---|
+| CSS 与导航 | 内联于 `index.html` | deck 不能为空；ID 及选择器须保持对应 |
+| WebGL | 两张 canvas、内联 shader | GPU、浏览器策略和渲染结果需实测 |
+| Google Fonts | 远程 stylesheet | 断网会 fallback，重新看字宽与换行 |
+| Lucide | unpkg 远程脚本 | 加载失败可能缺图标，动作含义仍需清晰 |
+| Motion | 本地模块优先、jsDelivr 后备 | 本地文件存在不代表浏览器允许 file 模块 |
+| 图片 | `images/` 相对路径 | 大小写、改名和复制遗漏均可能破图 |
 
-永远用**标准比例**,不要用原图奇葩比例(如 `2592/1798`):
+本地 Motion 必须位于成品 `assets/motion.min.js`，仅复制 HTML 会遗漏它。
+两次 Motion 导入都失败时，模板有将动效元素设为可见的降级逻辑。
+该分支的存在属于静态事实，能否在目标浏览器完成降级仍需实际验收。
+模板字体和 Lucide 没有随包离线副本，不能笼统承诺“离线一切正常”。
+若现场必须离线，先在目标浏览器断网重载验证；存在缺口就列出，
+按任务授权决定本地化依赖或保留可读的降级版本，不自动安装或抓取资源。
+如果浏览器禁止从文件地址加载模块，先说明限制；使用现有可用的预览能力时遵守宿主约束。
+禁止开端口或启动浏览器的环境只做静态核对，并把视觉检查留给具备条件的验收环节。
 
-| 场景 | 推荐比例 |
-|------|---------|
-| S22 顶部主图 | **21:9**;照片关键主体放中央安全区 |
-| S15/S16 多图格 | 统一 21:9 或统一 16:10,不能混用 |
-| 左文右图 主图(风格 A) | 16:10 或 4:3 + `max-height:56vh` |
-| 图片网格(风格 A) | **固定 `height:26vh`**,不用 aspect-ratio |
-| 左小图 + 右文字 | 1:1 或 3:2 |
-| 全屏主视觉 | 16:9 + `max-height:64vh` |
-| 图文混排小插图 | 3:2 或 3:4 |
+## 静态检查：只能证明结构和引用
 
-**默认不要让图片 `align-self:end`**——会滑到页面底部,很容易碰到分页组件。用 grid 容器 + `align-items:start`(template 已预设)让图片贴顶即可;如果确实需要图文底对齐,必须先控制图片高度,再使用模板已有安全区类 `.nav-safe-bottom` / `.nav-safe-bottom-tight`,不要让最低处碰到分页组件。
+这些命令在成品目录执行，使用当前环境已有工具，不要求另行安装。
 
-**风格 B 瑞士风额外规则**:
-- 单张大图用 S22;多图测试用 S15/S16 的原始卡片网格改造,不要用未登记的 P23/P24
-- 生成图片前先写 `data-image-slot`:例如 `s22-hero-21x9` / `s15-grid-21x9` / `s16-brief-21x9`
-- S22 配图默认生成 21:9,提示词必须包含 `subject centered in the safe middle area`;照片容器用 `object-position:center 35%`,不要用 `top center`
-- 图片容器必须直角、无阴影、无圆角;默认背景用白色 `var(--paper)`,不要用灰底包白底信息图
-- 白底 GPT 信息图/流程图/UI 图默认不要加外框描边,不要随手套 `.swiss-keyline`;需要强调时只用 `.swiss-lined` 的顶部 accent 线
-- UI/信息图如果是用户原始截图或文字密集图,才用 `.fit-contain`;如果已按 S15/S16 槽位重生成,必须用 `.frame-img.r-21x9` / `.frame-img.r-16x10` 铺满容器,不要固定 `height:18vh` 后把图缩小
-- 多图同组必须统一图片槽位、比例和高度,不能混用
-- GPT-M 2.0 生成图使用 `image-prompts.md` 的"风格 B:瑞士国际主义配图规则"
-- 任何图片、caption、timeline label、footnote 的最低处都不能进入底部分页区域;需要贴底时用 `.nav-safe-bottom` / `.nav-safe-bottom-tight`,不要手写 `bottom:2vh`
+```bash
+rg -n '\[必填\]|SLIDES_HERE' index.html
+rg -n '<section[^>]*class="slide' index.html
+rg -n 'data-anim|data-animate' index.html
+rg -n 'images/|assets/motion.min.js|fonts.googleapis.com|unpkg.com|cdn.jsdelivr.net' index.html
+```
+
+第一条应无占位符匹配；第二条与项目计划逐页对照主题和页数。
+第三条只说明标记存在，不证明动画实际播放。
+第四条帮助列出本地和远程依赖，之后逐个确认本地文件存在。
+class 属性顺序或多行 HTML 不同会影响搜索结果，不能把简单匹配当作完整 HTML 解析。
+检查类名时回到成品 `<style>`，仅看到 HTML 中出现类名不代表它已有 CSS 定义。
+本包没有附带专用自动校验脚本；不要编造脚本路径或把 rg 结果称为渲染通过。
+
+## 真实环境验收清单
+
+以下步骤是待执行的人工检查，不是本次文档维护已通过的结果。
+在允许使用浏览器的实际宿主中打开成品，按最终交付目录结构检查。
+
+1. 打开 `index.html`，确认标签页为真实标题、首屏有内容，控制台无空 deck 错误。
+2. 用左右键和 Home/End 翻页，确认首尾范围正确，画面无横向错位。
+3. 用滚轮及触屏滑动翻页，确认一次操作不会不可控地连跳多页。
+4. 点击底部每个圆点，确认数量等于页数，当前页高亮与可见页面一致。
+5. 按 ESC 打开索引，点击一张缩略页，确认索引关闭且跳到目标页；再次按 ESC 可正常开关。
+6. 在流水线页连续按空格，确认逐步揭示后才能进入下一页；返回该页再检查顺序。
+7. 等字体加载完，检查短大标题为衬线、正文与元数据分工清晰，无单字成行或截断。
+8. 查看截图页和图片网格，确认关键文字完整、同组等高，图片不被页脚和圆点遮挡。
+9. 切换浅色、深色和 hero 页，确认文字对比度充足，背景效果不妨碍阅读。
+10. 缩到约 1366×768，再用最终演示屏比例查看，确认无重叠、溢出或重要内容消失。
+11. 断网重载，检查 fallback 字体、图标缺失和动效降级，确认全部正文仍可阅读并记录缺口。
+12. 把完整目录复制到另一位置重新打开，确认相对图片路径和本地 Motion 路径仍有效。
+
+记录浏览器、视口、网络状态、问题页号和实际观察结果。
+未执行的项目标为待验；不要用静态类名检查替代导航、字体、动效和裁切验收。
+
+## 迭代时的修复顺序
+
+内容过密：先删掉次要论点或拆页，再调整字号；不能以缩小正文作为默认解决方案。
+标题挤压：缩短主标题，将解释移到副标或正文，再检查中文断行。
+图片撑破：网格改统一高度，单图检查 max-height，移除页底对齐和多余比例约束。
+截图不可读：改 contain、拆局部面板或换布局，不重绘出虚构数据来提高美观。
+页脚被盖住：检查主内容总高度、frame 溢出和图片 margin，不把导航藏起来掩盖冲突。
+配色凌乱：回到一套完整主题变量，核对 dark/light 与 `data-theme` 是否一致。
+若同时存在 `data-theme` 和主题 class，必须一致；实际导航优先读取 `data-theme`。
+字体失真：先查字体加载与 CSS 级联，再查组件类，不只靠调大字号补偿。
+动效失败：确认模块路径、浏览器策略和标记，再验证可读降级。
+每次修复后复查受影响页面及相邻转场，保留检查范围和仍待真实环境确认的项目。

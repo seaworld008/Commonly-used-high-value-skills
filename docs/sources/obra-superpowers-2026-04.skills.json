@@ -44,7 +44,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
-      "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/dispatching-parallel-agents/SKILL.md",
@@ -67,6 +67,11 @@
             {
               "source": "skills/dispatching-parallel-agents/SKILL.md",
               "target": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/dispatching-parallel-agents/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -94,6 +99,12 @@
           "owner": "dispatching-parallel-agents",
           "sha256": "11012cd290b13da76b221b1989b13df425d6d32ca701f80556f6de0b22ec2c3f",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/dispatching-parallel-agents/LICENSE.upstream.txt",
+          "owner": "dispatching-parallel-agents",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -104,7 +115,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/executing-plans/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
-      "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
@@ -127,6 +138,11 @@
             {
               "source": "skills/executing-plans/SKILL.md",
               "target": "skills/ai-workflow/executing-plans/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/executing-plans/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -154,6 +170,12 @@
           "owner": "executing-plans",
           "sha256": "2909d80e5a9921015f2db93952de08ae5fa7bf1e180c75d2e89edec3b14e1632",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/executing-plans/LICENSE.upstream.txt",
+          "owner": "executing-plans",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-22: reviewed local overlay; remove mandatory host-specific handoffs or unavailable helper claims while preserving domain methods and original upstream license/checkpoint."
@@ -164,7 +186,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
-      "notes": "Imported to formalize the endgame for feature branches after implementation and verification. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to formalize the endgame for feature branches after implementation and verification. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/finishing-a-development-branch/SKILL.md",
@@ -187,6 +209,11 @@
             {
               "source": "skills/finishing-a-development-branch/SKILL.md",
               "target": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/finishing-a-development-branch/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -214,6 +241,12 @@
           "owner": "finishing-a-development-branch",
           "sha256": "bdff799650be39b0427f3ec8b15ff0b58988de541f37c10ed9308bfd53b0e874",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/finishing-a-development-branch/LICENSE.upstream.txt",
+          "owner": "finishing-a-development-branch",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -223,7 +256,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/receiving-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/receiving-code-review",
-      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/receiving-code-review/SKILL.md",
@@ -246,6 +279,11 @@
             {
               "source": "skills/receiving-code-review/SKILL.md",
               "target": "skills/ai-workflow/receiving-code-review/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/receiving-code-review/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -273,6 +311,12 @@
           "owner": "receiving-code-review",
           "sha256": "dbc2e527cb28ac776e373df966d50bef4ce5afa27dc059832909f27e0ad1ff5e",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/receiving-code-review/LICENSE.upstream.txt",
+          "owner": "receiving-code-review",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -282,7 +326,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/requesting-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/requesting-code-review",
-      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
@@ -305,6 +349,11 @@
             {
               "source": "skills/requesting-code-review/SKILL.md",
               "target": "skills/ai-workflow/requesting-code-review/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/requesting-code-review/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -360,6 +409,12 @@
           "owner": "requesting-code-review",
           "sha256": "b2f2ec7596925fe52dac158fdfbca19b3a7d779d619c481e6706a6c0001662d3",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/requesting-code-review/LICENSE.upstream.txt",
+          "owner": "requesting-code-review",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -369,7 +424,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/subagent-driven-development/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/subagent-driven-development/SKILL.md",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/subagent-driven-development/SKILL.md",
@@ -406,6 +461,11 @@
             {
               "source": "skills/subagent-driven-development/task-reviewer-prompt.md",
               "target": "skills/ai-workflow/subagent-driven-development/task-reviewer-prompt.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/subagent-driven-development/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -502,6 +562,12 @@
           "owner": "subagent-driven-development",
           "sha256": "bfed55c8f19d0ff6ed57b0fe09127c92890e9311c6c73917129598826bf9ebe8",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/subagent-driven-development/LICENSE.upstream.txt",
+          "owner": "subagent-driven-development",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -512,7 +578,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/systematic-debugging",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-04: upstream deleted the CREATION-LOG and test-pressure/test-academic sidecars; the local copies were removed with them (SKILL.md never referenced them). 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-04: upstream deleted the CREATION-LOG and test-pressure/test-academic sidecars; the local copies were removed with them (SKILL.md never referenced them). 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
@@ -559,6 +625,11 @@
             {
               "source": "skills/systematic-debugging/root-cause-tracing.md",
               "target": "skills/developer-engineering/systematic-debugging/root-cause-tracing.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/systematic-debugging/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -617,6 +688,12 @@
           "owner": "systematic-debugging",
           "sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
           "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/systematic-debugging/LICENSE.upstream.txt",
+          "owner": "systematic-debugging",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -626,7 +703,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-git-worktrees/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
-      "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/using-git-worktrees/SKILL.md",
@@ -649,6 +726,11 @@
             {
               "source": "skills/using-git-worktrees/SKILL.md",
               "target": "skills/ai-workflow/using-git-worktrees/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/using-git-worktrees/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -676,6 +758,12 @@
           "owner": "using-git-worktrees",
           "sha256": "32b0b09fcfd4580ffde2fe394b8e119c94c1524a824a758a1bbee8199539fb9e",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-git-worktrees/LICENSE.upstream.txt",
+          "owner": "using-git-worktrees",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -685,7 +773,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-superpowers/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/using-superpowers/SKILL.md",
-      "notes": "Imported as the umbrella process skill that forces proper skill discovery before action. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported as the umbrella process skill that forces proper skill discovery before action. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
@@ -714,6 +802,11 @@
               "source": "skills/using-superpowers/references",
               "target": "skills/ai-workflow/using-superpowers/references",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/using-superpowers/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -783,6 +876,12 @@
           "owner": "using-superpowers",
           "sha256": "703dbc83d23ecab9c6f388460c38abc482e9dee2fe6772a8c7a255152ad3a4d5",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-superpowers/LICENSE.upstream.txt",
+          "owner": "using-superpowers",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -792,7 +891,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/verification-before-completion/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/verification-before-completion",
-      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/verification-before-completion/SKILL.md",
@@ -815,6 +914,11 @@
             {
               "source": "skills/verification-before-completion/SKILL.md",
               "target": "skills/ai-workflow/verification-before-completion/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/verification-before-completion/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -842,6 +946,12 @@
           "owner": "verification-before-completion",
           "sha256": "a63d225704e60e7598f69954f438ad1df4f33ae591ab9769e8ce90c8203c5f86",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/verification-before-completion/LICENSE.upstream.txt",
+          "owner": "verification-before-completion",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
         }
       ]
     },
@@ -851,7 +961,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/writing-skills/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
-      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository. Local module-scope overlay added 2026-09-28; upstream JavaScript is unchanged. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. Reviewed 2026-10-26 through 2ce8aa15d05bd57213e6f746f953aafb7ded7a8b: track three upstream reference relocations while retaining installed target paths and local links; retain curated authoring and evaluation guidance rather than copying mandatory delegation or unmeasured token-saving claims. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository. Local module-scope overlay added 2026-09-28; upstream JavaScript is unchanged. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. Reviewed 2026-10-26 through 2ce8aa15d05bd57213e6f746f953aafb7ded7a8b: track three upstream reference relocations while retaining installed target paths and local links; retain curated authoring and evaluation guidance rather than copying mandatory delegation or unmeasured token-saving claims. 2026-11-17: commit-aware semantic review at 22f0b463e7a5e579904dd6211a520321035526f7; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
@@ -893,6 +1003,11 @@
             {
               "source": "skills/writing-skills/references/testing-skills-with-subagents.md",
               "target": "skills/ai-workflow/writing-skills/testing-skills-with-subagents.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/writing-skills/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -1005,6 +1120,12 @@
           "path": "skills/ai-workflow/writing-skills/testing-skills-with-subagents.md",
           "owner": "writing-skills",
           "sha256": "c711346852c911b24a84aa161e0cff06a4cd7f4e2fa9e9c0a266cead5afcbade",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/writing-skills/LICENSE.upstream.txt",
+          "owner": "writing-skills",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
           "mode": "100644"
         }
       ]

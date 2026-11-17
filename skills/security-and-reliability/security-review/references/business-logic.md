@@ -1,443 +1,100 @@
-# Business Logic Security Reference
+# 业务状态、并发与重复请求审查
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Business logic vulnerabilities occur when the application's logic can be manipulated to achieve unintended outcomes. Unlike technical vulnerabilities, these flaws exploit legitimate functionality in unexpected ways.
+## 数据流与攻击前提
 
-## Common Vulnerability Types
-
-### 1. Race Conditions
-
-#### Time-of-Check to Time-of-Use (TOCTOU)
-
-```python
-# VULNERABLE: Race condition in balance check
-def transfer(from_account, to_account, amount):
-    if from_account.balance >= amount:  # Check
-        time.sleep(0.1)  # Simulating processing delay
-        from_account.balance -= amount   # Use
-        to_account.balance += amount
-
-# Attack: Two concurrent transfers can overdraft
-
-# SAFE: Atomic operation with locking
-from threading import Lock
-
-account_locks = {}
-
-def transfer(from_account, to_account, amount):
-    # Acquire locks in consistent order to prevent deadlock
-    locks = sorted([from_account.id, to_account.id])
-    with account_locks[locks[0]], account_locks[locks[1]]:
-        if from_account.balance >= amount:
-            from_account.balance -= amount
-            to_account.balance += amount
-            return True
-    return False
-```
-
-#### Database-Level Locking
+业务输入先选择订单或库存，再通过状态转换写库，最后可能触发支付、发货或通知。
+攻击者可以重复点击、重放成功请求、并发提交、换幂等键或跳过 UI 中的前置步骤。
+列出不可破坏的业务约束，例如库存不为负、退款不超过实付、优惠不能重复兑现。
+身份验证只说明谁发起操作，不能证明价格、状态、数量或转换次序正确。
+## 自写示例：检查和扣减之间的竞态
 
 ```python
-# SAFE: Database transaction with SELECT FOR UPDATE
-from django.db import transaction
-
-@transaction.atomic
-def transfer(from_account_id, to_account_id, amount):
-    from_account = Account.objects.select_for_update().get(id=from_account_id)
-    to_account = Account.objects.select_for_update().get(id=to_account_id)
-
-    if from_account.balance >= amount:
-        from_account.balance -= amount
-        to_account.balance += amount
-        from_account.save()
-        to_account.save()
-        return True
-    return False
+def unsafe_reserve(conn, sku, qty):
+    stock = conn.execute('SELECT available FROM stock WHERE sku=?', (sku,)).fetchone()[0]
+    if stock >= qty:
+        conn.execute('UPDATE stock SET available=available-? WHERE sku=?', (qty, sku))
 ```
 
-### 2. Workflow Bypass
+两个请求都读到库存 1 后各扣 1，即可能产生负库存；重复请求还会重复扣减。
+修正示例使用 SQLite 专用连接，`isolation_level=None`、无外层事务，手动控制事务。
+`stock` 有唯一键 `(tenant_id, sku)`；`reservations` 有唯一键 `(tenant_id, request_key)`。
+`actor` 来自认证及当前租户成员验证；商品是否允许该成员购买须在进入本函数前判定。
 
 ```python
-# VULNERABLE: Multi-step process without server-side tracking
-# Step 1: /verify-email
-# Step 2: /set-password
-# Step 3: /complete-registration
-
-# Attacker skips to Step 3
-
-# SAFE: Server-side state machine
-class RegistrationFlow:
-    STATES = ['email_pending', 'email_verified', 'password_set', 'complete']
-
-    def __init__(self, user_id):
-        self.state = self.get_state(user_id)
-
-    def verify_email(self, token):
-        if self.state != 'email_pending':
-            raise InvalidStateError("Email verification not pending")
-        # Verify token...
-        self.set_state('email_verified')
-
-    def set_password(self, password):
-        if self.state != 'email_verified':
-            raise InvalidStateError("Email not verified")
-        # Set password...
-        self.set_state('password_set')
-
-    def complete(self):
-        if self.state != 'password_set':
-            raise InvalidStateError("Password not set")
-        # Complete registration...
-        self.set_state('complete')
+def reserve(conn, actor, sku, qty, request_key):
+    if actor is None:
+        raise PermissionError('not allowed')
+    if type(qty) is not int or not 1 <= qty <= 20:
+        raise ValueError('invalid quantity')
+    if any(type(v) is not str or not 1 <= len(v) <= 80 for v in (sku, request_key)):
+        raise ValueError('invalid identifier')
+    tenant, user = actor['tenant_id'], actor['user_id']
+    conn.execute('BEGIN IMMEDIATE')
+    try:
+        old = conn.execute(
+            'SELECT user_id, sku, qty FROM reservations WHERE tenant_id=? AND request_key=?',
+            (tenant, request_key),
+        ).fetchone()
+        if old is not None:
+            if old != (user, sku, qty):
+                raise ValueError('idempotency conflict')
+        else:
+            changed = conn.execute(
+                'UPDATE stock SET available=available-? '
+                'WHERE tenant_id=? AND sku=? AND available>=?', (qty, tenant, sku, qty),
+            ).rowcount
+            if changed != 1:
+                raise ValueError('insufficient stock')
+            conn.execute('INSERT INTO reservations (tenant_id, request_key, user_id, sku, qty) '
+                         'VALUES (?, ?, ?, ?, ?)',
+                         (tenant, request_key, user, sku, qty))
+        conn.execute('COMMIT')
+        return request_key
+    except Exception:
+        if conn.in_transaction:
+            conn.execute('ROLLBACK')
+        raise
 ```
 
-### 3. Numeric Manipulation
-
-#### Integer Overflow
-
-```python
-# VULNERABLE: Integer overflow in quantity
-def calculate_total(quantity, price):
-    return quantity * price
-
-# Attack: quantity = -1 results in negative price (refund)
-
-# SAFE: Validate numeric ranges
-def calculate_total(quantity, price):
-    if quantity <= 0 or quantity > MAX_QUANTITY:
-        raise ValueError("Invalid quantity")
-    if price <= 0:
-        raise ValueError("Invalid price")
-    return quantity * price
-```
-
-#### Floating Point Issues
-
-```python
-# VULNERABLE: Floating point precision loss
-total = 0.0
-for item in items:
-    total += item.price * item.quantity
-
-# 0.1 + 0.2 = 0.30000000000000004
-
-# SAFE: Use Decimal for financial calculations
-from decimal import Decimal, ROUND_HALF_UP
-
-total = Decimal('0')
-for item in items:
-    total += Decimal(str(item.price)) * item.quantity
-
-# Round properly
-total = total.quantize(Decimal('.01'), rounding=ROUND_HALF_UP)
-```
-
-### 4. Price/Discount Manipulation
-
-```python
-# VULNERABLE: Trust client-submitted price
-@app.route('/checkout', methods=['POST'])
-def checkout():
-    price = request.json['price']  # Client can set any price!
-    process_payment(price)
-
-# SAFE: Calculate price server-side
-@app.route('/checkout', methods=['POST'])
-def checkout():
-    cart = get_cart(current_user.id)
-    price = calculate_total(cart)  # Always server-calculated
-    process_payment(price)
-```
-
-```python
-# VULNERABLE: Stackable discounts without limits
-def apply_discounts(cart, discount_codes):
-    for code in discount_codes:
-        discount = get_discount(code)
-        cart.total -= discount.amount
-
-# Attack: Apply same code multiple times, negative total
-
-# SAFE: Limit discount application
-def apply_discounts(cart, discount_codes):
-    # Remove duplicates
-    unique_codes = set(discount_codes)
-
-    total_discount = Decimal('0')
-    for code in unique_codes:
-        if is_code_used(cart.user_id, code):
-            continue  # Code already used
-        discount = get_discount(code)
-        total_discount += discount.amount
-        mark_code_used(cart.user_id, code)
-
-    # Cap discount at total
-    max_discount = cart.subtotal * Decimal('0.5')  # Max 50% off
-    final_discount = min(total_discount, max_discount)
-    cart.total -= final_discount
-```
-
-### 5. Inventory/Resource Exhaustion
-
-```python
-# VULNERABLE: No reservation during checkout
-def checkout(cart):
-    for item in cart.items:
-        if get_stock(item.product_id) >= item.quantity:
-            # Stock available
-            pass
-    # Processing takes time...
-    process_payment()
-    for item in cart.items:
-        reduce_stock(item.product_id, item.quantity)  # May oversell
-
-# SAFE: Reserve inventory atomically
-@transaction.atomic
-def checkout(cart):
-    for item in cart.items:
-        product = Product.objects.select_for_update().get(id=item.product_id)
-        if product.stock < item.quantity:
-            raise InsufficientStock(product.name)
-        product.stock -= item.quantity  # Reserve immediately
-        product.save()
-
-    # If payment fails, transaction rolls back
-    process_payment()
-```
-
-### 6. Time-Based Attacks
-
-```python
-# VULNERABLE: Expired coupon still usable with timing attack
-def apply_coupon(code):
-    coupon = Coupon.objects.get(code=code)
-    if coupon.expiry > datetime.now():
-        return coupon.discount
-    raise CouponExpired()
-
-# SAFE: Use database time, not application time
-from django.db.models.functions import Now
-
-def apply_coupon(code):
-    coupon = Coupon.objects.annotate(
-        is_valid=Q(expiry__gt=Now())
-    ).get(code=code)
-
-    if not coupon.is_valid:
-        raise CouponExpired()
-    return coupon.discount
-```
-
-### 7. Parameter Tampering
-
-```python
-# VULNERABLE: Trust hidden form fields
-# HTML: <input type="hidden" name="user_id" value="123">
-
-@app.route('/update-profile', methods=['POST'])
-def update_profile():
-    user_id = request.form['user_id']  # Attacker can change this!
-    User.query.get(user_id).update(...)
-
-# SAFE: Use session-based user identification
-@app.route('/update-profile', methods=['POST'])
-def update_profile():
-    user_id = current_user.id  # From authenticated session
-    User.query.get(user_id).update(...)
-```
-
----
-
-## Detection Patterns
-
-### State Machine Validation
-
-```python
-class OrderStateMachine:
-    VALID_TRANSITIONS = {
-        'draft': ['submitted'],
-        'submitted': ['approved', 'rejected'],
-        'approved': ['shipped'],
-        'shipped': ['delivered', 'returned'],
-        'delivered': ['returned'],
-        'rejected': [],
-        'returned': ['refunded'],
-        'refunded': []
-    }
-
-    def transition(self, order, new_state):
-        current = order.state
-        if new_state not in self.VALID_TRANSITIONS.get(current, []):
-            raise InvalidTransition(f"Cannot go from {current} to {new_state}")
-        order.state = new_state
-        log_state_change(order, current, new_state)
-```
-
-### Idempotency
-
-```python
-# SAFE: Idempotent operations with idempotency keys
-import hashlib
-
-def process_request(request_data, idempotency_key):
-    # Check if request was already processed
-    existing = ProcessedRequest.query.filter_by(key=idempotency_key).first()
-    if existing:
-        return existing.response  # Return cached response
-
-    # Process request
-    result = do_processing(request_data)
-
-    # Store for future duplicate requests
-    ProcessedRequest.create(key=idempotency_key, response=result)
-    return result
-```
-
-### Rate Limiting Business Actions
-
-```python
-# Limit business-critical actions
-from functools import wraps
-import time
-
-def rate_limit_action(action_name, limit, window):
-    def decorator(f):
-        @wraps(f)
-        def wrapper(*args, **kwargs):
-            user_id = current_user.id
-            key = f"action:{action_name}:{user_id}"
-
-            count = redis.incr(key)
-            if count == 1:
-                redis.expire(key, window)
-
-            if count > limit:
-                raise RateLimitExceeded(f"Too many {action_name} attempts")
-
-            return f(*args, **kwargs)
-        return wrapper
-    return decorator
-
-@rate_limit_action('password_reset', limit=3, window=3600)
-def request_password_reset(email):
-    pass
-
-@rate_limit_action('transfer', limit=10, window=86400)
-def transfer_funds(from_account, to_account, amount):
-    pass
-```
-
----
-
-## Validation Patterns
-
-### Server-Side Calculation
-
-```python
-# Always recalculate on server
-def calculate_order_total(order):
-    subtotal = Decimal('0')
-    for item in order.items:
-        # Get current price from database, not from request
-        product = Product.query.get(item.product_id)
-        subtotal += product.price * item.quantity
-
-    # Apply tax
-    tax = subtotal * get_tax_rate(order.shipping_address)
-
-    # Apply discounts (validated server-side)
-    discount = calculate_discounts(order, order.discount_codes)
-
-    # Calculate total
-    total = subtotal + tax - discount
-
-    # Sanity checks
-    if total < Decimal('0'):
-        raise InvalidOrderError("Negative total")
-    if discount > subtotal:
-        raise InvalidOrderError("Discount exceeds subtotal")
-
-    return {
-        'subtotal': subtotal,
-        'tax': tax,
-        'discount': discount,
-        'total': total
-    }
-```
-
-### Business Rule Enforcement
-
-```python
-class TransferValidator:
-    def validate(self, transfer):
-        errors = []
-
-        # Check transfer limits
-        if transfer.amount > MAX_SINGLE_TRANSFER:
-            errors.append("Exceeds single transfer limit")
-
-        # Check daily limits
-        daily_total = get_daily_transfer_total(transfer.from_account)
-        if daily_total + transfer.amount > DAILY_LIMIT:
-            errors.append("Exceeds daily transfer limit")
-
-        # Check velocity (unusual number of transfers)
-        recent_count = get_recent_transfer_count(transfer.from_account, hours=1)
-        if recent_count > MAX_TRANSFERS_PER_HOUR:
-            errors.append("Too many transfers in short period")
-
-        # Check for unusual patterns
-        if is_unusual_recipient(transfer.from_account, transfer.to_account):
-            errors.append("Unusual recipient - requires verification")
-
-        if errors:
-            raise ValidationError(errors)
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Race condition indicators
-grep -rn "sleep\|time\.sleep\|Thread\|async" --include="*.py"
-grep -rn "balance\|inventory\|stock" --include="*.py" | grep -v "select_for_update\|lock"
-
-# Price/amount from request
-grep -rn "request\.\w*\[.*price\|request\.\w*\[.*amount\|request\.\w*\[.*total" --include="*.py"
-
-# Missing validation
-grep -rn "def checkout\|def purchase\|def transfer" --include="*.py"
-
-# Floating point for money
-grep -rn "float.*price\|float.*amount\|float.*balance" --include="*.py"
-```
-
----
-
-## Testing Checklist
-
-- [ ] Race conditions tested (concurrent requests)
-- [ ] Workflow steps enforced server-side
-- [ ] State transitions validated
-- [ ] Prices/totals calculated server-side
-- [ ] Discount limits enforced
-- [ ] Inventory checked and reserved atomically
-- [ ] Integer overflow/underflow prevented
-- [ ] Decimal used for financial calculations
-- [ ] Time-based logic uses server/database time
-- [ ] Hidden field values not trusted
-- [ ] Idempotency keys for critical operations
-- [ ] Rate limits on business-critical actions
-- [ ] Unusual patterns detected and flagged
-
----
-
-## References
-
-- [OWASP Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/)
-- [CWE-362: Race Condition](https://cwe.mitre.org/data/definitions/362.html)
-- [CWE-367: TOCTOU Race Condition](https://cwe.mitre.org/data/definitions/367.html)
-- [CWE-190: Integer Overflow](https://cwe.mitre.org/data/definitions/190.html)
-- [CWE-840: Business Logic Errors](https://cwe.mitre.org/data/definitions/840.html)
+库存扣减和幂等记录同时提交；发生错误或请求内容冲突时两者都不保留部分变更。
+同一 key 的重试返回原预留标识；换 key 是新操作，还需要账号限额和反滥用规则。
+生产表增加 `CHECK(available>=0)` 和数量约束；约束是兜底，仍需审阅业务状态机。
+
+## 必须由业务代码拒绝的转换
+
+- 价格、币种、折扣和退款上限从可信账本计算，不采用客户端传来的最终金额。
+- 草稿、支付中、已支付、已取消之间定义允许转换，用条件写入阻止过期状态覆盖新状态。
+- 退款累计金额与原支付绑定，金额使用最小货币单位整数并核对币种和舍入规则。
+- 支付成功回调核对商户、订单、金额、签名与唯一事件 ID，不以回调到达或 HTTP 200 定案。
+- 外部副作用不能放在持锁事务中冒充原子操作；可用事务 outbox 与接收端幂等实现恢复。
+- 幂等记录保留期覆盖允许的重试窗口；删除记录后重放的行为需要明确设计。
+
+## 正反验收输入
+
+| 输入或调度 | 预期 |
+| --- | --- |
+| 库存 1，同一主体申请数量 1 | 库存变 0，生成一条预留 |
+| 相同 key 和相同内容重试 | 返回原 key，不再扣库存 |
+| 相同 key 改数量、商品或主体 | 冲突，库存与原预留不变 |
+| 数量 0、负数、`True` 或 21 | 在事务前拒绝 |
+| 两个连接用不同 key 抢同一份库存 | 只有一次成功，库存不为负 |
+| 扣减后插入预留失败 | 整个事务回滚 |
+
+并发验收须用独立连接与同步起点；单连接串行调用不能证明竞态已覆盖。
+## 易误报与适用边界
+
+请求重试本身正常，只有产生额外副作用或返回错配结果才违反幂等约定。
+限购与库存是不同约束；本例没有实现每用户限购、支付或过期释放预留。
+SQLite 的写锁模型不能直接类推到其他数据库，迁移时核对隔离级别与条件更新语义。
+
+## 实际验证证据
+
+保存初始账本、请求 key/内容的脱敏摘要、并发调度、最终库存与预留条数。
+在扣减、提交和外部确认之间注入可控失败，记录恢复后是否重复发货或漏记付款。
+静态检查不能证明分布式系统恰好执行一次；必须说明重试和补偿覆盖范围。
+## 官方接口核对入口
+
+- [SQLite 事务与锁](https://www.sqlite.org/lang_transaction.html)
+- [Python sqlite3 连接事务设置](https://docs.python.org/3/library/sqlite3.html)

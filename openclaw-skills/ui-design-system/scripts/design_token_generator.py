@@ -6,7 +6,7 @@ Creates consistent design system tokens for colors, typography, spacing, and mor
 Usage:
     python design_token_generator.py [brand_color] [style] [format]
 
-    brand_color: Hex color (default: #0066CC)
+    brand_color: Six hex digits, optionally prefixed with # (default: #0066CC)
     style: modern | classic | playful (default: modern)
     format: json | css | scss | summary (default: json)
 
@@ -57,6 +57,7 @@ Token Categories Generated:
 """
 
 import json
+import re
 from typing import Dict, List, Tuple
 import colorsys
 
@@ -94,9 +95,9 @@ class DesignTokenGenerator:
     def generate_color_palette(self, brand_color: str) -> Dict:
         """Generate comprehensive color palette from brand color"""
         
-        # Convert hex to RGB
-        brand_rgb = self._hex_to_rgb(brand_color)
-        brand_hsv = colorsys.rgb_to_hsv(*[c/255 for c in brand_rgb])
+        if not isinstance(brand_color, str) or not re.fullmatch(r'#?[0-9A-Fa-f]{6}', brand_color):
+            raise ValueError('brand_color must contain six hex digits, optionally prefixed with #')
+        brand_color = '#' + brand_color.removeprefix('#')
         
         palette = {
             'primary': self._generate_color_scale(brand_color, 'primary'),
@@ -574,7 +575,10 @@ def main():
     output_format = sys.argv[3] if len(sys.argv) > 3 else "json"
     
     # Generate tokens
-    tokens = generator.generate_complete_system(brand_color, style)
+    try:
+        tokens = generator.generate_complete_system(brand_color, style)
+    except ValueError as error:
+        sys.exit(str(error))
     
     # Output
     if output_format == 'summary':

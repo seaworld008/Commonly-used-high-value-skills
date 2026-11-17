@@ -2194,7 +2194,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-11-17",
-      "line_count": 311,
+      "line_count": 310,
       "path": "skills/developer-engineering/qa-expert/SKILL.md"
     },
     {
@@ -2240,17 +2240,17 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-11-17",
-      "line_count": 351,
+      "line_count": 342,
       "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md"
     },
     {
       "name": "rust-engineer",
       "category": "developer-engineering",
-      "description": "Use when writing or reviewing Rust code, designing safe APIs, debugging ownership and lifetimes, choosing async patterns, or improving systems-level performance.",
-      "version": "1.0.0",
+      "description": "Implement and review Rust code: ownership, typed errors, trait contracts, async cancellation, unsafe/FFI invariants, API compatibility, and measured performance.",
+      "version": "1.1.0",
       "author": "seaworld008",
-      "source": "skills.sh",
-      "source_url": "https://skills.sh/404kidwiz/claude-supercode-skills/rust-engineer",
+      "source": "in-house",
+      "source_url": "",
       "tags": [
         "development",
         "engineer",
@@ -2258,9 +2258,9 @@
       ],
       "quality": 4,
       "complexity": "intermediate",
-      "created_at": "2026-03-27",
-      "updated_at": "2026-06-29",
-      "line_count": 141,
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "line_count": 405,
       "path": "skills/developer-engineering/rust-engineer/SKILL.md"
     },
     {
@@ -4730,7 +4730,7 @@
       "name": "guizang-ppt-skill",
       "category": "office-white-collar",
       "description": "Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": "seaworld008",
       "source": "github:op7418/guizang-ppt-skill",
       "source_url": "https://github.com/op7418/guizang-ppt-skill/blob/72837a8513d1145d800095fc3909d6d3057994b8/SKILL.md",
@@ -4747,7 +4747,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-28",
       "updated_at": "2026-11-17",
-      "line_count": 420,
+      "line_count": 246,
       "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md"
     },
     {
@@ -5750,7 +5750,7 @@
       "complexity": "intermediate",
       "created_at": "2026-06-01",
       "updated_at": "2026-11-17",
-      "line_count": 421,
+      "line_count": 436,
       "path": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md"
     },
     {
@@ -5934,20 +5934,22 @@
     {
       "name": "security-review",
       "category": "security-and-reliability",
-      "description": "Review code changes for injection, XSS, authentication, authorization, cryptography, and other security defects with evidence-based severity.",
-      "version": "1.0.3",
+      "description": "Review code diffs and application vulnerabilities by tracing attacker-controlled inputs through trust boundaries, enforcement controls, and dangerous operations; report reproducible defects with focused fixes and acceptance checks.",
+      "version": "2.0.0",
       "author": "seaworld008",
-      "source": "github:getsentry/skills",
-      "source_url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-review/SKILL.md",
+      "source": "in-house",
+      "source_url": "",
       "tags": [
-        "review",
-        "security"
+        "security",
+        "code-review",
+        "application-security",
+        "vulnerability"
       ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-06-21",
-      "updated_at": "2026-10-26",
-      "line_count": 318,
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "line_count": 197,
       "path": "skills/security-and-reliability/security-review/SKILL.md"
     },
     {

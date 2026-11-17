@@ -12,9 +12,11 @@ CRITICAL FIX: Now uses secure API key handling (Critical-2)
 """
 
 import argparse
+import json
 import os
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -137,6 +139,7 @@ Examples:
         'uv', 'run', '--with', 'httpx',
         str(main_script),
         '--input', str(input_path),
+        '--output', str(output_dir),
         '--stage', str(args.stage),
         '--domain', args.domain
     ]
@@ -147,48 +150,64 @@ Examples:
     print(f"⚙️  Stage: {args.stage}")
     print()
 
-    # Run main script
-    try:
-        result = subprocess.run(cmd, check=True, cwd=script_dir.parent)
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Processing failed with exit code {e.returncode}")
-        sys.exit(e.returncode)
+    # A private receipt identifies this run's files, including partial delivery.
+    # Never infer generation from old files left beside the input or output.
+    produced_files = []
+    exit_code = 0
+    with tempfile.TemporaryDirectory(prefix="transcript-delivery-") as task_dir:
+        manifest = Path(task_dir) / "outputs.json"
+        env = os.environ.copy()
+        env["TRANSCRIPT_FIXER_OUTPUT_MANIFEST"] = str(manifest)
+        try:
+            subprocess.run(cmd, check=True, cwd=script_dir.parent, env=env)
+        except subprocess.CalledProcessError as exc:
+            exit_code = exc.returncode
 
-    # Move output files to desired directory if different from input directory
-    if output_dir != input_path.parent:
-        print(f"\n📦 Moving output files to {output_dir}...")
+        allowed_suffixes = ['_stage1.md']
+        if args.stage >= 2:
+            allowed_suffixes.append('_stage2.md')
+        if args.stage >= 3:
+            allowed_suffixes.extend(['_对比.html', '_对比报告.md', '_修复报告.md'])
+        allowed = {
+            (output_dir / f"{input_path.stem}{suffix}").resolve()
+            for suffix in allowed_suffixes
+        }
+        try:
+            outputs = json.loads(manifest.read_text(encoding='utf-8'))['outputs']
+            if not isinstance(outputs, list) or not all(isinstance(p, str) for p in outputs):
+                raise ValueError("Invalid output list")
+            for item in outputs:
+                path = Path(item).resolve()
+                if path in allowed and path.is_file() and path not in produced_files:
+                    produced_files.append(path)
+        except (OSError, ValueError, KeyError, TypeError):
+            print("⚠️  Current-run output manifest unavailable; no files listed or opened")
 
-        base_name = input_path.stem
-        output_patterns = [
-            f"{base_name}_stage1.md",
-            f"{base_name}_stage2.md",
-            f"{base_name}_对比.html",
-            f"{base_name}_对比报告.md",
-            f"{base_name}_修复报告.md",
-        ]
-
-        for pattern in output_patterns:
-            source = input_path.parent / pattern
-            if source.exists():
-                dest = output_dir / pattern
-                source.rename(dest)
-                print(f"  ✓ {pattern}")
+    required = {(output_dir / f"{input_path.stem}_stage1.md").resolve()}
+    if args.stage >= 2:
+        required.add((output_dir / f"{input_path.stem}_stage2.md").resolve())
+    if not exit_code and not required.issubset(produced_files):
+        print("❌ Required current-run text outputs are unverified")
+        exit_code = 1
 
     # Auto-open HTML diff
-    if args.auto_open:
-        html_file = output_dir / f"{input_path.stem}_对比.html"
-        if html_file.exists():
+    if args.auto_open and not exit_code:
+        html_file = (output_dir / f"{input_path.stem}_对比.html").resolve()
+        if html_file in produced_files:
             print("\n🌐 Opening HTML diff in browser...")
             open_html_in_browser(html_file)
         else:
             print(f"\n⚠️  HTML diff not generated; run scripts/generate_word_diff.py explicitly")
 
-    print("\n✅ Processing complete!")
+    if exit_code:
+        print(f"\n❌ Processing failed with exit code {exit_code}")
+    else:
+        print("\n✅ Processing complete!")
     print(f"\n📄 Output files in: {output_dir}")
-    for suffix in ('_stage1.md', '_stage2.md', '_对比.html'):
-        produced = output_dir / f"{input_path.stem}{suffix}"
-        if produced.exists():
-            print(f"   - {produced.name}")
+    for produced in produced_files:
+        print(f"   - {produced.name}")
+    if exit_code:
+        sys.exit(exit_code)
 
 
 if __name__ == '__main__':

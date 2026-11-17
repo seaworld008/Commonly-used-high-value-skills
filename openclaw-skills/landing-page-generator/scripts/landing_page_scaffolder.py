@@ -14,6 +14,7 @@ import argparse
 import json
 import re
 import sys
+import unicodedata
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 import html as html_module
@@ -347,14 +348,108 @@ export default function LandingPage() {{
 # HTML generators (existing)
 # ---------------------------------------------------------------------------
 
+HTML_THEME_DEFAULTS = {
+    "primary_color": "#2563eb",
+    "secondary_color": "#1e40af",
+    "background": "#ffffff",
+    "text_color": "#1f2937",
+    "font": "Inter, system-ui, -apple-system, sans-serif",
+}
+
+# Deliberately support literal colors only, never URLs, variables, escapes,
+# comments or arbitrary CSS functions. These values enter a raw HTML style tag.
+CSS_COLOR_NAMES = frozenset("""
+    aliceblue antiquewhite aqua aquamarine azure beige bisque black blanchedalmond
+    blue blueviolet brown burlywood cadetblue chartreuse chocolate coral
+    cornflowerblue cornsilk crimson cyan darkblue darkcyan darkgoldenrod darkgray
+    darkgreen darkgrey darkkhaki darkmagenta darkolivegreen darkorange darkorchid
+    darkred darksalmon darkseagreen darkslateblue darkslategray darkslategrey
+    darkturquoise darkviolet deeppink deepskyblue dimgray dimgrey dodgerblue
+    firebrick floralwhite forestgreen fuchsia gainsboro ghostwhite gold goldenrod
+    gray green greenyellow grey honeydew hotpink indianred indigo ivory khaki
+    lavender lavenderblush lawngreen lemonchiffon lightblue lightcoral lightcyan
+    lightgoldenrodyellow lightgray lightgreen lightgrey lightpink lightsalmon
+    lightseagreen lightskyblue lightslategray lightslategrey lightsteelblue
+    lightyellow lime limegreen linen magenta maroon mediumaquamarine mediumblue
+    mediumorchid mediumpurple mediumseagreen mediumslateblue mediumspringgreen
+    mediumturquoise mediumvioletred midnightblue mintcream mistyrose moccasin
+    navajowhite navy oldlace olive olivedrab orange orangered orchid palegoldenrod
+    palegreen paleturquoise palevioletred papayawhip peachpuff peru pink plum
+    powderblue purple rebeccapurple red rosybrown royalblue saddlebrown salmon
+    sandybrown seagreen seashell sienna silver skyblue slateblue slategray slategrey
+    snow springgreen steelblue tan teal thistle tomato turquoise violet wheat
+    white whitesmoke yellow yellowgreen transparent currentcolor
+""".split())
+
+
+def validate_theme_value(value: Any, field: str) -> str:
+    """Reject non-text and invisible controls before any whitespace trimming."""
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"theme.{field} must be a non-empty CSS value string")
+    if any(unicodedata.category(char).startswith("C") or
+           unicodedata.category(char) in {"Zl", "Zp"} for char in value):
+        raise ValueError(f"theme.{field} must not contain control characters")
+    return value.strip(" ")
+
+
+def validate_css_color(value: Any, field: str) -> str:
+    """Allow named/hex colors and numeric rgb(a)/hsl(a), with no nested CSS."""
+    value = validate_theme_value(value, field)
+    if value.lower() in CSS_COLOR_NAMES or re.fullmatch(
+        r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})", value
+    ):
+        return value
+
+    number = r"[+-]?(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)"
+    percent = number + "%"
+    channel = number + "%?"
+    alpha = rf"(?: *, *{channel})?"
+    slash_alpha = rf"(?: */ *{channel})?"
+    rgb_legacy = rf"(?:{number} *, *{number} *, *{number}|{percent} *, *{percent} *, *{percent}){alpha}"
+    rgb_modern = rf"{channel} +{channel} +{channel}{slash_alpha}"
+    hue = number + r"(?:deg|grad|rad|turn)?"
+    hsl_legacy = rf"{hue} *, *{percent} *, *{percent}{alpha}"
+    hsl_modern = rf"{hue} +{percent} +{percent}{slash_alpha}"
+    if re.fullmatch(
+        rf"(?:rgba?\( *(?:{rgb_legacy}|{rgb_modern}) *\)|"
+        rf"hsla?\( *(?:{hsl_legacy}|{hsl_modern}) *\))",
+        value, flags=re.IGNORECASE | re.ASCII,
+    ):
+        return value
+    raise ValueError(f"theme.{field} must be a named, hex, rgb(a) or hsl(a) color")
+
+
+def validate_css_font(value: Any) -> str:
+    """Allow comma-separated family names, optionally quoted, without CSS code."""
+    value = validate_theme_value(value, "font")
+    # Unicode letters allow local font names; punctuation that could change the
+    # declaration or HTML structure, CSS escapes and functions are unsupported.
+    word = r"(?:[^\W\d]|-[^\W\d-])[\w-]*"
+    family = rf"(?:{word}(?: +{word})*|'[\w .+-]+'|\"[\w .+-]+\")"
+    if not re.fullmatch(rf"{family}(?: *, *{family})*", value):
+        raise ValueError("theme.font must be a comma-separated list of font family names")
+    return value
+
+
+def validate_html_theme(config: Dict[str, Any]) -> Dict[str, str]:
+    """Validate every supported field, including the reserved secondary color."""
+    theme = config.get("theme", {})
+    if not isinstance(theme, dict):
+        raise ValueError("theme must be an object")
+    return {
+        field: (validate_css_font(theme.get(field, default)) if field == "font"
+                else validate_css_color(theme.get(field, default), field))
+        for field, default in HTML_THEME_DEFAULTS.items()
+    }
+
+
 def generate_css(config: Dict[str, Any]) -> str:
     """Generate responsive CSS from config theme."""
-    theme = config.get("theme", {})
-    primary = theme.get("primary_color", "#2563eb")
-    secondary = theme.get("secondary_color", "#1e40af")
-    bg = theme.get("background", "#ffffff")
-    text_color = theme.get("text_color", "#1f2937")
-    font = theme.get("font", "Inter, system-ui, -apple-system, sans-serif")
+    theme = validate_html_theme(config)
+    primary = theme["primary_color"]
+    bg = theme["background"]
+    text_color = theme["text_color"]
+    font = theme["font"]
 
     return f"""
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}

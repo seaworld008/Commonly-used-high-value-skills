@@ -52,7 +52,7 @@ Use this skill when you hear:
 ### Run Security Risk Assessment
 
 ```bash
-python scripts/risk_assessment.py --scope "patient-data-system" --output risk_register.json
+python scripts/risk_assessment.py --scope "patient-data-system" --assets assets.csv --format json --output risk_register.json
 ```
 
 ### Check Compliance Status
@@ -73,37 +73,52 @@ python scripts/compliance_checker.py --standard iso27001 --controls-file control
 
 ### risk_assessment.py
 
-Automated security risk assessment following ISO 27001 Clause 6.1.2 methodology.
+Offline catalog scenario analysis supporting ISO 27001 Clause 6.1.2 workshops. Requires a supplied asset inventory or explicit `--demo`. Scope is only a report label: the script does not discover assets, scan systems, or verify threats, vulnerabilities or evidence authenticity. Existing user authorization is sufficient to run the appropriate mode.
 
 **Usage:**
 
 ```bash
-# Full risk assessment
-python scripts/risk_assessment.py --scope "cloud-infrastructure" --output risks.json
+# Supplied assets; candidate scenarios, with unknown control effectiveness
+python scripts/risk_assessment.py --scope "cloud-infrastructure" --assets assets.csv --format json --output risks.json
 
-# Healthcare-specific assessment
-python scripts/risk_assessment.py --scope "ehr-system" --template healthcare --output risks.json
+# Explicit synthetic healthcare demo
+python scripts/risk_assessment.py --scope "example-ehr" --demo --template healthcare --format json --output demo_risks.json
 
-# Quick asset-based assessment
-python scripts/risk_assessment.py --assets assets.csv --output risks.json
+# Conditional estimates from supplied control attestations
+python scripts/risk_assessment.py --scope "ehr-system" --assets assets.csv --template healthcare --control-evidence control_evidence.csv --format json --output risks.json
 ```
 
 **Parameters:**
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--scope` | Yes | System or area to assess |
+| `--scope` | Yes | Scope label, not discovery or evidence of system access |
 | `--template` | No | Assessment template: `general`, `healthcare`, `cloud` |
-| `--assets` | No | CSV file with asset inventory |
+| `--assets` | One input mode | Nonempty asset CSV; mutually exclusive with `--demo` |
+| `--demo` | One input mode | Explicitly generate synthetic sample assets, labeled in every output format |
+| `--control-evidence` | No | Control attestation CSV for supplied assets; unavailable with demo |
 | `--output` | No | Output file (default: stdout) |
 | `--format` | No | Output format: `json`, `csv`, `markdown` |
 
-**Output:**
-- Asset inventory with classification
-- Threat and vulnerability mapping
-- Risk scores (likelihood × impact)
-- Treatment recommendations
-- Residual risk calculations
+**Input contracts and interpretation:**
+
+Asset CSV requires unique nonempty `id`, nonempty `name`, and `classification` from `critical`, `high`, `medium`, `low`, `minimal`; `type` and `owner` are optional. Empty or invalid inventories fail without producing a report. Example input (illustrative data, not a discovered inventory):
+
+```csv
+id,name,type,owner,classification
+DB01,Example database,Information,Example owner,critical
+```
+
+Control evidence is matched by `asset_id` and catalog `threat_id` (T01–T05 of the selected template), not the generated risk rank. Example attestation schema; substitute reviewed evidence and measured effectiveness before use:
+
+```csv
+asset_id,threat_id,status,effectiveness,evidence_ref,assessed_by,assessed_at
+DB01,T01,verified,0.5,review-record-001,Example assessor,2026-01-15
+```
+
+- A control is `unknown` unless its row has `status=verified`, finite effectiveness in [0,1], a nonempty evidence reference and assessor, and a valid ISO date/time no later than today. Missing, incomplete or unverified rows produce `null` residual estimates, never a default 70% reduction. Unknown/duplicate asset-threat pairs fail to avoid applying evidence to the wrong scenario.
+- Complete attestations are labeled `reported_verified`: the script checks input completeness, does not open evidence references, and cannot establish authenticity, measurement quality, freshness or applicability. Residual results are conditional estimates using `max(1, ceil(catalog_likelihood × (1 − effectiveness))) × classification_impact`.
+- All JSON, CSV and Markdown outputs identify demo status, asset/control sources, the bundled scenario catalog and limitations. Threats and vulnerability candidates remain unverified even with real assets and control records. Scores use assumed catalog likelihoods and classification-derived impact; treatment deadlines are suggestions. This is not a formal completed assessment or certification decision.
 
 ### compliance_checker.py
 
@@ -159,15 +174,15 @@ Document organizational context and ISMS boundaries:
 **Step 2: Conduct Risk Assessment**
 
 ```bash
-python scripts/risk_assessment.py --scope "full-organization" --template general --output initial_risks.json
+python scripts/risk_assessment.py --scope "full-organization" --assets assets.csv --template general --format json --output initial_risks.json
 ```
 
-- Identify information assets
-- Assess threats and vulnerabilities
-- Calculate risk levels
-- Determine risk treatment options
+- Supply an actual asset inventory with owners and classifications
+- Use catalog candidates to guide threat and vulnerability review
+- Validate applicability and likelihood/impact with local evidence
+- Review treatment options; unknown controls have no residual estimate
 
-**Validation:** Risk register contains all critical assets with assigned owners.
+**Validation:** Review critical asset coverage and assigned owners against the supplied inventory. Script output alone does not validate observed risks.
 
 **Step 3: Select and Implement Controls**
 
@@ -227,15 +242,15 @@ Identify threats per asset category:
 **Step 3: Vulnerability Assessment**
 
 ```bash
-python scripts/risk_assessment.py --scope "network-infrastructure" --output vuln_risks.json
+python scripts/risk_assessment.py --scope "network-infrastructure" --assets assets.csv --format json --output scenario_risks.json
 ```
 
-Document vulnerabilities:
+Use the catalog to plan evidence collection; it does not perform a vulnerability scan. Document independently observed vulnerabilities:
 - Technical (unpatched systems, weak configs)
 - Process (missing procedures, gaps)
 - People (lack of training, insider risk)
 
-**Validation:** Vulnerability scan results mapped to risk register.
+**Validation:** Map independently collected scan results to the register; catalog vulnerability candidates are unverified.
 
 **Step 4: Risk Evaluation and Treatment**
 
@@ -368,26 +383,26 @@ python scripts/compliance_checker.py --standard iso27001 --controls-file control
 
 ## Worked Example: Healthcare Risk Assessment
 
-**Scenario:** Assess security risks for a patient data management system.
+**Scenario:** Synthetic healthcare workshop, not a site assessment. Tables below are manually authored illustrative scenarios and treatment ideas, not exact CLI output or verified findings. Run with `--demo` to inspect the bundled catalog; use `--assets` for your supplied inventory.
 
 ### Step 1: Define Assets
 
 ```bash
-python scripts/risk_assessment.py --scope "patient-data-system" --template healthcare
+python scripts/risk_assessment.py --scope "example-patient-data-system" --demo --template healthcare
 ```
 
-**Asset inventory output:**
+**Illustrative synthetic inventory:**
 
 | Asset ID | Asset | Type | Owner | Classification |
 |----------|-------|------|-------|----------------|
-| A001 | Patient database | Information | DBA Team | Confidential |
+| A001 | Patient database | Information | DBA Team | Critical |
 | A002 | EHR application | Software | App Team | Critical |
 | A003 | Database server | Hardware | Infra Team | High |
 | A004 | Admin credentials | Access | Security | Critical |
 
 ### Step 2: Identify Risks
 
-**Risk register output:**
+**Illustrative scenario register (unverified assumptions):**
 
 | Risk ID | Asset | Threat | Vulnerability | L | I | Score |
 |---------|-------|--------|---------------|---|---|-------|

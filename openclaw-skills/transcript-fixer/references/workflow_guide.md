@@ -30,10 +30,12 @@ Detailed step-by-step workflows for transcript correction and management.
 
 Before running corrections, verify these prerequisites:
 
-### Initial Setup
+### Initial Setup (only for authorized persistent dictionary setup)
+
+One-off correction does not require creating a global dictionary. Reuse an authorized existing dictionary or direct correction; initialize persistent state only when reusable dictionary maintenance is in scope.
 - [ ] Initialized with `uv run scripts/fix_transcription.py --init`
 - [ ] Database exists at `~/.transcript-fixer/corrections.db`
-- [ ] `GLM_API_KEY` environment variable set (run `echo $GLM_API_KEY`)
+- [ ] `GLM_API_KEY` environment variable set (check only presence; never print its value)
 - [ ] Configuration validated (run `--validate`)
 
 ### File Preparation
@@ -55,7 +57,7 @@ Before running corrections, verify these prerequisites:
 **Quick validation**:
 
 ```bash
-uv run scripts/fix_transcription.py --validate && echo $GLM_API_KEY
+uv run scripts/fix_transcription.py --validate && if [ -n "${GLM_API_KEY:-}" ]; then printf '%s\n' 'GLM_API_KEY is set'; else printf '%s\n' 'GLM_API_KEY is missing' >&2; exit 1; fi
 ```
 
 ## Core Workflows

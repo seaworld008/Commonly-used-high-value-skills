@@ -1735,7 +1735,7 @@
         {
           "path": "skills/multimodal-media/live-panel/scripts/check_frames.py",
           "owner": "live-panel",
-          "sha256": "88130f6c2ac79eb8a4c42cd66f1542dfbb331ce1d63445c2dbbd21be1c4b7857",
+          "sha256": "f0d3cc8121110b794daca50b5748f66988bece4cdb3b3583af04434dbcb422e1",
           "mode": "100755"
         },
         {
@@ -1747,7 +1747,7 @@
         {
           "path": "skills/multimodal-media/live-panel/scripts/render.py",
           "owner": "live-panel",
-          "sha256": "d7595f634034b84027d6b3b6c252d53fd95fe5b5a905f66988f71c1c412f1d6c",
+          "sha256": "a93fda02f937a72b443452ab38fb42ffc3e694ae726b42a2c90b84c9baba4ce5",
           "mode": "100755"
         }
       ],

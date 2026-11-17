@@ -153,6 +153,18 @@ async function prepare() {
   });
 
   const commitCmd = `node scripts/import.mjs commit --batch ${batchId} --results ${resultFile}`;
+  const commitPolicy = {
+    condition:
+      'Only when existing session authorization specifically covers outreach to this batch of leads ' +
+      'from every active (non-paused) account eligible for assignment. Reuse authorization that already ' +
+      'covers this scope; do not require another confirmation.',
+    side_effect:
+      'commit is an outreach send-queue operation: it assigns suitable leads to active accounts with ' +
+      "status='not_connected', making them eligible for background invites. A running scheduler may send immediately.",
+    research_only:
+      'For research/qualification-only tasks, stop after prepare/qualification and return the qualification ' +
+      'results; do not commit or enter the send queue.',
+  };
   let nextStep;
   if (newCandidates.length === 0) {
     nextStep = 'Nothing new to qualify (all candidates already in the DB). Run abort, or import a different search.';
@@ -160,16 +172,19 @@ async function prepare() {
     nextStep =
       'No ICP is configured yet. Do NOT guess who to keep. Ask the user who they want to ' +
       'reach and who to filter out (roles, industries, company size, locations, hard exclusions), ' +
-      `save it with: node scripts/settings.mjs set icp_definition --file <path>, then qualify ${candidateFile} ` +
-      `against it using ${qualificationPromptPath()}, write ${resultFile} as [{hashed_url, suitable, reasoning}], then: ${commitCmd}`;
+      'use the agreed ICP in this session. If saving settings is in scope, save it with: ' +
+      `node scripts/settings.mjs set icp_definition --stdin. Qualify ${candidateFile} ` +
+      `against it using ${qualificationPromptPath()}, write ${resultFile} as [{hashed_url, suitable, reasoning}].`;
   } else {
     nextStep =
       `An ICP is already configured (see icp_definition below). Confirm with the user whether to use it as-is ` +
-      `or adjust it for this list (if changed, re-save via settings.mjs set icp_definition). Then read ${candidateFile}, ` +
+      `or adjust it for this list (persist changes only when saving settings is in scope). Then read ${candidateFile}, ` +
       `qualify each lead against the ICP using the contract in ${qualificationPromptPath()}, write ${resultFile} as a ` +
-      `JSON array [{hashed_url, suitable, reasoning}] covering every candidate, then: ${commitCmd}. ` +
-      `After commit, report the keep/filter breakdown with a few sample reasons so the decision is transparent.`;
+      `JSON array [{hashed_url, suitable, reasoning}] covering every candidate. ` +
+      `Report the keep/filter breakdown with a few sample reasons so the decision is transparent.`;
   }
+  nextStep += ` ${commitPolicy.research_only} ${commitPolicy.side_effect} ${commitPolicy.condition}`;
+  if (newCandidates.length > 0) nextStep += ` If that condition is met, run: ${commitCmd}`;
 
   ok({
     batch_id: batchId,
@@ -187,6 +202,7 @@ async function prepare() {
     qualification_prompt: qualificationPromptPath(),
     icp_configured: icpConfigured,
     icp_definition: icp ?? null,
+    commit_policy: commitPolicy,
     next_step: nextStep,
   });
 }

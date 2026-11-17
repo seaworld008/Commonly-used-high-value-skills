@@ -1,435 +1,70 @@
-# Security Misconfiguration Reference
+# 谁能在浏览器里读取带会话的报表
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Security misconfiguration is one of the most common vulnerabilities. It occurs when security settings are not defined, implemented incorrectly, or left at insecure defaults. This includes missing security headers, overly permissive CORS, debug mode in production, and exposed sensitive endpoints.
+财务前端与报表 API 部署在不同源。接口根据 Cookie 识别人员和租户。
+浏览器是否附带 Cookie 取决于请求设置、站点关系、Cookie 属性和浏览器策略。
+如果不受信页面能携带这些凭据、并且 API 允许该源读取响应，该页面便能读到用户可见的报表。
 
----
+## 缺陷示例
 
-## Security Headers
-
-### Missing Headers
-
-```python
-# VULNERABLE: No security headers
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-# SAFE: Security headers configured
-@app.after_request
-def add_security_headers(response):
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['X-Frame-Options'] = 'DENY'
-    response.headers['X-XSS-Protection'] = '1; mode=block'
-    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    response.headers['Content-Security-Policy'] = "default-src 'self'"
-    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
-    response.headers['Permissions-Policy'] = 'geolocation=(), microphone=()'
-    return response
-```
-
-### Header Checklist
-
-| Header | Purpose | Secure Value |
-|--------|---------|--------------|
-| `X-Content-Type-Options` | Prevent MIME sniffing | `nosniff` |
-| `X-Frame-Options` | Prevent clickjacking | `DENY` or `SAMEORIGIN` |
-| `Strict-Transport-Security` | Force HTTPS | `max-age=31536000; includeSubDomains` |
-| `Content-Security-Policy` | Prevent XSS, injection | Restrictive policy |
-| `Referrer-Policy` | Control referrer leakage | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | Disable browser features | Disable unused features |
-
-### Content Security Policy
+网关把来访源反射成允许源，另外允许携带凭据。租户自建页面也可能成为来访源。
 
 ```python
-# VULNERABLE: Overly permissive CSP
-"Content-Security-Policy: default-src *"
-"Content-Security-Policy: script-src 'unsafe-inline' 'unsafe-eval'"
-
-# SAFE: Restrictive CSP
-"Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-{random}'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'"
+def unsafe_headers(origin):
+    return {
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Credentials": "true",
+    }
 ```
 
----
+## 修正示例
 
-## CORS Misconfiguration
-
-### Dangerous Patterns
+这条路由专供一个浏览器前端进行跨源 GET。其他客户端使用各自授权的路由。
+框架先拒绝重复的 Origin 头，将单个字段原样交给函数；生产白名单由有发布权限的人维护。
 
 ```python
-# VULNERABLE: Allow all origins
-CORS(app, origins='*')
-Access-Control-Allow-Origin: *
-
-# VULNERABLE: Reflect origin without validation
-@app.after_request
-def add_cors(response):
-    response.headers['Access-Control-Allow-Origin'] = request.headers.get('Origin')
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-
-# VULNERABLE: Wildcard with credentials (browsers block, but shows misconfiguration)
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Credentials: true
-
-# VULNERABLE: Null origin allowed
-Access-Control-Allow-Origin: null
+def report_headers(origin, method):
+    headers = {"Vary": "Origin", "Cache-Control": "private, no-store"}
+    if origin != "https://reports.example.test":
+        return 403, headers
+    if method != "GET":
+        return 405, {**headers, "Allow": "GET"}
+    return 200, {
+        **headers,
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Credentials": "true",
+    }
 ```
 
-### Safe CORS Configuration
-
-```python
-# SAFE: Explicit allowlist
-ALLOWED_ORIGINS = {
-    'https://app.example.com',
-    'https://admin.example.com'
-}
-
-@app.after_request
-def add_cors(response):
-    origin = request.headers.get('Origin')
-    if origin in ALLOWED_ORIGINS:
-        response.headers['Access-Control-Allow-Origin'] = origin
-        response.headers['Access-Control-Allow-Credentials'] = 'true'
-        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-    return response
-```
-
----
-
-## Debug Mode in Production
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: Debug mode enabled
-# Flask
-app.run(debug=True)
-DEBUG = True
-
-# Django
-DEBUG = True  # in settings.py
-
-# Express
-app.set('env', 'development')
-
-# Spring Boot
-spring.devtools.restart.enabled=true
-management.endpoints.web.exposure.include=*
-```
-
-### Detection
-
-```python
-# Check for debug indicators
-if app.debug:
-    # Exposes stack traces, allows code execution in some frameworks
-    pass
-
-# Check environment variables
-if os.environ.get('DEBUG') == 'true':
-    pass
-if os.environ.get('FLASK_ENV') == 'development':
-    pass
-```
-
----
-
-## Default Credentials
-
-### Patterns to Flag
-
-```python
-# VULNERABLE: Default/weak credentials
-username = 'admin'
-password = 'admin'
-password = 'password'
-password = '123456'
-password = 'changeme'
-password = 'default'
-
-# VULNERABLE: Well-known default credentials
-# Database defaults
-DB_PASSWORD = 'root'
-DB_PASSWORD = 'postgres'
-DB_PASSWORD = 'mysql'
-
-# Admin panel defaults
-ADMIN_PASSWORD = 'admin123'
-SECRET_KEY = 'development-secret-key'
-```
-
-### Configuration Files to Check
-
-```yaml
-# Docker Compose
-services:
-  db:
-    environment:
-      MYSQL_ROOT_PASSWORD: root  # VULNERABLE
-      POSTGRES_PASSWORD: postgres  # VULNERABLE
-
-# Kubernetes Secrets (base64 encoded defaults)
-apiVersion: v1
-kind: Secret
-data:
-  password: YWRtaW4=  # 'admin' base64 encoded - VULNERABLE
-```
-
----
-
-## Exposed Endpoints
-
-### Admin/Debug Endpoints
-
-```python
-# VULNERABLE: Exposed debug endpoints
-@app.route('/debug')
-@app.route('/admin')  # without authentication
-@app.route('/metrics')  # without authentication
-@app.route('/health')  # may expose sensitive info
-@app.route('/env')
-@app.route('/config')
-@app.route('/phpinfo.php')
-@app.route('/.git')
-@app.route('/.env')
-
-# Spring Boot Actuator endpoints
-/actuator/env
-/actuator/heapdump
-/actuator/configprops
-/actuator/mappings
-```
-
-### Protection
-
-```python
-# SAFE: Protect sensitive endpoints
-@app.route('/admin')
-@require_admin
-def admin_panel():
-    pass
-
-@app.route('/metrics')
-@require_internal_network
-def metrics():
-    pass
-
-# Spring Boot: Restrict actuator
-management.endpoints.web.exposure.include=health,info
-management.endpoint.health.show-details=never
-```
-
----
-
-## TLS/SSL Misconfiguration
-
-### Insecure Patterns
-
-```python
-# VULNERABLE: SSL verification disabled
-requests.get(url, verify=False)
-urllib3.disable_warnings()
-
-# VULNERABLE: Weak TLS versions
-ssl_context.minimum_version = ssl.TLSVersion.TLSv1  # Use TLS 1.2+
-
-# VULNERABLE: Weak cipher suites
-ssl_context.set_ciphers('ALL')
-ssl_context.set_ciphers('DEFAULT')
-```
-
-### Secure Configuration
-
-```python
-# SAFE: Proper TLS configuration
-import ssl
-
-context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-context.minimum_version = ssl.TLSVersion.TLSv1_2
-context.set_ciphers('ECDHE+AESGCM:DHE+AESGCM:ECDHE+CHACHA20')
-context.verify_mode = ssl.CERT_REQUIRED
-context.check_hostname = True
-```
-
----
-
-## Directory Listing
-
-### Dangerous Patterns
-
-```nginx
-# VULNERABLE: Directory listing enabled
-# Nginx
-autoindex on;
-
-# Apache
-Options +Indexes
-
-# Python
-python -m http.server  # Lists directories by default
-```
-
-### Secure Configuration
-
-```nginx
-# SAFE: Directory listing disabled
-# Nginx
-autoindex off;
-
-# Apache
-Options -Indexes
-```
-
----
-
-## Verbose Error Messages
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: Detailed errors in response
-@app.errorhandler(Exception)
-def handle_error(e):
-    return jsonify({
-        'error': str(e),
-        'traceback': traceback.format_exc(),
-        'query': last_executed_query,
-        'config': app.config
-    }), 500
-
-# VULNERABLE: Stack traces exposed
-app.config['PROPAGATE_EXCEPTIONS'] = True
-```
-
-### Secure Error Handling
-
-```python
-# SAFE: Generic error messages
-@app.errorhandler(Exception)
-def handle_error(e):
-    app.logger.error(f"Error: {e}", exc_info=True)  # Log details server-side
-    return jsonify({'error': 'An unexpected error occurred'}), 500
-```
-
----
-
-## Cookie Security
-
-### Insecure Patterns
-
-```python
-# VULNERABLE: Insecure cookie settings
-response.set_cookie('session', value)  # Missing flags
-
-# VULNERABLE: Explicit insecure flags
-response.set_cookie('session', value, secure=False, httponly=False, samesite='None')
-```
-
-### Secure Cookie Configuration
-
-```python
-# SAFE: Secure cookie settings
-response.set_cookie(
-    'session',
-    value,
-    secure=True,       # HTTPS only
-    httponly=True,     # No JavaScript access
-    samesite='Lax',    # CSRF protection
-    max_age=3600,      # Reasonable expiration
-    path='/',
-    domain='.example.com'
-)
-
-# Flask session configuration
-app.config['SESSION_COOKIE_SECURE'] = True
-app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-```
-
----
-
-## Permissive File Permissions
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: World-readable sensitive files
-os.chmod(config_file, 0o777)
-os.chmod(private_key, 0o644)
-
-# VULNERABLE: Overly permissive umask
-os.umask(0o000)
-```
-
-### Secure Permissions
-
-```python
-# SAFE: Restrictive permissions
-os.chmod(config_file, 0o600)  # Owner read/write only
-os.chmod(private_key, 0o400)  # Owner read only
-os.chmod(script, 0o700)       # Owner execute only
-```
-
----
-
-## HTTP Methods
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: All methods allowed
-@app.route('/api/data', methods=['GET', 'POST', 'PUT', 'DELETE', 'TRACE', 'OPTIONS'])
-
-# VULNERABLE: TRACE method enabled (XST attacks)
-# VULNERABLE: Unnecessary methods on sensitive endpoints
-```
-
-### Secure Configuration
-
-```python
-# SAFE: Explicit method restrictions
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    pass
-
-@app.route('/api/data', methods=['POST'])
-@require_auth
-def create_data():
-    pass
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Debug mode
-grep -rn "debug.*=.*[Tt]rue\|DEBUG.*=.*[Tt]rue" --include="*.py" --include="*.js" --include="*.json"
-
-# CORS wildcards
-grep -rn "Access-Control-Allow-Origin.*\*\|origins.*\*\|origin.*\*" --include="*.py" --include="*.js"
-
-# SSL verification disabled
-grep -rn "verify.*=.*[Ff]alse\|rejectUnauthorized.*false\|NODE_TLS_REJECT_UNAUTHORIZED" --include="*.py" --include="*.js"
-
-# Default credentials
-grep -rn "password.*=.*['\"]admin\|password.*=.*['\"]root\|password.*=.*['\"]123456" --include="*.py" --include="*.yaml" --include="*.yml"
-
-# Missing security headers (check for absence)
-grep -rn "after_request\|middleware" --include="*.py" | grep -v "X-Content-Type-Options\|X-Frame-Options"
-
-# Exposed endpoints
-grep -rn "@app.route.*debug\|@app.route.*admin\|@app.route.*config\|/actuator" --include="*.py" --include="*.java"
-```
-
----
-
-## References
-
-- [OWASP Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/)
-- [OWASP HTTP Security Headers](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html)
-- [OWASP TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
-- [CWE-16: Configuration](https://cwe.mitre.org/data/definitions/16.html)
+只有返回 200 时才进入会话验证、报表授权与读取；前置函数返回 200 本身不授予报表权限。
+已有 Vary 的部署应合并字段。此例只演示简单 GET，未提供 OPTIONS 预检处理。
+需要预检的路由应单独核对允许的方法和请求头，并在实际请求时再次鉴权。
+有副作用的接口还要处理 CSRF；跨源响应不可读不能撤销已经发生的写入。
+
+## 审查最终生效的部署
+
+- 按请求经过的顺序核对 CDN、反向代理、应用中间件各自增删的头。两层各加一次也会改变浏览器行为。
+- 租户能否编辑自定义域名、写入动态允许列表，或控制同站子域？追到配置写入者与审核边界。
+- 检查生产构建和启动覆盖项。调试页面、示例账号、目录浏览和管理端点可能由环境变量重新打开。
+- 代理转发的主机与协议只有在入口剥离来访者自填字段并重设、且服务仅信任指定代理时才有依据。
+- 对 HTML 检查嵌入策略、脚本策略，对附件检查内容类型与嗅探策略；先分清实际提供的响应类型。
+- 对部署所用版本核对中间件默认值。仅看到仓库示例配置不能说明线上已经采用。
+
+## 路由级验收输入
+
+| 源与方法 | 预期 |
+| --- | --- |
+| https://reports.example.test 和 GET | 返回单一允许源，继续验证主体与报表归属 |
+| 同一域名但协议为 http 或使用不同的非默认端口 | 403，没有允许源，读取次数为零 |
+| 字面值 null、无 Origin 或未知站点 | 此跨源专用路由返回 403 |
+| 合法源和 POST | 405，报告读取与写入均未开始 |
+
+公开、无凭据的静态字体对所有源开放，与私人报表的读权限不同。
+命令行客户端可自行声明 Origin；源匹配不能证明身份。保留脱敏的最终响应头和业务授权结果。
+若核验跨源读取，使用隔离测试配置、虚构账号与报表，分别观察允许源和拒绝源的页面结果。
+默认审查可在本地调用头部函数，不向实际站点发送带凭据请求。
+
+前端渲染响应时还应检查[页面输出位置](xss.md)。
+
+平台资料：[Fetch 的跨源资源共享协议](https://fetch.spec.whatwg.org/#http-cors-protocol)。

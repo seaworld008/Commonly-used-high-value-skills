@@ -37,28 +37,28 @@ AUGUST_31_REVIEWED_COMMIT = "6646386e0996b1ff5df640bccff834a20bcb203b"
 AUGUST_24_REVIEWED_COMMIT = "56ad837c3d8f4c49d6b9725a3530c37408533ead"
 PREVIOUS_REVIEWED_COMMIT = "ca35f6061616d4f47681368bbbef03be28193dc9"
 INITIAL_REVIEWED_COMMIT = "755daa4de3ea12785c43a15244ffb8f012122c13"
-EXPECTED_COUNTS = {'lark-approval': 17,
- 'lark-attendance': 1,
- 'lark-base': 33,
- 'lark-calendar': 15,
- 'lark-contact': 4,
+EXPECTED_COUNTS = {'lark-approval': 18,
+ 'lark-attendance': 2,
+ 'lark-base': 34,
+ 'lark-calendar': 16,
+ 'lark-contact': 5,
  'lark-doc': 45,
- 'lark-drive': 61,
- 'lark-event': 9,
- 'lark-im': 61,
+ 'lark-drive': 62,
+ 'lark-event': 10,
+ 'lark-im': 62,
  'lark-mail': 37,
- 'lark-markdown': 6,
+ 'lark-markdown': 7,
  'lark-okr': 28,
- 'lark-openapi-explorer': 1,
- 'lark-shared': 7,
- 'lark-sheets': 32,
+ 'lark-openapi-explorer': 2,
+ 'lark-shared': 8,
+ 'lark-sheets': 33,
  'lark-skill-maker': 2,
- 'lark-slides': 50,
- 'lark-task': 19,
- 'lark-whiteboard': 31,
- 'lark-wiki': 14,
- 'lark-workflow-meeting-summary': 1,
- 'lark-workflow-standup-report': 1,
+ 'lark-slides': 51,
+ 'lark-task': 20,
+ 'lark-whiteboard': 32,
+ 'lark-wiki': 15,
+ 'lark-workflow-meeting-summary': 2,
+ 'lark-workflow-standup-report': 2,
  'lark-meeting': 31}
 
 EXPECTED_PATH_COMMITS = {'lark-approval': '0d5334a0cdfdf18b0313ba051befb2848493ecda',
@@ -187,7 +187,7 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
             assert {Path(a["target"]).name for a in archived["artifacts"]} == {
                 "sheets_df.py", "lark-sheets-legacy-command-migration.md",
             }
-            assert len(content_artifacts) == expected_count - 2
+            assert len(content_artifacts) == expected_count - 2 - len(license_artifacts)
             assert all(a["type"] == "file" for a in content_artifacts)
         elif slug in {"lark-doc", "lark-skill-maker"}:
             expected_content = [{

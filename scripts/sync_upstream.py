@@ -772,7 +772,7 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                 )
 
     external_modes: list[str] = []
-    artifact_owners: dict[str, int] = {path: 0 for path in managed_by_path}
+    origin_owners: dict[str, set[int]] = {path: set() for path in managed_by_path}
     for origin_index, origin in enumerate(origins):
         if not isinstance(origin, dict):
             errors.append(f"origins[{origin_index}] must be an object")
@@ -820,6 +820,7 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         if not isinstance(artifacts, list) or (not artifacts and not is_local):
             errors.append(f"origins[{origin_index}] has no artifact inventory")
             artifacts = []
+        declared_targets: set[str] = set()
         for artifact_index, artifact in enumerate(artifacts):
             if not isinstance(artifact, dict):
                 errors.append(
@@ -840,6 +841,11 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                     "is invalid"
                 )
                 continue
+            if target in declared_targets:
+                errors.append(
+                    f"origins[{origin_index}].artifacts has duplicate target: {target}"
+                )
+            declared_targets.add(target)
             target_path = PurePosixPath(str(target))
             if not (
                 target_path.is_relative_to(skill_root)
@@ -852,9 +858,9 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                     f"origins[{origin_index}].artifacts[{artifact_index}] "
                     "escapes the canonical skill root"
                 )
-            for managed_path in artifact_owners:
+            for managed_path, owners in origin_owners.items():
                 if _artifact_owns_target(artifact, managed_path):
-                    artifact_owners[managed_path] += 1
+                    owners.add(origin_index)
 
         tracking = origin.get("tracking")
         if not isinstance(tracking, dict):
@@ -1028,11 +1034,11 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         )
     elif entry_mode != external_modes[0]:
         errors.append("entry/external origin sync_mode conflict")
-    for path, owners in artifact_owners.items():
-        if owners != 1:
+    for path, owners in origin_owners.items():
+        if len(owners) != 1:
             errors.append(
                 f"managed file {path!r} must have exactly one artifact owner; "
-                f"found {owners}"
+                f"found {len(owners)}"
             )
     if str(repo_skill) not in managed_by_path:
         errors.append("repo_skill is absent from managed_files")

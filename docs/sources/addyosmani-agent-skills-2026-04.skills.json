@@ -24,7 +24,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/api-and-interface-design/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the executable catch/rethrow fix (throw e), preserving the idempotency design. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the executable catch/rethrow fix (throw e), preserving the idempotency design. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/api-and-interface-design/SKILL.md",
@@ -47,6 +47,11 @@
             {
               "source": "skills/api-and-interface-design/SKILL.md",
               "target": "skills/ai-workflow/api-and-interface-design/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/api-and-interface-design/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -168,6 +173,12 @@
           "owner": "api-and-interface-design",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/api-and-interface-design/LICENSE.upstream.txt",
+          "owner": "api-and-interface-design",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -178,7 +189,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
@@ -201,6 +212,11 @@
             {
               "source": "skills/browser-testing-with-devtools/SKILL.md",
               "target": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/browser-testing-with-devtools/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -322,6 +338,12 @@
           "owner": "browser-testing-with-devtools",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/browser-testing-with-devtools/LICENSE.upstream.txt",
+          "owner": "browser-testing-with-devtools",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -332,7 +354,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/ci-cd-and-automation/SKILL.md",
@@ -355,6 +377,11 @@
             {
               "source": "skills/ci-cd-and-automation/SKILL.md",
               "target": "skills/ai-workflow/ci-cd-and-automation/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/ci-cd-and-automation/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -476,6 +503,12 @@
           "owner": "ci-cd-and-automation",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/ci-cd-and-automation/LICENSE.upstream.txt",
+          "owner": "ci-cd-and-automation",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -486,7 +519,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt a bounded mutation-test experiment only in an authorized isolated copy; omit the unbundled constraint-driven-development dependency. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt a bounded mutation-test experiment only in an authorized isolated copy; omit the unbundled constraint-driven-development dependency. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
@@ -509,6 +542,11 @@
             {
               "source": "skills/code-review-and-quality/SKILL.md",
               "target": "skills/ai-workflow/code-review-and-quality/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/code-review-and-quality/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -630,6 +668,12 @@
           "owner": "code-review-and-quality",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/code-review-and-quality/LICENSE.upstream.txt",
+          "owner": "code-review-and-quality",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -640,7 +684,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-simplification/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-simplification/SKILL.md",
@@ -663,6 +707,11 @@
             {
               "source": "skills/code-simplification/SKILL.md",
               "target": "skills/ai-workflow/code-simplification/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/code-simplification/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -784,6 +833,12 @@
           "owner": "code-simplification",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/code-simplification/LICENSE.upstream.txt",
+          "owner": "code-simplification",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -794,7 +849,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/context-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/context-engineering/SKILL.md",
@@ -817,6 +872,11 @@
             {
               "source": "skills/context-engineering/SKILL.md",
               "target": "skills/ai-workflow/context-engineering/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/context-engineering/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -938,6 +998,12 @@
           "owner": "context-engineering",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/context-engineering/LICENSE.upstream.txt",
+          "owner": "context-engineering",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -948,7 +1014,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
@@ -971,6 +1037,11 @@
             {
               "source": "skills/debugging-and-error-recovery/SKILL.md",
               "target": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/debugging-and-error-recovery/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1092,6 +1163,12 @@
           "owner": "debugging-and-error-recovery",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/debugging-and-error-recovery/LICENSE.upstream.txt",
+          "owner": "debugging-and-error-recovery",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1102,7 +1179,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
@@ -1125,6 +1202,11 @@
             {
               "source": "skills/deprecation-and-migration/SKILL.md",
               "target": "skills/ai-workflow/deprecation-and-migration/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/deprecation-and-migration/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1246,6 +1328,12 @@
           "owner": "deprecation-and-migration",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/deprecation-and-migration/LICENSE.upstream.txt",
+          "owner": "deprecation-and-migration",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1256,7 +1344,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Add Proposed to the ADR status lifecycle; preserve local templates. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Add Proposed to the ADR status lifecycle; preserve local templates. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/documentation-and-adrs/SKILL.md",
@@ -1279,6 +1367,11 @@
             {
               "source": "skills/documentation-and-adrs/SKILL.md",
               "target": "skills/ai-workflow/documentation-and-adrs/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/documentation-and-adrs/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1400,6 +1493,12 @@
           "owner": "documentation-and-adrs",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/documentation-and-adrs/LICENSE.upstream.txt",
+          "owner": "documentation-and-adrs",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1410,7 +1509,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/doubt-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/doubt-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/doubt-driven-development/SKILL.md",
@@ -1433,6 +1532,11 @@
             {
               "source": "skills/doubt-driven-development/SKILL.md",
               "target": "skills/ai-workflow/doubt-driven-development/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/doubt-driven-development/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1554,6 +1658,12 @@
           "owner": "doubt-driven-development",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/doubt-driven-development/LICENSE.upstream.txt",
+          "owner": "doubt-driven-development",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1564,7 +1674,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
@@ -1587,6 +1697,11 @@
             {
               "source": "skills/frontend-ui-engineering/SKILL.md",
               "target": "skills/ai-workflow/frontend-ui-engineering/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/frontend-ui-engineering/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1708,6 +1823,12 @@
           "owner": "frontend-ui-engineering",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/frontend-ui-engineering/LICENSE.upstream.txt",
+          "owner": "frontend-ui-engineering",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1718,7 +1839,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/git-workflow-and-versioning/SKILL.md",
@@ -1741,6 +1862,11 @@
             {
               "source": "skills/git-workflow-and-versioning/SKILL.md",
               "target": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/git-workflow-and-versioning/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -1862,6 +1988,12 @@
           "owner": "git-workflow-and-versioning",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/git-workflow-and-versioning/LICENSE.upstream.txt",
+          "owner": "git-workflow-and-versioning",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -1872,7 +2004,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/idea-refine/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/idea-refine/SKILL.md",
@@ -1914,6 +2046,11 @@
             {
               "source": "skills/idea-refine/scripts/idea-refine.sh",
               "target": "skills/ai-workflow/idea-refine/scripts/idea-refine.sh",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/idea-refine/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -2060,6 +2197,12 @@
           "owner": "idea-refine",
           "sha256": "f02a52408a4218047c032d221483abfbb48d11f090bb4915965c7419bf2e0e47",
           "mode": "100755"
+        },
+        {
+          "path": "skills/ai-workflow/idea-refine/LICENSE.upstream.txt",
+          "owner": "idea-refine",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -2070,7 +2213,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/incremental-implementation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/incremental-implementation/SKILL.md",
@@ -2093,6 +2236,11 @@
             {
               "source": "skills/incremental-implementation/SKILL.md",
               "target": "skills/ai-workflow/incremental-implementation/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/incremental-implementation/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -2214,6 +2362,12 @@
           "owner": "incremental-implementation",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/incremental-implementation/LICENSE.upstream.txt",
+          "owner": "incremental-implementation",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -2224,7 +2378,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/interview-me/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/interview-me/SKILL.md",
@@ -2247,6 +2401,11 @@
             {
               "source": "skills/interview-me/SKILL.md",
               "target": "skills/ai-workflow/interview-me/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/interview-me/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -2368,6 +2527,12 @@
           "owner": "interview-me",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/interview-me/LICENSE.upstream.txt",
+          "owner": "interview-me",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -2378,7 +2543,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/observability-and-instrumentation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/observability-and-instrumentation/SKILL.md",
@@ -2401,6 +2566,11 @@
             {
               "source": "skills/observability-and-instrumentation/SKILL.md",
               "target": "skills/ai-workflow/observability-and-instrumentation/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/observability-and-instrumentation/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -2522,6 +2692,12 @@
           "owner": "observability-and-instrumentation",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/observability-and-instrumentation/LICENSE.upstream.txt",
+          "owner": "observability-and-instrumentation",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -2532,7 +2708,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/performance-optimization/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Move worked examples into the new bundled optimization-patterns reference; repair relative checklist links and preserve local guidance. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Move worked examples into the new bundled optimization-patterns reference; repair relative checklist links and preserve local guidance. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/performance-optimization/SKILL.md",
@@ -2559,6 +2735,11 @@
             {
               "source": "skills/performance-optimization/references/optimization-patterns.md",
               "target": "skills/ai-workflow/performance-optimization/references/optimization-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/performance-optimization/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -2687,6 +2868,12 @@
           "owner": "performance-optimization",
           "sha256": "d213e0617efc980e3f0cb6d9204e79f8efd54e0e2391df1c20cd675c1f52fca2",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/performance-optimization/LICENSE.upstream.txt",
+          "owner": "performance-optimization",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -2697,7 +2884,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/planning-and-task-breakdown/SKILL.md",
@@ -2720,6 +2907,11 @@
             {
               "source": "skills/planning-and-task-breakdown/SKILL.md",
               "target": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/planning-and-task-breakdown/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -2841,6 +3033,12 @@
           "owner": "planning-and-task-breakdown",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/planning-and-task-breakdown/LICENSE.upstream.txt",
+          "owner": "planning-and-task-breakdown",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-22: reviewed local overlay; remove mandatory host-specific handoffs or unavailable helper claims while preserving domain methods and original upstream license/checkpoint."
@@ -2851,7 +3049,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/security-and-hardening/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
@@ -2878,6 +3076,11 @@
             {
               "source": "skills/security-and-hardening/references/hardening-patterns.md",
               "target": "skills/ai-workflow/security-and-hardening/references/hardening-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/security-and-hardening/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -3017,6 +3220,12 @@
           "owner": "security-and-hardening",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/security-and-hardening/LICENSE.upstream.txt",
+          "owner": "security-and-hardening",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3027,7 +3236,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/shipping-and-launch/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Remove nonexistent Prisma rollback command; require a project-verified command or runbook. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Remove nonexistent Prisma rollback command; require a project-verified command or runbook. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/shipping-and-launch/SKILL.md",
@@ -3050,6 +3259,11 @@
             {
               "source": "skills/shipping-and-launch/SKILL.md",
               "target": "skills/ai-workflow/shipping-and-launch/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/shipping-and-launch/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -3171,6 +3385,12 @@
           "owner": "shipping-and-launch",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/shipping-and-launch/LICENSE.upstream.txt",
+          "owner": "shipping-and-launch",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3181,7 +3401,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/source-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/source-driven-development/SKILL.md",
@@ -3204,6 +3424,11 @@
             {
               "source": "skills/source-driven-development/SKILL.md",
               "target": "skills/ai-workflow/source-driven-development/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/source-driven-development/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -3325,6 +3550,12 @@
           "owner": "source-driven-development",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/source-driven-development/LICENSE.upstream.txt",
+          "owner": "source-driven-development",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3335,7 +3566,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/spec-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the local authorization-aware flow; reject a new forced turn/approval gate that conflicts with repository and current-user authorization. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the local authorization-aware flow; reject a new forced turn/approval gate that conflicts with repository and current-user authorization. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/spec-driven-development/SKILL.md",
@@ -3358,6 +3589,11 @@
             {
               "source": "skills/spec-driven-development/SKILL.md",
               "target": "skills/ai-workflow/spec-driven-development/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/spec-driven-development/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -3479,6 +3715,12 @@
           "owner": "spec-driven-development",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/spec-driven-development/LICENSE.upstream.txt",
+          "owner": "spec-driven-development",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3489,7 +3731,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/test-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/test-driven-development/SKILL.md",
@@ -3512,6 +3754,11 @@
             {
               "source": "skills/test-driven-development/SKILL.md",
               "target": "skills/ai-workflow/test-driven-development/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/test-driven-development/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -3633,6 +3880,12 @@
           "owner": "test-driven-development",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/test-driven-development/LICENSE.upstream.txt",
+          "owner": "test-driven-development",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3643,7 +3896,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-agent-skills/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 39b723ceebf81474d0557c1fecd01eddab585563; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
@@ -3666,6 +3919,11 @@
             {
               "source": "skills/using-agent-skills/SKILL.md",
               "target": "skills/ai-workflow/using-agent-skills/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/using-agent-skills/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -4259,6 +4517,12 @@
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/testing-patterns.md",
           "owner": "using-agent-skills",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-agent-skills/LICENSE.upstream.txt",
+          "owner": "using-agent-skills",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
           "mode": "100644"
         }
       ],

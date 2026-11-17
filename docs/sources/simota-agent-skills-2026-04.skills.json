@@ -3585,7 +3585,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/rally/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/rally/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "rally/SKILL.md",
@@ -3658,6 +3658,11 @@
             {
               "source": "rally/reference/team-design-patterns.md",
               "target": "skills/ai-workflow/rally/reference/team-design-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/rally/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -3897,6 +3902,12 @@
           "path": "skills/ai-workflow/rally/references/team-design-patterns.md",
           "owner": "rally",
           "sha256": "ba5f48a83a76d9a3fd35a38573ec4dd1ee370c9168eba07b4a5edbee9a9e563d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/rally/LICENSE.upstream.txt",
+          "owner": "rally",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -4285,7 +4296,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/arena/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/arena/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because arena/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because arena/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "arena/SKILL.md",
@@ -4366,6 +4377,11 @@
               "source": "arena/references/team-mode-guide.md",
               "target": "skills/ai-agent-platform/arena/references/team-mode-guide.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-agent-platform/arena/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -4375,7 +4391,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "75b1abc6b141fbdeeeefb5fbfdbe6559220a57387596496a3e296120c06cd4d8",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -4450,6 +4474,12 @@
           "path": "skills/ai-agent-platform/arena/references/team-mode-guide.md",
           "sha256": "839248be3d943aecb528c9d61d86c66ee0f922da5df8ac40370672eba912aafa",
           "owner": "arena",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/arena/LICENSE.upstream.txt",
+          "owner": "arena",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ],
@@ -5379,7 +5409,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/harvest/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/harvest/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/harvest at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; repository-local shell-injection and regex-denial-of-service hardening in scripts/generate-report.js, plus other unique curation, are separately owned by local-repo/curation.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/harvest at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; repository-local shell-injection and regex-denial-of-service hardening in scripts/generate-report.js, plus other unique curation, are separately owned by local-repo/curation. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/harvest/SKILL.md",
@@ -5509,6 +5539,11 @@
             {
               "source": ".archive/harvest/templates/client-report.html",
               "target": "skills/engineering-workflow-automation/harvest/templates/client-report.html",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/engineering-workflow-automation/harvest/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -5922,6 +5957,12 @@
           "sha256": "845cd256464a8834859c6198340d824d0b28a91ff58d2813a80d9e5f9aacd67d",
           "owner": "harvest",
           "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/harvest/LICENSE.upstream.txt",
+          "owner": "harvest",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -5931,7 +5972,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/latch/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/latch/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/latch at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/latch at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/latch/SKILL.md",
@@ -6006,6 +6047,11 @@
             {
               "source": ".archive/latch/reference/skill-usage-telemetry.md",
               "target": "skills/engineering-workflow-automation/latch/reference/skill-usage-telemetry.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/engineering-workflow-automation/latch/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -6154,6 +6200,12 @@
           "path": "skills/engineering-workflow-automation/latch/references/hook-system.md",
           "sha256": "8d4a55f1e1f25166f10619d7efdd540405561e70bf04fe07e74cee9170a7c6bf",
           "owner": "latch",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/latch/LICENSE.upstream.txt",
+          "owner": "latch",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -7592,7 +7644,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/finance-investing/helm/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/helm/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/helm at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/helm at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/helm/SKILL.md",
@@ -7707,6 +7759,11 @@
             {
               "source": ".archive/helm/reference/wargaming-simulation.md",
               "target": "skills/finance-investing/helm/reference/wargaming-simulation.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/finance-investing/helm/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -8025,6 +8082,12 @@
           "sha256": "b1c0118efd840bdf0e0a7a89e26a528ba2c516b0700f6c1d800619cfc61672de",
           "owner": "helm",
           "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/helm/LICENSE.upstream.txt",
+          "owner": "helm",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -8034,7 +8097,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/finance-investing/levy/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/levy/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because levy/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because levy/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "levy/SKILL.md",
@@ -8110,6 +8173,11 @@
               "source": "levy/references/tax-calculation.md",
               "target": "skills/finance-investing/levy/references/tax-calculation.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/finance-investing/levy/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -8119,7 +8187,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "a1e1b4f7f7eb8484bb0b5ad0082d2ffc197407748fef890275713645c66958c2",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -8188,6 +8264,12 @@
           "path": "skills/finance-investing/levy/references/tax-calculation.md",
           "sha256": "5d4518ea72f6f3a8bb91f196579ac43ff2b46f41133bf4cc47eda722ed638ea5",
           "owner": "levy",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/levy/LICENSE.upstream.txt",
+          "owner": "levy",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -8586,7 +8668,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "compete/SKILL.md",
@@ -8749,6 +8831,11 @@
             {
               "source": "compete/reference/winloss-analysis.md",
               "target": "skills/growth-operations-xiaohongshu/compete/reference/winloss-analysis.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/growth-operations-xiaohongshu/compete/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -9129,6 +9216,12 @@
           "path": "skills/growth-operations-xiaohongshu/compete/references/winloss-analysis.md",
           "owner": "compete",
           "sha256": "1b917a3f0703f31424cb65e3ea77c168a726d5e5bcf9720ccfd215e617130eca",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/compete/LICENSE.upstream.txt",
+          "owner": "compete",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -11264,7 +11357,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/operations-general/crest/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/crest/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/crest at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/crest at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/crest/SKILL.md",
@@ -11339,6 +11432,11 @@
             {
               "source": ".archive/crest/reference/topic-dna.md",
               "target": "skills/operations-general/crest/reference/topic-dna.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/operations-general/crest/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -11488,6 +11586,12 @@
           "sha256": "d10c13d8e0f5ac393e4682efcc17ed92652d0705da618d8b7dfe0bb551db263e",
           "owner": "crest",
           "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/crest/LICENSE.upstream.txt",
+          "owner": "crest",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -11497,7 +11601,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/operations-general/hearth/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/hearth/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/hearth at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/hearth at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/hearth/SKILL.md",
@@ -11617,6 +11721,11 @@
             {
               "source": ".archive/hearth/reference/vscode-editor-config.md",
               "target": "skills/operations-general/hearth/reference/vscode-editor-config.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/operations-general/hearth/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -11831,6 +11940,12 @@
           "sha256": "49d747ee359944115b8ece125730a643898feace93cf37b3326b50bb9ab595d7",
           "owner": "hearth",
           "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/hearth/LICENSE.upstream.txt",
+          "owner": "hearth",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -11905,7 +12020,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/product-design/voice/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/voice/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "voice/SKILL.md",
@@ -11968,6 +12083,11 @@
             {
               "source": "voice/reference/thematic-coding.md",
               "target": "skills/product-design/voice/reference/thematic-coding.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/voice/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -12173,6 +12293,12 @@
           "path": "skills/product-design/voice/references/thematic-coding.md",
           "owner": "voice",
           "sha256": "2ea663bc62ed340a472f0c80af3cb56be3f269416d7b27d6d63b3eb49746b6ce",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/voice/LICENSE.upstream.txt",
+          "owner": "voice",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -12414,7 +12540,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/product-design/researcher/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/researcher/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because researcher/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because researcher/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "researcher/SKILL.md",
@@ -12500,6 +12626,11 @@
               "source": "researcher/references/survey-quantitative-design.md",
               "target": "skills/product-design/researcher/references/survey-quantitative-design.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/researcher/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -12509,7 +12640,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "6f57b2e09f4d443994667be184f71f2178535b8ec956424a2b72fdf41787fc29",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -12590,6 +12729,12 @@
           "path": "skills/product-design/researcher/references/survey-quantitative-design.md",
           "sha256": "ca2db3e98d3b09b8c55e706aec6b337a68ec6ab9d97caa00d4b68206044d5910",
           "owner": "researcher",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/researcher/LICENSE.upstream.txt",
+          "owner": "researcher",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -12853,7 +12998,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/cloak/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cloak/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "cloak/SKILL.md",
@@ -12901,6 +13046,11 @@
             {
               "source": "cloak/reference/pseudonymization-techniques.md",
               "target": "skills/security-and-reliability/cloak/reference/pseudonymization-techniques.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/cloak/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -13053,6 +13203,12 @@
           "owner": "cloak",
           "sha256": "e01604bd465d0f3c380cb50fefc98781f08ac3e3d6dae9cab6db6cdfc05c627a",
           "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/cloak/LICENSE.upstream.txt",
+          "owner": "cloak",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -13062,7 +13218,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/comply/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/comply/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because comply/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because comply/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "comply/SKILL.md",
@@ -13133,6 +13289,11 @@
               "source": "comply/references/vendor-risk-assessment.md",
               "target": "skills/security-and-reliability/comply/references/vendor-risk-assessment.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/comply/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -13142,7 +13303,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "7cdba1024db169e012e3b734bab8736d656f5cd177fc0c28f09b4cebc545161e",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -13206,6 +13375,12 @@
           "sha256": "5a85d060f62eaa8f95cd8efade27a042669292f544f571780ac0a18f50093659",
           "owner": "comply",
           "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/comply/LICENSE.upstream.txt",
+          "owner": "comply",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -13215,7 +13390,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/sketch/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/sketch/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/sketch at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/sketch at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/sketch/SKILL.md",
@@ -13290,6 +13465,11 @@
             {
               "source": ".archive/sketch/reference/upscale-postprocess.md",
               "target": "skills/multimodal-media/sketch/reference/upscale-postprocess.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/multimodal-media/sketch/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -13450,6 +13630,12 @@
           "sha256": "bfc8f3ce48aa1a2a549e74cc9f086793af04d70ab1e4430284d184239d4e652c",
           "owner": "sketch",
           "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/sketch/LICENSE.upstream.txt",
+          "owner": "sketch",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -13459,7 +13645,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/clay/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/clay/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because clay/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because clay/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "clay/SKILL.md",
@@ -13515,6 +13701,11 @@
               "source": "clay/references/quality-validation.md",
               "target": "skills/multimodal-media/clay/references/quality-validation.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/multimodal-media/clay/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -13524,7 +13715,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "29eb1dc47ce6ba853813abe79451b5f34696221015bc9dba6e6bf41a68af651d",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -13570,6 +13769,12 @@
           "sha256": "eea16c21254ed88df9b4c57d293b50388307f20eb736b5415ac017470fbf05cd",
           "owner": "clay",
           "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/clay/LICENSE.upstream.txt",
+          "owner": "clay",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -13579,7 +13784,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/tone/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/tone/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because tone/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because tone/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "tone/SKILL.md",
@@ -13640,6 +13845,11 @@
               "source": "tone/references/suno-prompt-guide.md",
               "target": "skills/multimodal-media/tone/references/suno-prompt-guide.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/multimodal-media/tone/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -13649,7 +13859,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "53281bcdf0023f3f5850fafe92c78aed8c93c309c4bf5a52291c1ecd5141b7c1",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -13700,6 +13918,12 @@
           "path": "skills/multimodal-media/tone/references/suno-prompt-guide.md",
           "sha256": "ddf0f87f49d3d2aca04a43931fa80450d60e8ab81afca617345e696a841c32a2",
           "owner": "tone",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/tone/LICENSE.upstream.txt",
+          "owner": "tone",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -14076,7 +14300,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/deployment-platforms/pipe/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/pipe/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/pipe at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/pipe at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/pipe/SKILL.md",
@@ -14166,6 +14390,11 @@
             {
               "source": ".archive/pipe/reference/workflow-design-anti-patterns.md",
               "target": "skills/deployment-platforms/pipe/reference/workflow-design-anti-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/deployment-platforms/pipe/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -14344,6 +14573,12 @@
           "sha256": "153e486a1c9a74d95be63fb0fd41516bb1f8b36cadbc614f8cb10d42c386c5cc",
           "owner": "pipe",
           "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/pipe/LICENSE.upstream.txt",
+          "owner": "pipe",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -14353,7 +14588,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/deployment-platforms/shard/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/shard/SKILL.md",
-      "notes": "Licensed immutable MIT snapshot retained from .archive/shard at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned.",
+      "notes": "Licensed immutable MIT snapshot retained from .archive/shard at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; unique local curation remains separately owned. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": ".archive/shard/SKILL.md",
@@ -14413,6 +14648,11 @@
             {
               "source": ".archive/shard/reference/tenant-quota-throttling.md",
               "target": "skills/deployment-platforms/shard/reference/tenant-quota-throttling.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/deployment-platforms/shard/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -14522,6 +14762,12 @@
           "sha256": "358bb41b89bbce97d3934a310aca8f55ac67d37220fa338e20e6048e43a4f5e3",
           "owner": "shard",
           "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/shard/LICENSE.upstream.txt",
+          "owner": "shard",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -14531,7 +14777,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/openclaw-memory-and-safety/cast/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cast/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "cast/SKILL.md",
@@ -14614,6 +14860,11 @@
             {
               "source": "cast/reference/speak-engine.md",
               "target": "skills/openclaw-memory-and-safety/cast/reference/speak-engine.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/openclaw-memory-and-safety/cast/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -14818,6 +15069,12 @@
           "path": "skills/openclaw-memory-and-safety/cast/references/speak-engine.md",
           "owner": "cast",
           "sha256": "f937c2ba6492d6d594d142c95b3da031e1b0572904b8e0d33d8341dfcd0d1467",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/openclaw-memory-and-safety/cast/LICENSE.upstream.txt",
+          "owner": "cast",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -15070,7 +15327,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/openclaw-memory-and-safety/warden/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/warden/SKILL.md",
-      "notes": "Retained from the last permissively licensed upstream snapshot because warden/SKILL.md is no longer present in simota/agent-skills.",
+      "notes": "Retained from the last permissively licensed upstream snapshot because warden/SKILL.md is no longer present in simota/agent-skills. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "warden/SKILL.md",
@@ -15136,6 +15393,11 @@
               "source": "warden/references/vaire-framework.md",
               "target": "skills/openclaw-memory-and-safety/warden/references/vaire-framework.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/openclaw-memory-and-safety/warden/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -15145,7 +15407,15 @@
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "content_sha256": "85196f9e2d9f0857e4d750cbae62017777249d62c72606138174a92363c76bca",
             "last_checked_at": "2026-07-27",
-            "last_synced_at": "2026-06-01"
+            "last_synced_at": "2026-06-01",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -15202,6 +15472,12 @@
           "path": "skills/openclaw-memory-and-safety/warden/references/vaire-framework.md",
           "sha256": "98316b24ed441a16f2415bf2cd693d6e232589d492310b2b6d7790daaef8c5fb",
           "owner": "warden",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/openclaw-memory-and-safety/warden/LICENSE.upstream.txt",
+          "owner": "warden",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -15944,7 +16220,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/ripple/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ripple/SKILL.md",
-      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Reviewed and absorbed current durable upstream artifacts at 6502f44cfcd8f456951a7bfdce14d0ed76d724ef; upstream and local curation ownership are explicitly separated. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1189c2111e47c1a38378e238ca027d3c231ec83; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "ripple/SKILL.md",
@@ -16007,6 +16283,11 @@
             {
               "source": "ripple/reference/rollback-plan-design.md",
               "target": "skills/task-understanding-decomposition/ripple/reference/rollback-plan-design.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/task-understanding-decomposition/ripple/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -16157,6 +16438,12 @@
           "path": "skills/task-understanding-decomposition/ripple/references/cascade-analysis.md",
           "owner": "ripple",
           "sha256": "56f4755eb3dec9b06bb11c218bbe73419e9d4ddba2d45de192f2ef593606c06e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/ripple/LICENSE.upstream.txt",
+          "owner": "ripple",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]

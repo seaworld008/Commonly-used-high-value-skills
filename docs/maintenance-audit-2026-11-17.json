@@ -3,7 +3,7 @@
   "date": "2026-11-17",
   "canonical_skills": 293,
   "categories": 16,
-  "entry_changes": 229,
+  "entry_changes": 230,
   "added": 0,
   "retired": 0,
   "source_scope": {
@@ -2072,7 +2072,7 @@
       "repository": "404kidwiz/claude-supercode-skills",
       "status": "expected_skipped",
       "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
-      "disposition": "retained-by-snapshot-policy"
+      "disposition": "replaced-by-genuine-original-in-house-work"
     },
     {
       "name": "graphify",
@@ -3447,7 +3447,7 @@
         "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
         "api_spdx": "Apache-2.0"
       },
-      "disposition": "reviewed-and-checkpoint-recorded"
+      "disposition": "replaced-by-genuine-original-in-house-work"
     },
     {
       "name": "lark-approval",
@@ -5884,7 +5884,375 @@
     "find-skills": "Retained cross-catalog discovery, tombstone checks and vetted-install handoff.",
     "verification-before-completion": "Retained canonical completion evidence contract; no complete replacement covers its cross-domain intent."
   },
-  "local_validation": {
+  "replaced_source_records": [
+    {
+      "skill": "rust-engineer",
+      "reason": "upstream main HTTP404 with no immutable license provenance; entire text independently rewritten and std-only examples compiler-tested",
+      "old_record": {
+        "video_name": "rust-engineer",
+        "normalized_slug": "rust-engineer",
+        "status": "verified_in_repo",
+        "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
+        "source": "https://skills.sh/404kidwiz/claude-supercode-skills/rust-engineer",
+        "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+        "upstream": {
+          "repo": "404kidwiz/claude-supercode-skills",
+          "path": "rust-engineer-skill/SKILL.md",
+          "ref": "main",
+          "last_checked_at": "2026-08-20",
+          "last_synced_at": "2026-06-29",
+          "last_synced_commit": null,
+          "sync_mode": "local-only"
+        },
+        "kind": "snapshot",
+        "sync_mode": "local-only",
+        "origins": [
+          {
+            "repo": "404kidwiz/claude-supercode-skills",
+            "path": "rust-engineer-skill/SKILL.md",
+            "license": "MIT",
+            "sync_mode": "local-only",
+            "artifacts": [
+              {
+                "source": "rust-engineer-skill/SKILL.md",
+                "target": "skills/developer-engineering/rust-engineer/SKILL.md"
+              }
+            ],
+            "tracking": {
+              "channel": "default_branch",
+              "ref": "main",
+              "resolved_commit": null,
+              "path_commit": null,
+              "content_sha256": "1c1849a369afb7184f46c3fda00f42e2fee1c347e5cad19c3e0e6fcd417c6034",
+              "last_checked_at": "2026-08-20",
+              "last_synced_at": "2026-06-29"
+            }
+          }
+        ],
+        "managed_files": [
+          {
+            "path": "skills/developer-engineering/rust-engineer/SKILL.md",
+            "owner": "rust-engineer",
+            "sha256": "1c1849a369afb7184f46c3fda00f42e2fee1c347e5cad19c3e0e6fcd417c6034",
+            "mode": "100644"
+          }
+        ]
+      }
+    },
+    {
+      "skill": "security-review",
+      "reason": "entire entry and twenty guides independently rewritten under MIT; former CC BY-SA reference expression removed rather than relicensed",
+      "old_record": {
+        "video_name": "security-review",
+        "normalized_slug": "security-review",
+        "status": "verified_in_repo",
+        "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
+        "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md",
+        "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at a582c51ee29d0f35e6ac321340796f77d43da733; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
+        "upstream": {
+          "repo": "getsentry/skills",
+          "path": "skills/security-review/SKILL.md",
+          "ref": "main",
+          "last_checked_at": "2026-11-17",
+          "last_synced_at": "2026-11-17",
+          "last_synced_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+          "sync_mode": "monitor",
+          "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7"
+        },
+        "kind": "mirror",
+        "sync_mode": "monitor",
+        "origins": [
+          {
+            "repo": "getsentry/skills",
+            "path": "skills/security-review/SKILL.md",
+            "license": "Apache-2.0",
+            "sync_mode": "monitor",
+            "artifacts": [
+              {
+                "source": "skills/security-review/SKILL.md",
+                "target": "skills/security-and-reliability/security-review/SKILL.md"
+              },
+              {
+                "source": "skills/security-review/LICENSE",
+                "target": "skills/security-and-reliability/security-review/LICENSE",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/infrastructure/docker.md",
+                "target": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/languages/javascript.md",
+                "target": "skills/security-and-reliability/security-review/languages/javascript.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/languages/python.md",
+                "target": "skills/security-and-reliability/security-review/languages/python.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/api-security.md",
+                "target": "skills/security-and-reliability/security-review/references/api-security.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/authentication.md",
+                "target": "skills/security-and-reliability/security-review/references/authentication.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/authorization.md",
+                "target": "skills/security-and-reliability/security-review/references/authorization.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/business-logic.md",
+                "target": "skills/security-and-reliability/security-review/references/business-logic.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/cryptography.md",
+                "target": "skills/security-and-reliability/security-review/references/cryptography.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/csrf.md",
+                "target": "skills/security-and-reliability/security-review/references/csrf.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/data-protection.md",
+                "target": "skills/security-and-reliability/security-review/references/data-protection.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/deserialization.md",
+                "target": "skills/security-and-reliability/security-review/references/deserialization.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/error-handling.md",
+                "target": "skills/security-and-reliability/security-review/references/error-handling.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/file-security.md",
+                "target": "skills/security-and-reliability/security-review/references/file-security.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/injection.md",
+                "target": "skills/security-and-reliability/security-review/references/injection.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/logging.md",
+                "target": "skills/security-and-reliability/security-review/references/logging.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/misconfiguration.md",
+                "target": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/modern-threats.md",
+                "target": "skills/security-and-reliability/security-review/references/modern-threats.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/ssrf.md",
+                "target": "skills/security-and-reliability/security-review/references/ssrf.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/supply-chain.md",
+                "target": "skills/security-and-reliability/security-review/references/supply-chain.md",
+                "type": "file"
+              },
+              {
+                "source": "skills/security-review/references/xss.md",
+                "target": "skills/security-and-reliability/security-review/references/xss.md",
+                "type": "file"
+              },
+              {
+                "source": "LICENSE",
+                "target": "skills/security-and-reliability/security-review/LICENSE.upstream.txt",
+                "type": "file"
+              }
+            ],
+            "tracking": {
+              "channel": "default_branch",
+              "ref": "main",
+              "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+              "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7",
+              "content_sha256": "b8c71083445cc9f387ff063fa69d1cbf499dad25561139929cd96e8a1a6c3a3d",
+              "last_checked_at": "2026-11-17",
+              "last_synced_at": "2026-11-17",
+              "license_checkpoint": {
+                "path": "LICENSE",
+                "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
+                "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+                "spdx": "Apache-2.0",
+                "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+                "api_spdx": "Apache-2.0"
+              }
+            }
+          }
+        ],
+        "managed_files": [
+          {
+            "path": "skills/security-and-reliability/security-review/LICENSE",
+            "owner": "security-review",
+            "sha256": "0fc858d87f467971ee612fc183896257a1c160a1610a443896b33ae4d2a44ef7",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/SKILL.md",
+            "owner": "security-review",
+            "sha256": "b8c71083445cc9f387ff063fa69d1cbf499dad25561139929cd96e8a1a6c3a3d",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+            "owner": "security-review",
+            "sha256": "84bd49469c5a0cbd42fecdcce752de98cf6821b601dfef6a1920df61f030ae62",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/languages/javascript.md",
+            "owner": "security-review",
+            "sha256": "f4226c82de13da9dec9be7b509932d74a4ade2c8d46b98a078a5b38bf8aa3319",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/languages/python.md",
+            "owner": "security-review",
+            "sha256": "32d0b1304d132fc582320d584d54bbaea566d51700cd16b3f0be723ed834a556",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/api-security.md",
+            "owner": "security-review",
+            "sha256": "65b2456b4c5ae0d6d9849eac8196ac03fbefbf88657c5e069a8aa5063dd6afbf",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/authentication.md",
+            "owner": "security-review",
+            "sha256": "7bc598cd4af33bb62406f5a0e8ff7adebff83c04e5fb449e6738f96ae0e26be6",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/authorization.md",
+            "owner": "security-review",
+            "sha256": "5ccfd579a1eca4d9d374eb00b04ba33cc9a2918e14e5cb7620c136a6feaeffff",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/business-logic.md",
+            "owner": "security-review",
+            "sha256": "fc8ec30eb19f73759e8901e58d7ca66fc87035703325cc8a844298102fa6298a",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/cryptography.md",
+            "owner": "security-review",
+            "sha256": "1e1301624e0c9b1699e1d95af11df06a67d104ff06443e93711bb656152f364c",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/csrf.md",
+            "owner": "security-review",
+            "sha256": "7b57ba0a45a291eee24578af8b0c69515c76e452c33d8c2d717c66ee3bbdda20",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/data-protection.md",
+            "owner": "security-review",
+            "sha256": "920b7dfb86dc696002d31022c1f7665ef602dd1ed76f1124ad937d488ce2b381",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/deserialization.md",
+            "owner": "security-review",
+            "sha256": "be9946daf389ad594fbc4065246ff334c389da1e2cf593180ca150b0204287fb",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/error-handling.md",
+            "owner": "security-review",
+            "sha256": "e12d3c9f713614223ce797935f3a4c2ac1a7f1fcf0ea24e865a1a70efeab4fb9",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/file-security.md",
+            "owner": "security-review",
+            "sha256": "a0a001fb79fe9f1169fa3ba523225164744c42d8779341f15d3d0fc349185f2a",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/injection.md",
+            "owner": "security-review",
+            "sha256": "d3989e97af773f521170b430a0e629b26c6ff2051cd826fa62a895523f268178",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/logging.md",
+            "owner": "security-review",
+            "sha256": "acca4eeebfc451bb62a7c085d1121ffa443e8cd0831548c2ae6f7fc606056cbc",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+            "owner": "security-review",
+            "sha256": "919c44e309eaa6427a8bb44a2ed645fbf2b46d9dfe86a0fcdb2d084201898390",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/modern-threats.md",
+            "owner": "security-review",
+            "sha256": "d2ac69d91ade6df9c4bf89b2be0d203651d1a0cc5a67d03db8013af52c8ffe6b",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/ssrf.md",
+            "owner": "security-review",
+            "sha256": "646a8244fa61997b9b4f093169be1af4f94e6a3d04dcae8d426bb821870b2bff",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/supply-chain.md",
+            "owner": "security-review",
+            "sha256": "ef3000d91763ccdddfbce2660943c4090b4c16b3b33afe980f4e10947729e1f1",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/references/xss.md",
+            "owner": "security-review",
+            "sha256": "4735df1e581b757b078605fbc27d37e85cfe182c45ab326c9e536c71a930680c",
+            "mode": "100644"
+          },
+          {
+            "path": "skills/security-and-reliability/security-review/LICENSE.upstream.txt",
+            "owner": "security-review",
+            "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+            "mode": "100644"
+          }
+        ]
+      }
+    }
+  ],
+  "final_source_scope": {
+    "active_external_entries": 160,
+    "reviewed_retained_monitors": 133,
+    "stable_update": 1,
+    "retained_policy_snapshots": 26,
+    "original_replacements": 2
+  },
+  "initial_candidate_validation": {
     "python_tests": 1245,
     "unittest_subtests": 246,
     "node_tests": 65,
@@ -5898,6 +6266,31 @@
     "health": "PASS",
     "license_missing": 0,
     "license_disallowed": 0,
-    "scope": "ordered pipeline and unified repository refresh; offline/fixture/compiler evidence, not full external runtime acceptance"
+    "scope": "ordered pipeline and unified repository refresh; offline/fixture/compiler evidence, not full external runtime acceptance",
+    "commit": "194439d734965efa8328ce473608115084f1d347"
+  },
+  "corrective_round": {
+    "reviewed_commit": "194439d734965efa8328ce473608115084f1d347",
+    "independent_reviews": 3,
+    "security_findings": {
+      "P1": 4,
+      "P2": 19
+    },
+    "status": "fixes aggregated; final exact-head independent review and validation pending",
+    "license_evidence": {
+      "distributed_origin_skill_records": 103,
+      "missing": 0,
+      "disallowed": 0
+    },
+    "original_replacements": [
+      "rust-engineer",
+      "security-review"
+    ],
+    "retained_mit_snapshot": {
+      "skill": "guizang-ppt-skill",
+      "commit": "72837a8513d1145d800095fc3909d6d3057994b8",
+      "preserved_asset_files": 7,
+      "removed_unverified_project_sidecars": 5
+    }
   }
 }

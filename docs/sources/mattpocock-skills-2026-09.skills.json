@@ -65,7 +65,7 @@
             "ref": "v1.3.2",
             "resolved_commit": "d1478fcb140db0b93c0c8df17bcfd311844749d0",
             "path_commit": "7739eaed7f8f3915437a8def198a6d0d7206dbc7",
-            "content_sha256": "9387e9047e81325547295d65bf7fccfa47cab8c7820f5262481a641e67dd1103",
+            "content_sha256": "a2ceab007a0c62881d42ed300ec4b651bcca7336063b846a993788217a5ef7f2",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
@@ -111,7 +111,7 @@
         {
           "path": "skills/task-understanding-decomposition/grill-me/SKILL.md",
           "owner": "grill-me",
-          "sha256": "9387e9047e81325547295d65bf7fccfa47cab8c7820f5262481a641e67dd1103",
+          "sha256": "a2ceab007a0c62881d42ed300ec4b651bcca7336063b846a993788217a5ef7f2",
           "mode": "100644"
         },
         {

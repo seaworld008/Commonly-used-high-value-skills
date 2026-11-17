@@ -118,7 +118,7 @@ Q2 — 交付范围：这次是否必须具备跨地域容灾？
 本入口包含完整方法，不要求另行安装名为 `grilling` 的技能，不依赖某个专有 `Skill` 工具。
 `disable-model-invocation` 是支持该字段的宿主中的显式调用提示；其他宿主仍按上面的触发边界使用。
 参考 [决策树工作表](references/decision-tree-template.md) 记录多轮访谈，按需加载而不是在每轮重复全文。
-本仓库收录的 `mattpocock/skills v1.3.1` 固定提交见[来源锁中的 `origins[].tracking.resolved_commit`](../../../docs/sources/mattpocock-skills-2026-09.skills.json)。
+当前已审上游提交固定在本入口的 `source_url`；完整维护记录见[本仓库来源锁](https://github.com/seaworld008/Commonly-used-high-value-skills/blob/main/docs/sources/mattpocock-skills-2026-09.skills.json)。该记录属于仓库资料，不要求单技能安装包含 `docs/`。
 上游 `grill-me` 只是入口，实际方法位于 `grilling`；两者的原文保留在引用文件中供来源审计，不是本地运行入口。
 本地中文说明、宿主降级、停止条件与示例是仓库适配，不声称是 Matt Pocock 的新版本。
 版权和许可见 [上游 MIT 许可](LICENSE.upstream.txt)。

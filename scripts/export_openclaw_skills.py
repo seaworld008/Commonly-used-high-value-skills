@@ -4,12 +4,22 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 from pathlib import Path
+from urllib.parse import quote, urlsplit, urlunsplit
+
+try:
+    from scripts.check_skill_references import local_path, markdown_destinations
+except ModuleNotFoundError:  # Direct CLI invocation has scripts/ on sys.path.
+    from check_skill_references import local_path, markdown_destinations
 
 
 SKILL_FILENAME = "SKILL.md"
+# A stable repository URL for material deliberately excluded from installed skills.
+# Do not embed the current Git HEAD: identical sources must export identically.
+REPOSITORY_BLOB_URL = "https://github.com/seaworld008/Commonly-used-high-value-skills/blob/main/"
 IGNORED_NAMES = {
     ".DS_Store",
     "__pycache__",
@@ -307,9 +317,46 @@ def ignore_entries(_directory: str, names: list[str]) -> set[str]:
     return {name for name in names if name in IGNORED_NAMES}
 
 
+def relocate_resource_links(
+    text: str, source: Path, destination: Path, skill_dirs: list[Path], output_root: Path,
+    repository_root: Path,
+) -> str:
+    """Relocate real Markdown destinations using the canonical-to-flat mapping."""
+    replacements = []
+    for _, start, end, target in markdown_destinations(text):
+        path = local_path(target)
+        if path is None:
+            continue
+        resolved = (source.parent / path).resolve()
+        owner = next((skill for skill in skill_dirs if resolved.is_relative_to(skill)), None)
+        parsed = urlsplit(target)
+        if owner is not None:
+            mapped = output_root / owner.name / resolved.relative_to(owner)
+            # Retain exact spelling/encoding of links whose relative location did
+            # not change, including all resources owned by the current skill.
+            if (destination.parent / path).resolve() == mapped:
+                continue
+            relative = Path(os.path.relpath(mapped, destination.parent)).as_posix()
+            relocated = urlunsplit(('', '', quote(relative, safe='/().-_'), parsed.query, parsed.fragment))
+        elif resolved.is_relative_to(repository_root) and resolved.exists():
+            relative = quote(resolved.relative_to(repository_root).as_posix(), safe='/().-_')
+            relocated = REPOSITORY_BLOB_URL + relative
+            if parsed.query:
+                relocated += '?' + parsed.query
+            if parsed.fragment:
+                relocated += '#' + parsed.fragment
+        else:
+            # Unknown external local paths remain visible to the reference gate.
+            continue
+        replacements.append((start, end, relocated))
+    for start, end, relocated in reversed(replacements):
+        text = text[:start] + relocated + text[end:]
+    return text
+
+
 def export_openclaw_skills(source_root: Path | str, output_root: Path | str) -> list[Path]:
-    source_root = Path(source_root)
-    output_root = Path(output_root)
+    source_root = Path(source_root).resolve()
+    output_root = Path(output_root).resolve()
 
     if not source_root.exists():
         raise FileNotFoundError(f"Source root does not exist: {source_root}")
@@ -339,12 +386,22 @@ def export_openclaw_skills(source_root: Path | str, output_root: Path | str) -> 
         destination = output_root / skill_dir.name
         shutil.copytree(skill_dir, destination, ignore=ignore_entries)
 
-        for skill_md in destination.rglob(SKILL_FILENAME):
-            normalized_name = skill_md.parent.name
-            skill_md.write_text(
-                normalize_skill_markdown(normalized_name, skill_md.read_text(encoding="utf-8")),
-                encoding="utf-8",
+        # References can themselves load further resources. Rewrite every copied
+        # Markdown file, while keeping frontmatter normalization limited to entries.
+        for markdown in sorted(destination.rglob('*')):
+            if not markdown.is_file() or markdown.suffix.lower() not in {'.md', '.markdown'}:
+                continue
+            with markdown.open(encoding="utf-8", newline="") as stream:
+                original = stream.read()
+            text = relocate_resource_links(
+                original,
+                skill_dir / markdown.relative_to(destination), markdown,
+                skill_dirs, output_root, source_root.parent,
             )
+            if markdown.name == SKILL_FILENAME:
+                text = normalize_skill_markdown(markdown.parent.name, text)
+            if text != original:
+                markdown.write_text(text, encoding="utf-8", newline="")
         exported.append(destination)
 
     return exported

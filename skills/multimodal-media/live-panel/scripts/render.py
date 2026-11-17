@@ -6,9 +6,47 @@ Chrome and ffmpeg are looked up on PATH (Chrome also under /Applications on macO
 Runs on Linux and macOS; on Windows use WSL (the Chrome DevTools pipe needs POSIX fd passing).
 """
 import argparse, os, subprocess, sys, tempfile
+from contextlib import contextmanager
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import livepanel as lp
+
+
+@contextmanager
+def generated_page(config, html_out=None, template=None):
+    """Keep explicit HTML; scope private HTML (including build failures) to this run."""
+    if html_out:
+        yield html_out, lp.build_page(config, html_out, template)
+    else:
+        with tempfile.TemporaryDirectory(prefix="livepanel-page-") as directory:
+            page = os.path.join(directory, "page.html")
+            yield page, lp.build_page(config, page, template)
+
+
+def check_page_error(br):
+    err = br.eval("window.__error||''")
+    if err:
+        raise RuntimeError("page errors: " + str(err))
+
+
+def finish_encoder(ff):
+    """Send EOF and reap the encoder even when rendering or closing its pipe fails."""
+    try:
+        ff.stdin.close()
+    finally:
+        try:
+            rc = ff.wait(timeout=30)
+        except BaseException as exc:
+            ff.terminate()
+            try:
+                ff.wait(timeout=5)
+            except BaseException:
+                ff.kill()
+                ff.wait()
+            if isinstance(exc, subprocess.TimeoutExpired):
+                raise RuntimeError("encoder did not finish after EOF") from exc
+            raise
+    return rc
 
 
 def main():
@@ -31,38 +69,48 @@ def main():
 
     chrome = lp.find_chrome(a.chrome)
     ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
-    tmpdir = tempfile.mkdtemp(prefix="livepanel-page-")
-    page = a.html_out or os.path.join(tmpdir, "page.html")
-    cfg = lp.build_page(a.config, page, a.template)
-    cw, ch, cdur, cfps = lp.canvas(cfg)
-    w = a.width or cw; h = a.height or ch
-    fps = a.fps or cfps; dur = a.duration or cdur
-    n = int(round(fps * dur))
-    w -= w % 2; h -= h % 2   # yuv420p needs even sizes
-    cmd = [ffmpeg, "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(fps), "-c:v", "png", "-i", "-"]
-    if a.audio == "silent":
-        cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest", "-c:a", "aac", "-b:a", "32k"]
-    cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p", "-r", str(fps), "-movflags", "+faststart", a.out]
-    os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
-    if a.keep_frames:
-        os.makedirs(a.keep_frames, exist_ok=True)
-    with lp.Chrome(chrome, w, h, a.no_sandbox) as br:
-        br.open("file://" + os.path.abspath(page) + "?manual")
-        ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-        for i in range(n):
-            br.seek(i / fps)
-            png = br.shot()
+    ff = None
+    try:
+        with generated_page(a.config, a.html_out, a.template) as (page, cfg):
+            cw, ch, cdur, cfps = lp.canvas(cfg)
+            w = a.width or cw; h = a.height or ch
+            fps = a.fps or cfps; dur = a.duration or cdur
+            n = int(round(fps * dur))
+            w -= w % 2; h -= h % 2   # yuv420p needs even sizes
+            cmd = [ffmpeg, "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(fps), "-c:v", "png", "-i", "-"]
+            if a.audio == "silent":
+                cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest", "-c:a", "aac", "-b:a", "32k"]
+            cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p", "-r", str(fps), "-movflags", "+faststart", a.out]
+            os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
             if a.keep_frames:
-                Path(a.keep_frames, f"f_{i:04d}.png").write_bytes(png)
-            ff.stdin.write(png)
-            if i % fps == 0:
-                print(f"\r{i}/{n} frames", end="", file=sys.stderr, flush=True)
-        err = br.eval("window.__error||''")
-        if err:
-            print("\npage errors:", err, file=sys.stderr)
-    ff.stdin.close(); rc = ff.wait()
-    if rc == 0:
-        print(f"\nwrote {a.out} ({n} frames, {w}x{h}@{fps})", file=sys.stderr)
+                os.makedirs(a.keep_frames, exist_ok=True)
+            with lp.Chrome(chrome, w, h, a.no_sandbox) as br:
+                br.open("file://" + os.path.abspath(page) + "?manual")
+                check_page_error(br)
+                ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+                try:
+                    for i in range(n):
+                        br.seek(i / fps)
+                        check_page_error(br)
+                        png = br.shot()
+                        check_page_error(br)
+                        if a.keep_frames:
+                            Path(a.keep_frames, f"f_{i:04d}.png").write_bytes(png)
+                        ff.stdin.write(png)
+                        if i % fps == 0:
+                            print(f"\r{i}/{n} frames", end="", file=sys.stderr, flush=True)
+                    check_page_error(br)
+                finally:
+                    rc = finish_encoder(ff)
+            if rc != 0:
+                raise RuntimeError(f"encoder exited with status {rc}")
+    except BaseException:
+        if ff is not None:
+            print(f"\nrender failed; partial output (if created): {a.out}", file=sys.stderr)
+            if a.keep_frames:
+                print(f"partial frames (if created): {a.keep_frames}", file=sys.stderr)
+        raise
+    print(f"\nwrote {a.out} ({n} frames, {w}x{h}@{fps})", file=sys.stderr)
     sys.exit(rc)
 
 

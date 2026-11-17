@@ -1,436 +1,70 @@
-# Error Handling Security Reference
+# 授权依赖出错时，下载接口应返回什么
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Improper error handling can lead to information disclosure, denial of service, or security bypasses. This includes verbose error messages exposing internals, fail-open patterns that skip security checks on errors, and unhandled exceptions that crash services or leave systems in insecure states.
+仓单下载接口接收仓单编号，先询问权限服务，再从对象存储读取文件。
+仓库职员有会话就能发起请求，但只有部分职员有权读取指定仓单。
+权限服务超时是一种可达状态，调用方无需控制服务本身，便可能碰上这个窗口。
 
----
+## 沿两条路径审查
 
-## Information Disclosure
+- 从超时、取消、无结果和响应格式异常，分别追到第一次文件读取。
+- 从异常对象追到 HTTP 正文、响应头、任务状态页和稍后发送的失败通知。
+- 看授权调用是否绑定当前主体、具体仓单和读取动作。不得把上一次其他仓单的成功结果用作降级值。
+- 查看流式响应开始写头的时间。发送首个字节以后再转换为错误响应，已经无法收回数据。
 
-### Stack Traces in Responses
+## 缺陷示例
+
+这个适配器把权限系统的中断转换为肯定答复。下游只看布尔值，丢失了判断依据。
 
 ```python
-# VULNERABLE: Stack trace exposed to users
-@app.errorhandler(Exception)
-def handle_error(e):
-    return f"Error: {traceback.format_exc()}", 500
-
-# VULNERABLE: Detailed exception info
-@app.route('/api/user/<id>')
-def get_user(id):
+def unsafe_permit(check, actor, manifest):
     try:
-        return User.query.get(id).to_dict()
-    except Exception as e:
-        return jsonify({
-            'error': str(e),
-            'type': type(e).__name__,
-            'args': e.args
-        }), 500
+        return check(actor, manifest)
+    except TimeoutError:
+        return True
 ```
 
-### Secure Error Handling
+## 修正示例
+
+此例定义 check 契约为返回布尔值，缺失或无权返回 False，暂时不可用时抛出 TimeoutError。
+actor 由会话层产生，read_manifest 是只能在授权后调用的仓单读取器。
 
 ```python
-# SAFE: Generic messages, detailed logging
-import logging
-
-logger = logging.getLogger(__name__)
-
-@app.errorhandler(Exception)
-def handle_error(e):
-    # Log full details server-side
-    logger.error(f"Unhandled exception: {e}", exc_info=True)
-
-    # Return generic message to client
-    return jsonify({'error': 'An internal error occurred'}), 500
-
-# SAFE: Custom exceptions with safe messages
-class UserNotFoundError(Exception):
-    pass
-
-@app.route('/api/user/<id>')
-def get_user(id):
+def download(check, read_manifest, actor, manifest):
     try:
-        user = User.query.get(id)
-        if not user:
-            raise UserNotFoundError()
-        return user.to_dict()
-    except UserNotFoundError:
-        return jsonify({'error': 'User not found'}), 404
-    except Exception:
-        logger.exception("Error fetching user")
-        return jsonify({'error': 'Internal error'}), 500
+        decision = check(actor, manifest)
+    except TimeoutError:
+        return 503, {"error": "access_check_unavailable"}
+    if decision is False:
+        return 404, {"error": "manifest_unavailable"}
+    if decision is not True:
+        return 503, {"error": "access_check_unavailable"}
+    return 200, read_manifest(manifest)
 ```
 
----
-
-## Fail-Open Patterns
-
-### Authentication Bypass on Error
-
-```python
-# VULNERABLE: Fail-open authentication
-def authenticate(token):
-    try:
-        user = verify_token(token)
-        return user
-    except Exception:
-        return None  # Returns None, might be treated as valid
-
-# VULNERABLE: Exception allows bypass
-def check_permission(user, resource):
-    try:
-        return permission_service.check(user, resource)
-    except ServiceUnavailable:
-        return True  # DANGEROUS: Allows access on service failure
-
-# VULNERABLE: Default to authorized on error
-@app.route('/admin')
-def admin():
-    try:
-        if not is_admin(current_user):
-            abort(403)
-    except Exception:
-        pass  # Silently continues to admin page
-    return render_admin_panel()
-```
-
-### Secure Fail-Closed Patterns
-
-```python
-# SAFE: Fail-closed authentication
-def authenticate(token):
-    try:
-        user = verify_token(token)
-        if user is None:
-            raise AuthenticationError("Invalid token")
-        return user
-    except Exception as e:
-        logger.error(f"Auth error: {e}")
-        raise AuthenticationError("Authentication failed")
-
-# SAFE: Deny on service unavailable
-def check_permission(user, resource):
-    try:
-        return permission_service.check(user, resource)
-    except ServiceUnavailable:
-        logger.error("Permission service unavailable")
-        return False  # Deny access when unable to verify
-
-# SAFE: Explicit denial on error
-@app.route('/admin')
-def admin():
-    try:
-        if not is_admin(current_user):
-            abort(403)
-    except Exception as e:
-        logger.error(f"Admin check failed: {e}")
-        abort(500)  # Don't proceed on error
-    return render_admin_panel()
-```
-
----
-
-## Exception Swallowing
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: Silent exception swallowing
-try:
-    validate_input(user_input)
-except:
-    pass  # Validation skipped entirely
-
-# VULNERABLE: Catch-all hides security issues
-try:
-    result = dangerous_operation(user_data)
-except Exception:
-    result = default_value  # May hide injection attempts
-
-# VULNERABLE: Empty except block
-try:
-    decrypt_sensitive_data(data)
-except:
-    pass  # Continues with encrypted/invalid data
-```
-
-### Secure Exception Handling
-
-```python
-# SAFE: Handle specific exceptions
-try:
-    validate_input(user_input)
-except ValidationError as e:
-    logger.warning(f"Validation failed: {e}")
-    return jsonify({'error': 'Invalid input'}), 400
-except Exception as e:
-    logger.error(f"Unexpected validation error: {e}")
-    return jsonify({'error': 'Validation error'}), 500
-
-# SAFE: Never silently swallow security-critical exceptions
-try:
-    result = dangerous_operation(user_data)
-except SecurityException as e:
-    logger.error(f"Security exception: {e}")
-    raise  # Re-raise security exceptions
-except ValueError as e:
-    logger.warning(f"Invalid data: {e}")
-    result = None
-```
-
----
-
-## Differential Error Messages
-
-### User Enumeration via Errors
-
-```python
-# VULNERABLE: Different messages reveal user existence
-@app.route('/login', methods=['POST'])
-def login():
-    user = User.query.filter_by(email=email).first()
-    if not user:
-        return jsonify({'error': 'User not found'}), 401  # Reveals user doesn't exist
-    if not check_password(password, user.password):
-        return jsonify({'error': 'Wrong password'}), 401  # Reveals user exists
-    return create_session(user)
-
-# VULNERABLE: Timing difference reveals user existence
-def login(email, password):
-    user = User.query.filter_by(email=email).first()
-    if not user:
-        return False  # Fast return
-    return check_password(password, user.password)  # Slow hash check
-```
-
-### Secure Consistent Errors
-
-```python
-# SAFE: Consistent error messages
-@app.route('/login', methods=['POST'])
-def login():
-    user = User.query.filter_by(email=email).first()
-    if not user or not check_password(password, user.password):
-        return jsonify({'error': 'Invalid credentials'}), 401  # Same message
-    return create_session(user)
-
-# SAFE: Constant-time comparison with dummy hash
-DUMMY_HASH = generate_password_hash('dummy')
-
-def login(email, password):
-    user = User.query.filter_by(email=email).first()
-    if user:
-        valid = check_password(password, user.password)
-    else:
-        check_password(password, DUMMY_HASH)  # Constant time even if user not found
-        valid = False
-    return valid
-```
-
----
-
-## Resource Exhaustion via Errors
-
-### Uncontrolled Exception Logging
-
-```python
-# VULNERABLE: Attacker can fill logs
-@app.route('/api/data')
-def get_data():
-    try:
-        return process_data(request.json)
-    except Exception as e:
-        # Logs entire request body - attacker sends huge payloads
-        logger.error(f"Error processing: {request.json}")
-        return jsonify({'error': 'Error'}), 500
-```
-
-### Secure Logging
-
-```python
-# SAFE: Limit logged data
-@app.route('/api/data')
-def get_data():
-    try:
-        return process_data(request.json)
-    except Exception as e:
-        # Log limited info, not full payload
-        logger.error(f"Error processing request from {request.remote_addr}")
-        return jsonify({'error': 'Error'}), 500
-```
-
----
-
-## Unhandled Async Exceptions
-
-### Dangerous Patterns
-
-```javascript
-// VULNERABLE: Unhandled promise rejection
-async function processUser(userId) {
-    const user = await fetchUser(userId);  // No catch
-    return user;
-}
-
-// VULNERABLE: Missing error handler
-app.get('/api/data', async (req, res) => {
-    const data = await fetchData();  // Unhandled rejection crashes server
-    res.json(data);
-});
-```
-
-### Secure Async Handling
-
-```javascript
-// SAFE: Always handle async errors
-async function processUser(userId) {
-    try {
-        const user = await fetchUser(userId);
-        return user;
-    } catch (error) {
-        logger.error('Failed to fetch user', { userId, error });
-        throw new UserFetchError('Unable to fetch user');
-    }
-}
-
-// SAFE: Express async wrapper
-const asyncHandler = (fn) => (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next);
-};
-
-app.get('/api/data', asyncHandler(async (req, res) => {
-    const data = await fetchData();
-    res.json(data);
-}));
-
-// Global handler for unhandled rejections
-process.on('unhandledRejection', (reason, promise) => {
-    logger.error('Unhandled Rejection', { reason });
-    // Don't exit - handle gracefully
-});
-```
-
----
-
-## Error-Based SQL Injection Indicators
-
-### Verbose Database Errors
-
-```python
-# VULNERABLE: Database errors exposed
-@app.route('/api/search')
-def search():
-    try:
-        results = db.execute(f"SELECT * FROM items WHERE name = '{query}'")
-        return jsonify(results)
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-        # Exposes: "syntax error at or near 'OR'" - reveals SQL injection possibility
-```
-
-### Secure Database Error Handling
-
-```python
-# SAFE: Generic database errors
-@app.route('/api/search')
-def search():
-    try:
-        results = db.execute("SELECT * FROM items WHERE name = %s", (query,))
-        return jsonify(results)
-    except DatabaseError as e:
-        logger.error(f"Database error: {e}")
-        return jsonify({'error': 'Search failed'}), 500
-```
-
----
-
-## Cleanup on Error
-
-### Resource Leaks
-
-```python
-# VULNERABLE: Resource not cleaned up on error
-def process_file(filename):
-    f = open(filename)
-    data = f.read()
-    process(data)  # If this raises, file handle leaks
-    f.close()
-
-# VULNERABLE: Connection not returned to pool
-def query_db():
-    conn = pool.get_connection()
-    result = conn.execute(query)  # If this raises, connection leaks
-    pool.return_connection(conn)
-    return result
-```
-
-### Secure Resource Management
-
-```python
-# SAFE: Context managers ensure cleanup
-def process_file(filename):
-    with open(filename) as f:
-        data = f.read()
-        process(data)  # File closed even on exception
-
-# SAFE: Try-finally for cleanup
-def query_db():
-    conn = pool.get_connection()
-    try:
-        result = conn.execute(query)
-        return result
-    finally:
-        pool.return_connection(conn)  # Always returns connection
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Bare except clauses
-grep -rn "except:" --include="*.py" | grep -v "except Exception"
-
-# Empty exception handlers
-grep -rn "except.*:\s*$" -A1 --include="*.py" | grep "pass"
-
-# Stack traces in responses
-grep -rn "traceback\|format_exc\|exc_info" --include="*.py" | grep -v "logger\|logging"
-
-# Fail-open patterns
-grep -rn "except.*:\s*$" -A2 --include="*.py" | grep "return True\|return None"
-
-# Detailed error messages
-grep -rn "str(e)\|str(err)\|e\.args\|e\.message" --include="*.py" | grep "return\|jsonify\|response"
-
-# Differential error messages
-grep -rn "not found\|does not exist\|invalid password\|wrong password" --include="*.py"
-
-# Unhandled async
-grep -rn "await.*[^;]$" --include="*.js" --include="*.ts" | grep -v "try\|catch"
-```
-
----
-
-## Testing Checklist
-
-- [ ] No stack traces in production error responses
-- [ ] All security checks fail-closed (deny on error)
-- [ ] No empty except/catch blocks for security-critical code
-- [ ] Consistent error messages for auth (no user enumeration)
-- [ ] Async operations have error handlers
-- [ ] Resources cleaned up on error (files, connections)
-- [ ] Error logging doesn't include full user input
-- [ ] Database errors don't expose query structure
-- [ ] Rate limiting on error-generating endpoints
-
----
-
-## References
-
-- [OWASP Error Handling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html)
-- [CWE-209: Information Exposure Through Error Message](https://cwe.mitre.org/data/definitions/209.html)
-- [CWE-755: Improper Handling of Exceptional Conditions](https://cwe.mitre.org/data/definitions/755.html)
-- [CWE-636: Not Failing Securely](https://cwe.mitre.org/data/definitions/636.html)
+未知决定走依赖故障分支。此处的 404 用于同时隐藏缺失仓单和无权仓单。
+HTTP 适配器还要将未处理异常映射为固定的 5xx，并禁止共享缓存保存私有下载和错误响应。
+需要排障时返回服务端生成的关联号，在有访问控制的内部记录中关联失败阶段。
+
+## 用替身记录读取次数
+
+| check 输入或行为 | 预期结果 |
+| --- | --- |
+| 同一职员与仓单，返回 True | 200，读取器仅收到该仓单编号一次 |
+| 返回 False | 404，读取次数为零 |
+| 返回 None 或字符串 "true" | 503，读取次数为零 |
+| 抛出带合成诊断标记的 TimeoutError | 503，正文没有标记，读取次数为零 |
+| 读取器抛出未映射的异常 | 经项目实际 HTTP 错误处理层得到通用 5xx |
+
+## 判断范围及待取证据
+
+页面配色服务故障时回退到默认配色，与访问决策的回退有不同后果。
+同样，源码里构造了含栈信息的异常，只在确认非特权读者能收到这些信息时才能认定外泄。
+逐一核对代理、调试中间件、后台任务和通知模板对同一错误的呈现方式。
+如果失败发生在写入操作之后，另取事务回滚、幂等键或重试时的写入次数作为证据。
+用合成标记保存一份脱敏错误响应和存储替身的调用记录；真实文件或令牌没有取证必要。
+
+持久化错误事件时另见[日志审查](logging.md)。
+
+平台资料：[HTTP 状态语义](https://www.rfc-editor.org/rfc/rfc9110.html)。

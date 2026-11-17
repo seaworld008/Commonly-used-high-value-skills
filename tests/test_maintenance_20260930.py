@@ -76,8 +76,14 @@ def test_new_dependency_closure_is_bundled_and_owned(skill, resource):
     assert len(matches) == 1
     entry, item = matches[0]
     assert item['owner'] == entry['normalized_slug']
-    assert any(o.get('license') and not o['repo'].startswith('local-repo/')
-               for o in entry['origins'])
+    if skill == 'security-and-reliability/security-review':
+        assert entry['kind'] == 'in_house'
+        assert all(o['repo'].startswith('local-repo/') for o in entry['origins'])
+        assert 'Original local reference' in path.read_text()
+        assert 'MIT License' in (path.parent.parent / 'LICENSE').read_text()
+    else:
+        assert any(o.get('license') and not o['repo'].startswith('local-repo/')
+                   for o in entry['origins'])
 
 
 def test_unavailable_source_artifacts_are_explicit_immutable_sidecars():
@@ -100,7 +106,7 @@ def test_graphify_watch_quotes_both_interpreter_and_scan_root():
     assert '"$(cat graphify-out/.graphify_python)" -m graphify.watch "$(cat graphify-out/.graphify_root)"' in text
 
 
-@pytest.mark.parametrize('name', ['security-review', 'gha-security-review'])
+@pytest.mark.parametrize('name', ['gha-security-review'])
 def test_sentry_allowed_tools_use_upstream_space_separated_syntax(name):
     text = (ROOT / 'skills/security-and-reliability' / name / 'SKILL.md').read_text()
     assert 'Read, Grep, Glob, Bash, Task' not in text.split('---', 2)[1]

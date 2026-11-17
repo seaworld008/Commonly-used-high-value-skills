@@ -207,7 +207,7 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 - **Brand Voice Analyzer** — If the separately installed `content-creator` helper is unavailable, use the bundled copy frameworks.
 - [UI Design System](../ui-design-system/SKILL.md) — Generate tokens from brand colors.
-- [Competitive Teardown](../competitive-teardown/SKILL.md) — Compare competitors' positioning and messaging. Use [Compete](../../growth-operations-xiaohongshu/compete/SKILL.md) for ongoing competitive intelligence when relevant.
+- [Competitive Teardown](../competitive-teardown/SKILL.md) — Compare competitors' positioning and messaging. Use [Compete](../compete/SKILL.md) for ongoing competitive intelligence when relevant.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
 
 ## Bundled resources

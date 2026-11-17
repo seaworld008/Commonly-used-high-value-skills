@@ -73,11 +73,24 @@ from step 5 — "one connect every N minutes" — is a real user-facing setting 
 discuss; it's the tick's 5-minute heartbeat that stays hidden.) See the **Phase B** and
 **Scheduler** sections below for how it actually works.
 
-**8. Tell the user the next step and offer to do it.** Setup alone sends nothing — the
-pipeline is empty until leads are imported. End onboarding with a concrete call to action,
-e.g.: "You're all set. To start, give me a LinkedIn or Sales Navigator search URL (or
-a search term plus optional filters) and a name for the list, and I'll import and qualify your first batch of
-leads." If the user provides one, proceed straight into **Phase A** below. Do not end the
-setup conversation without this prompt.
+Enabling an authorized scheduler may immediately consume an existing send queue; setup does
+not guarantee that the queue is empty. Report the actual scheduler state without manually
+invoking invites during setup.
+
+**8. Tell the user the next step and offer to do it.** End onboarding with a concrete call
+to action, e.g.: "Give me a LinkedIn or Sales Navigator search URL (or a term plus optional
+filters), a list name, and a limit, and I'll prepare and qualify the candidates. Research-only
+work ends with the qualification results. Committing suitable leads puts them in the outreach
+send queue, which a running scheduler may consume immediately; I'll do that only when our
+existing session authorization specifically covers this batch and every active (non-paused)
+sending account eligible for assignment." If the user provides a search, proceed into Phase A
+within that scope. Setup or a search URL alone does not authorize outreach to a new batch.
+Reuse authorization that already covers the batch/accounts; do not require another confirmation.
+
+`node scripts/import.mjs commit --batch <id> --results <file>` is an outreach send-queue
+operation: it assigns suitable leads to active accounts with `status='not_connected'`, making
+them eligible for background invites. For research/qualification-only tasks, stop after
+prepare/qualification and return the qualification results without committing. There is no
+research-only commit mode.
 
 Import input contract: provide a typed search URL, or a term with optional filters; filters alone are insufficient. In CLI ≥ 1.2.24, list values containing commas use one JSON-array argument.

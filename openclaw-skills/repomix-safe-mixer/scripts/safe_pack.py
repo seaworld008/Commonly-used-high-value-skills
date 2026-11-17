@@ -8,7 +8,11 @@ Packs only after the scanner completes without findings.
 import sys
 import subprocess
 import json
+import os
+import stat
 from pathlib import Path
+
+SCAN_TIMEOUT_SECONDS = 60
 
 def run_secret_scan(directory: Path, exclude_patterns: list = None):
     """Run secret scanner and return findings."""
@@ -21,7 +25,8 @@ def run_secret_scan(directory: Path, exclude_patterns: list = None):
         cmd.extend(['--exclude'] + exclude_patterns)
 
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
+        result = subprocess.run(cmd, capture_output=True, text=True,
+                                timeout=SCAN_TIMEOUT_SECONDS)
         if result.returncode not in (0, 1) or result.stderr.strip():
             raise ValueError
         findings = json.loads(result.stdout)
@@ -69,12 +74,34 @@ def print_findings_report(findings: list):
         else:
             print()
 
+def resolve_config(config_file: Path) -> Path:
+    """Validate explicit configuration in the caller's working directory."""
+    try:
+        resolved = config_file.resolve(strict=True)
+        before = resolved.stat()
+        if not stat.S_ISREG(before.st_mode):
+            raise OSError("Configuration must be a regular file")
+        fd = os.open(resolved, os.O_RDONLY | os.O_NONBLOCK | os.O_NOFOLLOW)
+        try:
+            opened = os.fstat(fd)
+            if (not stat.S_ISREG(opened.st_mode)
+                    or (before.st_dev, before.st_ino) != (opened.st_dev, opened.st_ino)):
+                raise OSError("Configuration changed during validation")
+            os.read(fd, 1)
+        finally:
+            os.close(fd)
+        return resolved
+    except (OSError, RuntimeError):
+        print("Error: Explicit config must be an existing readable regular file.", file=sys.stderr)
+        sys.exit(2)
+
+
 def run_repomix(directory: Path, output_file: Path = None, config_file: Path = None):
     """Run repomix to package the directory."""
     cmd = ['repomix']
 
-    if config_file and config_file.exists():
-        cmd.extend(['--config', str(config_file)])
+    if config_file is not None:
+        cmd.extend(['--config', str(resolve_config(config_file))])
 
     if output_file:
         cmd.extend(['--output', str(output_file)])
@@ -121,8 +148,10 @@ def main():
 
     if '--config' in sys.argv:
         config_idx = sys.argv.index('--config')
-        if config_idx + 1 < len(sys.argv):
-            config_file = Path(sys.argv[config_idx + 1])
+        if config_idx + 1 >= len(sys.argv) or sys.argv[config_idx + 1].startswith('--'):
+            print("Error: --config requires a file path.", file=sys.stderr)
+            sys.exit(2)
+        config_file = resolve_config(Path(sys.argv[config_idx + 1]))
 
     if '--exclude' in sys.argv:
         exclude_idx = sys.argv.index('--exclude')

@@ -35,7 +35,8 @@
     "docs/releases/",
     "docs/maintenance-audit-2026-11-04.md",
     "docs/maintenance-audit-2026-11-17.md",
-    "docs/maintenance-audit-2026-11-17.json"
+    "docs/maintenance-audit-2026-11-17.json",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "test": "node --check bin/install-skills.js && node bin/install-skills.js --help && node bin/install-skills.js list-bundles && npm pack --dry-run --silent"

@@ -175,18 +175,16 @@ function pickConfigValue(dotenvConfig, keys, fallback = "") {
 }
 
 function parseTomlStringValue(rawValue) {
-  const value = String(rawValue || "").trim();
-  if (!value) {
-    return "";
+  const value = rawValue.trim();
+  if (/^'[^']*'$/.test(value)) return value.slice(1, -1);
+  if (value.startsWith('"')) {
+    try {
+      return JSON.parse(value);
+    } catch {
+      return "";
+    }
   }
-  const hashIndex = value.indexOf("#");
-  const uncommented = hashIndex >= 0 ? value.slice(0, hashIndex).trim() : value;
-  const hasDoubleQuotes = uncommented.startsWith('"') && uncommented.endsWith('"');
-  const hasSingleQuotes = uncommented.startsWith("'") && uncommented.endsWith("'");
-  if (hasDoubleQuotes || hasSingleQuotes) {
-    return uncommented.slice(1, -1);
-  }
-  return uncommented;
+  return "";
 }
 
 function readCodexProviderBaseUrl(configPath) {
@@ -197,11 +195,17 @@ function readCodexProviderBaseUrl(configPath) {
   const content = fsSync.readFileSync(configPath, "utf8");
   let activeProvider = "";
   let currentSection = "";
-  const providerBaseUrls = new Map();
 
-  for (const rawLine of content.split(/\r?\n/)) {
+  // Ignore comments and multiline string contents, which may contain example tables.
+  const token = /"""(?:\\[\s\S]|"(?!"")|[^"\\])*"{3,5}|'''[\s\S]*?'{3,5}|"(?:\\.|[^"\\\n])*"|'[^'\n]*'|#[^\n]*/g;
+  const settings = content.replace(token, (match) => {
+    if (match.startsWith("#")) return "";
+    if (match.startsWith('"""') || match.startsWith("'''")) return '""';
+    return match;
+  });
+  for (const rawLine of settings.split(/\r?\n/)) {
     const line = rawLine.trim();
-    if (!line || line.startsWith("#")) {
+    if (!line) {
       continue;
     }
 
@@ -216,29 +220,16 @@ function readCodexProviderBaseUrl(configPath) {
       continue;
     }
     const key = line.slice(0, splitIndex).trim();
-    const value = parseTomlStringValue(line.slice(splitIndex + 1));
-    if (!value) {
-      continue;
-    }
-
     if (!currentSection && key === "model_provider") {
-      activeProvider = value;
-      continue;
-    }
-
-    const providerMatch = currentSection.match(/^model_providers\.(.+)$/);
-    if (providerMatch && key === "base_url") {
-      const providerName = providerMatch[1].replace(/^["']|["']$/g, "");
-      providerBaseUrls.set(providerName, value);
+      activeProvider = parseTomlStringValue(line.slice(splitIndex + 1));
+    } else if (activeProvider && key === "base_url") {
+      const provider = currentSection.match(/^model_providers\s*\.\s*([\w-]+|"[^"\\]+"|'[^']+')$/);
+      if (provider?.[1].replace(/^["']|["']$/g, "") === activeProvider) {
+        return parseTomlStringValue(line.slice(splitIndex + 1));
+      }
     }
   }
 
-  if (activeProvider && providerBaseUrls.has(activeProvider)) {
-    return providerBaseUrls.get(activeProvider);
-  }
-  if (providerBaseUrls.size === 1) {
-    return Array.from(providerBaseUrls.values())[0];
-  }
   return "";
 }
 
@@ -547,11 +538,15 @@ function parseArgs(argv, dotenvConfig) {
   if (!parsedOptions.prompt) {
     throw new Error("缺少提示词，请通过位置参数或 --prompt 传入");
   }
-  if (useCodexAuth && (!parsedOptions.baseUrl || !parsedOptions.apiKey)) {
-    const home = process.env.USERPROFILE || process.env.HOME;
-    if (home && path.isAbsolute(home)) {
-      parsedOptions.baseUrl ||= readCodexProviderBaseUrl(path.join(home, ".codex", "config.toml"));
-      parsedOptions.apiKey ||= readCodexAuthApiKey(path.join(home, ".codex", "auth.json"));
+  const home = useCodexAuth && (process.env.USERPROFILE || process.env.HOME);
+  const codex = home && path.isAbsolute(home) ? path.join(home, ".codex") : null;
+  if (codex && !parsedOptions.baseUrl) {
+    parsedOptions.baseUrl = readCodexProviderBaseUrl(path.join(codex, "config.toml"));
+  }
+  if (parsedOptions.baseUrl) {
+    parsedOptions.baseUrl = serviceRoot(parsedOptions.baseUrl);
+    if (codex && !parsedOptions.apiKey) {
+      parsedOptions.apiKey = readCodexAuthApiKey(path.join(codex, "auth.json"));
     }
   }
   if (!parsedOptions.aspectRatio) {
@@ -674,67 +669,64 @@ function decodeImageField(value) {
     }
     const header = payload.slice(5, splitIndex);
     payload = payload.slice(splitIndex + 1);
-    mimeType = header.split(";", 1)[0] || null;
+    if (!header.toLowerCase().endsWith(";base64")) {
+      throw new Error("图片 data URL 需要 Base64 载荷");
+    }
+    mimeType = normalizeImageMimeType(header.split(";", 1)[0]);
   }
 
-  payload = payload.replace(/\s+/g, "");
-  const missingPadding = (4 - (payload.length % 4)) % 4;
-  if (missingPadding > 0) {
-    payload += "=".repeat(missingPadding);
+  payload = payload.replace(/\s+/g, "").replace(/-/g, "+").replace(/_/g, "/");
+  const raw = Buffer.from(payload, "base64");
+  const encoded = raw.toString("base64");
+  if (!raw.length || (payload !== encoded && payload !== encoded.replace(/=+$/, ""))) {
+    throw new Error("无效的 Base64 图片载荷");
   }
-
-  return {
-    raw: Buffer.from(payload, "base64"),
-    mimeType,
-  };
+  const detected = normalizeImageMimeType(inferMimeTypeFromMagic(raw));
+  if (!detected || (mimeType && detected !== mimeType)) {
+    throw new Error("图片内容与支持的格式不符");
+  }
+  return { raw, mimeType: detected };
 }
 
 function suffixFromMime(mimeType) {
-  if (mimeType === "image/jpeg") {
-    return ".jpg";
+  for (const [suffix, mime] of IMAGE_MIME_BY_EXT) {
+    if (mime === mimeType) return suffix;
   }
-  if (mimeType === "image/webp") {
-    return ".webp";
-  }
-  return ".png";
+  throw new Error("不支持的图片格式");
 }
 
-function suffixFromURL(rawUrl) {
+function serviceRoot(baseUrl) {
+  let base;
   try {
-    const parsed = new URL(rawUrl);
-    const ext = path.extname(parsed.pathname).toLowerCase();
-    if ([".png", ".jpg", ".jpeg", ".webp", ".gif"].includes(ext)) {
-      return ext === ".jpeg" ? ".jpg" : ext;
-    }
+    base = new URL(baseUrl);
   } catch {
-    // Ignore invalid URL parsing here; fetch will report the useful error.
+    throw new Error("无效的接口地址，请提供 HTTP(S) 服务根地址");
   }
-  return ".png";
+  if (!/^https?:\/\/[^/]/i.test(baseUrl) || /[\s\x00-\x1f\x7f\\?#]/.test(baseUrl) ||
+      base.username || base.password || !base.hostname) {
+    throw new Error("无效的接口地址，请提供 HTTP(S) 服务根地址");
+  }
+  return base.href.replace(/\/+$/, "");
 }
 
-function joinUrl(baseUrl, suffix) {
-  return `${baseUrl.replace(/\/+$/, "")}${suffix}`;
+async function fetchImageService(url, options) {
+  try {
+    return await fetch(url, options);
+  } catch {
+    throw new Error("图片请求未完成");
+  }
 }
 
 async function parseJsonResponse(response) {
-  const text = await response.text();
-  let json = null;
-  try {
-    json = text ? JSON.parse(text) : null;
-  } catch {
-    json = null;
-  }
-
   if (!response.ok) {
-    const detail = json ? JSON.stringify(json) : text;
-    throw new Error(`HTTP ${response.status}: ${detail}`);
+    await response.body?.cancel().catch(() => {});
+    throw new Error(`HTTP ${response.status}`);
   }
-
-  if (!json) {
+  try {
+    return await response.json();
+  } catch {
     throw new Error("接口返回了空响应或非 JSON 内容");
   }
-
-  return json;
 }
 
 async function requestJson(url, body, apiKey, timeoutMs) {
@@ -742,8 +734,9 @@ async function requestJson(url, body, apiKey, timeoutMs) {
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetch(url, {
+    const response = await fetchImageService(url, {
       method: "POST",
+      redirect: "error",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${apiKey}`,
@@ -773,8 +766,9 @@ async function requestMultipart(url, fields, images, apiKey, timeoutMs) {
   }
 
   try {
-    const response = await fetch(url, {
+    const response = await fetchImageService(url, {
       method: "POST",
+      redirect: "error",
       headers: {
         authorization: `Bearer ${apiKey}`,
       },
@@ -809,7 +803,9 @@ async function readResponseBytesLimited(response, maxBytes, label) {
   const reader = response.body.getReader();
   try {
     while (true) {
-      const { done, value } = await reader.read();
+      const { done, value } = await reader.read().catch(() => {
+        throw new Error("download interrupted");
+      });
       if (done) break;
       const chunk = Buffer.from(value);
       total += chunk.length;
@@ -830,31 +826,29 @@ export async function downloadImageURL(url, timeoutMs) {
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetch(url, {
+    const response = await fetchImageService(url, {
       method: "GET",
       redirect: "error",
       signal: controller.signal,
     });
     if (!response.ok) {
-      const rawError = await readResponseBytesLimited(response, 64 * 1024, "download error body")
-        .catch(() => Buffer.alloc(0));
-      const text = rawError.toString("utf8");
-      throw new Error(`download HTTP ${response.status}: ${text.slice(0, 500)}`);
+      await response.body?.cancel().catch(() => {});
+      throw new Error(`download HTTP ${response.status}`);
     }
 
     const contentType = normalizeImageMimeType(response.headers.get("content-type"));
     if (contentType && !SUPPORTED_REFERENCE_IMAGE_MIME_TYPES.has(contentType)) {
-      throw new Error(`download returned non-image content-type: ${contentType}`);
+      throw new Error("download returned non-image content-type");
     }
 
     const contentLengthHeader = response.headers.get("content-length");
     if (contentLengthHeader) {
       if (!/^\d+$/.test(contentLengthHeader.trim())) {
-        throw new Error(`download returned invalid content-length: ${contentLengthHeader}`);
+        throw new Error("download returned invalid content-length");
       }
       const contentLength = Number(contentLengthHeader);
       if (!Number.isSafeInteger(contentLength) || contentLength <= 0) {
-        throw new Error(`download returned invalid content-length: ${contentLengthHeader}`);
+        throw new Error("download returned invalid content-length");
       }
       if (contentLength > MAX_REFERENCE_IMAGE_BYTES) {
         throw new Error("download exceeds the 10MB limit");
@@ -891,11 +885,11 @@ export async function downloadImageURL(url, timeoutMs) {
 async function main() {
   const dotenvConfig = loadDotEnv(DOTENV_PATH);
   const options = parseArgs(process.argv.slice(2), dotenvConfig);
-  if (!options.apiKey) {
-    throw new Error("缺少接口配置，请通过 --api-key、GPT_IMAGE2_API_KEY、OPENAI_API_KEY 或 CODEX_OPENAI_API_KEY 提供密钥");
-  }
   if (!options.baseUrl) {
     throw new Error("缺少接口配置，请通过 --base-url、GPT_IMAGE2_BASE_URL、OPENAI_BASE_URL 或 CODEX_OPENAI_BASE_URL 提供地址");
+  }
+  if (!options.apiKey) {
+    throw new Error("缺少接口配置，请通过 --api-key、GPT_IMAGE2_API_KEY、OPENAI_API_KEY 或 CODEX_OPENAI_API_KEY 提供密钥");
   }
 
   console.log(`[${nowText()}] prompt: ${options.prompt}`);
@@ -913,7 +907,7 @@ async function main() {
   let resp = null;
 
   if (hasReferenceImages) {
-    requestUrl = joinUrl(options.baseUrl, "/images/edits");
+    requestUrl = `${options.baseUrl}/images/edits`;
     requestBody = {
       model: options.model,
       prompt: options.prompt,
@@ -943,7 +937,7 @@ async function main() {
     const elapsedSeconds = (Date.now() - start) / 1000;
     console.log(`[${nowText()}] 耗时 ${elapsedSeconds.toFixed(1)}s`);
   } else {
-    requestUrl = joinUrl(options.baseUrl, "/images/generations");
+    requestUrl = `${options.baseUrl}/images/generations`;
     requestBody = {
       model: options.model,
       prompt: options.prompt,
@@ -966,56 +960,46 @@ async function main() {
     console.log(`[${nowText()}] 耗时 ${elapsedSeconds.toFixed(1)}s`);
   }
 
-  console.log(`resp.created = ${resp.created}`);
-  console.log(`resp.usage = ${resp.usage ?? null}`);
-
-  await fs.mkdir(options.outDir, { recursive: true });
-  const ts = timestampText();
-  const responseData = Array.isArray(resp.data) ? resp.data : [];
-  if (hasReferenceImages && responseData.length > 1) {
-    console.log(`[${nowText()}] reference image mode returned ${responseData.length} images; saving the first one only`);
+  const expected = hasReferenceImages ? 1 : options.n;
+  const responseData = resp?.data;
+  if (!Array.isArray(responseData) || !responseData.length) {
+    throw new Error(`接口未返回图片，已保存 0 张，缺少 ${expected} 张`);
   }
   const data = hasReferenceImages ? responseData.slice(0, 1) : responseData;
-
+  const ts = timestampText();
+  let saved = 0;
+  let failed = 0;
   for (const [index, img] of data.entries()) {
-    console.log(
-      `  [${index}] model=${img?.model ?? null} revised_prompt=${img?.revised_prompt ?? null}`,
-    );
-
-    if (img?.b64_json) {
-      const { raw, mimeType } = decodeImageField(img.b64_json);
-      const filename = path.join(
-        options.outDir,
-        `gpt-image2_${ts}_${index + 1}${suffixFromMime(mimeType)}`,
-      );
-      await fs.writeFile(filename, raw);
-      console.log(
-        `  [${index}] saved ${filename} (${raw.length.toLocaleString()} bytes, header=${JSON.stringify(raw.subarray(0, 8).toString("latin1"))})`,
-      );
-      continue;
+    try {
+      let image;
+      if (typeof img?.b64_json === "string" && img.b64_json) {
+        image = decodeImageField(img.b64_json);
+      } else if (typeof img?.url === "string" && img.url) {
+        image = await downloadImageURL(img.url, options.timeoutMs);
+      } else {
+        throw new Error("缺少图片载荷");
+      }
+      await fs.mkdir(options.outDir, { recursive: true });
+      const filename = path.join(options.outDir, `gpt-image2_${ts}_${index + 1}${suffixFromMime(image.mimeType)}`);
+      await fs.writeFile(filename, image.raw);
+      saved += 1;
+      console.log(`  [${index}] saved ${filename} (${image.raw.length.toLocaleString()} bytes)`);
+    } catch (error) {
+      failed += 1;
+      console.error(`  [${index}] ${error.message}`);
     }
-
-    if (img?.url) {
-      console.log(`  [${index}] image url = ${img.url}`);
-      const { raw, mimeType } = await downloadImageURL(img.url, options.timeoutMs);
-      const suffix = mimeType ? suffixFromMime(mimeType) : suffixFromURL(img.url);
-      const filename = path.join(options.outDir, `gpt-image2_${ts}_${index + 1}${suffix}`);
-      await fs.writeFile(filename, raw);
-      console.log(
-        `  [${index}] saved ${filename} (${raw.length.toLocaleString()} bytes, source=url, content_type=${mimeType ?? "unknown"}, header=${JSON.stringify(raw.subarray(0, 8).toString("latin1"))})`,
-      );
-      continue;
-    }
-
-    console.log(`  [${index}] no image payload found`);
   }
+  const missing = Math.max(0, expected - saved);
+  const summary = `已保存 ${saved} 张，预期 ${expected} 张，缺少 ${missing} 张`;
+  if (missing || failed) throw new Error(`${summary}，失败条目 ${failed} 个`);
+  console.log(summary);
 }
 
 const isMain = Boolean(process.argv[1]) &&
   fsSync.realpathSync(path.resolve(process.argv[1])) === fsSync.realpathSync(__filename);
 if (isMain) {
   main().catch((error) => {
-    console.error(error instanceof Error ? error.stack || error.message : String(error));
+    console.error(error instanceof Error ? error.message : String(error));
     process.exit(1);
   });
 }

@@ -393,7 +393,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/EXTENDED.md",
           "owner": "linkedin-growth",
-          "sha256": "44019912c185b022766c0f9e21596322baf458b6bf5e5451d5288455dc50eadb",
+          "sha256": "9ec33a73f53c73de5d9bd951c594edd4e445682b498b746490ee9c4919863d49",
           "mode": "100644"
         },
         {
@@ -423,13 +423,13 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/commands/linkedin-growth-import.md",
           "owner": "linkedin-growth",
-          "sha256": "0d80cca339e594a1114fae04d4c3ee370baebc4c014a5b21017422145ad70f07",
+          "sha256": "ee5c44ae9c84135b867e7a4af03cb71835135f7d231c57702c0974e5a129d1f7",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/commands/linkedin-growth-setup.md",
           "owner": "linkedin-growth",
-          "sha256": "d442e9f7332aeae641d15518a34793db3a6717887eb8e32b382ebd3619d47260",
+          "sha256": "7e9414f2ad1162bae95ad36dc2eebffe33490db578826a5b8e77515e47ae1c7c",
           "mode": "100644"
         },
         {
@@ -483,7 +483,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/scripts/import.mjs",
           "owner": "linkedin-growth",
-          "sha256": "43fb7f8865ff22b24fa92758dff3570f041869c12094635fbff07b1a62f00838",
+          "sha256": "7fcbcec474a576926bfc2dd63e3e040387dd082970fadc2216819722c245546f",
           "mode": "100644"
         },
         {

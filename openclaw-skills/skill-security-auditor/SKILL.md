@@ -105,7 +105,7 @@ parse `package.json` dependencies or perform a complete npm dependency review.
 | **Symlinks** | Symbolic links pointing outside skill directory | 🔴 CRITICAL |
 | **Special files** | Skip FIFOs, devices, and sockets without reading their contents | 🟡 HIGH |
 
-Verify the starting directory first. For a checkout, select the unique requested directory with a regular SKILL.md and confirm both resolved paths remain inside the checkout and the entry resides in that skill. Reject ambiguous matches or escapes. The remote `--skill` selector does not enforce these checks.
+Verify the starting directory first. For a checkout, select the unique requested directory with a regular SKILL.md and confirm both resolved paths remain inside the checkout and the entry resides in that skill. Reject ambiguous matches or escapes. The remote `--skill` selector enforces this boundary and rejects ambiguous or escaping selections.
 
 Once the root is verified, content scans require a regular file inside the resolved skill root. Internal links to regular files are supported; directory links are
 not traversed and are reported for review. Broken links and entries whose metadata

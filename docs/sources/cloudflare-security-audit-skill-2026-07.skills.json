@@ -29,7 +29,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-audit/SKILL.md",
       "source": "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md",
-      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1c8a8c1471069fb0e188eeaff69b8e8db6564a8; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
+      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1c8a8c1471069fb0e188eeaff69b8e8db6564a8; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17 distribution closure: included the exact upstream MIT LICENSE/copyright body inside the independently installed skill.",
       "upstream": {
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
@@ -146,6 +146,11 @@
             {
               "source": "skills/security-audit/validate-findings.test.cjs",
               "target": "skills/security-and-reliability/security-audit/validate-findings.test.cjs",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/security-audit/LICENSE.upstream.txt",
               "type": "file"
             }
           ],
@@ -287,6 +292,12 @@
           "path": "skills/security-and-reliability/security-audit/validate-findings.test.cjs",
           "owner": "security-audit",
           "sha256": "b92001117a92c4161d43777a0ba2fa182a8a4d97f2304cc8c0cee5331497b73b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/LICENSE.upstream.txt",
+          "owner": "security-audit",
+          "sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
           "mode": "100644"
         }
       ]

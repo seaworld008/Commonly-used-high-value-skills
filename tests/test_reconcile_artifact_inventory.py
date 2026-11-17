@@ -261,6 +261,7 @@ class ArtifactInventoryTests(unittest.TestCase):
             for value in canonical_output.split(b"\0")
             if value
         )
+        skill_dirs = openclaw_export.discover_source_skills(REPO_ROOT / "skills")
         for canonical_relative in canonical_paths:
             parts = Path(canonical_relative).parts
             if len(parts) < 4:
@@ -284,11 +285,17 @@ class ArtifactInventoryTests(unittest.TestCase):
                 missing.append(export_relative)
                 continue
             expected = canonical.read_bytes()
-            if canonical.name == openclaw_export.SKILL_FILENAME:
-                expected = openclaw_export.normalize_skill_markdown(
-                    canonical.parent.name,
-                    canonical.read_text(encoding="utf-8"),
-                ).encode("utf-8")
+            if canonical.suffix.lower() in {".md", ".markdown"}:
+                with canonical.open(encoding="utf-8", newline="") as stream:
+                    text = stream.read()
+                text = openclaw_export.relocate_resource_links(
+                    text, canonical, exported,
+                    skill_dirs,
+                    REPO_ROOT / "openclaw-skills", REPO_ROOT,
+                )
+                if canonical.name == openclaw_export.SKILL_FILENAME:
+                    text = openclaw_export.normalize_skill_markdown(canonical.parent.name, text)
+                expected = text.encode("utf-8")
             if expected != exported.read_bytes():
                 mismatched.append(export_relative)
 

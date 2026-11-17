@@ -50,6 +50,25 @@ def selected_cache(cache_file=None) -> Optional[Path]:
     return None
 
 
+def validate_taxonomy(taxonomy):
+    """Check the fields consumed by build_threat_reference before use or storage."""
+    categories = taxonomy.get("categories") if isinstance(taxonomy, dict) else None
+    if not isinstance(categories, list) or not categories:
+        raise ValueError("Taxonomy requires a nonempty categories list")
+
+    def named_entry(entry):
+        return (isinstance(entry, dict) and isinstance(entry.get("name"), str)
+                and entry["name"].strip() and isinstance(entry.get("description", ""), str))
+
+    for category in categories:
+        if not named_entry(category) or not isinstance(category.get("threats", []), list):
+            raise ValueError("Invalid taxonomy category")
+        for threat in category.get("threats", []):
+            if not named_entry(threat) or not isinstance(threat.get("example", ""), str):
+                raise ValueError("Invalid taxonomy threat")
+    return taxonomy
+
+
 def get_taxonomy(force_refresh: bool = False, cache_file=None) -> Optional[Dict[str, Any]]:
     """Read a selected cache or the bundled taxonomy. Only an explicit refresh writes."""
     cache = selected_cache(cache_file)
@@ -64,15 +83,15 @@ def get_taxonomy(force_refresh: bool = False, cache_file=None) -> Optional[Dict[
         temporary = None
         try:
             result = fetch_taxonomy(api_key)
-            taxonomy = result.get("data", result)
+            taxonomy = validate_taxonomy(result.get("data", result) if isinstance(result, dict) else result)
             cache.parent.mkdir(parents=True, exist_ok=True)
             with tempfile.NamedTemporaryFile(mode="w", dir=cache.parent, delete=False) as f:
                 temporary = Path(f.name)
                 json.dump(taxonomy, f, indent=2)
             temporary.replace(cache)
             return taxonomy
-        except Exception as e:
-            print(f"[taxonomy] API refresh failed: {e}", file=sys.stderr)
+        except Exception:
+            print("[taxonomy] API refresh failed", file=sys.stderr)
             return None
         finally:
             if temporary is not None:
@@ -83,10 +102,10 @@ def get_taxonomy(force_refresh: bool = False, cache_file=None) -> Optional[Dict[
             continue
         try:
             with path.open() as f:
-                return json.load(f)
+                return validate_taxonomy(json.load(f))
         except FileNotFoundError:
             continue
-        except (json.JSONDecodeError, OSError) as e:
+        except (ValueError, OSError) as e:
             print(f"[taxonomy] Failed to read {path}: {e}", file=sys.stderr)
 
     return None

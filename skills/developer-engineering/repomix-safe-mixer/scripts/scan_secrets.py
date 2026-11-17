@@ -9,6 +9,8 @@ import os
 import re
 import sys
 import json
+import stat
+from contextlib import contextmanager
 from pathlib import Path
 from typing import List, Dict
 
@@ -58,11 +60,59 @@ class SecretFinding:
             'context': REDACTED,
         }
 
+@contextmanager
+def open_scannable_file(file_path: Path, base_dir: Path):
+    """Open only a regular file beneath the root, including during path races."""
+    root = base_dir.resolve(strict=True)
+    try:
+        resolved = file_path.resolve(strict=True)
+        relative = resolved.relative_to(root)
+    except (ValueError, RuntimeError) as error:
+        raise OSError("Scan target is outside the root or has a link cycle") from error
+    before = resolved.stat()
+    if not stat.S_ISREG(before.st_mode):
+        raise OSError("Scan target is not a regular file")
+
+    # Anchor every component so replaced parents cannot redirect the open.
+    directory_fd = os.open(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    fd = None
+    try:
+        for part in relative.parts[:-1]:
+            next_fd = os.open(part, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW,
+                              dir_fd=directory_fd)
+            os.close(directory_fd)
+            directory_fd = next_fd
+        fd = os.open(relative.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK,
+                     dir_fd=directory_fd)
+        opened = os.fstat(fd)
+        if (not stat.S_ISREG(opened.st_mode)
+                or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
+            raise OSError("Scan target changed during open")
+        # Verify the visible path again after acquiring the FD, before reading.
+        try:
+            current = file_path.resolve(strict=True)
+            current.relative_to(root)
+        except (ValueError, RuntimeError) as error:
+            raise OSError("Scan target moved outside the root") from error
+        visible = current.stat()
+        if (current != resolved or not stat.S_ISREG(visible.st_mode)
+                or (visible.st_dev, visible.st_ino) != (opened.st_dev, opened.st_ino)):
+            raise OSError("Scan target changed during open")
+        stream = os.fdopen(fd, 'r', encoding='utf-8')
+        fd = None  # The stream now owns the descriptor.
+        with stream:
+            yield stream
+    finally:
+        if fd is not None:
+            os.close(fd)
+        os.close(directory_fd)
+
+
 def scan_file(file_path: Path, base_dir: Path) -> List[SecretFinding]:
     """Scan a single file for secrets."""
     findings = []
 
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open_scannable_file(file_path, base_dir) as f:
         for line_num, line in enumerate(f, 1):
             for pattern_name, pattern in SECRET_PATTERNS.items():
                 matches = re.finditer(pattern, line)
@@ -109,14 +159,19 @@ def scan_directory(directory: Path, exclude_patterns: List[str] = None) -> List[
         raise error
 
     for root, dirs, files in os.walk(directory, onerror=traversal_error):
-        # Skip excluded directories
-        dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
-
         root_path = Path(root)
 
         # Skip if matches exclude pattern
         if any(re.search(pattern, str(root_path)) for pattern in exclude_patterns):
+            dirs[:] = []
             continue
+
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS
+                   and not any(re.search(pattern, str(root_path / d))
+                               for pattern in exclude_patterns)]
+        # os.walk skips linked directories; do not silently claim a full scan.
+        if any((root_path / d).is_symlink() for d in dirs):
+            raise OSError("Directory links cannot be scanned completely")
 
         for file in files:
             file_path = root_path / file

@@ -278,7 +278,19 @@ def test_wrapper_browser_requires_explicit_opt_in(options, should_open, tmp_path
     monkeypatch.setenv("GLM_API_KEY", "synthetic-key-for-regression-only")
     monkeypatch.setattr(sys, "argv", ["wrapper", str(source), *options])
     monkeypatch.setattr(wrapper.path_validator, "validate_input_path", lambda _: source)
-    launch = Mock(return_value=subprocess.CompletedProcess([], 0))
+    def complete_current_run(command, **kwargs):
+        html = tmp_path / "input_对比.html"
+        html.write_text("<p>current run</p>")
+        outputs = [html]
+        for suffix in ("_stage1.md", "_stage2.md"):
+            text = tmp_path / ("input" + suffix)
+            text.write_text("current text")
+            outputs.append(text)
+        Path(kwargs["env"]["TRANSCRIPT_FIXER_OUTPUT_MANIFEST"]).write_text(
+            json.dumps({"outputs": [str(p.resolve()) for p in outputs]})
+        )
+        return subprocess.CompletedProcess(command, 0)
+    launch = Mock(side_effect=complete_current_run)
     browser = Mock()
     monkeypatch.setattr(wrapper.subprocess, "run", launch)
     monkeypatch.setattr(wrapper, "open_html_in_browser", browser)

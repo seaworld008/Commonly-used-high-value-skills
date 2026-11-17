@@ -1,378 +1,86 @@
-# Data Protection Reference
+# 敏感数据的读取、输出与保留边界审查
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Data protection encompasses safeguarding sensitive information throughout its lifecycle: collection, processing, storage, transmission, and disposal. Security failures at any stage can lead to data breaches.
+## 数据流与攻击前提
 
-## Sensitive Data Categories
+用户数据经过采集、数据库、缓存、响应、日志、分析系统、导出和备份，副本不止一份。
+攻击者可能是普通租户、获得低权限日志访问的人，或拿到过期下载链接的第三方。
+列出具体字段、用途、所有者、允许接收者及保留期，不用“内部数据”代替分类。
+认证成功和磁盘加密不代表所有字段都能发给当前主体；服务账号也可能只有特定委托范围。
 
-### Personal Identifiable Information (PII)
-- Full names, addresses, phone numbers
-- Email addresses
-- Social Security Numbers, national IDs
-- Dates of birth
-- Biometric data
-
-### Financial Information
-- Credit card numbers (PAN)
-- Bank account numbers
-- Financial transactions
-- Payment credentials
-
-### Authentication Credentials
-- Passwords (plaintext or weakly hashed)
-- API keys and tokens
-- Session identifiers
-- Private keys
-
-### Health Information (PHI/HIPAA)
-- Medical records
-- Health conditions
-- Treatment information
-- Insurance data
-
----
-
-## Sensitive Data Exposure Prevention
-
-### 1. Data Classification
-
-Classify all data by sensitivity level:
-
-| Level | Examples | Handling |
-|-------|----------|----------|
-| **Public** | Marketing content | No restrictions |
-| **Internal** | Employee directory | Access controls |
-| **Confidential** | Customer data | Encryption + access controls |
-| **Restricted** | Passwords, keys, PCI data | Strong encryption + audit logs |
-
-### 2. Minimize Data Collection
+## 自写示例：整行响应泄露内部字段
 
 ```python
-# VULNERABLE: Collecting unnecessary data
-user_data = {
-    'name': form.name,
-    'email': form.email,
-    'ssn': form.ssn,  # Why do you need this?
-    'mother_maiden_name': form.mother_maiden_name,  # Security risk
-    'password': form.password,  # Never store plaintext
-}
-
-# SAFE: Collect only what's needed
-user_data = {
-    'name': form.name,
-    'email': form.email,
-}
+def unsafe_profile_response(row):
+    return dict(row)
 ```
 
-### 3. Encryption at Rest
+若 row 后续增加 `password_hash`、重置凭据或风控标记，原接口会未经审阅地公开它们。
+修正示例仅返回当前用户的少量资料，调用方从可信会话恢复主体与当前租户成员关系。
 
 ```python
-# Database-level encryption
-# Configure in database settings (TDE for SQL Server, etc.)
-
-# Application-level encryption for specific fields
-from cryptography.fernet import Fernet
-
-def encrypt_ssn(ssn):
-    f = Fernet(get_encryption_key())
-    return f.encrypt(ssn.encode())
-
-def decrypt_ssn(encrypted_ssn):
-    f = Fernet(get_encryption_key())
-    return f.decrypt(encrypted_ssn).decode()
-```
-
-### 4. Encryption in Transit
-
-```python
-# VULNERABLE: HTTP endpoint
-app.run(host='0.0.0.0', port=80)
-
-# SAFE: HTTPS required
-app.run(host='0.0.0.0', port=443, ssl_context='adhoc')
-
-# BETTER: Proper TLS configuration
-ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-ssl_context.load_cert_chain('cert.pem', 'key.pem')
-ssl_context.minimum_version = ssl.TLSVersion.TLSv1_2
-```
-
----
-
-## Information Disclosure Prevention
-
-### Error Messages
-
-```python
-# VULNERABLE: Detailed error messages
-@app.errorhandler(Exception)
-def handle_error(e):
+def profile_response(row, actor):
+    if actor is None or row is None:
+        raise PermissionError('profile unavailable')
+    if (row['tenant_id'], row['user_id']) != (actor['tenant_id'], actor['user_id']):
+        raise PermissionError('profile unavailable')
     return {
-        'error': str(e),
-        'traceback': traceback.format_exc(),
-        'sql_query': last_query,
-        'server': socket.gethostname()
-    }, 500
-
-# SAFE: Generic error messages
-@app.errorhandler(Exception)
-def handle_error(e):
-    # Log full details server-side
-    app.logger.error(f"Error: {e}", exc_info=True)
-
-    # Return generic message to client
-    return {'error': 'An unexpected error occurred'}, 500
-```
-
-### Stack Traces
-
-```python
-# VULNERABLE: Debug mode in production
-app.run(debug=True)
-
-# SAFE: Debug off, custom error pages
-app.run(debug=False)
-
-@app.errorhandler(404)
-def not_found(e):
-    return render_template('404.html'), 404
-
-@app.errorhandler(500)
-def server_error(e):
-    return render_template('500.html'), 500
-```
-
-### API Response Filtering
-
-```python
-# VULNERABLE: Returning all fields
-@app.route('/api/users/<id>')
-def get_user(id):
-    user = User.query.get(id)
-    return jsonify(user.__dict__)  # Includes password_hash, internal_id, etc.
-
-# SAFE: Explicit field selection
-@app.route('/api/users/<id>')
-def get_user(id):
-    user = User.query.get(id)
-    return jsonify({
-        'id': user.public_id,
-        'name': user.name,
-        'email': user.email
-    })
-```
-
-### Server Headers
-
-```python
-# VULNERABLE: Technology disclosure
-# Response headers reveal:
-# Server: Apache/2.4.41 (Ubuntu)
-# X-Powered-By: PHP/7.4.3
-# X-AspNet-Version: 4.0.30319
-
-# SAFE: Remove or genericize headers
-# In nginx:
-# server_tokens off;
-
-# In Express.js:
-app.disable('x-powered-by');
-
-# In Flask:
-@app.after_request
-def remove_headers(response):
-    response.headers.pop('Server', None)
-    return response
-```
-
----
-
-## Logging Security
-
-### What NOT to Log
-
-```python
-# VULNERABLE: Logging sensitive data
-logger.info(f"User login: {username}, password: {password}")
-logger.info(f"API call with key: {api_key}")
-logger.info(f"Credit card: {card_number}")
-logger.debug(f"Session token: {session_id}")
-
-# SAFE: Sanitized logging
-logger.info(f"User login: {username}")
-logger.info(f"API call with key: {api_key[:4]}****")
-logger.info(f"Credit card: ****{card_number[-4:]}")
-logger.debug(f"Session token: {hash_for_logging(session_id)}")
-```
-
-### Sensitive Data Patterns to Avoid in Logs
-
-| Data Type | Pattern |
-|-----------|---------|
-| Passwords | `password`, `passwd`, `pwd`, `secret` |
-| API Keys | `api_key`, `apikey`, `token`, `bearer` |
-| Credit Cards | 16-digit numbers, `card_number` |
-| SSN | `\d{3}-\d{2}-\d{4}`, `ssn`, `social` |
-| Session IDs | `session`, `sess_id`, `jsessionid` |
-
-### Log Injection Prevention
-
-```python
-# VULNERABLE: User input directly in logs
-logger.info(f"Search query: {user_input}")
-# Attack: user_input = "test\nINFO: Admin logged in"
-
-# SAFE: Sanitize before logging
-def sanitize_for_log(text):
-    return text.replace('\n', '\\n').replace('\r', '\\r')
-
-logger.info(f"Search query: {sanitize_for_log(user_input)}")
-```
-
----
-
-## Secure Data Disposal
-
-### Memory Handling
-
-```python
-# Python strings are immutable - difficult to clear
-# Use bytearray for sensitive data when possible
-
-# BETTER: Clear sensitive data
-import ctypes
-
-def secure_zero(data):
-    """Zero out sensitive data in memory."""
-    if isinstance(data, bytearray):
-        for i in range(len(data)):
-            data[i] = 0
-    elif isinstance(data, bytes):
-        # Can't modify bytes, but can overwrite the reference
-        pass
-
-# In Java:
-# char[] password = getPassword();
-# try { ... }
-# finally { Arrays.fill(password, '\0'); }
-```
-
-### File Deletion
-
-```python
-# VULNERABLE: Simple delete (data recoverable)
-os.remove(sensitive_file)
-
-# SAFER: Overwrite before delete
-def secure_delete(filepath):
-    with open(filepath, 'ba+') as f:
-        length = f.tell()
-        f.seek(0)
-        f.write(os.urandom(length))  # Random overwrite
-        f.flush()
-        os.fsync(f.fileno())
-    os.remove(filepath)
-```
-
-### Database Retention
-
-```python
-# Implement data retention policies
-def cleanup_old_data():
-    cutoff = datetime.now() - timedelta(days=RETENTION_DAYS)
-
-    # Delete old records
-    OldRecord.query.filter(OldRecord.created_at < cutoff).delete()
-
-    # Or anonymize instead of delete
-    User.query.filter(User.last_login < cutoff).update({
-        'email': func.concat('deleted_', User.id, '@example.com'),
-        'name': 'Deleted User',
-        'phone': None
-    })
-```
-
----
-
-## Cache Security
-
-```python
-# VULNERABLE: Caching sensitive data
-@cache.cached(timeout=3600)
-def get_user_with_ssn(user_id):
-    return User.query.get(user_id)  # Includes SSN
-
-# SAFE: Don't cache sensitive data
-def get_user_with_ssn(user_id):
-    return User.query.get(user_id)  # Not cached
-
-# Or cache only non-sensitive parts
-@cache.cached(timeout=3600)
-def get_user_profile(user_id):
-    user = User.query.get(user_id)
-    return {
-        'id': user.id,
-        'name': user.name,
-        # SSN excluded
+        'user_id': row['user_id'],
+        'display_name': row['display_name'],
     }
 ```
 
-### Cache Headers
+代码在输出前拒绝跨主体和跨租户访问，显式投影使数据库新增字段不会自动进入响应。
+查询也应只读取需要的列；不能因为最后投影就允许高权限服务批量装载无关敏感数据。
+返回展示名后仍须按 HTML 等接收上下文处理；资料可见不代表可当脚本或模板执行。
+列表和导出应在查询时加相同范围条件，不应先把全部用户行发给浏览器再过滤。
 
-```python
-# For sensitive pages
-response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-response.headers['Pragma'] = 'no-cache'
-response.headers['Expires'] = '0'
-```
+## 数据副本需要落实的拒绝操作
 
----
+- 日志和 trace 不记录 Cookie、Authorization、口令、完整支付信息及请求/响应全文。
+- 错误信息使用事件标识和有限字段；不要把数据库异常中的参数或连接串直接发给客户端。
+- 掩码只针对展示用途，不能用可逆编码冒充加密；低熵标识的普通哈希仍可能被枚举。
+- 导出任务绑定发起主体、租户、字段集合与用途，执行及下载时都重新确认权限。
+- 对象存储默认私有，下载链接限定对象与有效期；公开 CDN 不缓存私有响应。
+- 缓存键包含租户/主体范围，失效覆盖角色撤销和用户删除，不能跨用户复用响应。
+- 临时文件创建时即限制权限，避免原值写入公共目录；失败和退出路径清理副本。
+- 分析、客服、邮件和模型服务各自核对接收字段及目的，不把“内部供应商”当无限授权。
+- 保留期到期后处理主库、搜索、缓存与导出；备份按明确周期淘汰并控制恢复后的再删除。
+- 加密密钥与数据权限分开管理；能读取备份的人不应因此自动读取解密密钥。
 
-## Grep Patterns for Detection
+## 正反验收输入
 
-```bash
-# Sensitive data in logs
-grep -rn "logger.*password\|log.*password\|print.*password" --include="*.py" --include="*.js"
-grep -rn "logger.*token\|log.*api_key\|print.*secret" --include="*.py" --include="*.js"
+| 输入或条件 | 预期 |
+| --- | --- |
+| 本人行含额外 `password_hash` 测试字段 | 响应只有 user_id 与 display_name |
+| 同一租户另一用户或同用户 ID 的另一租户行 | 拒绝，不返回任何资料 |
+| 缺失主体或缺失对象 | 相同对外失败类别，不泄露私有对象存在性 |
+| 内部新增风控列，接口实现未变 | 新列不出现在响应、缓存或导出 |
+| 请求中放入唯一假 token 标记后触发错误 | 日志、trace 和错误响应不含标记原值 |
+| 已撤销权限的导出下载请求 | 拒绝，原链接不能无限继续下载 |
 
-# Debug mode
-grep -rn "debug.*[Tt]rue\|DEBUG.*=.*1" --include="*.py" --include="*.js" --include="*.env"
+使用专用假值作为追踪标记，避免为证明泄露再复制一份真实用户数据。
+如需检查日志或备份，先确认可读范围，报告仅附字段名、计数和脱敏定位信息。
 
-# Stack traces in responses
-grep -rn "traceback\|stack_trace\|exc_info" --include="*.py" | grep -i "return\|response\|json"
+## 易误报与适用边界
 
-# Verbose errors
-grep -rn "str(e)\|str(exception)" --include="*.py" | grep -i "return\|response"
+用户本人的联系方式可能是必要展示字段，需按用途判断，不能见到个人信息即判定泄漏。
+密码哈希不是可公开资料；它与无需保密的密码盐应区分，但两者都不应无目的进入响应。
+服务端加密不会阻止具备解密权限的应用在日志中泄露明文。
+此响应函数不覆盖存储加密、备份清理、导出撤销和法律保留要求，必须分别验证。
 
-# Technology disclosure
-grep -rn "X-Powered-By\|Server:" --include="*.py" --include="*.js" --include="*.conf"
+## 实际验证证据
 
-# Missing cache headers
-grep -rn "Set-Cookie\|session" --include="*.py" | grep -v "Cache-Control"
-```
+保留数据字段到每个接收方的映射、实际响应键集合和跨租户拒绝时的无数据结果。
+对假标记检索日志、缓存和导出，记录检索范围与未覆盖的系统，不能把未找到等同于不存在。
+用测试对象执行删除、恢复与权限撤销演练，说明备份淘汰周期及无法立即删除的副本。
+静态投影检查不能证明所有生产接收方都被覆盖，也不能证明历史日志已经清理。
 
----
+## 官方接口核对入口
 
-## Testing Checklist
+- [Python logging](https://docs.python.org/3/library/logging.html)
+- [Python tempfile](https://docs.python.org/3/library/tempfile.html)
+- [HTTP 缓存语义](https://www.rfc-editor.org/rfc/rfc9111.html)
 
-- [ ] Sensitive data encrypted at rest
-- [ ] All transmissions over TLS 1.2+
-- [ ] Error messages are generic (no stack traces, SQL errors, paths)
-- [ ] Logging excludes sensitive data (passwords, tokens, PII)
-- [ ] API responses filtered to necessary fields only
-- [ ] Server headers don't reveal technology stack
-- [ ] Sensitive pages have no-cache headers
-- [ ] Data retention policies implemented
-- [ ] Secure deletion procedures for sensitive files
-- [ ] Debug mode disabled in production
-
----
-
-## References
-
-- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [OWASP Error Handling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html)
-- [CWE-200: Information Exposure](https://cwe.mitre.org/data/definitions/200.html)
-- [CWE-532: Information Exposure Through Log Files](https://cwe.mitre.org/data/definitions/532.html)
-- [CWE-209: Error Message Information Leak](https://cwe.mitre.org/data/definitions/209.html)
+先核对项目日志格式器、对象存储 SDK、缓存层版本和部署策略，不假设默认配置符合用途。

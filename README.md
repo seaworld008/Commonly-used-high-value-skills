@@ -323,7 +323,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`qa-expert`](./skills/developer-engineering/qa-expert/)：制定测试策略、风险用例、执行计划和缺陷跟踪流程。
 - [`react-native-engineering`](./skills/developer-engineering/react-native-engineering/)：用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。
 - [`repomix-safe-mixer`](./skills/developer-engineering/repomix-safe-mixer/)：打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。
-- [`rust-engineer`](./skills/developer-engineering/rust-engineer/)：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
+- [`rust-engineer`](./skills/developer-engineering/rust-engineer/)：用于 Rust 实现与审查：分析所有权和错误类型、设计 trait 与异步取消、核对 unsafe/FFI 不变量、兼容性和性能证据。
 - [`schema`](./skills/developer-engineering/schema/)：设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。
 - [`shadcn`](./skills/developer-engineering/shadcn/)：维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。
 - [`skill-tester`](./skills/developer-engineering/skill-tester/)：用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。
@@ -586,7 +586,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`security-model`](./skills/security-and-reliability/security-model/)：维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)：用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
 - [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/)：在授权范围内执行漏洞扫描、渗透测试和修复验证。
-- [`security-review`](./skills/security-and-reliability/security-review/)：依据代码证据审查注入、认证、授权和加密漏洞。
+- [`security-review`](./skills/security-and-reliability/security-review/)：用于代码差异与应用漏洞审查，沿攻击者输入追踪边界、控制与危险操作，交付有证据的缺陷、最小修复及正反验收。
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/)：用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)：用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。
 - [`sentry`](./skills/security-and-reliability/sentry/)：只读查询 Sentry issues 与 events，汇总线上错误趋势和事件详情。

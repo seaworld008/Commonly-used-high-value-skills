@@ -10,6 +10,7 @@ All cmd_* functions take parsed args and execute the requested operation.
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import sqlite3
@@ -122,126 +123,155 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
     output_dir = Path(args.output) if args.output else input_path.parent
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # The wrapper supplies a private path, never a scan of existing output files.
+    generated_outputs = []
+    manifest_path = os.environ.get("TRANSCRIPT_FIXER_OUTPUT_MANIFEST")
+
+    def record_output(path=None):
+        if path is not None:
+            generated_outputs.append(str(path.resolve()))
+        if manifest_path:
+            Path(manifest_path).write_text(
+                json.dumps({"outputs": generated_outputs}), encoding="utf-8"
+            )
+
+    record_output()
+
     # Ordinary correction does not authorize a persistent learning store.
     config = get_config()
     service = None
-    if config.features.enable_learning:
-        service = _get_service()
-        corrections = service.get_corrections(args.domain)
-        context_rules = service.load_context_rules()
-    else:
-        corrections, context_rules = _read_dictionary(config.database.path, args.domain)
-
-    # Read input file
-    print(f"📖 Reading: {input_path.name}")
-    with open(input_path, 'r', encoding='utf-8') as f:
-        original_text = f.read()
-    print(f"   File size: {len(original_text):,} characters\n")
-
-    # Stage 1: Dictionary corrections
-    stage1_changes = []
-    stage1_text = original_text
-    if args.stage >= 1:
-        print("=" * 60)
-        print("🔧 Stage 1: Dictionary Corrections")
-        print("=" * 60)
-
-        processor = DictionaryProcessor(corrections, context_rules)
-        stage1_text, stage1_changes = processor.process(original_text)
-
-        summary = processor.get_summary(stage1_changes)
-        print(f"✓ Applied {summary['total_changes']} corrections")
-        print(f"  - Dictionary: {summary['dictionary_changes']}")
-        print(f"  - Context rules: {summary['context_rule_changes']}")
-
-        stage1_file = output_dir / f"{input_path.stem}_stage1.md"
-        with open(stage1_file, 'w', encoding='utf-8') as f:
-            f.write(stage1_text)
-        print(f"💾 Saved: {stage1_file.name}\n")
-
-    # Stage 2: AI corrections
-    stage2_changes = []
-    stage2_text = stage1_text
-    if args.stage >= 2:
-        print("=" * 60)
-        print("🤖 Stage 2: AI Corrections")
-        print("=" * 60)
-
-        # Check API key
-        api_key = os.environ.get("GLM_API_KEY")
-        if not api_key:
-            print("❌ Error: GLM_API_KEY environment variable not set")
-            print("   Set it with: export GLM_API_KEY='your-key'")
-            sys.exit(1)
-
-        ai_processor = AIProcessor(api_key)
-        stage2_text, stage2_changes = ai_processor.process(stage1_text)
-
-        print(f"✓ Processed {len(stage2_changes)} chunks\n")
-
-        stage2_file = output_dir / f"{input_path.stem}_stage2.md"
-        with open(stage2_file, 'w', encoding='utf-8') as f:
-            f.write(stage2_text)
-        print(f"💾 Saved: {stage2_file.name}\n")
-
-        # History contains transcript text; persist it only with learning enabled.
+    try:
         if config.features.enable_learning:
-            service.save_history(
-                filename=str(input_path),
-                domain=args.domain,
-                original_length=len(original_text),
-                stage1_changes=len(stage1_changes),
-                stage2_changes=len(stage2_changes),
-                model="GLM-4.6",
-                changes=stage1_changes + stage2_changes
-            )
+            service = _get_service()
+            corrections = service.get_corrections(args.domain)
+            context_rules = service.load_context_rules()
+        else:
+            corrections, context_rules = _read_dictionary(config.database.path, args.domain)
 
-        if config.features.enable_learning and stage2_changes:
+        # Read input file
+        print(f"📖 Reading: {input_path.name}")
+        with open(input_path, 'r', encoding='utf-8') as f:
+            original_text = f.read()
+        print(f"   File size: {len(original_text):,} characters\n")
+
+        # Stage 1: Dictionary corrections
+        stage1_changes = []
+        stage1_text = original_text
+        if args.stage >= 1:
             print("=" * 60)
-            print("🎓 Learning System: Analyzing AI Corrections")
+            print("🔧 Stage 1: Dictionary Corrections")
             print("=" * 60)
 
-            config_dir = config.paths.config_dir
-            learning = LearningEngine(
-                history_dir=config_dir / "history",
-                learned_dir=config_dir / "learned",
-                correction_service=service,
-                enable_learning=config.features.enable_learning,
-                enable_auto_approval=config.features.enable_auto_approval,
-            )
+            processor = DictionaryProcessor(corrections, context_rules)
+            stage1_text, stage1_changes = processor.process(original_text)
 
-            stats = learning.analyze_and_auto_approve(stage2_changes, args.domain)
+            summary = processor.get_summary(stage1_changes)
+            print(f"✓ Applied {summary['total_changes']} corrections")
+            print(f"  - Dictionary: {summary['dictionary_changes']}")
+            print(f"  - Context rules: {summary['context_rule_changes']}")
 
-            print(f"📊 Analysis Results:")
-            print(f"   Total changes: {stats['total_changes']}")
-            print(f"   Unique patterns: {stats['unique_patterns']}")
+            stage1_file = output_dir / f"{input_path.stem}_stage1.md"
+            with open(stage1_file, 'w', encoding='utf-8') as f:
+                f.write(stage1_text)
+            record_output(stage1_file)
+            print(f"💾 Saved: {stage1_file.name}\n")
 
-            if stats['auto_approved'] > 0:
-                print(f"   ✅ Auto-approved: {stats['auto_approved']} patterns")
-                print(f"      (Added to dictionary for next run)")
+        # Stage 2: AI corrections
+        stage2_changes = []
+        stage2_text = stage1_text
+        if args.stage >= 2:
+            print("=" * 60)
+            print("🤖 Stage 2: AI Corrections")
+            print("=" * 60)
 
-            if stats['pending_review'] > 0:
-                print(f"   ⏳ Pending review: {stats['pending_review']} patterns")
-                print("      (CLI review/approval is not implemented; dictionary unchanged)")
-                for suggestion in stats.get('suggestions', []):
-                    print(f"      {suggestion['from']} → {suggestion['to']}")
+            # Check API key
+            api_key = os.environ.get("GLM_API_KEY")
+            if not api_key:
+                print("❌ Error: GLM_API_KEY environment variable not set")
+                print("   Set it with: export GLM_API_KEY='your-key'")
+                sys.exit(1)
 
-            if stats.get('savings_potential'):
-                print(f"\n   💰 {stats['savings_potential']}")
+            ai_processor = AIProcessor(api_key)
+            try:
+                stage2_text, stage2_changes = ai_processor.process(stage1_text)
+            except Exception as exc:
+                # Provider exceptions can contain request bodies. Report the state,
+                # not their message; the processor retains exception causes.
+                print(f"❌ AI correction failed ({type(exc).__name__}); Stage 2 not generated")
+                sys.exit(1)
 
-            print()
+            print(f"✓ Processed {len(stage2_changes)} chunks\n")
 
-    # Stage 3: Generate diff report
-    if args.stage >= 3:
-        print("=" * 60)
-        print("📊 Stage 3: Diff Report (not generated automatically)")
-        print("=" * 60)
-        print("   Run scripts/generate_word_diff.py explicitly to create visual comparison\n")
+            stage2_file = output_dir / f"{input_path.stem}_stage2.md"
+            with open(stage2_file, 'w', encoding='utf-8') as f:
+                f.write(stage2_text)
+            record_output(stage2_file)
+            print(f"💾 Saved: {stage2_file.name}\n")
 
-    if service is not None:
-        service.close()
+            # History contains transcript text; persist it only with learning enabled.
+            if config.features.enable_learning:
+                try:
+                    service.save_history(
+                        filename=str(input_path),
+                        domain=args.domain,
+                        original_length=len(original_text),
+                        stage1_changes=len(stage1_changes),
+                        stage2_changes=len(stage2_changes),
+                        model=ai_processor.model if hasattr(ai_processor, "model") else "GLM-4.6",
+                        changes=stage1_changes + stage2_changes
+                    )
+                except Exception as exc:
+                    print(f"❌ History not saved ({type(exc).__name__}); learning skipped")
+                    print(f"💾 Text output saved: {stage2_file}")
+                    sys.exit(1)
 
-    print("✅ Correction complete!")
+            if config.features.enable_learning and stage2_changes:
+                print("=" * 60)
+                print("🎓 Learning System: Analyzing AI Corrections")
+                print("=" * 60)
+
+                config_dir = config.paths.config_dir
+                learning = LearningEngine(
+                    history_dir=config_dir / "history",
+                    learned_dir=config_dir / "learned",
+                    correction_service=service,
+                    enable_learning=config.features.enable_learning,
+                    enable_auto_approval=config.features.enable_auto_approval,
+                )
+
+                stats = learning.analyze_and_auto_approve(stage2_changes, args.domain)
+
+                print(f"📊 Analysis Results:")
+                print(f"   Total changes: {stats['total_changes']}")
+                print(f"   Unique patterns: {stats['unique_patterns']}")
+
+                if stats['auto_approved'] > 0:
+                    print(f"   ✅ Auto-approved: {stats['auto_approved']} patterns")
+                    print(f"      (Added to dictionary for next run)")
+
+                if stats['pending_review'] > 0:
+                    print(f"   ⏳ Pending review: {stats['pending_review']} patterns")
+                    print("      (CLI review/approval is not implemented; dictionary unchanged)")
+                    for suggestion in stats.get('suggestions', []):
+                        print(f"      {suggestion['from']} → {suggestion['to']}")
+
+                if stats.get('savings_potential'):
+                    print(f"\n   💰 {stats['savings_potential']}")
+
+                print()
+
+        # Stage 3: Generate diff report
+        if args.stage >= 3:
+            print("=" * 60)
+            print("📊 Stage 3: Diff Report (not generated automatically)")
+            print("=" * 60)
+            print("   Run scripts/generate_word_diff.py explicitly to create visual comparison\n")
+
+        print("✅ Correction complete!")
+
+    finally:
+        if service is not None:
+            service.close()
 
 
 def cmd_review_learned(args: argparse.Namespace) -> None:

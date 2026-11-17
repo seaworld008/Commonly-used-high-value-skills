@@ -34,9 +34,8 @@ Trigger this skill when:
 ## Quick Start
 
 **Initialization into a new, empty destination only**:
-The current initializer writes target files with `w` and has no overwrite check.
-Inspect the destination first; if it contains QA files, do not rerun the script
-there. Generate into a separate empty directory and review a merge of templates.
+The initializer preflights the complete target list and refuses existing records.
+Use an empty destination for a new project; merge templates into an existing project only within the requested scope.
 Replacing existing records requires an explicit target list and authorization.
 ```bash
 python scripts/init_qa_project.py <project-name> [output-directory]

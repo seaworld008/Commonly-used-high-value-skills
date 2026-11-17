@@ -15,7 +15,7 @@ import os
 import logging
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, is_dataclass
 
 from .correction_repository import (
     CorrectionRepository,
@@ -477,7 +477,7 @@ class CorrectionService:
 
     def save_history(self, filename: str, domain: str, original_length: int,
                     stage1_changes: int, stage2_changes: int, model: str,
-                    changes: List[Dict]) -> None:
+                    changes: List) -> None:
         """
         Save correction run history for learning.
 
@@ -488,7 +488,10 @@ class CorrectionService:
             stage1_changes: Number of Stage 1 changes
             stage2_changes: Number of Stage 2 changes
             model: AI model used
-            changes: List of individual changes
+            changes: Individual change dictionaries or processor dataclasses
+
+        Raises:
+            DatabaseError: History and details were not committed.
         """
         try:
             with self.repository._transaction() as conn:
@@ -503,6 +506,10 @@ class CorrectionService:
 
                 # Insert individual changes
                 for change in changes:
+                    change = asdict(change) if is_dataclass(change) else dict(change)
+                    rule_type = change.get("rule_type", "ai" if "chunk_index" in change else "dictionary")
+                    if rule_type == "context_rule":
+                        rule_type = "context"
                     conn.execute("""
                         INSERT INTO correction_changes
                         (history_id, line_number, from_text, to_text, rule_type, context_before, context_after)
@@ -512,15 +519,19 @@ class CorrectionService:
                         change.get("line_number"),
                         change.get("from_text", ""),
                         change.get("to_text", ""),
-                        change.get("rule_type", "dictionary"),
+                        rule_type,
                         change.get("context_before"),
                         change.get("context_after")
                     ))
 
-                logger.info(f"Saved correction history for {filename}: {stage1_changes + stage2_changes} total changes")
+            # The transaction context commits on exit; only then report success.
+            logger.info("Saved correction history", extra={
+                "total_changes": stage1_changes + stage2_changes,
+            })
 
         except Exception as e:
-            logger.error(f"Failed to save history: {e}")
+            logger.error("Failed to save history", extra={"error_type": type(e).__name__})
+            raise DatabaseError("Correction history was not saved") from e
 
     def close(self) -> None:
         """Close underlying repository."""

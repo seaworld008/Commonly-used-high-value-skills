@@ -49,7 +49,7 @@ uv run scripts/fix_transcription.py --init
 uv run scripts/fix_transcription.py --add "错误词" "正确词" --domain general
 ```
 
-AI processing through the core CLI uses `--input meeting.md --stage 2` (or `3`) and requires the global-history/learning authorization above. Do not claim a user-selected/project-scoped learner is implemented; that requires a code fix.
+AI processing uses `--input meeting.md --stage 2` (or `3`) within the authorized provider/data-sharing scope. It does not require global learning authorization: learning is off by default, and only separately enabled, approved reusable corrections enter the configured dictionary.
 
 **Actual processing outputs**:
 - `*_stage1.md`: dictionary corrections for stages that run stage 1.
