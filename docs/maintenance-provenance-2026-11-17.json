@@ -21459,9 +21459,10 @@
       "failed": 0
     },
     "pipeline": "All ordered components passed; the complete unified --refresh validator exited normally with TMPDIR absent. The test temporary-directory cache was synchronized before this final run.",
-    "post_commit_generation_idempotence": "pending security source commit",
+    "post_commit_generation_idempotence": "passed",
     "remote_delivery": "pending",
-    "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54"
+    "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54",
+    "validated_source_commit": "8953ce2c9e004661bdd69c2f4f83f1afb485570a"
   },
   "remote_security_followup": {
     "reviewed_pr_head": "2f35ae5f351895aa777bd9487ecb29341b16e57c",

@@ -12,7 +12,11 @@ All notable changes to this repository are documented here.
 
 #### [2026-11-18]
 
+##### Changed
+- prepare verified v6.1.0 release history
+
 ##### Fixed
+- harden file publication and make validation portable across CI
 - reconstruct verified skill sources and close independent audit findings
 - close integrated regression gaps and hold unverified source assets
 - reject distribution bans hidden by in-house source labels
