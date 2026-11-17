@@ -46,7 +46,7 @@ def image_cli(tmp_path):
     mock = tmp_path / "fetch.cjs"
     mock.write_text(r"""
         const fs = require('node:fs');
-        const fixture = JSON.parse(process.env.FIXTURE);
+        const fixture = JSON.parse(fs.readFileSync(process.env.FIXTURE_PATH, 'utf8'));
         global.fetch = async (url, opts) => {
           fs.appendFileSync('calls', JSON.stringify({url, method: opts.method,
             auth: new Headers(opts.headers).get('authorization'), redirect: opts.redirect}) + '\n');
@@ -70,12 +70,14 @@ def image_cli(tmp_path):
         if data is None:
             data = [{route: URL if route == "url" else base64.b64encode(raw).decode()}]
         fixture = {"data": data, "raw": base64.b64encode(raw).decode(), "mime": mime, "length": length}
+        fixture_file = tmp_path / "network-fixture.json"
+        fixture_file.write_text(json.dumps(fixture), encoding="utf-8")
         result = subprocess.run(
             ["node", "--require", mock, script, "synthetic prompt", "--base-url", "https://api.invalid/v1",
              "--api-key", "synthetic-key", "--out-dir", "out", "-n", str(n)],
             cwd=tmp_path, capture_output=True, text=True, timeout=15,
-            env={"PATH": os.environ["PATH"], "HOME": str(tmp_path), "TMPDIR": str(tmp_path),
-                 "FIXTURE": json.dumps(fixture), "FAIL_WRITE": str(int(fail_write))},
+            env={"PATH": os.environ["PATH"], "TMPDIR": str(tmp_path),
+                 "FIXTURE_PATH": str(fixture_file), "FAIL_WRITE": str(int(fail_write))},
         )
         calls = [json.loads(line) for line in (tmp_path / "calls").read_text().splitlines()]
         assert calls[0]["auth"] == "Bearer synthetic-key" and calls[0]["redirect"] == "error"

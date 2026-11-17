@@ -2,7 +2,7 @@
 name: qa-expert
 description: 'Design QA strategies, risk-based test cases, execution plans, and defect reports when establishing or improving software quality assurance.'
 zh_description: "制定测试策略、风险用例、执行计划和缺陷跟踪流程。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""

@@ -168,11 +168,45 @@ function init(name) {
 }
 
 function readHtml(file) {
-  const info = fs.lstatSync(file);
-  if (!info.isFile() || info.isSymbolicLink() || info.size === 0 || info.size > 128 * 1024 * 1024) {
+  const fd = fs.openSync(file, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK);
+  try { return readHtmlDescriptor(fd).html; }
+  finally { fs.closeSync(fd); }
+}
+
+function sameFileState(a, b) {
+  return ['dev', 'ino', 'mode', 'nlink', 'size', 'mtimeNs', 'ctimeNs'].every(key => a[key] === b[key]);
+}
+
+function readHtmlDescriptor(fd) {
+  const info = fs.fstatSync(fd, { bigint: true });
+  if (!info.isFile() || info.size === 0n || info.size > 128n * 1024n * 1024n) {
     throw new Error('Build/inline output must be a nonempty regular HTML file (at most 128 MiB).');
   }
-  return fs.readFileSync(file, 'utf8');
+  // One extra byte detects growth without an unbounded read. Explicit positions
+  // also work after html-inline has advanced the shared descriptor's cursor.
+  const buffer = Buffer.alloc(Number(info.size) + 1);
+  let length = 0;
+  while (length < buffer.length) {
+    const count = fs.readSync(fd, buffer, length, Math.min(64 * 1024, buffer.length - length), length);
+    if (!count) break;
+    length += count;
+  }
+  if (BigInt(length) !== info.size || !sameFileState(info, fs.fstatSync(fd, { bigint: true }))) {
+    throw new Error('HTML output changed during read.');
+  }
+  return { html: buffer.subarray(0, length).toString('utf8'), info };
+}
+
+function rewriteHtmlDescriptor(fd, html) {
+  const data = Buffer.from(html);
+  let offset = 0;
+  while (offset < data.length) {
+    const count = fs.writeSync(fd, data, offset, data.length - offset, offset);
+    if (count <= 0) throw new Error('Unable to finish writing HTML output.');
+    offset += count;
+  }
+  fs.ftruncateSync(fd, data.length);
+  fs.fsyncSync(fd);
 }
 
 // Scan actual HTML tags, skipping comments and raw-text script/style bodies.
@@ -282,24 +316,38 @@ function bundle() {
     run('pnpm', ['exec', 'parcel', 'build', 'index.html', '--dist-dir', dist, '--no-source-maps', '--no-cache', '--no-optimize', '--public-url', './', '--config', config], project);
     validateHtml(readHtml(path.join(dist, 'index.html')));
     const candidate = path.join(stage, 'bundle.html');
-    const fd = fs.openSync(candidate, 'wx', 0o600);
-    try { run('pnpm', ['exec', 'html-inline', path.join(dist, 'index.html')], project, { stdio: ['ignore', fd, 'inherit'] }); }
-    finally { fs.closeSync(fd); }
-    let html = readHtml(candidate);
-    const bodyEnd = validateHtml(html, true);
-    checkBuildResources(dist, html);
-    licenseData.push(...collectRuntimeNotices(project, runtimePublisherNotices()));
-    // JSON and original bytes are both base64: license text cannot close this
-    // inert template, create markup, execute scripts, or add visible product UI.
-    const encoded = Buffer.from(JSON.stringify({ version: 1, scope: 'bundled-source-and-runtime-notices', notices: licenseData })).toString('base64');
-    html = html.slice(0, bodyEnd) + `<template id="artifact-license-notices" data-encoding="base64-json">${encoded}</template>` + html.slice(bodyEnd);
-    fs.writeFileSync(candidate, html);
-    const sync = fs.openSync(candidate, 'r');
-    try { fs.fsyncSync(sync); } finally { fs.closeSync(sync); }
-    // Same-filesystem rename is the sole publication step. Previous dist is
-    // never touched, including on tool failures, empty output, or write errors.
-    fs.renameSync(candidate, output);
-    console.log(`Bundle complete: ${output} (${Buffer.byteLength(html)} bytes).`);
+    let fd = fs.openSync(candidate, fs.constants.O_RDWR | fs.constants.O_CREAT | fs.constants.O_EXCL |
+      fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK, 0o600);
+    try {
+      run('pnpm', ['exec', 'html-inline', path.join(dist, 'index.html')], project, { stdio: ['ignore', fd, 'inherit'] });
+      const initial = readHtmlDescriptor(fd);
+      let html = initial.html;
+      const bodyEnd = validateHtml(html, true);
+      checkBuildResources(dist, html);
+      licenseData.push(...collectRuntimeNotices(project, runtimePublisherNotices()));
+      // JSON and original bytes are both base64: license text cannot close this
+      // inert template, create markup, execute scripts, or add visible product UI.
+      const encoded = Buffer.from(JSON.stringify({ version: 1, scope: 'bundled-source-and-runtime-notices', notices: licenseData })).toString('base64');
+      html = html.slice(0, bodyEnd) + `<template id="artifact-license-notices" data-encoding="base64-json">${encoded}</template>` + html.slice(bodyEnd);
+      if (!sameFileState(initial.info, fs.fstatSync(fd, { bigint: true }))) throw new Error('Inline output changed before rewrite.');
+      rewriteHtmlDescriptor(fd, html);
+      const verified = readHtmlDescriptor(fd);
+      if (verified.html !== html) throw new Error('HTML output changed after rewrite.');
+      validateHtml(verified.html, true);
+      if (!sameFileState(verified.info, fs.lstatSync(candidate, { bigint: true }))) throw new Error('Candidate path was replaced.');
+      // A failed close must abort before publication. Never retry close: an error
+      // may have already released the descriptor, allowing its number to be reused.
+      const closing = fd;
+      fd = undefined;
+      fs.closeSync(closing);
+      if (!sameFileState(verified.info, fs.lstatSync(candidate, { bigint: true }))) throw new Error('Candidate path was replaced.');
+      // Same-filesystem rename is the sole publication step. Previous dist is
+      // never touched, including on tool failures, empty output, or write errors.
+      // The private stage and identity checks reject observed replacements; they
+      // cannot guarantee atomic identity-bound rename against a same-uid attacker.
+      fs.renameSync(candidate, output);
+      console.log(`Bundle complete: ${output} (${Buffer.byteLength(html)} bytes).`);
+    } finally { if (fd !== undefined) fs.closeSync(fd); }
   } finally { fs.rmSync(stage, { recursive: true, force: true }); }
 }
 

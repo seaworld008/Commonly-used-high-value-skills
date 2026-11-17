@@ -65,7 +65,8 @@ def publish_templates(staged, base_path):
         for name in TARGET_FILES:
             content = (staged / name).read_bytes()
             path = base_path / name
-            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o666)
+            # QA records are owner-writable only, even with a permissive umask.
+            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
             record = [path, file_identity(os.fstat(fd)), b'']
             created.append(record)
             try:

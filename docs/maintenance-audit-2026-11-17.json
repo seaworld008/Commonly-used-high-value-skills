@@ -6382,7 +6382,7 @@
   },
   "local_final_validation": {
     "status": "passed",
-    "python_tests": 3659,
+    "python_tests": 3809,
     "python_subtests": 397,
     "node_security_tests": 65,
     "compiled_skill_python_files": 305,
@@ -6391,9 +6391,39 @@
       "warnings": 0,
       "failed": 0
     },
-    "pipeline": "Ordered gates plus complete validate_repository.py --refresh; final full suite passed after the outdated source-URL test assertion was corrected.",
-    "post_commit_generation_idempotence": "passed",
+    "pipeline": "All ordered components passed; the complete unified --refresh validator exited normally with TMPDIR absent. The test temporary-directory cache was synchronized before this final run.",
+    "post_commit_generation_idempotence": "pending security source commit",
     "remote_delivery": "pending",
-    "validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54"
-  }
+    "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54"
+  },
+  "remote_security_followup": {
+    "reviewed_pr_head": "2f35ae5f351895aa777bd9487ecb29341b16e57c",
+    "reported_analysis_commit": "e3b84ad34c5e860cbedfd856b01f228573b75f92",
+    "static_triage": "One confirmed file-mask issue, three file-check/use hardening items, two documented intended image dataflows. No global query exclusion.",
+    "code_fixes": [
+      "Explicit QA creation mask0600",
+      "Descriptor-bound bounded HTML read/rewrite/sync/publication",
+      "Exclusive atomic generated-image publication with old-object preservation"
+    ],
+    "ci_portability_fixes": [
+      "Provide a pytest-private TMPDIR only when absent",
+      "Pass large image fixtures by file rather than exceeding Linux single-environment-string limits"
+    ],
+    "alert_56": "dismissed as a documented intended-reference-upload false positive",
+    "alert_60": "awaiting reassessment of the final image publication sink",
+    "full_validation": "passed:3809 tests and397subtests",
+    "independent_review": "3 security fixes and2 direct portability regressions closed;0newP1/P2 in scope"
+  },
+  "portfolio_review_queue_decisions": [
+    {
+      "skill": "theme-factory",
+      "decision": "retain",
+      "reason": "Ten licensed theme reference files and the theme-showcase PDF are actual reusable assets; the heuristic only recognizes references/scripts directories."
+    },
+    {
+      "skill": "find-skills",
+      "decision": "retain",
+      "reason": "Distinct external-catalog discovery contract plus source/license/permission/retirement review guardrails and explicit acceptance evidence; the local using-agent-skills orchestration does not cover this full intent."
+    }
+  ]
 }

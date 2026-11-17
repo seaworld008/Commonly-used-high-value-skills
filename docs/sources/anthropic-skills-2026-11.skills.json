@@ -558,7 +558,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
-            "content_sha256": "5c660b5c032f91cdf62786a55c28b9c223f80cda2b133ce753fe77c2e3a37d95",
+            "content_sha256": "9b96a0ac2a8629da5079873d4d510c8e25aba4b61f8f40ead54a2110a780f551",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -907,7 +907,7 @@
         },
         {
           "path": "skills/developer-engineering/web-artifacts-builder/SKILL.md",
-          "sha256": "5c660b5c032f91cdf62786a55c28b9c223f80cda2b133ce753fe77c2e3a37d95",
+          "sha256": "9b96a0ac2a8629da5079873d4d510c8e25aba4b61f8f40ead54a2110a780f551",
           "owner": "web-artifacts-builder",
           "mode": "100644"
         },
@@ -1034,7 +1034,7 @@
         {
           "path": "skills/developer-engineering/web-artifacts-builder/scripts/artifact-runtime.mjs",
           "owner": "web-artifacts-builder",
-          "sha256": "6ffead8eca4166b53e8f909f65c572a5ac87c2293ebf239507f521220c35841a",
+          "sha256": "54eee35c72684b09af5afafae7a74f4ba3a393ae4f7df4662d5ff1e0e47a0207",
           "mode": "100644"
         }
       ]

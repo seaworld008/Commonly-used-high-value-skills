@@ -3872,7 +3872,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c7d889ad18ef807c84534ed33879006ddde3de80dfe855fa60b7aa9aaa94aee8",
+            "content_sha256": "6961a353f34af63dbed13680183e5fdcde899717116ebe9bf02f1b38ddd76801",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-09-06"
           }
@@ -3888,7 +3888,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/SKILL.md",
           "owner": "gpt-image2",
-          "sha256": "c7d889ad18ef807c84534ed33879006ddde3de80dfe855fa60b7aa9aaa94aee8",
+          "sha256": "6961a353f34af63dbed13680183e5fdcde899717116ebe9bf02f1b38ddd76801",
           "mode": "100644"
         },
         {
@@ -3900,7 +3900,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/scripts/gpt-image2.mjs",
           "owner": "gpt-image2",
-          "sha256": "5120034388061dc1c901443fce6bde0efc098f6d3c0b600de3b0904ed7a7cce8",
+          "sha256": "92f3c463d767cfe19afcc7ea2ecd9a4fad36eb52ebb79b5a02fc65d8aff768da",
           "mode": "100644"
         }
       ]
@@ -7046,7 +7046,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "58ed22b2b195d8c609288af83c7fd2442561ef89336f29df36141957370d7236",
+            "content_sha256": "53c9f71f4028650d8ff8afe1766831996e04fd2f6dde3f5e038b6ad31cdf6a5d",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17"
           }
@@ -7062,7 +7062,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/SKILL.md",
           "owner": "qa-expert",
-          "sha256": "58ed22b2b195d8c609288af83c7fd2442561ef89336f29df36141957370d7236",
+          "sha256": "53c9f71f4028650d8ff8afe1766831996e04fd2f6dde3f5e038b6ad31cdf6a5d",
           "mode": "100644"
         },
         {
@@ -7110,7 +7110,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/scripts/init_qa_project.py",
           "owner": "qa-expert",
-          "sha256": "696606ef0b85bba047aec35dc702657894198f7a06f0048b64743301601dd9ca",
+          "sha256": "6a8b2e729a63762401db9db41d55a9a96e844b13bbf35cf95dec55f544936a74",
           "mode": "100644"
         }
       ]

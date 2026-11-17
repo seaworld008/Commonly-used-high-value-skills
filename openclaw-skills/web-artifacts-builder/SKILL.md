@@ -2,7 +2,7 @@
 name: web-artifacts-builder
 description: 'Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui when multiple components, routing, or state are needed.'
 zh_description: "用于构建复杂多组件 HTML/React 网页 artifacts，尤其适合需要状态、路由或 shadcn/ui 的场景。"
-version: "1.0.3"
+version: "1.0.4"
 author: "Anthropic contributors; local curators"
 source: "https://github.com/anthropics/skills"
 source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/web-artifacts-builder/SKILL.md"

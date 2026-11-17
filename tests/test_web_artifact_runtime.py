@@ -306,7 +306,11 @@ def test_write_or_publish_failure_keeps_old_delivery(sandbox, mode):
     folder = project(sandbox)
     hook = root / 'fail-fs.cjs'
     hook.write_text("const fs = require('node:fs');\n" + (
-        "const old = fs.writeFileSync; fs.writeFileSync = function(p, ...args) { if (String(p).includes('.artifact-build-') && String(p).endsWith('bundle.html')) { const e = new Error('simulated ENOSPC'); e.code='ENOSPC'; throw e; } return old.call(this,p,...args); };\n"
+        "const open = fs.openSync, old = fs.writeSync; let candidate;\n"
+        "fs.openSync = function(p, ...args) { const fd = open.call(this,p,...args); "
+        "if (String(p).includes('.artifact-build-') && String(p).endsWith('bundle.html')) candidate = fd; return fd; };\n"
+        "fs.writeSync = function(fd, ...args) { if (fd === candidate) { const e = new Error('simulated ENOSPC'); "
+        "e.code='ENOSPC'; throw e; } return old.call(this,fd,...args); };\n"
         if mode == 'write' else
         "const old = fs.renameSync; fs.renameSync = function(p, q) { if (String(q).endsWith('bundle.html')) { const e = new Error('simulated EACCES'); e.code='EACCES'; throw e; } return old.call(this,p,q); };\n"))
     result = cli(sandbox, 'bundle', cwd=folder, NODE_OPTIONS='--require=' + str(hook))

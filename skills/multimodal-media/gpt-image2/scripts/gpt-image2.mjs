@@ -1126,6 +1126,40 @@ export async function downloadImageURL(url, timeoutMs) {
   }
 }
 
+async function publishGeneratedImage(filename, raw) {
+  // mkdtemp creates a private (0700) directory on the destination filesystem.
+  // Only our stage is writable: link publishes a complete inode and fails if
+  // any object already occupies the final name, without following symlinks.
+  let stageDir;
+  let handle;
+  try {
+    stageDir = await fs.mkdtemp(path.join(path.dirname(filename), ".gpt-image2-"));
+    const stagedFile = path.join(stageDir, "image");
+    handle = await fs.open(stagedFile, "wx", 0o600);
+    await fs.writeFile(handle, raw);
+    if ((await handle.stat()).size !== raw.length) {
+      throw new Error("图片暂存写入不完整");
+    }
+    await handle.sync();
+    await handle.close();
+    handle = undefined;
+    await fs.link(stagedFile, filename);
+  } finally {
+    if (handle) {
+      await handle.close().catch(() => {
+        console.error("  无法关闭图片暂存文件");
+      });
+    }
+    if (stageDir) {
+      // Cleanup cannot turn an already published image into a failed receipt.
+      // Never unlink the final name: it might belong to another invocation.
+      await fs.rm(stageDir, { recursive: true, force: true }).catch(() => {
+        console.error(`  无法清理图片暂存目录: ${stageDir}`);
+      });
+    }
+  }
+}
+
 async function main() {
   const dotenvConfig = loadDotEnv(DOTENV_PATH);
   const options = parseArgs(process.argv.slice(2), dotenvConfig);
@@ -1226,7 +1260,7 @@ async function main() {
       validateGeneratedImage(image);
       await fs.mkdir(options.outDir, { recursive: true });
       const filename = path.join(options.outDir, `gpt-image2_${ts}_${index + 1}${suffixFromMime(image.mimeType)}`);
-      await fs.writeFile(filename, image.raw);
+      await publishGeneratedImage(filename, image.raw);
       saved += 1;
       console.log(`  [${index}] saved ${filename} (${image.raw.length.toLocaleString()} bytes)`);
     } catch (error) {

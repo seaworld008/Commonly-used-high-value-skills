@@ -2,7 +2,7 @@
 name: gpt-image2
 description: 'Generate or edit images with gpt-image-2 when explicitly requested, using the documented credential flow, reference images, and output settings.'
 zh_description: "让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
