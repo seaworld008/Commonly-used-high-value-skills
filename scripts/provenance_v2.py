@@ -381,14 +381,28 @@ def _requested_sync_mode(item: dict[str, Any], kind: str) -> str:
 
 def is_archived_sidecar(origin: object, repo_skill: object, kind: str) -> bool:
     """A narrowly scoped licensed historical file set, never sync authority."""
-    if not isinstance(origin, dict) or kind not in {"mirror", "overlay"}:
+    if not isinstance(origin, dict) or kind not in {"mirror", "overlay", "snapshot"}:
         return False
     tracking = origin.get("tracking")
     artifacts = origin.get("artifacts")
+    if kind == "snapshot":
+        # Frozen snapshots may carry a separately pinned third-party license
+        # notice. This is not authority for a second executable/content source.
+        if not isinstance(artifacts, list) or not artifacts or not all(
+            isinstance(artifact, dict)
+            and all(isinstance(artifact.get(field), str)
+                    and re.fullmatch(r"(?:licen[cs]e|notice|copying|copyright)(?:[._-].*)?",
+                                     PurePosixPath(artifact[field]).name, re.I)
+                    and PurePosixPath(artifact[field]).suffix.lower() in {"", ".md", ".txt", ".markdown"}
+                    for field in ("source", "target"))
+            for artifact in artifacts
+        ):
+            return False
     return bool(
         safe_relative_path(repo_skill)
         and not is_local_repo(origin.get("repo"))
-        and origin.get("sync_mode") == "archived"
+        and (origin.get("sync_mode") == "archived"
+             or kind == "snapshot" and origin.get("sync_mode") == "local-only")
         and isinstance(tracking, dict)
         and tracking.get("channel") == "fixed_ref"
         and isinstance(tracking.get("ref"), str)

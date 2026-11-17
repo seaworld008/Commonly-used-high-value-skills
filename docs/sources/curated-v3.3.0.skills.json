@@ -1735,19 +1735,19 @@
         {
           "path": "skills/multimodal-media/live-panel/scripts/check_frames.py",
           "owner": "live-panel",
-          "sha256": "f0d3cc8121110b794daca50b5748f66988bece4cdb3b3583af04434dbcb422e1",
+          "sha256": "2fe319e7ca43bf80c4644661b5d9211751fbef608ca00952e93c2cccfc9a9955",
           "mode": "100755"
         },
         {
           "path": "skills/multimodal-media/live-panel/scripts/livepanel.py",
           "owner": "live-panel",
-          "sha256": "ad62de8d79ca5bb16f55f63c8bf933b973f0939c14c30e276b4e5cd7b915f743",
+          "sha256": "124c72660214a6bc4be41e32efd43b62e255f59223dc894adc7b3888027625c4",
           "mode": "100755"
         },
         {
           "path": "skills/multimodal-media/live-panel/scripts/render.py",
           "owner": "live-panel",
-          "sha256": "a93fda02f937a72b443452ab38fb42ffc3e694ae726b42a2c90b84c9baba4ce5",
+          "sha256": "99b456606f4762fe2f03f0609f0bba01e0deae833df2d744a5c0008b238a4603",
           "mode": "100755"
         }
       ],

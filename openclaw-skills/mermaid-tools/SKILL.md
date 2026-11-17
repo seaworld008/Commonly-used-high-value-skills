@@ -2,13 +2,13 @@
 name: mermaid-tools
 description: Extract Mermaid diagrams from Markdown and render PNG images with the bundled tools when a diagram image or batch conversion is needed.
 zh_description: "提取 Markdown 中的 Mermaid 图并渲染为图片。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["mermaid", "tools"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-18"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,7 +17,7 @@ complexity: "intermediate"
 
 ## Overview
 
-This skill enables extraction of Mermaid diagrams from markdown files and generation of high-quality PNG images. The skill bundles `extract-and-generate.sh`, `extract_diagrams.py`, and `puppeteer-config.json`. External `mmdc` and Chrome are required. The current rendering shell script targets configured Linux/WSL environments: it fixes Chrome at `/usr/bin/google-chrome-stable` and uses GNU `stat -c` and `sort -V`; it is not a portable macOS renderer.
+This skill enables extraction of Mermaid diagrams from markdown files and generation of high-quality PNG images. The skill bundles `extract-and-generate.sh`, `extract_diagrams.py`, and `puppeteer-config.json`. Rendering requires external `mmdc` and Chrome. The bundled browser configuration targets Linux/WSL by default; set `PUPPETEER_EXECUTABLE_PATH` to the permitted Chrome executable on other hosts and verify browser compatibility there.
 
 ## Core Workflow
 
@@ -40,11 +40,12 @@ bash "<SKILL_ROOT>/scripts/extract-and-generate.sh" "/path/to/document.md" "/pat
 
 ### What the Script Does
 
-1. **Extracts** all Mermaid code blocks from the markdown file
+1. **Extracts** Mermaid fenced code blocks, supporting backticks, tildes, whitespace before the language label and matching fence lengths. Mermaid text inside an outer example fence is ignored.
 2. **Numbers** them sequentially (01, 02, 03, etc.) in order of appearance
-3. **Generates** `.mmd` files for each diagram
-4. **Attempts to create** high-resolution PNG images with smart sizing
-5. **Validates expected PNG files** and returns nonzero if any validation fails. Review the per-file summary and inspect the generated diagrams for semantic/visual correctness.
+3. **Stages** this run's `.mmd` files and explicit input manifest in a private batch directory under `TMPDIR` (or the output directory if unset). A valid document without diagrams succeeds with an empty manifest; read or encoding errors fail.
+4. **Renders and validates** each current input's PNG with smart sizing, without scanning historical output files.
+5. **Publishes each successful pair** of `.mmd` and PNG together using destination-local publication copies and backups. Reported publication errors roll back replaced files. Rendering or validation failures leave the old published pair unchanged; failed source inputs are saved in a separate `failed-mermaid.*` diagnostic directory.
+6. **Aggregates errors** across diagrams and returns nonzero for any rendering, validation or publication failure. Other successful pairs can still be published. Review the per-file summary and inspect the images for semantic/visual correctness.
 
 ### Output Files
 
@@ -53,6 +54,8 @@ For each diagram, the script generates:
 - `01-diagram-name.png` - High-resolution PNG image
 
 The numbering ensures diagrams maintain their order from the source document.
+
+The standalone `extract_diagrams.py` only extracts source files into its requested directory; use a scratch directory when reviewing input, and use the batch shell entry point for protected source/PNG publication.
 
 ## Advanced Usage
 
@@ -102,7 +105,9 @@ Use the extraction helper at the actual installed `<SKILL_ROOT>`. The shell scri
 
 The bundled `puppeteer-config.json` keeps Chrome sandboxing enabled. If the configured browser cannot run within host permissions, report rendering blocked or use an available permitted renderer; do not add sandbox-disabling flags as an automatic fix.
 
-The renderer also needs a code fix to aggregate PNG validation failures and return nonzero. Until then, verify the expected diagram count, each file's existence/nonzero size and PNG signature, then inspect rendering. Missing or invalid outputs mean partial/failed delivery even if the script prints all-success.
+The script verifies PNG structure and CRCs through the final IEND, and aggregates generation, validation and publication errors. These checks do not prove visual correctness; inspect labels, layout and expected diagram count in the resulting images.
+
+Pair publication restores previous files on handled filesystem errors. Two separate public filenames cannot be replaced in one atomic filesystem operation: abrupt process termination or power loss during publication requires checking both files and any retained `.mermaid-publish.*` recovery directory. If rollback itself fails, the script reports incomplete recovery and retains backups; do not treat that run as successful.
 
 ## Prerequisites Verification
 

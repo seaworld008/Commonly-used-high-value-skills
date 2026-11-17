@@ -59,6 +59,9 @@ jobs:
           if not info.is_file() or not notes.is_file():
               raise SystemExit("Missing release metadata or notes")
           metadata = json.loads(info.read_text())
+          status = metadata.get("publication_status", "ready")
+          if status != "ready":
+              raise SystemExit(f"Release metadata blocks publication: {status}")
           skills = len(list(pathlib.Path("skills").glob("*/*/SKILL.md")))
           if metadata.get("tag") != tag or metadata.get("package_version") != version:
               raise SystemExit("Version metadata mismatch")

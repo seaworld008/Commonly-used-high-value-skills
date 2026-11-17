@@ -203,3 +203,45 @@ def test_duplicate_materialized_payload_fails_before_apply(
         )
     apply.assert_not_called()
     assert snapshot(tmp_path) == before
+
+
+@pytest.mark.parametrize('executable', [False, True])
+def test_snapshot_notice_is_not_a_second_update_authority(tmp_path, mapping, executable):
+    import copy
+    payload = json.loads(mapping.read_text())
+    entry = payload['skills'][0]
+    entry['kind'], entry['sync_mode'] = 'snapshot', 'local-only'
+    primary = entry['origins'][0]
+    primary['sync_mode'] = 'local-only'
+    primary['artifacts'] = [{'source': UPSTREAM_DIR + '/SKILL.md', 'target': SKILL, 'type': 'file'},
+                            {'source': 'LICENSE', 'target': LICENSE, 'type': 'file'}]
+    notice = (tmp_path / LICENSE).read_bytes()
+    primary['tracking']['license_checkpoint'] = {
+        'path': 'LICENSE', 'blob_sha': git_blob_sha(notice),
+        'content_sha256': hashlib.sha256(notice).hexdigest(),
+        'spdx': 'MIT', 'resolved_commit': primary['tracking']['resolved_commit'],
+    }
+    secondary = copy.deepcopy(primary)
+    secondary['repo'] = 'owner/runtime'
+    secondary['path'] = 'LICENSE'
+    secondary['sync_mode'] = 'archived'
+    secondary['tracking'].update(channel='fixed_ref', ref='b' * 40, resolved_commit='b' * 40,
+                                 path_commit='b' * 40)
+    secondary['tracking']['license_checkpoint']['resolved_commit'] = 'b' * 40
+    target = SKILL_ROOT + ('/extra.py' if executable else '/LICENSE.runtime.txt')
+    raw = b'print("runtime")\n' if executable else (tmp_path / LICENSE).read_bytes()
+    (tmp_path / target).write_bytes(raw)
+    secondary['artifacts'] = [{'source': 'runtime.py' if executable else 'LICENSE',
+                              'target': target, 'type': 'file'}]
+    entry['origins'].append(secondary)
+    entry['managed_files'].append({'path': target, 'owner': 'demo', 'mode': '100644',
+                                   'sha256': hashlib.sha256(raw).hexdigest()})
+    mapping.write_text(json.dumps(payload))
+    loaded, = sync_upstream.load_skills_from_source_mappings()
+    if executable:
+        assert 'exactly one external origin' in loaded['load_error']
+    else:
+        assert 'load_error' not in loaded, loaded.get('load_error')
+        assert loaded['kind'] == 'snapshot'
+        assert loaded['repo'] == REPO
+        assert loaded['expected_skip_reason']

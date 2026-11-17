@@ -61,22 +61,33 @@ try:
 except ImportError:  # pragma: no cover - repository CI is POSIX
     fcntl = None  # type: ignore[assignment]
 
-try:
-    from github_artifact_provider import (
+if __package__:
+    # Keep provider exception identities stable under package imports, even
+    # when a host also exposes scripts/ as a top-level import directory.
+    from .github_artifact_provider import (
         ArtifactNotFound,
         GITHUB_REPO_RE,
         GitHubArtifactProvider,
         GitHubProviderError,
         LicenseEvidence,
     )
-except ModuleNotFoundError:  # pragma: no cover - import path used by test loaders
-    from scripts.github_artifact_provider import (
-        ArtifactNotFound,
-        GITHUB_REPO_RE,
-        GitHubArtifactProvider,
-        GitHubProviderError,
-        LicenseEvidence,
-    )
+else:
+    try:
+        from github_artifact_provider import (
+            ArtifactNotFound,
+            GITHUB_REPO_RE,
+            GitHubArtifactProvider,
+            GitHubProviderError,
+            LicenseEvidence,
+        )
+    except ModuleNotFoundError:  # pragma: no cover - import path used by test loaders
+        from scripts.github_artifact_provider import (
+            ArtifactNotFound,
+            GITHUB_REPO_RE,
+            GitHubArtifactProvider,
+            GitHubProviderError,
+            LicenseEvidence,
+        )
 
 try:
     from audit_licenses import PERMISSIVE_LICENSES
@@ -1147,6 +1158,7 @@ def _v2_loaded_skill(entry: dict, mapping_path: Path, entry_index: int) -> dict 
             if isinstance(origin, dict)
             and isinstance(origin.get("repo"), str)
             and not origin["repo"].startswith("local-repo/")
+            and not is_archived_sidecar(origin, repo_skill, kind)
         ]
         if len(external_origins) != 1:
             return {
@@ -2037,9 +2049,23 @@ def _check_v2_upstream_changes(
     provider = _provider_for(token)
     try:
         resolved = provider.resolve_tracking(skill["repo"], tracking)
-        license_evidence = provider.license_evidence(
-            skill["repo"], resolved.commit
+        previous_license = tracking.get("license_checkpoint")
+        license_path = (
+            previous_license.get("path")
+            if isinstance(previous_license, dict)
+            else None
         )
+        if isinstance(license_path, str) and "/" in license_path:
+            # Only an explicitly reviewed nested path selects tree/blob evidence.
+            # Revalidate at the current commit; never borrow the old checkpoint
+            # bytes or fall back to a potentially different root license.
+            license_evidence = provider.license_evidence_at_path(
+                skill["repo"], resolved.commit, license_path
+            )
+        else:
+            license_evidence = provider.license_evidence(
+                skill["repo"], resolved.commit
+            )
         license_checkpoint, license_error = _validate_license_evidence(
             skill, license_evidence
         )

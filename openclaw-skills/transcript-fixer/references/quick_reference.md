@@ -2,7 +2,9 @@
 
 **Storage**: transcript-fixer uses SQLite database for corrections storage.
 
-**Database location**: `~/.transcript-fixer/corrections.db`
+**Database location**: current `config.database.path`, selected by `TRANSCRIPT_FIXER_DB_PATH`, otherwise `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db` (default directory `~/.transcript-fixer`). Commands run from the skill root. SQL paths below illustrate that default; substitute the selected path. Reuse existing authorized setup.
+
+Stage 2 cumulatively runs dictionary then AI on the original, producing `*_stage1.md` and `*_stage2.md`; Stage 3 only adds a diff hint. Generate HTML with `python scripts/generate_word_diff.py original.md corrected.md output.html`. Default learning/auto-approval/browser opening are disabled; review/approval CLI commands are placeholders. See `script_parameters.md` for actual outputs, current-run manifests and exit codes.
 
 ## Quick Start Examples
 
@@ -64,10 +66,13 @@ Save as `add_corrections.py` and run with `uv run add_corrections.py`:
 ```python
 #!/usr/bin/env -S uv run
 from pathlib import Path
+import sys
+sys.path.insert(0, "scripts")
 from core import CorrectionRepository, CorrectionService
+from utils.config import get_config
 
 # Initialize service
-db_path = Path.home() / ".transcript-fixer" / "corrections.db"
+db_path = get_config().database.path
 repository = CorrectionRepository(db_path)
 service = CorrectionService(repository)
 
@@ -99,6 +104,8 @@ uv run scripts/examples/bulk_import.py
 ```
 
 ## Querying the Database
+
+Direct SQLite and Repository examples are authorized dictionary-management operations, not zero-write preflight. For unchanged existing structure use `python scripts/fix_transcription.py --validate`; missing/invalid tables fail, active WAL/SHM/journal sidecars explicitly remain unverified. Do not initialize or delete sidecars to make validation pass.
 
 ### View Active Corrections
 

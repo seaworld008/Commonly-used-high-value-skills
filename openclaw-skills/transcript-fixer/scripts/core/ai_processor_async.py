@@ -98,6 +98,8 @@ class AIProcessorAsync:
         self.max_chunk_size = 6000  # Characters per chunk
         self.max_concurrent = max_concurrent  # Concurrency limit
         self.change_extractor = ChangeExtractor()  # For learning from AI results
+        # Published only after a whole run succeeds; never infer chunks from edits.
+        self.last_run_metadata: dict = {}
 
         # CRITICAL FIX: Shared client for connection pooling (prevents connection leaks)
         self._http_client: Optional[httpx.AsyncClient] = None
@@ -120,7 +122,7 @@ class AIProcessorAsync:
                 self._http_client = httpx.AsyncClient(
                     timeout=60.0,
                     limits=limits,
-                    http2=True  # Enable HTTP/2 for better performance
+                    http2=False  # HTTP/1 works with base httpx, without optional h2
                 )
                 logger.debug("Created new HTTP client with connection pooling")
 
@@ -147,6 +149,7 @@ class AIProcessorAsync:
 
         CRITICAL FIX (P1-3): Ensures HTTP client cleanup
         """
+        self.last_run_metadata = {}
         # Run async processing in sync context
         async def _run_with_cleanup():
             try:
@@ -155,7 +158,12 @@ class AIProcessorAsync:
                 # Ensure HTTP client is closed in the same event loop
                 await self._close_http_client()
 
-        return asyncio.run(_run_with_cleanup())
+        try:
+            return asyncio.run(_run_with_cleanup())
+        except BaseException:
+            # Cleanup failures/cancellation must not leave a successful receipt.
+            self.last_run_metadata = {}
+            raise
 
     async def _process_async(self, text: str, context: str) -> Tuple[str, List[AIChange]]:
         """
@@ -166,6 +174,11 @@ class AIProcessorAsync:
         - Releases intermediate results
         - Monitors memory usage
         """
+        self.last_run_metadata = {}
+        if not text:
+            self.last_run_metadata = {"models_used": [], "chunks_processed": 0}
+            return text, []
+
         chunks = self._split_into_chunks(text)
         all_changes = []
 
@@ -209,6 +222,7 @@ class AIProcessorAsync:
 
         # Process results (maintaining order)
         corrected_chunks = []
+        models_used = []
         for i, (chunk, result) in enumerate(zip(chunks, results), 1):
             if isinstance(result, Exception):
                 logger.error(
@@ -217,12 +231,15 @@ class AIProcessorAsync:
                 )
                 error_counter.failure()
             else:
-                corrected_chunks.append(result)
+                corrected_text, successful_model = result
+                corrected_chunks.append(corrected_text)
+                if successful_model not in models_used:
+                    models_used.append(successful_model)
                 error_counter.success()
 
                 # Extract actual changes for learning
-                if result != chunk:
-                    extracted_changes = self.change_extractor.extract_changes(chunk, result)
+                if corrected_text != chunk:
+                    extracted_changes = self.change_extractor.extract_changes(chunk, corrected_text)
 
                     # CRITICAL FIX: Limit changes tracking to prevent memory bloat
                     # Sample changes if we're already tracking too many
@@ -273,7 +290,12 @@ class AIProcessorAsync:
                 f"AI correction failed for {stats['total_failures']}/{len(chunks)} chunks"
             ) from first_error
 
-        return "\n\n".join(corrected_chunks), all_changes
+        corrected_text = "\n\n".join(corrected_chunks)
+        self.last_run_metadata = {
+            "models_used": models_used,
+            "chunks_processed": len(corrected_chunks),
+        }
+        return corrected_text, all_changes
 
     async def _request_with_retry(self, chunk: str, context: str, model: str,
                                   attempts: int, chunk_index: int) -> str:
@@ -301,7 +323,7 @@ class AIProcessorAsync:
         context: str,
         semaphore: asyncio.Semaphore,
         total_chunks: int
-    ) -> str:
+    ) -> Tuple[str, str]:
         """Try the primary model, then the fallback; never silently reuse text."""
         async with semaphore:
             logger.info(
@@ -317,7 +339,7 @@ class AIProcessorAsync:
                     "Chunk completed with primary model",
                     extra={"chunk_index": chunk_index, "model": self.model}
                 )
-                return result
+                return result, self.model
             except Exception as primary_error:
                 logger.warning(
                     "Chunk failed with primary model",
@@ -346,7 +368,7 @@ class AIProcessorAsync:
                     "Chunk succeeded with fallback model",
                     extra={"chunk_index": chunk_index, "model": self.fallback_model}
                 )
-                return result
+                return result, self.fallback_model
 
     def _split_into_chunks(self, text: str) -> List[str]:
         """
@@ -428,7 +450,57 @@ class AIProcessorAsync:
         response = await client.post(url, headers=headers, json=data)
         response.raise_for_status()
         result = response.json()
-        return result["content"][0]["text"]
+        return self._validated_response_text(result, chunk)
+
+    @staticmethod
+    def _validated_response_text(result: object, chunk: str) -> str:
+        """Accept a completed text message, never a partial/error response.
+
+        This request configures neither tools nor stop sequences: only end_turn
+        confirms normal completion. Error messages deliberately omit payloads.
+        This validates the response contract, not the model's correction accuracy.
+        """
+        if not isinstance(result, dict):
+            raise ValueError("Model response must be a message object")
+        if (result.get("type", "message") != "message"
+                or result.get("role", "assistant") != "assistant"
+                or result.get("error") is not None
+                or result.get("status", "completed") != "completed"
+                or result.get("incomplete_details") is not None
+                or result.get("incomplete", False) is not False):
+            raise ValueError("Model response reports an error or incomplete message")
+        if result.get("stop_reason") != "end_turn":
+            raise ValueError("Model response did not finish normally")
+
+        content = result.get("content")
+        if not isinstance(content, list) or not content:
+            raise ValueError("Model response has no content blocks")
+        texts = []
+        for block in content:
+            if not isinstance(block, dict):
+                raise ValueError("Model response contains an invalid content block")
+            block_type = block.get("type")
+            if block.get("error") is not None:
+                raise ValueError("Model response contains a content error")
+            if block_type == "text":
+                if not isinstance(block.get("text"), str):
+                    raise ValueError("Model response contains invalid text")
+                texts.append(block["text"])
+            elif block_type in ("thinking", "redacted_thinking"):
+                # Reasoning blocks are legal, but are not corrected transcript.
+                field = "thinking" if block_type == "thinking" else "data"
+                if not isinstance(block.get(field), str):
+                    raise ValueError("Model response contains invalid reasoning")
+            else:
+                # Includes error/refusal/tool blocks and unrecognized formats.
+                raise ValueError("Model response contains unsupported content")
+
+        if not texts:
+            raise ValueError("Model response has no text blocks")
+        corrected_text = "".join(texts)
+        if chunk and not corrected_text.strip():
+            raise ValueError("Model returned empty text for a nonempty transcript")
+        return corrected_text
 
     def _build_prompt(self, chunk: str, context: str) -> str:
         """Build correction prompt for GLM"""

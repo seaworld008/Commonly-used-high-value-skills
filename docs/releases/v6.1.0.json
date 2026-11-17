@@ -32,5 +32,7 @@
     "本地凭据回退、浏览器降级隔离与跨任务学习遵从显式授权。",
     "rust-engineer 与 security-review 原创替代旧实现，Guizang 保持已核实 MIT 快照，未接收当前 AGPL 内容。"
   ],
-  "audit": "docs/maintenance-audit-2026-11-17.md"
+  "audit": "docs/maintenance-audit-2026-11-17.md",
+  "publication_status": "blocked_pending_provenance",
+  "provenance_review": "docs/maintenance-provenance-2026-11-17.md"
 }

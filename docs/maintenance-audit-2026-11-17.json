@@ -6315,6 +6315,53 @@
       "user_macro_sentinel_unchanged": true,
       "bundled_alpha": "no success receipt; correctly reported unverified, not runtime-accepted"
     },
-    "image_validation": "CLI validates structure; Pillow decodes positive fixture images. No live image model request."
+    "image_validation": "CLI validates structure; Pillow decodes positive fixture images. No live image model request.",
+    "ffmpeg": {
+      "version": "9.0",
+      "render_exit": 0,
+      "full_decode_exit": 0,
+      "frame_check_exit": 0,
+      "video_bytes": 31852,
+      "frames": 3,
+      "default_chrome_sandbox": true,
+      "temporary_profiles_and_pages_cleaned": true
+    },
+    "guizang": {
+      "pages": 2,
+      "http_https_blocked": true,
+      "local_motion_loaded": true,
+      "dot_navigation": true,
+      "escape_overview_navigation": true,
+      "both_notices_in_test_deliverable": true
+    }
+  },
+  "publication_status": "blocked_pending_provenance",
+  "provenance_blindspot": {
+    "current_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+    "license_transition_commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "current_official_license": "Apache-2.0",
+    "source_classification_corrections_pending": 13,
+    "office": {
+      "files": 209,
+      "same_bytes": 146,
+      "local_adaptation": 5,
+      "blocked_old_license": 4,
+      "other_files_without_complete_licensed_basis": 54,
+      "legacy_independent_assets_without_rights_chain": 17
+    },
+    "canvas_fonts": {
+      "fonts": 54,
+      "families": 29,
+      "complete_notice_files": 27,
+      "unresolved_families": [
+        "IBMPlexSerif",
+        "InstrumentSerif"
+      ],
+      "affected_fonts": 6
+    },
+    "other_pending": [
+      "frontend-design historical Chinese draft requires an identified licensed basis or fresh reconstruction",
+      "web-artifacts-builder embedded component archive needs third-party attribution verification"
+    ]
   }
 }

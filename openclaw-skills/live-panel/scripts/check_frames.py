@@ -26,6 +26,7 @@ def pixel_diff(br, a, b, delta=24):
     return br.eval(js)
 
 
+@lp.handle_sigterm()
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", required=True)
@@ -38,8 +39,23 @@ def main():
     ap.add_argument("--html-out", help="keep the generated self-contained page here")
     ap.add_argument("--no-sandbox", action="store_true")
     a = ap.parse_args()
+    if a.samples < 0 or a.png < 0:
+        ap.error("--samples and --png must be non-negative")
+    if not (a.samples or a.png):
+        ap.error("at least one DOM sample or PNG time point is required")
+    if a.repeat and not a.png:
+        ap.error("--repeat requires at least one PNG time point")
     chrome = lp.find_chrome(a.chrome)
     os.makedirs(a.out_dir, exist_ok=True)
+    with lp.MediaOutputs() as outputs:
+        check_frames(a, chrome, outputs)
+        outputs.publish()
+    message = f"; PNGs in {a.out_dir}" if a.png else ""
+    print(f"checked {a.samples + a.png} time points, 0 distinct problems{message}")
+    sys.exit(0)
+
+
+def check_frames(a, chrome, outputs):
     with generated_page(a.config, a.html_out, a.template) as (page, cfg):
         w, h, dur, _ = lp.canvas(cfg)
         times = [dur * i / a.samples + 0.013 * i for i in range(a.samples)]
@@ -55,11 +71,10 @@ def main():
                     problems.setdefault(p, []).append(round(t, 2))
             same = True
             for i, t in enumerate(shots):
-                name = Path(a.out_dir) / f"frame_{i + 1}_t{t:05.2f}.png"
                 br.seek(t); check_page_error(br)
                 png = br.shot(); check_page_error(br)
                 if not a.video:
-                    name.write_bytes(png)
+                    outputs.stage(frame_path(a.out_dir, i, t), "PNG").write_bytes(png)
                 if a.repeat:
                     br.seek((t + dur / 2) % dur); check_page_error(br)
                     br.shot(); check_page_error(br)
@@ -70,17 +85,20 @@ def main():
                     same &= ok
                     print(f"replay t={t:.2f}s: {n} pixels differ visibly (max channel delta {mx}) -> {'identical' if ok else 'DIFFERENT'}")
             check_page_error(br)
-    if a.video:
-        ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
-        for i, t in enumerate(shots):
-            subprocess.run([ffmpeg, "-y", "-loglevel", "error", "-ss", f"{t:.3f}", "-i", a.video, "-frames:v", "1",
-                            str(Path(a.out_dir) / f"frame_{i + 1}_t{t:05.2f}.png")], check=True)
     for p, ts in problems.items():
         print(f"PROBLEM: {p}  (first at t={ts[0]}s, {len(ts)} of {a.samples + a.png} samples)")
-    print(f"checked {a.samples + a.png} time points, {len(problems)} distinct problems; PNGs in {a.out_dir}")
-    if a.repeat and not same:
+    if problems or not same:
         sys.exit(1)
-    sys.exit(1 if problems else 0)
+    if a.video and shots:
+        ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
+        for i, t in enumerate(shots):
+            staged = outputs.stage(frame_path(a.out_dir, i, t), "PNG")
+            subprocess.run([ffmpeg, "-y", "-loglevel", "error", "-ss", f"{t:.3f}", "-i", a.video, "-frames:v", "1",
+                            str(staged)], check=True)
+
+
+def frame_path(directory, i, t):
+    return Path(directory) / f"frame_{i + 1}_t{t:05.2f}.png"
 
 
 if __name__ == "__main__":

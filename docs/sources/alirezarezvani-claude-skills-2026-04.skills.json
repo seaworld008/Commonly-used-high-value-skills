@@ -500,7 +500,7 @@
         },
         {
           "path": "skills/security-and-reliability/information-security-manager-iso27001/scripts/risk_assessment.py",
-          "sha256": "747978f1baa767e3e03cc1ea66438fd9d9b4c44f5f8465f7c57fac7bb358ca97",
+          "sha256": "8833af702870d8b8b8ab6b60d974ca1fcb7cae9f9536f2efc43a8ee64f884630",
           "owner": "information-security-manager-iso27001",
           "mode": "100644"
         }

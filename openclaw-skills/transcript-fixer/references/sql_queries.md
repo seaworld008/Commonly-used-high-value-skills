@@ -1,5 +1,9 @@
 # SQL Query Reference
 
+These are SQL methods for existing authorized dictionary maintenance. Use the selected `config.database.path` (`TRANSCRIPT_FIXER_DB_PATH`, else `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db`, default directory `~/.transcript-fixer`), preserving existing setup authorization. Queries that INSERT/UPDATE/DELETE or optimize storage write user data; do not use them as preflight. Ordinary sqlite3 may touch WAL sidecars, so zero-write checks use the CLI `--validate` private snapshot instead; active WAL/SHM/journal sidecars are explicitly not verified.
+
+Learning and auto-approval default off. CLI review/approval are placeholders; the explicit SQL methods below require manual review of context and reusable meaning. Protect transcript history and example snippets when sharing query results; never include credentials.
+
 Database location: `~/.transcript-fixer/corrections.db`
 
 ## Basic Operations

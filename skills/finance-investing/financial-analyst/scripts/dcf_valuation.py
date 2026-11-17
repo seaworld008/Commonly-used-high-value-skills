@@ -43,6 +43,33 @@ def finite_result(value: float, field: str) -> float:
     return value
 
 
+def perpetuity_unavailable_reason(wacc: float, growth: float) -> Optional[str]:
+    """Require an ordinary economic perpetuity and a convergent discounted series.
+
+    Its geometric ratio is (1 + growth) / (1 + wacc), with absolute value < 1.
+    Growth below -100% alternates cash-flow signs and is outside this model even
+    when that series converges. At exactly -100%, all future cash flows are zero.
+    """
+    if not is_finite_number(wacc) or wacc <= -1:
+        return "WACC must be finite and greater than -1; perpetuity values are unavailable"
+    if not is_finite_number(growth):
+        return "terminal_growth_rate must be finite; perpetuity values are unavailable"
+    # For growth >= -1, convergence is exactly WACC > growth. Compare rates
+    # directly so adding 1 does not erase a small, valid rate difference.
+    if wacc <= growth or (growth < -1 and abs(1 + growth) >= 1 + wacc):
+        return (
+            "Discounted perpetuity series does not converge; requires abs(1 + "
+            "terminal_growth_rate) < 1 + WACC and WACC must exceed "
+            "terminal_growth_rate; perpetuity values are unavailable"
+        )
+    if growth < -1:
+        return (
+            "terminal_growth_rate below -100% implies alternating cash-flow signs; "
+            "ordinary economic perpetuity is not estimable (requires growth >= -1)"
+        )
+    return None
+
+
 class DCFModel:
     """Discounted Cash Flow valuation model."""
 
@@ -170,17 +197,15 @@ class DCFModel:
         if not is_finite_number(terminal_growth):
             raise ValueError("terminal_growth_rate must be a finite number")
         self.unavailable_reasons.pop("perpetuity_growth", None)
-        if self.wacc > terminal_growth:
+        reason = perpetuity_unavailable_reason(self.wacc, terminal_growth)
+        if reason is None:
             self.terminal_value_perpetuity = finite_result(
                 terminal_fcf * (1 + terminal_growth) / (self.wacc - terminal_growth),
                 "Perpetuity terminal value",
             )
         else:
             self.terminal_value_perpetuity = None
-            self.unavailable_reasons["perpetuity_growth"] = (
-                "WACC must exceed terminal_growth_rate; perpetuity terminal, enterprise, "
-                "equity and per-share values are unavailable"
-            )
+            self.unavailable_reasons["perpetuity_growth"] = reason
 
         # Exit multiple method: TV = Terminal EBITDA * Exit Multiple
         terminal_revenue = self.projected_revenue[-1]
@@ -314,13 +339,16 @@ class DCFModel:
         share_price_table = [[None] * cols for _ in range(rows)]
         issues = self._equity_input_issues()
         reasons = dict(issues)
+        perpetuity_reasons = []
 
         terminal_fcf = self.projected_fcf[-1] if self.projected_fcf else 0
 
         for i, wacc_val in enumerate(wacc_range):
             for j, growth_val in enumerate(growth_range):
-                if wacc_val <= growth_val:
-                    reasons["perpetuity_growth"] = "Cells with WACC <= growth have null enterprise and per-share values"
+                reason = perpetuity_unavailable_reason(wacc_val, growth_val)
+                if reason is not None:
+                    if reason not in perpetuity_reasons:
+                        perpetuity_reasons.append(reason)
                     continue
 
                 # Recalculate PV of projected FCFs with this WACC
@@ -340,6 +368,9 @@ class DCFModel:
                     price = finite_result(equity / self.historical["shares_outstanding"], "Sensitivity per-share value")
                     share_price_table[i][j] = round(price, 2)
 
+        if perpetuity_reasons:
+            reasons["perpetuity_growth"] = "; ".join(perpetuity_reasons)
+
         return {
             "wacc_values": wacc_range,
             "growth_values": growth_range,
@@ -351,7 +382,8 @@ class DCFModel:
     def run_full_valuation(self) -> Dict[str, Any]:
         """Run DCF; unavailable methods/values are null with unavailable_reasons.
 
-        WACC <= growth disables perpetuity growth. Invalid exit multiples or
+        Invalid economic growth or nonconvergence disables perpetuity growth.
+        Growth == -100% gives zero terminal cash flow. Invalid exit multiples or
         terminal EBITDA disable the exit method. Both use the same projected FCFs.
         Missing net debt blocks equity values; missing positive shares blocks only
         per-share values. Sensitivity tables follow the same null convention.

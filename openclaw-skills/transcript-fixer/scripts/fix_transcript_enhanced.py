@@ -82,7 +82,7 @@ Examples:
                        choices=['general', 'embodied_ai', 'finance', 'medical'],
                        help='Domain for corrections (default: general)')
     parser.add_argument('--stage', type=int, default=3, choices=[1, 2, 3],
-                       help='Processing stage: 1=dict, 2=AI, 3=both (default: 3)')
+                       help='Processing through stage: 1=dict, 2=dict+AI, 3=both+diff hint (default: 3)')
     parser.add_argument('--auto-open', action='store_true', default=False,
                        help='Automatically open HTML diff in browser (default: False)')
     parser.add_argument('--no-auto-open', dest='auto_open', action='store_false',
@@ -134,9 +134,15 @@ Examples:
         print(f"❌ Main script not found: {main_script}")
         sys.exit(1)
 
-    # Build command
+    # One dependency source for both uv and preinstalled Python environments.
+    requirements = (script_dir.parent / 'requirements.txt').read_text(encoding='utf-8')
+    dependency_args = []
+    for line in requirements.splitlines():
+        requirement = line.split('#', 1)[0].strip()
+        if requirement:
+            dependency_args.extend(['--with', requirement])
     cmd = [
-        'uv', 'run', '--with', 'httpx',
+        'uv', 'run', *dependency_args,
         str(main_script),
         '--input', str(input_path),
         '--output', str(output_dir),

@@ -14,6 +14,7 @@ import json
 import os
 import shutil
 import sqlite3
+import stat
 import sys
 import tempfile
 from contextlib import closing
@@ -111,6 +112,26 @@ def cmd_list_corrections(args: argparse.Namespace) -> None:
     print(f"\nTotal: {len(corrections)} corrections\n")
 
 
+def _write_atomic_text(path: Path, text: str) -> None:
+    """Publish a closed, fully written file without truncating its predecessor."""
+    try:
+        mode = path.lstat().st_mode
+    except FileNotFoundError:
+        mode = 0
+    staged = tempfile.NamedTemporaryFile(dir=path.parent, mode="w", encoding="utf-8", delete=False)
+    try:
+        with staged:
+            staged.write(text)
+            staged.flush()
+            if stat.S_ISREG(mode):
+                os.chmod(staged.name, mode & 0o777)
+            os.fsync(staged.fileno())
+        os.replace(staged.name, path)
+    except BaseException:
+        Path(staged.name).unlink(missing_ok=True)
+        raise
+
+
 def cmd_run_correction(args: argparse.Namespace) -> None:
     """Run the correction workflow"""
     # Validate input file
@@ -131,9 +152,21 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
         if path is not None:
             generated_outputs.append(str(path.resolve()))
         if manifest_path:
-            Path(manifest_path).write_text(
-                json.dumps({"outputs": generated_outputs}), encoding="utf-8"
-            )
+            _write_atomic_text(Path(manifest_path), json.dumps({"outputs": generated_outputs}))
+
+    def deliver(path: Path, text: str) -> None:
+        try:
+            _write_atomic_text(path, text)
+        except OSError as exc:
+            print(f"❌ Text output not saved: {path} ({exc})")
+            sys.exit(1)
+        try:
+            record_output(path)
+        except OSError as exc:
+            print(f"❌ Output receipt not updated ({exc})")
+            print(f"💾 Text output saved: {path}")
+            sys.exit(1)
+        print(f"💾 Saved: {path.name}\n")
 
     record_output()
 
@@ -171,10 +204,7 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
             print(f"  - Context rules: {summary['context_rule_changes']}")
 
             stage1_file = output_dir / f"{input_path.stem}_stage1.md"
-            with open(stage1_file, 'w', encoding='utf-8') as f:
-                f.write(stage1_text)
-            record_output(stage1_file)
-            print(f"💾 Saved: {stage1_file.name}\n")
+            deliver(stage1_file, stage1_text)
 
         # Stage 2: AI corrections
         stage2_changes = []
@@ -200,13 +230,19 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
                 print(f"❌ AI correction failed ({type(exc).__name__}); Stage 2 not generated")
                 sys.exit(1)
 
-            print(f"✓ Processed {len(stage2_changes)} chunks\n")
+            metadata = getattr(ai_processor, "last_run_metadata", None)
+            if not isinstance(metadata, dict):
+                metadata = {}
+            chunks = metadata.get("chunks_processed")
+            if chunks is None:
+                chunks = "unknown"
+            models = metadata.get("models_used") or []
+            model = ", ".join(dict.fromkeys(models)) or "unknown"
+            unit = "chunk" if chunks == 1 else "chunks"
+            print(f"✓ Processed {chunks} {unit} ({len(stage2_changes)} changes)\n")
 
             stage2_file = output_dir / f"{input_path.stem}_stage2.md"
-            with open(stage2_file, 'w', encoding='utf-8') as f:
-                f.write(stage2_text)
-            record_output(stage2_file)
-            print(f"💾 Saved: {stage2_file.name}\n")
+            deliver(stage2_file, stage2_text)
 
             # History contains transcript text; persist it only with learning enabled.
             if config.features.enable_learning:
@@ -217,7 +253,7 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
                         original_length=len(original_text),
                         stage1_changes=len(stage1_changes),
                         stage2_changes=len(stage2_changes),
-                        model=ai_processor.model if hasattr(ai_processor, "model") else "GLM-4.6",
+                        model=model,
                         changes=stage1_changes + stage2_changes
                     )
                 except Exception as exc:
@@ -231,15 +267,20 @@ def cmd_run_correction(args: argparse.Namespace) -> None:
                 print("=" * 60)
 
                 config_dir = config.paths.config_dir
-                learning = LearningEngine(
-                    history_dir=config_dir / "history",
-                    learned_dir=config_dir / "learned",
-                    correction_service=service,
-                    enable_learning=config.features.enable_learning,
-                    enable_auto_approval=config.features.enable_auto_approval,
-                )
-
-                stats = learning.analyze_and_auto_approve(stage2_changes, args.domain)
+                try:
+                    learning = LearningEngine(
+                        history_dir=config_dir / "history",
+                        learned_dir=config_dir / "learned",
+                        correction_service=service,
+                        enable_learning=config.features.enable_learning,
+                        enable_auto_approval=config.features.enable_auto_approval,
+                    )
+                    stats = learning.analyze_and_auto_approve(stage2_changes, args.domain)
+                except Exception as exc:
+                    print(f"❌ Learning failed ({type(exc).__name__}); dictionary updates may be partial")
+                    print(f"💾 Text output saved: {stage2_file}")
+                    print(f"💾 History saved: {config.database.path}")
+                    sys.exit(1)
 
                 print(f"📊 Analysis Results:")
                 print(f"   Total changes: {stats['total_changes']}")

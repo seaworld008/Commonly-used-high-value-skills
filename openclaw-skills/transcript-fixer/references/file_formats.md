@@ -1,5 +1,9 @@
 # Storage Format Reference
 
+Current runtime boundaries: use selected `config.database.path` (`TRANSCRIPT_FIXER_DB_PATH`, otherwise `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db`, default directory `~/.transcript-fixer`). Default SQL paths below are illustrative. Commands run from the skill root; reuse authorized setup. Repository construction can initialize schema/WAL, so API/SQL management examples are not zero-write checks. `--validate` reads a private snapshot without active journals, reports missing tables or unverified active journal sidecars, and never repairs user state.
+
+Learning/auto-approval default off independently of legacy schema settings. Core CLI has no import/export options; use reviewed Service API examples below only for authorized maintenance. Review/approval CLI handlers are placeholders. Stage 2 includes dictionary processing and produces `*_stage1.md` plus `*_stage2.md`; Stage 3 only prints a hint. HTML is generated explicitly by `scripts/generate_word_diff.py original.md corrected.md output.html`, with browser opening off by default.
+
 This document describes the SQLite database format used by transcript-fixer v2.0.
 
 ## Table of Contents
@@ -242,10 +246,13 @@ GROUP BY domain;
 
 ```python
 from pathlib import Path
+import sys
+sys.path.insert(0, "scripts")
 from core import CorrectionRepository, CorrectionService
+from utils.config import get_config
 
 # Initialize
-db_path = Path.home() / ".transcript-fixer" / "corrections.db"
+db_path = get_config().database.path
 repository = CorrectionRepository(db_path)
 service = CorrectionService(repository)
 
@@ -286,8 +293,9 @@ SELECT value FROM system_config WHERE key = 'schema_version';
 
 ### Export to JSON
 
+Insert the following snippets before `service.close()` in the initialized-service example above (do not call the private CLI `_get_service` from an unrelated script). Keep the service open for exchange and close it afterward. Constructor/schema effects remain authorized maintenance, not preflight.
+
 ```python
-service = _get_service()
 corrections = service.export_corrections(domain="general")
 
 # Write to file
@@ -308,7 +316,6 @@ import json
 with open("import.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
-service = _get_service()
 inserted, updated, skipped = service.import_corrections(
     corrections=data["corrections"],
     domain=data.get("domain", "general"),
@@ -326,6 +333,8 @@ print(f"Imported: {inserted} new, {updated} updated, {skipped} skipped")
 The system maintains database integrity through SQLite's ACID guarantees and automatic journaling.
 
 ### Manual Backups
+
+Copying only the main file is valid only after writers stop and all committed changes are in that file. Active WAL must be included in a consistent backup; prefer SQLite backup through an authorized maintenance connection. Never delete sidecars to simplify a copy.
 
 ```bash
 # Backup database
@@ -349,7 +358,7 @@ sqlite3 ~/.transcript-fixer/corrections.db ".backup ~/backups/corrections.db"
 Instead, export corrections periodically:
 
 ```bash
-python scripts/fix_transcription.py --export-json corrections_backup.json
+# Prepare corrections_backup.json using the reviewed Service export example above
 git add corrections_backup.json
 git commit -m "Backup corrections"
 ```
@@ -368,28 +377,12 @@ git commit -m "Backup corrections"
 
 ### Database Locked
 
-```bash
-# Check for lingering connections
-lsof ~/.transcript-fixer/corrections.db
-
-# If needed, backup and recreate
-cp corrections.db corrections_backup.db
-sqlite3 corrections.db "VACUUM;"
-```
+Do not run VACUUM/recreate as an automatic diagnostic. Wait for authorized writers to finish and preserve a consistent backup. `--validate` explicitly refuses WAL/SHM/journal sidecars; it does not checkpoint or recover the source.
 
 ### Corrupted Database
 
-```bash
-# Check integrity
-sqlite3 corrections.db "PRAGMA integrity_check;"
-
-# Recover if possible
-sqlite3 corrections.db ".recover" | sqlite3 corrections_new.db
-```
+Keep the original database and relevant sidecars intact. In authorized recovery, work on a private consistent copy, review recovered rows/constraints and compare counts before replacement; never treat a repaired copy as proof that the original was healthy. See troubleshooting.md.
 
 ### Missing Tables
 
-```bash
-# Reinitialize schema (safe, uses IF NOT EXISTS)
-python -c "from core import CorrectionRepository; from pathlib import Path; CorrectionRepository(Path.home() / '.transcript-fixer' / 'corrections.db')"
-```
+Record missing tables as an error. Repository construction or --init can modify schema and is not validation. Review an authorized migration/recovery on a backup first; do not delete the original or silently create tables to make the check pass.

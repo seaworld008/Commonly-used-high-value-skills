@@ -2,7 +2,11 @@
 
 **MUST read this before any database operations.**
 
-Database location: `~/.transcript-fixer/corrections.db`
+Database location: selected `config.database.path` (`TRANSCRIPT_FIXER_DB_PATH`, otherwise `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db`, default directory `~/.transcript-fixer`). Commands elsewhere use the skill root; substitute the selected path for illustrative default SQL paths. Reuse existing setup authorization.
+
+The schema documents persistent storage, not implicit permission to initialize/migrate an existing user database. `--validate` inspects selected original structure through a private immutable snapshot without Repository construction or user-side writes. Missing tables fail; active WAL/SHM/journal sidecars or concurrent changes are explicitly not verified. Preserve consistent backups including committed WAL data before authorized maintenance.
+
+Learning and auto-approval default off; schema learning thresholds do not override runtime feature gates. CLI review/approval handlers remain placeholders. Source of truth for actual tables and constraints is `scripts/core/schema.sql`.
 
 ## Core Tables
 

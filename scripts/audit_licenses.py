@@ -28,6 +28,9 @@ import hashlib
 import json
 import os
 import re
+import stat
+import struct
+import zlib
 from typing import Any
 from pathlib import Path
 
@@ -44,6 +47,13 @@ PERMISSIVE_LICENSES = {
     "MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause",
     "ISC", "CC-BY-4.0", "CC0-1.0", "Unlicense", "0BSD", "MPL-2.0",
 }
+# Aggregated, unmodified font binaries only; never a software-license allowlist.
+SCOPED_FONT_LICENSES = {"OFL-1.1"}
+FONT_SUFFIXES = {".ttf", ".otf", ".woff", ".woff2"}
+# Full standard OFL 1.1 text, from its dated heading through the disclaimer,
+# case/whitespace normalized and with decorative horizontal rules removed.
+# A hash of the entire body prevents truncated or edited conditions passing.
+OFL_BODY_SHA256 = "f1d9649b3448d9da3dc507a47f809592dccd1cae2d99e639fe42244f26395276"
 LOCAL_REPOS = {
     "local-repo/in-house",
     "seaworld008/commonly-used-high-value-skills",
@@ -178,7 +188,7 @@ def _checkpoint_error(origin: dict) -> str:
     if checkpoint["resolved_commit"] != tracking.get("resolved_commit"):
         return "license_checkpoint.resolved_commit inconsistent with origin tracking"
     spdx = checkpoint.get("spdx")
-    if spdx != origin["license"] or spdx not in PERMISSIVE_LICENSES:
+    if spdx != origin["license"] or spdx not in PERMISSIVE_LICENSES | SCOPED_FONT_LICENSES:
         return "license_checkpoint.spdx inconsistent with origin license"
     if checkpoint.get("api_spdx") not in (None, "NOASSERTION", origin["license"]):
         return "license_checkpoint.api_spdx inconsistent with origin license"
@@ -200,6 +210,31 @@ def _shipped_files(skill_dir: Path, repo_root: Path) -> dict[str, str]:
 def _has_notice_body(path: Path, spdx: str) -> bool:
     """Require actual grant terms, not arbitrary nonempty checkpointed text."""
     raw = path.read_bytes()
+    if spdx == "OFL-1.1":
+        try:
+            text = raw.decode("utf-8-sig")
+        except UnicodeDecodeError:
+            return False
+        normalized = " ".join(re.sub(r"-{3,}", "", text.casefold()).split())
+        heading = "sil open font license version 1.1 - 26 february 2007"
+        prefix, found, body = normalized.partition(heading)
+        # Only attribution/RFN lines and the standard license introduction
+        # may precede the full terms. A script prepended to an OFL file is not
+        # an additional license/notice artifact.
+        prefix_lines = text.casefold().split("sil open font license version", 1)[0].splitlines()
+        allowed_prefixes = (
+            "copyright", "with reserved font name", "reserved font name",
+            "this font software is licensed under the sil open font license, version 1.1.",
+            "this license is copied below, and is also available with a faq at:",
+            "https://openfontlicense.org", "http://scripts.sil.org/ofl",
+        )
+        if any(line.strip() and set(line.strip()) != {"-"}
+               and not line.strip().startswith(allowed_prefixes) for line in prefix_lines):
+            return False
+        return bool(
+            found and re.search(r"\bcopyright\b.*\d{4}[,\s]+\S", prefix)
+            and hashlib.sha256((heading + body).encode()).hexdigest() == OFL_BODY_SHA256
+        )
     # This exact Vercel README was manually reviewed at b8caa260...: its
     # explicit License/MIT declaration is preserved with separate full terms.
     # A changed README needs a fresh review; arbitrary READMEs are not grants.
@@ -226,6 +261,252 @@ def _has_notice_body(path: Path, spdx: str) -> bool:
         "CC-BY-4.0": ("attribution 4.0 international", "public license", "licensed rights", "attribution"),
     }.get(spdx)
     return bool(clauses and all(clause in text for clause in clauses))
+
+
+def _font_structure_error(raw: bytes, suffix: str) -> str:
+    """Bounded container/table checks, not a complete font decoder or RFN review."""
+    if len(raw) > 64 * 1024 * 1024:
+        return "font exceeds the 64 MiB inspection limit"
+    tables: dict[bytes, bytes] = {}
+    try:
+        if suffix in {".ttf", ".otf"}:
+            flavor, count, search, selector, shift = struct.unpack_from(">4s4H", raw)
+            if flavor != (b"OTTO" if suffix == ".otf" else b"\0\1\0\0"):
+                return "font magic does not match extension"
+            if not 1 <= count <= 4095:
+                return "invalid sfnt table count"
+            power = 1 << (count.bit_length() - 1)
+            if (search, selector, shift) != (16 * power, power.bit_length() - 1, 16 * (count - power)):
+                return "invalid sfnt search parameters"
+            end = 12 + 16 * count
+            ranges = []
+            for i in range(count):
+                tag, _, offset, size = struct.unpack_from(">4sIII", raw, 12 + i * 16)
+                if tag in tables or offset % 4 or offset < end or not size or offset + size > len(raw):
+                    return "invalid sfnt table bounds or duplicate tag"
+                tables[tag] = raw[offset:offset + size]
+                ranges.append((offset, offset + size))
+        elif suffix == ".woff":
+            magic, flavor, length, count, reserved, sfnt_size = struct.unpack_from(">4s4sIHHI", raw)
+            if magic != b"wOFF" or flavor not in {b"OTTO", b"\0\1\0\0"}:
+                return "invalid WOFF magic or flavor"
+            if length != len(raw) or reserved or not 1 <= count <= 4095 or len(raw) < 44:
+                return "invalid WOFF header"
+            end, ranges, original_size = 44 + 20 * count, [], 12 + 16 * count
+            meta, meta_size, meta_original, private, private_size = struct.unpack_from(">5I", raw, 24)
+            if (bool(meta) != bool(meta_size) or bool(meta) != bool(meta_original)
+                    or bool(private) != bool(private_size)):
+                return "invalid WOFF metadata/private header"
+            for offset, size in ((meta, meta_size), (private, private_size)):
+                if offset:
+                    if offset % 4 or offset < end or offset + size > len(raw):
+                        return "invalid WOFF metadata/private bounds"
+                    ranges.append((offset, offset + size))
+            for i in range(count):
+                tag, offset, compressed, size, _ = struct.unpack_from(">4sIIII", raw, 44 + i * 20)
+                if (tag in tables or offset % 4 or offset < end or not 0 < compressed <= size
+                        or size > 64 * 1024 * 1024 or offset + compressed > len(raw)):
+                    return "invalid WOFF table bounds or duplicate tag"
+                data = raw[offset:offset + compressed]
+                if compressed < size:
+                    decoder = zlib.decompressobj()
+                    data = decoder.decompress(data, size + 1)
+                    if not decoder.eof or decoder.unused_data or decoder.unconsumed_tail:
+                        return "invalid WOFF compressed table"
+                if len(data) != size:
+                    return "invalid WOFF table length"
+                tables[tag] = data
+                ranges.append((offset, offset + compressed))
+                original_size += (size + 3) & ~3
+                if original_size > 64 * 1024 * 1024:
+                    return "WOFF expands beyond inspection limit"
+            if sfnt_size != original_size:
+                return "invalid WOFF totalSfntSize"
+        elif suffix == ".woff2":
+            # WOFF2 needs Brotli and transformed-table decoding. Fail closed
+            # rather than bless an opaque block with a plausible header.
+            return "WOFF2 structure decoding is unavailable; use reviewed sfnt/WOFF bytes"
+        else:
+            return "unsupported font extension"
+        ranges.sort()
+        if any(left[1] > right[0] for left, right in zip(ranges, ranges[1:])):
+            return "overlapping font tables"
+        if not {b"head", b"maxp", b"name", b"cmap"} <= tables.keys():
+            return "font lacks required tables"
+        if flavor == b"OTTO":
+            if not ({b"CFF ", b"CFF2"} & tables.keys()):
+                return "OpenType font lacks outlines"
+        elif not {b"glyf", b"loca"} <= tables.keys():
+            return "TrueType font lacks outlines"
+        head, maxp, name, cmap = (tables[tag] for tag in (b"head", b"maxp", b"name", b"cmap"))
+        if (len(head) < 54 or head[12:16] != b"_\x0f<\xf5"
+                or not 16 <= struct.unpack_from(">H", head, 18)[0] <= 16384
+                or len(maxp) < 6 or not struct.unpack_from(">H", maxp, 4)[0]):
+            return "invalid font head/maxp tables"
+        glyphs = struct.unpack_from(">H", maxp, 4)[0]
+        if maxp[:4] not in {b"\0\0P\0", b"\0\1\0\0"} or (maxp[:4] == b"\0\1\0\0" and len(maxp) < 32):
+            return "invalid maxp version or length"
+        if flavor != b"OTTO":
+            loca_format = struct.unpack_from(">h", head, 50)[0]
+            if loca_format not in {0, 1}:
+                return "invalid glyph location format"
+            width = 2 if loca_format == 0 else 4
+            loca = tables[b"loca"]
+            if len(loca) < (glyphs + 1) * width:
+                return "truncated glyph location table"
+            offsets = [struct.unpack_from(">H" if width == 2 else ">I", loca, i * width)[0]
+                       * (2 if width == 2 else 1) for i in range(glyphs + 1)]
+            if offsets != sorted(offsets) or offsets[-1] > len(tables[b"glyf"]):
+                return "invalid glyph location bounds"
+        version, records, strings = struct.unpack_from(">3H", name)
+        if version not in {0, 1} or not records or strings < 6 + 12 * records or strings > len(name):
+            return "invalid font name table"
+        for i in range(records):
+            size, offset = struct.unpack_from(">HH", name, 6 + i * 12 + 8)
+            if not size or strings + offset + size > len(name):
+                return "invalid font name string bounds"
+        version, records = struct.unpack_from(">HH", cmap)
+        if version or not records or 4 + 8 * records > len(cmap):
+            return "invalid font cmap table"
+        for i in range(records):
+            offset = struct.unpack_from(">I", cmap, 4 + i * 8 + 4)[0]
+            if offset < 4 + 8 * records or offset + 4 > len(cmap):
+                return "invalid font cmap subtable bounds"
+            fmt = struct.unpack_from(">H", cmap, offset)[0]
+            if fmt in {0, 2, 4, 6}:
+                size = struct.unpack_from(">H", cmap, offset + 2)[0]
+                minimum = {0: 262, 2: 518, 4: 24, 6: 10}[fmt]
+            elif fmt in {8, 10, 12, 13}:
+                size = struct.unpack_from(">I", cmap, offset + 4)[0]
+                minimum = {8: 8208, 10: 20, 12: 16, 13: 16}[fmt]
+            elif fmt == 14:
+                size = struct.unpack_from(">I", cmap, offset + 2)[0]
+                minimum = 10
+            else:
+                return "unsupported cmap subtable format"
+            if size < minimum or offset + size > len(cmap):
+                return "invalid font cmap subtable length"
+    except (struct.error, zlib.error):
+        return "truncated or malformed font structure"
+    return ""
+
+
+def scoped_font_license_error(origin: dict, entry: dict, repo_root: Path) -> str:
+    """Shared OFL gate: explicit font files and their exact reviewed notice.
+
+    Managed SHA-256 values are reviewed checkpoints, not proof of an online
+    upstream comparison. No modified-font/RFN or software relicensing approval
+    is inferred here. Unknown containers fail closed.
+    """
+    if error := _checkpoint_error(origin):
+        return error
+    if not _origin_is_external(
+        {key: value for key, value in origin.items() if key != "external"},
+        str(entry.get("kind") or ""),
+    ):
+        return "OFL requires an external reviewed font origin, not a local/in-house label"
+    artifacts = origin.get("artifacts")
+    if not isinstance(artifacts, list) or not artifacts:
+        return "OFL requires explicit file artifacts including a font and its notice"
+    repo_skill = entry.get("repo_skill")
+    if (not safe_relative_path(repo_skill) or len(Path(repo_skill).parts) != 4
+            or Path(repo_skill).parts[0] != "skills" or Path(repo_skill).name != "SKILL.md"
+            or Path(repo_skill).parent.name != entry.get("normalized_slug")):
+        return "OFL assets require an installed canonical skill tree"
+    skill_root = Path(repo_skill).parent
+    managed = entry.get("managed_files")
+    if not isinstance(managed, list):
+        return "OFL assets require managed_files checkpoints"
+    checkpoint = origin["tracking"]["license_checkpoint"]
+    fonts = notices = 0
+    seen = set()
+    for artifact in artifacts:
+        if not isinstance(artifact, dict) or artifact.get("type") != "file":
+            return "OFL permits only explicit type=file mappings; directories are forbidden"
+        source, target = artifact.get("source"), artifact.get("target")
+        if any(not safe_relative_path(p) or any(ord(c) < 32 for c in p) for p in (source, target)):
+            return "OFL artifact paths must be safe relative paths"
+        relative = Path(target)
+        if (relative == Path(repo_skill) or not relative.is_relative_to(skill_root)
+                or any(part in {".data", ".git", "__pycache__", "node_modules"} for part in relative.parts)):
+            return "OFL artifact must be an installed font/notice inside its skill tree"
+        if target in seen:
+            return "OFL artifact targets must be unique"
+        seen.add(target)
+        # Check every parent before reading; neither symlinks nor FIFOs can
+        # supply evidence, and sensitive/cache directories are never inspected.
+        candidate = repo_root
+        for index, part in enumerate(relative.parts):
+            candidate = candidate / part
+            try:
+                mode = candidate.lstat().st_mode
+            except OSError:
+                return f"OFL artifact {target} is missing or inaccessible"
+            if not (stat.S_ISREG(mode) if index == len(relative.parts) - 1 else stat.S_ISDIR(mode)):
+                return f"OFL artifact {target} must be a regular file without symlink parents"
+        if candidate.stat().st_size > 64 * 1024 * 1024:
+            return f"OFL artifact {target} exceeds inspection limit"
+        raw = candidate.read_bytes()
+        matches = [m for m in managed if isinstance(m, dict) and m.get("path") == target]
+        if len(matches) != 1 or matches[0].get("sha256") != hashlib.sha256(raw).hexdigest():
+            return f"OFL artifact {target} does not match its managed_files SHA-256 checkpoint"
+        # Even an enclosing Apache directory cannot share ownership of a font.
+        for peer in entry.get("origins", []):
+            if not isinstance(peer, dict) or peer is origin:
+                continue
+            peer_artifacts = peer.get("artifacts")
+            for other in peer_artifacts if isinstance(peer_artifacts, list) else []:
+                if not isinstance(other, dict) or not safe_relative_path(other.get("target")):
+                    continue
+                peer_target = Path(other["target"])
+                if relative == peer_target or (other.get("type") == "directory" and relative.is_relative_to(peer_target)):
+                    return f"OFL artifact {target} must have exactly one origin owner"
+        suffix = relative.suffix.lower()
+        if suffix in FONT_SUFFIXES:
+            if Path(source).suffix.lower() != suffix:
+                return "OFL font source and target extensions must match"
+            if error := _font_structure_error(raw, suffix):
+                return f"OFL artifact {target}: {error}"
+            fonts += 1
+        else:
+            # The reviewed notice must be explicitly mapped from the CP path;
+            # arbitrary README/code files and uncheckpointed notices are denied.
+            if (source != checkpoint["path"]
+                    or relative.suffix.lower() not in {"", ".txt", ".md"}
+                    or Path(source).suffix.lower() not in {"", ".txt", ".md"}
+                    or not re.search(r"(?:^|[-_.])(ofl|license|licence|copying|copyright|notice)(?:[-_.]|$)", relative.name, re.I)):
+                return "OFL non-font artifacts must be the original checkpointed license/notice"
+            _, error = _bundled_license(checkpoint, {target: hashlib.sha256(raw).hexdigest()}, repo_root)
+            if error:
+                return error
+            notices += 1
+    if not fonts or not notices:
+        return "OFL requires at least one font and its original full license/notice"
+    # Inventory actual installed font paths, including unlisted symlinks and
+    # special files. A valid declared font must not hide an unmapped sibling.
+    declared_fonts = {
+        artifact.get("target")
+        for peer in entry.get("origins", []) if isinstance(peer, dict)
+        for artifact in (peer.get("artifacts") if isinstance(peer.get("artifacts"), list) else [])
+        if isinstance(artifact, dict) and artifact.get("type") == "file"
+    }
+    for directory, dirs, names in os.walk(repo_root / skill_root, followlinks=False):
+        dirs[:] = sorted(set(dirs) - {"__pycache__", ".data", ".git", "node_modules"})
+        for name in sorted(names + dirs):
+            path = Path(directory) / name
+            if path.suffix.lower() not in FONT_SUFFIXES:
+                continue
+            target = path.relative_to(repo_root).as_posix()
+            if not stat.S_ISREG(path.lstat().st_mode):
+                return f"OFL installed font {target} must be a regular file"
+            if target not in declared_fonts:
+                return f"OFL installed font {target} requires an explicit file artifact"
+            if target not in seen:
+                if path.stat().st_size > 64 * 1024 * 1024:
+                    return f"OFL installed font {target} exceeds inspection limit"
+                if error := _font_structure_error(path.read_bytes(), path.suffix.lower()):
+                    return f"OFL installed font {target}: {error}"
+    return ""
 
 
 def _bundled_license(
@@ -264,7 +545,7 @@ def _origin_license_row(
     if not license_tag:
         status = "MISSING"
         note = f"external origin {repo or '<unknown>'!r} lacks an SPDX license"
-    elif license_tag not in PERMISSIVE_LICENSES:
+    elif license_tag not in PERMISSIVE_LICENSES | SCOPED_FONT_LICENSES:
         status = "UNKNOWN"
         note = f"license {license_tag!r} is not in the allowed SPDX set"
     elif require_checkpoint and (error := _checkpoint_error(origin)):
@@ -313,9 +594,13 @@ def _aggregate_v2_row(
     for index, origin in enumerate(origins):
         if not isinstance(origin, dict):
             continue
-        if _origin_is_external(origin, entry_kind):
+        scoped = isinstance(origin.get("license"), str) and origin["license"] in SCOPED_FONT_LICENSES
+        if scoped or _origin_is_external(origin, entry_kind):
             row = _origin_license_row(origin, mapping=claim["mapping"], index=index,
                                       require_checkpoint=not retired_metadata_only)
+            if scoped and row["status"] == "OK":
+                if error := scoped_font_license_error(origin, entry, repo_root):
+                    row.update(status="MISSING", note=f"{row['repo']}: {error}")
             if check_distribution and row["status"] == "OK":
                 if shipped is None:
                     shipped = _shipped_files(skill_md.parent, repo_root) if skill_md else {}

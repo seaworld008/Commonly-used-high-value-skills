@@ -29,10 +29,15 @@ def check_page_error(br):
         raise RuntimeError("page errors: " + str(err))
 
 
-def finish_encoder(ff):
+def finish_encoder(ff, abort=False):
     """Send EOF and reap the encoder even when rendering or closing its pipe fails."""
+    if abort:
+        ff.kill()  # Do not wait on a stalled reader while flushing a cancelled render.
     try:
         ff.stdin.close()
+    except BrokenPipeError:
+        if not abort:
+            raise
     finally:
         try:
             rc = ff.wait(timeout=30)
@@ -49,6 +54,7 @@ def finish_encoder(ff):
     return rc
 
 
+@lp.handle_sigterm()
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", required=True, help="path to the JSON config")
@@ -69,21 +75,22 @@ def main():
 
     chrome = lp.find_chrome(a.chrome)
     ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
-    ff = None
-    try:
+    with lp.MediaOutputs() as outputs:
         with generated_page(a.config, a.html_out, a.template) as (page, cfg):
             cw, ch, cdur, cfps = lp.canvas(cfg)
             w = a.width or cw; h = a.height or ch
-            fps = a.fps or cfps; dur = a.duration or cdur
+            fps = a.fps if a.fps is not None else cfps
+            dur = a.duration if a.duration is not None else cdur
             n = int(round(fps * dur))
+            if fps <= 0 or n < 1:
+                ap.error("duration and fps must produce at least one frame at a positive frame rate")
             w -= w % 2; h -= h % 2   # yuv420p needs even sizes
             cmd = [ffmpeg, "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(fps), "-c:v", "png", "-i", "-"]
             if a.audio == "silent":
                 cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest", "-c:a", "aac", "-b:a", "32k"]
-            cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p", "-r", str(fps), "-movflags", "+faststart", a.out]
-            os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
-            if a.keep_frames:
-                os.makedirs(a.keep_frames, exist_ok=True)
+            video = outputs.stage(a.out, "MP4")
+            cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-pix_fmt", "yuv420p",
+                    "-r", str(fps), "-movflags", "+faststart", "-f", "mp4", str(video)]
             with lp.Chrome(chrome, w, h, a.no_sandbox) as br:
                 br.open("file://" + os.path.abspath(page) + "?manual")
                 check_page_error(br)
@@ -95,21 +102,19 @@ def main():
                         png = br.shot()
                         check_page_error(br)
                         if a.keep_frames:
-                            Path(a.keep_frames, f"f_{i:04d}.png").write_bytes(png)
+                            frame = outputs.stage(Path(a.keep_frames, f"f_{i:04d}.png"), "PNG")
+                            frame.write_bytes(png)
                         ff.stdin.write(png)
                         if i % fps == 0:
                             print(f"\r{i}/{n} frames", end="", file=sys.stderr, flush=True)
                     check_page_error(br)
-                finally:
-                    rc = finish_encoder(ff)
+                except BaseException:
+                    finish_encoder(ff, abort=True)
+                    raise
+                rc = finish_encoder(ff)
             if rc != 0:
                 raise RuntimeError(f"encoder exited with status {rc}")
-    except BaseException:
-        if ff is not None:
-            print(f"\nrender failed; partial output (if created): {a.out}", file=sys.stderr)
-            if a.keep_frames:
-                print(f"partial frames (if created): {a.keep_frames}", file=sys.stderr)
-        raise
+        outputs.publish()
     print(f"\nwrote {a.out} ({n} frames, {w}x{h}@{fps})", file=sys.stderr)
     sys.exit(rc)
 

@@ -16,6 +16,7 @@ import io
 import json
 import math
 import sys
+import unicodedata
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
@@ -105,11 +106,25 @@ def get_risk_level(score: int) -> str:
     return "minimal"
 
 
+def validate_csv_headers(reader: csv.DictReader, label: str) -> None:
+    """Reject ambiguous columns before DictReader can overwrite row evidence."""
+    headers = [unicodedata.normalize("NFKC", name).strip().casefold()
+               for name in (reader.fieldnames or [])]
+    seen = set()
+    for name in headers:
+        if not name:
+            raise ValueError(f"{label} CSV has an empty column name")
+        if name in seen:
+            raise ValueError(f"{label} CSV has a duplicate column name: {name}")
+        seen.add(name)
+
+
 def load_assets_from_csv(filepath: str) -> List[Dict[str, Any]]:
     """Load a supplied inventory; never substitute missing data with samples."""
     assets = []
     with open(filepath, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
+        validate_csv_headers(reader, "Asset")
         if not {"id", "name", "classification"}.issubset(reader.fieldnames or []):
             raise ValueError("Asset CSV requires id,name,classification columns")
         seen = set()
@@ -141,6 +156,7 @@ def load_control_evidence(filepath: str, assets: List[Dict[str, Any]], template:
     threat_ids = {threat["id"] for threat in THREAT_CATALOGS[template][:5]}
     with open(filepath, encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
+        validate_csv_headers(reader, "Control evidence")
         required = {"asset_id", "threat_id", "status", "effectiveness",
                     "evidence_ref", "assessed_by", "assessed_at"}
         if not required.issubset(reader.fieldnames or []):

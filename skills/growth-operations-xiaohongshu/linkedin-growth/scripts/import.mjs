@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { parseArgs, requireFlag, boolFlag } from './lib/args.mjs';
+import { parseArgs, requireFlag } from './lib/args.mjs';
 import { withDb } from './lib/db.mjs';
 import { ok, fail, info } from './lib/output.mjs';
 import { runLinkedin } from './lib/cli.mjs';
@@ -56,7 +56,6 @@ async function prepare() {
 
   const account = withDb(
     (db) => db.prepare('SELECT * FROM accounts WHERE name = ?').get(searcherName),
-    { readonly: true },
   );
   if (!account) throw new Error(`Searcher account '${searcherName}' not found in DB`);
 
@@ -101,22 +100,10 @@ async function prepare() {
     );
   }
   if (!cliResult.json) throw new Error('linkedin returned non-JSON output');
-  if (cliResult.json.success === false) {
-    throw new Error(`linkedin error: ${JSON.stringify(cliResult.json.error)}`);
-  }
+  const items = extractSearchItems(cliResult.json, type);
+  const normalized = indexCandidates(items.map((it) => normalizeCandidate(it, type)));
 
-  const items = extractSearchItems(cliResult.json.data);
-  if (!Array.isArray(items)) {
-    throw new Error(
-      `unexpected search response shape: ${JSON.stringify(cliResult.json.data).slice(0, 300)}`,
-    );
-  }
-
-  const normalized = items
-    .map((it) => normalizeCandidate(it, type))
-    .filter((c) => c && c.hashed_url);
-
-  if (normalized.length === 0) {
+  if (normalized.size === 0) {
     info('Search returned 0 candidates.');
   }
 
@@ -131,7 +118,7 @@ async function prepare() {
       const stmt = db.prepare('SELECT 1 FROM leads WHERE hashed_url = ?');
       const fresh = [];
       let existing = 0;
-      for (const c of normalized) {
+      for (const c of normalized.values()) {
         if (stmt.get(c.hashed_url)) existing++;
         else fresh.push(c);
       }
@@ -167,7 +154,7 @@ async function prepare() {
   };
   let nextStep;
   if (newCandidates.length === 0) {
-    nextStep = 'Nothing new to qualify (all candidates already in the DB). Run abort, or import a different search.';
+    nextStep = 'Nothing new to qualify. Run abort, or import a different search.';
   } else if (!icpConfigured) {
     nextStep =
       'No ICP is configured yet. Do NOT guess who to keep. Ask the user who they want to ' +
@@ -212,10 +199,22 @@ async function prepare() {
 // `workflow run` (customWorkflow), which returns the raw action completion
 // { actionType, success, data: [people] }, so the array sits at cli.json.data.data.
 // Per docs each element is a person object directly. Handle both wrappings.
-function extractSearchItems(raw) {
-  if (Array.isArray(raw)) return raw;
-  if (Array.isArray(raw?.data)) return raw.data;
-  return [];
+function extractSearchItems(receipt, type) {
+  if (receipt.success !== true) {
+    throw new Error(`linkedin search did not succeed: ${JSON.stringify(receipt.error ?? receipt.success)}`);
+  }
+  const action = receipt.data;
+  if (Array.isArray(action)) return action;
+  if (action?.success === false) {
+    throw new Error(`linkedin search action failed: ${JSON.stringify(action.error ?? action.actionType)}`);
+  }
+  if (
+    action?.success === true && Array.isArray(action.data) &&
+    (action.actionType === undefined || action.actionType === `${type}.searchPeople`)
+  ) {
+    return action.data;
+  }
+  throw new Error('Unexpected search response: expected an array of people from a successful search');
 }
 
 // The limit is mandatory: the agent must ask the user how many of the found leads to take.
@@ -238,6 +237,9 @@ function resolveLimit(rawFlag, type) {
 }
 
 function normalizeCandidate(item, type) {
+  if (!item || typeof item !== 'object' || Array.isArray(item)) {
+    throw new Error('Unexpected search result: expected a person object');
+  }
   if (type === 'nv') {
     return {
       hashed_url: item.hashedUrl ?? null,
@@ -256,6 +258,51 @@ function normalizeCandidate(item, type) {
   };
 }
 
+function indexCandidates(candidates) {
+  if (!Array.isArray(candidates)) throw new Error('Candidates must be a JSON array');
+  const byHash = new Map();
+  for (const [i, candidate] of candidates.entries()) {
+    const id = candidate?.hashed_url;
+    if (typeof id !== 'string' || !id.trim()) {
+      throw new Error(`Candidate at index ${i} needs a nonblank hashed_url`);
+    }
+    if (byHash.has(id)) throw new Error(`Duplicate candidate hashed_url '${id}'`);
+    byHash.set(id, candidate);
+  }
+  return byHash;
+}
+
+function selectQualified(candidates, results, expectedCount) {
+  const remaining = indexCandidates(candidates);
+  if (remaining.size !== expectedCount) {
+    throw new Error(`Candidate file contains ${remaining.size} entries, batch expects ${expectedCount}`);
+  }
+  const seen = new Set();
+  const selected = [];
+  for (const [i, row] of results.entries()) {
+    const id = row?.hashed_url;
+    if (typeof id !== 'string' || !id.trim()) {
+      throw new Error(`Result at index ${i} needs a nonblank hashed_url`);
+    }
+    if (seen.has(id)) throw new Error(`Duplicate qualification for '${id}'`);
+    const candidate = remaining.get(id);
+    if (!candidate) throw new Error(`Unknown candidate hashed_url '${id}' in results`);
+    if (typeof row.suitable !== 'boolean') throw new Error(`suitable must be a JSON boolean for '${id}'`);
+    if (row.suitable) {
+      if (typeof candidate.full_name !== 'string' || !candidate.full_name.trim()) {
+        throw new Error(`Selected candidate '${id}' needs a nonblank full_name`);
+      }
+      selected.push({ candidate, reasoning: row.reasoning ?? null });
+    }
+    seen.add(id);
+    remaining.delete(id);
+  }
+  if (remaining.size) {
+    throw new Error(`Missing qualification for '${remaining.keys().next().value}' (${remaining.size} missing)`);
+  }
+  return selected;
+}
+
 function commit() {
   const batchId = requireFlag(flags, 'batch');
   const resultsPath = requireFlag(flags, 'results');
@@ -263,12 +310,25 @@ function commit() {
   const results = JSON.parse(readFileSync(resultsPath, 'utf8'));
   if (!Array.isArray(results)) throw new Error('--results file must be a JSON array');
 
-  withDb((db) => {
-    const batch = db.prepare('SELECT * FROM import_batches WHERE id = ?').get(batchId);
-    if (!batch) throw new Error(`Batch '${batchId}' not found`);
-    if (batch.state !== 'pending_qualification') {
-      throw new Error(`Batch is in state '${batch.state}', cannot commit`);
-    }
+  const batch = withDb(
+    (db) => db.prepare('SELECT * FROM import_batches WHERE id = ?').get(batchId),
+    { readonly: true },
+  );
+  if (!batch) throw new Error(`Batch '${batchId}' not found`);
+  if (batch.state !== 'pending_qualification') {
+    throw new Error(`Batch is in state '${batch.state}', cannot commit`);
+  }
+  const candidateFile = join(tmpDir(), `qualify-${batchId}.candidates.json`);
+  const candidates = JSON.parse(readFileSync(candidateFile, 'utf8'));
+  const selected = selectQualified(candidates, results, batch.candidate_count);
+
+  const stats = withDb((db) => db.transaction(() => {
+    // Claim the validated batch under the write lock. Any later failure rolls this back.
+    const claimed = db.prepare(
+      `UPDATE import_batches SET state = 'committed'
+       WHERE id = ? AND state = 'pending_qualification' AND candidate_count = ?`,
+    ).run(batchId, batch.candidate_count);
+    if (claimed.changes !== 1) throw new Error(`Batch '${batchId}' changed during qualification`);
 
     const activeAccounts = db
       .prepare('SELECT name, daily_invite_limit FROM accounts WHERE paused = 0 ORDER BY name')
@@ -305,79 +365,53 @@ function commit() {
       return best;
     }
 
-    // Re-load candidates from candidate file path stored in the batch dir
-    const candidateFile = join(tmpDir(), `qualify-${batchId}.candidates.json`);
-    const candidates = JSON.parse(readFileSync(candidateFile, 'utf8'));
-    const byHash = new Map(candidates.map((c) => [c.hashed_url, c]));
-
     const insert = db.prepare(
-      `INSERT OR IGNORE INTO leads
+      `INSERT INTO leads
        (hashed_url, public_url, full_name, position, location, list_name, reasoning,
         owner_account, status, status_updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'not_connected', datetime('now'))`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'not_connected', datetime('now'))
+       ON CONFLICT(hashed_url) DO NOTHING`,
     );
-    const updateCursor = db.prepare(
-      'UPDATE import_state SET last_assigned_account = ? WHERE id = 1',
-    );
-
-    const tx = db.transaction(() => {
-      let suitable = 0;
-      let unsuitable = 0;
-      let skippedExisting = 0;
-      let skippedMissing = 0;
-      let assigned = 0;
-      let lastAssigned = null;
-
-      for (const r of results) {
-        if (!r || !r.hashed_url) {
-          skippedMissing++;
-          continue;
-        }
-        const cand = byHash.get(r.hashed_url);
-        if (!cand) {
-          skippedMissing++;
-          continue;
-        }
-        if (!r.suitable) {
-          unsuitable++;
-          continue;
-        }
-        suitable++;
-        const owner = pickOwner();
-        const result = insert.run(
-          cand.hashed_url,
-          cand.public_url,
-          cand.full_name,
-          cand.position,
-          cand.location,
-          batch.list_name,
-          r.reasoning ?? null,
-          owner,
-        );
-        if (result.changes === 1) {
-          assigned++;
-          loadByName.set(owner, loadByName.get(owner) + 1);
-          lastAssigned = owner;
-        } else {
-          skippedExisting++;
-        }
+    const existingLead = db.prepare('SELECT 1 FROM leads WHERE hashed_url = ?');
+    let assigned = 0;
+    let skippedExisting = 0;
+    let lastAssigned = null;
+    for (const { candidate, reasoning } of selected) {
+      const owner = pickOwner();
+      const result = insert.run(
+        candidate.hashed_url, candidate.public_url ?? null, candidate.full_name,
+        candidate.position ?? null, candidate.location ?? null, batch.list_name, reasoning, owner,
+      );
+      if (result.changes === 1) {
+        assigned++;
+        loadByName.set(owner, loadByName.get(owner) + 1);
+        lastAssigned = owner;
+      } else if (existingLead.get(candidate.hashed_url)) {
+        skippedExisting++;
+      } else {
+        throw new Error(`Could not insert selected candidate '${candidate.hashed_url}'`);
       }
-      updateCursor.run(lastAssigned);
+    }
+    if (lastAssigned !== null) {
+      db.prepare('UPDATE import_state SET last_assigned_account = ? WHERE id = 1').run(lastAssigned);
+    }
+    db.prepare(
+      `UPDATE import_batches
+       SET qualified_count = ?, committed_count = ?,
+           skipped_existing_count = COALESCE(skipped_existing_count, 0) + ?,
+           committed_at = datetime('now')
+       WHERE id = ?`,
+    ).run(selected.length, assigned, skippedExisting, batchId);
 
-      db.prepare(
-        `UPDATE import_batches
-         SET state = 'committed', qualified_count = ?, committed_count = ?,
-             skipped_existing_count = COALESCE(skipped_existing_count, 0) + ?,
-             committed_at = datetime('now')
-         WHERE id = ?`,
-      ).run(suitable, assigned, skippedExisting, batchId);
-
-      return { suitable, unsuitable, assigned, skippedExisting, skippedMissing };
-    });
-
-    const stats = tx();
-    ok({ batch_id: batchId, ...stats });
-  });
+    return {
+      suitable: selected.length,
+      unsuitable: results.length - selected.length,
+      assigned,
+      skippedExisting,
+      skippedMissing: 0,
+    };
+  })());
+  ok({ batch_id: batchId, ...stats });
 }
 
 function list() {

@@ -1,116 +1,34 @@
 # GLM API 配置指南
 
-## API配置
+## 凭据与安全检查
 
-### 设置环境变量
+Stage 2/3 从显式传入的进程环境读取 `GLM_API_KEY`。沿用已有账号、数据共享和 setup 授权，通过安全注入方式配置；不要搜索登录文件、shell profile 或其他账号，不把 key 写入源码、命令历史、shell 追踪或报告。
 
-在运行脚本前,设置GLM API密钥环境变量:
-
-```bash
-# Linux/macOS
-export GLM_API_KEY="your-api-key-here"
-
-# Windows (PowerShell)
-$env:GLM_API_KEY="your-api-key-here"
-
-# Windows (CMD)
-set GLM_API_KEY=your-api-key-here
-```
-
-**永久设置** (推荐):
+只检查存在性，Python 在进程内部读取环境，返回布尔状态：
 
 ```bash
-# Linux/macOS: 添加到 ~/.bashrc 或 ~/.zshrc
-echo 'export GLM_API_KEY="your-api-key-here"' >> ~/.bashrc
-source ~/.bashrc
-
-# Windows: 在系统环境变量中设置
+python -c 'import os, sys; sys.exit(0 if os.environ.get("GLM_API_KEY") else 1)'
 ```
 
-### 脚本配置
+非空值退出 0，缺失或空值退出 1；不输出原值。不要通过 echo、printenv、全量 env 或 shell 变量展开做诊断；即使最终只输出“已设置”，xtrace 也可能记录展开的参数。
 
-脚本会自动从环境变量读取API密钥:
+缺 key 时包装器在启动核心 CLI 前退出 1；核心 CLI 在词典 Stage 1 后退出 1。数据库 `--validate` 不测试提供商连通性，凭据存在也不证明权限/余额/模型可用。
 
-```python
-# 脚本会检查环境变量
-if "GLM_API_KEY" not in os.environ:
-    raise ValueError("请设置 GLM_API_KEY 环境变量")
+## 随包提供商配置
 
-os.environ["ANTHROPIC_BASE_URL"] = "https://open.bigmodel.cn/api/anthropic"
-os.environ["ANTHROPIC_API_KEY"] = os.environ["GLM_API_KEY"]
+当前提供商为 GLM 的 Anthropic 兼容 messages 接口；默认模型 `GLM-4.6`，备用 `GLM-4.5-Air`，以 `scripts/core/ai_processor_async.py` 实现为准。这是随包配置说明，未联网确认服务当前可用性或价格。
 
-# 模型配置
-GLM_MODEL = "GLM-4.6"  # 主力模型
-GLM_MODEL_FAST = "GLM-4.5-Air"  # 快速模型(备用)
-```
+请求使用 `Authorization: Bearer`、`anthropic-version` 和 JSON 内容类型。代码在 Python 进程中构造请求头；不要把 Authorization 输出到日志或命令行。支持环境依赖为 httpx、filelock，HTTP/2 可选，不强迫安装 h2。普通调用无需手动复制 GLM key 到其他提供商变量。
 
-## 支持的模型
+## 获取和轮换
 
-| 模型名称 | 说明 | 用途 |
-|---------|------|------|
-| GLM-4.6 | 最强模型 | 默认使用,精度最高 |
-| GLM-4.5-Air | 快速模型 | 备用,速度更快 |
-
-**注意**: 模型名称大小写不敏感。
-
-## API认证
-
-智谱GLM使用Anthropic兼容API:
-
-```python
-headers = {
-    "anthropic-version": "2023-06-01",
-    "Authorization": f"Bearer {api_key}",
-    "content-type": "application/json"
-}
-```
-
-**关键点:**
-- 使用 `Authorization: Bearer` 头
-- 不要使用 `x-api-key` 头
-
-## API调用示例
-
-```python
-def call_glm_api(prompt: str) -> str:
-    url = "https://open.bigmodel.cn/api/anthropic/v1/messages"
-    headers = {
-        "anthropic-version": "2023-06-01",
-        "Authorization": f"Bearer {os.environ.get('ANTHROPIC_API_KEY')}",
-        "content-type": "application/json"
-    }
-
-    data = {
-        "model": "GLM-4.6",
-        "max_tokens": 8000,
-        "temperature": 0.3,
-        "messages": [{"role": "user", "content": prompt}]
-    }
-
-    response = httpx.post(url, headers=headers, json=data, timeout=60.0)
-    return response.json()["content"][0]["text"]
-```
-
-## 获取API密钥
-
-1. 访问 https://open.bigmodel.cn/
-2. 注册/登录账号
-3. 进入API管理页面
-4. 创建新的API密钥
-5. 复制密钥到配置中
-
-## 费用
-
-参考智谱AI官方定价:
-- GLM-4.6: 按token计费
-- GLM-4.5-Air: 更便宜的选择
+在已有授权下，通过提供商官方控制台管理自己的 key。新建/轮换后安全更新运行环境；不要把完整 key 发给排障人员。费用、模型可用性、额度以账号当前控制台为准，离线文档无法验收。
 
 ## 故障排查
 
-### 401错误
-- 检查API密钥是否正确
-- 确认使用 `Authorization: Bearer` 头
+- 401/403：核对当前账号授权和 key 状态，报告脱敏状态码。
+- 超时/限流：检查账号配额和网络；保留失败状态，不把部分文本当成功。
+- 主备模型均失败：Stage 2 未交付，检查退出 1 与本次 manifest；不保证宿主专用 fallback 标记。
+- 无网络或未获数据共享授权：运行 Stage 1 或在已有授权内人工校正，保留原稿与不确定性，不打开浏览器。
 
-### 超时错误
-- 增加timeout参数
-- 考虑使用GLM-4.5-Air快速模型
+详细参数和实际产物见 `script_parameters.md`，排障只记录必要状态，不能输出 key、请求头或原稿正文。

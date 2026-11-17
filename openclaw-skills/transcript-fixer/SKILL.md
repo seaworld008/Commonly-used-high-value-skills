@@ -2,13 +2,13 @@
 name: transcript-fixer
 description: 'Correct speech-recognition errors, homophones, and mixed Chinese/English terminology in transcripts while preserving source meaning and speaker attribution.'
 zh_description: "修正语音识别错误、同音词和中英文混合术语。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["fixer", "transcript"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-18"
 quality: 4
 complexity: "intermediate"
 ---
@@ -27,6 +27,8 @@ Correct speech-to-text transcription errors through dictionary-based rules, AI-p
 ## Prerequisites
 
 Use an available Python environment that satisfies the scripts' dependencies; `uv` is one option. Install tools only within existing task authorization. Keep original transcripts unchanged and write corrections to the requested output path.
+
+Run commands from this skill's root. `requirements.txt` and the enhanced uv wrapper share `httpx>=0.24.0` and `filelock>=3.13.0`; HTTP/2 is an optional optimization, so the provider implementation must also work without h2. Dependency declarations alone do not verify actual client construction or provider availability. Reuse existing setup authorization and environment.
 
 ## Quick Start
 
@@ -52,7 +54,7 @@ uv run scripts/fix_transcription.py --add "错误词" "正确词" --domain gener
 AI processing uses `--input meeting.md --stage 2` (or `3`) within the authorized provider/data-sharing scope. It does not require global learning authorization: learning is off by default, and only separately enabled, approved reusable corrections enter the configured dictionary.
 
 **Actual processing outputs**:
-- `*_stage1.md`: dictionary corrections for stages that run stage 1.
+- `*_stage1.md`: dictionary corrections for every stage (1, 2, or 3).
 - `*_stage2.md`: AI-processed text when the AI stage completes; verify against source.
 - HTML diff: a separate explicit operation, not a guaranteed pipeline output.
 
@@ -96,8 +98,8 @@ This creates an HTML comparison for review. Open it only when browser access is 
 4. Explicitly generate the word-level diff when needed.
 5. Persist only approved reusable corrections in an authorized store. Use the selected configuration/dictionary directory; the learner checks learning and auto-approval independently and defaults to review-only behavior.
 
-**CLI stages**: Dictionary → AI via GLM API → full pipeline with a printed diff hint. Stages do not implement a complete approval workflow.
-**Domains**: `general`, `embodied_ai`, `finance`, `medical`, or user-selected domain names.
+**CLI stages**: 1 = dictionary; 2 = dictionary then AI; 3 = both plus a printed diff hint. Pass the original transcript directly, including for Stage 2. Stages do not implement a complete approval workflow.
+**Domains**: `general`, `embodied_ai`, `finance`, `medical`; the core CLI also accepts user-selected valid domain names, while the wrapper restricts choices to these four.
 
 See `references/workflow_guide.md` for detailed workflows, `references/script_parameters.md` for complete CLI reference, and `references/team_collaboration.md` for collaboration patterns.
 
@@ -112,7 +114,7 @@ See `references/iteration_workflow.md` for complete iteration guide with checkli
 
 ## AI Fallback Strategy
 
-When GLM API is unavailable (503, network issues), the script outputs `[CLAUDE_FALLBACK]` marker.
+When GLM API is unavailable, inspect the failure exit status and this run's output manifest. There is no guaranteed host-specific fallback marker. Missing credentials and provider failures return 1; argument-parser errors can return 2. A failed AI stage may leave a completed Stage 1, which is partial delivery.
 
 The current host can then:
 1. Analyze the supplied text for ASR errors.
@@ -137,16 +139,16 @@ sqlite3 ~/.transcript-fixer/corrections.db "SELECT value FROM system_config WHER
 | Stage | Description | Speed | Cost |
 |-------|-------------|-------|------|
 | 1 | Dictionary only | Instant | Free |
-| 2 | AI only | ~10s | API calls |
-| 3 | Full pipeline | ~10s | API calls |
+| 2 | Dictionary then AI | Provider-dependent | API calls |
+| 3 | Same as 2, plus diff hint | Provider-dependent | API calls |
 
 ## Bundled Resources
 
 **Scripts:**
-- `ensure_deps.py` - Initialize shared virtual environment (run once, optional)
-- `fix_transcript_enhanced.py` - Wrapper with shell-credential search and default browser opening; subject to the CLI boundaries above
-- `fix_transcription.py` - Core CLI (for automation)
-- `generate_word_diff.py` - Generate word-level diff HTML for reviewing corrections
+- `scripts/ensure_deps.py` - Optional standalone environment installer
+- `scripts/fix_transcript_enhanced.py` - Wrapper using explicit environment credentials and a private current-run output manifest; browser opening is opt-in
+- `scripts/fix_transcription.py` - Core CLI (for automation); `TRANSCRIPT_FIXER_OUTPUT_MANIFEST` can select a private JSON receipt path with an `outputs` list
+- `scripts/generate_word_diff.py` - Generate word-level diff HTML for reviewing corrections
 - `scripts/examples/bulk_import.py` - Bulk import example
 
 **References** (load as needed):
@@ -160,7 +162,9 @@ sqlite3 ~/.transcript-fixer/corrections.db "SELECT value FROM system_config WHER
 
 Verify setup health with `uv run scripts/fix_transcription.py --validate`. Common issues:
 - Missing database → Initialize only when persistent dictionary setup is authorized; otherwise continue direct correction
-- Missing API key → `export GLM_API_KEY="<key>"` (obtain from https://open.bigmodel.cn/)
-- Permission errors → Check `~/.transcript-fixer/` ownership
+- Missing API key → Safely inject the process environment; check presence only using the Python process-internal check in `references/glm_api_setup.md`, including under shell xtrace
+- Permission errors → Check the selected dictionary path and ownership
+
+Validation targets `config.database.path`: `TRANSCRIPT_FIXER_DB_PATH`, otherwise `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db` (default directory `~/.transcript-fixer`). It never initializes, migrates, or writes the user database/sidecars. Missing or invalid databases/tables return 1. Quiescent files without sidecars are checked through a private immutable snapshot; source changes or WAL/SHM/journal sidecars return 1 as explicitly not verified. Do not delete sidecars to bypass this boundary; provide a quiescent consistent copy without active journals within authorized maintenance. Structural validation does not prove provider availability or semantic accuracy.
 
 See `references/troubleshooting.md` for detailed error resolution and `references/glm_api_setup.md` for API configuration.

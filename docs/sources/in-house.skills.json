@@ -8812,7 +8812,7 @@
         {
           "path": "skills/finance-investing/financial-analyst/scripts/dcf_valuation.py",
           "owner": "financial-analyst",
-          "sha256": "d941bd68f3944bc2427ba42b0fd6104335e524ed20e26f168c163db551afea83",
+          "sha256": "c471bf9beaa06aa3b70028558733853453ced56a6f6038312d2cbed766f1b013",
           "mode": "100644"
         },
         {
@@ -11792,7 +11792,7 @@
         "path": "skills/office-white-collar/mermaid-tools",
         "ref": "main",
         "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11836,9 +11836,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "296cc5d77510c438fd9c9fbb07a9e80ab516234f464f0249e4993441da9c4930",
+            "content_sha256": "7b6635f3a521570163e3451ec2c79bd64fb3bd44d646cb8519ecb56019bb44bf",
             "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -11846,7 +11846,7 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/SKILL.md",
           "owner": "mermaid-tools",
-          "sha256": "296cc5d77510c438fd9c9fbb07a9e80ab516234f464f0249e4993441da9c4930",
+          "sha256": "7b6635f3a521570163e3451ec2c79bd64fb3bd44d646cb8519ecb56019bb44bf",
           "mode": "100644"
         },
         {
@@ -11858,13 +11858,13 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/extract-and-generate.sh",
           "owner": "mermaid-tools",
-          "sha256": "aa376967cabeb0d6212c921ab4ce06f0268a82abea4e8d061ddb857cf49c60b0",
+          "sha256": "65e3297e788d5377bb03ef14c7d59e3b7d53adc9240a0eed4c5fdafac2fa8c6a",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/mermaid-tools/scripts/extract_diagrams.py",
           "owner": "mermaid-tools",
-          "sha256": "8d99ae0a0ac3f47dd57679c5cd91d26c56fcb9f73b202f73954e310d878cfe47",
+          "sha256": "9a132d933dce086f52525d0f5be77ff8d9667d24933df53b605ac2dcafdfb5df",
           "mode": "100644"
         },
         {
@@ -20161,7 +20161,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ee41f40351711395c89da5836586c8ec9797a363147746cbd54685298f1c27e4",
+            "content_sha256": "dff1403be9ae3e0507530b55e494bca8088b3ae8947f4bae3a66b7b8bec0a480",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17"
           }
@@ -20177,97 +20177,97 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/SKILL.md",
           "owner": "transcript-fixer",
-          "sha256": "ee41f40351711395c89da5836586c8ec9797a363147746cbd54685298f1c27e4",
+          "sha256": "dff1403be9ae3e0507530b55e494bca8088b3ae8947f4bae3a66b7b8bec0a480",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/architecture.md",
           "owner": "transcript-fixer",
-          "sha256": "aa9e8513afbb5b5b551c007d205928590640777950daa8ea09472c352647183d",
+          "sha256": "5d9cb5e5fc0596ea0b685279ea2d7beed1914cf4d18bfd0df5874995607d8836",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/best_practices.md",
           "owner": "transcript-fixer",
-          "sha256": "a5ae4efa0773d8e6c7fc1067497f22c60fc5cca7ee3bd660ea2a33b30f96aa19",
+          "sha256": "ec131d9152e690ae3a450d9cb3794c9d003785d3736877df5773b719ad386eb9",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/database_schema.md",
           "owner": "transcript-fixer",
-          "sha256": "9877df6f24d8be24aca2ccc8ed38c8c43c20c3033e9b76ca58a4bfd65d007a52",
+          "sha256": "ec047e691ee45d97b4548f332477b562de7f1fb766d8d772f419e182d3e33797",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/dictionary_guide.md",
           "owner": "transcript-fixer",
-          "sha256": "94c743a377174b8b67f7f61c7653a476513191f81536f7408b6f7dd16efc4dbc",
+          "sha256": "d15c5990ac1d78e8a4b54967c5a19ab17e4933ba6e5f73470c9d2a6939a1492b",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/file_formats.md",
           "owner": "transcript-fixer",
-          "sha256": "4d2153d867b51bb88389b74f0a97b414a17e14e6fae4249eec3d82e3b1aa0681",
+          "sha256": "b38009bdc75ceb6ef3835e5f91e63e3448ccc7b1bfcce127fac88cf7041a328c",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/glm_api_setup.md",
           "owner": "transcript-fixer",
-          "sha256": "0d66db55e478f1d351aee11c2a2f0baaf9c4d0c93d6e5c95fde8f1ffad33e4dd",
+          "sha256": "9636529807d87490b0261a5c0e67a0740c307d4fe2261827eb5305874799b17f",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/installation_setup.md",
           "owner": "transcript-fixer",
-          "sha256": "ae0d3653ce56704e9e7e14dde449cd0bad3b485cf82395f8e8de75f171bc02df",
+          "sha256": "b60802548a15fd9ce27c6c4138e2aa395fa446a814a972a72c2e1620e682a7a5",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/iteration_workflow.md",
           "owner": "transcript-fixer",
-          "sha256": "2cd62b1631ca0ddc84326ca5d9d7bba115d3758a12c99c80bbe671a664dec85b",
+          "sha256": "6620217433ee4ed74ea29c45ae9451defaee7ef0d653517a1f1a9c343bc3985b",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/quick_reference.md",
           "owner": "transcript-fixer",
-          "sha256": "55be70bfd398901c9ad6cf7437357ab9a43e718e1fea197afaafde8b84a3c095",
+          "sha256": "5c4cc471d6baad876c6e2a986a3276b1fa42bebed033601977d82742eadb846c",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/script_parameters.md",
           "owner": "transcript-fixer",
-          "sha256": "2c5d9fc47dd8ca074f5d829d820a6e6566eb2d4f5097dace12304a811dc00b80",
+          "sha256": "a2bc68c34aafa6f2afa2cec5fc51dae665c95e68cd0976d0cc0c77dd59ef4945",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/sql_queries.md",
           "owner": "transcript-fixer",
-          "sha256": "ffd0c3b9c3bcf7fc380e3754ec4284fea99befbcca99514abf9e8ac172fbf64e",
+          "sha256": "a4d30a265db6e22729c6c4a17544cf98a3d4aaedbcb418e98b3f72c40006e956",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/team_collaboration.md",
           "owner": "transcript-fixer",
-          "sha256": "a88bc9d1c3afbd86b308c8dca376edd8291484d3f81e9411fa2b832f618a052b",
+          "sha256": "1883a949cfc222a9bce41452c439c76edc5027b9dae3e3d6587fb9df70606e25",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/troubleshooting.md",
           "owner": "transcript-fixer",
-          "sha256": "4f47dc6b88868b0873c4a18556ce76c03c7cdbdd5f9d50610f724147a2d5a16e",
+          "sha256": "995843a6be9b50544dd4c2121af78f948cffa62629255f5dbd0dd1b1404c7b98",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/references/workflow_guide.md",
           "owner": "transcript-fixer",
-          "sha256": "8db832cb3e8b19bce3d10161a597cf1c14c47ac4b78cd61abcb943047cd255f3",
+          "sha256": "8ae7840e2d9a9601543e2279e0926db35dd4f8b69cd0246c292b23d3f18566f6",
           "mode": "100644"
         },
         {
           "path": "skills/office-white-collar/transcript-fixer/requirements.txt",
           "owner": "transcript-fixer",
-          "sha256": "5a281d5e3433e58ae03a33591c05121e3d7e3ca5fd1ba6f113412834f5904d6c",
+          "sha256": "91e0f79de40291d638e49ddbba103af1f579fff5981d5891d29146b0f613cd7e",
           "mode": "100644"
         },
         {
@@ -20297,7 +20297,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/cli/commands.py",
           "owner": "transcript-fixer",
-          "sha256": "757b5f6574cd8661ce213b5cd05888894b48cd19d79c17095e0e12f8ec7ba40e",
+          "sha256": "dda72427c341f9c4388902fac0db42fecdd408210e01e29cb71de24d8a0890b0",
           "mode": "100644"
         },
         {
@@ -20315,7 +20315,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/core/ai_processor_async.py",
           "owner": "transcript-fixer",
-          "sha256": "45d0be2c3ed020c17907bac997d5b3938e565e296dfc77d24f7457a0c0b7c854",
+          "sha256": "91ca0c08741f07f37fe37bd0f40e1c4a437f94e09e4ad02ffc1f827df36926b6",
           "mode": "100644"
         },
         {
@@ -20351,7 +20351,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/core/learning_engine.py",
           "owner": "transcript-fixer",
-          "sha256": "29d2e234d3527ba7b16793592d73f8b9c0a5bec113a2de36c791c0402e5d37ef",
+          "sha256": "0059f510dfce1f1fd87bf808ce3c7eee550ddcff969af112c6e91b6fa0d922ae",
           "mode": "100644"
         },
         {
@@ -20375,7 +20375,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/fix_transcript_enhanced.py",
           "owner": "transcript-fixer",
-          "sha256": "ec5aaae71244b7d12b78777d9d43e7d4dee1ff5d89dfb0b4cce73715f857efb4",
+          "sha256": "e60043eb08ccbad08f6137c06809b59fb1342709ffeea8b126e20ded6da0c273",
           "mode": "100644"
         },
         {
@@ -20579,7 +20579,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/scripts/utils/validation.py",
           "owner": "transcript-fixer",
-          "sha256": "c330821a636685174c0a0c9cd499771dfe8d58abc12b4d26bd98d825e64bc3df",
+          "sha256": "4efdc4a00a938bbf2f6cd0b2a55d17e81e816ddca3054cd38de93a945b6010a4",
           "mode": "100644"
         }
       ]
@@ -22261,7 +22261,7 @@
         {
           "path": "skills/office-white-collar/xlsx/scripts/recalc.py",
           "owner": "xlsx",
-          "sha256": "fccc07bbfa4105241db24de58ec81b1820096199562ebcb224969e490faecae9",
+          "sha256": "f5591fb5ad40227bfd5842cbc4ba3fb3d50967c4be1a9bc628ddbf773fa45f2a",
           "mode": "100644"
         }
       ]

@@ -24,7 +24,6 @@ OUTPUT_DIR="${2:-$(dirname "$MARKDOWN_FILE")/diagrams}"
 echo "=== Enhanced Mermaid Diagram Processor ==="
 echo "Source markdown: $MARKDOWN_FILE" 
 echo "Output directory: $OUTPUT_DIR"
-echo "Environment: WSL2 Ubuntu with Chrome dependencies"
 echo
 
 # Validate inputs
@@ -34,8 +33,28 @@ if [ ! -f "$MARKDOWN_FILE" ]; then
 fi
 
 # Create output directory if it doesn't exist
-mkdir -p "$OUTPUT_DIR"
-OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd)"
+mkdir -p -- "$OUTPUT_DIR"
+OUTPUT_DIR="$(cd -- "$OUTPUT_DIR" && pwd)"
+
+# Extraction is isolated from published files. A successful empty manifest needs
+# no renderer, and a failed read/extraction must never fall back to old inputs.
+batch=$(mktemp -d "${TMPDIR:-$OUTPUT_DIR}/mermaid-batch.XXXXXXXX")
+trap 'rm -rf -- "$batch"' EXIT
+manifest="$batch/inputs"
+source_stage="$batch/source"
+echo "Extracting Mermaid diagrams from markdown..."
+if ! python3 "$EXTRACTOR_SCRIPT" --manifest "$manifest" -- "$MARKDOWN_FILE" "$source_stage"; then
+    echo "ERROR: Failed to extract diagrams from markdown" >&2
+    exit 1
+fi
+mmd_files=()
+while IFS= read -r -d '' mmd_file; do
+    mmd_files+=("$mmd_file")
+done < "$manifest"
+if [ ${#mmd_files[@]} -eq 0 ]; then
+    echo "No Mermaid diagrams extracted from this document"
+    exit 0
+fi
 
 # Configuration
 CHROME_PATH="${PUPPETEER_EXECUTABLE_PATH:-/usr/bin/google-chrome-stable}"
@@ -67,42 +86,24 @@ fi
 echo "✅ Dependencies verified"
 echo
 
-# Extract Mermaid diagrams from markdown
-echo "Extracting Mermaid diagrams from markdown..."
-batch=$(mktemp -d "${TMPDIR:-$OUTPUT_DIR}/mermaid-batch.XXXXXXXX")
-trap 'rm -rf -- "$batch"' EXIT
-manifest="$batch/inputs"
-if ! python3 "$EXTRACTOR_SCRIPT" "$MARKDOWN_FILE" "$OUTPUT_DIR" --manifest "$manifest"; then
-    echo "ERROR: Failed to extract diagrams from markdown" >&2
-    exit 1
-fi
-
-echo
-
 # Now generate PNGs using the existing generation logic
 echo "Generating PNG files..."
-cd "$OUTPUT_DIR"
+cd -- "$source_stage"
 
 # Default dimensions - can be overridden with environment variables  
 DEFAULT_WIDTH="${MERMAID_WIDTH:-1200}"
 DEFAULT_HEIGHT="${MERMAID_HEIGHT:-800}"
 SCALE_FACTOR="${MERMAID_SCALE:-2}"
 
-# Only consume the successful extraction's manifest, never historical inputs.
-mmd_files=()
-while IFS= read -r -d '' mmd_file; do
-    mmd_files+=("$mmd_file")
-done < "$manifest"
-
-if [ ${#mmd_files[@]} -eq 0 ]; then
-    echo "No Mermaid diagrams extracted from this document"
-    exit 0
-fi
-
 echo "Found ${#mmd_files[@]} Mermaid diagram(s) to process"
 echo
 
 failed=()
+failed_inputs=()
+record_failure() {
+    failed+=("$1")
+    failed_inputs+=("$mmd_file")
+}
 # A PNG header can survive an interrupted render. Check chunk boundaries and CRCs
 # through the final IEND using the Python already required by the extractor.
 valid_png() {
@@ -140,7 +141,7 @@ stage="$batch/png"
 mkdir "$stage"
 for mmd_file in "${mmd_files[@]}"; do
     if [ ! -f "$mmd_file" ]; then
-        failed+=("${mmd_file%.mmd}.png (missing diagram input)")
+        record_failure "${mmd_file%.mmd}.png (missing diagram input)"
         continue
     fi
     
@@ -174,7 +175,7 @@ for mmd_file in "${mmd_files[@]}"; do
         -w "$width" \
         -H "$height" \
         -s "$SCALE_FACTOR"; then
-        failed+=("$diagram.png (generation failed)")
+        record_failure "$diagram.png (generation failed)"
         continue
     fi
     
@@ -182,17 +183,20 @@ for mmd_file in "${mmd_files[@]}"; do
     if valid_png "$stage/$diagram.png"; then
         dimensions_actual=unknown
         if command -v identify >/dev/null && ! dimensions_actual=$(identify -format "%wx%h" "$stage/$diagram.png" 2>/dev/null); then
-            failed+=("$diagram.png (PNG inspection failed)")
+            record_failure "$diagram.png (PNG inspection failed)"
             continue
         fi
-        if [ -d "$diagram.png" ] || ! mv -f -- "$stage/$diagram.png" "$diagram.png"; then
-            failed+=("$diagram.png (could not save output)")
+        if ! size=$(python3 -c 'import os, sys; print(os.path.getsize(sys.argv[1]))' "$stage/$diagram.png"); then
+            record_failure "$diagram.png (could not inspect staged PNG)"
             continue
         fi
-        size=$(stat -c%s "$diagram.png")
+        if ! python3 "$EXTRACTOR_SCRIPT" --publish-png "$stage/$diagram.png" -- "$source_stage/$mmd_file" "$OUTPUT_DIR"; then
+            record_failure "$diagram.png (could not publish source/PNG pair)"
+            continue
+        fi
         echo "  ✅ Validated PNG (${size} bytes, ${dimensions_actual})"
     else
-        failed+=("$diagram.png (missing or invalid PNG)")
+        record_failure "$diagram.png (missing or invalid PNG)"
     fi
     echo
 done
@@ -201,6 +205,18 @@ echo "=== Generation Complete ==="
 if [ "${#failed[@]}" -gt 0 ]; then
     printf 'Failed PNGs (%d):\n' "${#failed[@]}" >&2
     printf '  %s\n' "${failed[@]}" >&2
+    # Failed inputs are diagnostic artifacts in a separate, unique directory;
+    # they never take the names of a previously published pair.
+    if diagnostics=$(mktemp -d "$OUTPUT_DIR/failed-mermaid.XXXXXXXX"); then
+        for mmd_file in "${failed_inputs[@]}"; do
+            if ! cp -- "$source_stage/$mmd_file" "$diagnostics/$mmd_file"; then
+                echo "ERROR: Could not retain failed input: $mmd_file" >&2
+            fi
+        done
+        echo "Failed inputs saved separately: $diagnostics" >&2
+    else
+        echo "ERROR: Could not create failed-input diagnostic directory" >&2
+    fi
     exit 1
 fi
 echo "All PNG diagrams generated and validated successfully!"

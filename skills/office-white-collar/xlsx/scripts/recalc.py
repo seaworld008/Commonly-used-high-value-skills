@@ -5,12 +5,15 @@ confirm its save, and every formula must have a cached result.
 """
 
 import json
+import posixpath
 import subprocess
 import sys
 import tempfile
 import time
 from pathlib import Path
+import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
+from zipfile import ZipFile
 
 from office.soffice import get_soffice_env
 from openpyxl import load_workbook
@@ -77,7 +80,47 @@ def setup_libreoffice_macro(profile_dir, completion_file, filename):
     )
 
 
+def _empty_string_formula_caches(filename):
+    """Retain XML evidence that openpyxl collapses to None for empty strings.
+
+    Only a formula cell explicitly typed str with a present, empty v qualifies.
+    Resolve worksheet parts through workbook relationships, never sheet order.
+    """
+    ns = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+    rel_ns = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
+    empty_strings = set()
+    with ZipFile(filename) as archive:
+        package = ET.fromstring(archive.read("_rels/.rels"))
+        workbook_part = next(
+            rel.get("Target").lstrip("/") for rel in package
+            if rel.get("Type", "").endswith("/officeDocument")
+            and rel.get("TargetMode") != "External"
+        )
+        workbook_dir = posixpath.dirname(workbook_part)
+        workbook = ET.fromstring(archive.read(workbook_part))
+        rels_part = posixpath.join(workbook_dir, "_rels", posixpath.basename(workbook_part) + ".rels")
+        relationships = ET.fromstring(archive.read(rels_part))
+        worksheets = {
+            rel.get("Id"): rel.get("Target") for rel in relationships
+            if rel.get("Type", "").endswith("/worksheet")
+            and rel.get("TargetMode") != "External"
+        }
+        for sheet in workbook.findall(f"{ns}sheets/{ns}sheet"):
+            target = worksheets.get(sheet.get(f"{rel_ns}id"))
+            if target is None:  # Chartsheets have no formula caches.
+                continue
+            part = posixpath.normpath(posixpath.join(workbook_dir, target)).lstrip("/")
+            xml = ET.fromstring(archive.read(part))
+            for cell in xml.iter(f"{ns}c"):
+                value = cell.find(f"{ns}v")
+                if (cell.get("t") == "str" and cell.find(f"{ns}f") is not None
+                        and value is not None and not value.text):
+                    empty_strings.add((sheet.get("name"), cell.get("r")))
+    return empty_strings
+
+
 def _inspect_caches(filename):
+    empty_strings = _empty_string_formula_caches(filename)
     wb = load_workbook(filename, data_only=True)
     try:
         wb_formulas = load_workbook(filename, data_only=False)
@@ -94,7 +137,7 @@ def _inspect_caches(filename):
                         location = f"{sheet.title}!{cell.coordinate}"
                         if cell.data_type == "f":
                             formula_count += 1
-                            if cached.value is None:
+                            if cached.value is None and (sheet.title, cell.coordinate) not in empty_strings:
                                 missing.append(location)
                         # OOXML error cells carry type e. Text may mention an
                         # error literally; new Excel error values are open-ended.

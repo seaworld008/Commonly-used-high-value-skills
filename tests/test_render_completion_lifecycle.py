@@ -20,6 +20,10 @@ PNG = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC"
 )
 
+# Container-only fixture; actual FFmpeg output is verified separately.
+MP4 = (b"\0\0\0\x14ftypisom\0\0\0\0isom" + b"\0\0\0\x09mdatx" +
+       b"\0\0\0\x10moov\0\0\0\x08free")
+
 
 def load(directory, name, monkeypatch):
     spec = importlib.util.spec_from_file_location(name, directory / f"{name}.py")
@@ -129,12 +133,15 @@ def panel_run(tmp_path, monkeypatch):
     def popen(cmd, **kwargs):
         if state["failure"] == "encoder_start":
             raise OSError("encoder launch failed")
-        Path(cmd[-1]).write_bytes(b"synthetic partial video")
+        Path(cmd[-1]).write_bytes(MP4)
         return encoder
 
     start = Mock(side_effect=popen)
     monkeypatch.setattr(render.subprocess, "Popen", start)
-    video = Mock()
+    def extract_frame(cmd, **kwargs):
+        Path(cmd[-1]).write_bytes(PNG)
+        return subprocess.CompletedProcess(cmd, 0)
+    video = Mock(side_effect=extract_frame)
     monkeypatch.setattr(checker.subprocess, "run", video)
 
     def run(entry="render", explicit=False, extra=()):
@@ -413,12 +420,15 @@ def test_only_current_manifest_is_rendered_and_png_failures_propagate(mermaid_ru
         assert (out / "01-current-chart.png").read_bytes() == PNG
 
 
-def test_partial_extraction_write_failure_never_renders_a_batch(mermaid_run):
+def test_publish_destination_failure_preserves_directory_and_successful_pair(mermaid_run):
     run, out, log = mermaid_run
     (out / "02-blocked.mmd").mkdir()
     result = run(DIAGRAM + b"## Blocked\n```mermaid\ngraph LR\nB-->C\n```\n")
     assert result.returncode != 0
-    assert "Failed to extract diagrams" in result.stderr
+    assert "Failed to publish diagram pair" in result.stderr
+    assert (out / "02-blocked.mmd").is_dir()
+    assert list((out / "02-blocked.mmd").iterdir()) == []
     assert (out / "01-current-chart.mmd").exists()
-    assert not log.exists()
-    assert not list(out.glob("*.png"))
+    assert (out / "01-current-chart.png").read_bytes() == PNG
+    assert len(log.read_text().splitlines()) == 2
+    assert len(list(out.glob("*.png"))) == 1

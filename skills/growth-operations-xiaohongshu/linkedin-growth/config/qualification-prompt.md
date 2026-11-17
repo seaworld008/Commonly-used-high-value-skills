@@ -2,11 +2,11 @@
 
 This file defines **how** to qualify a batch of leads and the **output format**. It is
 deliberately product-agnostic. The actual filtering rules — who counts as a good lead and
-who should be filtered out — come from the user's own ICP, stored in the `icp_definition`
-setting and supplied to you at qualification time.
+who should be filtered out — come from the user's ICP for this session. A previously
+saved `icp_definition` can supply that ICP when it applies to this list.
 
 > If no ICP has been provided yet, do NOT guess. Stop and ask the user who they want to
-> reach and who to exclude (see "Capturing the ICP" below), save it, then qualify.
+> reach and who to exclude (see "Capturing the ICP" below), then qualify using their answer.
 
 ## The task
 
@@ -20,15 +20,16 @@ filtered out (`suitable: false`), and give a short, honest reason grounded in th
 
 ## Capturing the ICP (when it is missing or the user wants to change it)
 
-Interview the user with concrete questions, then save their answers. Cover at least:
+Use the user's answers for this session. When filtering criteria are missing, ask about:
 - **Roles / seniority** to target (and any roles to exclude).
 - **Industries / company types** that fit (and ones that don't).
 - **Company size / stage**, if relevant.
 - **Locations** to include or exclude (countries, regions).
 - Any **hard exclusions** (e.g. competitors, students, specific titles).
 
-Save the resulting definition straight into the database (it lives in the `settings` table,
-not in a file) by piping it via stdin:
+Only when saving settings is in scope, persist the agreed definition with the command
+below. It replaces the shared `icp_definition` used for future imports. List-specific
+adjustments stay in this session unless the user has asked to save them as the default.
 
 ```bash
 node scripts/settings.mjs set icp_definition --stdin <<'ICP'
@@ -68,6 +69,8 @@ Return a single JSON array. One element per input lead, matched by `hashed_url`:
 Rules:
 - Output one element for **every** input lead. Do not skip any.
 - Preserve each `hashed_url` exactly.
+- Use a JSON boolean for `suitable`. A selected candidate must have a nonblank `full_name`
+  before the batch can be committed.
 - No markdown fences, no commentary outside the JSON array.
 - `reasoning` must reference the actual ICP criterion that drove the decision, so the user
   can see *why* each lead was kept or filtered.
