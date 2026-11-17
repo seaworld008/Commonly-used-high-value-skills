@@ -6392,10 +6392,10 @@
       "failed": 0
     },
     "pipeline": "Full ordered gates passed; unit stage invokes the complete unified --refresh validator exactly once.3813tests397subtests passed with TMPDIR absent.",
-    "post_commit_generation_idempotence": "pending alpha fix source commit",
+    "post_commit_generation_idempotence": "passed",
     "remote_delivery": "pending",
     "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54",
-    "validated_source_commit": "8953ce2c9e004661bdd69c2f4f83f1afb485570a"
+    "validated_source_commit": "547752cbb7e9da0c0fc872a6f9b16ad2c535a39f"
   },
   "remote_security_followup": {
     "reviewed_pr_head": "2f35ae5f351895aa777bd9487ecb29341b16e57c",

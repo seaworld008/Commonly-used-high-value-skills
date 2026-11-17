@@ -13,9 +13,11 @@ All notable changes to this repository are documented here.
 #### [2026-11-18]
 
 ##### Changed
+- record final v6.1.0 security validation
 - prepare verified v6.1.0 release history
 
 ##### Fixed
+- retain local image transparency in Markdown PDF output
 - harden file publication and make validation portable across CI
 - reconstruct verified skill sources and close independent audit findings
 - close integrated regression gaps and hold unverified source assets
