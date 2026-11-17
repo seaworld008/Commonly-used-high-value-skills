@@ -6301,7 +6301,7 @@
       "current_sha256": "438f0a5f3fe9ea15ccd8e2e4bfdc564be8307c0d3505bea2982f62d63941189d",
       "current_resolution": {
         "path": "skills/office-white-collar/pdf/SKILL.md",
-        "sha256": "ba0761693f2ecebf96f213574029f0949362102755cfa5057818242ed1f116db",
+        "sha256": "b930b9e82f312207a6c64766fed9ecc530d02a767c83ff1b49b20fb4cd535e37",
         "origin": "anthropics/skills",
         "sourcepath": "skills/pdf/SKILL.md",
         "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
@@ -6611,7 +6611,7 @@
       "current_sha256": "c033742d4e120a947e93cde5fd9ac7d4b7a2abb39111cf6a5d1b6bbe9e275751",
       "current_resolution": {
         "path": "skills/office-white-collar/pdf/scripts/md_to_pdf.py",
-        "sha256": "f0d528ba5528b4acc098ef0d567cb8a5c6764171764254ca54feae62d1f2b186",
+        "sha256": "8079a8195b6a07039491104da0f147a08990a384d69609874cc92cfd551fde0f",
         "origin": "local-repo/curation",
         "sourcepath": "skills/office-white-collar/pdf/scripts/md_to_pdf.py",
         "resolved_commit": null,
@@ -14249,7 +14249,7 @@
     },
     {
       "path": "skills/office-white-collar/pdf/SKILL.md",
-      "sha256": "ba0761693f2ecebf96f213574029f0949362102755cfa5057818242ed1f116db",
+      "sha256": "b930b9e82f312207a6c64766fed9ecc530d02a767c83ff1b49b20fb4cd535e37",
       "origin": "anthropics/skills",
       "sourcepath": "skills/pdf/SKILL.md",
       "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
@@ -14379,7 +14379,7 @@
     },
     {
       "path": "skills/office-white-collar/pdf/scripts/md_to_pdf.py",
-      "sha256": "f0d528ba5528b4acc098ef0d567cb8a5c6764171764254ca54feae62d1f2b186",
+      "sha256": "8079a8195b6a07039491104da0f147a08990a384d69609874cc92cfd551fde0f",
       "origin": "local-repo/curation",
       "sourcepath": "skills/office-white-collar/pdf/scripts/md_to_pdf.py",
       "resolved_commit": null,
@@ -21449,7 +21449,7 @@
   ],
   "local_final_validation": {
     "status": "passed",
-    "python_tests": 3809,
+    "python_tests": 3813,
     "python_subtests": 397,
     "node_security_tests": 65,
     "compiled_skill_python_files": 305,
@@ -21458,8 +21458,8 @@
       "warnings": 0,
       "failed": 0
     },
-    "pipeline": "All ordered components passed; the complete unified --refresh validator exited normally with TMPDIR absent. The test temporary-directory cache was synchronized before this final run.",
-    "post_commit_generation_idempotence": "passed",
+    "pipeline": "Full ordered gates passed; unit stage invokes the complete unified --refresh validator exactly once.3813tests397subtests passed with TMPDIR absent.",
+    "post_commit_generation_idempotence": "pending alpha fix source commit",
     "remote_delivery": "pending",
     "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54",
     "validated_source_commit": "8953ce2c9e004661bdd69c2f4f83f1afb485570a"
@@ -21493,5 +21493,16 @@
       "decision": "retain",
       "reason": "Distinct external-catalog discovery contract plus source/license/permission/retirement review guardrails and explicit acceptance evidence; the local using-agent-skills orchestration does not cover this full intent."
     }
-  ]
+  ],
+  "markdown_transparency_fix": {
+    "review_comment": "https://github.com/seaworld008/Commonly-used-high-value-skills/pull/158#discussion_r4605816571",
+    "status": "fixed_and_validated",
+    "formats": [
+      "RGBA PNG",
+      "lossless alpha WebP",
+      "palette GIF",
+      "palette PNG"
+    ],
+    "evidence": "Actual PDF soft-mask and rendered white/opaque/semitransparent pixels; input bytes unchanged;4new+49existing renderer tests passed."
+  }
 }

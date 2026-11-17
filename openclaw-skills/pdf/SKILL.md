@@ -2,7 +2,7 @@
 name: pdf
 description: 'Read, create, edit, merge, split, OCR, or fill PDF documents when PDF content or a PDF deliverable is the task.'
 zh_description: "读取、生成、编辑、合并、拆分和识别 PDF 文档。"
-version: "1.1.2"
+version: "1.1.3"
 author: "Anthropic contributors; local curators"
 source: "https://github.com/anthropics/skills"
 source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/pdf/SKILL.md"

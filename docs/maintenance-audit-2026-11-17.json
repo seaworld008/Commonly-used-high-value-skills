@@ -6382,7 +6382,7 @@
   },
   "local_final_validation": {
     "status": "passed",
-    "python_tests": 3809,
+    "python_tests": 3813,
     "python_subtests": 397,
     "node_security_tests": 65,
     "compiled_skill_python_files": 305,
@@ -6391,8 +6391,8 @@
       "warnings": 0,
       "failed": 0
     },
-    "pipeline": "All ordered components passed; the complete unified --refresh validator exited normally with TMPDIR absent. The test temporary-directory cache was synchronized before this final run.",
-    "post_commit_generation_idempotence": "passed",
+    "pipeline": "Full ordered gates passed; unit stage invokes the complete unified --refresh validator exactly once.3813tests397subtests passed with TMPDIR absent.",
+    "post_commit_generation_idempotence": "pending alpha fix source commit",
     "remote_delivery": "pending",
     "previous_validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54",
     "validated_source_commit": "8953ce2c9e004661bdd69c2f4f83f1afb485570a"
@@ -6426,5 +6426,16 @@
       "decision": "retain",
       "reason": "Distinct external-catalog discovery contract plus source/license/permission/retirement review guardrails and explicit acceptance evidence; the local using-agent-skills orchestration does not cover this full intent."
     }
-  ]
+  ],
+  "markdown_transparency_fix": {
+    "review_comment": "https://github.com/seaworld008/Commonly-used-high-value-skills/pull/158#discussion_r4605816571",
+    "status": "fixed_and_validated",
+    "formats": [
+      "RGBA PNG",
+      "lossless alpha WebP",
+      "palette GIF",
+      "palette PNG"
+    ],
+    "evidence": "Actual PDF soft-mask and rendered white/opaque/semitransparent pixels; input bytes unchanged;4new+49existing renderer tests passed."
+  }
 }

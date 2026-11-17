@@ -96,7 +96,7 @@ def _prepare_images(tokens, source, resource_root, assets):
                 raise ValueError("Image exceeds 40 million pixels")
             picture.load()
             name = f"asset-{count}.png"
-            picture.convert("RGB").save(assets / name)
+            picture.convert("RGBA").save(assets / name)
         token.attrSet("src", name)
         count += 1
 

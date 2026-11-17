@@ -4293,7 +4293,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
-            "content_sha256": "ba0761693f2ecebf96f213574029f0949362102755cfa5057818242ed1f116db",
+            "content_sha256": "b930b9e82f312207a6c64766fed9ecc530d02a767c83ff1b49b20fb4cd535e37",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -4396,7 +4396,7 @@
         },
         {
           "path": "skills/office-white-collar/pdf/SKILL.md",
-          "sha256": "ba0761693f2ecebf96f213574029f0949362102755cfa5057818242ed1f116db",
+          "sha256": "b930b9e82f312207a6c64766fed9ecc530d02a767c83ff1b49b20fb4cd535e37",
           "owner": "pdf",
           "mode": "100644"
         },
@@ -4468,7 +4468,7 @@
         },
         {
           "path": "skills/office-white-collar/pdf/scripts/md_to_pdf.py",
-          "sha256": "f0d528ba5528b4acc098ef0d567cb8a5c6764171764254ca54feae62d1f2b186",
+          "sha256": "8079a8195b6a07039491104da0f147a08990a384d69609874cc92cfd551fde0f",
           "owner": "pdf",
           "mode": "100644"
         }
