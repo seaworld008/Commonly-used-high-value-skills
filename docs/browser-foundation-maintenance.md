@@ -16,6 +16,8 @@ python scripts/sync_all_upstream_skills.py
 
 `docs/sources/browser-foundations.json` 是优先级和审阅基线：
 
+- Google Modern Web Guidance：同时监控分发库及 modern-web-guidance-src 中的技能、指南、CLI/特性和许可文件，并比较 npm 版本及分发库稳定发布。指南正文适用单独的 CC-BY-4.0 授权，不能仅凭根 Apache-2.0 许可复制整个语料。
+
 - agent-browser、Chrome DevTools MCP、Playwright MCP：同时查询 npm latest、
   GitHub 最新稳定发布以及默认分支中相关命令/技能文件的树摘要。
 - DevTools 与 Playwright 的仓库技能来源：检查相关目录，而非只看整个仓库 HEAD。

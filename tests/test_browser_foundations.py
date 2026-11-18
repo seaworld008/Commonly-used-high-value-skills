@@ -83,6 +83,17 @@ def test_priority_sort_keeps_other_sources_in_their_existing_order():
     assert [s["name"] for s in module.prioritize(skills)] == ["agent-browser", "playwright", "other-b", "other-a"]
 
 
+def test_google_guidance_monitors_distribution_authoring_and_corpus_drift():
+    policy = module.load_policy()
+    google = [t for t in policy["targets"] if t["id"].startswith("modern-web-guidance")]
+    assert {t["repo"] for t in google} == {"GoogleChrome/modern-web-guidance", "GoogleChrome/modern-web-guidance-src"}
+    assert any(t.get("package") == "modern-web-guidance" for t in google)
+    assert all("LICENSE" in t["paths"] and "README.md" in t["paths"] for t in google)
+    tree, target, fetch = fixture()
+    tree["tree"].append({"type": "blob", "path": "skill-data/core/guides/new-pattern.md", "sha": "e" * 40, "mode": "100644"})
+    assert module.check_target(target, fetch=fetch)["state"] == "review_required"
+
+
 @pytest.mark.parametrize("status", [1, 2])
 def test_bulk_apply_stops_before_any_sync_or_pipeline_when_foundations_need_work(tmp_path, status):
     spec = importlib.util.spec_from_file_location("bulk_browser_test", ROOT / "scripts/sync_all_upstream_skills.py")

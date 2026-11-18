@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 293 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 294 个技能**。
 
 [快速开始](#quick-start) · [分类导航](#categories) · [技能总览](#skill-overview) · [参与共建](#contributing) · [版本动态](docs/RELEASES.md)
 
@@ -281,10 +281,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ```
 
 <a id="skill-overview"></a>
-## 技能总览（按分类，16 类 / 293 技能）
+## 技能总览（按分类，16 类 / 294 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，52）
+### 1. 开发工程（developer-engineering，53）
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)：设计智能体的职责、工具、记忆、协作架构和评测方法。
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
@@ -311,6 +311,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`kubernetes-specialist`](./skills/developer-engineering/kubernetes-specialist/)：用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。
 - [`mcp-builder`](./skills/developer-engineering/mcp-builder/)：开发连接外部服务的 MCP 工具服务器。
 - [`migration-architect`](./skills/developer-engineering/migration-architect/)：规划可回滚、低停机的数据和系统迁移。
+- [`modern-web-guidance`](./skills/developer-engineering/modern-web-guidance/)：按需检索 Google 现代 Web 指南，选择原生 HTML/CSS/API，核对浏览器兼容性、回退、无障碍与性能。
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/)：分析多包仓库的依赖、构建、缓存和变更影响。
 - [`neon-postgres`](./skills/developer-engineering/neon-postgres/)：用于 Neon Postgres 数据库连接、分支、迁移和运行维护。
 - [`nextjs-app-router`](./skills/developer-engineering/nextjs-app-router/)：用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。
