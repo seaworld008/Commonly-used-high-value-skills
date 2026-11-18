@@ -6,7 +6,7 @@ version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["development", "expert", "graphql"]'
+tags: ["development", "expert", "graphql"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

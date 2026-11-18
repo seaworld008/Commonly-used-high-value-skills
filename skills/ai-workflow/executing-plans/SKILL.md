@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md"
 license: MIT
-tags: '["plans", "execution", "workflow"]'
+tags: ["plans", "execution", "workflow"]
 created_at: "2026-04-13"
 updated_at: "2026-09-22"
 quality: 3

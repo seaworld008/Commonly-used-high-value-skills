@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:wshobson/agents"
 source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/payment-processing/skills/billing-automation/SKILL.md"
 license: MIT
-tags: '["automation", "billing", "workflow"]'
+tags: ["automation", "billing", "workflow"]
 created_at: "2026-05-28"
 updated_at: "2026-11-17"
 quality: 3

@@ -7,7 +7,7 @@ author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-event"
 license: MIT
-tags: '[feishu, lark, lark-cli, events, websocket]'
+tags: [feishu, lark, lark-cli, events, websocket]
 created_at: "2026-05-19"
 updated_at: "2026-11-17"
 quality: 4

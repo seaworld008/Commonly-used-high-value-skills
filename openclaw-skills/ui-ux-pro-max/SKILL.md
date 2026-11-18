@@ -7,7 +7,7 @@ author: seaworld008
 source: in-house
 source_url: "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md"
 license: MIT
-tags: '[ui, ux, design-system, frontend, accessibility, typography, color, responsive-design]'
+tags: [ui, ux, design-system, frontend, accessibility, typography, color, responsive-design]
 created_at: "2026-06-03"
 updated_at: "2026-09-06"
 quality: 4

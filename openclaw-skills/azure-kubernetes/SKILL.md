@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
 license: MIT
-tags: '["azure", "devops", "kubernetes", "sre"]'
+tags: ["azure", "devops", "kubernetes", "sre"]
 created_at: "2026-06-03"
 updated_at: "2026-11-17"
 quality: 4

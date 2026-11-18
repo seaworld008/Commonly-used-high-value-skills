@@ -7,7 +7,7 @@ author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
 license: MIT
-tags: '[Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]'
+tags: [Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]
 created_at: "2026-04-13"
 updated_at: "2026-11-04"
 quality: 4

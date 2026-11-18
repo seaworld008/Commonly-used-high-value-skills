@@ -7,7 +7,7 @@ author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md"
 license: MIT
-tags: '["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]'
+tags: ["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]
 created_at: "2026-06-01"
 updated_at: "2026-11-17"
 quality: 4

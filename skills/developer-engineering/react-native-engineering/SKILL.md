@@ -6,7 +6,7 @@ version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
-tags: '[react-native, expo, mobile, ios, android, testing, performance, eas]'
+tags: [react-native, expo, mobile, ios, android, testing, performance, eas]
 created_at: "2026-08-10"
 updated_at: "2026-09-06"
 quality: 5

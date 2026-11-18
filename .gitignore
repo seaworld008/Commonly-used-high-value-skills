@@ -9,6 +9,8 @@ __pycache__/
 
 # Logs / temp
 *.log
+# Agent hook transcripts must not ship inside skill packages
+skills/**/scripts/logs/
 *.tmp
 *.temp
 

@@ -7,7 +7,7 @@ author: seaworld008
 source: github:vercel-labs/agent-skills
 source_url: "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-view-transitions/SKILL.md"
 license: MIT
-tags: '[react, nextjs, animation, transitions, frontend, vercel]'
+tags: [react, nextjs, animation, transitions, frontend, vercel]
 created_at: "2026-06-08"
 updated_at: "2026-11-17"
 quality: 4

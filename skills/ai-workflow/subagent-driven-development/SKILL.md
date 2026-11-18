@@ -7,7 +7,7 @@ author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/subagent-driven-development/SKILL.md"
 license: MIT
-tags: '["development", "driven", "planning", "subagent", "workflow"]'
+tags: ["development", "driven", "planning", "subagent", "workflow"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 3

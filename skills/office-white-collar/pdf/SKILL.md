@@ -7,7 +7,7 @@ author: "Anthropic contributors; local curators"
 source: "https://github.com/anthropics/skills"
 source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/pdf/SKILL.md"
 license: "Apache-2.0"
-tags: '["pdf"]'
+tags: ["pdf"]
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
 quality: 5

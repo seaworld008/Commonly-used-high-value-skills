@@ -7,7 +7,7 @@ author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md"
 license: MIT
-tags: '[linkedin, automation, social-media, outreach, cli]'
+tags: [linkedin, automation, social-media, outreach, cli]
 created_at: "2026-07-10"
 updated_at: "2026-11-17"
 quality: 5

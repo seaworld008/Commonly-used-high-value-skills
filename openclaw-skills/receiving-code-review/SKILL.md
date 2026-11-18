@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/receiving-code-review"
 license: MIT
-tags: '["code-review", "workflow", "feedback"]'
+tags: ["code-review", "workflow", "feedback"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

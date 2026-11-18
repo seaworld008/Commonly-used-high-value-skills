@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://github.com/sickn33/agentic-awesome-skills/blob/e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5/skills/docker-expert/SKILL.md"
 license: MIT
-tags: '["development", "docker", "expert"]'
+tags: ["development", "docker", "expert"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

@@ -6,7 +6,7 @@ version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["designer", "devops", "observability", "sre"]'
+tags: ["designer", "devops", "observability", "sre"]
 created_at: "2026-03-04"
 updated_at: "2026-09-07"
 quality: 5

@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "deprecation-and-migration", "engineering", "workflow"]'
+tags: ["agent", "ai", "deprecation-and-migration", "engineering", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-17"
 quality: 5

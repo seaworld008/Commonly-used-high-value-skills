@@ -7,7 +7,7 @@ author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-calendar"
 license: MIT
-tags: '[feishu, lark, lark-cli, calendar, scheduling]'
+tags: [feishu, lark, lark-cli, calendar, scheduling]
 created_at: "2026-05-19"
 updated_at: "2026-09-30"
 quality: 4

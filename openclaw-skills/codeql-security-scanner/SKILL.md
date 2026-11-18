@@ -6,7 +6,7 @@ version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
-tags: '[security, sast, codeql, code-scanning, github, sarif, custom-queries, appsec]'
+tags: [security, sast, codeql, code-scanning, github, sarif, custom-queries, appsec]
 created_at: "2026-05-20"
 updated_at: "2026-11-04"
 quality: 4

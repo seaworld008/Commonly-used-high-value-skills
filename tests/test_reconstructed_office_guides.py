@@ -63,7 +63,7 @@ def test_entry_metadata_and_fixed_licensed_source(skill):
     text = path.read_text()
     header = yaml.safe_load(text.split("---", 2)[1])
     assert header["name"] == skill
-    assert header["tags"] == f'["{skill}"]'
+    assert header["tags"] == [skill]
     assert header["quality"] == 5
     assert header["version"] == "1.1.3"
     assert header["source"] == "https://github.com/anthropics/skills"

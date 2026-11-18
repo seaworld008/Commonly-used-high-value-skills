@@ -2,13 +2,13 @@
 name: reflect-learn
 description: Review user corrections or session outcomes to propose durable workflow improvements. Persist memory or edit agent guidance only when requested.
 zh_description: "分析用户纠正和任务结果，提出可复用的改进建议。"
-version: "2.0.4"
+version: "2.0.5"
 author: Claude Code Toolkit
 source: "in-house"
 source_url: ""
-tags: '["learn", "planning", "reflect", "workflow"]'
+tags: ["learn", "planning", "reflect", "workflow"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-18"
 quality: 5
 complexity: "intermediate"
 allowed-tools:

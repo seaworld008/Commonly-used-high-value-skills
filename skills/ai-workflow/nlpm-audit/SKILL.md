@@ -7,7 +7,7 @@ author: seaworld008
 source: github:xiaolai/nlpm
 source_url: "https://github.com/xiaolai/nlpm"
 license: ISC
-tags: '[nlpm, natural-language-programming, skill-quality, agent-audit, ci, prompt-engineering]'
+tags: [nlpm, natural-language-programming, skill-quality, agent-audit, ci, prompt-engineering]
 created_at: "2026-06-12"
 updated_at: "2026-09-06"
 quality: 4

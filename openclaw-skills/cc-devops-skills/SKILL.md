@@ -7,7 +7,7 @@ author: seaworld008
 source: github:akin-ozer/cc-devops-skills
 source_url: "https://github.com/akin-ozer/cc-devops-skills"
 license: Apache-2.0
-tags: '[sre, devops, kubernetes, cicd, promql, terraform, docker, observability, incident-response]'
+tags: [sre, devops, kubernetes, cicd, promql, terraform, docker, observability, incident-response]
 created_at: "2026-06-03"
 updated_at: "2026-09-06"
 quality: 4

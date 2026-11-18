@@ -7,7 +7,7 @@ author: Prisma
 source: "github:prisma/skills"
 source_url: "https://github.com/prisma/skills/blob/82b88dd82801e958706f8265c29c910e6f0ebfa4/prisma-upgrade-v7/SKILL.md"
 license: MIT
-tags: '["prisma", "database", "typescript", "transactions", "migration"]'
+tags: ["prisma", "database", "typescript", "transactions", "migration"]
 created_at: "2026-09-22"
 updated_at: "2026-11-17"
 quality: 4

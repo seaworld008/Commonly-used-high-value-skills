@@ -61,7 +61,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e4f1eaac52ca872fcf44ec66168e1c3624bc0bd71a831d0a32a51fd9987bbc4f",
+            "content_sha256": "03fda8cb22dcddee2b9922a20cdd1b36291f5a424da7c8875318b0a4fe858554",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -71,7 +71,7 @@
         {
           "path": "skills/ai-workflow/find-skills/SKILL.md",
           "owner": "find-skills",
-          "sha256": "e4f1eaac52ca872fcf44ec66168e1c3624bc0bd71a831d0a32a51fd9987bbc4f",
+          "sha256": "03fda8cb22dcddee2b9922a20cdd1b36291f5a424da7c8875318b0a4fe858554",
           "mode": "100644"
         }
       ]
@@ -197,7 +197,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4c8f7e62907eecbb5932a451e1f83480ab1dd3f5744fa67b94b245059e234740",
+            "content_sha256": "bb4ee9afc82e50566b179814f7b48103898824b991df3449fd946455c931089c",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -213,7 +213,7 @@
         {
           "path": "skills/ai-workflow/skill-creator/SKILL.md",
           "owner": "skill-creator",
-          "sha256": "4c8f7e62907eecbb5932a451e1f83480ab1dd3f5744fa67b94b245059e234740",
+          "sha256": "bb4ee9afc82e50566b179814f7b48103898824b991df3449fd946455c931089c",
           "mode": "100644"
         },
         {

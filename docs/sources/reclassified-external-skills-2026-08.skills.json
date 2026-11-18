@@ -592,7 +592,7 @@
             "ref": "main",
             "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
             "path_commit": "b078bb8996405fe980c384136f6ed9226cbf2489",
-            "content_sha256": "5293992ec8af0d54567dc24483d9bacc86eead40e673dd8688e902758415cd0f",
+            "content_sha256": "45e4eea64c119b66d0f5976cba9989abe3dec227f357ef520b1903454866c908",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -609,7 +609,7 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/aws-solution-architect/SKILL.md",
-          "sha256": "5293992ec8af0d54567dc24483d9bacc86eead40e673dd8688e902758415cd0f",
+          "sha256": "45e4eea64c119b66d0f5976cba9989abe3dec227f357ef520b1903454866c908",
           "owner": "aws-solution-architect",
           "mode": "100644"
         },
@@ -986,7 +986,7 @@
             "ref": "main",
             "resolved_commit": "65922d293cba61a40d5edf61a9eb4b6b0e799788",
             "path_commit": "e484244aad82d80bd640d44b2bea92b03bddf559",
-            "content_sha256": "99fb197244b1082fc4f8bf42b3df50573158b90bbe67a3e8415945a51108748b",
+            "content_sha256": "0c70083a31371a8c8193c5b09aa2cf0e2218d63b36adf85007f1cd8002b2fbfc",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1004,7 +1004,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "99fb197244b1082fc4f8bf42b3df50573158b90bbe67a3e8415945a51108748b",
+          "sha256": "0c70083a31371a8c8193c5b09aa2cf0e2218d63b36adf85007f1cd8002b2fbfc",
           "mode": "100644"
         },
         {
@@ -1387,7 +1387,7 @@
             "ref": "main",
             "resolved_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
             "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56",
-            "content_sha256": "9d253f88c04ec3556e91756a025318c438df66516c4702ecb768ad1a148168e4",
+            "content_sha256": "7a747b892a30655d994c7d9665f7ab15907fd0ed462c0a197b2d1401d7b2d927",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1404,7 +1404,7 @@
       "managed_files": [
         {
           "path": "skills/devops-sre/cc-devops-skills/SKILL.md",
-          "sha256": "9d253f88c04ec3556e91756a025318c438df66516c4702ecb768ad1a148168e4",
+          "sha256": "7a747b892a30655d994c7d9665f7ab15907fd0ed462c0a197b2d1401d7b2d927",
           "owner": "cc-devops-skills",
           "mode": "100644"
         },
@@ -1457,7 +1457,7 @@
             "ref": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
             "resolved_commit": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
             "path_commit": "df08c3f9cad7dec3aff91914a3cf6fb1e810a52c",
-            "content_sha256": "de66c44bbf0c73bfc3550db660ec5c028fa41262dbc173eda31eba095cb0b479",
+            "content_sha256": "343a315fa45c8952bb2f421ceeca14c0f7ca8eb71fab5c0666fcd8a8ae7147e4",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -1475,7 +1475,7 @@
         {
           "path": "skills/developer-engineering/docker-expert/SKILL.md",
           "owner": "docker-expert",
-          "sha256": "de66c44bbf0c73bfc3550db660ec5c028fa41262dbc173eda31eba095cb0b479",
+          "sha256": "343a315fa45c8952bb2f421ceeca14c0f7ca8eb71fab5c0666fcd8a8ae7147e4",
           "mode": "100644"
         },
         {
@@ -1572,7 +1572,7 @@
             "ref": "main",
             "resolved_commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
             "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e",
-            "content_sha256": "3a43c7f200008f82d90de592a0685a718296de24a22257766b529c19b87bbaba",
+            "content_sha256": "0b5ff92eabc1c4902a6a44d00175c3a7c6f16a848361fd278f542f701bffbb15",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1590,7 +1590,7 @@
         {
           "path": "skills/security-and-reliability/gha-security-review/SKILL.md",
           "owner": "gha-security-review",
-          "sha256": "3a43c7f200008f82d90de592a0685a718296de24a22257766b529c19b87bbaba",
+          "sha256": "0b5ff92eabc1c4902a6a44d00175c3a7c6f16a848361fd278f542f701bffbb15",
           "mode": "100644"
         },
         {
@@ -1696,7 +1696,7 @@
             "ref": "main",
             "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
             "path_commit": "130a59c36026feab1b9ff601600b3ed9def2acc0",
-            "content_sha256": "d3ddf2fbe59c116d48be35ed57b042fc1d3473d532aafa9d7d1b2657fc106154",
+            "content_sha256": "bd7dedfe5f0885c02c6e228ae7a5d1011e7f861e59c65c752efc9567bdaa6f87",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1714,7 +1714,7 @@
         {
           "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
           "owner": "kubernetes-specialist",
-          "sha256": "d3ddf2fbe59c116d48be35ed57b042fc1d3473d532aafa9d7d1b2657fc106154",
+          "sha256": "bd7dedfe5f0885c02c6e228ae7a5d1011e7f861e59c65c752efc9567bdaa6f87",
           "mode": "100644"
         },
         {
@@ -1796,7 +1796,7 @@
             "ref": "main",
             "resolved_commit": "067f9fb2df21953b216867d60ec500ddaf3e5647",
             "path_commit": "a874fd709f0bcad54d085d442b7962470b53c234",
-            "content_sha256": "b92395131d458fa6001e571d1576612e7a43319b6baea5b618eba74a8436af2c",
+            "content_sha256": "08b9b2ef274bb311ea6658f0ae198277e119dc623a388f33dd7e1d4dc990ce32",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1814,7 +1814,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "b92395131d458fa6001e571d1576612e7a43319b6baea5b618eba74a8436af2c",
+          "sha256": "08b9b2ef274bb311ea6658f0ae198277e119dc623a388f33dd7e1d4dc990ce32",
           "mode": "100644"
         },
         {
@@ -1955,7 +1955,7 @@
             "ref": "main",
             "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "ff4072d884ee27cff877bf0e4d1e054b52f3502c66c1d65e79a6af4250b27ace",
+            "content_sha256": "e589216743b9c0d96a9c6152a639a884daa52d5ccdf668857e3c5db5db07c808",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1973,7 +1973,7 @@
         {
           "path": "skills/developer-engineering/nextjs-app-router/SKILL.md",
           "owner": "nextjs-app-router",
-          "sha256": "ff4072d884ee27cff877bf0e4d1e054b52f3502c66c1d65e79a6af4250b27ace",
+          "sha256": "e589216743b9c0d96a9c6152a639a884daa52d5ccdf668857e3c5db5db07c808",
           "mode": "100644"
         },
         {
@@ -2042,7 +2042,7 @@
             "ref": "main",
             "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
+            "content_sha256": "2c3ddf98e1cbd77bbd1d6e277396823c64853db10b843ade356fb365624e79f2",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2060,7 +2060,7 @@
         {
           "path": "skills/developer-engineering/python-performance/SKILL.md",
           "owner": "python-performance",
-          "sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
+          "sha256": "2c3ddf98e1cbd77bbd1d6e277396823c64853db10b843ade356fb365624e79f2",
           "mode": "100644"
         },
         {
@@ -2140,7 +2140,7 @@
             "ref": "main",
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
-            "content_sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
+            "content_sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2186,7 +2186,7 @@
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
           "owner": "supabase",
-          "sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
+          "sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
           "mode": "100644"
         },
         {
@@ -2432,7 +2432,7 @@
             "ref": "main",
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
-            "content_sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
+            "content_sha256": "361f2b3a3e383f348d114ff2acd4f5df372a4226e1af70030d6997ee38f6b17a",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2456,7 +2456,7 @@
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
           "owner": "supabase-postgres-best-practices",
-          "sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
+          "sha256": "361f2b3a3e383f348d114ff2acd4f5df372a4226e1af70030d6997ee38f6b17a",
           "mode": "100644"
         },
         {
@@ -2723,7 +2723,7 @@
             "ref": "main",
             "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
+            "content_sha256": "5014e597c347c792fd757dc12ad8b9b6be7adf7743f3f3e1c1374dfdb4c1d607",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2741,7 +2741,7 @@
         {
           "path": "skills/developer-engineering/tailwind-design-system/SKILL.md",
           "owner": "tailwind-design-system",
-          "sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
+          "sha256": "5014e597c347c792fd757dc12ad8b9b6be7adf7743f3f3e1c1374dfdb4c1d607",
           "mode": "100644"
         },
         {
@@ -2805,7 +2805,7 @@
             "ref": "main",
             "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
             "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
-            "content_sha256": "25b7d1c2afcac2f4810187e65dece999cfd4cf7e4b1fe113d226b980ffdb77a7",
+            "content_sha256": "1440057722ce168d93f3fa642d18b8a41e8d3845e773e3080032104539a30343",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2823,7 +2823,7 @@
         {
           "path": "skills/developer-engineering/terraform-engineer/SKILL.md",
           "owner": "terraform-engineer",
-          "sha256": "25b7d1c2afcac2f4810187e65dece999cfd4cf7e4b1fe113d226b980ffdb77a7",
+          "sha256": "1440057722ce168d93f3fa642d18b8a41e8d3845e773e3080032104539a30343",
           "mode": "100644"
         },
         {
@@ -3250,7 +3250,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "805687f34e8c10b420e3d11335a0ca2c3c90d992",
-            "content_sha256": "2aaf9d63ac9fa0669b060d947262faafcb80998d4fbf607e065057d9efb54d43",
+            "content_sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3305,7 +3305,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
-          "sha256": "2aaf9d63ac9fa0669b060d947262faafcb80998d4fbf607e065057d9efb54d43",
+          "sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
           "owner": "vercel-react-best-practices",
           "mode": "100644"
         },
@@ -3843,7 +3843,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "3798a7954ee2d7bc6ff09decf6d96cd7fdd13152",
-            "content_sha256": "1488daff60dec7a9ab61b91dc500ba6974ddbfe7c1c2144464172337fc546b64",
+            "content_sha256": "f90bb5e65c7bb88373132b8c4aef9c1c7980c735cfe44d639bf7f4cf3985f364",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3898,7 +3898,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md",
-          "sha256": "1488daff60dec7a9ab61b91dc500ba6974ddbfe7c1c2144464172337fc546b64",
+          "sha256": "f90bb5e65c7bb88373132b8c4aef9c1c7980c735cfe44d639bf7f4cf3985f364",
           "owner": "vercel-react-view-transitions",
           "mode": "100644"
         },

@@ -111,6 +111,17 @@ def format_tags(tags: list[str]) -> str:
     """Format tags as a YAML list [ "tag1", "tag2" ]."""
     return "[" + ", ".join(f'"{t}"' for t in sorted(set(tags))) + "]"
 
+
+def unwrap_quoted_tags(value: str) -> str:
+    """Turn a quoted flow list such as '["a", "b"]' into a real YAML list."""
+    value = value.strip()
+    if len(value) >= 4 and value[0] == value[-1] and value[0] in "'\"":
+        inner = value[1:-1].strip()
+        if inner.startswith("[") and inner.endswith("]") and value[0] not in inner:
+            return inner
+    return value
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Enrich SKILL.md frontmatter with missing metadata.")
     parser.add_argument("--skills-dir", default="skills", help="Root directory for skills (default: skills)")
@@ -203,6 +214,11 @@ def main() -> int:
             tags.extend(keywords)
             fm_data["tags"] = format_tags(tags)
             stats["tags_added"] += 1
+        else:
+            unwrapped = unwrap_quoted_tags(fm_data["tags"])
+            if unwrapped != fm_data["tags"]:
+                fm_data["tags"] = unwrapped
+                stats["tags_unquoted"] += 1
             
         # 4. Dates using Git
         if "created_at" not in fm_data:

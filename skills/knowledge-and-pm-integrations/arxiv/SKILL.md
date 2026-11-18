@@ -7,7 +7,7 @@ author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md"
 license: MIT
-tags: '[Research, Arxiv, Papers, Academic, Science, API]'
+tags: [Research, Arxiv, Papers, Academic, Science, API]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

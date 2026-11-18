@@ -6,7 +6,7 @@ version: "1.0.2"
 author: seaworld008
 source: "in-house"
 source_url: ""
-tags: '[security, sbom, vulnerability-scanning, grype, syft, container-security, supply-chain, cve]'
+tags: [security, sbom, vulnerability-scanning, grype, syft, container-security, supply-chain, cve]
 created_at: "2026-05-20"
 updated_at: "2026-11-17"
 quality: 4

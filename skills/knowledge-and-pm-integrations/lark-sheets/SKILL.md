@@ -7,7 +7,7 @@ author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/blob/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-sheets/SKILL.md"
 license: MIT
-tags: '[feishu, lark, lark-cli, sheets, spreadsheet]'
+tags: [feishu, lark, lark-cli, sheets, spreadsheet]
 created_at: "2026-05-19"
 updated_at: "2026-11-17"
 quality: 4

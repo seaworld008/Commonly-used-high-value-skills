@@ -6,7 +6,7 @@ version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["finance", "investment", "memo", "writer"]'
+tags: ["finance", "investment", "memo", "writer"]
 created_at: "2026-03-18"
 updated_at: "2026-11-17"
 quality: 2

@@ -35,7 +35,7 @@ jobs:
           node-version: "22"
 
       - name: Install test dependencies
-        run: python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py
+        run: python -m pip install -r requirements-dev.txt
 
       - name: Refresh and validate repository
         run: python scripts/validate_repository.py --refresh

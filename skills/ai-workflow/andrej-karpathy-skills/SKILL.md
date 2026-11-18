@@ -7,7 +7,7 @@ author: seaworld008
 source: in-house
 source_url: "https://github.com/swarmclawai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md"
 license: MIT
-tags: '[coding-discipline, architecture, backend, refactoring, code-review, ai-workflow, verification]'
+tags: [coding-discipline, architecture, backend, refactoring, code-review, ai-workflow, verification]
 created_at: "2026-06-03"
 updated_at: "2026-11-04"
 quality: 4

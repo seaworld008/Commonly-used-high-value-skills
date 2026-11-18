@@ -6,7 +6,7 @@ version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["brainstorming", "planning", "workflow"]'
+tags: ["brainstorming", "planning", "workflow"]
 created_at: "2026-03-04"
 updated_at: "2026-10-24"
 quality: 3

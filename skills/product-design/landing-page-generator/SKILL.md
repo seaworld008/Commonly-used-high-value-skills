@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md"
 license: MIT
-tags: '["design", "generator", "landing", "page", "product"]'
+tags: ["design", "generator", "landing", "page", "product"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

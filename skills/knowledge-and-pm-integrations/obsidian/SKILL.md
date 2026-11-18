@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md"
 license: MIT
-tags: '["obsidian", "notes", "knowledge-base"]'
+tags: ["obsidian", "notes", "knowledge-base"]
 created_at: "2026-04-13"
 updated_at: "2026-10-26"
 quality: 3

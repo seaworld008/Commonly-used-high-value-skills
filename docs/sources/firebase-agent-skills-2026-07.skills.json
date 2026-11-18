@@ -64,7 +64,7 @@
             "ref": "main",
             "resolved_commit": "99954a30898bb5ddc8152ee10e124dc3b4106bf7",
             "path_commit": "bf6538ef0e147831adc04c31291549f7dc399e97",
-            "content_sha256": "3c63ef5c1be0c80ff2b4d2521cfbe2acc583ca489d3314b7acc773b22504d816",
+            "content_sha256": "7f85448a7f488b26020fcd5296e29e386f93e9cf84238d3fdc5a13d0dd47461b",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -82,7 +82,7 @@
         {
           "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
           "owner": "firebase-security-rules-auditor",
-          "sha256": "3c63ef5c1be0c80ff2b4d2521cfbe2acc583ca489d3314b7acc773b22504d816",
+          "sha256": "7f85448a7f488b26020fcd5296e29e386f93e9cf84238d3fdc5a13d0dd47461b",
           "mode": "100644"
         },
         {

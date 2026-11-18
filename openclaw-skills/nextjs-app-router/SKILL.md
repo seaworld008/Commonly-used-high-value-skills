@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/wshobson/agents/nextjs-app-router-patterns"
 license: "MIT"
-tags: '["app", "development", "nextjs", "router"]'
+tags: ["app", "development", "nextjs", "router"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

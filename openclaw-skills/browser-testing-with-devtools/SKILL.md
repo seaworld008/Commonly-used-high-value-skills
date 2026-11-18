@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "browser-testing-with-devtools", "engineering", "workflow"]'
+tags: ["agent", "ai", "browser-testing-with-devtools", "engineering", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-18"
 quality: 5
