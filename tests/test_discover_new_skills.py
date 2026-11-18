@@ -163,6 +163,8 @@ class DiscoverNewSkillsTests(unittest.TestCase):
         invalid = self._http_error(module, 429, {"Retry-After": "soon"})
 
         self.assertEqual(40.0, module.rate_limit_delay(dated))
+        asctime = self._http_error(module, 429, {"Retry-After": "Mon Jan 12 13:47:20 1970"})
+        self.assertEqual(40.0, module.rate_limit_delay(asctime))
         self.assertEqual(module.RATE_LIMIT_DEFAULT_DELAY, module.rate_limit_delay(invalid))
 
     def test_fetch_url_bounds_rate_limit_waits_and_skips_other_errors(self):

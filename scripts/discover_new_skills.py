@@ -262,9 +262,13 @@ def flatten_errors(source_health: dict[str, dict]) -> list[dict]:
 
 def parse_http_date(value: str) -> float | None:
     try:
-        return parsedate_to_datetime(value).timestamp()
+        parsed = parsedate_to_datetime(value)
     except (TypeError, ValueError):
         return None
+    if parsed.tzinfo is None:
+        # HTTP dates without a zone (asctime format) are GMT.
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.timestamp()
 
 
 def rate_limit_delay(exc: urllib.error.HTTPError) -> float | None:
