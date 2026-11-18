@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "priority_skills": [
+    "modern-web-guidance",
     "agent-browser",
     "browser-testing-with-devtools",
     "playwright",
@@ -79,6 +80,40 @@
       ],
       "reviewed_commit": "49f948faa9258a0c61caceaf225e179651397431",
       "reviewed_tree_digest": "fe8e822cdd15158eea265d86e1d16fab3db18de6de71de24544e1b9a6e18e45d",
+      "reviewed_at": "2026-11-18"
+    },
+    {
+      "id": "modern-web-guidance",
+      "repo": "GoogleChrome/modern-web-guidance",
+      "ref": "main",
+      "paths": [
+        "skills/modern-web-guidance",
+        "package.json",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "64a6d708f5a43f2cd3fde5d4d7db3905ba1bdf65",
+      "reviewed_tree_digest": "482a7c76f32bb8fe87a305e669c6b1ccc78a5a098fd0c8c659c2893613b23d60",
+      "reviewed_at": "2026-11-18",
+      "package": "modern-web-guidance",
+      "reviewed_version": "1.0.1",
+      "reviewed_release": "v1.0.1"
+    },
+    {
+      "id": "modern-web-guidance-source",
+      "repo": "GoogleChrome/modern-web-guidance-src",
+      "ref": "main",
+      "paths": [
+        "skills-src",
+        "guides",
+        "features",
+        "src",
+        "package.json",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "bac92a10f8014c4750fea7be1391eba2ce374158",
+      "reviewed_tree_digest": "c1fe9f1f24be25aef2782c45a2a0b30139153253a847b68f36d1b96976cb195c",
       "reviewed_at": "2026-11-18"
     }
   ],

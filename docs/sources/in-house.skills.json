@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-11-17",
+    "checked_at": "2026-11-18",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -5914,6 +5914,79 @@
       ]
     },
     {
+      "video_name": "modern-web-guidance",
+      "normalized_slug": "modern-web-guidance",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/modern-web-guidance/SKILL.md",
+      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/modern-web-guidance",
+        "ref": "main",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/developer-engineering/modern-web-guidance",
+          "license": "Apache-2.0",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/developer-engineering/modern-web-guidance/LICENSE.txt",
+              "target": "skills/developer-engineering/modern-web-guidance/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/developer-engineering/modern-web-guidance/SKILL.md",
+              "target": "skills/developer-engineering/modern-web-guidance/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/developer-engineering/modern-web-guidance/references/maintenance.md",
+              "target": "skills/developer-engineering/modern-web-guidance/references/maintenance.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "1cfc0cfe647bbf3c9e05f5e13381c8b5f6286be6d4fa6dfb26ef6ecaae5a372e",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
+          }
+        }
+      ],
+      "sync_mode": "local-only",
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/modern-web-guidance/LICENSE.txt",
+          "owner": "modern-web-guidance",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/modern-web-guidance/SKILL.md",
+          "owner": "modern-web-guidance",
+          "sha256": "1cfc0cfe647bbf3c9e05f5e13381c8b5f6286be6d4fa6dfb26ef6ecaae5a372e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/modern-web-guidance/references/maintenance.md",
+          "owner": "modern-web-guidance",
+          "sha256": "1161db33ea12dcba4f97698100e4c3672ef50ca0830411eaab155c640407557b",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
       "video_name": "monorepo-navigator",
       "normalized_slug": "monorepo-navigator",
       "status": "in_house",
@@ -11443,6 +11516,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 95 local skills"
+    },
+    {
+      "date": "2026-11-18",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 96 local skills"
     }
   ],
   "schema_version": 2

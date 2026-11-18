@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1138 skill-tag mappings across 512 tags.
+> Auto-generated from 1143 skill-tag mappings across 514 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -32,6 +32,7 @@
 - [`expert`](#expert) (5)
 - [`manager`](#manager) (5)
 - [`mcp`](#mcp) (5)
+- [`performance`](#performance) (5)
 - [`analysis`](#analysis) (4)
 - [`appsec`](#appsec) (4)
 - [`architect`](#architect) (4)
@@ -47,7 +48,6 @@
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
-- [`performance`](#performance) (4)
 - [`react`](#react) (4)
 - [`research`](#research) (4)
 - [`safety`](#safety) (4)
@@ -56,6 +56,7 @@
 - [`skills`](#skills) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
+- [`accessibility`](#accessibility) (3)
 - [`animation`](#animation) (3)
 - [`architecture`](#architecture) (3)
 - [`ci`](#ci) (3)
@@ -80,7 +81,6 @@
 - [`typescript`](#typescript) (3)
 - [`vercel`](#vercel) (3)
 - [`web`](#web) (3)
-- [`accessibility`](#accessibility) (2)
 - [`agent-skill`](#agent-skill) (2)
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
@@ -89,6 +89,7 @@
 - [`auditor`](#auditor) (2)
 - [`authorization`](#authorization) (2)
 - [`azure`](#azure) (2)
+- [`browser`](#browser) (2)
 - [`checker`](#checker) (2)
 - [`cloudflare`](#cloudflare) (2)
 - [`code-scanning`](#code-scanning) (2)
@@ -178,7 +179,6 @@
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
-- [`browser`](#browser) (1)
 - [`browser-automation`](#browser-automation) (1)
 - [`browser-testing-with-devtools`](#browser-testing-with-devtools) (1)
 - [`calendar`](#calendar) (1)
@@ -220,6 +220,7 @@
 - [`context-engineering`](#context-engineering) (1)
 - [`contributor`](#contributor) (1)
 - [`crest`](#crest) (1)
+- [`css`](#css) (1)
 - [`custom-queries`](#custom-queries) (1)
 - [`data`](#data) (1)
 - [`dawn`](#dawn) (1)
@@ -509,6 +510,7 @@
 - [`vulnerability-research`](#vulnerability-research) (1)
 - [`vuls`](#vuls) (1)
 - [`warden`](#warden) (1)
+- [`web-platform`](#web-platform) (1)
 - [`webapp`](#webapp) (1)
 - [`webgl`](#webgl) (1)
 - [`websocket`](#websocket) (1)
@@ -1178,6 +1180,18 @@
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
+## performance
+
+**5 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flam |
+| [react-native-engineering](skills/developer-engineering/react-native-engineering) | developer-engineering | ★★★★★ | Build, debug, upgrade, or ship React Native and Expo apps, including navigation, |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
+| [golang-performance](skills/developer-engineering/golang-performance) | developer-engineering | ★★★☆☆ | Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O. |
+
 ## analysis
 
 **4 skills**
@@ -1343,17 +1357,6 @@
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when synthesizing several Notion pages into a cited brief, comparison, or re |
 | [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a Notion PRD or feature spec into a linked implementation plan  |
 
-## performance
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flam |
-| [react-native-engineering](skills/developer-engineering/react-native-engineering) | developer-engineering | ★★★★★ | Build, debug, upgrade, or ship React Native and Expo apps, including navigation, |
-| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
-| [golang-performance](skills/developer-engineering/golang-performance) | developer-engineering | ★★★☆☆ | Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O. |
-
 ## react
 
 **4 skills**
@@ -1441,6 +1444,16 @@
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 che |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for local or SSH vulnerability scans of authorized Linux or FreeBSD hos |
+
+## accessibility
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## animation
 
@@ -1682,15 +1695,6 @@
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 
-## accessibility
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
-| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
-
 ## agent-skill
 
 **2 skills**
@@ -1762,6 +1766,15 @@
 |-------|----------|---------|-------------|
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [azure-diagnostics](skills/devops-sre/azure-diagnostics) | devops-sre | ★★★☆☆ | Investigate AKS, VM, App Service, Functions and messaging incidents using scoped |
+
+## browser
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
 
 ## checker
 
@@ -2530,14 +2543,6 @@
 |-------|----------|---------|-------------|
 | [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK mod |
 
-## browser
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
-
 ## browser-automation
 
 **1 skills**
@@ -2865,6 +2870,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [crest](skills/operations-general/crest) | operations-general | ★★★★★ | Building engineer self-branding by turning technical contributions into a profes |
+
+## css
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
 
 ## custom-queries
 
@@ -5177,6 +5190,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo) |
+
+## web-platform
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
 
 ## webapp
 

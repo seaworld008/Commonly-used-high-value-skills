@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 293 skills**.
+A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 294 skills**.
 
 [Quick Start](#quick-start) · [Categories](#categories) · [Skill Overview](#skill-overview) · [Contributing](#contributing) · [Releases](docs/RELEASES.en.md)
 
@@ -281,10 +281,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ```
 
 <a id="skill-overview"></a>
-## Skill Overview (by category, 16 categories / 293 skills)
+## Skill Overview (by category, 16 categories / 294 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 52)
+### 1. Developer Engineering (developer-engineering, 53)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/): Design AI agent responsibilities, tools, memory, orchestration, and evaluation when defining an agent architecture or system contract.
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/): Use when reviewing API designs for consistency, usability, versioning, error semantics, security, backward compatibility, and developer experience before implementation or release.
@@ -311,6 +311,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`kubernetes-specialist`](./skills/developer-engineering/kubernetes-specialist/): Use when managing Kubernetes clusters, debugging Pods and workloads, designing Helm charts, reviewing manifests, or improving deployment, scaling, and observability practices.
 - [`mcp-builder`](./skills/developer-engineering/mcp-builder/): Build MCP servers that expose external APIs or services through well-scoped tools in Python or TypeScript.
 - [`migration-architect`](./skills/developer-engineering/migration-architect/): Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.
+- [`modern-web-guidance`](./skills/developer-engineering/modern-web-guidance/): Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript patterns, browser compatibility, accessibility and performance, or review legacy web patterns when modernization is requested.
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/): Inspect or improve Turborepo, Nx, pnpm, or Lerna monorepos: package boundaries, dependency graphs, selective tests, caching, and migrations.
 - [`neon-postgres`](./skills/developer-engineering/neon-postgres/): Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.
 - [`nextjs-app-router`](./skills/developer-engineering/nextjs-app-router/): Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when building Next.js applications, implementing SSR/SSG, or optimizing React Server Components.

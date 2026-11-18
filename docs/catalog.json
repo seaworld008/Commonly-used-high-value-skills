@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 293,
+  "total_skills": 294,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 52
+      "count": 53
     },
     {
       "name": "ai-workflow",
@@ -1992,6 +1992,28 @@
       "updated_at": "2026-11-17",
       "line_count": 490,
       "path": "skills/developer-engineering/migration-architect/SKILL.md"
+    },
+    {
+      "name": "modern-web-guidance",
+      "category": "developer-engineering",
+      "description": "Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript patterns, browser compatibility, accessibility and performance, or review legacy web patterns when modernization is requested.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "web-platform",
+        "browser",
+        "css",
+        "accessibility",
+        "performance"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-11-18",
+      "updated_at": "2026-11-18",
+      "line_count": 132,
+      "path": "skills/developer-engineering/modern-web-guidance/SKILL.md"
     },
     {
       "name": "monorepo-navigator",
