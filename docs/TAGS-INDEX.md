@@ -1188,7 +1188,7 @@
 |-------|----------|---------|-------------|
 | [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flam |
 | [react-native-engineering](skills/developer-engineering/react-native-engineering) | developer-engineering | ★★★★★ | Build, debug, upgrade, or ship React Native and Expo apps, including navigation, |
-| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Mandatory first step for all HTML/CSS and client-side JavaScript implementation  |
 | [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
 | [golang-performance](skills/developer-engineering/golang-performance) | developer-engineering | ★★★☆☆ | Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O. |
 
@@ -1451,7 +1451,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Mandatory first step for all HTML/CSS and client-side JavaScript implementation  |
 | [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
@@ -1773,7 +1773,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Mandatory first step for all HTML/CSS and client-side JavaScript implementation  |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
 
 ## checker
@@ -2877,7 +2877,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Mandatory first step for all HTML/CSS and client-side JavaScript implementation  |
 
 ## custom-queries
 
@@ -5197,7 +5197,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript  |
+| [modern-web-guidance](skills/developer-engineering/modern-web-guidance) | developer-engineering | ★★★★☆ | Mandatory first step for all HTML/CSS and client-side JavaScript implementation  |
 
 ## webapp
 

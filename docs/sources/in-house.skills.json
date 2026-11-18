@@ -5958,7 +5958,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1cfc0cfe647bbf3c9e05f5e13381c8b5f6286be6d4fa6dfb26ef6ecaae5a372e",
+            "content_sha256": "817dd94e036197bf569dd8a17752062292da5c3f39e68705d5f9f8394ac2ea15",
             "last_checked_at": "2026-11-18",
             "last_synced_at": "2026-11-18"
           }
@@ -5975,13 +5975,13 @@
         {
           "path": "skills/developer-engineering/modern-web-guidance/SKILL.md",
           "owner": "modern-web-guidance",
-          "sha256": "1cfc0cfe647bbf3c9e05f5e13381c8b5f6286be6d4fa6dfb26ef6ecaae5a372e",
+          "sha256": "817dd94e036197bf569dd8a17752062292da5c3f39e68705d5f9f8394ac2ea15",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/modern-web-guidance/references/maintenance.md",
           "owner": "modern-web-guidance",
-          "sha256": "1161db33ea12dcba4f97698100e4c3672ef50ca0830411eaab155c640407557b",
+          "sha256": "571cd732f78712ff889fd7a2f3501833a0db9471cedbae3d654ca937ede958e4",
           "mode": "100644"
         }
       ]

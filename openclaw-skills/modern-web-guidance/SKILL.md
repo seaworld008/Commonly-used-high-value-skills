@@ -1,8 +1,8 @@
 ---
 name: modern-web-guidance
-description: 'Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript patterns, browser compatibility, accessibility and performance, or review legacy web patterns when modernization is requested.'
-zh_description: "按需检索 Google 现代 Web 指南，选择原生 HTML/CSS/API，核对浏览器兼容性、回退、无障碍与性能。"
-version: "1.0.0"
+description: 'Mandatory first step for all HTML/CSS and client-side JavaScript implementation or updates, including web patterns in frameworks: search Google Chrome Modern Web Guidance before coding.'
+zh_description: "所有 HTML/CSS 与客户端 JavaScript 实现或修改任务必须先检索 Google 现代 Web 指南，再编写代码；覆盖框架中的原生 Web 能力。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
@@ -21,14 +21,19 @@ The official source and scoped licensing are recorded in the maintenance referen
 
 ## When to use
 
-Use for a concrete web-platform choice: dialogs/popovers, responsive layout,
-forms, animation, accessibility, browser APIs or Core Web Vitals. Also use for
-an explicitly requested modernization audit of existing HTML/CSS/client JavaScript.
+For every HTML/CSS or client-side JavaScript implementation or update task,
+run the guidance search first, before writing code, ad-hoc solutions or adding
+dependencies. This preserves upstream's unconditional trigger within its web
+scope: do not skip because a task looks simple, uses a framework or seems familiar.
+It includes dialogs/popovers, tables, dark mode, responsive layout, animation,
+forms, accessibility, browser APIs, dates/timezones, sanitization and Core Web Vitals.
+Also use for an explicitly requested modernization audit of existing web code.
 It complements browser verification tools; it does not control a browser.
 
 Backend code, build configuration, copy edits and unrelated framework questions
 do not require a web-platform search. Follow the user's selected framework and
 browser support policy rather than expanding the task to every guide topic.
+If a mixed task includes client-side implementation, search before that part.
 
 ## Runner and version
 
@@ -42,7 +47,27 @@ npx --yes modern-web-guidance@1.0.1 --version
 npx --yes modern-web-guidance@1.0.1 --help
 ```
 
-On Windows the executable may be `npx.cmd`. The command can download a package;
+### Pre-execution approval and network access
+
+Preserve upstream's proactive approval rule: before the first execution, check
+the host's sandbox/network policy and whether the task already authorizes the
+runner and its outbound access. In an approval-gated environment with missing
+authorization, request approval/allowlisting with network access before running;
+do not first launch a command that cannot access the network and wait for a timeout.
+Scope approval to `npx --yes modern-web-guidance@1.0.1 *`, or the host's equivalent
+exact argument rule. Never request a blanket `npx *` or `pnpx *` allowlist.
+Prefer `pnpx modern-web-guidance@1.0.1` if pnpm is available; it does not need `-y`.
+
+Existing session authorization satisfies this check; do not ask the user again.
+An unrestricted host needs no new approval. A host that disables approval requests
+must use its allowed execution path or report the blocked retrieval; this skill
+does not override host policy. The same rule applies in Codex and Claude Code.
+If the normal npm cache is read-only, set `NPM_CONFIG_CACHE` to a task-owned writable
+directory appropriate to the host. Offline, try the cached runner with
+`npx --offline --yes modern-web-guidance@1.0.1 search "<query>"`; otherwise report
+the unchecked guidance and continue independent work.
+
+On Windows the executable is typically `npx.cmd`. The command can download a package;
 loading the skill alone is not an installation request. With no network/runner,
 complete independent work and identify which guidance was not checked.
 Do not run the CLI's `install`, `update`, or `uninstall` as a retrieval side effect:
