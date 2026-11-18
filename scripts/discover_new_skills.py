@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 from threading import Lock
+from email.utils import parsedate_to_datetime
 from time import sleep, time
 
 try:
@@ -259,6 +260,13 @@ def flatten_errors(source_health: dict[str, dict]) -> list[dict]:
     return errors
 
 
+def parse_http_date(value: str) -> float | None:
+    try:
+        return parsedate_to_datetime(value).timestamp()
+    except (TypeError, ValueError):
+        return None
+
+
 def rate_limit_delay(exc: urllib.error.HTTPError) -> float | None:
     """Return the wait before retrying a rate-limited response, or None if it is not one."""
     headers = exc.headers
@@ -267,12 +275,13 @@ def rate_limit_delay(exc: urllib.error.HTTPError) -> float | None:
     if exc.code != 429 and not (exc.code == 403 and (retry_after or remaining == "0")):
         return None
     delay = RATE_LIMIT_DEFAULT_DELAY
+    reset = headers.get("X-RateLimit-Reset") if headers else None
     if retry_after and retry_after.strip().isdigit():
         delay = float(retry_after)
-    else:
-        reset = headers.get("X-RateLimit-Reset") if headers else None
-        if reset and reset.strip().isdigit():
-            delay = float(reset) - time()
+    elif retry_after and (retry_at := parse_http_date(retry_after)) is not None:
+        delay = retry_at - time()
+    elif reset and reset.strip().isdigit():
+        delay = float(reset) - time()
     return min(max(delay, 1.0), RATE_LIMIT_MAX_DELAY)
 
 

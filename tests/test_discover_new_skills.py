@@ -153,6 +153,18 @@ class DiscoverNewSkillsTests(unittest.TestCase):
         self.assertEqual([7.0, module.RATE_LIMIT_DEFAULT_DELAY], waits)
         self.assertEqual([], health["github"]["errors"])
 
+    def test_rate_limit_delay_reads_http_date_retry_after(self):
+        from email.utils import formatdate
+
+        module = load_module()
+        module.time = lambda: 1_000_000.0
+
+        dated = self._http_error(module, 429, {"Retry-After": formatdate(1_000_040.0, usegmt=True)})
+        invalid = self._http_error(module, 429, {"Retry-After": "soon"})
+
+        self.assertEqual(40.0, module.rate_limit_delay(dated))
+        self.assertEqual(module.RATE_LIMIT_DEFAULT_DELAY, module.rate_limit_delay(invalid))
+
     def test_fetch_url_bounds_rate_limit_waits_and_skips_other_errors(self):
         module = load_module()
         waits = []
