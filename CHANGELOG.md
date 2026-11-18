@@ -8,7 +8,19 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v6.0.0..HEAD^`.
+变更范围 / Revision range: `v6.1.0..HEAD`.
+
+#### [2026-11-18]
+
+##### Changed
+- prioritize browser foundation updates and refresh browser skills
+<!-- AUTO-CHANGELOG:END -->
+
+## [6.1.0] - 2026-11-18
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v6.0.0..v6.1.0`.
 
 #### [2026-11-18]
 
@@ -42,7 +54,6 @@ All notable changes to this repository are documented here.
 
 ##### Fixed
 - align zh_description with English capability for 16 skills
-<!-- AUTO-CHANGELOG:END -->
 
 ## [6.0.0] - 2026-11-04
 

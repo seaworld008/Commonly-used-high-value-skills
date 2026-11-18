@@ -6,7 +6,7 @@ This file summarizes the main changes in each release. Full notes for every rele
 
 ## Latest Release
 
-**v6.1.0 Full portfolio review and provenance repair (2026-11-17)**: reviewed all 293 skills across 16 categories and corrected 235 entrypoints. Restored verified source and license lineage, rebuilt implementations without adequate source evidence, and fixed tool status, Office validation and atomic delivery behavior. Includes repeated independent review and layered validation. [Release notes](./releases/v6.1.0.md).
+**v6.2.0 Portfolio audit and evolving browser foundations (2026-11-18)**: combines the v6.1.0 audit of 293 skills and provenance/license repairs with agent-browser 0.43.0, DevTools and Playwright guidance. Adds priority foundation checks, ongoing drift tracking and reviewed baseline advancement to full maintenance and the weekly workflow. [Release notes](./releases/v6.2.0.md).
 
 When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## Recent Releases
+
+- [v6.1.0](./releases/v6.1.0.md) (2026-11-17): incorporated into v6.2.0; historical review evidence is retained.
 
 - [v6.0.0](./releases/v6.0.0.md) (2026-11-04): retired three duplicate entrypoints, retained 293 skills, and updated triggers, tool discovery and upstream checks.
 
