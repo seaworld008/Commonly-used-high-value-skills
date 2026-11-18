@@ -311,7 +311,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`kubernetes-specialist`](./skills/developer-engineering/kubernetes-specialist/)：用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。
 - [`mcp-builder`](./skills/developer-engineering/mcp-builder/)：开发连接外部服务的 MCP 工具服务器。
 - [`migration-architect`](./skills/developer-engineering/migration-architect/)：规划可回滚、低停机的数据和系统迁移。
-- [`modern-web-guidance`](./skills/developer-engineering/modern-web-guidance/)：按需检索 Google 现代 Web 指南，选择原生 HTML/CSS/API，核对浏览器兼容性、回退、无障碍与性能。
+- [`modern-web-guidance`](./skills/developer-engineering/modern-web-guidance/)：所有 HTML/CSS 与客户端 JavaScript 实现或修改任务必须先检索 Google 现代 Web 指南，再编写代码；覆盖框架中的原生 Web 能力。
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/)：分析多包仓库的依赖、构建、缓存和变更影响。
 - [`neon-postgres`](./skills/developer-engineering/neon-postgres/)：用于 Neon Postgres 数据库连接、分支、迁移和运行维护。
 - [`nextjs-app-router`](./skills/developer-engineering/nextjs-app-router/)：用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。

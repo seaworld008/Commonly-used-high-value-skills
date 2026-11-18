@@ -1996,8 +1996,8 @@
     {
       "name": "modern-web-guidance",
       "category": "developer-engineering",
-      "description": "Find and apply Google Chrome Modern Web Guidance for native HTML/CSS/JavaScript patterns, browser compatibility, accessibility and performance, or review legacy web patterns when modernization is requested.",
-      "version": "1.0.0",
+      "description": "Mandatory first step for all HTML/CSS and client-side JavaScript implementation or updates, including web patterns in frameworks: search Google Chrome Modern Web Guidance before coding.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2012,7 +2012,7 @@
       "complexity": "intermediate",
       "created_at": "2026-11-18",
       "updated_at": "2026-11-18",
-      "line_count": 132,
+      "line_count": 157,
       "path": "skills/developer-engineering/modern-web-guidance/SKILL.md"
     },
     {

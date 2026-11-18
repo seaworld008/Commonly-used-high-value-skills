@@ -1,8 +1,10 @@
 # Maintenance and licensing
 
-This skill adapts Google's retrieval and browser-support workflow. It does not
-install Google's plugin policy or import its global "run first"/approval rules.
-The implementation of a task remains governed by the current user and host.
+This skill adapts Google's retrieval and browser-support workflow, including its
+mandatory search-first trigger for all HTML/CSS and client-side JavaScript work
+and proactive pre-execution network approval in approval-gated environments.
+Existing session authorization is reused; the current user and host govern
+execution. These are retained skill rules, not changes to global host settings.
 
 Reviewed distribution commit: `64a6d708f5a43f2cd3fde5d4d7db3905ba1bdf65`.
 The original upstream entry is `skills/modern-web-guidance/SKILL.md`.
@@ -28,6 +30,8 @@ missing source or new release requires attention, not an automatic "current" res
 2. Separate guide-content changes, CLI/API changes, packaging changes and license
    changes. A documentation-only update may need a new review checkpoint without
    changing this entry's instruction text.
+   Preserve the upstream web-scope mandatory trigger and proactive approval rule;
+   check their host-specific adaptation rather than silently removing them.
 3. Recheck scoped licenses in README and LICENSE before copying new assets.
 4. For a new CLI version, check its help, one search and retrieval of a returned ID.
    Set `DISABLE_TELEMETRY=1` for those maintenance probes and use a generic query.

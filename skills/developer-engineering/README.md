@@ -42,7 +42,7 @@
 | `kubernetes-specialist` | 用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。 | [目录](./kubernetes-specialist/) | [SKILL.md](./kubernetes-specialist/SKILL.md) |
 | `mcp-builder` | 开发连接外部服务的 MCP 工具服务器。 | [目录](./mcp-builder/) | [SKILL.md](./mcp-builder/SKILL.md) |
 | `migration-architect` | 规划可回滚、低停机的数据和系统迁移。 | [目录](./migration-architect/) | [SKILL.md](./migration-architect/SKILL.md) |
-| `modern-web-guidance` | 按需检索 Google 现代 Web 指南，选择原生 HTML/CSS/API，核对浏览器兼容性、回退、无障碍与性能。 | [目录](./modern-web-guidance/) | [SKILL.md](./modern-web-guidance/SKILL.md) |
+| `modern-web-guidance` | 所有 HTML/CSS 与客户端 JavaScript 实现或修改任务必须先检索 Google 现代 Web 指南，再编写代码；覆盖框架中的原生 Web 能力。 | [目录](./modern-web-guidance/) | [SKILL.md](./modern-web-guidance/SKILL.md) |
 | `monorepo-navigator` | 分析多包仓库的依赖、构建、缓存和变更影响。 | [目录](./monorepo-navigator/) | [SKILL.md](./monorepo-navigator/SKILL.md) |
 | `neon-postgres` | 用于 Neon Postgres 数据库连接、分支、迁移和运行维护。 | [目录](./neon-postgres/) | [SKILL.md](./neon-postgres/SKILL.md) |
 | `nextjs-app-router` | 用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。 | [目录](./nextjs-app-router/) | [SKILL.md](./nextjs-app-router/SKILL.md) |
