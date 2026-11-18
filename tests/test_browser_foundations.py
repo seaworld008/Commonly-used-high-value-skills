@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 from unittest import mock
+from urllib.parse import urlsplit
 
 import pytest
 
@@ -25,7 +26,7 @@ def fixture():
     def fetch(url, token):
         if "git/trees" in url:
             return tree
-        if "registry.npmjs.org" in url:
+        if urlsplit(url).hostname == "registry.npmjs.org":
             assert token is None
             return {"version": "0.43.0"}
         return {"tag_name": "v0.43.0"}
