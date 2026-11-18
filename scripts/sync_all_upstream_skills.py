@@ -19,28 +19,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable or "python"
-POST_SYNC_PIPELINE = (
-    (PYTHON, "scripts/enrich_frontmatter.py"),
-    (PYTHON, "scripts/bootstrap_in_house_sources.py", "--write-json", "docs/sources/in-house.skills.json"),
-    (PYTHON, "scripts/refresh_repo_views.py"),
-    (PYTHON, "scripts/generate_tags_index.py"),
-    (PYTHON, "scripts/build_catalog_json.py"),
-    (PYTHON, "scripts/check_readme_sync.py"),
-    (PYTHON, "scripts/generate_sources_index.py"),
-    (PYTHON, "scripts/lint_skill_quality.py", "--min-lines", "50"),
-    (PYTHON, "scripts/validate_skill_sources.py"),
-    (
-        PYTHON,
-        "scripts/reconcile_artifact_inventory.py",
-        "--offline",
-        "--check-clean",
-        "--quiet",
-    ),
-    (PYTHON, "scripts/check_source_coverage.py", "--min-percent", "100"),
-    (PYTHON, "scripts/audit_skill_portfolio.py", "--check-policy"),
-    (PYTHON, "scripts/audit_licenses.py"),
-    (PYTHON, "-m", "pytest", "-q", "tests"),
-)
+POST_SYNC_PIPELINE = ((PYTHON, "scripts/validate_repository.py", "--refresh"),)
 
 
 def run(command: tuple[str, ...] | list[str], *, repo_root: Path) -> int:
@@ -75,6 +54,14 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     repo_root = Path(args.repo_root).resolve()
+    foundation_state = run(
+        (PYTHON, "scripts/check_browser_foundations.py"), repo_root=repo_root,
+    )
+    if foundation_state not in {0, 1, 2}:
+        foundation_state = 1
+    if args.apply and foundation_state:
+        print("Review browser foundation drift/failures before applying bulk updates.")
+        return foundation_state
     before = repository_digest(repo_root) if args.apply else None
 
     if args.apply:
@@ -108,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
             if run(command, repo_root=repo_root) != 0:
                 return 1
 
-    return sync_state
+    return 1 if 1 in {foundation_state, sync_state} else (foundation_state or sync_state)
 
 
 if __name__ == "__main__":

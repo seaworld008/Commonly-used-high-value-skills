@@ -17,7 +17,7 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `agent-browser` | 在授权浏览器会话中利用官方 agent-browser CLI 快照和 CDP 完成自动化验收。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
+| `agent-browser` | 使用 agent-browser 的任务会话、可访问性快照和元素引用完成网页自动化，并按已安装版本加载操作指引。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
 | `billing-automation` | 用于构建订阅计费、自动开票、续费生命周期和催收管理流程。 | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
 | `gh-address-comments` | 用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。 | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
 | `gh-fix-ci` | 读取 GitHub Actions 失败日志，修复 CI 并验证 PR 检查。 | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |

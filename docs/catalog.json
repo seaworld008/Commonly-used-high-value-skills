@@ -436,7 +436,7 @@
       "name": "browser-testing-with-devtools",
       "category": "ai-workflow",
       "description": "Inspect browser DOM, network, console, screenshots, and performance with Chrome DevTools MCP when validating or debugging web behavior.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
@@ -450,8 +450,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-11-17",
-      "line_count": 331,
+      "updated_at": "2026-11-18",
+      "line_count": 352,
       "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md"
     },
     {
@@ -2851,11 +2851,11 @@
     {
       "name": "agent-browser",
       "category": "engineering-workflow-automation",
-      "description": "Use when controlling authorized web pages with agent-browser CLI, accessibility snapshots, element references, or browser workflow verification.",
-      "version": "1.0.1",
-      "author": "vercel-labs/agent-browser",
+      "description": "Automate authorized web workflows with the agent-browser CLI: task sessions, accessibility snapshots, element references, forms, extraction and browser verification. Load guidance matching the installed CLI version.",
+      "version": "1.0.2",
+      "author": "vercel-labs/agent-browser; local curators",
       "source": "github:vercel-labs/agent-browser",
-      "source_url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core",
+      "source_url": "https://github.com/vercel-labs/agent-browser/tree/1cc19526f3641c8543d55aa6700e7c55b37ac356/skill-data/core",
       "tags": [
         "browser",
         "cdp",
@@ -2864,8 +2864,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-10-26",
-      "line_count": 118,
+      "updated_at": "2026-11-18",
+      "line_count": 120,
       "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md"
     },
     {
@@ -3014,7 +3014,7 @@
       "name": "playwright",
       "category": "engineering-workflow-automation",
       "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright/SKILL.md",
@@ -3026,8 +3026,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 147,
+      "updated_at": "2026-11-18",
+      "line_count": 153,
       "path": "skills/engineering-workflow-automation/playwright/SKILL.md"
     },
     {

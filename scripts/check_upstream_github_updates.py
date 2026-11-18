@@ -28,6 +28,7 @@ from sync_upstream import (  # noqa: E402
     resolve_github_token,
 )
 from provenance_v2 import atomic_write_json  # noqa: E402
+from check_browser_foundations import prioritize  # noqa: E402
 
 
 BUCKETS = (
@@ -239,7 +240,7 @@ def main() -> int:
 
     root = Path(__file__).resolve().parents[1]
     try:
-        skills = load_skills_with_upstream()
+        skills = prioritize(load_skills_with_upstream())
         load_error = None
     except Exception as exc:  # a failed inventory can never be reported fresh
         skills = []

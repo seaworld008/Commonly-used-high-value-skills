@@ -398,11 +398,12 @@ def _atomic_write_text(path: Path, content: str) -> None:
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temporary, path)
-        directory_fd = os.open(path.parent, os.O_RDONLY)
-        try:
-            os.fsync(directory_fd)
-        finally:
-            os.close(directory_fd)
+        if os.name != "nt":
+            directory_fd = os.open(path.parent, os.O_RDONLY)
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -412,6 +413,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--discovery", default="docs/sources/reports/discovery.json")
     parser.add_argument("--upstream", default="docs/sources/reports/upstream-check.json")
     parser.add_argument("--output", default="docs/sources/reports/sync-report.md")
+    parser.add_argument("--foundation", help="Required browser foundation check report when provided")
     args = parser.parse_args(argv)
     
     discovery_path = _resolve_path(args.discovery)
@@ -460,9 +462,23 @@ def main(argv: list[str] | None = None) -> int:
         or row.get("check_error")
         or row.get("change_type") == "unavailable"
     ]
+    foundation = None
+    foundation_status = "complete"
+    if args.foundation:
+        foundation, error = _read_json(_resolve_path(args.foundation), "browser foundations")
+        try:
+            if error:
+                raise ValueError(error)
+            from check_browser_foundations import validate_report
+            foundation_status = validate_report(foundation)
+        except ValueError as exc:
+            validation_errors.append(str(exc))
+            foundation_status = "failed"
+            foundation = None
     state = combine_state(
         discovery_status,
         upstream_status,
+        foundation_status,
     )
     
     has_updates = bool(new_skills or upstream_updates)
@@ -482,6 +498,14 @@ def main(argv: list[str] | None = None) -> int:
         lines.append("")
         for error in validation_errors:
             lines.append(f"- {escape_table_cell(error)}")
+        lines.append("")
+    if args.foundation:
+        lines.extend(["## Browser foundations (priority check)", "",
+                      f"State: `{foundation_status}`", "",
+                      "Host-managed Browser/Chrome/computer-use plugins require a separate runtime check; CI does not update or verify those application builds.", ""])
+        for row in (foundation or {}).get("rows", []):
+            lines.append(f"- **{escape_table_cell(row['id'])}** (`{row['state']}`): "
+                         + escape_table_cell("; ".join(row["reasons"]) or "checked current"))
         lines.append("")
     discovery_errors = (
         discovery.get("errors", []) if discovery_valid else []
@@ -539,7 +563,11 @@ def main(argv: list[str] | None = None) -> int:
         lines.append("")
     
     if not needs_attention:
-        lines.append("No new discoveries or upstream updates this week. All skills are up to date.")
+        lines.append(
+            "No new discoveries or upstream updates this week. Checked sources match reviewed baselines."
+            if args.foundation else
+            "No new discoveries or upstream updates this week. All skills are up to date."
+        )
         lines.append("")
     elif state == "failed" and not (new_skills or upstream_updates or upstream_reviews):
         lines.append(

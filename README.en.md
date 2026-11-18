@@ -410,7 +410,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-workflow-automation"></a>
 ### 4. Engineering Workflow Automation (engineering-workflow-automation, 12)
 
-- [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/): Use when controlling authorized web pages with agent-browser CLI, accessibility snapshots, element references, or browser workflow verification.
+- [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/): Automate authorized web workflows with the agent-browser CLI: task sessions, accessibility snapshots, element references, forms, extraction and browser verification. Load guidance matching the installed CLI version.
 - [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/): Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.
 - [`gh-address-comments`](./skills/engineering-workflow-automation/gh-address-comments/): Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.
 - [`gh-fix-ci`](./skills/engineering-workflow-automation/gh-fix-ci/): Inspect and fix failing GitHub Actions PR checks using gh logs and focused validation; report external-provider failures with their details URL.

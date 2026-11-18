@@ -26,6 +26,15 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Check browser foundations before discovery and bulk sync
+        id: foundations
+        run: |
+          rm -f docs/sources/reports/browser-foundations.json
+          python scripts/check_browser_foundations.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
       - name: Discover new skills from external sources
         id: discovery
         run: python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json
@@ -42,7 +51,7 @@ jobs:
 
       - name: Generate sync report
         id: report
-        run: python scripts/generate_sync_report.py --discovery docs/sources/reports/discovery.json --upstream docs/sources/reports/upstream-check.json --output docs/sources/reports/sync-report.md
+        run: python scripts/generate_sync_report.py --discovery docs/sources/reports/discovery.json --upstream docs/sources/reports/upstream-check.json --foundation docs/sources/reports/browser-foundations.json --output docs/sources/reports/sync-report.md
 
       - name: Reconcile weekly sync issue
         if: always()
