@@ -74,7 +74,7 @@
             "ref": "main",
             "resolved_commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "9131bae0a3c1ed20fccf1125f6960c55b3fc5399d1bf797f01cd18d59889ff7d",
+            "content_sha256": "644278d0461ff67042cd12ec35ff1a7f4d2a3b43d7d612227e262a4962e6980a",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -92,7 +92,7 @@
         {
           "path": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
           "owner": "billing-automation",
-          "sha256": "9131bae0a3c1ed20fccf1125f6960c55b3fc5399d1bf797f01cd18d59889ff7d",
+          "sha256": "644278d0461ff67042cd12ec35ff1a7f4d2a3b43d7d612227e262a4962e6980a",
           "mode": "100644"
         },
         {

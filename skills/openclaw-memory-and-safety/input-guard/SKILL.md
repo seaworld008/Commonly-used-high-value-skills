@@ -6,7 +6,7 @@ version: "1.1.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["guard", "input"]'
+tags: ["guard", "input"]
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
 quality: 5

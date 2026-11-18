@@ -7,7 +7,7 @@ author: Hermes Agent + Teknium
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md"
 license: MIT
-tags: '[hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]'
+tags: [hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

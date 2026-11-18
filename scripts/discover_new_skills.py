@@ -19,7 +19,8 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 from threading import Lock
-from time import sleep
+from email.utils import parsedate_to_datetime
+from time import sleep, time
 
 try:
     from provenance_v2 import atomic_write_json
@@ -72,6 +73,13 @@ SOURCE_GITHUB = "github"
 SOURCE_SKILLS_SH = "skills_sh"
 SOURCE_CLAWHUB = "clawhub"
 SOURCE_HEALTH_LOCK = Lock()
+# GitHub search allows about 10 code-search requests per minute.
+RATE_LIMIT_RETRIES = 2
+RATE_LIMIT_DEFAULT_DELAY = 30.0
+RATE_LIMIT_MAX_DELAY = 65.0
+# Total seconds one run may spend waiting, so retries cannot exhaust the job timeout.
+RATE_LIMIT_WAIT_BUDGET = 900.0
+_rate_limit_waited = 0.0
 
 
 def utc_now() -> datetime:
@@ -252,6 +260,44 @@ def flatten_errors(source_health: dict[str, dict]) -> list[dict]:
     return errors
 
 
+def parse_http_date(value: str) -> float | None:
+    try:
+        parsed = parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    if parsed.tzinfo is None:
+        # HTTP dates without a zone (asctime format) are GMT.
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.timestamp()
+
+
+def rate_limit_delay(exc: urllib.error.HTTPError) -> float | None:
+    """Return the wait before retrying a rate-limited response, or None if it is not one."""
+    headers = exc.headers
+    retry_after = headers.get("Retry-After") if headers else None
+    remaining = headers.get("X-RateLimit-Remaining") if headers else None
+    if exc.code != 429 and not (exc.code == 403 and (retry_after or remaining == "0")):
+        return None
+    delay = RATE_LIMIT_DEFAULT_DELAY
+    reset = headers.get("X-RateLimit-Reset") if headers else None
+    if retry_after and retry_after.strip().isdigit():
+        delay = float(retry_after)
+    elif retry_after and (retry_at := parse_http_date(retry_after)) is not None:
+        delay = retry_at - time()
+    elif reset and reset.strip().isdigit():
+        delay = float(reset) - time()
+    return min(max(delay, 1.0), RATE_LIMIT_MAX_DELAY)
+
+
+def reserve_rate_limit_wait(delay: float) -> bool:
+    global _rate_limit_waited
+    with SOURCE_HEALTH_LOCK:
+        if _rate_limit_waited + delay > RATE_LIMIT_WAIT_BUDGET:
+            return False
+        _rate_limit_waited += delay
+        return True
+
+
 def fetch_url(
     url: str,
     *,
@@ -259,6 +305,7 @@ def fetch_url(
     source_health: dict[str, dict],
     headers: dict | None = None,
     retries: int = 1,
+    rate_limit_retries: int = RATE_LIMIT_RETRIES,
 ) -> str | None:
     request_headers = {"User-Agent": "skills-discovery-bot"}
     if headers:
@@ -267,11 +314,23 @@ def fetch_url(
     record_query(source_health, source_key)
     req = urllib.request.Request(url, headers=request_headers)
     last_exc: Exception | None = None
-    for attempt in range(retries + 1):
+    attempt = 0
+    rate_limit_attempt = 0
+    while attempt <= retries:
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
                 return resp.read().decode("utf-8", errors="replace")
         except urllib.error.HTTPError as exc:
+            delay = rate_limit_delay(exc)
+            if (
+                delay is not None
+                and rate_limit_attempt < rate_limit_retries
+                and reserve_rate_limit_wait(delay)
+            ):
+                rate_limit_attempt += 1
+                print(f"  Rate limited by {url}; retrying in {delay:.0f}s", file=sys.stderr)
+                sleep(delay)
+                continue
             record_error(source_health, source_key, status_code=exc.code, message=str(exc))
             print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
             return None
@@ -282,6 +341,7 @@ def fetch_url(
 
         if attempt < retries:
             sleep(0.5 * (attempt + 1))
+        attempt += 1
 
     message = str(last_exc) if last_exc else "unknown error"
     record_error(source_health, source_key, status_code=None, message=message)

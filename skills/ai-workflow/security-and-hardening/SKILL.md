@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
+tags: ["agent", "ai", "engineering", "security-and-hardening", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-17"
 quality: 5

@@ -7,7 +7,7 @@ author: "OpenAI contributors; local curators"
 source: "https://github.com/openai/skills"
 source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/sentry/SKILL.md"
 license: "Apache-2.0"
-tags: '["security", "sentry"]'
+tags: ["security", "sentry"]
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
 quality: 4

@@ -7,7 +7,7 @@ author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/software-development/codebase-inspection/SKILL.md"
 license: MIT
-tags: '[LOC, Code Analysis, pygount, Codebase, Metrics, Repository]'
+tags: [LOC, Code Analysis, pygount, Codebase, Metrics, Repository]
 created_at: "2026-04-13"
 updated_at: "2026-08-31"
 quality: 4

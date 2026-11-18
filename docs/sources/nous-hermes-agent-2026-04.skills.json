@@ -59,7 +59,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "183b5ddd5fbc0e05a8545a862f0f015d369e15e0",
-            "content_sha256": "0e4871eafba1d0dd92daa739ff8aef79a2eef172e61744991486a9e7d4980769",
+            "content_sha256": "efd212a88d3c28f951768500ceb3abc105fe59ff3c8ff5b231e20ff9e05607d3",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -105,7 +105,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md",
           "owner": "llm-wiki",
-          "sha256": "0e4871eafba1d0dd92daa739ff8aef79a2eef172e61744991486a9e7d4980769",
+          "sha256": "efd212a88d3c28f951768500ceb3abc105fe59ff3c8ff5b231e20ff9e05607d3",
           "mode": "100644"
         },
         {
@@ -168,7 +168,7 @@
             "ref": "v0.23.2",
             "resolved_commit": "ae2a81ccc00e9b7c06301523e5bb09608397149c",
             "path_commit": "bbe745a1cf3ccda4524ebfddf6af75562cf7b87d",
-            "content_sha256": "d4c402cd65e8900f470beca9a7fb494320a5acfa97db75713ec2e5c81c53916c",
+            "content_sha256": "67047c054f620c627bcff21374907a9404941cf5f5714fa7c77dbb09060c1d4e",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -185,7 +185,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/hermes-agent/SKILL.md",
-          "sha256": "d4c402cd65e8900f470beca9a7fb494320a5acfa97db75713ec2e5c81c53916c",
+          "sha256": "67047c054f620c627bcff21374907a9404941cf5f5714fa7c77dbb09060c1d4e",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -371,7 +371,7 @@
             "ref": "7e53b3ef82c9074649230b572dfcc76d4b629058",
             "resolved_commit": "7e53b3ef82c9074649230b572dfcc76d4b629058",
             "path_commit": "7e53b3ef82c9074649230b572dfcc76d4b629058",
-            "content_sha256": "b95be7da9014d188724bf5cc85165de801eea74573f38750f76715a6892d035b",
+            "content_sha256": "0c2b88d87357608fb920144baa6977b71612abbec5b20184accb24bbc66a1c68",
             "last_checked_at": "2026-11-04",
             "last_synced_at": "2026-10-26",
             "license_checkpoint": {
@@ -389,7 +389,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/honcho/SKILL.md",
           "owner": "honcho",
-          "sha256": "b95be7da9014d188724bf5cc85165de801eea74573f38750f76715a6892d035b",
+          "sha256": "0c2b88d87357608fb920144baa6977b71612abbec5b20184accb24bbc66a1c68",
           "mode": "100644"
         },
         {
@@ -442,7 +442,7 @@
             "ref": "3636f64540a3d80c8425f195f46e53e940956cba",
             "resolved_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
             "path_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
-            "content_sha256": "4a7b35a6fa8c15db1c53504385efb538941066101d459293d71406d121d7d8db",
+            "content_sha256": "7929711bb2efdd2ec319f97c34eeab1f58645b55d060324726c1a17d201bea50",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13",
             "license_checkpoint": {
@@ -460,7 +460,7 @@
         {
           "path": "skills/ai-agent-platform/native-mcp/SKILL.md",
           "owner": "native-mcp",
-          "sha256": "4a7b35a6fa8c15db1c53504385efb538941066101d459293d71406d121d7d8db",
+          "sha256": "7929711bb2efdd2ec319f97c34eeab1f58645b55d060324726c1a17d201bea50",
           "mode": "100644"
         },
         {
@@ -512,7 +512,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0",
-            "content_sha256": "7eb5a51d0533dfe2aa16878abe9134965d8a948611eac36c868f6254e914aa7a",
+            "content_sha256": "2053610e49a261d38a5da019432c60703d51ad140bd68366fa2f5a437ac98996",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -530,7 +530,7 @@
         {
           "path": "skills/developer-engineering/codebase-inspection/SKILL.md",
           "owner": "codebase-inspection",
-          "sha256": "7eb5a51d0533dfe2aa16878abe9134965d8a948611eac36c868f6254e914aa7a",
+          "sha256": "2053610e49a261d38a5da019432c60703d51ad140bd68366fa2f5a437ac98996",
           "mode": "100644"
         },
         {
@@ -587,7 +587,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0",
-            "content_sha256": "d1c51c517bb775e97b0117679787e59af90007f1aaf38d04ba88afbde7100ba6",
+            "content_sha256": "34889be821124ce1d41a0175a9e61fe6f92b2b3d7d8ce52e55fa950f179b72b3",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -611,7 +611,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
           "owner": "arxiv",
-          "sha256": "d1c51c517bb775e97b0117679787e59af90007f1aaf38d04ba88afbde7100ba6",
+          "sha256": "34889be821124ce1d41a0175a9e61fe6f92b2b3d7d8ce52e55fa950f179b72b3",
           "mode": "100644"
         },
         {
@@ -664,7 +664,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a",
-            "content_sha256": "e5b8ef8a6b5a454f95ec0f243cf7a208755e80ef544103e71b69b93cd9e99547",
+            "content_sha256": "156c759402d9840c5095c7366cd4b0f8c904cce8c5994fc9cbe8043f305ca5ea",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -682,7 +682,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md",
           "owner": "obsidian",
-          "sha256": "e5b8ef8a6b5a454f95ec0f243cf7a208755e80ef544103e71b69b93cd9e99547",
+          "sha256": "156c759402d9840c5095c7366cd4b0f8c904cce8c5994fc9cbe8043f305ca5ea",
           "mode": "100644"
         },
         {
@@ -734,7 +734,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813",
-            "content_sha256": "e6bc7bb0650355a0ec887ed53f4d2244998d4521ffd2f5bc4d393aa699235e40",
+            "content_sha256": "526ab6f4cc6fefc0dc6fed6523e54b7a693e0fe872e5ec94f66d396db8354c6f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -752,7 +752,7 @@
         {
           "path": "skills/ai-agent-platform/mcporter/SKILL.md",
           "owner": "mcporter",
-          "sha256": "e6bc7bb0650355a0ec887ed53f4d2244998d4521ffd2f5bc4d393aa699235e40",
+          "sha256": "526ab6f4cc6fefc0dc6fed6523e54b7a693e0fe872e5ec94f66d396db8354c6f",
           "mode": "100644"
         },
         {
@@ -805,7 +805,7 @@
             "ref": "3636f64540a3d80c8425f195f46e53e940956cba",
             "resolved_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
             "path_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
-            "content_sha256": "834e300235009bcf3534328682515ae46e19bb9fb7b09146b5f530cb714418ce",
+            "content_sha256": "41265671c748f7308f678cba3ec62f930f20256bf436ce01bee366a9d794d786",
             "last_checked_at": "2026-05-19",
             "last_synced_at": "2026-05-19",
             "license_checkpoint": {
@@ -865,7 +865,7 @@
         },
         {
           "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
-          "sha256": "834e300235009bcf3534328682515ae46e19bb9fb7b09146b5f530cb714418ce",
+          "sha256": "41265671c748f7308f678cba3ec62f930f20256bf436ce01bee366a9d794d786",
           "owner": "linear",
           "mode": "100644"
         },

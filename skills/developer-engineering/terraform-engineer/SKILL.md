@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/jeffallan/claude-skills/terraform-engineer"
 license: "MIT"
-tags: '["development", "engineer", "terraform"]'
+tags: ["development", "engineer", "terraform"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

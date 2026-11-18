@@ -7,7 +7,7 @@ author: "Graphify-Labs"
 source: "github:Graphify-Labs/graphify"
 source_url: "https://github.com/Graphify-Labs/graphify/blob/18cd78f4b8c9698db861aa8d7ad1adbf3c836642/graphify/skill-codex.md"
 license: Apache-2.0
-tags: '["development", "graphify"]'
+tags: ["development", "graphify"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 5

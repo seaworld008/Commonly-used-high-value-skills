@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md"
 license: MIT
-tags: '["agents", "parallel", "workflow"]'
+tags: ["agents", "parallel", "workflow"]
 created_at: "2026-04-13"
 updated_at: "2026-09-07"
 quality: 4

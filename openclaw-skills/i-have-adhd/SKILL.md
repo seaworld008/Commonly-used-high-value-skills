@@ -7,7 +7,7 @@ author: "ayghri"
 source: "github:ayghri/i-have-adhd"
 source_url: "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md"
 license: MIT
-tags: '["adhd", "productivity", "communication", "output-style"]'
+tags: ["adhd", "productivity", "communication", "output-style"]
 created_at: "2026-09-18"
 updated_at: "2026-10-16"
 quality: 4

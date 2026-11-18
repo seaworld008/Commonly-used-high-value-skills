@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "adapted-from-hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md"
 license: "MIT"
-tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
+tags: ["graphql", "issues", "linear", "mcp", "productivity", "project-management"]
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
 quality: 4

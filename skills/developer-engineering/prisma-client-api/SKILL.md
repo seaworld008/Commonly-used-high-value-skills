@@ -7,7 +7,7 @@ author: Prisma
 source: "github:prisma/skills"
 source_url: "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api"
 license: MIT
-tags: '["prisma", "database", "typescript", "transactions", "migration"]'
+tags: ["prisma", "database", "typescript", "transactions", "migration"]
 created_at: "2026-09-22"
 updated_at: "2026-09-22"
 quality: 4

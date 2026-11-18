@@ -7,7 +7,7 @@ author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary"
 license: MIT
-tags: '[feishu, lark, lark-cli, meetings, summary]'
+tags: [feishu, lark, lark-cli, meetings, summary]
 created_at: "2026-05-19"
 updated_at: "2026-11-17"
 quality: 4

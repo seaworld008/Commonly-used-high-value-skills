@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "engineering", "source-driven-development", "workflow"]'
+tags: ["agent", "ai", "engineering", "source-driven-development", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-17"
 quality: 4

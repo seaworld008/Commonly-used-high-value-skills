@@ -36,10 +36,15 @@ class RepoValidationWorkflowTests(unittest.TestCase):
 
         job_commands = run_commands(job)
         commands = "\n".join(job_commands)
-        self.assertTrue(any(
-            set("pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py".split()).issubset(command.split())
-            and "pip install" in command for command in job_commands
-        ))
+        self.assertIn("python -m pip install -r requirements-dev.txt", job_commands)
+        requirements = {
+            line.strip()
+            for line in (REPO_ROOT / "requirements-dev.txt").read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.startswith("#")
+        }
+        self.assertTrue(
+            set("pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py".split()).issubset(requirements)
+        )
         self.assertEqual(1, job_commands.count("python scripts/validate_repository.py --refresh"))
         # Validate the delegated gate list as well as workflow wiring, so a gate
         # cannot disappear unnoticed when moving commands between local and CI.
@@ -83,7 +88,7 @@ class RepoValidationWorkflowTests(unittest.TestCase):
 
         job_commands = run_commands(job)
         commands = "\n".join(job_commands)
-        self.assertTrue(any(set("pyyaml pytest".split()).issubset(command.split()) and "pip install" in command for command in job_commands))
+        self.assertIn("python -m pip install -r requirements-dev.txt", job_commands)
         self.assertIn(
             "python -m pytest -q tests/test_provenance_v2.py",
             job_commands,

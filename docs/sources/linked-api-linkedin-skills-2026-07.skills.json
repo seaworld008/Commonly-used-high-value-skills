@@ -64,7 +64,7 @@
             "ref": "main",
             "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
             "path_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
-            "content_sha256": "c1462f73b4b0ab772d17c9db390e95f6cd90381566c5317cb55e5684917cec38",
+            "content_sha256": "6fb203b7fa50d12508bb689ec24fa7e32541dde857fd645c9f2cbca80174319b",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -121,7 +121,7 @@
         {
           "path": "skills/operations-general/linkedin/SKILL.md",
           "owner": "linkedin",
-          "sha256": "c1462f73b4b0ab772d17c9db390e95f6cd90381566c5317cb55e5684917cec38",
+          "sha256": "6fb203b7fa50d12508bb689ec24fa7e32541dde857fd645c9f2cbca80174319b",
           "mode": "100644"
         }
       ]
@@ -332,7 +332,7 @@
             "ref": "main",
             "resolved_commit": "afa06fde1faf7796a99708c7b543ee8ec50f3820",
             "path_commit": "f80e7c3df48e0eb12aaea2a8ca571d7ad233d919",
-            "content_sha256": "ec54f0023dee0498cbcbe667eb60718090af3d6202ec7d45faa861d68d01dc38",
+            "content_sha256": "1abdabe52410e44c0ad6c63f5058d677b8b2720fec655993aa44404288526b3a",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -411,7 +411,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
           "owner": "linkedin-growth",
-          "sha256": "ec54f0023dee0498cbcbe667eb60718090af3d6202ec7d45faa861d68d01dc38",
+          "sha256": "1abdabe52410e44c0ad6c63f5058d677b8b2720fec655993aa44404288526b3a",
           "mode": "100644"
         },
         {

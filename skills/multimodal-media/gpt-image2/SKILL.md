@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: MIT
-tags: '["codex", "gpt-image-2", "image-generation", "multimodal"]'
+tags: ["codex", "gpt-image-2", "image-generation", "multimodal"]
 created_at: "2026-06-24"
 updated_at: "2026-11-17"
 quality: 4

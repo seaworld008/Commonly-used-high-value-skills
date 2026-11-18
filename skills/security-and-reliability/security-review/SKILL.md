@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: "MIT"
-tags: '["security", "code-review", "application-security", "vulnerability"]'
+tags: ["security", "code-review", "application-security", "vulnerability"]
 created_at: "2026-11-17"
 updated_at: "2026-11-17"
 quality: 4

@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/observability-and-instrumentation/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "engineering", "observability-and-instrumentation", "workflow"]'
+tags: ["agent", "ai", "engineering", "observability-and-instrumentation", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-10-16"
 quality: 5

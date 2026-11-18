@@ -7,7 +7,7 @@ author: seaworld008
 source: github:firebase/agent-skills
 source_url: "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor"
 license: Apache-2.0
-tags: '[firebase, firestore, cloud-storage, security-rules, authorization, appsec]'
+tags: [firebase, firestore, cloud-storage, security-rules, authorization, appsec]
 created_at: "2026-07-06"
 updated_at: "2026-11-17"
 quality: 4

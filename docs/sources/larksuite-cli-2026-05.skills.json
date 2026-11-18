@@ -135,7 +135,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
-            "content_sha256": "c9171a28f659e022af1e7d7881862d570664478bcf40cd951146fbc857e7509e",
+            "content_sha256": "d64f09302d9c28d9f07590a068a6aabc833733d7626ecbdfdbde43de14855387",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -175,7 +175,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md",
           "owner": "lark-approval",
-          "sha256": "c9171a28f659e022af1e7d7881862d570664478bcf40cd951146fbc857e7509e",
+          "sha256": "d64f09302d9c28d9f07590a068a6aabc833733d7626ecbdfdbde43de14855387",
           "mode": "100644"
         },
         {
@@ -324,7 +324,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "69ae326d01a9163ca22408c746e052003cf0af2c",
-            "content_sha256": "0b18d8754318500fe67117d66b74a2b8d51b5d03f495cba613507160e0726943",
+            "content_sha256": "66170b3fa44982a6115d4372dae246719bc905ba8671f4361d8e597f9c8079ab",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -342,7 +342,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
           "owner": "lark-attendance",
-          "sha256": "0b18d8754318500fe67117d66b74a2b8d51b5d03f495cba613507160e0726943",
+          "sha256": "66170b3fa44982a6115d4372dae246719bc905ba8671f4361d8e597f9c8079ab",
           "mode": "100644"
         },
         {
@@ -395,7 +395,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d",
-            "content_sha256": "ed10ddea288e7b255022df763668d5b087b3379a50cfc15e639a3e4f090e99f4",
+            "content_sha256": "c23ff848a2f51f51b6317099c034a3e013e83d30d7acc8f6c0c9f2a56cbdf8e4",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -413,7 +413,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md",
           "owner": "lark-base",
-          "sha256": "ed10ddea288e7b255022df763668d5b087b3379a50cfc15e639a3e4f090e99f4",
+          "sha256": "c23ff848a2f51f51b6317099c034a3e013e83d30d7acc8f6c0c9f2a56cbdf8e4",
           "mode": "100644"
         },
         {
@@ -658,7 +658,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
-            "content_sha256": "b79f278326eef5ab12906c2696b6e3c0b465371f536774109886ae70bdea2e8a",
+            "content_sha256": "9038c145e82c996163d932fbbeddeced55fe3a91702a3581ca4c0a98776abd58",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -676,7 +676,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md",
           "owner": "lark-calendar",
-          "sha256": "b79f278326eef5ab12906c2696b6e3c0b465371f536774109886ae70bdea2e8a",
+          "sha256": "9038c145e82c996163d932fbbeddeced55fe3a91702a3581ca4c0a98776abd58",
           "mode": "100644"
         },
         {
@@ -813,7 +813,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "87be09ef5f227c7b63d5eba40649544b5bec0133",
-            "content_sha256": "1c2280b2d6de9f9f758cbcd6cea321e51adb0b999185fabafd95bd5ee5333569",
+            "content_sha256": "c897642145d8354109a5039b1132bcfb958ab18a55f587b1dabede049fcc5f7c",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -831,7 +831,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md",
           "owner": "lark-contact",
-          "sha256": "1c2280b2d6de9f9f758cbcd6cea321e51adb0b999185fabafd95bd5ee5333569",
+          "sha256": "c897642145d8354109a5039b1132bcfb958ab18a55f587b1dabede049fcc5f7c",
           "mode": "100644"
         },
         {
@@ -907,7 +907,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "97f0dabe7b046f45cfd820453b8305aeed47a601",
-            "content_sha256": "26bf5ad96cc4409275f3a94a53201366783048c093d31e4874256a78bb810846",
+            "content_sha256": "df46d9645c04037faab6e75fac48d5140f01f0401c4e028082da63e967d57052",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -925,7 +925,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
           "owner": "lark-doc",
-          "sha256": "26bf5ad96cc4409275f3a94a53201366783048c093d31e4874256a78bb810846",
+          "sha256": "df46d9645c04037faab6e75fac48d5140f01f0401c4e028082da63e967d57052",
           "mode": "100644"
         },
         {
@@ -1236,7 +1236,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
-            "content_sha256": "436b2f3a54f862680b217e6f9e801c96a93846c9b1f860a2e61dec8464a08b78",
+            "content_sha256": "8165b0811a8b687a0244dca267c82887ee4a6481eae377da5abbc8b622cb38ce",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1254,7 +1254,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md",
           "owner": "lark-drive",
-          "sha256": "436b2f3a54f862680b217e6f9e801c96a93846c9b1f860a2e61dec8464a08b78",
+          "sha256": "8165b0811a8b687a0244dca267c82887ee4a6481eae377da5abbc8b622cb38ce",
           "mode": "100644"
         },
         {
@@ -1667,7 +1667,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "ecfe7f3f5af7bf844af858e52c21386eb68fee46",
-            "content_sha256": "2f03af84d5868181f1eed59cc5a438a56e69cc7c83e4ecc5d401be22d7eb7925",
+            "content_sha256": "96a1c07a0974a4f4d76c4e6e846f11d9b7725cdd9aa48607088213b8b112d236",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1685,7 +1685,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md",
           "owner": "lark-event",
-          "sha256": "2f03af84d5868181f1eed59cc5a438a56e69cc7c83e4ecc5d401be22d7eb7925",
+          "sha256": "96a1c07a0974a4f4d76c4e6e846f11d9b7725cdd9aa48607088213b8b112d236",
           "mode": "100644"
         },
         {
@@ -1786,7 +1786,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "341ee384fd668a963a68382cb48f73b8143879be",
-            "content_sha256": "fa8ebbe0b3c89439ee8befe89d9d812304fdfffa3106a962f892b7688e56d442",
+            "content_sha256": "78e38d595e323780c96a13ec359001de34e5befcc7d21937fe8196a1807f43e8",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1804,7 +1804,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md",
           "owner": "lark-im",
-          "sha256": "fa8ebbe0b3c89439ee8befe89d9d812304fdfffa3106a962f892b7688e56d442",
+          "sha256": "78e38d595e323780c96a13ec359001de34e5befcc7d21937fe8196a1807f43e8",
           "mode": "100644"
         },
         {
@@ -2387,7 +2387,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-            "content_sha256": "d3af67180ccf357f23daab8ad392b937f57fb964bbae441edce1969d56885217",
+            "content_sha256": "8fb37479ac2ff044a7dfe467c759e9c69b2ab4573ebd0e8ad146c41988197768",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2427,7 +2427,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
           "owner": "lark-mail",
-          "sha256": "d3af67180ccf357f23daab8ad392b937f57fb964bbae441edce1969d56885217",
+          "sha256": "8fb37479ac2ff044a7dfe467c759e9c69b2ab4573ebd0e8ad146c41988197768",
           "mode": "100644"
         },
         {
@@ -2690,7 +2690,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-            "content_sha256": "1ca8a9884eba99ede46d48723a27e36e64e26860531c349124dd92013c446ab5",
+            "content_sha256": "5214976284003e717d442dbc09e56db320b8d2ee0020a88edf971cfb472dfe3f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2708,7 +2708,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md",
           "owner": "lark-markdown",
-          "sha256": "1ca8a9884eba99ede46d48723a27e36e64e26860531c349124dd92013c446ab5",
+          "sha256": "5214976284003e717d442dbc09e56db320b8d2ee0020a88edf971cfb472dfe3f",
           "mode": "100644"
         },
         {
@@ -2907,7 +2907,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
-            "content_sha256": "47ed7b12c2da096576aca84d17e6b2b0e9840b16c97501ef17c1300b818e993e",
+            "content_sha256": "94dbf85d02bede750ca30d7ef4bc9ed756cf6e372b8bffda74de9cfa2ed1c712",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2957,7 +2957,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md",
           "owner": "lark-okr",
-          "sha256": "47ed7b12c2da096576aca84d17e6b2b0e9840b16c97501ef17c1300b818e993e",
+          "sha256": "94dbf85d02bede750ca30d7ef4bc9ed756cf6e372b8bffda74de9cfa2ed1c712",
           "mode": "100644"
         },
         {
@@ -3166,7 +3166,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
-            "content_sha256": "b9660015848972421af957f073fb1a41857e40ca34da648f1d528c936b9066ef",
+            "content_sha256": "d4146beaa215a46a625716c4a70522e581aa155ea237b4028410cc41cde69080",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -3184,7 +3184,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md",
           "owner": "lark-openapi-explorer",
-          "sha256": "b9660015848972421af957f073fb1a41857e40ca34da648f1d528c936b9066ef",
+          "sha256": "d4146beaa215a46a625716c4a70522e581aa155ea237b4028410cc41cde69080",
           "mode": "100644"
         },
         {
@@ -3237,7 +3237,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "74991aa69d997506a196bb8fa514f435b4e9aa60",
-            "content_sha256": "77359a32b72f22c9bb3e612babdbe559a6d2c542b1cb6effc3669a6e4c767b16",
+            "content_sha256": "f8fd9c32a49c4fb3dd16e1c42fc3c46ef3bebb34983aee2f966c5c53bb4d6f82",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -3255,7 +3255,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md",
           "owner": "lark-shared",
-          "sha256": "77359a32b72f22c9bb3e612babdbe559a6d2c542b1cb6effc3669a6e4c767b16",
+          "sha256": "f8fd9c32a49c4fb3dd16e1c42fc3c46ef3bebb34983aee2f966c5c53bb4d6f82",
           "mode": "100644"
         },
         {
@@ -3489,7 +3489,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b",
-            "content_sha256": "8765a5261dd91e3df2d9f89d2cdbed3e2ee49ad88104d9f5c77bc7c54f5bb3f4",
+            "content_sha256": "957015364ee2c7aeadd5d2c08c7cf90d28f1cd7a178d908bc74bdefcfc2ced95",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -3542,7 +3542,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
           "owner": "lark-sheets",
-          "sha256": "8765a5261dd91e3df2d9f89d2cdbed3e2ee49ad88104d9f5c77bc7c54f5bb3f4",
+          "sha256": "957015364ee2c7aeadd5d2c08c7cf90d28f1cd7a178d908bc74bdefcfc2ced95",
           "mode": "100644"
         },
         {
@@ -3781,7 +3781,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
-            "content_sha256": "b6212423c4085a22e2338ec2cdf7a37fba8dfd97615348c4f3fb589b7f5f4f27",
+            "content_sha256": "c1d84e211b3d0de83897017d80bdd5d67fbf46c44bb3879cd7b6f996f6712ea3",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -3799,7 +3799,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md",
           "owner": "lark-skill-maker",
-          "sha256": "b6212423c4085a22e2338ec2cdf7a37fba8dfd97615348c4f3fb589b7f5f4f27",
+          "sha256": "c1d84e211b3d0de83897017d80bdd5d67fbf46c44bb3879cd7b6f996f6712ea3",
           "mode": "100644"
         },
         {
@@ -4092,7 +4092,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "content_sha256": "88fe6a4e9ceb4d251ed89b6c7a0e61524e6d9fbd5ac1730f0881a3a48ee3bfe4",
+            "content_sha256": "2adc6775300f5acc81ed5a31423045c7cd7d08a4713a515e5ddfc8290f540e4d",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -4132,7 +4132,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
           "owner": "lark-slides",
-          "sha256": "88fe6a4e9ceb4d251ed89b6c7a0e61524e6d9fbd5ac1730f0881a3a48ee3bfe4",
+          "sha256": "2adc6775300f5acc81ed5a31423045c7cd7d08a4713a515e5ddfc8290f540e4d",
           "mode": "100644"
         },
         {
@@ -4479,7 +4479,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "daeed8575c9393f7ed633f39e69a6b47c60fa658",
-            "content_sha256": "712be6fc26b37229793dd3f0bbad8402df91ff049f18895b7780a59632fd8e05",
+            "content_sha256": "5e72d979b3a1941780b8fe41c67d65f84945730b735f46930c368d4eb8919693",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -4497,7 +4497,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
           "owner": "lark-task",
-          "sha256": "712be6fc26b37229793dd3f0bbad8402df91ff049f18895b7780a59632fd8e05",
+          "sha256": "5e72d979b3a1941780b8fe41c67d65f84945730b735f46930c368d4eb8919693",
           "mode": "100644"
         },
         {
@@ -4658,7 +4658,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
-            "content_sha256": "02f9a192d1b4897f79028547df3dd53124ef5a4167b60f3a41dfb4d5545d03df",
+            "content_sha256": "b883131e245b3c01a60342be59ab4689439195466605ab3676c36b7ec420a82f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -4676,7 +4676,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md",
           "owner": "lark-whiteboard",
-          "sha256": "02f9a192d1b4897f79028547df3dd53124ef5a4167b60f3a41dfb4d5545d03df",
+          "sha256": "b883131e245b3c01a60342be59ab4689439195466605ab3676c36b7ec420a82f",
           "mode": "100644"
         },
         {
@@ -4909,7 +4909,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
-            "content_sha256": "9d2977ed2893b22aa4c2b0d9fe81777d734e799a4d9c82384cd842db8103c9a8",
+            "content_sha256": "304085bb808291cd02af9c854298b9b05913672d3d7458caed5d66c0f7192b7e",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -4927,7 +4927,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md",
           "owner": "lark-wiki",
-          "sha256": "9d2977ed2893b22aa4c2b0d9fe81777d734e799a4d9c82384cd842db8103c9a8",
+          "sha256": "304085bb808291cd02af9c854298b9b05913672d3d7458caed5d66c0f7192b7e",
           "mode": "100644"
         },
         {
@@ -5058,7 +5058,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
-            "content_sha256": "f4377e177ae3fa63ead241923ffe976d6d57b9cf4d998816d0a74e783c554524",
+            "content_sha256": "803ff5191389242135d5e140967f59fabdc130215b0b7ef18f105b44a7edd3e2",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -5076,7 +5076,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md",
           "owner": "lark-workflow-meeting-summary",
-          "sha256": "f4377e177ae3fa63ead241923ffe976d6d57b9cf4d998816d0a74e783c554524",
+          "sha256": "803ff5191389242135d5e140967f59fabdc130215b0b7ef18f105b44a7edd3e2",
           "mode": "100644"
         },
         {
@@ -5129,7 +5129,7 @@
             "ref": "main",
             "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "049ddf771b435e86a4f5a71e616336ec44341160",
-            "content_sha256": "a34aa3309b40b2d79a8e7ebb9e229f79d457606100e3b832cb0756a066b05329",
+            "content_sha256": "8762900a91df5535f7716f26d380749f6d2a39cb63dc7488bb7e0f78d3a3b75a",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -5147,7 +5147,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
           "owner": "lark-workflow-standup-report",
-          "sha256": "a34aa3309b40b2d79a8e7ebb9e229f79d457606100e3b832cb0756a066b05329",
+          "sha256": "8762900a91df5535f7716f26d380749f6d2a39cb63dc7488bb7e0f78d3a3b75a",
           "mode": "100644"
         },
         {

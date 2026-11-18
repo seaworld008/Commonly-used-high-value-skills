@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/SKILL.md"
 license: Apache-2.0
-tags: '["development", "neon", "postgres"]'
+tags: ["development", "neon", "postgres"]
 created_at: "2026-06-03"
 updated_at: "2026-11-17"
 quality: 5

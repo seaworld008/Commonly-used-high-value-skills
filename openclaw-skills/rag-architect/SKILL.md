@@ -6,7 +6,7 @@ version: "2.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["architect", "rag", "retrieval", "evaluation", "search"]'
+tags: ["architect", "rag", "retrieval", "evaluation", "search"]
 created_at: "2026-03-04"
 updated_at: "2026-09-06"
 quality: 5

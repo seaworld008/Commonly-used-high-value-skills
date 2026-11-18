@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
 license: MIT
-tags: '["best", "development", "postgres", "supabase"]'
+tags: ["best", "development", "postgres", "supabase"]
 created_at: "2026-05-05"
 updated_at: "2026-09-07"
 quality: 3

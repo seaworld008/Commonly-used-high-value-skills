@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:getsentry/skills"
 source_url: "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/gha-security-review/SKILL.md"
 license: Apache-2.0
-tags: '["gha", "review", "security"]'
+tags: ["gha", "review", "security"]
 created_at: "2026-06-21"
 updated_at: "2026-11-17"
 quality: 4

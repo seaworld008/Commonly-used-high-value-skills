@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/latch"
 license: MIT
-tags: '["automation", "latch", "workflow"]'
+tags: ["automation", "latch", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-17"
 quality: 5

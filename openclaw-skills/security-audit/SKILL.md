@@ -7,7 +7,7 @@ author: seaworld008
 source: github:cloudflare/security-audit-skill
 source_url: "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md"
 license: MIT
-tags: '[security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]'
+tags: [security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]
 created_at: "2026-07-20"
 updated_at: "2026-11-17"
 quality: 4

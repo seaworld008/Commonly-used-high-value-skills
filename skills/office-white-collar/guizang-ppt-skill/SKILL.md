@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:op7418/guizang-ppt-skill"
 source_url: "https://github.com/op7418/guizang-ppt-skill/blob/72837a8513d1145d800095fc3909d6d3057994b8/SKILL.md"
 license: MIT
-tags: '["ppt", "presentation", "html", "slides", "editorial", "magazine", "webgl"]'
+tags: ["ppt", "presentation", "html", "slides", "editorial", "magazine", "webgl"]
 created_at: "2026-04-28"
 updated_at: "2026-11-17"
 quality: 5

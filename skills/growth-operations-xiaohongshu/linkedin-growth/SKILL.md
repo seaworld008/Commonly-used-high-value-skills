@@ -7,7 +7,7 @@ author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth"
 license: MIT
-tags: '[linkedin, lead-generation, growth, outreach, automation]'
+tags: [linkedin, lead-generation, growth, outreach, automation]
 created_at: "2026-07-10"
 updated_at: "2026-11-17"
 quality: 5

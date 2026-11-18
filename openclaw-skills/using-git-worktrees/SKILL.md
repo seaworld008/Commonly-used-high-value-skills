@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md"
 license: MIT
-tags: '["git", "worktree", "workflow"]'
+tags: ["git", "worktree", "workflow"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

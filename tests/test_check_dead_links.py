@@ -26,6 +26,7 @@ class CheckDeadLinksTests(unittest.TestCase):
             "https://arxiv.org/abs/{id",
             "https://hooks\\.slack\\.com/services/[A-Z0-9",
             "https://staging.myapp.com",
+            "https://dashboard.agent-browser.localhost",
             "https://*.feishu.cn/minutes/obcnxxxxxxxxxxxxxxxxxxxx",
             "https://…/SKILL.md",
             "https://.../sheets/shtXXX",

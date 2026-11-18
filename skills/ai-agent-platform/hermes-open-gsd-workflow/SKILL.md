@@ -6,7 +6,7 @@ version: "1.0.2"
 author: seaworld008
 source: in-house
 source_url: ""
-tags: '[hermes, graphify, open-gsd, orchestration, routing]'
+tags: [hermes, graphify, open-gsd, orchestration, routing]
 created_at: "2026-08-20"
 updated_at: "2026-10-26"
 quality: 4

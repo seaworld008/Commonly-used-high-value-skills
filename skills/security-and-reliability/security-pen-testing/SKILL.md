@@ -7,7 +7,7 @@ author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/security-pen-testing/SKILL.md"
 license: MIT
-tags: '["security", "penetration-testing", "owasp", "vulnerability-scanning", "offensive-security", "agent-skill"]'
+tags: ["security", "penetration-testing", "owasp", "vulnerability-scanning", "offensive-security", "agent-skill"]
 created_at: "2026-06-01"
 updated_at: "2026-11-17"
 quality: 4

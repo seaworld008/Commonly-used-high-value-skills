@@ -81,7 +81,7 @@ complexity: intermediate
 
 ## 完整流水线
 
-在项目 Python 环境安装 `pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py`；使用一个顺序执行、失败即停的跨平台入口：
+使用 Python 3.11 或更高版本（CI 为 3.13），在项目 Python 环境运行 `python -m pip install -r requirements-dev.txt`；使用一个顺序执行、失败即停的跨平台入口：
 
 ```bash
 python scripts/validate_repository.py --refresh

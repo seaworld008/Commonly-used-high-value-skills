@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"
 license: MIT
-tags: '["skills", "authoring", "workflow"]'
+tags: ["skills", "authoring", "workflow"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

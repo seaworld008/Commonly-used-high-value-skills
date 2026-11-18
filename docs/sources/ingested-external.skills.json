@@ -75,7 +75,7 @@
             "ref": "main",
             "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
             "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396",
-            "content_sha256": "bcfbaa331272d594f3c98011553c087bc1c31000b20bd4347cf15ca471db8451",
+            "content_sha256": "1f250b08ab8a4615e0f6c0640467f1bc3fbc5038119aca6523753a8d8851bcc4",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "19db5f1b0ca65e277c158bd4c4263139ccfd859c",
@@ -99,7 +99,7 @@
         {
           "path": "skills/operations-general/i-have-adhd/SKILL.md",
           "owner": "i-have-adhd",
-          "sha256": "bcfbaa331272d594f3c98011553c087bc1c31000b20bd4347cf15ca471db8451",
+          "sha256": "1f250b08ab8a4615e0f6c0640467f1bc3fbc5038119aca6523753a8d8851bcc4",
           "mode": "100644"
         },
         {
@@ -198,7 +198,7 @@
             "ref": "main",
             "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
             "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca",
-            "content_sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
+            "content_sha256": "b373264b65365ab6c3d4a1a1ecb08e20c033c0e649245249e289f50d36c45cfe",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
@@ -222,7 +222,7 @@
         {
           "path": "skills/developer-engineering/prisma-client-api/SKILL.md",
           "owner": "prisma-client-api",
-          "sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
+          "sha256": "b373264b65365ab6c3d4a1a1ecb08e20c033c0e649245249e289f50d36c45cfe",
           "mode": "100644"
         },
         {
@@ -353,7 +353,7 @@
             "ref": "main",
             "resolved_commit": "a6f192959cf43b08aa330fe1ffca090267215812",
             "path_commit": "5011471f09700f1e13af69b6c334c7740869b4fc",
-            "content_sha256": "df682a599a443302ee0f8b552e5e1f3feadb6b57b6a7a1db0f806a97dcaa6859",
+            "content_sha256": "909b20e2a74e4a030fa3278a2b0eaa7b1349da9d2eb6bd641101fe5e3c3ce363",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
@@ -377,7 +377,7 @@
         {
           "path": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
           "owner": "prisma-upgrade-v7",
-          "sha256": "df682a599a443302ee0f8b552e5e1f3feadb6b57b6a7a1db0f806a97dcaa6859",
+          "sha256": "909b20e2a74e4a030fa3278a2b0eaa7b1349da9d2eb6bd641101fe5e3c3ce363",
           "mode": "100644"
         },
         {

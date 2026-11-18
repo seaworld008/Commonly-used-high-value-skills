@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist"
 license: "MIT"
-tags: '["development", "kubernetes", "specialist"]'
+tags: ["development", "kubernetes", "specialist"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

@@ -6,7 +6,7 @@ version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["find", "planning", "skills", "workflow"]'
+tags: ["find", "planning", "skills", "workflow"]
 created_at: "2026-03-15"
 updated_at: "2026-11-17"
 quality: 4

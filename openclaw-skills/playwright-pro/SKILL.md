@@ -7,7 +7,7 @@ author: seaworld008
 source: in-house
 source_url: "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro"
 license: MIT
-tags: '[playwright, e2e-testing, regression-testing, browser-automation, ci, flaky-tests, visual-regression, qa]'
+tags: [playwright, e2e-testing, regression-testing, browser-automation, ci, flaky-tests, visual-regression, qa]
 created_at: "2026-06-03"
 updated_at: "2026-06-03"
 quality: 4

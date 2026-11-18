@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect"
 license: "MIT"
-tags: '["architect", "aws", "development", "solution"]'
+tags: ["architect", "aws", "development", "solution"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

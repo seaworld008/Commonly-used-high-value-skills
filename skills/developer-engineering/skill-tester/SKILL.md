@@ -6,7 +6,7 @@ version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["development", "skill", "tester"]'
+tags: ["development", "skill", "tester"]
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
 quality: 5

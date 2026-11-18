@@ -7,7 +7,7 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "ci-cd-and-automation", "engineering", "workflow"]'
+tags: ["agent", "ai", "ci-cd-and-automation", "engineering", "workflow"]
 created_at: "2026-07-27"
 updated_at: "2026-11-17"
 quality: 5

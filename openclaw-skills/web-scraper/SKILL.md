@@ -6,7 +6,7 @@ version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["automation", "scraper", "web", "workflow"]'
+tags: ["automation", "scraper", "web", "workflow"]
 created_at: "2026-03-27"
 updated_at: "2026-09-22"
 quality: 4

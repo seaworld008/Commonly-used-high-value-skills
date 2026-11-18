@@ -8,13 +8,31 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v6.1.0..HEAD`.
+变更范围 / Revision range: `v6.2.0..HEAD`.
+
+#### [2026-11-18]
+
+##### Added
+- `modern-web-guidance` (developer-engineering) — modern-web-guidance
+
+##### Changed
+- curate Google Modern Web Guidance with continuous upstream monitoring
+
+##### Fixed
+- retain upstream web-first and pre-execution approval rules
+- record canonical LF digests for the curated guidance
+<!-- AUTO-CHANGELOG:END -->
+
+## [6.2.0] - 2026-11-18
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v6.1.0..v6.2.0`.
 
 #### [2026-11-18]
 
 ##### Changed
 - prioritize browser foundation updates and refresh browser skills
-<!-- AUTO-CHANGELOG:END -->
 
 ## [6.1.0] - 2026-11-18
 

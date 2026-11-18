@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/.agents/skills/lore/SKILL.md"
 license: MIT
-tags: '["knowledge", "lore"]'
+tags: ["knowledge", "lore"]
 created_at: "2026-07-27"
 updated_at: "2026-10-26"
 quality: 5

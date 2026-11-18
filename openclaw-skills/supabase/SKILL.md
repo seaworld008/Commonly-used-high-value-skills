@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md"
 license: MIT
-tags: '["development", "supabase"]'
+tags: ["development", "supabase"]
 created_at: "2026-06-03"
 updated_at: "2026-10-03"
 quality: 4

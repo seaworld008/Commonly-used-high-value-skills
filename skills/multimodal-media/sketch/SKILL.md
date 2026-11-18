@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/sketch"
 license: MIT
-tags: '["media", "sketch"]'
+tags: ["media", "sketch"]
 created_at: "2026-07-27"
 updated_at: "2026-09-06"
 quality: 5

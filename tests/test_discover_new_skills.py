@@ -108,6 +108,107 @@ class DiscoverNewSkillsTests(unittest.TestCase):
         self.assertEqual("rate_limited", rate_limited["kind"])
         self.assertEqual("not_found", not_found["kind"])
 
+    def _http_error(self, module, code, headers):
+        import email.message
+
+        message = email.message.Message()
+        for key, value in headers.items():
+            message[key] = value
+        return module.urllib.error.HTTPError("https://api.github.com/x", code, "limited", message, None)
+
+    def test_fetch_url_waits_and_retries_rate_limited_responses(self):
+        module = load_module()
+        health = module.new_source_health()
+        waits = []
+        responses = [
+            self._http_error(module, 429, {"Retry-After": "7"}),
+            self._http_error(module, 403, {"X-RateLimit-Remaining": "0"}),
+        ]
+
+        class Body:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+            def read(self):
+                return b"ok"
+
+        def fake_urlopen(request, timeout):
+            if responses:
+                raise responses.pop(0)
+            return Body()
+
+        module.sleep = waits.append
+        module.urllib.request.urlopen = fake_urlopen
+        try:
+            content = module.fetch_url("https://api.github.com/x", source_key="github", source_health=health)
+        finally:
+            import urllib.request
+
+            module.urllib.request.urlopen = urllib.request.urlopen
+
+        self.assertEqual("ok", content)
+        self.assertEqual([7.0, module.RATE_LIMIT_DEFAULT_DELAY], waits)
+        self.assertEqual([], health["github"]["errors"])
+
+    def test_rate_limit_delay_reads_http_date_retry_after(self):
+        from email.utils import formatdate
+
+        module = load_module()
+        module.time = lambda: 1_000_000.0
+
+        dated = self._http_error(module, 429, {"Retry-After": formatdate(1_000_040.0, usegmt=True)})
+        invalid = self._http_error(module, 429, {"Retry-After": "soon"})
+
+        self.assertEqual(40.0, module.rate_limit_delay(dated))
+        asctime = self._http_error(module, 429, {"Retry-After": "Mon Jan 12 13:47:20 1970"})
+        self.assertEqual(40.0, module.rate_limit_delay(asctime))
+        self.assertEqual(module.RATE_LIMIT_DEFAULT_DELAY, module.rate_limit_delay(invalid))
+
+    def test_fetch_url_bounds_rate_limit_waits_and_skips_other_errors(self):
+        module = load_module()
+        waits = []
+        module.sleep = waits.append
+
+        def always_limited(request, timeout):
+            raise self._http_error(module, 429, {"Retry-After": "600"})
+
+        def forbidden(request, timeout):
+            raise self._http_error(module, 403, {})
+
+        import urllib.request
+
+        original = urllib.request.urlopen
+        try:
+            module.urllib.request.urlopen = always_limited
+            health = module.new_source_health()
+            self.assertIsNone(
+                module.fetch_url("https://api.github.com/x", source_key="github", source_health=health)
+            )
+            self.assertEqual([module.RATE_LIMIT_MAX_DELAY] * module.RATE_LIMIT_RETRIES, waits)
+            self.assertEqual("rate_limited", health["github"]["errors"][0]["kind"])
+
+            waits.clear()
+            module.RATE_LIMIT_WAIT_BUDGET = module._rate_limit_waited + module.RATE_LIMIT_MAX_DELAY
+            health = module.new_source_health()
+            self.assertIsNone(
+                module.fetch_url("https://api.github.com/x", source_key="github", source_health=health)
+            )
+            self.assertEqual([module.RATE_LIMIT_MAX_DELAY], waits)
+
+            waits.clear()
+            module.urllib.request.urlopen = forbidden
+            health = module.new_source_health()
+            self.assertIsNone(
+                module.fetch_url("https://api.github.com/x", source_key="github", source_health=health)
+            )
+            self.assertEqual([], waits)
+            self.assertEqual("forbidden", health["github"]["errors"][0]["kind"])
+        finally:
+            module.urllib.request.urlopen = original
+
 
 if __name__ == "__main__":
     unittest.main()

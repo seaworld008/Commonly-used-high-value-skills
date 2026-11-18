@@ -41,7 +41,7 @@ IGNORE_HOSTS = {
     "your-org.com",
     "schemas.openxmlformats.org",
 }
-IGNORE_HOST_SUFFIXES = (".internal", ".example.com")
+IGNORE_HOST_SUFFIXES = (".internal", ".example.com", ".localhost")
 IGNORE_URL_SNIPPETS = (
     "${",
     "{zone_id",

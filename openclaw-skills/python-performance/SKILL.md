@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "skills.sh"
 source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/python-development/skills/python-performance-optimization/SKILL.md"
 license: "MIT"
-tags: '["development", "performance", "python"]'
+tags: ["development", "performance", "python"]
 created_at: "2026-03-27"
 updated_at: "2026-09-30"
 quality: 4

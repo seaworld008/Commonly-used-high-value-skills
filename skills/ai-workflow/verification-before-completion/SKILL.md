@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/verification-before-completion"
 license: MIT
-tags: '["verification", "workflow", "quality-gate"]'
+tags: ["verification", "workflow", "quality-gate"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4

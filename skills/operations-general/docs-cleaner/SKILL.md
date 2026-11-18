@@ -6,7 +6,7 @@ version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["cleaner", "docs", "productivity"]'
+tags: ["cleaner", "docs", "productivity"]
 created_at: "2026-03-04"
 updated_at: "2026-09-06"
 quality: 3

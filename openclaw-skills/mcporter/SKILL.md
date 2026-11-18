@@ -7,7 +7,7 @@ author: community
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mcp/mcporter/SKILL.md"
 license: MIT
-tags: '[MCP, Tools, API, Integrations, Interop]'
+tags: [MCP, Tools, API, Integrations, Interop]
 created_at: "2026-04-13"
 updated_at: "2026-08-31"
 quality: 4

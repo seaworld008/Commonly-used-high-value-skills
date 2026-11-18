@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
-tags: '["agent", "ai", "hub"]'
+tags: ["agent", "ai", "hub"]
 created_at: "2026-03-27"
 updated_at: "2026-11-17"
 quality: 4

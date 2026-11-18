@@ -23,8 +23,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/agent-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -113,9 +113,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fa853c04c553e2429b6ea2d3acc1eb3b610b6d28462ff6595322db1451fd9e1e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "f67d9e1ed2f12ca62c2841cc0dc4a917e2e7c28ee94722c5488c0c97e5ce87aa",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -129,7 +129,7 @@
         {
           "path": "skills/developer-engineering/agent-designer/SKILL.md",
           "owner": "agent-designer",
-          "sha256": "fa853c04c553e2429b6ea2d3acc1eb3b610b6d28462ff6595322db1451fd9e1e",
+          "sha256": "f67d9e1ed2f12ca62c2841cc0dc4a917e2e7c28ee94722c5488c0c97e5ce87aa",
           "mode": "100644"
         },
         {
@@ -217,8 +217,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/agent-workflow-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -242,9 +242,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fd0b63b44677f44fd43ff084eeea3d612cc0094982cf5b536ac9ebea6b60a9a8",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "3d01688550f8f5ed132ef0ed747a80f1b59f92eb0dc0efdb0e5ad7931ced85a2",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -252,7 +252,7 @@
         {
           "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md",
           "owner": "agent-workflow-designer",
-          "sha256": "fd0b63b44677f44fd43ff084eeea3d612cc0094982cf5b536ac9ebea6b60a9a8",
+          "sha256": "3d01688550f8f5ed132ef0ed747a80f1b59f92eb0dc0efdb0e5ad7931ced85a2",
           "mode": "100644"
         }
       ]
@@ -268,8 +268,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/agile-product-owner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -308,9 +308,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "281b80941a9914e4183aa5d590c941d70012add56ded15e0dcf56b4a2d0b81fd",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "233f64aeb4847a9611eff772375a670e6863dd2202393669cf439b028dc951c0",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -318,7 +318,7 @@
         {
           "path": "skills/product-design/agile-product-owner/SKILL.md",
           "owner": "agile-product-owner",
-          "sha256": "281b80941a9914e4183aa5d590c941d70012add56ded15e0dcf56b4a2d0b81fd",
+          "sha256": "233f64aeb4847a9611eff772375a670e6863dd2202393669cf439b028dc951c0",
           "mode": "100644"
         },
         {
@@ -352,8 +352,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/andrej-karpathy-skills",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-06-03",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -377,9 +377,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fd963edea5a86c658a26408b3cfcfab644e606372493000ab2b547f75e075ee4",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-06-03"
+            "content_sha256": "130df899569bed8db43be2b850fafc97dd3a7f9b00e9dc540b227a04198fa6a6",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -387,7 +387,7 @@
         {
           "path": "skills/ai-workflow/andrej-karpathy-skills/SKILL.md",
           "owner": "andrej-karpathy-skills",
-          "sha256": "fd963edea5a86c658a26408b3cfcfab644e606372493000ab2b547f75e075ee4",
+          "sha256": "130df899569bed8db43be2b850fafc97dd3a7f9b00e9dc540b227a04198fa6a6",
           "mode": "100644"
         }
       ]
@@ -403,8 +403,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/api-design-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -453,9 +453,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "bfc797d698eabb3e2a3341e3b37aedcd67ada2e63a9ddd33ea08082c16e7eb8c",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "500a8dee7569294af4b2874cc3640f38e5f113ef1f073c0d14ac8beafd29d050",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -463,7 +463,7 @@
         {
           "path": "skills/developer-engineering/api-design-reviewer/SKILL.md",
           "owner": "api-design-reviewer",
-          "sha256": "bfc797d698eabb3e2a3341e3b37aedcd67ada2e63a9ddd33ea08082c16e7eb8c",
+          "sha256": "500a8dee7569294af4b2874cc3640f38e5f113ef1f073c0d14ac8beafd29d050",
           "mode": "100644"
         },
         {
@@ -509,8 +509,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/api-test-suite-builder",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -539,9 +539,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2f259e8dfa1a6857e7b747582d02c5af723d3bf14d819bdab3fab29afd7b0dc1",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "2b67336a849aeb62cff2ed10b09aa7b0aacf0325d3789d1a2250290a8f660bc0",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -549,7 +549,7 @@
         {
           "path": "skills/developer-engineering/api-test-suite-builder/SKILL.md",
           "owner": "api-test-suite-builder",
-          "sha256": "2f259e8dfa1a6857e7b747582d02c5af723d3bf14d819bdab3fab29afd7b0dc1",
+          "sha256": "2b67336a849aeb62cff2ed10b09aa7b0aacf0325d3789d1a2250290a8f660bc0",
           "mode": "100644"
         },
         {
@@ -571,8 +571,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/app-store-optimization",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -681,9 +681,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1505d48d62a7d72de7cd4415aa8319f4b1821e2ab8359aec96f849876fee0842",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "dfd86f94a3560627a4768a64d2e832211ecacc268b9116769e85e9532089d7f7",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -703,7 +703,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md",
           "owner": "app-store-optimization",
-          "sha256": "1505d48d62a7d72de7cd4415aa8319f4b1821e2ab8359aec96f849876fee0842",
+          "sha256": "dfd86f94a3560627a4768a64d2e832211ecacc268b9116769e85e9532089d7f7",
           "mode": "100644"
         },
         {
@@ -809,8 +809,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/brainstorming",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -834,9 +834,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5c4a3ac38b41d7c3044f1b259a7a8a0b4204896d319ecda9063c3e163c13268e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "082198f978e0de5a6e6405ac8c69a980142091fa81aebe4af9cd017d0e27a75d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -844,7 +844,7 @@
         {
           "path": "skills/ai-workflow/brainstorming/SKILL.md",
           "owner": "brainstorming",
-          "sha256": "5c4a3ac38b41d7c3044f1b259a7a8a0b4204896d319ecda9063c3e163c13268e",
+          "sha256": "082198f978e0de5a6e6405ac8c69a980142091fa81aebe4af9cd017d0e27a75d",
           "mode": "100644"
         }
       ]
@@ -860,8 +860,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/campaign-analytics",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -940,9 +940,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fde028bf1d5916c6163e759b68ce2fd3814ff5e69f1d6d9925621da7bca3ad65",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "3a837525bd39830e716d3ec6cc5d3521b695acb5384835a336e13274fc51a774",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -950,7 +950,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/campaign-analytics/SKILL.md",
           "owner": "campaign-analytics",
-          "sha256": "fde028bf1d5916c6163e759b68ce2fd3814ff5e69f1d6d9925621da7bca3ad65",
+          "sha256": "3a837525bd39830e716d3ec6cc5d3521b695acb5384835a336e13274fc51a774",
           "mode": "100644"
         },
         {
@@ -1032,8 +1032,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/cli-demo-generator",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1097,9 +1097,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "836ec2c3c5d3f338dbb9b5ac0aef64631cc4007e27a3902d35309ba87d1816fa",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ddb04a1d72b9826c7469098743802fcd78facaed1b0058489772ec4e31776030",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1107,7 +1107,7 @@
         {
           "path": "skills/developer-engineering/cli-demo-generator/SKILL.md",
           "owner": "cli-demo-generator",
-          "sha256": "836ec2c3c5d3f338dbb9b5ac0aef64631cc4007e27a3902d35309ba87d1816fa",
+          "sha256": "ddb04a1d72b9826c7469098743802fcd78facaed1b0058489772ec4e31776030",
           "mode": "100644"
         },
         {
@@ -1171,8 +1171,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/cloudflare-troubleshooting",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1221,9 +1221,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d5023845b9398e20ef1f83d105fc174c20e8b5d953df41f71058790f60708f8b",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "c579c413a383c9d3c797e0c8f5032b5762f61c22bf136ea015de0536490e06e4",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1231,7 +1231,7 @@
         {
           "path": "skills/devops-sre/cloudflare-troubleshooting/SKILL.md",
           "owner": "cloudflare-troubleshooting",
-          "sha256": "d5023845b9398e20ef1f83d105fc174c20e8b5d953df41f71058790f60708f8b",
+          "sha256": "c579c413a383c9d3c797e0c8f5032b5762f61c22bf136ea015de0536490e06e4",
           "mode": "100644"
         },
         {
@@ -1277,8 +1277,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/codebase-onboarding",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1307,9 +1307,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "547d18dd6dc326d1e38cde6b9739c90717c1a9373f5dc57e84163db9e508e4ef",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "e25d46a07a4ee907c96e6f57efb5bef6d798b9aea259670413cb34c8515c8f40",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1317,7 +1317,7 @@
         {
           "path": "skills/developer-engineering/codebase-onboarding/SKILL.md",
           "owner": "codebase-onboarding",
-          "sha256": "547d18dd6dc326d1e38cde6b9739c90717c1a9373f5dc57e84163db9e508e4ef",
+          "sha256": "e25d46a07a4ee907c96e6f57efb5bef6d798b9aea259670413cb34c8515c8f40",
           "mode": "100644"
         },
         {
@@ -1339,8 +1339,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/codeql-security-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1364,9 +1364,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d8c67e91f6a90c2c1f1ab40fdce3567f170a17f256bb1659d2883a734bd5ba2b",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "1193689ce2f33f53fbe65a4ef4ba34bbba7700e692ccbc23479cc988e198209c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1374,7 +1374,7 @@
         {
           "path": "skills/security-and-reliability/codeql-security-scanner/SKILL.md",
           "owner": "codeql-security-scanner",
-          "sha256": "d8c67e91f6a90c2c1f1ab40fdce3567f170a17f256bb1659d2883a734bd5ba2b",
+          "sha256": "1193689ce2f33f53fbe65a4ef4ba34bbba7700e692ccbc23479cc988e198209c",
           "mode": "100644"
         }
       ]
@@ -1390,8 +1390,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/competitive-teardown",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1415,9 +1415,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "07d52eb08cbbe04c8546725345b3f0d06373f1b5b326a377f6fb5230501f50d2",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "bd7e490056cc76f46588fd3993f7ffeb797b5bcc5df5ea0c42f0d47fd1c1b2f8",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1425,7 +1425,7 @@
         {
           "path": "skills/product-design/competitive-teardown/SKILL.md",
           "owner": "competitive-teardown",
-          "sha256": "07d52eb08cbbe04c8546725345b3f0d06373f1b5b326a377f6fb5230501f50d2",
+          "sha256": "bd7e490056cc76f46588fd3993f7ffeb797b5bcc5df5ea0c42f0d47fd1c1b2f8",
           "mode": "100644"
         }
       ]
@@ -1441,8 +1441,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/competitors-analysis",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1486,9 +1486,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d24cfd86b87790b9448a693b5f794544ee6af25d475b69b024e828f0bb47bd8a",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "6ed95a9740ed26d0cb86f09d128186ce941e1f81d4009ad794e3260694971bfb",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1502,7 +1502,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md",
           "owner": "competitors-analysis",
-          "sha256": "d24cfd86b87790b9448a693b5f794544ee6af25d475b69b024e828f0bb47bd8a",
+          "sha256": "6ed95a9740ed26d0cb86f09d128186ce941e1f81d4009ad794e3260694971bfb",
           "mode": "100644"
         },
         {
@@ -1536,8 +1536,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/comps-valuation-analyst",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1576,9 +1576,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e939d14d721403719f3fa32cdcc750dbf768553eb595ae8291a4262d6bbd9216",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "ad9438e697b322b49e70fd08f3bf4b7bb569cc89aa95417ea77a790a325ced1d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1586,7 +1586,7 @@
         {
           "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md",
           "owner": "comps-valuation-analyst",
-          "sha256": "e939d14d721403719f3fa32cdcc750dbf768553eb595ae8291a4262d6bbd9216",
+          "sha256": "ad9438e697b322b49e70fd08f3bf4b7bb569cc89aa95417ea77a790a325ced1d",
           "mode": "100644"
         },
         {
@@ -1620,8 +1620,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/content-creator",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1690,9 +1690,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "31bdb93b98dcf52ed7f631361700b5167e76f9d399875b1f111d5d242aed8f1b",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "b2b2bb591347757f49b36987491f8f6c4aec9dfd3f3173b69d79fb25c7784105",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1700,7 +1700,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/content-creator/SKILL.md",
           "owner": "content-creator",
-          "sha256": "31bdb93b98dcf52ed7f631361700b5167e76f9d399875b1f111d5d242aed8f1b",
+          "sha256": "b2b2bb591347757f49b36987491f8f6c4aec9dfd3f3173b69d79fb25c7784105",
           "mode": "100644"
         },
         {
@@ -1770,8 +1770,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/database-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -1865,9 +1865,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "0d69740bba31dd51d016d50ccd3cc3373eed8048ff488c302bb0894daaafbcc2",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "40db6bfa0094bcb8f0d2e92e2e9a79090e040ed07f26b0f31be63aa180dd137c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -1881,7 +1881,7 @@
         {
           "path": "skills/developer-engineering/database-designer/SKILL.md",
           "owner": "database-designer",
-          "sha256": "0d69740bba31dd51d016d50ccd3cc3373eed8048ff488c302bb0894daaafbcc2",
+          "sha256": "40db6bfa0094bcb8f0d2e92e2e9a79090e040ed07f26b0f31be63aa180dd137c",
           "mode": "100644"
         },
         {
@@ -1975,8 +1975,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/database-schema-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2005,9 +2005,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "82ce3bef350bf3e281b724510687d52ab67003a62ec44e8329961b03ebf82a2b",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "e42e2fae776be2f3adda8d968174d3d10064b3c901023f01cac3430928e09564",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2015,7 +2015,7 @@
         {
           "path": "skills/developer-engineering/database-schema-designer/SKILL.md",
           "owner": "database-schema-designer",
-          "sha256": "82ce3bef350bf3e281b724510687d52ab67003a62ec44e8329961b03ebf82a2b",
+          "sha256": "e42e2fae776be2f3adda8d968174d3d10064b3c901023f01cac3430928e09564",
           "mode": "100644"
         },
         {
@@ -2037,8 +2037,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/deep-research",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2092,9 +2092,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7f96d68584a9ca162732e29a032622eb0e4b63690210ce040dc353c4f9f2b872",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "a30abbf8d8ffb5fe96f90d6f3baedd1d969960771a55b1b417e9645f0c01f089",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2108,7 +2108,7 @@
         {
           "path": "skills/ai-workflow/deep-research/SKILL.md",
           "owner": "deep-research",
-          "sha256": "7f96d68584a9ca162732e29a032622eb0e4b63690210ce040dc353c4f9f2b872",
+          "sha256": "a30abbf8d8ffb5fe96f90d6f3baedd1d969960771a55b1b417e9645f0c01f089",
           "mode": "100644"
         },
         {
@@ -2370,8 +2370,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/develop-web-game",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2430,9 +2430,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "43a65c1a557d427d4df3c3759c7021a5629ed1b8eb66a3bdd328ebcbacd442a9",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "3f2660d34c979f82299e7506a07c04014f1cfe728d16de10d7fb1e1485cc3bd3",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2446,7 +2446,7 @@
         {
           "path": "skills/ai-agent-platform/develop-web-game/SKILL.md",
           "owner": "develop-web-game",
-          "sha256": "43a65c1a557d427d4df3c3759c7021a5629ed1b8eb66a3bdd328ebcbacd442a9",
+          "sha256": "3f2660d34c979f82299e7506a07c04014f1cfe728d16de10d7fb1e1485cc3bd3",
           "mode": "100644"
         },
         {
@@ -2498,8 +2498,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/docs-cleaner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2533,9 +2533,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "252cb4eb6eda403f3eb36a8bb1998c0aef7e348c7e9d0351780cdbb2b6618420",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "0886625f2e5b152e85fc1223962f81f985a4edd07c8f75e27c2e1464bc029598",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2549,7 +2549,7 @@
         {
           "path": "skills/operations-general/docs-cleaner/SKILL.md",
           "owner": "docs-cleaner",
-          "sha256": "252cb4eb6eda403f3eb36a8bb1998c0aef7e348c7e9d0351780cdbb2b6618420",
+          "sha256": "0886625f2e5b152e85fc1223962f81f985a4edd07c8f75e27c2e1464bc029598",
           "mode": "100644"
         },
         {
@@ -2571,8 +2571,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/earnings-call-analyzer",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2611,9 +2611,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6bcd2d2a25056ef0ff9de06dcf68d4525ac75c0f854a1e99f762687cc6573220",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "77f14c1a8133d6aace56e285a80895f9068fb876f72c20095cf28224d6cf9b57",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2621,7 +2621,7 @@
         {
           "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md",
           "owner": "earnings-call-analyzer",
-          "sha256": "6bcd2d2a25056ef0ff9de06dcf68d4525ac75c0f854a1e99f762687cc6573220",
+          "sha256": "77f14c1a8133d6aace56e285a80895f9068fb876f72c20095cf28224d6cf9b57",
           "mode": "100644"
         },
         {
@@ -2655,8 +2655,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/env-secrets-manager",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2685,9 +2685,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7fc097f2f463f68a33aa857ea3ff1f77d7bc9eae00c9a37fc98a99302a873be8",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "d7141c0480cb76be139d41bb3153c12e75a51b5bcc7d1f58e74f9144f54c9a74",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2695,7 +2695,7 @@
         {
           "path": "skills/devops-sre/env-secrets-manager/SKILL.md",
           "owner": "env-secrets-manager",
-          "sha256": "7fc097f2f463f68a33aa857ea3ff1f77d7bc9eae00c9a37fc98a99302a873be8",
+          "sha256": "d7141c0480cb76be139d41bb3153c12e75a51b5bcc7d1f58e74f9144f54c9a74",
           "mode": "100644"
         },
         {
@@ -2717,8 +2717,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/event-driven-tracker",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2757,9 +2757,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "067034a9a3f0eada3b459bc158d7bad2b576fee861fa359550ec39b2ff855674",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "0c11c7d0c687683b2bfb58014daff0ee8e24366f5c6336737ca5b809470c57aa",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2767,7 +2767,7 @@
         {
           "path": "skills/finance-investing/event-driven-tracker/SKILL.md",
           "owner": "event-driven-tracker",
-          "sha256": "067034a9a3f0eada3b459bc158d7bad2b576fee861fa359550ec39b2ff855674",
+          "sha256": "0c11c7d0c687683b2bfb58014daff0ee8e24366f5c6336737ca5b809470c57aa",
           "mode": "100644"
         },
         {
@@ -2801,8 +2801,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/fact-checker",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2836,9 +2836,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "129a4454ed60e40f24d6408a464948fce756082fb9979e7146fbf2e622b41e62",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "da64589f4a9ed2ff09659e1213fc44111127bf62b77e652e1d46db611792df25",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2858,7 +2858,7 @@
         {
           "path": "skills/operations-general/fact-checker/SKILL.md",
           "owner": "fact-checker",
-          "sha256": "129a4454ed60e40f24d6408a464948fce756082fb9979e7146fbf2e622b41e62",
+          "sha256": "da64589f4a9ed2ff09659e1213fc44111127bf62b77e652e1d46db611792df25",
           "mode": "100644"
         }
       ]
@@ -2874,8 +2874,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/factor-backtester",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -2914,9 +2914,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "daf239ebd7b29f7e7fb53dad89c86605e5a071d2fe142bdf079944565cf699f4",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "cbca723f6b487b66fc65243669c259703ed5e8b6a6d727a4167c6488abe742ec",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -2924,7 +2924,7 @@
         {
           "path": "skills/finance-investing/factor-backtester/SKILL.md",
           "owner": "factor-backtester",
-          "sha256": "daf239ebd7b29f7e7fb53dad89c86605e5a071d2fe142bdf079944565cf699f4",
+          "sha256": "cbca723f6b487b66fc65243669c259703ed5e8b6a6d727a4167c6488abe742ec",
           "mode": "100644"
         },
         {
@@ -3192,8 +3192,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/financial-analyst",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3277,9 +3277,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8a50df5d76e5b6b7a4f8c2f993d94bf7b8e7c96ae2ce3f9d098c986e07fd39cb",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "9ece58698b9bee29e6a987dd9ebf1074a815deb0be2992c1c14f4a184eeee74c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3287,7 +3287,7 @@
         {
           "path": "skills/finance-investing/financial-analyst/SKILL.md",
           "owner": "financial-analyst",
-          "sha256": "8a50df5d76e5b6b7a4f8c2f993d94bf7b8e7c96ae2ce3f9d098c986e07fd39cb",
+          "sha256": "9ece58698b9bee29e6a987dd9ebf1074a815deb0be2992c1c14f4a184eeee74c",
           "mode": "100644"
         },
         {
@@ -3375,8 +3375,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/financial-data-collector",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3470,9 +3470,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3afb01e9d93450b559f495c0d7b2bf58f8d84ba396ebb8b6069e89a90c5bedf7",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "b3bc121f543fb82fedbdefc2a7a8802f7fb2f70723fceb7183207a1f84551990",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3486,7 +3486,7 @@
         {
           "path": "skills/finance-investing/financial-data-collector/SKILL.md",
           "owner": "financial-data-collector",
-          "sha256": "3afb01e9d93450b559f495c0d7b2bf58f8d84ba396ebb8b6069e89a90c5bedf7",
+          "sha256": "b3bc121f543fb82fedbdefc2a7a8802f7fb2f70723fceb7183207a1f84551990",
           "mode": "100644"
         },
         {
@@ -3580,8 +3580,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/git-worktree-manager",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3605,9 +3605,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "18bc86ccc542479cb72789b67a4440c6f2d6fc67148c43ab86130d3517c6b7ea",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "45cb9f144569c5d1c743682b39f7b2e8985c72296c39e6f423b889f6734639f1",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3615,7 +3615,7 @@
         {
           "path": "skills/developer-engineering/git-worktree-manager/SKILL.md",
           "owner": "git-worktree-manager",
-          "sha256": "18bc86ccc542479cb72789b67a4440c6f2d6fc67148c43ab86130d3517c6b7ea",
+          "sha256": "45cb9f144569c5d1c743682b39f7b2e8985c72296c39e6f423b889f6734639f1",
           "mode": "100644"
         }
       ]
@@ -3631,8 +3631,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/github-contributor",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3676,9 +3676,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c842201db03f37dbd8b3dff8559c2470c36d937bd609dae3b04d2a445adea665",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "8c6ad7fb44410516ba7b881d43a178a74ef0941eec78ca011c1a0982ef03606d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3692,7 +3692,7 @@
         {
           "path": "skills/developer-engineering/github-contributor/SKILL.md",
           "owner": "github-contributor",
-          "sha256": "c842201db03f37dbd8b3dff8559c2470c36d937bd609dae3b04d2a445adea665",
+          "sha256": "8c6ad7fb44410516ba7b881d43a178a74ef0941eec78ca011c1a0982ef03606d",
           "mode": "100644"
         },
         {
@@ -3726,8 +3726,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/github-ops",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3776,9 +3776,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6d3e968fa5ce8c5f780c4397e9d5562bdf92cd369163e07cfca1561f33c40de5",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "e92eabba69acf45775b15c009feb76edb30dd8aa2c0b8f57513a39eba0e9752a",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3786,7 +3786,7 @@
         {
           "path": "skills/devops-sre/github-ops/SKILL.md",
           "owner": "github-ops",
-          "sha256": "6d3e968fa5ce8c5f780c4397e9d5562bdf92cd369163e07cfca1561f33c40de5",
+          "sha256": "e92eabba69acf45775b15c009feb76edb30dd8aa2c0b8f57513a39eba0e9752a",
           "mode": "100644"
         },
         {
@@ -3832,8 +3832,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/gpt-image2",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3872,9 +3872,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6961a353f34af63dbed13680183e5fdcde899717116ebe9bf02f1b38ddd76801",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "68c7702723a0b06e7e399f1b8220df909fae51f869d30b7d9d80334ede168973",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3888,7 +3888,7 @@
         {
           "path": "skills/multimodal-media/gpt-image2/SKILL.md",
           "owner": "gpt-image2",
-          "sha256": "6961a353f34af63dbed13680183e5fdcde899717116ebe9bf02f1b38ddd76801",
+          "sha256": "68c7702723a0b06e7e399f1b8220df909fae51f869d30b7d9d80334ede168973",
           "mode": "100644"
         },
         {
@@ -3916,8 +3916,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/graphql-expert",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3941,9 +3941,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "eee156d6c7b83cd9c9b9465fe4926880f5b4eb20191519d3dbf61e8bbe8c82a5",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "1d3a8428b6ccd180724d860083414b5bdfc58d8f10d5b45411058816b48aee7d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -3951,7 +3951,7 @@
         {
           "path": "skills/developer-engineering/graphql-expert/SKILL.md",
           "owner": "graphql-expert",
-          "sha256": "eee156d6c7b83cd9c9b9465fe4926880f5b4eb20191519d3dbf61e8bbe8c82a5",
+          "sha256": "1d3a8428b6ccd180724d860083414b5bdfc58d8f10d5b45411058816b48aee7d",
           "mode": "100644"
         }
       ]
@@ -3967,8 +3967,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/grype-syft-sbom-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -3992,9 +3992,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4c59ec8edf622b43045fd5239a3f2fd8ebc01cf68dfc998405d7431437a46036",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "100fe50389c38e69530a8f8a0a89948cf7f9c1ca2ac5d6e23325c4b8a97a7534",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4002,7 +4002,7 @@
         {
           "path": "skills/security-and-reliability/grype-syft-sbom-scanner/SKILL.md",
           "owner": "grype-syft-sbom-scanner",
-          "sha256": "4c59ec8edf622b43045fd5239a3f2fd8ebc01cf68dfc998405d7431437a46036",
+          "sha256": "100fe50389c38e69530a8f8a0a89948cf7f9c1ca2ac5d6e23325c4b8a97a7534",
           "mode": "100644"
         }
       ]
@@ -4018,8 +4018,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/hermes-open-gsd-workflow",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4047,9 +4047,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "269c4584dec7c3eacc7765b5ace4393d57ed5a576a9905712a0576be8df51a18",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-08-20"
+            "content_sha256": "1537f77d7fb0a9db36d7e19fef145b50da97a47b63f53d4424747e3954fe70b7",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4058,7 +4058,7 @@
         {
           "path": "skills/ai-agent-platform/hermes-open-gsd-workflow/SKILL.md",
           "owner": "hermes-open-gsd-workflow",
-          "sha256": "269c4584dec7c3eacc7765b5ace4393d57ed5a576a9905712a0576be8df51a18",
+          "sha256": "1537f77d7fb0a9db36d7e19fef145b50da97a47b63f53d4424747e3954fe70b7",
           "mode": "100644"
         },
         {
@@ -4088,8 +4088,8 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "d4c402cd65e8900f470beca9a7fb494320a5acfa97db75713ec2e5c81c53916c",
-          "graphify": "e4936fd512c603b5b696ed7d0cc3baa7d5ce9ff0e14577626b598760cecf13d3",
+          "hermes-agent": "67047c054f620c627bcff21374907a9404941cf5f5714fa7c77dbb09060c1d4e",
+          "graphify": "35c5274697a435a31c3565fd6915235ec8b926a026d448279ec44a2bf059ee7d",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
         }
@@ -4106,8 +4106,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/i18n-expert",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4141,9 +4141,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "697b2377fd04271ad37bcbae447f4041e0e3d6b59b04a1711058f929650b009b",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "5b39bc8a3638bb7103883408bb356cddfafd58779cd99f84ffccef8fe592764d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4157,7 +4157,7 @@
         {
           "path": "skills/developer-engineering/i18n-expert/SKILL.md",
           "owner": "i18n-expert",
-          "sha256": "697b2377fd04271ad37bcbae447f4041e0e3d6b59b04a1711058f929650b009b",
+          "sha256": "5b39bc8a3638bb7103883408bb356cddfafd58779cd99f84ffccef8fe592764d",
           "mode": "100644"
         },
         {
@@ -4179,8 +4179,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/incident-commander",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4329,9 +4329,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "2562ffbd1fd03b77c34f0b6cbd8ccaae7762ecdb8c48e706245b9dea5c95261f",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "586cbb0a2fce094a5ced74850e9d526eae82837d807ce12f305dda2c7a3c3752",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4345,7 +4345,7 @@
         {
           "path": "skills/devops-sre/incident-commander/SKILL.md",
           "owner": "incident-commander",
-          "sha256": "2562ffbd1fd03b77c34f0b6cbd8ccaae7762ecdb8c48e706245b9dea5c95261f",
+          "sha256": "586cbb0a2fce094a5ced74850e9d526eae82837d807ce12f305dda2c7a3c3752",
           "mode": "100644"
         },
         {
@@ -4505,8 +4505,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/input-guard",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4600,9 +4600,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "929ab2b0d41cd6e32513ac17aee6ae3291200f31af873c55a8e5d90f452d72be",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "c92ed125a275c253a17f03b2f18a90e13dd321ac6a88ed716ad3c464c122b796",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4628,7 +4628,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/input-guard/SKILL.md",
           "owner": "input-guard",
-          "sha256": "929ab2b0d41cd6e32513ac17aee6ae3291200f31af873c55a8e5d90f452d72be",
+          "sha256": "c92ed125a275c253a17f03b2f18a90e13dd321ac6a88ed716ad3c464c122b796",
           "mode": "100644"
         },
         {
@@ -4710,8 +4710,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/interview-system-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4800,9 +4800,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1ab2aa5cad3db8464a458dd9249daaf7bc25369c8251e7ed9ab37edc0d63656e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "01da2683fba7568e7184393d43f7b6f7cab3a89bf22fc5802e58b95bdb1848ff",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4816,7 +4816,7 @@
         {
           "path": "skills/operations-general/interview-system-designer/SKILL.md",
           "owner": "interview-system-designer",
-          "sha256": "1ab2aa5cad3db8464a458dd9249daaf7bc25369c8251e7ed9ab37edc0d63656e",
+          "sha256": "01da2683fba7568e7184393d43f7b6f7cab3a89bf22fc5802e58b95bdb1848ff",
           "mode": "100644"
         },
         {
@@ -4904,8 +4904,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/investment-memo-writer",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -4944,9 +4944,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "25a08336ecb501598a003edc284eb093ae61f06eb7eb4fe9ffd8892780fb7bcd",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "75585e67facd7ef520a2e1e06152882243412d87e5b3ccec5cf61e40b73cce84",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -4954,7 +4954,7 @@
         {
           "path": "skills/finance-investing/investment-memo-writer/SKILL.md",
           "owner": "investment-memo-writer",
-          "sha256": "25a08336ecb501598a003edc284eb093ae61f06eb7eb4fe9ffd8892780fb7bcd",
+          "sha256": "75585e67facd7ef520a2e1e06152882243412d87e5b3ccec5cf61e40b73cce84",
           "mode": "100644"
         },
         {
@@ -4988,8 +4988,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/link-checker",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5018,9 +5018,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "db56b7a2ee828b04202b6b823a5a24ea3a32503714ddbf464704716b3316ba7b",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "2eff66f76092e16f136c93b94774bc8737e043bf4a3e35b54d110e9772ceb1f3",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5028,7 +5028,7 @@
         {
           "path": "skills/security-and-reliability/link-checker/SKILL.md",
           "owner": "link-checker",
-          "sha256": "db56b7a2ee828b04202b6b823a5a24ea3a32503714ddbf464704716b3316ba7b",
+          "sha256": "2eff66f76092e16f136c93b94774bc8737e043bf4a3e35b54d110e9772ceb1f3",
           "mode": "100644"
         },
         {
@@ -5050,8 +5050,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/macro-regime-monitor",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5090,9 +5090,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "62be0bdd4f87ae6723df5e0e17a8da58b8cac86a76d7d410b6357637badf2352",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "1288742e18ca77e5e5414b74bc31725cb0160c0f8972e83ac89df818d18e0606",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5100,7 +5100,7 @@
         {
           "path": "skills/finance-investing/macro-regime-monitor/SKILL.md",
           "owner": "macro-regime-monitor",
-          "sha256": "62be0bdd4f87ae6723df5e0e17a8da58b8cac86a76d7d410b6357637badf2352",
+          "sha256": "1288742e18ca77e5e5414b74bc31725cb0160c0f8972e83ac89df818d18e0606",
           "mode": "100644"
         },
         {
@@ -5134,8 +5134,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/markdown-tools",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5199,9 +5199,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b6729714c36e94786416c3a9b352f63ac94485b1e7f40e87d606913425afc49a",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "93c9973d60b182a7c4f61427487a75bd16a9880ea0d7a62b2b73efd97d68db65",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5209,7 +5209,7 @@
         {
           "path": "skills/office-white-collar/markdown-tools/SKILL.md",
           "owner": "markdown-tools",
-          "sha256": "b6729714c36e94786416c3a9b352f63ac94485b1e7f40e87d606913425afc49a",
+          "sha256": "93c9973d60b182a7c4f61427487a75bd16a9880ea0d7a62b2b73efd97d68db65",
           "mode": "100644"
         },
         {
@@ -5273,8 +5273,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/marketing-demand-acquisition",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5323,9 +5323,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "154c9df7020aeee5962ad1c48f90c24a5854bd81c159289acfc558de5a880482",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ca0b38358e6e062531633f870e96f0da0a93a28d88baeb14d28f50f19293b4ed",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5333,7 +5333,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/marketing-demand-acquisition/SKILL.md",
           "owner": "marketing-demand-acquisition",
-          "sha256": "154c9df7020aeee5962ad1c48f90c24a5854bd81c159289acfc558de5a880482",
+          "sha256": "ca0b38358e6e062531633f870e96f0da0a93a28d88baeb14d28f50f19293b4ed",
           "mode": "100644"
         },
         {
@@ -5379,8 +5379,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/marketing-strategy-pmm",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5424,9 +5424,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9e3ea580efc25683476bea87ef8946d26fa39036009aedee85dcbe327737047a",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "fb5d3f1a0421b31ae9b7382803fb0230302d36be781f3ad4feda1098bd3860fa",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5434,7 +5434,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/marketing-strategy-pmm/SKILL.md",
           "owner": "marketing-strategy-pmm",
-          "sha256": "9e3ea580efc25683476bea87ef8946d26fa39036009aedee85dcbe327737047a",
+          "sha256": "fb5d3f1a0421b31ae9b7382803fb0230302d36be781f3ad4feda1098bd3860fa",
           "mode": "100644"
         },
         {
@@ -5474,8 +5474,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/meeting-minutes-taker",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5519,9 +5519,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e7f80f2ca6884bd2bbdf4003761b46197e8a1775e36c0fad104cb8dc01e61efe",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "6b35d29088bc625e6e134ce6a56bb83992cb85cf3c1cfac35cafb746e309c92c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5529,7 +5529,7 @@
         {
           "path": "skills/office-white-collar/meeting-minutes-taker/SKILL.md",
           "owner": "meeting-minutes-taker",
-          "sha256": "e7f80f2ca6884bd2bbdf4003761b46197e8a1775e36c0fad104cb8dc01e61efe",
+          "sha256": "6b35d29088bc625e6e134ce6a56bb83992cb85cf3c1cfac35cafb746e309c92c",
           "mode": "100644"
         },
         {
@@ -5569,8 +5569,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/mermaid-tools",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5614,9 +5614,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7b6635f3a521570163e3451ec2c79bd64fb3bd44d646cb8519ecb56019bb44bf",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "25a7c6ea1a462af18735a827dd3e2b334be690b8929369e79dd66c6e6110b98d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5624,7 +5624,7 @@
         {
           "path": "skills/office-white-collar/mermaid-tools/SKILL.md",
           "owner": "mermaid-tools",
-          "sha256": "7b6635f3a521570163e3451ec2c79bd64fb3bd44d646cb8519ecb56019bb44bf",
+          "sha256": "25a7c6ea1a462af18735a827dd3e2b334be690b8929369e79dd66c6e6110b98d",
           "mode": "100644"
         },
         {
@@ -5664,8 +5664,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/migration-architect",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -5784,9 +5784,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7e1e7ec1a22d2c68a2c6688ebe712fe532de817a9d6bd9e55f29d3f1d64ea93d",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "e1e0c9c1cf5eb4276ee1000b2a7ebab25eb0c612c652a3090f5f9569feda47da",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -5800,7 +5800,7 @@
         {
           "path": "skills/developer-engineering/migration-architect/SKILL.md",
           "owner": "migration-architect",
-          "sha256": "7e1e7ec1a22d2c68a2c6688ebe712fe532de817a9d6bd9e55f29d3f1d64ea93d",
+          "sha256": "e1e0c9c1cf5eb4276ee1000b2a7ebab25eb0c612c652a3090f5f9569feda47da",
           "mode": "100644"
         },
         {
@@ -5997,8 +5997,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/monorepo-navigator",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6027,9 +6027,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c188bea01da608bb9df95f79a42d3c295c2c7d874341f2ac96bda25250528f3d",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "85bfa6305839f07988ff7575af35bb64e9d0804e145507d0e4f6c3476406121d",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6037,7 +6037,7 @@
         {
           "path": "skills/developer-engineering/monorepo-navigator/SKILL.md",
           "owner": "monorepo-navigator",
-          "sha256": "c188bea01da608bb9df95f79a42d3c295c2c7d874341f2ac96bda25250528f3d",
+          "sha256": "85bfa6305839f07988ff7575af35bb64e9d0804e145507d0e4f6c3476406121d",
           "mode": "100644"
         },
         {
@@ -6059,8 +6059,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/observability-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6144,9 +6144,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "57830d644763089cbcd3118b49db277e763e2421f09933a6182edbc6cc7575e4",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ccf78175cbb93ddc2a687c9de9cafa82e4b8cccfd75bac3e9fc78d846a32b7de",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6160,7 +6160,7 @@
         {
           "path": "skills/devops-sre/observability-designer/SKILL.md",
           "owner": "observability-designer",
-          "sha256": "57830d644763089cbcd3118b49db277e763e2421f09933a6182edbc6cc7575e4",
+          "sha256": "ccf78175cbb93ddc2a687c9de9cafa82e4b8cccfd75bac3e9fc78d846a32b7de",
           "mode": "100644"
         },
         {
@@ -6242,8 +6242,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/options-strategy-evaluator",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6282,9 +6282,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6b5878305178fceed1233140c0b230cb2d6a02a1c5ea674e97cefcfa2a49df7c",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "d2c9b0e8dc2644faee996f3f66f2a1c308531842d29a81069a7c668b990c3eaa",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6292,7 +6292,7 @@
         {
           "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md",
           "owner": "options-strategy-evaluator",
-          "sha256": "6b5878305178fceed1233140c0b230cb2d6a02a1c5ea674e97cefcfa2a49df7c",
+          "sha256": "d2c9b0e8dc2644faee996f3f66f2a1c308531842d29a81069a7c668b990c3eaa",
           "mode": "100644"
         },
         {
@@ -6326,8 +6326,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/osv-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6351,9 +6351,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "87112ea20de547bb494dff12797123d5f669196fdf20d593b9519b86a6ab1aa7",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "3dd1b3382c3741f17d8934802925102a0b96ed4872e30052770cf92f1d17fb38",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6361,7 +6361,7 @@
         {
           "path": "skills/security-and-reliability/osv-scanner/SKILL.md",
           "owner": "osv-scanner",
-          "sha256": "87112ea20de547bb494dff12797123d5f669196fdf20d593b9519b86a6ab1aa7",
+          "sha256": "3dd1b3382c3741f17d8934802925102a0b96ed4872e30052770cf92f1d17fb38",
           "mode": "100644"
         }
       ]
@@ -6377,8 +6377,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/performance-profiler",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6407,9 +6407,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e50a367e2fb2abdd6ed2a750dad29121305edd819bc092d82d685f9617e21295",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "3cc97daf0264b0ed308e929f11536bfbb3b8d49a830aec809b6a52899177d654",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6417,7 +6417,7 @@
         {
           "path": "skills/developer-engineering/performance-profiler/SKILL.md",
           "owner": "performance-profiler",
-          "sha256": "e50a367e2fb2abdd6ed2a750dad29121305edd819bc092d82d685f9617e21295",
+          "sha256": "3cc97daf0264b0ed308e929f11536bfbb3b8d49a830aec809b6a52899177d654",
           "mode": "100644"
         },
         {
@@ -6439,8 +6439,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/playwright-pro",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-06-03",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6464,9 +6464,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9612c0614e151c581982b6c141300f11703848fc6fe481cc8838d6b40ea60b27",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-06-03"
+            "content_sha256": "1fc71edafc75c9de61aebfec445cb9dff050ad20db0c275d3f69950452142bd9",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6474,7 +6474,7 @@
         {
           "path": "skills/engineering-workflow-automation/playwright-pro/SKILL.md",
           "owner": "playwright-pro",
-          "sha256": "9612c0614e151c581982b6c141300f11703848fc6fe481cc8838d6b40ea60b27",
+          "sha256": "1fc71edafc75c9de61aebfec445cb9dff050ad20db0c275d3f69950452142bd9",
           "mode": "100644"
         }
       ]
@@ -6490,8 +6490,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/portfolio-risk-manager",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6545,9 +6545,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5dde4bac459e1dc4e29f9019b98063e0ae4e5ae92fc36ccf0f4467ad5043f4ff",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "a38ef01445dc878883fc476aad646a9833db58c36bd9eb50edb42f10fc431027",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6555,7 +6555,7 @@
         {
           "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md",
           "owner": "portfolio-risk-manager",
-          "sha256": "5dde4bac459e1dc4e29f9019b98063e0ae4e5ae92fc36ccf0f4467ad5043f4ff",
+          "sha256": "a38ef01445dc878883fc476aad646a9833db58c36bd9eb50edb42f10fc431027",
           "mode": "100644"
         },
         {
@@ -6607,8 +6607,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/pr-review-expert",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6632,9 +6632,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c2922cca1166822d48baf16d5b98f9c8dfe2b111fd210946d55802c0997ee853",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "6b136d8d41481b1d33641e31a3e7de816107bfd5abc05669135f3201f6f35026",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6642,7 +6642,7 @@
         {
           "path": "skills/developer-engineering/pr-review-expert/SKILL.md",
           "owner": "pr-review-expert",
-          "sha256": "c2922cca1166822d48baf16d5b98f9c8dfe2b111fd210946d55802c0997ee853",
+          "sha256": "6b136d8d41481b1d33641e31a3e7de816107bfd5abc05669135f3201f6f35026",
           "mode": "100644"
         }
       ]
@@ -6658,8 +6658,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/product-manager-toolkit",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6708,9 +6708,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "32b2e012ae264d009f73302c94afc246f27d783bb5e6362279e8bfe8063eb71c",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "e118ca1713accacdc742858504db1e48ca731be30fd065aa425aefbdc83fdd2a",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6718,7 +6718,7 @@
         {
           "path": "skills/product-design/product-manager-toolkit/SKILL.md",
           "owner": "product-manager-toolkit",
-          "sha256": "32b2e012ae264d009f73302c94afc246f27d783bb5e6362279e8bfe8063eb71c",
+          "sha256": "e118ca1713accacdc742858504db1e48ca731be30fd065aa425aefbdc83fdd2a",
           "mode": "100644"
         },
         {
@@ -6764,8 +6764,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/product-strategist",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6809,9 +6809,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "aaa2c64ffdaf0a59e65833620c8301025d67d2f4ec9aa5f1f3a4e3554d916ffd",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "1e2fb439419e619ba449df152d18e5c2b1c77ba12a785010443205942e011063",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6819,7 +6819,7 @@
         {
           "path": "skills/product-design/product-strategist/SKILL.md",
           "owner": "product-strategist",
-          "sha256": "aaa2c64ffdaf0a59e65833620c8301025d67d2f4ec9aa5f1f3a4e3554d916ffd",
+          "sha256": "1e2fb439419e619ba449df152d18e5c2b1c77ba12a785010443205942e011063",
           "mode": "100644"
         },
         {
@@ -6859,8 +6859,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/prompt-optimizer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6909,9 +6909,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4fd878962e26b5e37ce18c5d88b12c8c3a654182977650ac817325cc95232a48",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "a11e07b38638d351d0dbfae8d8be66d7fbea2d720a0011e12cc67061408bd0a8",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -6925,7 +6925,7 @@
         {
           "path": "skills/ai-workflow/prompt-optimizer/SKILL.md",
           "owner": "prompt-optimizer",
-          "sha256": "4fd878962e26b5e37ce18c5d88b12c8c3a654182977650ac817325cc95232a48",
+          "sha256": "a11e07b38638d351d0dbfae8d8be66d7fbea2d720a0011e12cc67061408bd0a8",
           "mode": "100644"
         },
         {
@@ -6965,8 +6965,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/promptfoo-evaluation",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7005,9 +7005,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fc1a52c4d0af44ef871e248930a8a236bf537b4bcb4c93f268714866942a4f9d",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "27d3ca835edb90c09e966f86842dc85e39169cc19c63894560ee5f7a44ef76c4",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7021,7 +7021,7 @@
         {
           "path": "skills/developer-engineering/promptfoo-evaluation/SKILL.md",
           "owner": "promptfoo-evaluation",
-          "sha256": "fc1a52c4d0af44ef871e248930a8a236bf537b4bcb4c93f268714866942a4f9d",
+          "sha256": "27d3ca835edb90c09e966f86842dc85e39169cc19c63894560ee5f7a44ef76c4",
           "mode": "100644"
         },
         {
@@ -7049,8 +7049,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/qa-expert",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7119,9 +7119,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "53c9f71f4028650d8ff8afe1766831996e04fd2f6dde3f5e038b6ad31cdf6a5d",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "72f9074aa43889b6adba8d3d8a8a0981c3aa1f0380f2e3bf767600eb52f98f90",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7135,7 +7135,7 @@
         {
           "path": "skills/developer-engineering/qa-expert/SKILL.md",
           "owner": "qa-expert",
-          "sha256": "53c9f71f4028650d8ff8afe1766831996e04fd2f6dde3f5e038b6ad31cdf6a5d",
+          "sha256": "72f9074aa43889b6adba8d3d8a8a0981c3aa1f0380f2e3bf767600eb52f98f90",
           "mode": "100644"
         },
         {
@@ -7199,8 +7199,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/rag-architect",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7254,9 +7254,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b30905d4f0057b200c78bd49b8fa58a95d3eac872023f0bedbc4477d0ec8dcd9",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ad447aa32fff5035db9460bd8fb58178a023b58d387eb0077c86de80465fe2fd",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7264,7 +7264,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/rag-architect/SKILL.md",
           "owner": "rag-architect",
-          "sha256": "b30905d4f0057b200c78bd49b8fa58a95d3eac872023f0bedbc4477d0ec8dcd9",
+          "sha256": "ad447aa32fff5035db9460bd8fb58178a023b58d387eb0077c86de80465fe2fd",
           "mode": "100644"
         },
         {
@@ -7316,8 +7316,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/react-native-engineering",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7346,9 +7346,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d7631cd7bc71c499a3dcd12d383c051d1bb7f0dd41ef758723bf99461a3b74b6",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "b6291da2b26c3e3b20886b87bf7404cc9d1c992edc27275beb6742cb33dec7c2",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7356,7 +7356,7 @@
         {
           "path": "skills/developer-engineering/react-native-engineering/SKILL.md",
           "owner": "react-native-engineering",
-          "sha256": "d7631cd7bc71c499a3dcd12d383c051d1bb7f0dd41ef758723bf99461a3b74b6",
+          "sha256": "b6291da2b26c3e3b20886b87bf7404cc9d1c992edc27275beb6742cb33dec7c2",
           "mode": "100644"
         },
         {
@@ -7378,8 +7378,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/reflect-learn",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7468,31 +7468,6 @@
               "type": "file"
             },
             {
-              "source": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/chat.json",
-              "target": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/chat.json",
-              "type": "file"
-            },
-            {
-              "source": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/notification.json",
-              "target": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/notification.json",
-              "type": "file"
-            },
-            {
-              "source": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/stop.json",
-              "target": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/stop.json",
-              "type": "file"
-            },
-            {
-              "source": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/subagent_stop.json",
-              "target": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/subagent_stop.json",
-              "type": "file"
-            },
-            {
-              "source": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/user_prompt_submit.json",
-              "target": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/user_prompt_submit.json",
-              "type": "file"
-            },
-            {
               "source": "skills/task-understanding-decomposition/reflect-learn/scripts/metrics_updater.py",
               "target": "skills/task-understanding-decomposition/reflect-learn/scripts/metrics_updater.py",
               "type": "file"
@@ -7523,9 +7498,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "0487b33ea01d3cfd91157fb558e640bd75c7d36a0a0fe5422f85d74d74038c2f",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "052c40bbc15c2cae6f8e2219ad184c8d5736a6701fc94e5f0e445b921a824d5b",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7545,7 +7520,7 @@
         {
           "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
           "owner": "reflect-learn",
-          "sha256": "0487b33ea01d3cfd91157fb558e640bd75c7d36a0a0fe5422f85d74d74038c2f",
+          "sha256": "052c40bbc15c2cae6f8e2219ad184c8d5736a6701fc94e5f0e445b921a824d5b",
           "mode": "100644"
         },
         {
@@ -7615,36 +7590,6 @@
           "mode": "100644"
         },
         {
-          "path": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/chat.json",
-          "owner": "reflect-learn",
-          "sha256": "88fc974c402d9d8b9f962dff3fbff4005b46be5660f4fadaaf1a8a04b9f3b2df",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/notification.json",
-          "owner": "reflect-learn",
-          "sha256": "6fd137f0b9d6cfc6827ad06ee54dc07c41b01ccb5fc5184ec1d45837f25c59c3",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/stop.json",
-          "owner": "reflect-learn",
-          "sha256": "09f7c295cc5b0b23f9f5301bac9eb215bf35efe1492d460db1073b373c373fbf",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/subagent_stop.json",
-          "owner": "reflect-learn",
-          "sha256": "096cd76e2c2adf3918eb5fd6c14874ebf1478ec9848a54b3a36f74964a3ad49d",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/task-understanding-decomposition/reflect-learn/scripts/logs/user_prompt_submit.json",
-          "owner": "reflect-learn",
-          "sha256": "0674593631fd7d8b01c41742fdd09d15cac67289f2f49dfdc1cedb97ce8a5851",
-          "mode": "100644"
-        },
-        {
           "path": "skills/task-understanding-decomposition/reflect-learn/scripts/metrics_updater.py",
           "owner": "reflect-learn",
           "sha256": "2bfe85729d0af3243635e8163a4bc7ae8f8569d18b16e7b3a035dcf3f69670b0",
@@ -7693,8 +7638,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/release-manager",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -7788,9 +7733,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1f953ca2fa93c301ee1738f18cd7b966d283716f35ca37764e031977dde4e6ea",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "3feecba05fda415e5286a77bbe70cca5bcaeb5a49dbccdfa91c57a76f7b22d68",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -7804,7 +7749,7 @@
         {
           "path": "skills/devops-sre/release-manager/SKILL.md",
           "owner": "release-manager",
-          "sha256": "1f953ca2fa93c301ee1738f18cd7b966d283716f35ca37764e031977dde4e6ea",
+          "sha256": "3feecba05fda415e5286a77bbe70cca5bcaeb5a49dbccdfa91c57a76f7b22d68",
           "mode": "100644"
         },
         {
@@ -7993,8 +7938,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/repomix-safe-mixer",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8033,9 +7978,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d36524d65984a6663cfc20f2986f20fe67166711617bcbe4ca41ccdda9e631ff",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "4f4a0121256dfb3edc393445eaaa815d5b39248e1e1c43a1cdc02ebc14802db6",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8043,7 +7988,7 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
           "owner": "repomix-safe-mixer",
-          "sha256": "d36524d65984a6663cfc20f2986f20fe67166711617bcbe4ca41ccdda9e631ff",
+          "sha256": "4f4a0121256dfb3edc393445eaaa815d5b39248e1e1c43a1cdc02ebc14802db6",
           "mode": "100644"
         },
         {
@@ -8077,8 +8022,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/runbook-generator",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8102,9 +8047,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e92099a6bddcfd6b57684a6e33e98a4fc06f656bc56956ff135bcc057cb80760",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "a9d6cc0787e70855208b8b0d8e0720e947103cbdf98960614794c230f54abdd7",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8112,7 +8057,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/runbook-generator/SKILL.md",
           "owner": "runbook-generator",
-          "sha256": "e92099a6bddcfd6b57684a6e33e98a4fc06f656bc56956ff135bcc057cb80760",
+          "sha256": "a9d6cc0787e70855208b8b0d8e0720e947103cbdf98960614794c230f54abdd7",
           "mode": "100644"
         }
       ]
@@ -8128,8 +8073,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/rust-engineer",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8157,9 +8102,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f02ec8747487970a9b8fcc3f4c9474823b830bfcb4901b9db01dbdc6860dc8cf",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "77992030792fb897a285356bd68c7d4846b57ed2db60f43fbdd5d45fdff4b54c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8174,7 +8119,7 @@
         {
           "path": "skills/developer-engineering/rust-engineer/SKILL.md",
           "owner": "rust-engineer",
-          "sha256": "f02ec8747487970a9b8fcc3f4c9474823b830bfcb4901b9db01dbdc6860dc8cf",
+          "sha256": "77992030792fb897a285356bd68c7d4846b57ed2db60f43fbdd5d45fdff4b54c",
           "mode": "100644"
         }
       ]
@@ -8190,8 +8135,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/saas-scaffolder",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8215,9 +8160,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "928b0a14f5950fcca7216ebe127af0141a4bdedf13863ae11f8d48c43debc695",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "26e1c369eee8bf63140d7802e5d68dceb3dba6463cab5ba3bf5baa97433d0351",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8225,7 +8170,7 @@
         {
           "path": "skills/product-design/saas-scaffolder/SKILL.md",
           "owner": "saas-scaffolder",
-          "sha256": "928b0a14f5950fcca7216ebe127af0141a4bdedf13863ae11f8d48c43debc695",
+          "sha256": "26e1c369eee8bf63140d7802e5d68dceb3dba6463cab5ba3bf5baa97433d0351",
           "mode": "100644"
         }
       ]
@@ -8241,8 +8186,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/sec-filing-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8281,9 +8226,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4d511bb98870c007d13bb9f46586ba36191c433604251d80f8b426c4d2e8d66a",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "dd9d185354172ede53b66bfed8af310b4817a60aca486cc25abb5bfa7e5d2e57",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8291,7 +8236,7 @@
         {
           "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md",
           "owner": "sec-filing-reviewer",
-          "sha256": "4d511bb98870c007d13bb9f46586ba36191c433604251d80f8b426c4d2e8d66a",
+          "sha256": "dd9d185354172ede53b66bfed8af310b4817a60aca486cc25abb5bfa7e5d2e57",
           "mode": "100644"
         },
         {
@@ -8325,8 +8270,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/security-auditor",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8350,9 +8295,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1c4df82bc9666d4a5122af7c979d926d232af02f6434cb391bd04cec023c29ad",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "7d845251bc1f2f8d66ec069c211cbee23a4a59ba0feaa5fdaedab9223daa0537",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8360,7 +8305,7 @@
         {
           "path": "skills/security-and-reliability/security-auditor/SKILL.md",
           "owner": "security-auditor",
-          "sha256": "1c4df82bc9666d4a5122af7c979d926d232af02f6434cb391bd04cec023c29ad",
+          "sha256": "7d845251bc1f2f8d66ec069c211cbee23a4a59ba0feaa5fdaedab9223daa0537",
           "mode": "100644"
         }
       ]
@@ -8376,8 +8321,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/security-review",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8510,9 +8455,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7f8ecb713d555719813ab5b766d1f4da73a0b583057226b26ca767b2349ce24b",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "887cd88ee8adc413ddd239e1f9d62ac6d5f3266cf6140f9184746b2c60404419",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8527,7 +8472,7 @@
         {
           "path": "skills/security-and-reliability/security-review/SKILL.md",
           "owner": "security-review",
-          "sha256": "7f8ecb713d555719813ab5b766d1f4da73a0b583057226b26ca767b2349ce24b",
+          "sha256": "887cd88ee8adc413ddd239e1f9d62ac6d5f3266cf6140f9184746b2c60404419",
           "mode": "100644"
         },
         {
@@ -8669,8 +8614,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/semgrep-appsec-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8694,9 +8639,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "aca650d08df9fb95a1f9997f1c99ed31360da2fe0f01f0445b7a7cba23b2d04d",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "d41f5e1972ceabc2699552742a4ca0040aa113c2ce930ab4b0a91f5b1cf46291",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8704,7 +8649,7 @@
         {
           "path": "skills/security-and-reliability/semgrep-appsec-scanner/SKILL.md",
           "owner": "semgrep-appsec-scanner",
-          "sha256": "aca650d08df9fb95a1f9997f1c99ed31360da2fe0f01f0445b7a7cba23b2d04d",
+          "sha256": "d41f5e1972ceabc2699552742a4ca0040aa113c2ce930ab4b0a91f5b1cf46291",
           "mode": "100644"
         }
       ]
@@ -8720,8 +8665,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/skill-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8765,9 +8710,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9b29e3f31e409de4d456a43ad8e5a8a15f33ffad6206f1087694136338af987d",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "0f0e5c8a15fa27bb0baad819f50216a8ee25f12d4eb5aa453a7fe629e89e262c",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8781,7 +8726,7 @@
         {
           "path": "skills/ai-workflow/skill-reviewer/SKILL.md",
           "owner": "skill-reviewer",
-          "sha256": "9b29e3f31e409de4d456a43ad8e5a8a15f33ffad6206f1087694136338af987d",
+          "sha256": "0f0e5c8a15fa27bb0baad819f50216a8ee25f12d4eb5aa453a7fe629e89e262c",
           "mode": "100644"
         },
         {
@@ -8815,8 +8760,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/skill-tester",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8915,9 +8860,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7c5f248a3059cc148a6ece9ce43d3d97a4119802afa33657ee4aaf738862c005",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "1903d04969fba1852fb6ededc129c418f0bb9aec6d75afeffc223ccaeb76a103",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -8931,7 +8876,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/SKILL.md",
           "owner": "skill-tester",
-          "sha256": "7c5f248a3059cc148a6ece9ce43d3d97a4119802afa33657ee4aaf738862c005",
+          "sha256": "1903d04969fba1852fb6ededc129c418f0bb9aec6d75afeffc223ccaeb76a103",
           "mode": "100644"
         },
         {
@@ -9031,8 +8976,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/social-media-analyzer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9086,9 +9031,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a071a644faa8868d7d265a4f1a21d9c931c425d275f665815e97343b02c0b8ea",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "6ea30216cb907d2b2c4dcf1ea9094c0a52dab49dc4cc1aaeec9e0024c0407b78",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -9102,7 +9047,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md",
           "owner": "social-media-analyzer",
-          "sha256": "a071a644faa8868d7d265a4f1a21d9c931c425d275f665815e97343b02c0b8ea",
+          "sha256": "6ea30216cb907d2b2c4dcf1ea9094c0a52dab49dc4cc1aaeec9e0024c0407b78",
           "mode": "100644"
         },
         {
@@ -9148,8 +9093,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/sora",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9238,9 +9183,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e7b44eace7ab0f7cf4b69a9fe35f6259b76e813869c8781d897fc5620bec3098",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "b872f6311119347d257905875f7956f05095bf0ac7bebda59367c8dd2e5fcf83",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -9254,7 +9199,7 @@
         {
           "path": "skills/multimodal-media/sora/SKILL.md",
           "owner": "sora",
-          "sha256": "e7b44eace7ab0f7cf4b69a9fe35f6259b76e813869c8781d897fc5620bec3098",
+          "sha256": "b872f6311119347d257905875f7956f05095bf0ac7bebda59367c8dd2e5fcf83",
           "mode": "100644"
         },
         {
@@ -9342,8 +9287,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/stock-screener-builder",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9382,9 +9327,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "03e71384805a78d93a3e42bfa2beab144844b518a0a9e17ac797e523076f946e",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04"
+            "content_sha256": "2f567a21af99954bf024855509f88ee45ad085db9f3df06bcef1b142d9da3148",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -9392,7 +9337,7 @@
         {
           "path": "skills/finance-investing/stock-screener-builder/SKILL.md",
           "owner": "stock-screener-builder",
-          "sha256": "03e71384805a78d93a3e42bfa2beab144844b518a0a9e17ac797e523076f946e",
+          "sha256": "2f567a21af99954bf024855509f88ee45ad085db9f3df06bcef1b142d9da3148",
           "mode": "100644"
         },
         {
@@ -9426,8 +9371,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/tech-debt-tracker",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9536,9 +9481,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "24838f86ca48e952ef017f6eea360bac2d4fabc8f5c477a28a466a6b1416f5cd",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "010d9e1fc176fc73c164247b9978e9738ec728c882d8e696180f76c133dd14cf",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -9552,7 +9497,7 @@
         {
           "path": "skills/developer-engineering/tech-debt-tracker/SKILL.md",
           "owner": "tech-debt-tracker",
-          "sha256": "24838f86ca48e952ef017f6eea360bac2d4fabc8f5c477a28a466a6b1416f5cd",
+          "sha256": "010d9e1fc176fc73c164247b9978e9738ec728c882d8e696180f76c133dd14cf",
           "mode": "100644"
         },
         {
@@ -9664,8 +9609,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/transcript-fixer",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10029,9 +9974,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "dff1403be9ae3e0507530b55e494bca8088b3ae8947f4bae3a66b7b8bec0a480",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17"
+            "content_sha256": "e72205df9446bcf684fba3bf547f9191083e05fc7049aa20359fad435b531672",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10045,7 +9990,7 @@
         {
           "path": "skills/office-white-collar/transcript-fixer/SKILL.md",
           "owner": "transcript-fixer",
-          "sha256": "dff1403be9ae3e0507530b55e494bca8088b3ae8947f4bae3a66b7b8bec0a480",
+          "sha256": "e72205df9446bcf684fba3bf547f9191083e05fc7049aa20359fad435b531672",
           "mode": "100644"
         },
         {
@@ -10463,8 +10408,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/trivy-vulnerability-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10488,9 +10433,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "15fb6844e11c475b7e326251aed616dbaefa2799786ef13fa35b9e4079fa68d7",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "ccffa4851f25121c0eb927c0a43de24d1debc1e50eecf02c5c58d05cc6980ee8",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10498,7 +10443,7 @@
         {
           "path": "skills/security-and-reliability/trivy-vulnerability-scanner/SKILL.md",
           "owner": "trivy-vulnerability-scanner",
-          "sha256": "15fb6844e11c475b7e326251aed616dbaefa2799786ef13fa35b9e4079fa68d7",
+          "sha256": "ccffa4851f25121c0eb927c0a43de24d1debc1e50eecf02c5c58d05cc6980ee8",
           "mode": "100644"
         }
       ]
@@ -10514,8 +10459,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/tweetclaw-source-research",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10539,9 +10484,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1da97485d4e3bb948f0781ea6e4ce1efe872ac6aa0a3da9564154ac99f13a719",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "b9594670cf3911e55b1fc124464e0e014c8dffcc5da96126846f0438a3e66326",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10549,7 +10494,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/tweetclaw-source-research/SKILL.md",
           "owner": "tweetclaw-source-research",
-          "sha256": "1da97485d4e3bb948f0781ea6e4ce1efe872ac6aa0a3da9564154ac99f13a719",
+          "sha256": "b9594670cf3911e55b1fc124464e0e014c8dffcc5da96126846f0438a3e66326",
           "mode": "100644"
         }
       ]
@@ -10565,8 +10510,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/twitter-reader",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10605,9 +10550,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "bbad60c604254704ced9a23ef190a35691c00b86bcfc282ce3b22f3e2e37338e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "517d6a7ba2b94011050771bd1385aa90aca02e2c3ff676b0fac65410d0de2cf7",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10621,7 +10566,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md",
           "owner": "twitter-reader",
-          "sha256": "bbad60c604254704ced9a23ef190a35691c00b86bcfc282ce3b22f3e2e37338e",
+          "sha256": "517d6a7ba2b94011050771bd1385aa90aca02e2c3ff676b0fac65410d0de2cf7",
           "mode": "100644"
         },
         {
@@ -10649,8 +10594,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/typescript-best-practices",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10674,9 +10619,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fb632ff254d4f16b5948cc6b97c997d7ec311dc9d662ae56e1da5de895fa66dc",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "e055dff62b1d724ef97410aa1402c332f2b040b5ecd584fbff4a5abda1fc8728",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10684,7 +10629,7 @@
         {
           "path": "skills/developer-engineering/typescript-best-practices/SKILL.md",
           "owner": "typescript-best-practices",
-          "sha256": "fb632ff254d4f16b5948cc6b97c997d7ec311dc9d662ae56e1da5de895fa66dc",
+          "sha256": "e055dff62b1d724ef97410aa1402c332f2b040b5ecd584fbff4a5abda1fc8728",
           "mode": "100644"
         }
       ]
@@ -10700,8 +10645,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ui-design-system",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10750,9 +10695,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6dbd49a4afecb56d54a40b5b124c6a48c75e06c1623e6785475ac979c56397c9",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "ea6709c4830a4bce6e7449169c6edc8a5d04d4b71b7b9e94123aee373f2fce09",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10760,7 +10705,7 @@
         {
           "path": "skills/product-design/ui-design-system/SKILL.md",
           "owner": "ui-design-system",
-          "sha256": "6dbd49a4afecb56d54a40b5b124c6a48c75e06c1623e6785475ac979c56397c9",
+          "sha256": "ea6709c4830a4bce6e7449169c6edc8a5d04d4b71b7b9e94123aee373f2fce09",
           "mode": "100644"
         },
         {
@@ -10806,8 +10751,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ui-ux-pro-max",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10831,9 +10776,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "41ccf421965450292154081f8a22c99f90eca6109600920e9bc7ddddceb5b7b7",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "0fa4aa4d004a05bc7579e264fa437f953875455e9e389ccb2262d793a2679c7b",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10841,7 +10786,7 @@
         {
           "path": "skills/product-design/ui-ux-pro-max/SKILL.md",
           "owner": "ui-ux-pro-max",
-          "sha256": "41ccf421965450292154081f8a22c99f90eca6109600920e9bc7ddddceb5b7b7",
+          "sha256": "0fa4aa4d004a05bc7579e264fa437f953875455e9e389ccb2262d793a2679c7b",
           "mode": "100644"
         }
       ]
@@ -10857,8 +10802,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ux-researcher-designer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10907,9 +10852,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4022c2865954e0477d8083ab77eedc823801405e1a77bf36ac1e91a1c1259d17",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "aee3d3d068d42dc799fe155988fada6541a7164e2dda42fc98e4dd3c40115706",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10917,7 +10862,7 @@
         {
           "path": "skills/product-design/ux-researcher-designer/SKILL.md",
           "owner": "ux-researcher-designer",
-          "sha256": "4022c2865954e0477d8083ab77eedc823801405e1a77bf36ac1e91a1c1259d17",
+          "sha256": "aee3d3d068d42dc799fe155988fada6541a7164e2dda42fc98e4dd3c40115706",
           "mode": "100644"
         },
         {
@@ -10963,8 +10908,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/vuls-linux-cve-scanner",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10988,9 +10933,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8805ddc0fed93a925d98e4ad4a65e6727e65fb995eab5f4b598b0a09f705f3c8",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-05-20"
+            "content_sha256": "1cef0946c0f852a1f05fa700f1e5b2aaf03e52db341e47e72890b5bed9c4d6cf",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -10998,7 +10943,7 @@
         {
           "path": "skills/security-and-reliability/vuls-linux-cve-scanner/SKILL.md",
           "owner": "vuls-linux-cve-scanner",
-          "sha256": "8805ddc0fed93a925d98e4ad4a65e6727e65fb995eab5f4b598b0a09f705f3c8",
+          "sha256": "1cef0946c0f852a1f05fa700f1e5b2aaf03e52db341e47e72890b5bed9c4d6cf",
           "mode": "100644"
         }
       ]
@@ -11014,8 +10959,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/web-scraper",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11039,9 +10984,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "70bbb96e183a260cf96e0b78014fb68e416695de058caa9b0fefb562fd65a4b5",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "b4c5aab4fe9249b664a69c4cb4119368b5f385933f4ddf4cb324764a0001bb15",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -11049,7 +10994,7 @@
         {
           "path": "skills/engineering-workflow-automation/web-scraper/SKILL.md",
           "owner": "web-scraper",
-          "sha256": "70bbb96e183a260cf96e0b78014fb68e416695de058caa9b0fefb562fd65a4b5",
+          "sha256": "b4c5aab4fe9249b664a69c4cb4119368b5f385933f4ddf4cb324764a0001bb15",
           "mode": "100644"
         }
       ]
@@ -11065,8 +11010,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-workflow/writing-plans",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-18",
+        "last_synced_at": "2026-11-18",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11095,9 +11040,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "e0af32c0ff88dd7bac439c76875f7728f67b42281373cec41a627e27de2640f8",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "eca50df9aca27b03fd41a701f8aa524d21e8a79a67f9bb17243ba538669251c8",
+            "last_checked_at": "2026-11-18",
+            "last_synced_at": "2026-11-18"
           }
         }
       ],
@@ -11105,7 +11050,7 @@
         {
           "path": "skills/ai-workflow/writing-plans/SKILL.md",
           "owner": "writing-plans",
-          "sha256": "e0af32c0ff88dd7bac439c76875f7728f67b42281373cec41a627e27de2640f8",
+          "sha256": "eca50df9aca27b03fd41a701f8aa524d21e8a79a67f9bb17243ba538669251c8",
           "mode": "100644"
         },
         {

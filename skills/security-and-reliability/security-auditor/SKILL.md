@@ -7,7 +7,7 @@ author: seaworld008
 source: in-house
 source_url: ""
 license: MIT
-tags: '[security, appsec, ai-generated-code, code-review, owasp, secrets, dependency-audit, threat-modeling]'
+tags: [security, appsec, ai-generated-code, code-review, owasp, secrets, dependency-audit, threat-modeling]
 created_at: "2026-06-03"
 updated_at: "2026-09-06"
 quality: 4

@@ -7,7 +7,7 @@ author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md"
 license: MIT
-tags: '["git", "workflow", "delivery"]'
+tags: ["git", "workflow", "delivery"]
 created_at: "2026-04-13"
 updated_at: "2026-11-17"
 quality: 4
