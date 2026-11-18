@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "mode": "online",
+  "state": "complete",
+  "generated_at": "2026-11-18T02:32:06.552274+00:00",
+  "rows": [
+    {
+      "id": "agent-browser",
+      "state": "current",
+      "reasons": [],
+      "commit": "f85ed4d620c53ace7733a3b7eeef51e5f2532c83",
+      "tree_digest": "efd20c537b482b7f32a4efdfaae74e25e1b8c437acc71d637b1a610b88a74cde",
+      "latest_package_version": "0.43.0",
+      "engines": {
+        "node": ">=22.0.0"
+      },
+      "latest_release": "v0.43.0"
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "state": "current",
+      "reasons": [],
+      "commit": "4b9acc9961a081f462d6a30040b8af729b1d7dc3",
+      "tree_digest": "ce826a2981b5a76f7b0957edc42dfd462aff5cbfab84d42db9d01e2d322a79c8",
+      "latest_package_version": "1.13.0",
+      "engines": {
+        "node": "^20.19.0 || ^22.12.0 || >=23"
+      },
+      "latest_release": "chrome-devtools-mcp-v1.13.0"
+    },
+    {
+      "id": "playwright-mcp",
+      "state": "current",
+      "reasons": [],
+      "commit": "16347fa7f878b33442b4b9d5ed34b76a99a5266c",
+      "tree_digest": "5f5d979ac70fd6ddfc791a23ede3eebf0bf485afdb731c107a6bdf2a2e55302d",
+      "latest_package_version": "0.0.85",
+      "engines": {
+        "node": ">=18"
+      },
+      "latest_release": "v0.0.85"
+    },
+    {
+      "id": "devtools-skill",
+      "state": "current",
+      "reasons": [],
+      "commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+      "tree_digest": "4053d39025c255f18d6d629576bf9bc58876fcb9bc26e450748328c83ab3c2a1"
+    },
+    {
+      "id": "playwright-skill",
+      "state": "current",
+      "reasons": [],
+      "commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "tree_digest": "fe8e822cdd15158eea265d86e1d16fab3db18de6de71de24544e1b9a6e18e45d"
+    }
+  ]
+}

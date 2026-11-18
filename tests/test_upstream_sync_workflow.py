@@ -9,6 +9,18 @@ WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "upstream-sync.yml"
 
 
 class UpstreamSyncWorkflowTests(unittest.TestCase):
+    def test_foundation_check_precedes_discovery_and_is_required_by_report(self):
+        data = yaml.safe_load(WORKFLOW_PATH.read_text(encoding="utf-8"))
+        steps = data["jobs"]["discover-and-sync"]["steps"]
+        foundations = next(i for i, step in enumerate(steps) if step.get("id") == "foundations")
+        discovery = next(i for i, step in enumerate(steps) if step.get("id") == "discovery")
+        self.assertLess(foundations, discovery)
+        command = steps[foundations]["run"]
+        self.assertIn("rm -f docs/sources/reports/browser-foundations.json", command)
+        self.assertIn("python scripts/check_browser_foundations.py", command)
+        report = next(step for step in steps if step.get("id") == "report")
+        self.assertIn("--foundation docs/sources/reports/browser-foundations.json", report["run"])
+
     def test_workflow_reconciles_one_canonical_issue(self):
         data = yaml.safe_load(WORKFLOW_PATH.read_text(encoding="utf-8"))
         job = data["jobs"]["discover-and-sync"]

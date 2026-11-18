@@ -15,7 +15,13 @@ gh auth status
 
 ## 更新现有技能
 
+先执行浏览器基础能力检查，再检查全仓。`sync_all_upstream_skills.py` 内置此顺序；
+有基础版本/接口待审阅或网络失败时，批量 `--apply` 会停止，先完成适配再重试。
+手动直接运行 `sync_upstream.py` 时也先执行该前置检查。处理方法、基线推进和
+宿主内置 browser 的验收见[浏览器基础能力维护](browser-foundation-maintenance.md)。
+
 ```bash
+python scripts/check_browser_foundations.py
 python scripts/sync_upstream.py --check-only
 ```
 

@@ -970,7 +970,7 @@
 | [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
 | [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli  |
 | [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Use when controlling authorized web pages with agent-browser CLI, accessibility  |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
@@ -2536,7 +2536,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Use when controlling authorized web pages with agent-browser CLI, accessibility  |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
 
 ## browser-automation
 
@@ -2608,7 +2608,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Use when controlling authorized web pages with agent-browser CLI, accessibility  |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Automate authorized web workflows with the agent-browser CLI: task sessions, acc |
 
 ## chat
 

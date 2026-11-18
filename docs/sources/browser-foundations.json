@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "priority_skills": [
+    "agent-browser",
+    "browser-testing-with-devtools",
+    "playwright",
+    "playwright-pro"
+  ],
+  "targets": [
+    {
+      "id": "agent-browser",
+      "repo": "vercel-labs/agent-browser",
+      "ref": "main",
+      "paths": [
+        "skill-data/core",
+        "skills/agent-browser",
+        "cli/src/commands.rs",
+        "cli/src/mcp.rs"
+      ],
+      "reviewed_commit": "f85ed4d620c53ace7733a3b7eeef51e5f2532c83",
+      "reviewed_tree_digest": "efd20c537b482b7f32a4efdfaae74e25e1b8c437acc71d637b1a610b88a74cde",
+      "reviewed_at": "2026-11-18",
+      "package": "agent-browser",
+      "reviewed_version": "0.43.0",
+      "reviewed_release": "v0.43.0"
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "ref": "main",
+      "paths": [
+        "README.md",
+        "docs",
+        "skills",
+        "src/tools",
+        "plugin.json",
+        "mcp.json"
+      ],
+      "reviewed_commit": "4b9acc9961a081f462d6a30040b8af729b1d7dc3",
+      "reviewed_tree_digest": "ce826a2981b5a76f7b0957edc42dfd462aff5cbfab84d42db9d01e2d322a79c8",
+      "reviewed_at": "2026-11-18",
+      "package": "chrome-devtools-mcp",
+      "reviewed_version": "1.13.0",
+      "reviewed_release": "chrome-devtools-mcp-v1.13.0"
+    },
+    {
+      "id": "playwright-mcp",
+      "repo": "microsoft/playwright-mcp",
+      "ref": "main",
+      "paths": [
+        "README.md",
+        "src",
+        "config.d.ts"
+      ],
+      "reviewed_commit": "16347fa7f878b33442b4b9d5ed34b76a99a5266c",
+      "reviewed_tree_digest": "5f5d979ac70fd6ddfc791a23ede3eebf0bf485afdb731c107a6bdf2a2e55302d",
+      "reviewed_at": "2026-11-18",
+      "package": "@playwright/mcp",
+      "reviewed_version": "0.0.85",
+      "reviewed_release": "v0.0.85"
+    },
+    {
+      "id": "devtools-skill",
+      "repo": "addyosmani/agent-skills",
+      "ref": "main",
+      "paths": [
+        "skills/browser-testing-with-devtools"
+      ],
+      "reviewed_commit": "39b723ceebf81474d0557c1fecd01eddab585563",
+      "reviewed_tree_digest": "4053d39025c255f18d6d629576bf9bc58876fcb9bc26e450748328c83ab3c2a1",
+      "reviewed_at": "2026-11-18"
+    },
+    {
+      "id": "playwright-skill",
+      "repo": "openai/skills",
+      "ref": "main",
+      "paths": [
+        "skills/.curated/playwright"
+      ],
+      "reviewed_commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "reviewed_tree_digest": "fe8e822cdd15158eea265d86e1d16fab3db18de6de71de24544e1b9a6e18e45d",
+      "reviewed_at": "2026-11-18"
+    }
+  ],
+  "host_managed": [
+    "browser",
+    "chrome",
+    "computer-use",
+    "unified-computer-use",
+    "node_repl"
+  ],
+  "host_contract": "docs/browser-foundation-maintenance.md"
+}

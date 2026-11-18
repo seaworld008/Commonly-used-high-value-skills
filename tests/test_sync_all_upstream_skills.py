@@ -30,6 +30,7 @@ def test_check_uses_only_governed_v2_sync_entrypoint():
 
     commands = [call.args[0] for call in run.call_args_list]
     assert commands == [
+        (module.PYTHON, "scripts/check_browser_foundations.py"),
         (module.PYTHON, "scripts/sync_upstream.py", "--check-only"),
     ]
 
@@ -51,15 +52,9 @@ def test_apply_pipeline_uses_full_pytest_and_no_legacy_importers():
             )
 
     commands = [call.args[0] for call in run.call_args_list]
-    assert commands[0] == (module.PYTHON, "scripts/sync_upstream.py", "--apply")
-    assert (module.PYTHON, "-m", "pytest", "-q", "tests") in commands
-    assert (
-        module.PYTHON,
-        "scripts/reconcile_artifact_inventory.py",
-        "--offline",
-        "--check-clean",
-        "--quiet",
-    ) in commands
+    assert commands[0] == (module.PYTHON, "scripts/check_browser_foundations.py")
+    assert commands[1] == (module.PYTHON, "scripts/sync_upstream.py", "--apply")
+    assert commands[2:] == [(module.PYTHON, "scripts/validate_repository.py", "--refresh")]
     flattened = "\n".join(" ".join(command) for command in commands)
     assert "sync_addyosmani_agent_skills.py" not in flattened
     assert "sync_simota_agent_skills.py" not in flattened
@@ -78,7 +73,7 @@ def test_apply_preserves_degraded_state_and_runs_pipeline_after_writes():
             mock.patch.object(
                 module,
                 "run",
-                side_effect=[2] + [0] * len(module.POST_SYNC_PIPELINE),
+                side_effect=[0, 2] + [0] * len(module.POST_SYNC_PIPELINE),
             ) as run,
         ):
             assert (
@@ -92,7 +87,7 @@ def test_apply_preserves_degraded_state_and_runs_pipeline_after_writes():
                 )
                 == 2
             )
-    assert len(run.call_args_list) == 1 + len(module.POST_SYNC_PIPELINE)
+    assert len(run.call_args_list) == 2 + len(module.POST_SYNC_PIPELINE)
 
 
 def test_apply_preserves_failed_state_without_install_or_unwritten_pipeline():

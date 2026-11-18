@@ -4544,6 +4544,8 @@ def main(argv: list[str] | None = None) -> int:
         flush=True,
     )
     
+    from check_browser_foundations import prioritize
+    skills = prioritize(skills)
     checked_results: list[dict] = []
     for skill in skills:
         print(

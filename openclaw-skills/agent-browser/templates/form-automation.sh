@@ -13,6 +13,9 @@
 
 set -euo pipefail
 
+# One persistent shell retains the task-owned session for every command below.
+export AGENT_BROWSER_SESSION="${AGENT_BROWSER_SESSION:-$(agent-browser session id --scope worktree --prefix task)}"
+
 FORM_URL="${1:?Usage: $0 <form-url>}"
 
 echo "Form automation: $FORM_URL"
