@@ -999,6 +999,461 @@
           "mode": "100644"
         }
       ]
+    },
+    {
+      "video_name": "review-animations",
+      "normalized_slug": "review-animations",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/product-design/review-animations/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+      "notes": "2026-11-23: Curated from emilkowalski/skills (MIT). Removed Claude-specific disable-model-invocation and Initial Response stall, normalized bilingual frontmatter and triggers, and retained STANDARDS.md with clean links.",
+      "upstream": {
+        "repo": "emilkowalski/skills",
+        "path": "skills/review-animations/SKILL.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+        "path_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "emilkowalski/skills",
+          "path": "skills/review-animations/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/review-animations/SKILL.md",
+              "target": "skills/product-design/review-animations/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/review-animations/STANDARDS.md",
+              "target": "skills/product-design/review-animations/STANDARDS.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/review-animations/LICENSE.upstream.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+            "path_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+            "content_sha256": "0b42cbbc1f5452960ed1d46d71e5141825c72503b5fda2292fce52d2ca68502e",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+              "content_sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+              "spdx": "MIT",
+              "resolved_commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+              "api_spdx": "MIT"
+            }
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/review-animations/LICENSE.upstream.txt",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "owner": "review-animations",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/review-animations/SKILL.md",
+          "sha256": "0b42cbbc1f5452960ed1d46d71e5141825c72503b5fda2292fce52d2ca68502e",
+          "owner": "review-animations",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/review-animations/STANDARDS.md",
+          "sha256": "1a6468e8209e705755772806069044318568a1de62409165ebcd64342072c7b1",
+          "owner": "review-animations",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "cloudflare-agents-sdk",
+      "normalized_slug": "cloudflare-agents-sdk",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/deployment-platforms/cloudflare-agents-sdk/SKILL.md",
+      "source": "https://github.com/cloudflare/skills/tree/main/skills/agents-sdk",
+      "notes": "2026-11-23: Curated from cloudflare/skills/skills/agents-sdk (Apache-2.0) under slug cloudflare-agents-sdk (upstream_slug: agents-sdk) with explicit scope boundaries against cloudflare-deploy and cloudflare-troubleshooting.",
+      "upstream": {
+        "repo": "cloudflare/skills",
+        "path": "skills/agents-sdk/SKILL.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "5108325ecceabc899c761e07aa617b09c02445ee",
+        "path_commit": "29de2b2f187f5ddbcbac048d1a480298e76d619a"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "cloudflare/skills",
+          "path": "skills/agents-sdk/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/agents-sdk/SKILL.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/browse-the-web.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/browse-the-web.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/callable.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/callable.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/client-sdk.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/client-sdk.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/codemode.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/codemode.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/configuration.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/configuration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/durable-execution.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/durable-execution.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/email.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/email.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/human-in-the-loop.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/human-in-the-loop.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/mcp.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/mcp.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/observability.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/observability.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/queue-retries.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/queue-retries.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/routing.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/routing.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/server-driven-messages.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/server-driven-messages.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/skill-feedback.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/skill-feedback.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/state-scheduling.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/state-scheduling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/streaming-chat.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/streaming-chat.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/think.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/think.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/voice.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/voice.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/webhooks-push.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/webhooks-push.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/agents-sdk/references/workflows.md",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/references/workflows.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/deployment-platforms/cloudflare-agents-sdk/LICENSE.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "5108325ecceabc899c761e07aa617b09c02445ee",
+            "path_commit": "29de2b2f187f5ddbcbac048d1a480298e76d619a",
+            "content_sha256": "e0782d182895b8f864438b686e8f653c4646b7aa3fa4b39868f89cf3a2894f26",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+              "content_sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "5108325ecceabc899c761e07aa617b09c02445ee",
+              "api_spdx": "Apache-2.0"
+            }
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/SKILL.md",
+          "sha256": "e0782d182895b8f864438b686e8f653c4646b7aa3fa4b39868f89cf3a2894f26",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/browse-the-web.md",
+          "sha256": "c78beb4ce000b40284f7fc90988471d06ac4db3c553878f29cc3276bbbfecfeb",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/callable.md",
+          "sha256": "42e1c0496022b0cacd3647510d2ca3afc87159d825f7072089ccbaf2307c641a",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/client-sdk.md",
+          "sha256": "efda15f0562b05832cc7017da1d3398764c1d4f125ea03f68df149e074c107e6",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/codemode.md",
+          "sha256": "bcc04b7787a7dc3ac6d2f35eb2889ac5ef88e7bece273a575e0cfe027b443f48",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/configuration.md",
+          "sha256": "4da1deb6c0f6e143b9bea5e048fa5de3b418f6b723912ad5c2b3434195f9991c",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/durable-execution.md",
+          "sha256": "782a3e886707b363e53bf9e93b2c62b24d95500aade0fd65f13029bd46dee604",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/email.md",
+          "sha256": "71eadd3631a7763dec0ce0b3d06316d1a70663e4cd1e16f8f8f5527d785d149d",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/human-in-the-loop.md",
+          "sha256": "275aec5f411c94134c7841bb9f31f1c5a07a759ec9dda14df8d3ed4b96acee1a",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/mcp.md",
+          "sha256": "fdc0cb2e434da4750e892bfee9fd325a25d6bf113578892b0b4a3eaa4aded394",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/observability.md",
+          "sha256": "34e33ba3343320254b80c729e3c87f9eb3efa0be554875b18571cbb7d3530695",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/queue-retries.md",
+          "sha256": "966e7cbe309f46c7ed39f8a6e8fcd9beea0eeedc248a9005073a1266c188cf4d",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/routing.md",
+          "sha256": "a6d82c736eac8815c87b1d2203eec23e2d252f3de10d5c574c9d6e2a69c729d3",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/server-driven-messages.md",
+          "sha256": "fb12b6e818ee46a9a9ef8a78492d5d01d93ac6da01fa1da5e551bd44d91ce671",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/skill-feedback.md",
+          "sha256": "4398b5597999dba7d0887bb62c30b8f917e78ab11600e2c8038dfe7a4d617392",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/state-scheduling.md",
+          "sha256": "76fca096c36f01b8c5420391de71bd22838bf0914adda303d384fecb99c79684",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/streaming-chat.md",
+          "sha256": "210ae4fafe0b4b553b98717c0df020a35d1ad2b9742e2083e406564200902174",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/think.md",
+          "sha256": "9ad3c294f7feef292cdbe6ece0ac916054e4604af00e91fd02a4216fc4ad9df5",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/voice.md",
+          "sha256": "ef23a2e20cdce96f606008f29d2d77145e04b0c73491505e5d971ec130bbe05f",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/webhooks-push.md",
+          "sha256": "0ec967c03a5701d04505b1d1e47d056dcaf30c8326299a014b3e3e84ed4ed22f",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/cloudflare-agents-sdk/references/workflows.md",
+          "sha256": "0cdf5b5fd935f0986c8c1b61306e8294bfe9b710ca856428cfb45296ab181aec",
+          "owner": "cloudflare-agents-sdk",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "ab-test-design",
+      "normalized_slug": "ab-test-design",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/product-design/ab-test-design/SKILL.md",
+      "source": "https://github.com/Trystan-SA/product-engineer-skills/tree/main/skills/ab-test-design",
+      "notes": "2026-11-23: Curated from Trystan-SA/product-engineer-skills (MIT). Normalized frontmatter <=240 chars, bundled scripts/sample_size.py, added worked sizing example & launch checklist, and removed assumed external-suite skill coupling.",
+      "upstream": {
+        "repo": "Trystan-SA/product-engineer-skills",
+        "path": "skills/ab-test-design/SKILL.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "5e0534c97f29b82a5e2077000eb1cb8732f03296",
+        "path_commit": "e0a46359dcd497e73f1f8a6e953b2e56fb59bef2"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Trystan-SA/product-engineer-skills",
+          "path": "skills/ab-test-design/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/ab-test-design/SKILL.md",
+              "target": "skills/product-design/ab-test-design/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ab-test-design/scripts/sample_size.py",
+              "target": "skills/product-design/ab-test-design/scripts/sample_size.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/ab-test-design/LICENSE.upstream.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "5e0534c97f29b82a5e2077000eb1cb8732f03296",
+            "path_commit": "e0a46359dcd497e73f1f8a6e953b2e56fb59bef2",
+            "content_sha256": "074d4f46d18e9c306986cdab3365bce56bcdb97d0c152ff92bb1cb34647b4e05",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "2f934c0e0fe878d6f39623cf744091c078a8e187",
+              "content_sha256": "2a309cf919e921f08baa031214d4074a5ace0cbe0d49e80b55280bb572b739ca",
+              "spdx": "MIT",
+              "resolved_commit": "5e0534c97f29b82a5e2077000eb1cb8732f03296",
+              "api_spdx": "MIT"
+            }
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/ab-test-design/LICENSE.upstream.txt",
+          "sha256": "2a309cf919e921f08baa031214d4074a5ace0cbe0d49e80b55280bb572b739ca",
+          "owner": "ab-test-design",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/ab-test-design/SKILL.md",
+          "sha256": "074d4f46d18e9c306986cdab3365bce56bcdb97d0c152ff92bb1cb34647b4e05",
+          "owner": "ab-test-design",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/ab-test-design/scripts/sample_size.py",
+          "sha256": "993229c2fa203a33340bbcf80aed4d2d6947effd0c54213e4b8efbc068522807",
+          "owner": "ab-test-design",
+          "mode": "100644"
+        }
+      ]
     }
   ],
   "verification_attempts": [

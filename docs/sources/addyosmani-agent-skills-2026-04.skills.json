@@ -4538,6 +4538,99 @@
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
+    },
+    {
+      "video_name": "accessibility-engineering",
+      "normalized_slug": "accessibility-engineering",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/accessibility-engineering/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/accessibility-engineering/SKILL.md",
+      "notes": "2026-11-23: Curated from addyosmani/agent-skills (MIT). Bundled root references/accessibility-checklist.md inside references/, preserved executable mode 0755 on scripts/audit-a11y.sh, normalized frontmatter, and aligned relative links.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/accessibility-engineering/SKILL.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+        "path_commit": "f9e7e19210afb70c621489a9fc80651ce6d7fc8c"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/accessibility-engineering/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/accessibility-engineering/SKILL.md",
+              "target": "skills/ai-workflow/accessibility-engineering/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/accessibility-engineering/scripts/audit-a11y.sh",
+              "target": "skills/ai-workflow/accessibility-engineering/scripts/audit-a11y.sh",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/accessibility-engineering/LICENSE.upstream.txt",
+              "type": "file"
+            },
+            {
+              "source": "references/accessibility-checklist.md",
+              "target": "skills/ai-workflow/accessibility-engineering/references/accessibility-checklist.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+            "path_commit": "f9e7e19210afb70c621489a9fc80651ce6d7fc8c",
+            "content_sha256": "b7b68ef23f688cb3fee4a8c8cf9248ff5370d21f8af42754a5826048188f9d66",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+              "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+              "spdx": "MIT",
+              "resolved_commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+              "api_spdx": "MIT"
+            }
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/accessibility-engineering/LICENSE.upstream.txt",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "owner": "accessibility-engineering",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/accessibility-engineering/SKILL.md",
+          "sha256": "b7b68ef23f688cb3fee4a8c8cf9248ff5370d21f8af42754a5826048188f9d66",
+          "owner": "accessibility-engineering",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/accessibility-engineering/references/accessibility-checklist.md",
+          "sha256": "290870b5d6b00d4e359c28c0fb98ea5ac625cd651bde3cbe276d61a39e69d743",
+          "owner": "accessibility-engineering",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/accessibility-engineering/scripts/audit-a11y.sh",
+          "sha256": "cee1d6a07eba48006da838edbda72d0682aa688616ec9bb61d5555ba5ac811e0",
+          "owner": "accessibility-engineering",
+          "mode": "100755"
+        }
+      ]
     }
   ],
   "verification_attempts": [
