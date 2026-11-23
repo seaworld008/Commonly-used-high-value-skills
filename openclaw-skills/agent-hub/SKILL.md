@@ -2,14 +2,14 @@
 name: agent-hub
 description: 'Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.'
 zh_description: "需要多个智能体并行竞争同一任务时使用：在隔离的 Git worktree 中产出方案、评估结果并合并胜出版本。"
-version: "1.0.15"
+version: "1.0.16"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "hub"]
 created_at: "2026-03-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -269,33 +269,7 @@ npx clawhub@latest install agenthub
 
 - **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
 - **reflect-learn** — Review feedback and compare controlled workflow improvements; persist guidance only within existing authorization.
-- **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Agent Hub; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+- **using-git-worktrees** — Git worktree isolation and parallel environment setup (AgentHub uses worktrees internally)
 
 ## Local Execution Boundaries
 

@@ -1047,7 +1047,7 @@
             "ref": "main",
             "resolved_commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
             "path_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
-            "content_sha256": "0b42cbbc1f5452960ed1d46d71e5141825c72503b5fda2292fce52d2ca68502e",
+            "content_sha256": "2da083d15ade08f3485b998abdab071949288d9ac524632dd751e81d543d85cc",
             "last_checked_at": "2026-11-23",
             "last_synced_at": "2026-11-23",
             "license_checkpoint": {
@@ -1070,7 +1070,7 @@
         },
         {
           "path": "skills/product-design/review-animations/SKILL.md",
-          "sha256": "0b42cbbc1f5452960ed1d46d71e5141825c72503b5fda2292fce52d2ca68502e",
+          "sha256": "2da083d15ade08f3485b998abdab071949288d9ac524632dd751e81d543d85cc",
           "owner": "review-animations",
           "mode": "100644"
         },
@@ -1224,7 +1224,7 @@
             "ref": "main",
             "resolved_commit": "5108325ecceabc899c761e07aa617b09c02445ee",
             "path_commit": "29de2b2f187f5ddbcbac048d1a480298e76d619a",
-            "content_sha256": "e0782d182895b8f864438b686e8f653c4646b7aa3fa4b39868f89cf3a2894f26",
+            "content_sha256": "33befa7f299458edfc35631f58e5418f0d11b74ef1217e77c93b6497d0f32540",
             "last_checked_at": "2026-11-23",
             "last_synced_at": "2026-11-23",
             "license_checkpoint": {
@@ -1247,7 +1247,7 @@
         },
         {
           "path": "skills/deployment-platforms/cloudflare-agents-sdk/SKILL.md",
-          "sha256": "e0782d182895b8f864438b686e8f653c4646b7aa3fa4b39868f89cf3a2894f26",
+          "sha256": "33befa7f299458edfc35631f58e5418f0d11b74ef1217e77c93b6497d0f32540",
           "owner": "cloudflare-agents-sdk",
           "mode": "100644"
         },
@@ -1420,7 +1420,7 @@
             "ref": "main",
             "resolved_commit": "5e0534c97f29b82a5e2077000eb1cb8732f03296",
             "path_commit": "e0a46359dcd497e73f1f8a6e953b2e56fb59bef2",
-            "content_sha256": "074d4f46d18e9c306986cdab3365bce56bcdb97d0c152ff92bb1cb34647b4e05",
+            "content_sha256": "d3fc525b5333378836fca2e3571101cc5efcad2f1eeddfec4e018e510510c343",
             "last_checked_at": "2026-11-23",
             "last_synced_at": "2026-11-23",
             "license_checkpoint": {
@@ -1443,7 +1443,7 @@
         },
         {
           "path": "skills/product-design/ab-test-design/SKILL.md",
-          "sha256": "074d4f46d18e9c306986cdab3365bce56bcdb97d0c152ff92bb1cb34647b4e05",
+          "sha256": "d3fc525b5333378836fca2e3571101cc5efcad2f1eeddfec4e018e510510c343",
           "owner": "ab-test-design",
           "mode": "100644"
         },

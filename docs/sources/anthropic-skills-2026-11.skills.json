@@ -371,7 +371,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ca45fc496a3436251f191354091d557da31c15b5",
-            "content_sha256": "e73571492f2b544e0e0161093a3e11d5ce815cc75e0dc1d23fa68771f0b2ed92",
+            "content_sha256": "8724d9445a2a25581c58fb3778611b7eb8a40b03d9669befa8ad6ddbab53f962",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -429,7 +429,7 @@
         },
         {
           "path": "skills/developer-engineering/mcp-builder/SKILL.md",
-          "sha256": "e73571492f2b544e0e0161093a3e11d5ce815cc75e0dc1d23fa68771f0b2ed92",
+          "sha256": "8724d9445a2a25581c58fb3778611b7eb8a40b03d9669befa8ad6ddbab53f962",
           "owner": "mcp-builder",
           "mode": "100644"
         },
@@ -6617,7 +6617,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-            "content_sha256": "0248039e8078544a988497aa9b0d9b5966571e0cc64fb584981989f9bb6513b7",
+            "content_sha256": "edba93e6c17eb6861e00a8c99395c5c50cdd39eafb14b346f64c0031dd09c753",
             "last_checked_at": "2026-11-23",
             "last_synced_at": "2026-11-23",
             "license_checkpoint": {
@@ -6661,7 +6661,7 @@
         },
         {
           "path": "skills/ai-agent-platform/claude-api/SKILL.md",
-          "sha256": "0248039e8078544a988497aa9b0d9b5966571e0cc64fb584981989f9bb6513b7",
+          "sha256": "edba93e6c17eb6861e00a8c99395c5c50cdd39eafb14b346f64c0031dd09c753",
           "owner": "claude-api",
           "mode": "100644"
         },

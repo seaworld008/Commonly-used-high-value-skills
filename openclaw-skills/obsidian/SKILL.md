@@ -2,14 +2,14 @@
 name: obsidian
 description: 'Use when reading, searching, creating, or editing notes in an authorized Obsidian vault while preserving frontmatter, wikilinks, and unrelated notes.'
 zh_description: "用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md"
 license: MIT
 tags: ["obsidian", "notes", "knowledge-base"]
 created_at: "2026-04-13"
-updated_at: "2026-10-26"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
@@ -74,32 +74,6 @@ Use `patch` for focused note changes when the current content gives you stable c
 ## Wikilinks
 
 Obsidian links notes with `[[Note Name]]` syntax. When creating notes, use these to link related content.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Obsidian; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
 <!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Vault Scope and Tool Portability

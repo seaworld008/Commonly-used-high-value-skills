@@ -1764,7 +1764,7 @@
             "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-            "content_sha256": "83526caa789912448ebacfb654a777f41a9db60bb2bc51e1ac6e0f3c909f890d",
+            "content_sha256": "154880b93023427baa5c5ca15138f98a7851fc2984629ac1ef99a255207ef4f4",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
@@ -1815,7 +1815,7 @@
         {
           "path": "skills/multimodal-media/live-panel/SKILL.md",
           "owner": "live-panel",
-          "sha256": "83526caa789912448ebacfb654a777f41a9db60bb2bc51e1ac6e0f3c909f890d",
+          "sha256": "154880b93023427baa5c5ca15138f98a7851fc2984629ac1ef99a255207ef4f4",
           "mode": "100644"
         },
         {

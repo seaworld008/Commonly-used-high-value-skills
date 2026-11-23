@@ -842,7 +842,7 @@
             "ref": "main",
             "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
-            "content_sha256": "f7944363145939b8cc11df770b7b62ffdad08aabd0131fb79d57a7d746ab71e0",
+            "content_sha256": "772417510b9f6d77b35a461e6b522c4dc2a1b0e1b67367ac9120b72af63fcc7c",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -860,7 +860,7 @@
         {
           "path": "skills/ai-workflow/using-superpowers/SKILL.md",
           "owner": "using-superpowers",
-          "sha256": "f7944363145939b8cc11df770b7b62ffdad08aabd0131fb79d57a7d746ab71e0",
+          "sha256": "772417510b9f6d77b35a461e6b522c4dc2a1b0e1b67367ac9120b72af63fcc7c",
           "mode": "100644"
         },
         {

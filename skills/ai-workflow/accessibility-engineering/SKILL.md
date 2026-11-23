@@ -1,6 +1,6 @@
 ---
 name: accessibility-engineering
-description: "Use when auditing existing UI for WCAG 2.2 AA conformance, running axe-core or pa11y, triaging accessibility findings, or verifying keyboard, focus, contrast, and screen-reader behavior before shipping."
+description: 'Use when auditing existing UI for WCAG 2.2 AA conformance, running axe-core or pa11y, triaging accessibility findings, or verifying keyboard, focus, contrast, and screen-reader behavior before shipping.'
 zh_description: "对现有界面执行 WCAG 2.2 AA 无障碍审计，结合 axe-core/pa11y 自动检查与键盘、读屏和对比度人工验证并修复违规项。"
 version: "1.0.0"
 author: "Addy Osmani"

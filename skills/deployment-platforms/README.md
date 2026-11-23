@@ -4,7 +4,7 @@
 
 聚焦 Vercel、Netlify、Render、Cloudflare 等部署平台的发布与接入技能。
 
-当前分类共 **7** 个技能。
+当前分类共 **8** 个技能。
 
 ## 推荐先看
 
@@ -17,6 +17,7 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `cloudflare-agents-sdk` | 使用 Cloudflare Agents SDK（`agents`、`AIChatAgent`）在 Workers 与 Durable Objects 上构建、调试及部署有状态 AI Agent、RPC、工作流与 MCP 服务。 | [目录](./cloudflare-agents-sdk/) | [SKILL.md](./cloudflare-agents-sdk/SKILL.md) |
 | `cloudflare-deploy` | 用于将应用部署到 Cloudflare 并处理相关发布流程。 | [目录](./cloudflare-deploy/) | [SKILL.md](./cloudflare-deploy/SKILL.md) |
 | `netlify-deploy` | 用于将网站或应用部署到 Netlify 并获取预览或生产链接。 | [目录](./netlify-deploy/) | [SKILL.md](./netlify-deploy/SKILL.md) |
 | `pipe` | 持续集成工作流、触发策略、安全加固和复用设计。 | [目录](./pipe/) | [SKILL.md](./pipe/SKILL.md) |

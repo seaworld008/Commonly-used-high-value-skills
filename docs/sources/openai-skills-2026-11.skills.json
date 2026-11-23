@@ -10827,7 +10827,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "2c9ebb321958f64aa9414b46e4240901e2b9e1a9",
-            "content_sha256": "659075598843a6118e2275dcc1cab3f3e47186c5703927b90f5d5f5ce96f6dfc",
+            "content_sha256": "c2746344ccfde8f479cf576080f4c7264ba02c23f69e8c7ac0bf63f9b767ef9f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -10849,7 +10849,7 @@
         },
         {
           "path": "skills/deployment-platforms/vercel-deploy/SKILL.md",
-          "sha256": "659075598843a6118e2275dcc1cab3f3e47186c5703927b90f5d5f5ce96f6dfc",
+          "sha256": "c2746344ccfde8f479cf576080f4c7264ba02c23f69e8c7ac0bf63f9b767ef9f",
           "owner": "vercel-deploy",
           "mode": "100644"
         },

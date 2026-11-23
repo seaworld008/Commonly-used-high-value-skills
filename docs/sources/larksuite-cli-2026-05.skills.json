@@ -788,7 +788,7 @@
         "sync_mode": "monitor",
         "path_commit": "87be09ef5f227c7b63d5eba40649544b5bec0133"
       },
-      "kind": "overlay",
+      "kind": "mirror",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -3756,7 +3756,7 @@
         "sync_mode": "monitor",
         "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85"
       },
-      "kind": "overlay",
+      "kind": "mirror",
       "sync_mode": "monitor",
       "origins": [
         {

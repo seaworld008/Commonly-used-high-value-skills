@@ -2,14 +2,14 @@
 name: skill-security-auditor
 description: 'Audit external agent skills before installing, trusting, or updating them: static scans plus manual review of instructions, scripts, permissions, dependencies, provenance, and data exfiltration.'
 zh_description: "安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md"
 license: MIT
 tags: ["auditor", "security", "skill"]
 created_at: "2026-03-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -26,7 +26,7 @@ clear **PASS / WARN / FAIL** verdict with findings and remediation guidance.
 - Evidence that a skill reaches beyond task scope, reads unrelated files, or triggers unauthorized actions.
 - A curation or deployment gate that needs a traceable adoption record.
 
-Use `security-review` or `security-auditor` for application code instead. The
+Use `security-review` for application code instead. The
 scanner covers rule-based static checks; the
 [manual review method](references/manual-review.md) covers provenance pinning,
 permission and data-flow mapping, dependency review, and the adoption record.

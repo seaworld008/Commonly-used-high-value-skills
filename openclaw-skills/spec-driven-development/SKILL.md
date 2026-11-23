@@ -2,14 +2,14 @@
 name: spec-driven-development
 description: 'Specify new features or substantial behavior changes when goals, boundaries, and acceptance criteria need agreement before implementation.'
 zh_description: "把需求转成明确的功能边界、契约和验收标准。"
-version: "1.0.6"
+version: "1.0.7"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "engineering", "spec-driven-development", "workflow"]
 created_at: "2026-07-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: advanced
 upstream_slug: spec-driven-development
@@ -66,7 +66,7 @@ Build order: identity → billing, notifications → reporting
 
 Review unresolved module boundaries, dependency direction and build order with the user. Reuse an agreed capability map.
 
-**Then recurse per module.** Run Specify → Plan → Tasks → Implement for each module in dependency order. Each module gets its own spec, scoped to that module's objective, boundaries, and success criteria. Save the approved map at the project root and each module's spec alongside it, named by module id (`SPEC-identity.md`, `SPEC-billing.md`) — the map, not filename guessing, is the index of what exists.
+**Then recurse per module.** Run Specify → Plan → Tasks → Implement for each module in dependency order. Each module gets its own spec, scoped to that module's objective, boundaries, and success criteria. Save the approved map as `spec/capability-map.md` and each module's spec alongside it in `spec/`, named by module id (`spec/SPEC-identity.md`, `spec/SPEC-billing.md`) — keeping specs under `spec/` avoids cluttering the repository root, and the map, not filename guessing, is the index of what exists.
 
 ### Phase 1: Specify
 

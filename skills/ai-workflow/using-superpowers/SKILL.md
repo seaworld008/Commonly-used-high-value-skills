@@ -1,6 +1,6 @@
 ---
 name: using-superpowers
-description: 'Use when selecting relevant Superpowers workflow skills for a user-requested workflow or concrete development task that needs structured process guidance.'
+description: Use when selecting relevant Superpowers workflow skills for a user-requested workflow or concrete development task that needs structured process guidance.
 zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
 version: "1.0.9"
 author: "seaworld008"

@@ -1,6 +1,6 @@
 ---
 name: live-panel
-description: 'Use when rendering animated system architecture diagrams or interactive status panels into self-contained HTML and MP4 media outputs.'
+description: Use when rendering animated system architecture diagrams or interactive status panels into self-contained HTML and MP4 media outputs.
 zh_description: "将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。"
 version: "1.0.4"
 author: "ythx-101/live-panel-skill"

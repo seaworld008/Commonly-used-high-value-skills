@@ -1,6 +1,6 @@
 ---
 name: vercel-deploy
-description: 'Use when creating Vercel preview or production deployments for projects explicitly targeting Vercel or already bound to Vercel.'
+description: Use when creating Vercel preview or production deployments for projects explicitly targeting Vercel or already bound to Vercel.
 zh_description: "用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。"
 version: "1.0.2"
 author: "OpenAI contributors; local curators"

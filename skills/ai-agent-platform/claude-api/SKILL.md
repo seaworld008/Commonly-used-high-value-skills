@@ -1,6 +1,6 @@
 ---
 name: claude-api
-description: "Use when building, migrating, auditing, or debugging applications with the Anthropic Claude API, official Anthropic SDKs, Tool Runner, Prompt Caching, or Managed Agents (not OpenAI, Gemini, or non-Anthropic providers)."
+description: 'Use when building, migrating, auditing, or debugging applications with the Anthropic Claude API, official Anthropic SDKs, Tool Runner, Prompt Caching, or Managed Agents (not OpenAI, Gemini, or non-Anthropic providers).'
 zh_description: "使用 Anthropic Claude API 与官方多语言 SDK 构建、迁移、调试与优化模型应用、工具调用及 Managed Agents。"
 version: "1.0.0"
 author: Anthropic

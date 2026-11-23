@@ -2,14 +2,14 @@
 name: linkedin
 description: 'General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.'
 zh_description: "通过 Linked API 搜索领英资料、管理连接、消息与内容发布。"
-version: "1.0.5"
+version: "1.0.6"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md"
 license: MIT
 tags: [linkedin, automation, social-media, outreach, cli]
 created_at: "2026-07-10"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: intermediate
 ---
@@ -483,10 +483,10 @@ linkedin reset --all                             # Remove all accounts
   write and ask the user to clarify it.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
 
-## Reviewed CLI compatibility (2026-11-17)
+## Reviewed CLI compatibility (2026-11-23)
 
 Standard and Sales Navigator person/company searches require a term or a correctly typed search URL; URL input overrides words and filters. In CLI ≥ 1.2.24, list items containing commas use a single JSON string-array argument, e.g. `--locations '["Chicago, Illinois","Denver"]'`. Search-based identification of anonymous viewers returns candidates, not proof of identity.
 
-Signals (CLI ≥ 1.4.0), Sales Navigator saved lists/searches (≥ 1.2.26, Plus), and Recruiter Lite (≥ 1.3.0, Plus and a Recruiter seat) are optional contracts. Do not create ongoing monitoring from a one-off search. Signals consume quotas, first checks generally establish a baseline, events require a `detectedAt` cursor and ID deduplication, and stopped signals cannot resume.
+Signals (CLI ≥ 1.4.0; `listAlerts` ≥ 1.4.1), Sales Navigator saved lists/searches (≥ 1.2.26, Plus), and Recruiter Lite (≥ 1.3.0, Plus and a Recruiter seat) are optional contracts. `navigator alerts --subject` also accepts `urn:li:member:<id>` and `urn:li:organization:<id>` in CLI ≥ 1.4.1. Do not create ongoing monitoring from a one-off search. Signals consume quotas, first checks generally establish a baseline, `listAlerts` (`alertPublished`) matches members via `subjectUrn` / `subjectHashedUrl` and consumes zero account limits, events require a `detectedAt` cursor and ID deduplication, and stopped signals cannot resume.
 
 For saved-list operations distinguish removing one membership, unsaving from all lists, and deleting a list while keeping members saved. Preserve IDs as strings. Recruiter search URLs and filter/term input are mutually exclusive. Never add `--allow-paid-credit` unless the specific message and its paid-credit use are authorized. An uncertain send or create result must be reconciled by reading before retrying. Verify installed CLI help and account entitlements before these optional workflows; no live account operation was performed in this review.

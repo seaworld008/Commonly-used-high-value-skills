@@ -1,15 +1,15 @@
 ---
 name: mcp-builder
-description: Build MCP servers that expose external APIs or services through well-scoped tools in Python or TypeScript.
+description: Use when building Model Context Protocol (MCP) servers in Python or TypeScript to expose external APIs or services as well-scoped tools.
 zh_description: "开发连接外部服务的 MCP 工具服务器。"
-version: "1.1.2"
+version: "1.1.3"
 author: "Anthropic contributors; local curators"
 source: "https://github.com/anthropics/skills"
 source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/mcp-builder/SKILL.md"
 license: "Apache-2.0"
 tags: ["builder", "development", "mcp"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: "intermediate"
 ---

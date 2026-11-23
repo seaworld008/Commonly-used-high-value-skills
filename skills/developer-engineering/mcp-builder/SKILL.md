@@ -1,6 +1,6 @@
 ---
 name: mcp-builder
-description: 'Use when building Model Context Protocol (MCP) servers in Python or TypeScript to expose external APIs or services as well-scoped tools.'
+description: Use when building Model Context Protocol (MCP) servers in Python or TypeScript to expose external APIs or services as well-scoped tools.
 zh_description: "开发连接外部服务的 MCP 工具服务器。"
 version: "1.1.3"
 author: "Anthropic contributors; local curators"

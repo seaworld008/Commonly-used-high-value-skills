@@ -2,21 +2,21 @@
 name: theme-factory
 description: 'Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.'
 zh_description: "用于为幻灯片、文档、报告和网页应用预设主题或生成新的颜色字体系统。"
-version: "1.0.1"
+version: "1.0.2"
 author: "Anthropic contributors; local curators"
 source: "https://github.com/anthropics/skills"
 source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/theme-factory/SKILL.md"
 license: "Apache-2.0"
 tags: ["factory", "productivity", "theme"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "intermediate"
 ---
 
 # Theme Factory Skill
 
-This skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.
+This skill provides a curated collection of professional font and color themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.
 
 ## Purpose
 
@@ -80,4 +80,34 @@ usage_notes:
   - Use primary for titles and dividers
   - Use secondary only for emphasis and charts
   - Keep body text on light backgrounds for readability
+```
+
+## When to Use & Selection Matrix
+
+Use this skill whenever an artifact (slide deck, HTML landing page, PDF report, or DOCX brief) needs cohesive colors and typography instead of ad-hoc styling.
+- Skip when the user specifies an official brand guideline (`brand-guidelines`) or requests raw structural layout only.
+- Read [Theme Selection Matrix](references/theme-selection-matrix.md) to pick the closest preset quickly by audience, tone, and surface contrast before reading an individual `themes/<name>.md` file.
+
+## Contrast & Multi-Format Handoff Checklist
+
+1. **Read one preset completely**: open `themes/<chosen-theme>.md` and verify every hex color and font role.
+2. **Check readability**: enforce `>= 4.5:1` text-to-background contrast for body copy (`>= 3.0:1` for large headings and chart labels) and verify callout/accent legibility on both light and dark cards.
+3. **Map semantic tokens**: assign `primary` (headers/dividers), `surface` (slide or page background), `body` (readable dark/light copy), `muted` (captions/axes), and `accent` (single highlight series or CTA).
+4. **Deliver to format skill**:
+   - Presentations: pass tokens into `pptx` master slide layouts or `guizang-ppt-skill` HTML slides.
+   - Documents & web: emit CSS custom properties (`--color-primary`, `--color-surface`, `--font-heading`, `--font-body`) for `frontend-design`, `docx`, or `pdf` outputs.
+5. **Custom themes**: only invent a new theme when none of the 10 presets fits the domain; document contrast notes and get approval if brand identity is sensitive.
+
+## CSS Token Export Pattern
+
+```css
+:root {
+  --color-primary: #1a2332;
+  --color-secondary: #2d8b8b;
+  --color-accent: #a8dadc;
+  --color-surface: #f1faee;
+  --color-ink: #1a2332;
+  --font-heading: "DejaVu Sans", system-ui, sans-serif;
+  --font-body: "DejaVu Sans", system-ui, sans-serif;
+}
 ```

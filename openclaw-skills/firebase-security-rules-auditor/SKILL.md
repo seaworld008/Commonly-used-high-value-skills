@@ -2,25 +2,25 @@
 name: firebase-security-rules-auditor
 description: 'Use when auditing changed Firestore or Cloud Storage rules for authorization, tenant isolation, field validation, privilege escalation, and emulator coverage.'
 zh_description: "审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。"
-version: "1.1.5"
+version: "1.1.6"
 author: seaworld008
 source: github:firebase/agent-skills
 source_url: "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor"
 license: Apache-2.0
 tags: [firebase, firestore, cloud-storage, security-rules, authorization, appsec]
 created_at: "2026-07-06"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: advanced
 ---
 
-# Overview
+## Overview
 
 This skill acts as an auditor for Firebase Security Rules, evaluating them
 against a rigorous set of criteria to ensure they are secure, robust, and
 correctly implemented.
 
-# Scoring Criteria
+## Scoring Criteria
 
 ## Assessment: Security Validator (Red Team Edition)
 
@@ -89,32 +89,6 @@ Return your assessment in JSON format using the following structure:
   ]
 }
 ```
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Firebase Security Rules Auditor; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
 <!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Repository Security Contract

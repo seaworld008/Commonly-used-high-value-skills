@@ -1,15 +1,15 @@
 ---
 name: i-have-adhd
-description: 'Shape ADHD-friendly output: lead with the next action, number steps, restate state, suppress tangents, give concrete time estimates, and make progress visible. Invoke with /i-have-adhd; stop with "stop adhd mode".'
+description: 'Use when the user asks for ADHD-friendly structured output (/i-have-adhd): lead with the next action, number steps, track state, and estimate time.'
 zh_description: "为 ADHD 读者塑造可执行、行动优先的输出：先给下一步、编号步骤、跨轮次重述状态、抑制跑题、给出具体时间估计并展示进展。"
-version: "0.3.1"
+version: "0.3.2"
 author: "ayghri"
 source: "github:ayghri/i-have-adhd"
 source_url: "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md"
 license: MIT
 tags: ["adhd", "productivity", "communication", "output-style"]
 created_at: "2026-09-18"
-updated_at: "2026-10-16"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "basic"
 disable-model-invocation: true

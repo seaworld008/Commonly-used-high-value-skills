@@ -2,14 +2,14 @@
 name: playwright
 description: 'Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.'
 zh_description: "需要在终端用 playwright-cli 自动化真实浏览器时使用：页面导航、表单填写、快照截图、数据提取和界面流程调试。"
-version: "1.0.3"
+version: "1.0.4"
 author: "OpenAI contributors; local curators"
 source: "https://github.com/openai/skills"
 source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright/SKILL.md"
 license: "Apache-2.0"
 tags: ["automation", "playwright", "workflow"]
 created_at: "2026-03-04"
-updated_at: "2026-11-18"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -23,9 +23,13 @@ Treat this skill as CLI-first automation. Do not pivot to `@playwright/test` unl
 ## Capability Discovery
 
 `@playwright/cli` and `@playwright/mcp` are different packages and interfaces.
-The reviewed Playwright MCP release is 0.0.85; it does not establish the CLI's
-version or command support. Native Browser/Chrome plugins use their host's
-current tools and lifecycle documentation. Keep refs and session handles within
+The reviewed Playwright MCP release is 0.0.86 (Node.js >= 20 required); it does not
+establish the CLI's version or command support. When driving `@playwright/mcp` 0.0.86+:
+extension tab-group sessions support `--session-name` / `--session-color`, `browser_close`
+closes the entire browser and all tabs (use `browser_tabs` with `action: "close"` to close
+a single tab), downloads preserve collision-safe filenames, and Linux ARM64 Chrome installs
+via `npx @playwright/mcp@0.0.86 install-browser chrome`. Native Browser/Chrome plugins use
+their host's current tools and lifecycle documentation. Keep refs and session handles within
 the chosen backend instead of translating them by name.
 
 Check the project's installed CLI and the host's browser tools before choosing

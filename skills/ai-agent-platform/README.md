@@ -4,7 +4,7 @@
 
 围绕 AI 平台能力、Agent 构建、设计到代码以及主动式工作流的技能集合。
 
-当前分类共 **13** 个技能。
+当前分类共 **14** 个技能。
 
 ## 推荐先看
 
@@ -20,6 +20,7 @@
 | `agent-hub` | 需要多个智能体并行竞争同一任务时使用：在隔离的 Git worktree 中产出方案、评估结果并合并胜出版本。 | [目录](./agent-hub/) | [SKILL.md](./agent-hub/SKILL.md) |
 | `arena` | 用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。 | [目录](./arena/) | [SKILL.md](./arena/SKILL.md) |
 | `chatgpt-apps` | 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。 | [目录](./chatgpt-apps/) | [SKILL.md](./chatgpt-apps/SKILL.md) |
+| `claude-api` | 使用 Anthropic Claude API 与官方多语言 SDK 构建、迁移、调试与优化模型应用、工具调用及 Managed Agents。 | [目录](./claude-api/) | [SKILL.md](./claude-api/SKILL.md) |
 | `develop-web-game` | 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。 | [目录](./develop-web-game/) | [SKILL.md](./develop-web-game/SKILL.md) |
 | `figma` | 读取 Figma 设计节点、变量、截图和素材，定位链接目标并排查 MCP 访问问题。 | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
 | `figma-implement-design` | 将具体 Figma 画面适配既有项目，复用组件与样式并按响应式、键盘和视觉标准验收。 | [目录](./figma-implement-design/) | [SKILL.md](./figma-implement-design/SKILL.md) |

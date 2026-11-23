@@ -1,7 +1,6 @@
 ---
 name: cloudflare-agents-sdk
-upstream_slug: agents-sdk
-description: "Use when building, debugging, or reviewing Cloudflare Agents SDK applications (`agents` / `AIChatAgent` / `@cloudflare/ai-chat`) with Durable Object SQLite state, `@callable` RPC, workflows, MCP integration, and Wrangler setup."
+description: 'Use when building, debugging, or reviewing Cloudflare Agents SDK applications (`agents` / `AIChatAgent` / `@cloudflare/ai-chat`) with Durable Object SQLite state, `@callable` RPC, workflows, MCP integration, and Wrangler setup.'
 zh_description: "使用 Cloudflare Agents SDK（`agents`、`AIChatAgent`）在 Workers 与 Durable Objects 上构建、调试及部署有状态 AI Agent、RPC、工作流与 MCP 服务。"
 version: "1.0.0"
 author: Cloudflare
@@ -13,6 +12,7 @@ created_at: "2026-11-23"
 updated_at: "2026-11-23"
 quality: 4
 complexity: advanced
+upstream_slug: agents-sdk
 ---
 
 # Cloudflare Agents SDK

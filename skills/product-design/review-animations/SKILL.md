@@ -1,6 +1,6 @@
 ---
 name: review-animations
-description: "Reviews UI animation and motion code against easing, sub-300ms duration, GPU-property, interruptibility, transform-origin, and reduced-motion standards. Use when reviewing CSS transitions, keyframes, or Motion/React animation diffs."
+description: 'Reviews UI animation and motion code against easing, sub-300ms duration, GPU-property, interruptibility, transform-origin, and reduced-motion standards. Use when reviewing CSS transitions, keyframes, or Motion/React animation diffs.'
 zh_description: "按高精度交互动效标准审查 CSS 过渡、关键帧与 Motion 动画代码（缓动曲线、300ms 时长上限、GPU 属性、可中断性与无障碍降级）。"
 version: "1.0.0"
 author: "Emil Kowalski"

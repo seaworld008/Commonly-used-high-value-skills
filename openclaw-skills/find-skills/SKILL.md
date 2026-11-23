@@ -2,13 +2,13 @@
 name: find-skills
 description: 'Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.'
 zh_description: "在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["find", "planning", "skills", "workflow"]
 created_at: "2026-03-15"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -99,3 +99,14 @@ complexity: "intermediate"
 - 受限容器、无写权限目录或离线环境可能无法安装；报告具体错误。
 - 同一意图只推荐一个主入口，避免多个路由技能互相转交。
 - 检索不到合适技能时，直接说明，并给出不依赖技能的完成方式。
+
+## 本地检索配方 / Local Query Recipes
+
+需要快速过滤 `docs/catalog.json`、检查 `docs/sources/portfolio-policy.json` 已退役别名映射或比对候选资产深度时，读取 [本地目录检索参考](references/catalog-query-recipes.md)。
+
+### 快速去重与路由原则
+
+1. **同一任务只推荐一个规范入口**：优先推荐仓库已有的规范主技能（如 `database-designer`、`security-review`、`using-git-worktrees`、`compete`），不要再推荐历史退役别名。
+2. **区分“宿主内置能力”与“领域方法技能”**：简单通用任务直接由宿主完成；只有当技能提供确定性脚本、外部协议契约、格式渲染校验或高风险安全护栏时才推荐加载或安装。
+3. **未核验项必须显式标明**：网络受限、目录检索失败或候选缺少许可文件时，直接标注“未核验”并给出安全替代路径，不凭印象打分。
+4. **按目录层级验证本地安装**：仅在用户明确授权安装后，检查 `AGENTS.md` 或宿主约定目录（如 `.agents/skills`、`.claude/skills`），确认不产生重复同名副本。

@@ -1,6 +1,6 @@
 ---
 name: ab-test-design
-description: "Use when designing an A/B or split test, defining hypothesis, primary metric, guardrails, randomization unit, MDE, sample size and duration via scripts/sample_size.py, and implementing flicker-free feature-flag rollout."
+description: 'Use when designing an A/B or split test, defining hypothesis, primary metric, guardrails, randomization unit, MDE, sample size and duration via scripts/sample_size.py, and implementing flicker-free feature-flag rollout.'
 zh_description: "用于设计严谨的 A/B 实验方案，明确假设、单一主指标、护栏指标、随机化单元、使用脚本测算样本量与周期及无闪烁特性开关落地。"
 version: "1.0.0"
 author: "Trystan Sarrade"
