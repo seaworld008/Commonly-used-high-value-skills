@@ -54,6 +54,11 @@
               "source": "skills/ai-workflow/find-skills/SKILL.md",
               "target": "skills/ai-workflow/find-skills/SKILL.md",
               "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/find-skills/references/catalog-query-recipes.md",
+              "target": "skills/ai-workflow/find-skills/references/catalog-query-recipes.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -61,7 +66,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "03fda8cb22dcddee2b9922a20cdd1b36291f5a424da7c8875318b0a4fe858554",
+            "content_sha256": "b26235719637e8930a8a14c043bf6ec6153290f3dcf7558c13f5329225959632",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -71,7 +76,13 @@
         {
           "path": "skills/ai-workflow/find-skills/SKILL.md",
           "owner": "find-skills",
-          "sha256": "03fda8cb22dcddee2b9922a20cdd1b36291f5a424da7c8875318b0a4fe858554",
+          "sha256": "b26235719637e8930a8a14c043bf6ec6153290f3dcf7558c13f5329225959632",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/find-skills/references/catalog-query-recipes.md",
+          "owner": "find-skills",
+          "sha256": "a773077ab2bf17292a7e22db7e00274d8a043bb129124f881ba919b5996ae940",
           "mode": "100644"
         }
       ]

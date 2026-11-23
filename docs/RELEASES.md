@@ -6,7 +6,7 @@
 
 ## 最新版本
 
-**v6.2.0 全量审查与浏览器持续进化（2026-11-18）**：合并 v6.1.0 的 293 项技能全量审查、来源与许可修复成果，更新 agent-browser 0.43.0、DevTools 与 Playwright 指引；新增每次全仓维护与周一定时流程的基础能力优先检测、待适配跟踪和验证后基线推进。[发布说明](./releases/v6.2.0.md)。
+**v7.0.0 组合演进、精选新技能与全仓质量升级（2026-11-23）**：合并退役 4 项重叠技能并迁移独有参考资料，精选入库 `claude-api`、`accessibility-engineering`、`cloudflare-agents-sdk`、`review-animations`、`ab-test-design`（全仓 295 个规范技能 / 16 个分类，均分 95.0）；升级 `playwright-mcp v0.0.86` 适应指引、同步 `hermes-agent v0.23.3`，并完成 0 死链与全仓生成幂等验证。[发布说明](./releases/v7.0.0.md)。
 
 从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## 近期版本
+
+- [v6.2.0](./releases/v6.2.0.md)（2026-11-18）：合并 v6.1.0 全量审查成果，更新 `agent-browser` 0.43.0、DevTools 与 Playwright 指引，并建立浏览器基础能力优先检查机制。
 
 - [v6.1.0](./releases/v6.1.0.md)（2026-11-17）：已合并进 v6.2.0；历史审查记录保留。
 

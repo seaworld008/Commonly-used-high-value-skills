@@ -2,14 +2,14 @@
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
 zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/requesting-code-review"
 license: MIT
 tags: ["code-review", "workflow", "quality-gate"]
 created_at: "2026-04-13"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -120,29 +120,3 @@ You: [Fix progress indicators]
 - Request clarification
 
 See template at: [code-reviewer.md](code-reviewer.md)
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Requesting Code Review; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

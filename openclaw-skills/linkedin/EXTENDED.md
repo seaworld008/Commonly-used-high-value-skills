@@ -243,3 +243,20 @@ Each viewer is either `identified` — carrying `name`, `publicUrl` and `urn` (a
 when LinkedIn does not expose it) — or `anonymous`, carrying only the `description` LinkedIn showed
 and a `searchUrl` you can pass to `linkedin person search --url` to look for them. Viewers come
 newest first, and `viewedAt` is an estimate derived from the relative age LinkedIn displays.
+
+### Signals (CLI >= 1.4.0; listAlerts >= 1.4.1)
+
+Use Signals to track recurring LinkedIn events instead of polling searches. `listAlerts` requires an active Sales Navigator subscription and CLI >= 1.4.1:
+
+```bash
+linkedin signal create --type personPosts --person-url https://www.linkedin.com/in/username --label lead-1042 --json -q
+linkedin signal create --type listAlerts --list-id <list-id> --json -q
+linkedin signal list --status active --json -q
+linkedin signal events --since 2026-10-12T16:40:00.000Z --signal-id <signal-id> --json -q
+linkedin signal pause <signal-id> --json -q
+linkedin signal resume <signal-id> --json -q
+linkedin signal delete <signal-id> --json -q
+```
+
+- `listAlerts` (`alertPublished`) carries `alert`, `subjectUrn`, and `subjectHashedUrl` matching `navigator lists leads` / `navigator lists accounts`; it consumes zero account limits and fails with `noSalesNavigator`, `listTooLarge`, or `targetNotFound` when preconditions are unmet.
+- `navigator alerts --subject` (repeatable; never comma-join) accepts hashed LinkedIn URLs, Sales Navigator subject URNs, and (`>= 1.4.1`) `urn:li:member:<id>` / `urn:li:organization:<id>`.

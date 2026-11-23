@@ -2,14 +2,14 @@
 name: lark-workflow-standup-report
 description: '日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的安排。'
 zh_description: "用于汇总指定日期的飞书日程与未完成任务，生成站会或日程待办摘要。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-standup-report"
 license: MIT
 tags: [feishu, lark, lark-cli, standup, reporting]
 created_at: "2026-05-19"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: intermediate
 metadata:
@@ -132,32 +132,3 @@ lark-cli task +get-my-tasks --complete=false --page-all --as user
 - [lark-shared](../lark-shared/SKILL.md) — 认证、权限（必读）
 - [lark-calendar](../lark-calendar/SKILL.md) — `+agenda` 详细用法
 - [lark-task](../lark-task/SKILL.md) — `+get-my-tasks` 详细用法
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Workflow Standup Report; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

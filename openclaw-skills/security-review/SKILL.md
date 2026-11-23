@@ -1,15 +1,15 @@
 ---
 name: security-review
-description: 'Review code diffs and application vulnerabilities by tracing attacker-controlled inputs through trust boundaries, enforcement controls, and dangerous operations; report reproducible defects with focused fixes and acceptance checks.'
+description: 'Review code diffs, AI-generated code, and app vulnerabilities by tracing untrusted inputs across trust boundaries and dangerous sinks; report evidence-backed defects and fixes.'
 zh_description: "用于代码差异与应用漏洞审查，沿攻击者输入追踪边界、控制与危险操作，交付有证据的缺陷、最小修复及正反验收。"
-version: "2.0.0"
+version: "2.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: "MIT"
 tags: ["security", "code-review", "application-security", "vulnerability"]
 created_at: "2026-11-17"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "advanced"
 ---
@@ -98,6 +98,7 @@ complexity: "advanced"
 | 异常与失败分支 | 错误是否暴露凭据、内部路径或对象存在性？异常会否跳过授权或保留部分副作用？ | [错误处理](references/error-handling.md) |
 | 上传、解压、路径 | 文件名、真实类型、解析器、大小和解压总量怎样受限？规范化后路径及符号链接是否逃逸根目录？ | [文件安全](references/file-security.md) |
 | 对象恢复、消息格式 | 不可信数据是否触发类构造、动态导入或可执行钩子？格式与资源限制是否先于实例化？ | [反序列化](references/deserialization.md) |
+| AI 生成代码、PR 预检 | 服务端动作、多租户作用域、依赖变更与基础设施暴露是否越过边界？ | [AI 代码安全核查](references/ai-generated-code-checks.md) |
 | 默认配置与调试开关 | 暴露面、跨域、管理接口、凭据默认值和失败默认行为是否改变？ | [配置](references/misconfiguration.md) |
 | 依赖、构建、CI | 来源和版本是否可验证？不可信 PR 内容能否接触令牌、缓存、制品或发布权限？ | [供应链](references/supply-chain.md) |
 | JavaScript 运行路径 | 隐式转换、对象属性合并、原型影响和异步异常是否改变先前校验结果？ | [JavaScript](languages/javascript.md) |

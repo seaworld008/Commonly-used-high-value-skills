@@ -1,15 +1,15 @@
 ---
 name: golang-performance
-description: 'Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O.'
+description: 'Use when optimizing Go hot paths, reducing heap allocations and GC pressure, or tuning concurrency, caching, and I/O after profiling.'
 zh_description: "用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。"
-version: "1.0.1"
+version: "1.0.2"
 author: "samber/cc-skills-golang"
 source: "github:samber/cc-skills-golang"
 source_url: "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance"
 license: "MIT"
 tags: ["go", "profiling", "performance"]
 created_at: "2026-10-12"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "advanced"
 ---

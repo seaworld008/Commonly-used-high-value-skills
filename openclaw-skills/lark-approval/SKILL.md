@@ -2,14 +2,14 @@
 name: lark-approval
 description: '飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。'
 zh_description: "用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。"
-version: "1.0.10"
+version: "1.0.11"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-approval"
 license: MIT
 tags: [feishu, lark, lark-cli, approval, workflow]
 created_at: "2026-05-19"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: intermediate
 metadata:
@@ -108,32 +108,3 @@ lark-cli approval tasks approve --data '{"instance_code":"<ic>","task_id":"<tid>
 ## 不在本 skill 范围
 
 创建审批定义（走飞书客户端或审批管理后台）；三方定义发起（返回 `create_link`，引导用户通过链接发起）；非审批类待办 → [`lark-task`](../lark-task/SKILL.md)
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Approval; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -2,14 +2,14 @@
 name: event-driven-tracker
 description: 'Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.'
 zh_description: "跟踪影响投资标的的公司事件、催化因素和风险。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["driven", "event", "finance", "tracker"]
 created_at: "2026-03-18"
-updated_at: "2026-11-17"
-quality: 2
+updated_at: "2026-11-23"
+quality: 4
 complexity: "intermediate"
 ---
 

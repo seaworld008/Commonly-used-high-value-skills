@@ -6057,7 +6057,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "5a9bb4cbe6d79d44aa619c70edbfa1654358f69c",
-            "content_sha256": "332e0f2d708d55ac3f47dd395ad0925419747f835f74066bcb39b2d22189e425",
+            "content_sha256": "b7b418c587b5ecad4c2e2558fd92667efb3c5b1e94e1793b125eefcc6beec74e",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -6079,7 +6079,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md",
-          "sha256": "332e0f2d708d55ac3f47dd395ad0925419747f835f74066bcb39b2d22189e425",
+          "sha256": "b7b418c587b5ecad4c2e2558fd92667efb3c5b1e94e1793b125eefcc6beec74e",
           "owner": "gh-address-comments",
           "mode": "100644"
         },
@@ -6216,7 +6216,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "33a75a7b572867072dc0674bee8e63e06c19e67b",
-            "content_sha256": "ea8a2b2d9d051052b03adbc2bb97d625a273677b8641501656cedbb6019224d2",
+            "content_sha256": "4fda5729d4c5ec2d489501ac97a17791d489bc8839736de6871b031d2d11d462",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -6238,7 +6238,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md",
-          "sha256": "ea8a2b2d9d051052b03adbc2bb97d625a273677b8641501656cedbb6019224d2",
+          "sha256": "4fda5729d4c5ec2d489501ac97a17791d489bc8839736de6871b031d2d11d462",
           "owner": "gh-fix-ci",
           "mode": "100644"
         },
@@ -8438,7 +8438,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "972cb867affac58fda9afa76bb1a19b399a278cf",
-            "content_sha256": "ab3db2a1b2be7259d8adf987c29be866bcdb2ba61408e89ac3a57886922ad789",
+            "content_sha256": "e4de9fa57bb8e719ba9bb1f5a81c7f41c48725204e31c81dcfdb1ce7d75938f2",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -8460,7 +8460,7 @@
         },
         {
           "path": "skills/ai-agent-platform/openai-docs/SKILL.md",
-          "sha256": "ab3db2a1b2be7259d8adf987c29be866bcdb2ba61408e89ac3a57886922ad789",
+          "sha256": "e4de9fa57bb8e719ba9bb1f5a81c7f41c48725204e31c81dcfdb1ce7d75938f2",
           "owner": "openai-docs",
           "mode": "100644"
         },
@@ -8640,7 +8640,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "a5119697b819090e00e5d11ee1d86834d7c1043a",
-            "content_sha256": "2a9fcf4c1e0dfebd7cadb11639d25a118bc2075d24ebbc6e18d77d841574b8c4",
+            "content_sha256": "d039266090d5a64e9e9c9a92d2376d11635e8ab21d877ca07b24623a85016d10",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -8674,7 +8674,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/playwright/SKILL.md",
-          "sha256": "2a9fcf4c1e0dfebd7cadb11639d25a118bc2075d24ebbc6e18d77d841574b8c4",
+          "sha256": "d039266090d5a64e9e9c9a92d2376d11635e8ab21d877ca07b24623a85016d10",
           "owner": "playwright",
           "mode": "100644"
         },
@@ -10827,7 +10827,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "2c9ebb321958f64aa9414b46e4240901e2b9e1a9",
-            "content_sha256": "b6cd02c4078e05e9d564cffdf1a7baca759114c94c96865134050f9a7bc43a07",
+            "content_sha256": "c2746344ccfde8f479cf576080f4c7264ba02c23f69e8c7ac0bf63f9b767ef9f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -10849,7 +10849,7 @@
         },
         {
           "path": "skills/deployment-platforms/vercel-deploy/SKILL.md",
-          "sha256": "b6cd02c4078e05e9d564cffdf1a7baca759114c94c96865134050f9a7bc43a07",
+          "sha256": "c2746344ccfde8f479cf576080f4c7264ba02c23f69e8c7ac0bf63f9b767ef9f",
           "owner": "vercel-deploy",
           "mode": "100644"
         },
@@ -10972,7 +10972,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "590b49edc158611a2b2ed715ae73f27eb70d251a",
-            "content_sha256": "fc4f46f0cfd171368ecf7df88216f055aef1bdfb5ab552d2ce6909f3781fa4b4",
+            "content_sha256": "bacab49f83b6b14cfcb3237d622a3e17fde64b100d42b70ee5f6216e46e52565",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -10994,7 +10994,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/yeet/SKILL.md",
-          "sha256": "fc4f46f0cfd171368ecf7df88216f055aef1bdfb5ab552d2ce6909f3781fa4b4",
+          "sha256": "bacab49f83b6b14cfcb3237d622a3e17fde64b100d42b70ee5f6216e46e52565",
           "owner": "yeet",
           "mode": "100644"
         },

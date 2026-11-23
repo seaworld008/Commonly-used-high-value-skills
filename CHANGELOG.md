@@ -10,6 +10,21 @@ All notable changes to this repository are documented here.
 
 变更范围 / Revision range: `v6.2.0..HEAD`.
 
+#### [2026-11-23]
+
+##### Added
+- `claude-api` (ai-agent-platform) — claude-api
+- `accessibility-engineering` (ai-workflow) — accessibility-engineering
+- `cloudflare-agents-sdk` (deployment-platforms) — cloudflare-agents-sdk
+- `ab-test-design` (product-design) — ab-test-design
+- `review-animations` (product-design) — review-animations
+
+##### Changed
+- refresh repository views and add 2026-11-23 maintenance report
+- curate 5 high-value skills (claude-api, accessibility-engineering, review-animations, cloudflare-agents-sdk, ab-test-design)
+- merge and retire 4 overlapping skills, clear review queue, and tighten skill quality
+- update browser foundations (playwright-mcp v0.0.86), sync hermes-agent v0.23.3, curate 6 upstream diffs, and fix dead links
+
 #### [2026-11-18]
 
 ##### Added
@@ -19,6 +34,9 @@ All notable changes to this repository are documented here.
 - curate Google Modern Web Guidance with continuous upstream monitoring
 
 ##### Fixed
+- treat zoneless HTTP-date Retry-After as GMT
+- honor HTTP-date Retry-After in discovery rate-limit backoff
+- harden upstream discovery, remove bundled session logs, normalize tags
 - retain upstream web-first and pre-execution approval rules
 - record canonical LF digests for the curated guidance
 <!-- AUTO-CHANGELOG:END -->

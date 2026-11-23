@@ -1,15 +1,15 @@
 ---
 name: security-audit
-description: 'Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.'
+description: 'Use when auditing codebases for exploitable security vulnerabilities with concrete attack paths, source evidence, and verified remediation.'
 zh_description: "对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。"
-version: "1.0.3"
+version: "1.0.4"
 author: seaworld008
 source: github:cloudflare/security-audit-skill
 source_url: "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md"
 license: MIT
 tags: [security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]
 created_at: "2026-07-20"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: advanced
 ---

@@ -96,8 +96,28 @@ def lint_skill(file_path: Path, min_lines: int, tiered: bool = True) -> Dict[str
         passed_count += 1
             
     # 4. Section check
-    trigger_patterns = [r"## 触发条件", r"## When to Use", r"## Trigger"]
-    core_patterns = [r"## 核心能力", r"## Core", r"## Capabilities", r"## Usage"]
+    trigger_patterns = [
+        r"## 触发条件",
+        r"## 适用场景",
+        r"## 使用场景",
+        r"## 典型场景",
+        r"## When to\b",
+        r"## When This Skill\b",
+        r"## Trigger",
+    ]
+    core_patterns = [
+        r"## .*核心能力",
+        r"## 核心概念",
+        r"## 工作流",
+        r"## 典型工作流",
+        r"## 快速决策",
+        r"## 路由优先级",
+        r"## 挖掘流程",
+        r"## 参考",
+        r"## Core",
+        r"## Capabilities",
+        r"## Usage",
+    ]
     common_section_keywords = [
         "overview",
         "workflow",
@@ -114,7 +134,9 @@ def lint_skill(file_path: Path, min_lines: int, tiered: bool = True) -> Dict[str
         "inputs",
         "requirements",
         "prerequisites",
+        "example",
         "examples",
+        "common patterns",
         "checklist",
         "integration",
         "best practices",

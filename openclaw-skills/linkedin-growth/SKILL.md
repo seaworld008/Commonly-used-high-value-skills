@@ -2,14 +2,14 @@
 name: linkedin-growth
 description: 'Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli and local lead records; outreach requires existing user authorization.'
 zh_description: "构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。"
-version: "1.0.4"
+version: "1.0.5"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth"
 license: MIT
 tags: [linkedin, lead-generation, growth, outreach, automation]
 created_at: "2026-07-10"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: advanced
 ---
@@ -36,7 +36,7 @@ under `scripts/`.
 | **Phase A** | Import — runs only when the user triggers it. Includes qualification in the current session or with available, authorized delegation. |
 | **Phase B** | Network maintenance — `network-invite` + `network-pending`. Runs on a schedule. NEVER calls an LLM. |
 
-## First-run setup
+## Quick Start & First-Run Setup
 
 First inspect existing connection status using available status commands. Install missing dependencies/CLI or configure accounts only within the user's setup authorization. Use a trusted local credential flow; never request tokens in chat or place them in command arguments/reports. [Detailed setup background](EXTENDED.md#section-1) is conditional: its token-request and automatic scheduler steps must follow these limits. A research/import request alone does not authorize installing or replacing a scheduler.
 
@@ -415,29 +415,3 @@ To inspect what the background runs are doing, read `<data_dir>/logs/<account>-<
 - `import.mjs prepare` creates a new batch every time — call once per intended import.
 - `import.mjs commit` refuses to run twice on the same batch.
 - `schedule.mjs install` overwrites any existing installation of the same service id.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Linkedin Growth; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

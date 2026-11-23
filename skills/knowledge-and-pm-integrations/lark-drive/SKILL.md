@@ -2,14 +2,14 @@
 name: lark-drive
 description: '管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使用；文档正文编辑转对应文档技能。'
 zh_description: "用于搜索、读取和管理飞书云空间文件与权限。"
-version: "1.0.18"
+version: "1.0.19"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-drive"
 license: MIT
 tags: [feishu, lark, lark-cli, drive, files]
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-23"
 quality: 4
 complexity: intermediate
 metadata:
@@ -224,32 +224,3 @@ lark-cli drive <resource> <method> [flags] # 调用 API
   - `get` — 获取当前用户的容量信息，包含各业务使用量、租户配额是否超限、用户配额、所在部门配额
     - 仅支持 `--as user`，不要使用默认的 bot 身份
     - `quota_detail_id` 传当前用户的 `user_id`
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Drive; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

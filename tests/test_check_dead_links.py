@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import unittest
 from pathlib import Path
 
@@ -40,6 +41,10 @@ class CheckDeadLinksTests(unittest.TestCase):
             "https://api.semanticscholar.org/recommendations/v1/papers/",
             "https://x.com/user/status/456",
             "https://www.linkedin.com/posts/username_activity-123",
+            "https://figma.com/design/EXAMPLEKEY/Catalog?node-id=12-34",
+            "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.03300",
+            "https://arxiv.org/abs/",
+            "https://arxiv.org/pdf/",
         ]
         for url in urls:
             self.assertTrue(self.module.should_ignore_url(url), url)
@@ -91,6 +96,8 @@ class CheckDeadLinksTests(unittest.TestCase):
         self.assertEqual(200, status)
         self.assertEqual("", error)
         self.assertIn("--retry-all-errors", command["argv"])
+        out_index = command["argv"].index("--output")
+        self.assertEqual(os.devnull, command["argv"][out_index + 1])
         retry_index = command["argv"].index("--retry")
         self.assertEqual("2", command["argv"][retry_index + 1])
 

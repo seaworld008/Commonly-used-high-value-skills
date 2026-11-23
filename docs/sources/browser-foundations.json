@@ -18,9 +18,9 @@
         "cli/src/commands.rs",
         "cli/src/mcp.rs"
       ],
-      "reviewed_commit": "f85ed4d620c53ace7733a3b7eeef51e5f2532c83",
-      "reviewed_tree_digest": "efd20c537b482b7f32a4efdfaae74e25e1b8c437acc71d637b1a610b88a74cde",
-      "reviewed_at": "2026-11-18",
+      "reviewed_commit": "d2dfc782ccdd79d25a9b4f0acced9321789cecb8",
+      "reviewed_tree_digest": "205609acfae3aa2e97bc773ee9a6b22079604e6b2b0b16f73757cbc35b25fda4",
+      "reviewed_at": "2026-11-23",
       "package": "agent-browser",
       "reviewed_version": "0.43.0",
       "reviewed_release": "v0.43.0"
@@ -37,9 +37,9 @@
         "plugin.json",
         "mcp.json"
       ],
-      "reviewed_commit": "4b9acc9961a081f462d6a30040b8af729b1d7dc3",
-      "reviewed_tree_digest": "ce826a2981b5a76f7b0957edc42dfd462aff5cbfab84d42db9d01e2d322a79c8",
-      "reviewed_at": "2026-11-18",
+      "reviewed_commit": "ab911a6dd71ed4960c1c679f831c7b5607bc5505",
+      "reviewed_tree_digest": "cb14ceca50bb6cea28e023c809cd9d31f408b287be63ed9947f0073a5eb92975",
+      "reviewed_at": "2026-11-23",
       "package": "chrome-devtools-mcp",
       "reviewed_version": "1.13.0",
       "reviewed_release": "chrome-devtools-mcp-v1.13.0"
@@ -53,12 +53,12 @@
         "src",
         "config.d.ts"
       ],
-      "reviewed_commit": "16347fa7f878b33442b4b9d5ed34b76a99a5266c",
-      "reviewed_tree_digest": "5f5d979ac70fd6ddfc791a23ede3eebf0bf485afdb731c107a6bdf2a2e55302d",
-      "reviewed_at": "2026-11-18",
+      "reviewed_commit": "2337aff0213d28db41d3e3daf48cee19b3d0bd82",
+      "reviewed_tree_digest": "d3c829e134cd66bba586147cd86234edbf1f74855eb1db30583d28e692e7cb8b",
+      "reviewed_at": "2026-11-23",
       "package": "@playwright/mcp",
-      "reviewed_version": "0.0.85",
-      "reviewed_release": "v0.0.85"
+      "reviewed_version": "0.0.86",
+      "reviewed_release": "v0.0.86"
     },
     {
       "id": "devtools-skill",
@@ -112,9 +112,9 @@
         "LICENSE",
         "README.md"
       ],
-      "reviewed_commit": "bac92a10f8014c4750fea7be1391eba2ce374158",
-      "reviewed_tree_digest": "c1fe9f1f24be25aef2782c45a2a0b30139153253a847b68f36d1b96976cb195c",
-      "reviewed_at": "2026-11-18"
+      "reviewed_commit": "920ee542afc8785ddbadd9aee976c2eab9caf25f",
+      "reviewed_tree_digest": "12eb5113adc39478e5ea675146ab43db3558edf80bb04d5e8c2a9dc59cdd3a9f",
+      "reviewed_at": "2026-11-23"
     }
   ],
   "host_managed": [

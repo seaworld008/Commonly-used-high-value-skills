@@ -8844,7 +8844,7 @@
             "ref": "main",
             "resolved_commit": "c1189c2111e47c1a38378e238ca027d3c231ec83",
             "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
-            "content_sha256": "f898a83cc9017833aa9f5bfabea3076dc65b38324360bf1c5944b070ddd968be",
+            "content_sha256": "cc5ba9441ebffe8ebef8948e4a6d5c044b57e2b1c9f4ef04bf20123f75bb89ae",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -8917,6 +8917,11 @@
               "source": "skills/growth-operations-xiaohongshu/compete/references/winloss-analysis.md",
               "target": "skills/growth-operations-xiaohongshu/compete/references/winloss-analysis.md",
               "type": "file"
+            },
+            {
+              "source": "skills/growth-operations-xiaohongshu/compete/reference/public-evidence-collection.md",
+              "target": "skills/growth-operations-xiaohongshu/compete/reference/public-evidence-collection.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -8925,8 +8930,8 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": null,
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23"
           }
         },
         {
@@ -8969,7 +8974,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
           "owner": "compete",
-          "sha256": "f898a83cc9017833aa9f5bfabea3076dc65b38324360bf1c5944b070ddd968be",
+          "sha256": "cc5ba9441ebffe8ebef8948e4a6d5c044b57e2b1c9f4ef04bf20123f75bb89ae",
           "mode": "100644"
         },
         {
@@ -9222,6 +9227,12 @@
           "path": "skills/growth-operations-xiaohongshu/compete/LICENSE.upstream.txt",
           "owner": "compete",
           "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/compete/reference/public-evidence-collection.md",
+          "owner": "compete",
+          "sha256": "95260f0fa64ee2b9894785a2fae23ba0b8a33c59272d07ffbd36727d7c2538df",
           "mode": "100644"
         }
       ]

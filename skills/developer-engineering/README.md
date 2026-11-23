@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **53** 个技能。
+当前分类共 **51** 个技能。
 
 ## 推荐先看
 
@@ -26,12 +26,10 @@
 | `codebase-inspection` | 用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。 | [目录](./codebase-inspection/) | [SKILL.md](./codebase-inspection/SKILL.md) |
 | `codebase-onboarding` | 生成代码库架构、环境搭建和常见开发任务的入门指南。 | [目录](./codebase-onboarding/) | [SKILL.md](./codebase-onboarding/SKILL.md) |
 | `database-designer` | 设计和优化数据库结构、查询及迁移方案。 | [目录](./database-designer/) | [SKILL.md](./database-designer/SKILL.md) |
-| `database-schema-designer` | 设计数据表、约束、索引、迁移和行级权限策略。 | [目录](./database-schema-designer/) | [SKILL.md](./database-schema-designer/SKILL.md) |
 | `dependency-auditor` | 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
 | `frontend-design` | 按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
 | `gateway` | 设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
-| `git-worktree-manager` | 管理并行开发的 Git worktree、环境和端口分配。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 寻找开源贡献机会并准备可审查的 GitHub PR。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
 | `golang-benchmark` | 使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。 | [目录](./golang-benchmark/) | [SKILL.md](./golang-benchmark/SKILL.md) |
 | `golang-performance` | 用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。 | [目录](./golang-performance/) | [SKILL.md](./golang-performance/SKILL.md) |

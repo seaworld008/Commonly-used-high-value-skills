@@ -2,14 +2,14 @@
 name: lark-attendance
 description: 'Use when querying Lark attendance records, checking missing clock-ins, and preparing traceable explanations for attendance exceptions.'
 zh_description: "用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance"
 license: MIT
 tags: [feishu, lark, lark-cli, attendance]
 created_at: "2026-05-19"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: intermediate
 metadata:
@@ -119,32 +119,3 @@ lark-cli attendance user_tasks query --params '<schema-confirmed-query-json>' --
 - [ ] 日期范围、时区、分页游标和原始结果已记录。
 - [ ] 空结果、权限错误和临时失败没有被改写成考勤结论。
 - [ ] 输出已脱敏，且没有执行任何写入或权限变更命令。
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Attendance; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-04",
+  "updated_at": "2026-11-23",
   "decision_rule": "Retire a skill only when it has no unique executable asset, current external-system contract, high-risk domain guardrail, or measurable acceptance standard, and a canonical replacement covers the same user intent.",
   "retired_skills": [
     {
@@ -218,6 +218,26 @@
       "name": "neon-postgres-egress-optimizer",
       "replacement": "neon-postgres",
       "reason": "Upstream retired the standalone skill ID and moved its egress workflow into the neon-postgres references (neondatabase/agent-skills#172). Neon Postgres now owns the same egress and transfer-cost intent through references/egress-optimization.md."
+    },
+    {
+      "name": "database-schema-designer",
+      "replacement": "database-designer",
+      "reason": "Database Designer owns schema design, normalization, indexing, and migrations; its new references/orm-and-rls-patterns.md preserves Drizzle, Prisma, Alembic, and multi-tenant PostgreSQL RLS examples."
+    },
+    {
+      "name": "security-auditor",
+      "replacement": "security-review",
+      "reason": "Security Review already provides evidence-driven vulnerability tracing and acceptance checks; its new references/ai-generated-code-checks.md preserves the AI-generated code pitfalls and rapid threat-model template."
+    },
+    {
+      "name": "git-worktree-manager",
+      "replacement": "using-git-worktrees",
+      "reason": "Using Git Worktrees is the canonical worktree lifecycle workflow; its new references/parallel-env-isolation.md preserves port allocation, Docker Compose override, DB isolation, and sparse-checkout templates."
+    },
+    {
+      "name": "competitive-teardown",
+      "replacement": "compete",
+      "reason": "Compete is the canonical competitive intelligence and battle-card workflow; its new reference/public-evidence-collection.md preserves public pricing, app-store RSS review, and job-posting collection recipes."
     }
   ],
   "canonical_groups": [
@@ -321,6 +341,30 @@
       "canonical": "neon-postgres",
       "retired_aliases": [
         "neon-postgres-egress-optimizer"
+      ]
+    },
+    {
+      "canonical": "database-designer",
+      "retired_aliases": [
+        "database-schema-designer"
+      ]
+    },
+    {
+      "canonical": "security-review",
+      "retired_aliases": [
+        "security-auditor"
+      ]
+    },
+    {
+      "canonical": "using-git-worktrees",
+      "retired_aliases": [
+        "git-worktree-manager"
+      ]
+    },
+    {
+      "canonical": "compete",
+      "retired_aliases": [
+        "competitive-teardown"
       ]
     }
   ],

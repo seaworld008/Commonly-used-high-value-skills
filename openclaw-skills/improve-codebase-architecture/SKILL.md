@@ -1,15 +1,15 @@
 ---
 name: improve-codebase-architecture
-description: 'Review module boundaries, interface depth and high-leverage refactors with evidence.'
+description: 'Use when reviewing module boundaries, interface depth, and high-leverage architectural refactors backed by concrete codebase evidence.'
 zh_description: "结合变更热点、接口深度与测试证据识别高价值架构重构。"
-version: "1.0.1"
+version: "1.0.2"
 author: "mattpocock/skills"
 source: "github:mattpocock/skills"
 source_url: "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture"
 license: "MIT"
 tags: ["architecture", "refactoring", "review"]
 created_at: "2026-10-12"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "advanced"
 ---

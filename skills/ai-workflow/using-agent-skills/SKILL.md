@@ -2,14 +2,14 @@
 name: using-agent-skills
 description: 'Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.'
 zh_description: "用于选择、加载和正确使用 Agent Skills 完成任务。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "engineering", "using-agent-skills", "workflow"]
 created_at: "2026-07-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: advanced
 upstream_slug: using-agent-skills
@@ -44,7 +44,8 @@ Task arrives
     ├── Reviewing code? ───────────────→ code-review-and-quality
     │   ├── Too complex? ─────────────→ code-simplification
     │   ├── Security concerns? ───────→ security-and-hardening
-    │   └── Performance concerns? ────→ performance-optimization
+    │   ├── Performance concerns? ────→ performance-optimization
+    │   └── Accessibility concerns? ──→ accessibility-engineering
     ├── Committing/branching? ─────────→ git-workflow-and-versioning
     ├── CI/CD pipeline work? ──────────→ ci-cd-and-automation
     ├── Deprecating/migrating? ────────→ deprecation-and-migration
@@ -189,6 +190,7 @@ Not every task needs every skill. A bug fix might only need: `debugging-and-erro
 | Review | code-simplification | Preserve behavior while reducing unnecessary complexity |
 | Review | security-and-hardening | OWASP prevention, input validation, least privilege |
 | Review | performance-optimization | Measure first, optimize only what matters |
+| Review | accessibility-engineering | Audit an existing interface for WCAG 2.2 AA and remediate verified violations |
 | Ship | git-workflow-and-versioning | Atomic commits, clean history |
 | Ship | ci-cd-and-automation | Automated quality gates on every change |
 | Ship | deprecation-and-migration | Remove old systems and migrate users safely |

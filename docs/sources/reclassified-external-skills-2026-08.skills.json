@@ -507,6 +507,13 @@
       "target": "neondatabase/agent-skills@067f9fb2df21953b216867d60ec500ddaf3e5647",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-23",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@4b94d98605baf742b751bb82832ace5caf942271",
+      "result": "success",
+      "evidence": "Curated modern Terraform 1.11-1.17+ guidance (S3 use_lockfile, provider major bumps, apply -refresh-only, declarative import/moved/removed blocks, trivy config, native .tftest.hcl, ephemeral write-only secrets)."
     }
   ],
   "skills": [
@@ -2140,7 +2147,7 @@
             "ref": "main",
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
-            "content_sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
+            "content_sha256": "d8ddd6405e3848cf07920e6aaded39cad8cb4015637f7b3cb2e221f0a2bc59f0",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2186,7 +2193,7 @@
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
           "owner": "supabase",
-          "sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
+          "sha256": "d8ddd6405e3848cf07920e6aaded39cad8cb4015637f7b3cb2e221f0a2bc59f0",
           "mode": "100644"
         },
         {
@@ -2775,11 +2782,11 @@
         "repo": "Jeffallan/claude-skills",
         "path": "skills/terraform-engineer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
-        "last_synced_commit": "67c1961b180dc92cf08983344627109e983e8f51",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "4b94d98605baf742b751bb82832ace5caf942271",
         "sync_mode": "monitor",
-        "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
+        "path_commit": "0613e0bd0687b197024a111c2ca3094e5aed06dd"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -2803,17 +2810,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
-            "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
-            "content_sha256": "1440057722ce168d93f3fa642d18b8a41e8d3845e773e3080032104539a30343",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17",
+            "resolved_commit": "4b94d98605baf742b751bb82832ace5caf942271",
+            "path_commit": "0613e0bd0687b197024a111c2ca3094e5aed06dd",
+            "content_sha256": "efe0079da87ebaadd5c81169ae5a9cca0aa080e7b9d28c06df1fc9590e5d5551",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "67c1961b180dc92cf08983344627109e983e8f51",
+              "resolved_commit": "4b94d98605baf742b751bb82832ace5caf942271",
               "api_spdx": "MIT"
             }
           }
@@ -2823,7 +2830,7 @@
         {
           "path": "skills/developer-engineering/terraform-engineer/SKILL.md",
           "owner": "terraform-engineer",
-          "sha256": "1440057722ce168d93f3fa642d18b8a41e8d3845e773e3080032104539a30343",
+          "sha256": "efe0079da87ebaadd5c81169ae5a9cca0aa080e7b9d28c06df1fc9590e5d5551",
           "mode": "100644"
         },
         {
@@ -3250,7 +3257,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "805687f34e8c10b420e3d11335a0ca2c3c90d992",
-            "content_sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
+            "content_sha256": "69f435dcf1d3c76b9cf84d6bd79d362284fa81551687cad33d3bc0701af7fdd1",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3305,7 +3312,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
-          "sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
+          "sha256": "69f435dcf1d3c76b9cf84d6bd79d362284fa81551687cad33d3bc0701af7fdd1",
           "owner": "vercel-react-best-practices",
           "mode": "100644"
         },

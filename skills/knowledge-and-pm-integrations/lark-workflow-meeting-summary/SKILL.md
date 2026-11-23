@@ -2,14 +2,14 @@
 name: lark-workflow-meeting-summary
 description: '会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。'
 zh_description: "用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。"
-version: "1.0.8"
+version: "1.0.9"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary"
 license: MIT
 tags: [feishu, lark, lark-cli, meetings, summary]
 created_at: "2026-05-19"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: intermediate
 metadata:
@@ -146,32 +146,3 @@ lark-cli docs +update --doc "<url_or_token>" --command append --doc-format markd
 - [查询妙记及关联产物](../lark-meeting/scenes/query-minutes-and-artifacts.md) — 无 `note_id` 时的妙记备选路径
 - [`vc +search`](../lark-meeting/references/lark-vc-search.md)、[`vc +detail`](../lark-meeting/references/lark-vc-detail.md)、[`note +detail`](../lark-meeting/references/lark-note-detail.md)、[`note +transcript`](../lark-meeting/references/lark-note-transcript.md)、[`minutes +detail`](../lark-meeting/references/lark-minutes-detail.md)、[`minutes +apply-permission`](../lark-meeting/references/lark-minutes-apply-permission.md) — 命令细节
 - [lark-doc](../lark-doc/SKILL.md) — `+fetch`、`+create`、`+update` 详细用法
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Workflow Meeting Summary; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -371,7 +371,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ca45fc496a3436251f191354091d557da31c15b5",
-            "content_sha256": "6bb8671d4d591e0ac5375fedc660a661cd240efa6da8e6d36deb00d5cdde2e8e",
+            "content_sha256": "8724d9445a2a25581c58fb3778611b7eb8a40b03d9669befa8ad6ddbab53f962",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -429,7 +429,7 @@
         },
         {
           "path": "skills/developer-engineering/mcp-builder/SKILL.md",
-          "sha256": "6bb8671d4d591e0ac5375fedc660a661cd240efa6da8e6d36deb00d5cdde2e8e",
+          "sha256": "8724d9445a2a25581c58fb3778611b7eb8a40b03d9669befa8ad6ddbab53f962",
           "owner": "mcp-builder",
           "mode": "100644"
         },
@@ -1264,7 +1264,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
-            "content_sha256": "4fedf60907ede15a023ca9e692a93f35a10dd6b60b3b1732b40130bd89e8da91",
+            "content_sha256": "e8667303340082d0b95d8a6147c247545248608ad23d02aecf972c200eba5833",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1286,6 +1286,11 @@
             {
               "source": "LICENSE",
               "target": "skills/operations-general/theme-factory/LICENSE.local.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
+              "target": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
               "type": "file"
             }
           ],
@@ -1322,7 +1327,7 @@
         },
         {
           "path": "skills/operations-general/theme-factory/SKILL.md",
-          "sha256": "4fedf60907ede15a023ca9e692a93f35a10dd6b60b3b1732b40130bd89e8da91",
+          "sha256": "e8667303340082d0b95d8a6147c247545248608ad23d02aecf972c200eba5833",
           "owner": "theme-factory",
           "mode": "100644"
         },
@@ -1390,6 +1395,12 @@
           "path": "skills/operations-general/theme-factory/themes/tech-innovation.md",
           "sha256": "183648163026dd5eeba3df5effa335b55ba333c3ee1fe215278605e55f40a52a",
           "owner": "theme-factory",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
+          "owner": "theme-factory",
+          "sha256": "b975dff1fc84b852a15d213010f31fa94e6c2b6e3d429a212fdecad1a480d728",
           "mode": "100644"
         }
       ]
@@ -1597,7 +1608,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
-            "content_sha256": "e03e32469dfa26824c57fbf4d64f9b3a8f9a8b7a325a8b6404e7670457e479f5",
+            "content_sha256": "090b47930d08f4707eaee6e41b4b5a608ad143ceb518c2840c755a578d5249fc",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1655,7 +1666,7 @@
         },
         {
           "path": "skills/operations-general/brand-guidelines/SKILL.md",
-          "sha256": "e03e32469dfa26824c57fbf4d64f9b3a8f9a8b7a325a8b6404e7670457e479f5",
+          "sha256": "090b47930d08f4707eaee6e41b4b5a608ad143ceb518c2840c755a578d5249fc",
           "owner": "brand-guidelines",
           "mode": "100644"
         }
@@ -6090,6 +6101,1138 @@
           "path": "skills/office-white-collar/xlsx/scripts/recalc.py",
           "sha256": "f5591fb5ad40227bfd5842cbc4ba3fb3d50967c4be1a9bc628ddbf773fa45f2a",
           "owner": "xlsx",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "claude-api",
+      "normalized_slug": "claude-api",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/claude-api/SKILL.md",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+      "notes": "2026-11-23: Curated from anthropics/skills (Apache-2.0). Tightened frontmatter trigger to <=240 chars scoped to Claude/Anthropic API & SDKs and extracted Quick Reference subsections into references/api-quick-reference.md so SKILL.md stays <=500 lines.",
+      "upstream": {
+        "repo": "anthropics/skills",
+        "path": "skills/claude-api/SKILL.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-11-23",
+        "last_synced_at": "2026-11-23",
+        "last_synced_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+        "path_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "anthropics/skills",
+          "path": "skills/claude-api/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/claude-api/LICENSE.txt",
+              "target": "skills/ai-agent-platform/claude-api/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/SKILL.md",
+              "target": "skills/ai-agent-platform/claude-api/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/csharp/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/csharp/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/csharp/claude-api/batches.md",
+              "target": "skills/ai-agent-platform/claude-api/csharp/claude-api/batches.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/csharp/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/csharp/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/csharp/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/csharp/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/csharp/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/csharp/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/curl/examples.md",
+              "target": "skills/ai-agent-platform/claude-api/curl/examples.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/curl/managed-agents.md",
+              "target": "skills/ai-agent-platform/claude-api/curl/managed-agents.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/go/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/go/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/go/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/go/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/go/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/go/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/go/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/go/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/go/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/go/managed-agents/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/java/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/java/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/java/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/java/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/java/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/java/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/java/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/java/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/java/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/java/managed-agents/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/php/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/claude-api/batches.md",
+              "target": "skills/ai-agent-platform/claude-api/php/claude-api/batches.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/php/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/php/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/php/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/php/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/php/managed-agents/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/batches.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/batches.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/sdk-upgrade.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/sdk-upgrade.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/python/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/python/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/python/managed-agents/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/ruby/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/ruby/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/ruby/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/ruby/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/ruby/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/ruby/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/ruby/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/ruby/managed-agents/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/admin-api.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/admin-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/agent-design.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/agent-design.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/anthropic-cli.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/anthropic-cli.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/claude-platform-on-aws.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/claude-platform-on-aws.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/cost-optimization.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/cost-optimization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/error-codes.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/error-codes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/build-eval.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/build-eval.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/cost-hillclimb.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/cost-hillclimb.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/eval-audit.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/eval-audit.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/eval-hillclimb.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/eval-hillclimb.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/report/SCHEMA.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/report/SCHEMA.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/report/build-report-lite.mjs",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/report/build-report-lite.mjs",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/evals/report/runner-scaffold.mjs",
+              "target": "skills/ai-agent-platform/claude-api/shared/evals/report/runner-scaffold.mjs",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/live-sources.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/live-sources.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-api-reference.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-api-reference.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-client-patterns.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-client-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-core.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-core.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-environments.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-environments.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-events.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-events.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-memory.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-memory.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-multiagent.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-multiagent.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-onboarding-from-quickstart.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding-from-quickstart.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-onboarding-from-url.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding-from-url.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-onboarding.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-outcomes.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-outcomes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-overview.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-overview.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/bug-hunter.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/bug-hunter.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/contract-tracker.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/contract-tracker.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/data-analyst.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/data-analyst.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/deep-researcher.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/deep-researcher.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/explainer-video-maker.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/explainer-video-maker.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/field-monitor.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/field-monitor.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/incident-commander.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/incident-commander.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/performance-tuner.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/performance-tuner.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/sprint-retro-facilitator.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/sprint-retro-facilitator.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/structured-extractor.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/structured-extractor.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/support-agent.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/support-agent.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/support-to-eng-escalator.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/support-to-eng-escalator.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-quickstarts/watchlist-scanner.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/watchlist-scanner.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-scheduled-deployments.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-scheduled-deployments.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-self-hosted-sandboxes.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-self-hosted-sandboxes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-tools.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-tools.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/managed-agents-webhooks.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/managed-agents-webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/model-migration.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/model-migration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/models.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/models.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/platform-availability.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/platform-availability.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/preserved-thinking-migration/causes.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/causes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
+              "target": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/preserved-thinking-migration/prefix_diff.py",
+              "target": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/prefix_diff.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/preserved-thinking-migration.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/prompt-audit.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/prompt-audit.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/prompt-caching.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/prompt-caching.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/token-counting.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/token-counting.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/shared/tool-use-concepts.md",
+              "target": "skills/ai-agent-platform/claude-api/shared/tool-use-concepts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/claude-api/README.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/claude-api/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/claude-api/batches.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/claude-api/batches.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/claude-api/files-api.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/claude-api/files-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/claude-api/streaming.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/claude-api/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/claude-api/tool-use.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/claude-api/tool-use.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/claude-api/typescript/managed-agents/README.md",
+              "target": "skills/ai-agent-platform/claude-api/typescript/managed-agents/README.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+            "path_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+            "content_sha256": "edba93e6c17eb6861e00a8c99395c5c50cdd39eafb14b346f64c0031dd09c753",
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23",
+            "license_checkpoint": {
+              "path": "skills/claude-api/LICENSE.txt",
+              "blob_sha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9",
+              "content_sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+            }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-agent-platform/claude-api",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-agent-platform/claude-api/references/api-quick-reference.md",
+              "target": "skills/ai-agent-platform/claude-api/references/api-quick-reference.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/claude-api/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/SKILL.md",
+          "sha256": "edba93e6c17eb6861e00a8c99395c5c50cdd39eafb14b346f64c0031dd09c753",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/csharp/claude-api/README.md",
+          "sha256": "87a2cc5c6e670e0bf34120f9a592d321567eea57c716c06791f6d2dcaba08b00",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/csharp/claude-api/batches.md",
+          "sha256": "ec276fccf21757ed00803dfa4bc35f14f334138629fa53c77a025d718eda96a1",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/csharp/claude-api/files-api.md",
+          "sha256": "766ccf5dca9ef3caba8cefeddde10f6d171a7bd2ff4c97689462fad2d0d18e4b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/csharp/claude-api/streaming.md",
+          "sha256": "bc0100e50b3495e869901bcfb231870cb3483b936534af5fd3dddb5d07e4531e",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/csharp/claude-api/tool-use.md",
+          "sha256": "18aa857c41e39eedb35815bfd8d50868a1bbc1f1a657f5e7233a3879baebc764",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/curl/examples.md",
+          "sha256": "4520e447d37924e62fe982923f3eceea5338dbf3b3a0d25d0f914272c16b90a0",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/curl/managed-agents.md",
+          "sha256": "faa7dd3d83cfd32d1faabb13fee5902e041285579b00256f17fd21681ed3ff2a",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/go/claude-api/README.md",
+          "sha256": "c73ac644d8efe65a8d149e800267f98b0aa9d1e716ca38a22fd8803d5c35bfae",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/go/claude-api/files-api.md",
+          "sha256": "7bf67ece5e4d18b1fb07085a55b680420cc7bd4de94a1fb2bb73cb23f39c20f0",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/go/claude-api/streaming.md",
+          "sha256": "a523e992e438309ca1bbc075ded2b652eb257242fd0ce521afd3b8ea024ed94d",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/go/claude-api/tool-use.md",
+          "sha256": "18c6dc0cec151293b44697c340e0e0759f6081ad711ca34b06570c2450f243e9",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/go/managed-agents/README.md",
+          "sha256": "0343be8d49f94687fe5e068ad69d9e05253b408e7bcd0e230b39924f6404facc",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/java/claude-api/README.md",
+          "sha256": "cb6d395dc1d930371f828290132681541eff7f1a7e2739bb4c6655ebbb3b8c7f",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/java/claude-api/files-api.md",
+          "sha256": "1c792f3421de32f42a56235327f87807a5579340726bba677ec13e05f9b493c7",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/java/claude-api/streaming.md",
+          "sha256": "de13bc9573b37edb5af69606853c4fde3d494ee10ff47d1a030ecef9cc17463b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/java/claude-api/tool-use.md",
+          "sha256": "1916b8d4e49b5d319a2d0c7e21b5a3d7a0f225e4a94d82139e769f66eb66f6d1",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/java/managed-agents/README.md",
+          "sha256": "ba2a845898b302dc78b5354aa8f34ae4fc2c2ea41d12aa7d0440db59ee004e0c",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/claude-api/README.md",
+          "sha256": "00e2e88f3ea9a6cce812d3e6ae9e035bc36f88828a09e518bb73af91097a9d66",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/claude-api/batches.md",
+          "sha256": "6f82a29f718ff6e6b02aaaee3cfd6cda2feb82aca57d945f11a2c021214a699d",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/claude-api/files-api.md",
+          "sha256": "0715a0d4cce88fd885f57bd33b4654071a9068d5f8a892143b062c78fe51afc9",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/claude-api/streaming.md",
+          "sha256": "3b8ac667b21f17750eb3c1fc7dc166fd7b1f57a1d8b11e74489de4432e21d31d",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/claude-api/tool-use.md",
+          "sha256": "1d79c316ef608d8327da1ae7495ecc4a0c517bdd761037c886d8fc61a0eca7d0",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/php/managed-agents/README.md",
+          "sha256": "2f9ada8a85098a7a4a7265c29fadb74d695a33bf19bc6d5df3a2c275b4a535b2",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/README.md",
+          "sha256": "284fbc6408809afd27288da95c5fb32daa48bd77518cd5fd4e973cc05363eaa8",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/batches.md",
+          "sha256": "7e4d07173845836617be3db70482c182311ad2d6d5ddf786482ca57c7c45776c",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/files-api.md",
+          "sha256": "2aa142978660d9ae3200d21a4d333531ca101898706f620834304e8a7d534580",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/sdk-upgrade.md",
+          "sha256": "f7c5651b21dd6fd5651935415d907fa0a369736f3055d50edb3d236ea016527c",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/streaming.md",
+          "sha256": "8f73a54dbbb5e82c2c7690d7d866f17ad8c72f662a2be6dd788b5c0956714026",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/claude-api/tool-use.md",
+          "sha256": "548dcc4bd2a36e8b90cec446f9b0b7917d2d75a085c7c2603b28c840bd621621",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/python/managed-agents/README.md",
+          "sha256": "82b6e5847027b0ffe5976116e5c249a58e9e2781eb09e914a81ee2f9eb970245",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/references/api-quick-reference.md",
+          "sha256": "f715f2aa9ceca373b6ad152a92a50226083a29a8fa2f56a41aaa651ceef9ca2a",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/ruby/claude-api/README.md",
+          "sha256": "c7de89d236f22bc0b44a091a45ee186ec057caa021a71acd4d3849599cbf3b36",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/ruby/claude-api/streaming.md",
+          "sha256": "09b784f2ab0a5fd17e0589225408c618d26c6dd3cd601364ff92f409d5b104a0",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/ruby/claude-api/tool-use.md",
+          "sha256": "80cbb7c7fd4a01b816524eb54e0f8f4e5b4cc7643d393dfce6b9682e0f4d61b6",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/ruby/managed-agents/README.md",
+          "sha256": "729ba22b8711a09192006d169098f16b933dd124ff36421772e4334d862306ab",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/admin-api.md",
+          "sha256": "a69c53817391fca50c0a1848f46de9debf71fa3681298fccb0a6435b760bac2d",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/agent-design.md",
+          "sha256": "9960728faf6976a2ddfceed02ed72af122d3b2558af573a9a0ea207b3adec2bc",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/anthropic-cli.md",
+          "sha256": "2baa725ea0248ab7d98dcb218f09e5eb22f768006ad28f4d5011b4975b4d500e",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/claude-platform-on-aws.md",
+          "sha256": "dec03193c61909167846c0526a4feacf011578b5e7ee29f76378141315cf97f5",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/cost-optimization.md",
+          "sha256": "d0107a954e9059f43c0aaac07ac1f8a9f5aa0a898834d3d983d623e5976e051b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/error-codes.md",
+          "sha256": "1abf8dcc262732f7ee5e4c58d1909fbb0722ac12e1b957bffdf64f28fde9e4d2",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/build-eval.md",
+          "sha256": "c8f6ae960867f6b3b35557aec75361553888ae7168f268365444bf6a4e09a5d7",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/cost-hillclimb.md",
+          "sha256": "dd46a354fed24d96c7f9acf42f9da64f5cceaa797949662d82374fd2cf7a3515",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/eval-audit.md",
+          "sha256": "a013f8eb0452c51c5a31860df0fb47219dcdb4da507092fc98867225095026ba",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/eval-hillclimb.md",
+          "sha256": "315ae8540ebaeb9f1d7de5efa49625e6137ead255dc3a545b63393df89375588",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/report/SCHEMA.md",
+          "sha256": "9a83404a9b3c413113df39d9bdf08e003ff4d6a75386f4010887da3298766687",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/report/build-report-lite.mjs",
+          "sha256": "af79ca5fa5f06747dbcaa1d40017c8c8e81e0aa11cb8e32b848043893cdb03c7",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/evals/report/runner-scaffold.mjs",
+          "sha256": "c3a87ba4b94b3018b83c075d5148ba7760580aa447699d513d45ab55b82a531a",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/live-sources.md",
+          "sha256": "cc82c88587c861919557598df0421ea7e8cec683f63adead997a0170dc78732b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-api-reference.md",
+          "sha256": "efd84dc8a17a2842965c775a905b17fa94cf762cc544df81e708f3aa7a89ae7b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-client-patterns.md",
+          "sha256": "e9cf54ca98a9cdd7dba0f51acfedfc1b0f160bad243e39f338ff39d4bf5bf823",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-core.md",
+          "sha256": "b1e7f90f644ef3333bc2c8407ba17410cf672314868474c73242ac969e22007f",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-environments.md",
+          "sha256": "227e52e6a3d1c967c68912738ff184a97d1f4cd019c6a7bc7cd90c9b9857e5a5",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-events.md",
+          "sha256": "3c5edc1428bc4b9cff1ebf01cecffaff3ef1650c19afa48c616fcd05b9586e03",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-memory.md",
+          "sha256": "0dec5641630f97629ea75bbbe5c2bced861f9c16b0572a68c901849ea4d00bcb",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-multiagent.md",
+          "sha256": "f3d03cc910064cf419c80ce79c5fe62abde127467deea55491b447a07953a06b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding-from-quickstart.md",
+          "sha256": "e37628c5639786a7868acfed4be0e25678b69b7d13a9aced03d74deebe042342",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding-from-url.md",
+          "sha256": "b6c49289186d7cc521c995ba88fa916b65433101b2b3e9bf3c9add94ad87fa34",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-onboarding.md",
+          "sha256": "025683a9ee3db081d8a6978980349ce68d1df316d0c5aea31ae12438907208c9",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-outcomes.md",
+          "sha256": "a516c6bf6a6a76f7f5ef83ec80895efd5de718e8f9418b57c705ce151afc5afe",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-overview.md",
+          "sha256": "abcbdc29435c07be4749e21f005ed51f45942af03fa0bdcdeb18ebfa38c6a6f8",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/bug-hunter.md",
+          "sha256": "9afd40ef3e1bca9e1cc4c6655d314127cec0b4dcff0e12f6016508c134954248",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/contract-tracker.md",
+          "sha256": "312ee5f886de59b6db4603d2df9766d66285db36973656c5b9ff0bcc1ed02279",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/data-analyst.md",
+          "sha256": "c2116bac43972f2b40311104bd7cd4e084cca806dd40a1ddf8462845d785bd57",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/deep-researcher.md",
+          "sha256": "a680856d874dff23cd3f016e36d0a58bc4db36c56d790d216743f236ee37a48c",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/explainer-video-maker.md",
+          "sha256": "c2570c5e14d51c5caa77646ac417d18619d34a27cc94dc72cf020c698f2803f3",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/field-monitor.md",
+          "sha256": "f17f26eee0109f4172134c5bea5761c52b8459e44ae03608c701cd3492f4a3af",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/incident-commander.md",
+          "sha256": "badd3622ffab0798ab44a55189f47e95c107107ce57eda9fa5357b1aded8fb2a",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/performance-tuner.md",
+          "sha256": "922396e14b569bc98a7bdde34d10890cc81c5184e81971e6c9be108d191dd639",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/sprint-retro-facilitator.md",
+          "sha256": "8b5ed9895feb1ade54578a270493c63d0f57b3bb0fbc2eafcfa2e87d3130fa75",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/structured-extractor.md",
+          "sha256": "c278074c8c48d35fc6c68ed32eaa8704cae73a8e74035fd1d4a6abdcb9bd0fbd",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/support-agent.md",
+          "sha256": "da75c50edf207f5ef468fbbbfc2e77d56e7d906a6c2cda28756f896195e171c5",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/support-to-eng-escalator.md",
+          "sha256": "46720e5341808a9938825be44f936c91f83739ebdef9e1d17d9f0ec22738346b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-quickstarts/watchlist-scanner.md",
+          "sha256": "e67861c63b9d46b01c8d2784998b7f0de9a87aa6012b77127def1253c5ac13db",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-scheduled-deployments.md",
+          "sha256": "3fdf7bd691b4f798149d7ebdb933dcee7d14d5d47dd6bf8196c41b819223175e",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-self-hosted-sandboxes.md",
+          "sha256": "a0c0d98ee1921ee5856a9fd1c02931d724c7b7ffffe17f72c85bc90190399085",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-tools.md",
+          "sha256": "9a9fd54ebb5e81eb0c6b7505f1cadc420fed5696cdab3e0080dd00ccf2e37b6f",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/managed-agents-webhooks.md",
+          "sha256": "38746f77a3ee971f9b1f7d47cec9e753131bf271fd795aed5c3da1764c9a6ac1",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/model-migration.md",
+          "sha256": "b4fe96362b865a28726ab877c966624d5bfc2f86ff9b34940a34e3f8b6fc034e",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/models.md",
+          "sha256": "c1af1f093d46fd58e50ef3e8e28d339650f333059bfc49a63d01d0175675161b",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/platform-availability.md",
+          "sha256": "607997bc16de403970cb32c1dc1fa63e68f7f02328728be59397e7cefb2efed4",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/causes.md",
+          "sha256": "c2dbadb0439806863723e5ef7279d626d731d8179fd39293ff26d226b94d3694",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
+          "sha256": "6772a5e069f7fafb2250958b695f260ddb325756ee8f01583941d67c7991a634",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/prefix_diff.py",
+          "sha256": "734934b81b5f26e9ed2f8f51f44fed6554233de4f37b22a8845ae4ffcb622ac0",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration.md",
+          "sha256": "29921d69fa8dc7e450e7bb793c9f59ae755262ccc933a52eb7116c207defb34c",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/prompt-audit.md",
+          "sha256": "1a50ec950f9c11bb4ad1a5032a26bb20cd52c9d358adf6add2cb1ceb1aaf6cc9",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/prompt-caching.md",
+          "sha256": "5800f883ff1babe24105e7e0e3fc7e9b03dfcce25bb2ccded4bb40d8c81d8464",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/token-counting.md",
+          "sha256": "8674e246c165decdc13106a4861a254ededb0421caf7fa4015ed0fb36e6c60dc",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/shared/tool-use-concepts.md",
+          "sha256": "62293e7bb7763f7ae487d3b98ead6b733689b2fd7089784ad5859dd869a153f5",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/claude-api/README.md",
+          "sha256": "b2a01ccbaa0d4406e400bcd8efc033759af5d646a97aab744aee55bf07d6ab16",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/claude-api/batches.md",
+          "sha256": "acc33bb981acd48b6ee9a6b2c2afeef9487c42ef2b117225da3949dc61efb464",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/claude-api/files-api.md",
+          "sha256": "df8e4e433a4ded6d4c3eb40de9bc0782cf77aaa8e3e331a539aec1cff55d1316",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/claude-api/streaming.md",
+          "sha256": "09db982effb0b7d14e29eddd5425b00040debfedccf3dd0db9af73f7d2da3e79",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/claude-api/tool-use.md",
+          "sha256": "d0c3e5da146c6da8a85ced14f964dc33de4c0153aa2748dee35c319752e8b725",
+          "owner": "claude-api",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/claude-api/typescript/managed-agents/README.md",
+          "sha256": "5daf6b0c6a443e1ae720b0a7343e061ebdbaeb751dd674f37f9abf9d12efc66f",
+          "owner": "claude-api",
           "mode": "100644"
         }
       ]

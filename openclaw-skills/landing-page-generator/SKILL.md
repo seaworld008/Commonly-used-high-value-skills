@@ -2,14 +2,14 @@
 name: landing-page-generator
 description: 'Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.'
 zh_description: "生成具备清晰文案、行动入口和可访问性的落地页。"
-version: "1.0.9"
+version: "1.0.10"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md"
 license: MIT
 tags: ["design", "generator", "landing", "page", "product"]
 created_at: "2026-03-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -207,7 +207,7 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 - **Brand Voice Analyzer** — If the separately installed `content-creator` helper is unavailable, use the bundled copy frameworks.
 - [UI Design System](../ui-design-system/SKILL.md) — Generate tokens from brand colors.
-- [Competitive Teardown](../competitive-teardown/SKILL.md) — Compare competitors' positioning and messaging. Use [Compete](../compete/SKILL.md) for ongoing competitive intelligence when relevant.
+- [Compete](../compete/SKILL.md) — Compare competitors' positioning, pricing, public evidence, and messaging.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
 
 ## Bundled resources

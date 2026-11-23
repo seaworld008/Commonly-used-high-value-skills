@@ -1,15 +1,15 @@
 ---
 name: golang-observability
-description: 'Instrument Go services using slog, OpenTelemetry, Prometheus and profiling.'
+description: 'Use when instrumenting Go services with structured logging (slog), OpenTelemetry tracing, Prometheus metrics, and runtime profiling.'
 zh_description: "为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。"
-version: "1.0.1"
+version: "1.0.2"
 author: "samber/cc-skills-golang"
 source: "github:samber/cc-skills-golang"
 source_url: "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability"
 license: "MIT"
 tags: ["go", "opentelemetry", "observability"]
 created_at: "2026-10-12"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "advanced"
 ---

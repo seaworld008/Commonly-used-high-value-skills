@@ -70,3 +70,12 @@ python scripts/sync_all_upstream_skills.py
 - 发布后的默认分支命令变化仅作为后续监控基线；稳定版指引仍按上述发布范围。
 - 宿主 browser 更新后重新读取其实际 API；仓库没有一个应替代宿主指令的
   同名通用 browser 快照，不新增职责重复的 wrapper。
+
+## 本次审阅（2026-11-23）
+
+- Playwright MCP 稳定版升至 0.0.86（要求 Node.js >= 20）：更新 `playwright` 技能，补充
+  `--session-name` / `--session-color` 扩展标签组会话、`browser_close` 全浏览器关闭与
+  `browser_tabs` 单标签关闭区分、防重名下载保留以及 Linux ARM64 Chrome 安装。
+- agent-browser（稳定版保持 0.43.0）、Chrome DevTools MCP（稳定版保持 1.13.0）与
+  `modern-web-guidance-src`（分发稳定版保持 1.0.1）：完成默认分支路径差异审阅并推进
+  监控基线，未将未发布默认分支变更写入稳定版指引。

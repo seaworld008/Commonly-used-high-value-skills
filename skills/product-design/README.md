@@ -4,7 +4,7 @@
 
 聚焦产品分析、设计系统、UX 研究与 SaaS 产品设计能力。
 
-当前分类共 **13** 个技能。
+当前分类共 **14** 个技能。
 
 ## 推荐先看
 
@@ -17,13 +17,14 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `ab-test-design` | 用于设计严谨的 A/B 实验方案，明确假设、单一主指标、护栏指标、随机化单元、使用脚本测算样本量与周期及无闪烁特性开关落地。 | [目录](./ab-test-design/) | [SKILL.md](./ab-test-design/SKILL.md) |
 | `agile-product-owner` | 管理产品待办、用户故事、验收条件和迭代计划。 | [目录](./agile-product-owner/) | [SKILL.md](./agile-product-owner/SKILL.md) |
 | `canvas-design` | 创作海报、静态视觉设计和 PNG、PDF 艺术作品。 | [目录](./canvas-design/) | [SKILL.md](./canvas-design/SKILL.md) |
-| `competitive-teardown` | 依据产品、定价和用户反馈分析竞争格局与改进机会。 | [目录](./competitive-teardown/) | [SKILL.md](./competitive-teardown/SKILL.md) |
 | `landing-page-generator` | 生成具备清晰文案、行动入口和可访问性的落地页。 | [目录](./landing-page-generator/) | [SKILL.md](./landing-page-generator/SKILL.md) |
 | `product-manager-toolkit` | 开展需求优先级排序、用户研究和产品需求文档编写。 | [目录](./product-manager-toolkit/) | [SKILL.md](./product-manager-toolkit/SKILL.md) |
 | `product-strategist` | 制定产品愿景、目标、市场分析和团队发展策略。 | [目录](./product-strategist/) | [SKILL.md](./product-strategist/SKILL.md) |
 | `researcher` | 设计用户访谈、可用性研究并分析定性证据。 | [目录](./researcher/) | [SKILL.md](./researcher/SKILL.md) |
+| `review-animations` | 按高精度交互动效标准审查 CSS 过渡、关键帧与 Motion 动画代码（缓动曲线、300ms 时长上限、GPU 属性、可中断性与无障碍降级）。 | [目录](./review-animations/) | [SKILL.md](./review-animations/SKILL.md) |
 | `saas-scaffolder` | 用于依据已验证产品需求搭建可演进的 SaaS 垂直切片，并覆盖鉴权、租户、计费、监控和验收。 | [目录](./saas-scaffolder/) | [SKILL.md](./saas-scaffolder/SKILL.md) |
 | `trace` | 分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。 | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
 | `ui-design-system` | 创建和维护设计变量、组件规范及开发交接资料。 | [目录](./ui-design-system/) | [SKILL.md](./ui-design-system/SKILL.md) |

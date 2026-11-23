@@ -2,14 +2,14 @@
 name: using-git-worktrees
 description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
 zh_description: "用于使用 Git worktree 隔离并行开发和审查工作。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md"
 license: MIT
 tags: ["git", "worktree", "workflow"]
 created_at: "2026-04-13"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -111,7 +111,7 @@ If creation fails, continue writes only in a workspace already verified to meet 
 
 ## Step 2: Project Setup
 
-For isolation alone, no dependency setup is needed. When authorized execution requires dependencies, inspect the project scripts, lockfile and toolchain, then run the project's documented locked install or build in the verified worktree.
+For isolation alone, no dependency setup is needed. When parallel worktrees run dev servers, databases, Docker Compose stacks, or monorepo sparse checkouts, read [Parallel Environment Isolation](references/parallel-env-isolation.md) for port allocation, DB isolation, and sparse-checkout templates. When authorized execution requires dependencies, inspect the project scripts, lockfile and toolchain, then run the project's documented locked install or build in the verified worktree.
 
 ## Step 3: Verify Clean Baseline
 

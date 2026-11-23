@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 294 skills**.
+A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 295 skills**.
 
 [Quick Start](#quick-start) · [Categories](#categories) · [Skill Overview](#skill-overview) · [Contributing](#contributing) · [Releases](docs/RELEASES.en.md)
 
@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # Pin a release so your team gets reproducible installs
-npx github:seaworld008/Commonly-used-high-value-skills#v6.2.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v7.0.0 install --target codex
 
 # Browse available skills, categories, and install targets
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
@@ -281,10 +281,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ```
 
 <a id="skill-overview"></a>
-## Skill Overview (by category, 16 categories / 294 skills)
+## Skill Overview (by category, 16 categories / 295 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 53)
+### 1. Developer Engineering (developer-engineering, 51)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/): Design AI agent responsibilities, tools, memory, orchestration, and evaluation when defining an agent architecture or system contract.
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/): Use when reviewing API designs for consistency, usability, versioning, error semantics, security, backward compatibility, and developer experience before implementation or release.
@@ -295,21 +295,19 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`codebase-inspection`](./skills/developer-engineering/codebase-inspection/): Use when a user needs reproducible repository sizing, language composition, file counts, or code-versus-comment ratios with pygount; record exclusions and verify measurement scope before interpreting results.
 - [`codebase-onboarding`](./skills/developer-engineering/codebase-onboarding/): Create repository onboarding guides with architecture, key files, setup, debugging, and contribution workflows for a defined audience.
 - [`database-designer`](./skills/developer-engineering/database-designer/): Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.
-- [`database-schema-designer`](./skills/developer-engineering/database-schema-designer/): Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.
 - [`dependency-auditor`](./skills/developer-engineering/dependency-auditor/): Audit dependency inventories, verify vulnerability and license evidence, and plan tested upgrades for an existing project.
 - [`docker-expert`](./skills/developer-engineering/docker-expert/): Use when containerizing an application with Docker, optimizing multi-stage builds and image size, designing Docker Compose services, troubleshooting container networking or volumes, or adding secure image build and CI/CD practices.
 - [`frontend-design`](./skills/developer-engineering/frontend-design/): Design and implement web pages, components, and application interfaces with a product-specific visual direction, responsive layouts, and usable interaction states.
 - [`gateway`](./skills/developer-engineering/gateway/): Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning and deprecation, breaking-change detection, RFC 9457 error bodies, and API security.
-- [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/): Create, inspect, and clean up Git worktrees for parallel development, with explicit ownership, environment handling, and port allocation.
 - [`github-contributor`](./skills/developer-engineering/github-contributor/): Find suitable open-source contribution opportunities and prepare focused GitHub pull requests with project-specific validation and review context.
 - [`golang-benchmark`](./skills/developer-engineering/golang-benchmark/): Run reproducible Go benchmarks, profiling, benchstat and CI regression analysis.
-- [`golang-performance`](./skills/developer-engineering/golang-performance/): Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O.
+- [`golang-performance`](./skills/developer-engineering/golang-performance/): Use when optimizing Go hot paths, reducing heap allocations and GC pressure, or tuning concurrency, caching, and I/O after profiling.
 - [`graphify`](./skills/developer-engineering/graphify/): Build, query, or refresh Graphify knowledge graphs for code and documents when graph-based relationship analysis is useful or explicitly requested.
 - [`graphql-expert`](./skills/developer-engineering/graphql-expert/): Use when designing GraphQL APIs, reviewing schemas and resolvers, optimizing queries, managing federation, or checking GraphQL security and performance best practices.
 - [`i18n-expert`](./skills/developer-engineering/i18n-expert/): Implement or audit UI internationalization: translation keys, locale files, pluralization, formatting, hard-coded strings, and parity checks.
-- [`improve-codebase-architecture`](./skills/developer-engineering/improve-codebase-architecture/): Review module boundaries, interface depth and high-leverage refactors with evidence.
+- [`improve-codebase-architecture`](./skills/developer-engineering/improve-codebase-architecture/): Use when reviewing module boundaries, interface depth, and high-leverage architectural refactors backed by concrete codebase evidence.
 - [`kubernetes-specialist`](./skills/developer-engineering/kubernetes-specialist/): Use when managing Kubernetes clusters, debugging Pods and workloads, designing Helm charts, reviewing manifests, or improving deployment, scaling, and observability practices.
-- [`mcp-builder`](./skills/developer-engineering/mcp-builder/): Build MCP servers that expose external APIs or services through well-scoped tools in Python or TypeScript.
+- [`mcp-builder`](./skills/developer-engineering/mcp-builder/): Use when building Model Context Protocol (MCP) servers in Python or TypeScript to expose external APIs or services as well-scoped tools.
 - [`migration-architect`](./skills/developer-engineering/migration-architect/): Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.
 - [`modern-web-guidance`](./skills/developer-engineering/modern-web-guidance/): Mandatory first step for all HTML/CSS and client-side JavaScript implementation or updates, including web patterns in frameworks: search Google Chrome Modern Web Guidance before coding.
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/): Inspect or improve Turborepo, Nx, pnpm, or Lerna monorepos: package boundaries, dependency graphs, selective tests, caching, and migrations.
@@ -335,14 +333,15 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`tech-debt-tracker`](./skills/developer-engineering/tech-debt-tracker/): Identify technical debt, rank remediation by impact and effort, and track progress using code and maintenance evidence.
 - [`terraform-engineer`](./skills/developer-engineering/terraform-engineer/): Use when designing Terraform IaC, reviewing modules, managing state, planning provider upgrades, or improving repeatable infrastructure deployment workflows.
 - [`typescript-best-practices`](./skills/developer-engineering/typescript-best-practices/): Use when writing or reviewing TypeScript for type safety, advanced types, API boundaries, strict-mode migrations, and common anti-pattern avoidance.
-- [`vercel-react-best-practices`](./skills/developer-engineering/vercel-react-best-practices/): Optimize React and Next.js rendering, data fetching, bundles, and runtime performance using Vercel's engineering guidance.
+- [`vercel-react-best-practices`](./skills/developer-engineering/vercel-react-best-practices/): Use when optimizing React and Next.js rendering, data fetching, bundle size, and runtime performance using Vercel engineering rules.
 - [`vercel-react-view-transitions`](./skills/developer-engineering/vercel-react-view-transitions/): Implement React ViewTransition animations, navigation transitions, transition types, and CSS pseudo-elements using the target React version's API.
 - [`web-artifacts-builder`](./skills/developer-engineering/web-artifacts-builder/): Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui when multiple components, routing, or state are needed.
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/): Use when testing local web applications with Playwright, verifying frontend behavior, debugging UI issues, capturing screenshots, inspecting browser logs, or validating user flows.
 
 <a id="cat-ai-workflow"></a>
-### 2. AI Workflow (ai-workflow, 47)
+### 2. AI Workflow (ai-workflow, 48)
 
+- [`accessibility-engineering`](./skills/ai-workflow/accessibility-engineering/): Use when auditing existing UI for WCAG 2.2 AA conformance, running axe-core or pa11y, triaging accessibility findings, or verifying keyboard, focus, contrast, and screen-reader behavior before shipping.
 - [`agent-workflow-designer`](./skills/ai-workflow/agent-workflow-designer/): Design agent orchestration, handoffs, state, recovery, and evaluation when a workflow needs multiple coordinated agents or tools.
 - [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/): Karpathy-inspired coding discipline for AI agents: think before coding, keep changes simple, edit surgically, and define verifiable success criteria before implementation.
 - [`api-and-interface-design`](./skills/ai-workflow/api-and-interface-design/): Design REST/GraphQL APIs, module interfaces, and type contracts when creating endpoints or changing public boundaries.
@@ -386,17 +385,18 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`test-driven-development`](./skills/ai-workflow/test-driven-development/): Develop testable logic or fix behavioral bugs with focused regression tests and a red-green-refactor loop where it provides useful evidence.
 - [`using-agent-skills`](./skills/ai-workflow/using-agent-skills/): Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.
 - [`using-git-worktrees`](./skills/ai-workflow/using-git-worktrees/): Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback.
-- [`using-superpowers`](./skills/ai-workflow/using-superpowers/): Select relevant Superpowers workflow skills when the user requests that workflow or a concrete development task benefits from its process guidance.
+- [`using-superpowers`](./skills/ai-workflow/using-superpowers/): Use when selecting relevant Superpowers workflow skills for a user-requested workflow or concrete development task that needs structured process guidance.
 - [`verification-before-completion`](./skills/ai-workflow/verification-before-completion/): Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always.
 - [`writing-plans`](./skills/ai-workflow/writing-plans/): Use when the user requests an implementation plan or multi-step work needs documented task boundaries, dependencies, and acceptance checks.
 - [`writing-skills`](./skills/ai-workflow/writing-skills/): Use when creating new skills, editing existing skills, or verifying skills work before deployment.
 
 <a id="cat-ai-agent-platform"></a>
-### 3. AI Platform and Agent Development (ai-agent-platform, 13)
+### 3. AI Platform and Agent Development (ai-agent-platform, 14)
 
 - [`agent-hub`](./skills/ai-agent-platform/agent-hub/): Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.
 - [`arena`](./skills/ai-agent-platform/arena/): Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/): Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using current official guidance for resources, bridges, metadata, and CSP.
+- [`claude-api`](./skills/ai-agent-platform/claude-api/): Use when building, migrating, auditing, or debugging applications with the Anthropic Claude API, official Anthropic SDKs, Tool Runner, Prompt Caching, or Managed Agents (not OpenAI, Gemini, or non-Anthropic providers).
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/): Build or iterate on HTML/JS web games with Playwright input bursts, gameplay screenshots, state inspection, and console checks.
 - [`figma`](./skills/ai-agent-platform/figma/): Read Figma design nodes, variables, visual references and assets; locate URL targets and diagnose MCP access using the current host tool contract.
 - [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/): Implement a specific Figma frame in an existing project, reuse its components and tokens, and verify responsive states, keyboard access and measured visual differences.
@@ -404,7 +404,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/): Use when a development task needs ownership and routing across Hermes Agent, Graphify, Open GSD Core, or an explicitly requested GSD Pi runtime.
 - [`mcporter`](./skills/ai-agent-platform/mcporter/): Use when a user explicitly needs terminal-based MCP discovery, schema inspection, authentication diagnostics, or scripted tool calls through mcporter; verify server trust, argument schemas, and mutation authority before execution.
 - [`native-mcp`](./skills/ai-agent-platform/native-mcp/): Configure Hermes Agent's built-in MCP client: server discovery, stdio/HTTP connections, tool registration, authentication, and reconnection diagnostics.
-- [`openai-docs`](./skills/ai-agent-platform/openai-docs/): Find current official OpenAI guidance for Codex, APIs, models, prompting, or migrations. Preserve a named target model and cite fetched documentation.
+- [`openai-docs`](./skills/ai-agent-platform/openai-docs/): Use when looking up current official OpenAI documentation for Codex, APIs, models, prompting, or migrations with cited sources.
 - [`oracle`](./skills/ai-agent-platform/oracle/): Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent tool loops, eval suites, AI safety guardrails, and model cost routing.
 - [`sigil`](./skills/ai-agent-platform/sigil/): Use when generating, validating, or updating project-specific agent skills that mirror the stack and conventions of a repository, including skill discovery and description tuning.
 
@@ -414,7 +414,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/): Automate authorized web workflows with the agent-browser CLI: task sessions, accessibility snapshots, element references, forms, extraction and browser verification. Load guidance matching the installed CLI version.
 - [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/): Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.
 - [`gh-address-comments`](./skills/engineering-workflow-automation/gh-address-comments/): Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.
-- [`gh-fix-ci`](./skills/engineering-workflow-automation/gh-fix-ci/): Inspect and fix failing GitHub Actions PR checks using gh logs and focused validation; report external-provider failures with their details URL.
+- [`gh-fix-ci`](./skills/engineering-workflow-automation/gh-fix-ci/): Use when inspecting and fixing failing GitHub Actions PR checks using gh CLI logs and focused validation, or reporting external check failures.
 - [`guardian`](./skills/engineering-workflow-automation/guardian/): Use when preparing or reviewing commits and pull requests: classify changes, score PR quality and risk, choose branch or squash strategy, and ship a PR through CI gates.
 - [`harvest`](./skills/engineering-workflow-automation/harvest/): Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
 - [`jupyter-notebook`](./skills/engineering-workflow-automation/jupyter-notebook/): Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.
@@ -422,7 +422,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`playwright`](./skills/engineering-workflow-automation/playwright/): Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.
 - [`playwright-pro`](./skills/engineering-workflow-automation/playwright-pro/): Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation.
 - [`web-scraper`](./skills/engineering-workflow-automation/web-scraper/): Use when users need webpage scraping, structured data extraction, crawling strategy, pagination, selector design, or repeatable web data collection workflows.
-- [`yeet`](./skills/engineering-workflow-automation/yeet/): Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).
+- [`yeet`](./skills/engineering-workflow-automation/yeet/): Use only when explicitly asked to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (gh).
 
 <a id="cat-devops-sre"></a>
 ### 5. DevOps / SRE (devops-sre, 14)
@@ -435,7 +435,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`env-secrets-manager`](./skills/devops-sre/env-secrets-manager/): Manage environment files, required-variable validation, secret storage, leak detection, and credential rotation across development and production.
 - [`gear`](./skills/devops-sre/gear/): Use when maintaining developer infrastructure: dependency updates and audits, CI workflow tuning, Dockerfiles, linters and git hooks, env and secret setup, or build failures.
 - [`github-ops`](./skills/devops-sre/github-ops/): Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions through gh CLI and GitHub API when repository coordination or automation is requested.
-- [`golang-observability`](./skills/devops-sre/golang-observability/): Instrument Go services using slog, OpenTelemetry, Prometheus and profiling.
+- [`golang-observability`](./skills/devops-sre/golang-observability/): Use when instrumenting Go services with structured logging (slog), OpenTelemetry tracing, Prometheus metrics, and runtime profiling.
 - [`incident-commander`](./skills/devops-sre/incident-commander/): Coordinate active incidents through severity assessment, roles, mitigation, communications, recovery verification, and postmortem handoff.
 - [`observability-designer`](./skills/devops-sre/observability-designer/): Design production observability with SLI/SLO definitions, actionable alerts, telemetry and dashboards.
 - [`release-manager`](./skills/devops-sre/release-manager/): Prepare software releases with version selection, changelogs, artifacts, validation, and release verification from the repository's current state.
@@ -484,7 +484,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-office-white-collar"></a>
 ### 8. Office and Documents (office-white-collar, 13)
 
-- [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/): Create an offline static HTML technical report only when expressly requested, without running untrusted HTML, shell commands or network requests.
+- [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/): Use when expressly asked to create an offline static HTML technical report without executing untrusted HTML, shell commands, or network calls.
 - [`docx`](./skills/office-white-collar/docx/): Create, read, edit, or review Word documents (.docx), including styles, tables, headers, tracked changes, and comments. Use when Word is the input or required deliverable.
 - [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/): Create browser-based HTML slide decks from supplied content using the bundled magazine-style template, with slide navigation and presentation review. Use when the user requests a web presentation rather than a PowerPoint file.
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/): Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, images, and structure with the appropriate extraction tool.
@@ -539,28 +539,29 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-operations-general"></a>
 ### 10. General Operations (operations-general, 11)
 
-- [`brand-guidelines`](./skills/operations-general/brand-guidelines/): Apply Anthropic brand colors and typography when the user requests Anthropic visual identity or an Anthropic-branded artifact.
+- [`brand-guidelines`](./skills/operations-general/brand-guidelines/): Use when applying Anthropic brand colors, typography, and visual identity guidelines to user-requested Anthropic-branded artifacts.
 - [`crest`](./skills/operations-general/crest/): Building engineer self-branding by turning technical contributions into a professional brand. Use for GitHub/LinkedIn/blog/conference positioning or content strategy.
 - [`dawn`](./skills/operations-general/dawn/): Propose one personal side-project idea scoped to a 1-3 day MVP when the user requests daily inspiration or weekend project ideation.
 - [`docs-cleaner`](./skills/operations-general/docs-cleaner/): Consolidate overlapping documentation and remove repetition while preserving useful content, references, and ownership.
 - [`fact-checker`](./skills/operations-general/fact-checker/): Verify factual claims against current authoritative sources and apply requested corrections with citations; use for accuracy checks or outdated documentation.
 - [`hearth`](./skills/operations-general/hearth/): Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.
-- [`i-have-adhd`](./skills/operations-general/i-have-adhd/): Shape ADHD-friendly output: lead with the next action, number steps, restate state, suppress tangents, give concrete time estimates, and make progress visible. Invoke with /i-have-adhd; stop with "stop adhd mode".
+- [`i-have-adhd`](./skills/operations-general/i-have-adhd/): Use when the user asks for ADHD-friendly structured output (/i-have-adhd): lead with the next action, number steps, track state, and estimate time.
 - [`interview-system-designer`](./skills/operations-general/interview-system-designer/): Design hiring interviews, competency matrices, question banks, scoring rubrics, and interviewer calibration for a specified role.
 - [`linkedin`](./skills/operations-general/linkedin/): General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.
 - [`slack-gif-creator`](./skills/operations-general/slack-gif-creator/): Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack.".
 - [`theme-factory`](./skills/operations-general/theme-factory/): Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.
 
 <a id="cat-product-design"></a>
-### 11. Product and Design (product-design, 13)
+### 11. Product and Design (product-design, 14)
 
+- [`ab-test-design`](./skills/product-design/ab-test-design/): Use when designing an A/B or split test, defining hypothesis, primary metric, guardrails, randomization unit, MDE, sample size and duration via scripts/sample_size.py, and implementing flicker-free feature-flag rollout.
 - [`agile-product-owner`](./skills/product-design/agile-product-owner/): Manage product backlogs and sprints: user stories, acceptance criteria, epic breakdown, prioritization, estimates, and delivery tracking.
 - [`canvas-design`](./skills/product-design/canvas-design/): Create original static visual designs such as posters, artwork, and compositions as PNG or PDF artifacts.
-- [`competitive-teardown`](./skills/product-design/competitive-teardown/): Analyze competitors from product, pricing, reviews, SEO, and hiring evidence to produce feature comparisons, positioning, and actionable recommendations.
 - [`landing-page-generator`](./skills/product-design/landing-page-generator/): Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.
 - [`product-manager-toolkit`](./skills/product-design/product-manager-toolkit/): Prioritize features, synthesize customer research, and write PRDs or go-to-market plans using practical product management frameworks.
 - [`product-strategist`](./skills/product-design/product-strategist/): Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design.
 - [`researcher`](./skills/product-design/researcher/): User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo's UI validation. Use when user research design or analysis is needed.
+- [`review-animations`](./skills/product-design/review-animations/): Reviews UI animation and motion code against easing, sub-300ms duration, GPU-property, interruptibility, transform-origin, and reduced-motion standards. Use when reviewing CSS transitions, keyframes, or Motion/React animation diffs.
 - [`saas-scaffolder`](./skills/product-design/saas-scaffolder/): Build a SaaS application or vertical slice from a validated brief, covering authentication, tenancy, persistence, billing, deployment, and acceptance checks.
 - [`trace`](./skills/product-design/trace/): Use when analyzing session replays or event logs for user behavior patterns, frustration signals such as rage or dead clicks, journey breakdowns, and UX anomalies.
 - [`ui-design-system`](./skills/product-design/ui-design-system/): Create or maintain UI design tokens, component documentation, responsive rules, and designer-to-developer handoff artifacts.
@@ -569,7 +570,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`voice`](./skills/product-design/voice/): Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and feedback for sentiment, themes, trends, and prioritized product insights.
 
 <a id="cat-security-reliability"></a>
-### 12. Security and Reliability (security-and-reliability, 23)
+### 12. Security and Reliability (security-and-reliability, 22)
 
 - [`breach`](./skills/security-and-reliability/breach/): Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK models, attack scenarios, AI and LLM red teaming, purple-team exercises, and control validation.
 - [`cloak`](./skills/security-and-reliability/cloak/): Use when asked to identify personal data, map privacy data flows, evaluate consent, or conduct a DPIA or privacy-by-design review.
@@ -581,13 +582,12 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`information-security-manager-iso27001`](./skills/security-and-reliability/information-security-manager-iso27001/): Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.
 - [`link-checker`](./skills/security-and-reliability/link-checker/): Use when checking URL availability, dead links, redirect chains, suspicious domains, documentation link health, or link-risk evidence before publishing.
 - [`osv-scanner`](./skills/security-and-reliability/osv-scanner/): Use when checking open-source dependencies for known vulnerabilities with OSV-Scanner across lockfiles, manifests, SBOMs, git history, or source trees.
-- [`security-audit`](./skills/security-and-reliability/security-audit/): Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.
-- [`security-auditor`](./skills/security-and-reliability/security-auditor/): Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship.
+- [`security-audit`](./skills/security-and-reliability/security-audit/): Use when auditing codebases for exploitable security vulnerabilities with concrete attack paths, source evidence, and verified remediation.
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/): Use when checking language or framework security best practices, producing security review reports, identifying insecure defaults, and recommending secure-by-default improvements.
 - [`security-model`](./skills/security-and-reliability/security-model/): Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that security review tools consume, including trust boundaries, invariants, inheritance, and reportability.
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/): Use when assessing security ownership from git history: who owns sensitive code, bus factor, CODEOWNERS drift, and co-change risk hotspots.
 - [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/): Authorized app or API penetration testing: vulnerability scans, OWASP Top 10 checks, dependency audits, and pentest reports with explicit scope, evidence, and remediation guidance.
-- [`security-review`](./skills/security-and-reliability/security-review/): Review code diffs and application vulnerabilities by tracing attacker-controlled inputs through trust boundaries, enforcement controls, and dangerous operations; report reproducible defects with focused fixes and acceptance checks.
+- [`security-review`](./skills/security-and-reliability/security-review/): Review code diffs, AI-generated code, and app vulnerabilities by tracing untrusted inputs across trust boundaries and dangerous sinks; report evidence-backed defects and fixes.
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/): Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/): Use when running Semgrep SAST on source code: registry or custom rules, secrets detection, supply-chain dependency findings, and result triage.
 - [`sentry`](./skills/security-and-reliability/sentry/): Read Sentry issues and events with a scoped token to summarize production error trends and event details.
@@ -601,7 +601,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`clay`](./skills/multimodal-media/clay/): AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation.
 - [`gpt-image2`](./skills/multimodal-media/gpt-image2/): Generate or edit images with gpt-image-2 when explicitly requested, using the documented credential flow, reference images, and output settings.
 - [`imagegen`](./skills/multimodal-media/imagegen/): Generate or edit images with OpenAI image tools or the bundled API CLI, including inpainting, background changes, transparent assets, and variants.
-- [`live-panel`](./skills/multimodal-media/live-panel/): Render animated system architecture panels into self-contained HTML and MP4.
+- [`live-panel`](./skills/multimodal-media/live-panel/): Use when rendering animated system architecture diagrams or interactive status panels into self-contained HTML and MP4 media outputs.
 - [`remotion-video`](./skills/multimodal-media/remotion-video/): Use when creating or repairing a Remotion React video, composition, or render whose frame timing and exported media must be validated.
 - [`screenshot`](./skills/multimodal-media/screenshot/): Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
 - [`sketch`](./skills/multimodal-media/sketch/): Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.
@@ -611,15 +611,16 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`transcribe`](./skills/multimodal-media/transcribe/): Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
 
 <a id="cat-deployment-platforms"></a>
-### 14. Deployment Platforms (deployment-platforms, 7)
+### 14. Deployment Platforms (deployment-platforms, 8)
 
+- [`cloudflare-agents-sdk`](./skills/deployment-platforms/cloudflare-agents-sdk/): Use when building, debugging, or reviewing Cloudflare Agents SDK applications (`agents` / `AIChatAgent` / `@cloudflare/ai-chat`) with Durable Object SQLite state, `@callable` RPC, workflows, MCP integration, and Wrangler setup.
 - [`cloudflare-deploy`](./skills/deployment-platforms/cloudflare-deploy/): Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
 - [`netlify-deploy`](./skills/deployment-platforms/netlify-deploy/): Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
 - [`pipe`](./skills/deployment-platforms/pipe/): Designing GitHub Actions workflows in depth: trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design.
 - [`render-deploy`](./skills/deployment-platforms/render-deploy/): Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.
 - [`scaffold`](./skills/deployment-platforms/scaffold/): Use when provisioning infrastructure or dev environments: Terraform or OpenTofu modules, Docker Compose setups, multi-cloud layouts, secret management, and IaC cost gates.
 - [`shard`](./skills/deployment-platforms/shard/): Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.
-- [`vercel-deploy`](./skills/deployment-platforms/vercel-deploy/): Create Vercel preview or production deployments when the user selects Vercel or the repository already binds the project to Vercel.
+- [`vercel-deploy`](./skills/deployment-platforms/vercel-deploy/): Use when creating Vercel preview or production deployments for projects explicitly targeting Vercel or already bound to Vercel.
 
 <a id="cat-memory-safety"></a>
 ### 15. Memory and Safety (openclaw-memory-and-safety, 7)

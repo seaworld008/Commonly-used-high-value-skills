@@ -6,7 +6,7 @@ This file summarizes the main changes in each release. Full notes for every rele
 
 ## Latest Release
 
-**v6.2.0 Portfolio audit and evolving browser foundations (2026-11-18)**: combines the v6.1.0 audit of 293 skills and provenance/license repairs with agent-browser 0.43.0, DevTools and Playwright guidance. Adds priority foundation checks, ongoing drift tracking and reviewed baseline advancement to full maintenance and the weekly workflow. [Release notes](./releases/v6.2.0.md).
+**v7.0.0 Portfolio evolution, curated additions, and quality upgrade (2026-11-23)**: merges and retires 4 overlapping skills with reference preservation, adds `claude-api`, `accessibility-engineering`, `cloudflare-agents-sdk`, `review-animations`, and `ab-test-design` (295 canonical skills across 16 categories, portfolio avg 95.0), updates Playwright guidance for `0.0.86`, syncs `hermes-agent v0.23.3`, and closes all dead links (0/500). [Release notes](./releases/v7.0.0.md).
 
 When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## Recent Releases
+
+- [v6.2.0](./releases/v6.2.0.md) (2026-11-18): combined the v6.1.0 audit and updated `agent-browser` 0.43.0, DevTools, and Playwright guidance with priority browser-foundation tracking.
 
 - [v6.1.0](./releases/v6.1.0.md) (2026-11-17): incorporated into v6.2.0; historical review evidence is retained.
 

@@ -104,7 +104,7 @@
             "ref": "main",
             "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
             "path_commit": "6278f7302d5e2e27943ed34fb4e9f7058dda9b1b",
-            "content_sha256": "7a75e52d33e5086f6d37a0080fdb644ef5f929a90ce8d7a36eb138d56d79bce4",
+            "content_sha256": "3a2f8848ae591c142293afa00b30af88e48db97c669d54955ecbe109e490727f",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -171,7 +171,7 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/SKILL.md",
-          "sha256": "7a75e52d33e5086f6d37a0080fdb644ef5f929a90ce8d7a36eb138d56d79bce4",
+          "sha256": "3a2f8848ae591c142293afa00b30af88e48db97c669d54955ecbe109e490727f",
           "owner": "agent-hub",
           "mode": "100644"
         },
@@ -573,7 +573,7 @@
             "ref": "main",
             "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
             "path_commit": "91a20bafbdba2d03be133b7bf55571ceeeade638",
-            "content_sha256": "c410ecebefb2ab1d22d815852de62a7c008f3c952c30dfb06f65847f671724ad",
+            "content_sha256": "7d9905fe0ca09d842d3a242968fe82b2533bc0448b6c88b87c33795ff5b944e3",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -596,7 +596,7 @@
         },
         {
           "path": "skills/product-design/landing-page-generator/SKILL.md",
-          "sha256": "c410ecebefb2ab1d22d815852de62a7c008f3c952c30dfb06f65847f671724ad",
+          "sha256": "7d9905fe0ca09d842d3a242968fe82b2533bc0448b6c88b87c33795ff5b944e3",
           "owner": "landing-page-generator",
           "mode": "100644"
         },
@@ -958,7 +958,7 @@
             "ref": "main",
             "resolved_commit": "f8593c4941210a621a6629ce1da9e07897976d5f",
             "path_commit": "f11fccbb2bfada760b26b3c8d581dc7dc9984a9d",
-            "content_sha256": "3992dcc4f6fef4fb98a5362e8944f2c33fac83fd763455adc528196ab0a23003",
+            "content_sha256": "e1a4b6d16446c0f342e4ecbce5145e5493ff4536686f628e5ad9abdcdaab8918",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1003,7 +1003,7 @@
         },
         {
           "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
-          "sha256": "3992dcc4f6fef4fb98a5362e8944f2c33fac83fd763455adc528196ab0a23003",
+          "sha256": "e1a4b6d16446c0f342e4ecbce5145e5493ff4536686f628e5ad9abdcdaab8918",
           "owner": "skill-security-auditor",
           "mode": "100644"
         },

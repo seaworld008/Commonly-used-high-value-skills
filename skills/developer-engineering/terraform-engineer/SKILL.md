@@ -2,14 +2,14 @@
 name: terraform-engineer
 description: 'Use when designing Terraform IaC, reviewing modules, managing state, planning provider upgrades, or improving repeatable infrastructure deployment workflows.'
 zh_description: "用于 Terraform IaC 设计、模块评审、状态管理、Provider 升级和基础设施部署优化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/jeffallan/claude-skills/terraform-engineer"
 license: "MIT"
 tags: ["development", "engineer", "terraform"]
 created_at: "2026-03-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---
@@ -39,9 +39,9 @@ complexity: "intermediate"
 - **组合模式**: 通过顶层模块（Root Module）调用多个子模块构建完整系统。
 
 ### 3. 状态管理策略 (State Management)
-- **远程状态 (Remote State)**: 使用 S3, GCS 或 Terraform Cloud 存储状态文件，启用状态锁定（State Locking，如 DynamoDB）。
+- **远程状态 (Remote State)**: 使用 S3（Terraform 1.11+ 原生 `use_lockfile = true`，替代已弃用的 `dynamodb_table`）、GCS 或 Terraform Cloud 存储状态文件并启用加密和锁定。
 - **敏感信息脱敏**: 理解状态文件中包含明文敏感信息，严格控制状态访问权限。
-- **状态迁移与操作**: 熟练使用 `terraform state mv`, `rm`, `import` 等命令手动干预状态映射。
+- **状态迁移与操作**: 优先使用声明式 `import`、`moved`、`removed` 块；仅在旧版本上退回 `terraform import` / `terraform state mv` / `rm`，且任何写状态命令执行前须获用户确认，切勿在日志中打印明文 state。
 
 ### 4. 工作流 (Plan/Apply Workflow)
 - **Init**: 初始化 Backend 和下载 Providers。
@@ -50,10 +50,10 @@ complexity: "intermediate"
 - **Destroy**: 慎用，仅在销毁整个实验性环境时使用。
 
 ### 5. Drift 检测与修复 (Drift Detection & Remediation)
-- **检测漂移**: 通过 `terraform plan` 发现手动修改或自动伸缩导致的实际状态与代码差异。
+- **检测漂移与校验测试**: 运行 `terraform fmt -recursive`、`terraform validate`、`tflint`、`trivy config`（`tfsec` 已弃用）与原生 `terraform test`（`.tftest.hcl` / `mock_provider`）；状态漂移对齐使用 `terraform apply -refresh-only`（`terraform refresh` 已弃用）。
 - **修复策略**:
-  - **Reconcile**: 修改代码使其匹配实际，或执行 Apply 覆盖手动修改。
-  - **Import**: 使用 `import` 块（或旧式 `terraform import` 命令）将手动创建的资源纳入代码管控。
+  - **Reconcile**: 审查 `-refresh-only` 计划后按需修改代码或应用状态对齐。
+  - **Import / Refactor**: 使用声明式 `import`、`moved`、`removed` 块将现有或重构资源纳入代码管控。
 
 ### 6. Provider 配置与管理
 - **锁定版本**: 在 `terraform` 块中明确指定 Provider 版本，防止自动升级导致的兼容性破坏。
@@ -116,22 +116,39 @@ variable "public_subnets" {
 ### Backend 远程状态配置模板
 ```hcl
 terraform {
-  required_version = ">= 1.5.0"
+  required_version = ">= 1.14"
 
   backend "s3" {
-    bucket         = "my-tf-state-bucket"
-    key            = "prod/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-lock"
-    encrypt        = true
+    bucket       = "my-tf-state-bucket"
+    key          = "prod/terraform.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
   }
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+    azurerm = {
+      source  = "hashicorp/azurerm"
       version = "~> 5.0"
     }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 8.0"
+    }
   }
+}
+
+# 原生单元测试示例 (tests/vpc_unit_test.tftest.hcl)
+run "rejects_invalid_cidr" {
+  command = plan
+  variables {
+    vpc_cidr = "invalid"
+  }
+  expect_failures = [var.vpc_cidr]
 }
 ```
 
@@ -140,5 +157,5 @@ terraform {
 - **大规模状态**: 单个状态文件过大（数千个资源）会导致 Plan 速度极慢，此时应按功能域或环境拆分为多个 Workspace/State。
 - **API 速率限制**: 调整 CI 频率与并发以减少 API 请求。漂移检测保留 refresh；`-refresh=false` 仅用于明确不检查实时状态的离线或特殊计划，不能据此宣称已检测漂移。
 - **Provider 升级**: 仅在升级任务中使用 `terraform init -upgrade`，审查 lockfile 与计划差异后再应用。
-- **Secrets 管理**: 虽然 Terraform 支持处理敏感信息，但状态文件中始终是明文，建议配合专门的 Secret Manager（如 AWS Secrets Manager）使用引用模式。
+- **Secrets 管理**: 状态文件中普通变量与资源属性仍为明文，优先集成 Secret Manager 与 Terraform 1.11+ `ephemeral` 资源及 write-only（`*_wo`）属性，避免将凭据写入 state；为所有变量与输出标注 `sensitive = true` / `type` / `description`。
 - **应用层配置**: Terraform 擅长“修路”，不擅长“开车”。对于应用内部复杂的配置文件、用户账号管理等，应结合 Ansible 或云原生初始化脚本（Cloud-init）。

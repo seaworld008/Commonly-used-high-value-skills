@@ -1,16 +1,16 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 294,
+  "total_skills": 295,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 53
+      "count": 51
     },
     {
       "name": "ai-workflow",
-      "count": 47
+      "count": 48
     },
     {
       "name": "knowledge-and-pm-integrations",
@@ -18,7 +18,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 23
+      "count": 22
     },
     {
       "name": "finance-investing",
@@ -29,19 +29,19 @@
       "count": 15
     },
     {
+      "name": "ai-agent-platform",
+      "count": 14
+    },
+    {
       "name": "devops-sre",
       "count": 14
     },
     {
-      "name": "ai-agent-platform",
-      "count": 13
+      "name": "product-design",
+      "count": 14
     },
     {
       "name": "office-white-collar",
-      "count": 13
-    },
-    {
-      "name": "product-design",
       "count": 13
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "name": "deployment-platforms",
-      "count": 7
+      "count": 8
     },
     {
       "name": "openclaw-memory-and-safety",
@@ -74,7 +74,7 @@
       "name": "agent-hub",
       "category": "ai-agent-platform",
       "description": "Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.",
-      "version": "1.0.15",
+      "version": "1.0.16",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md",
@@ -86,8 +86,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-11-17",
-      "line_count": 309,
+      "updated_at": "2026-11-23",
+      "line_count": 283,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
     {
@@ -130,6 +130,30 @@
       "updated_at": "2026-11-17",
       "line_count": 360,
       "path": "skills/ai-agent-platform/chatgpt-apps/SKILL.md"
+    },
+    {
+      "name": "claude-api",
+      "category": "ai-agent-platform",
+      "description": "Use when building, migrating, auditing, or debugging applications with the Anthropic Claude API, official Anthropic SDKs, Tool Runner, Prompt Caching, or Managed Agents (not OpenAI, Gemini, or non-Anthropic providers).",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "source": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+      "tags": [
+        "anthropic",
+        "claude",
+        "claude-api",
+        "llm-sdk",
+        "prompt-caching",
+        "tool-use",
+        "managed-agents"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-11-23",
+      "updated_at": "2026-11-23",
+      "line_count": 419,
+      "path": "skills/ai-agent-platform/claude-api/SKILL.md"
     },
     {
       "name": "develop-web-game",
@@ -199,7 +223,7 @@
       "name": "hermes-agent",
       "category": "ai-agent-platform",
       "description": "Use, configure, theme, extend, and orchestrate Hermes Agent.",
-      "version": "2.0.26",
+      "version": "2.0.27",
       "author": "Hermes Agent + Teknium",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md",
@@ -216,7 +240,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 236,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
@@ -287,8 +311,8 @@
     {
       "name": "openai-docs",
       "category": "ai-agent-platform",
-      "description": "Find current official OpenAI guidance for Codex, APIs, models, prompting, or migrations. Preserve a named target model and cite fetched documentation.",
-      "version": "1.0.3",
+      "description": "Use when looking up current official OpenAI documentation for Codex, APIs, models, prompting, or migrations with cited sources.",
+      "version": "1.0.4",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/openai-docs/SKILL.md",
@@ -301,7 +325,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 137,
       "path": "skills/ai-agent-platform/openai-docs/SKILL.md"
     },
@@ -344,6 +368,30 @@
       "updated_at": "2026-11-17",
       "line_count": 303,
       "path": "skills/ai-agent-platform/sigil/SKILL.md"
+    },
+    {
+      "name": "accessibility-engineering",
+      "category": "ai-workflow",
+      "description": "Use when auditing existing UI for WCAG 2.2 AA conformance, running axe-core or pa11y, triaging accessibility findings, or verifying keyboard, focus, contrast, and screen-reader behavior before shipping.",
+      "version": "1.0.0",
+      "author": "Addy Osmani",
+      "source": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/accessibility-engineering",
+      "tags": [
+        "accessibility",
+        "a11y",
+        "wcag",
+        "axe-core",
+        "pa11y",
+        "frontend",
+        "auditing"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-11-23",
+      "updated_at": "2026-11-23",
+      "line_count": 144,
+      "path": "skills/ai-workflow/accessibility-engineering/SKILL.md"
     },
     {
       "name": "agent-workflow-designer",
@@ -458,7 +506,7 @@
       "name": "ci-cd-and-automation",
       "category": "ai-workflow",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
@@ -472,15 +520,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-11-17",
-      "line_count": 413,
+      "updated_at": "2026-11-23",
+      "line_count": 415,
       "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md"
     },
     {
       "name": "code-review-and-quality",
       "category": "ai-workflow",
       "description": "Review a diff, pull request, or pasted code for correctness, regressions, security, maintainability, and missing tests.",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
@@ -494,8 +542,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-11-17",
-      "line_count": 412,
+      "updated_at": "2026-11-23",
+      "line_count": 414,
       "path": "skills/ai-workflow/code-review-and-quality/SKILL.md"
     },
     {
@@ -695,7 +743,7 @@
       "name": "find-skills",
       "category": "ai-workflow",
       "description": "Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -708,8 +756,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-15",
-      "updated_at": "2026-11-17",
-      "line_count": 101,
+      "updated_at": "2026-11-23",
+      "line_count": 112,
       "path": "skills/ai-workflow/find-skills/SKILL.md"
     },
     {
@@ -1016,7 +1064,7 @@
       "name": "requesting-code-review",
       "category": "ai-workflow",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://skills.sh/obra/superpowers/requesting-code-review",
@@ -1028,8 +1076,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-17",
-      "line_count": 148,
+      "updated_at": "2026-11-23",
+      "line_count": 122,
       "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
     },
     {
@@ -1164,7 +1212,7 @@
       "name": "spec-driven-development",
       "category": "ai-workflow",
       "description": "Specify new features or substantial behavior changes when goals, boundaries, and acceptance criteria need agreement before implementation.",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
@@ -1178,7 +1226,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 264,
       "path": "skills/ai-workflow/spec-driven-development/SKILL.md"
     },
@@ -1230,7 +1278,7 @@
       "name": "using-agent-skills",
       "category": "ai-workflow",
       "description": "Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
@@ -1244,15 +1292,15 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-11-17",
-      "line_count": 197,
+      "updated_at": "2026-11-23",
+      "line_count": 199,
       "path": "skills/ai-workflow/using-agent-skills/SKILL.md"
     },
     {
       "name": "using-git-worktrees",
       "category": "ai-workflow",
       "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
@@ -1264,15 +1312,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 162,
       "path": "skills/ai-workflow/using-git-worktrees/SKILL.md"
     },
     {
       "name": "using-superpowers",
       "category": "ai-workflow",
-      "description": "Select relevant Superpowers workflow skills when the user requests that workflow or a concrete development task benefits from its process guidance.",
-      "version": "1.0.8",
+      "description": "Use when selecting relevant Superpowers workflow skills for a user-requested workflow or concrete development task that needs structured process guidance.",
+      "version": "1.0.9",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/using-superpowers/SKILL.md",
@@ -1284,7 +1332,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 119,
       "path": "skills/ai-workflow/using-superpowers/SKILL.md"
     },
@@ -1348,6 +1396,29 @@
       "updated_at": "2026-11-17",
       "line_count": 492,
       "path": "skills/ai-workflow/writing-skills/SKILL.md"
+    },
+    {
+      "name": "cloudflare-agents-sdk",
+      "category": "deployment-platforms",
+      "description": "Use when building, debugging, or reviewing Cloudflare Agents SDK applications (`agents` / `AIChatAgent` / `@cloudflare/ai-chat`) with Durable Object SQLite state, `@callable` RPC, workflows, MCP integration, and Wrangler setup.",
+      "version": "1.0.0",
+      "author": "Cloudflare",
+      "source": "https://github.com/cloudflare/skills",
+      "source_url": "https://github.com/cloudflare/skills/tree/main/skills/agents-sdk",
+      "tags": [
+        "cloudflare",
+        "agents-sdk",
+        "durable-objects",
+        "mcp",
+        "workflows",
+        "websockets"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-11-23",
+      "updated_at": "2026-11-23",
+      "line_count": 225,
+      "path": "skills/deployment-platforms/cloudflare-agents-sdk/SKILL.md"
     },
     {
       "name": "cloudflare-deploy",
@@ -1469,8 +1540,8 @@
     {
       "name": "vercel-deploy",
       "category": "deployment-platforms",
-      "description": "Create Vercel preview or production deployments when the user selects Vercel or the repository already binds the project to Vercel.",
-      "version": "1.0.1",
+      "description": "Use when creating Vercel preview or production deployments for projects explicitly targeting Vercel or already bound to Vercel.",
+      "version": "1.0.2",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/vercel-deploy/SKILL.md",
@@ -1482,7 +1553,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 86,
       "path": "skills/deployment-platforms/vercel-deploy/SKILL.md"
     },
@@ -1656,7 +1727,7 @@
       "name": "database-designer",
       "category": "developer-engineering",
       "description": "Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1668,30 +1739,9 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 487,
+      "updated_at": "2026-11-23",
+      "line_count": 491,
       "path": "skills/developer-engineering/database-designer/SKILL.md"
-    },
-    {
-      "name": "database-schema-designer",
-      "category": "developer-engineering",
-      "description": "Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.",
-      "version": "1.0.2",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "database",
-        "designer",
-        "development",
-        "schema"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 368,
-      "path": "skills/developer-engineering/database-schema-designer/SKILL.md"
     },
     {
       "name": "dependency-auditor",
@@ -1774,27 +1824,6 @@
       "path": "skills/developer-engineering/gateway/SKILL.md"
     },
     {
-      "name": "git-worktree-manager",
-      "category": "developer-engineering",
-      "description": "Create, inspect, and clean up Git worktrees for parallel development, with explicit ownership, environment handling, and port allocation.",
-      "version": "1.0.2",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "development",
-        "git",
-        "manager",
-        "worktree"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 161,
-      "path": "skills/developer-engineering/git-worktree-manager/SKILL.md"
-    },
-    {
       "name": "github-contributor",
       "category": "developer-engineering",
       "description": "Find suitable open-source contribution opportunities and prepare focused GitHub pull requests with project-specific validation and review context.",
@@ -1837,8 +1866,8 @@
     {
       "name": "golang-performance",
       "category": "developer-engineering",
-      "description": "Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O.",
-      "version": "1.0.1",
+      "description": "Use when optimizing Go hot paths, reducing heap allocations and GC pressure, or tuning concurrency, caching, and I/O after profiling.",
+      "version": "1.0.2",
       "author": "samber/cc-skills-golang",
       "source": "github:samber/cc-skills-golang",
       "source_url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance",
@@ -1850,7 +1879,7 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 141,
       "path": "skills/developer-engineering/golang-performance/SKILL.md"
     },
@@ -1916,8 +1945,8 @@
     {
       "name": "improve-codebase-architecture",
       "category": "developer-engineering",
-      "description": "Review module boundaries, interface depth and high-leverage refactors with evidence.",
-      "version": "1.0.1",
+      "description": "Use when reviewing module boundaries, interface depth, and high-leverage architectural refactors backed by concrete codebase evidence.",
+      "version": "1.0.2",
       "author": "mattpocock/skills",
       "source": "github:mattpocock/skills",
       "source_url": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture",
@@ -1929,7 +1958,7 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 113,
       "path": "skills/developer-engineering/improve-codebase-architecture/SKILL.md"
     },
@@ -1956,8 +1985,8 @@
     {
       "name": "mcp-builder",
       "category": "developer-engineering",
-      "description": "Build MCP servers that expose external APIs or services through well-scoped tools in Python or TypeScript.",
-      "version": "1.1.2",
+      "description": "Use when building Model Context Protocol (MCP) servers in Python or TypeScript to expose external APIs or services as well-scoped tools.",
+      "version": "1.1.3",
       "author": "Anthropic contributors; local curators",
       "source": "https://github.com/anthropics/skills",
       "source_url": "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/mcp-builder/SKILL.md",
@@ -1969,7 +1998,7 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 246,
       "path": "skills/developer-engineering/mcp-builder/SKILL.md"
     },
@@ -2351,7 +2380,7 @@
       "name": "supabase",
       "category": "developer-engineering",
       "description": "Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:supabase/agent-skills",
       "source_url": "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md",
@@ -2362,8 +2391,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-03",
-      "updated_at": "2026-10-03",
-      "line_count": 209,
+      "updated_at": "2026-11-23",
+      "line_count": 181,
       "path": "skills/developer-engineering/supabase/SKILL.md"
     },
     {
@@ -2453,7 +2482,7 @@
       "name": "terraform-engineer",
       "category": "developer-engineering",
       "description": "Use when designing Terraform IaC, reviewing modules, managing state, planning provider upgrades, or improving repeatable infrastructure deployment workflows.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/jeffallan/claude-skills/terraform-engineer",
@@ -2465,8 +2494,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-11-17",
-      "line_count": 144,
+      "updated_at": "2026-11-23",
+      "line_count": 161,
       "path": "skills/developer-engineering/terraform-engineer/SKILL.md"
     },
     {
@@ -2493,8 +2522,8 @@
     {
       "name": "vercel-react-best-practices",
       "category": "developer-engineering",
-      "description": "Optimize React and Next.js rendering, data fetching, bundles, and runtime performance using Vercel''s engineering guidance.",
-      "version": "1.0.3",
+      "description": "Use when optimizing React and Next.js rendering, data fetching, bundle size, and runtime performance using Vercel engineering rules.",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:vercel-labs/agent-skills",
       "source_url": "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-best-practices/SKILL.md",
@@ -2507,7 +2536,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-05",
-      "updated_at": "2026-11-04",
+      "updated_at": "2026-11-23",
       "line_count": 159,
       "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md"
     },
@@ -2749,8 +2778,8 @@
     {
       "name": "golang-observability",
       "category": "devops-sre",
-      "description": "Instrument Go services using slog, OpenTelemetry, Prometheus and profiling.",
-      "version": "1.0.1",
+      "description": "Use when instrumenting Go services with structured logging (slog), OpenTelemetry tracing, Prometheus metrics, and runtime profiling.",
+      "version": "1.0.2",
       "author": "samber/cc-skills-golang",
       "source": "github:samber/cc-skills-golang",
       "source_url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability",
@@ -2762,7 +2791,7 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 221,
       "path": "skills/devops-sre/golang-observability/SKILL.md"
     },
@@ -2914,7 +2943,7 @@
       "name": "gh-address-comments",
       "category": "engineering-workflow-automation",
       "description": "Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/gh-address-comments/SKILL.md",
@@ -2924,18 +2953,18 @@
         "comments",
         "workflow"
       ],
-      "quality": 2,
+      "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 134,
       "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md"
     },
     {
       "name": "gh-fix-ci",
       "category": "engineering-workflow-automation",
-      "description": "Inspect and fix failing GitHub Actions PR checks using gh logs and focused validation; report external-provider failures with their details URL.",
-      "version": "1.0.1",
+      "description": "Use when inspecting and fixing failing GitHub Actions PR checks using gh CLI logs and focused validation, or reporting external check failures.",
+      "version": "1.0.2",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/gh-fix-ci/SKILL.md",
@@ -2947,7 +2976,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 88,
       "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md"
     },
@@ -3036,7 +3065,7 @@
       "name": "playwright",
       "category": "engineering-workflow-automation",
       "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright/SKILL.md",
@@ -3048,8 +3077,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-18",
-      "line_count": 153,
+      "updated_at": "2026-11-23",
+      "line_count": 157,
       "path": "skills/engineering-workflow-automation/playwright/SKILL.md"
     },
     {
@@ -3101,8 +3130,8 @@
     {
       "name": "yeet",
       "category": "engineering-workflow-automation",
-      "description": "Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).",
-      "version": "1.0.3",
+      "description": "Use only when explicitly asked to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (gh).",
+      "version": "1.0.4",
       "author": "OpenAI contributors; local curators",
       "source": "https://github.com/openai/skills",
       "source_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/yeet/SKILL.md",
@@ -3111,10 +3140,10 @@
         "workflow",
         "yeet"
       ],
-      "quality": 2,
+      "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 131,
       "path": "skills/engineering-workflow-automation/yeet/SKILL.md"
     },
@@ -3122,7 +3151,7 @@
       "name": "comps-valuation-analyst",
       "category": "finance-investing",
       "description": "Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3132,10 +3161,10 @@
         "finance",
         "valuation"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 107,
       "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md"
     },
@@ -3143,7 +3172,7 @@
       "name": "earnings-call-analyzer",
       "category": "finance-investing",
       "description": "Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3153,10 +3182,10 @@
         "earnings",
         "finance"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 120,
       "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md"
     },
@@ -3164,7 +3193,7 @@
       "name": "event-driven-tracker",
       "category": "finance-investing",
       "description": "Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3174,10 +3203,10 @@
         "finance",
         "tracker"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 126,
       "path": "skills/finance-investing/event-driven-tracker/SKILL.md"
     },
@@ -3185,7 +3214,7 @@
       "name": "factor-backtester",
       "category": "finance-investing",
       "description": "Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3194,10 +3223,10 @@
         "factor",
         "finance"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 133,
       "path": "skills/finance-investing/factor-backtester/SKILL.md"
     },
@@ -3265,7 +3294,7 @@
       "name": "investment-memo-writer",
       "category": "finance-investing",
       "description": "Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3275,10 +3304,10 @@
         "memo",
         "writer"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 140,
       "path": "skills/finance-investing/investment-memo-writer/SKILL.md"
     },
@@ -3324,7 +3353,7 @@
       "name": "macro-regime-monitor",
       "category": "finance-investing",
       "description": "Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3334,10 +3363,10 @@
         "monitor",
         "regime"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 136,
       "path": "skills/finance-investing/macro-regime-monitor/SKILL.md"
     },
@@ -3345,7 +3374,7 @@
       "name": "options-strategy-evaluator",
       "category": "finance-investing",
       "description": "Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3355,10 +3384,10 @@
         "options",
         "strategy"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 142,
       "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md"
     },
@@ -3366,7 +3395,7 @@
       "name": "portfolio-risk-manager",
       "category": "finance-investing",
       "description": "Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3376,10 +3405,10 @@
         "portfolio",
         "risk"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 143,
       "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md"
     },
@@ -3408,7 +3437,7 @@
       "name": "sec-filing-reviewer",
       "category": "finance-investing",
       "description": "Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3418,10 +3447,10 @@
         "reviewer",
         "sec"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 142,
       "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md"
     },
@@ -3429,7 +3458,7 @@
       "name": "stock-screener-builder",
       "category": "finance-investing",
       "description": "Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3439,10 +3468,10 @@
         "screener",
         "stock"
       ],
-      "quality": 2,
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 142,
       "path": "skills/finance-investing/stock-screener-builder/SKILL.md"
     },
@@ -3514,7 +3543,7 @@
       "name": "compete",
       "category": "growth-operations-xiaohongshu",
       "description": "Use when researching competitors: profiles, feature and pricing matrices, positioning maps, battle cards, win-loss analysis, and competitive signal tracking.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md",
@@ -3526,7 +3555,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-08-24",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 326,
       "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md"
     },
@@ -3595,7 +3624,7 @@
       "name": "linkedin-growth",
       "category": "growth-operations-xiaohongshu",
       "description": "Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli and local lead records; outreach requires existing user authorization.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "vprudnikoff",
       "source": "github:Linked-API/linkedin-skills",
       "source_url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth",
@@ -3609,8 +3638,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-10",
-      "updated_at": "2026-11-17",
-      "line_count": 443,
+      "updated_at": "2026-11-23",
+      "line_count": 417,
       "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md"
     },
     {
@@ -3811,7 +3840,7 @@
       "name": "lark-approval",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-approval",
@@ -3825,15 +3854,15 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 139,
+      "updated_at": "2026-11-23",
+      "line_count": 110,
       "path": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md"
     },
     {
       "name": "lark-attendance",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when querying Lark attendance records, checking missing clock-ins, and preparing traceable explanations for attendance exceptions.",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance",
@@ -3846,8 +3875,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 150,
+      "updated_at": "2026-11-23",
+      "line_count": 121,
       "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md"
     },
     {
@@ -3877,7 +3906,7 @@
       "name": "lark-calendar",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会议室时使用。不负责：查询过去的视频会议记录（走 lark-meeting）、待办任务（走 lark-task）。",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-calendar",
@@ -3891,15 +3920,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 287,
+      "updated_at": "2026-11-23",
+      "line_count": 258,
       "path": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md"
     },
     {
       "name": "lark-contact",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以及按关键词搜索当前用户可见的机器人 / 智能体(agent)。当用户提到一个名字要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-contact",
@@ -3913,7 +3942,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
+      "updated_at": "2026-11-23",
       "line_count": 110,
       "path": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md"
     },
@@ -3943,7 +3972,7 @@
       "name": "lark-drive",
       "category": "knowledge-and-pm-integrations",
       "description": "管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使用；文档正文编辑转对应文档技能。",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-drive",
@@ -3957,8 +3986,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 255,
+      "updated_at": "2026-11-23",
+      "line_count": 226,
       "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md"
     },
     {
@@ -3987,7 +4016,7 @@
       "name": "lark-im",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（Interactive Card）、监听卡片按钮回调（card.action.trigger）。当用户需要发消息、查看或搜索聊天记录、下载聊天中的文件、查看群成员、搜索群、创建群聊或话题群、管理标记数据、管理 Feed 置顶（添加/移除/查询置顶会话）、管理标签数据、处理卡片回调时使用。",
-      "version": "1.0.15",
+      "version": "1.0.16",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-im",
@@ -4001,15 +4030,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 319,
+      "updated_at": "2026-11-23",
+      "line_count": 290,
       "path": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md"
     },
     {
       "name": "lark-mail",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系人、监听新邮件、邮件收信规则等；use for mail/email intent only. Do not use for docs/sheets/calendar/auth setup/pure contact lookup/IM chat tasks.",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-mail",
@@ -4023,15 +4052,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-10-26",
-      "line_count": 340,
+      "updated_at": "2026-11-23",
+      "line_count": 311,
       "path": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md"
     },
     {
       "name": "lark-markdown",
       "category": "knowledge-and-pm-integrations",
       "description": "操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入在线文档和云盘管理转对应技能。",
-      "version": "1.1.8",
+      "version": "1.1.9",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-markdown",
@@ -4045,8 +4074,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 109,
+      "updated_at": "2026-11-23",
+      "line_count": 80,
       "path": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md"
     },
     {
@@ -4075,7 +4104,7 @@
       "name": "lark-okr",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。不负责：待办任务管理（lark-task）、日程/会议安排（lark-calendar）、绩效评估",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-okr",
@@ -4089,15 +4118,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 220,
+      "updated_at": "2026-11-23",
+      "line_count": 191,
       "path": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md"
     },
     {
       "name": "lark-openapi-explorer",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-openapi-explorer",
@@ -4111,8 +4140,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 180,
+      "updated_at": "2026-11-23",
+      "line_count": 151,
       "path": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md"
     },
     {
@@ -4141,7 +4170,7 @@
       "name": "lark-sheets",
       "category": "knowledge-and-pm-integrations",
       "description": "创建、读取和编辑飞书电子表格，处理单元格、公式、工作表、图表、透视表和财务模型；搜索云空间文件转 lark-drive，Base 多维表格转 lark-base。",
-      "version": "1.2.11",
+      "version": "1.2.12",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/blob/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-sheets/SKILL.md",
@@ -4155,15 +4184,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 178,
+      "updated_at": "2026-11-23",
+      "line_count": 149,
       "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md"
     },
     {
       "name": "lark-skill-maker",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when creating reusable skills around verified Lark CLI or OpenAPI operations, including scoped permissions and multi-step workflow contracts.",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker",
@@ -4177,8 +4206,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 133,
+      "updated_at": "2026-11-23",
+      "line_count": 139,
       "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md"
     },
     {
@@ -4207,7 +4236,7 @@
       "name": "lark-task",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-task",
@@ -4221,8 +4250,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 237,
+      "updated_at": "2026-11-23",
+      "line_count": 209,
       "path": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md"
     },
     {
@@ -4251,7 +4280,7 @@
       "name": "lark-wiki",
       "category": "knowledge-and-pm-integrations",
       "description": "管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive，正文编辑转 lark-doc。",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-wiki",
@@ -4265,15 +4294,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 157,
+      "updated_at": "2026-11-23",
+      "line_count": 128,
       "path": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md"
     },
     {
       "name": "lark-workflow-meeting-summary",
       "category": "knowledge-and-pm-integrations",
       "description": "会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary",
@@ -4287,15 +4316,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 177,
+      "updated_at": "2026-11-23",
+      "line_count": 148,
       "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md"
     },
     {
       "name": "lark-workflow-standup-report",
       "category": "knowledge-and-pm-integrations",
       "description": "日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的安排。",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-standup-report",
@@ -4309,8 +4338,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-11-17",
-      "line_count": 163,
+      "updated_at": "2026-11-23",
+      "line_count": 134,
       "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md"
     },
     {
@@ -4340,7 +4369,7 @@
       "name": "llm-wiki",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when building, querying, ingesting sources into, or auditing an interlinked Markdown knowledge base with immutable raw sources and traceable synthesis.",
-      "version": "2.0.7",
+      "version": "2.0.8",
       "author": "Hermes Agent",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/llm-wiki/SKILL.md",
@@ -4355,8 +4384,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-18",
-      "line_count": 442,
+      "updated_at": "2026-11-23",
+      "line_count": 416,
       "path": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md"
     },
     {
@@ -4462,7 +4491,7 @@
       "name": "obsidian",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when reading, searching, creating, or editing notes in an authorized Obsidian vault while preserving frontmatter, wikilinks, and unrelated notes.",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": "seaworld008",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md",
@@ -4474,8 +4503,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-10-26",
-      "line_count": 153,
+      "updated_at": "2026-11-23",
+      "line_count": 127,
       "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
     },
     {
@@ -4558,8 +4587,8 @@
     {
       "name": "live-panel",
       "category": "multimodal-media",
-      "description": "Render animated system architecture panels into self-contained HTML and MP4.",
-      "version": "1.0.3",
+      "description": "Use when rendering animated system architecture diagrams or interactive status panels into self-contained HTML and MP4 media outputs.",
+      "version": "1.0.4",
       "author": "ythx-101/live-panel-skill",
       "source": "github:ythx-101/live-panel-skill",
       "source_url": "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/",
@@ -4571,7 +4600,7 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 123,
       "path": "skills/multimodal-media/live-panel/SKILL.md"
     },
@@ -4711,8 +4740,8 @@
     {
       "name": "answer-me-with-html",
       "category": "office-white-collar",
-      "description": "Create an offline static HTML technical report only when expressly requested, without running untrusted HTML, shell commands or network requests.",
-      "version": "1.1.1",
+      "description": "Use when expressly asked to create an offline static HTML technical report without executing untrusted HTML, shell commands, or network calls.",
+      "version": "1.1.2",
       "author": "QingYunA (original concept); seaworld008 (hardened implementation)",
       "source": "github:QingYunA/answer-me-with-html",
       "source_url": "https://github.com/QingYunA/answer-me-with-html/tree/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html",
@@ -4726,7 +4755,7 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-11-23",
       "line_count": 113,
       "path": "skills/office-white-collar/answer-me-with-html/SKILL.md"
     },
@@ -4984,10 +5013,10 @@
       "name": "honcho",
       "category": "openclaw-memory-and-safety",
       "description": "Use when setting up, tuning, or troubleshooting Honcho cross-session memory for Hermes Agent, including per-profile peers, recall settings, and context budgets.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "Hermes Agent",
       "source": "github:NousResearch/hermes-agent",
-      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/7e53b3ef82c9074649230b572dfcc76d4b629058/optional-skills/autonomous-ai-agents/honcho/SKILL.md",
       "tags": [
         "Honcho",
         "Memory",
@@ -4999,7 +5028,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-11-04",
+      "updated_at": "2026-11-23",
       "line_count": 441,
       "path": "skills/openclaw-memory-and-safety/honcho/SKILL.md"
     },
@@ -5109,8 +5138,8 @@
     {
       "name": "brand-guidelines",
       "category": "operations-general",
-      "description": "Apply Anthropic brand colors and typography when the user requests Anthropic visual identity or an Anthropic-branded artifact.",
-      "version": "1.0.2",
+      "description": "Use when applying Anthropic brand colors, typography, and visual identity guidelines to user-requested Anthropic-branded artifacts.",
+      "version": "1.0.3",
       "author": "Anthropic contributors; local curators",
       "source": "https://github.com/anthropics/skills",
       "source_url": "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/brand-guidelines/SKILL.md",
@@ -5122,7 +5151,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 135,
       "path": "skills/operations-general/brand-guidelines/SKILL.md"
     },
@@ -5226,8 +5255,8 @@
     {
       "name": "i-have-adhd",
       "category": "operations-general",
-      "description": "Shape ADHD-friendly output: lead with the next action, number steps, restate state, suppress tangents, give concrete time estimates, and make progress visible. Invoke with /i-have-adhd; stop with \"stop adhd mode\".",
-      "version": "0.3.1",
+      "description": "Use when the user asks for ADHD-friendly structured output (/i-have-adhd): lead with the next action, number steps, track state, and estimate time.",
+      "version": "0.3.2",
       "author": "ayghri",
       "source": "github:ayghri/i-have-adhd",
       "source_url": "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md",
@@ -5240,7 +5269,7 @@
       "quality": 4,
       "complexity": "basic",
       "created_at": "2026-09-18",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-11-23",
       "line_count": 152,
       "path": "skills/operations-general/i-have-adhd/SKILL.md"
     },
@@ -5269,7 +5298,7 @@
       "name": "linkedin",
       "category": "operations-general",
       "description": "General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "vprudnikoff",
       "source": "github:Linked-API/linkedin-skills",
       "source_url": "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md",
@@ -5283,7 +5312,7 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-07-10",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 492,
       "path": "skills/operations-general/linkedin/SKILL.md"
     },
@@ -5312,7 +5341,7 @@
       "name": "theme-factory",
       "category": "operations-general",
       "description": "Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "Anthropic contributors; local curators",
       "source": "https://github.com/anthropics/skills",
       "source_url": "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/theme-factory/SKILL.md",
@@ -5324,9 +5353,31 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 83,
+      "updated_at": "2026-11-23",
+      "line_count": 113,
       "path": "skills/operations-general/theme-factory/SKILL.md"
+    },
+    {
+      "name": "ab-test-design",
+      "category": "product-design",
+      "description": "Use when designing an A/B or split test, defining hypothesis, primary metric, guardrails, randomization unit, MDE, sample size and duration via scripts/sample_size.py, and implementing flicker-free feature-flag rollout.",
+      "version": "1.0.0",
+      "author": "Trystan Sarrade",
+      "source": "https://github.com/Trystan-SA/product-engineer-skills",
+      "source_url": "https://github.com/Trystan-SA/product-engineer-skills/tree/main/skills/ab-test-design",
+      "tags": [
+        "ab-testing",
+        "experimentation",
+        "product-engineering",
+        "feature-flags",
+        "analytics"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-11-23",
+      "updated_at": "2026-11-23",
+      "line_count": 116,
+      "path": "skills/product-design/ab-test-design/SKILL.md"
     },
     {
       "name": "agile-product-owner",
@@ -5370,31 +5421,10 @@
       "path": "skills/product-design/canvas-design/SKILL.md"
     },
     {
-      "name": "competitive-teardown",
-      "category": "product-design",
-      "description": "Analyze competitors from product, pricing, reviews, SEO, and hiring evidence to produce feature comparisons, positioning, and actionable recommendations.",
-      "version": "1.0.2",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "competitive",
-        "design",
-        "product",
-        "teardown"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-11-17",
-      "line_count": 455,
-      "path": "skills/product-design/competitive-teardown/SKILL.md"
-    },
-    {
       "name": "landing-page-generator",
       "category": "product-design",
       "description": "Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md",
@@ -5408,7 +5438,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 220,
       "path": "skills/product-design/landing-page-generator/SKILL.md"
     },
@@ -5472,6 +5502,30 @@
       "updated_at": "2026-11-17",
       "line_count": 385,
       "path": "skills/product-design/researcher/SKILL.md"
+    },
+    {
+      "name": "review-animations",
+      "category": "product-design",
+      "description": "Reviews UI animation and motion code against easing, sub-300ms duration, GPU-property, interruptibility, transform-origin, and reduced-motion standards. Use when reviewing CSS transitions, keyframes, or Motion/React animation diffs.",
+      "version": "1.0.0",
+      "author": "Emil Kowalski",
+      "source": "https://github.com/emilkowalski/skills",
+      "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+      "tags": [
+        "animation",
+        "motion",
+        "ui-engineering",
+        "design-review",
+        "css",
+        "performance",
+        "accessibility"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-11-23",
+      "updated_at": "2026-11-23",
+      "line_count": 139,
+      "path": "skills/product-design/review-animations/SKILL.md"
     },
     {
       "name": "saas-scaffolder",
@@ -5687,7 +5741,7 @@
       "name": "firebase-security-rules-auditor",
       "category": "security-and-reliability",
       "description": "Use when auditing changed Firestore or Cloud Storage rules for authorization, tenant isolation, field validation, privilege escalation, and emulator coverage.",
-      "version": "1.1.5",
+      "version": "1.1.6",
       "author": "seaworld008",
       "source": "github:firebase/agent-skills",
       "source_url": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
@@ -5702,8 +5756,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-07-06",
-      "updated_at": "2026-11-17",
-      "line_count": 151,
+      "updated_at": "2026-11-23",
+      "line_count": 125,
       "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md"
     },
     {
@@ -5823,8 +5877,8 @@
     {
       "name": "security-audit",
       "category": "security-and-reliability",
-      "description": "Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.",
-      "version": "1.0.3",
+      "description": "Use when auditing codebases for exploitable security vulnerabilities with concrete attack paths, source evidence, and verified remediation.",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:cloudflare/security-audit-skill",
       "source_url": "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md",
@@ -5839,34 +5893,9 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-07-20",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 138,
       "path": "skills/security-and-reliability/security-audit/SKILL.md"
-    },
-    {
-      "name": "security-auditor",
-      "category": "security-and-reliability",
-      "description": "Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship.",
-      "version": "1.0.1",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "security",
-        "appsec",
-        "ai-generated-code",
-        "code-review",
-        "owasp",
-        "secrets",
-        "dependency-audit",
-        "threat-modeling"
-      ],
-      "quality": 4,
-      "complexity": "advanced",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-09-06",
-      "line_count": 218,
-      "path": "skills/security-and-reliability/security-auditor/SKILL.md"
     },
     {
       "name": "security-best-practices",
@@ -5956,8 +5985,8 @@
     {
       "name": "security-review",
       "category": "security-and-reliability",
-      "description": "Review code diffs and application vulnerabilities by tracing attacker-controlled inputs through trust boundaries, enforcement controls, and dangerous operations; report reproducible defects with focused fixes and acceptance checks.",
-      "version": "2.0.0",
+      "description": "Review code diffs, AI-generated code, and app vulnerabilities by tracing untrusted inputs across trust boundaries and dangerous sinks; report evidence-backed defects and fixes.",
+      "version": "2.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -5970,8 +5999,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-11-17",
-      "updated_at": "2026-11-17",
-      "line_count": 197,
+      "updated_at": "2026-11-23",
+      "line_count": 198,
       "path": "skills/security-and-reliability/security-review/SKILL.md"
     },
     {
@@ -6042,7 +6071,7 @@
       "name": "skill-security-auditor",
       "category": "security-and-reliability",
       "description": "Audit external agent skills before installing, trusting, or updating them: static scans plus manual review of instructions, scripts, permissions, dependencies, provenance, and data exfiltration.",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md",
@@ -6054,7 +6083,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-11-17",
+      "updated_at": "2026-11-23",
       "line_count": 227,
       "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
     },

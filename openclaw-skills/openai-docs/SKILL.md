@@ -1,15 +1,15 @@
 ---
 name: openai-docs
-description: 'Find current official OpenAI guidance for Codex, APIs, models, prompting, or migrations. Preserve a named target model and cite fetched documentation.'
+description: 'Use when looking up current official OpenAI documentation for Codex, APIs, models, prompting, or migrations with cited sources.'
 zh_description: "用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。"
-version: "1.0.3"
+version: "1.0.4"
 author: "OpenAI contributors; local curators"
 source: "https://github.com/openai/skills"
 source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/openai-docs/SKILL.md"
 license: "Apache-2.0"
 tags: ["agent", "ai", "docs", "openai"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "intermediate"
 ---

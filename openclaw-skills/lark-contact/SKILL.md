@@ -2,14 +2,14 @@
 name: lark-contact
 description: '飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以及按关键词搜索当前用户可见的机器人 / 智能体(agent)。当用户提到一个名字要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。'
 zh_description: "用于按姓名或邮箱解析飞书 open_id，并反查成员姓名、部门、邮箱和个人状态。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-contact"
 license: MIT
 tags: [feishu, lark, lark-cli, contacts, identity]
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-23"
 quality: 3
 complexity: intermediate
 metadata:
@@ -80,31 +80,31 @@ lark-cli contact +search-bot --queries '会议助手,日报助手,审批助手' 
 - 排日程 / 邀请会议 → [`lark-calendar`](../lark-calendar/SKILL.md)
 - 部门树 / 按部门列员工 / 组织架构 → [`lark-openapi-explorer`](../lark-openapi-explorer/SKILL.md) 查找原生接口
 
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
+## 端到端消歧与排查示例 / End-to-End Lookup Examples
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+下面演示从模糊姓名检索到精确 `open_id` 确认、跨租户空值兜底以及交接下游技能（发消息 / 约会）的完整操作流程：
 
-## Common Patterns
+```bash
+# Step 1: 先用关键词检索同名候选（默认以 user 身份读取当前可见通讯录）
+lark-cli contact +search-user --query '张敏' --as user
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
+# Step 2: 若返回多个同名候选项，向用户展示姓名 + 部门 + open_id 并等待确认后再取详情
+# 确认目标 open_id 为 ou_example_target 后再拉取完整联系信息与邮箱：
+lark-cli contact +get-user \
+  --user-id 'ou_example_target' \
+  --user-id-type open_id \
+  --as user
+
+# Step 3: 批量校验多个参与者邮箱并映射到 open_id（用于创建日程或拉群）
+lark-cli contact +get-user \
+  --emails 'alice@example.com,bob@example.com' \
+  --as user
 ```
 
-## Boundaries
+### 常见边界与错误排查 Checklist
 
-- Prefer the upstream workflow for Lark Contact; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+- **41050 / 权限或可见性受限**：优先核对当前 CLI 登录身份是否为 `user`（`bot` 往往受限于应用通讯录授权范围）；若仍无结果，确认目标成员不在当前用户的隔离部门内。
+- **跨租户对象 (`is_cross_tenant: true`)**：`department_ids`、`email`、`mobile` 等内部字段会返回空字符串或省略，仅将 `open_id`、`name` 与 `avatar` 传给下游 [`lark-im`](../lark-im/SKILL.md) 或 [`lark-calendar`](../lark-calendar/SKILL.md)。
+- **写前不可猜测唯一匹配**：当 `+search-user` 返回 >= 2 条记录且下一步将触发发消息、邀请会议或审批抄送时，必须列出候选项请用户选择。
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

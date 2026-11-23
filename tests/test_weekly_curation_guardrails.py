@@ -28,7 +28,7 @@ def test_mcporter_requires_schema_trust_and_write_reconciliation():
 
 def test_obsidian_preserves_scope_and_concurrent_edits():
     content = canonical("knowledge-and-pm-integrations", "obsidian")
-    assert "LOCAL-QUALITY-SUPPLEMENT:START" in content
+    assert "LOCAL-QUALITY-SUPPLEMENT:START" not in content
     assert "LOCAL-CURATION-SUPPLEMENT:START" in content
     assert "after resolving symlinks" in content
     assert "Re-read before writing" in content

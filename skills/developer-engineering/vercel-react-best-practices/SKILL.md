@@ -1,15 +1,15 @@
 ---
 name: vercel-react-best-practices
-description: 'Optimize React and Next.js rendering, data fetching, bundles, and runtime performance using Vercel''s engineering guidance.'
+description: 'Use when optimizing React and Next.js rendering, data fetching, bundle size, and runtime performance using Vercel engineering rules.'
 zh_description: "用于按 Vercel 工程规则优化 React 与 Next.js 的渲染、数据获取、打包体积和运行时性能。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:vercel-labs/agent-skills"
 source_url: "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-best-practices/SKILL.md"
 license: MIT
 tags: ["best", "development", "react", "vercel"]
 created_at: "2026-05-05"
-updated_at: "2026-11-04"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 metadata:

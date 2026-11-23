@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 294 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 295 个技能**。
 
 [快速开始](#quick-start) · [分类导航](#categories) · [技能总览](#skill-overview) · [参与共建](#contributing) · [版本动态](docs/RELEASES.md)
 
@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # 固定到某个发布版本，便于团队复现
-npx github:seaworld008/Commonly-used-high-value-skills#v6.2.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v7.0.0 install --target codex
 
 # 浏览可选技能、分类和安装目标
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
@@ -281,10 +281,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ```
 
 <a id="skill-overview"></a>
-## 技能总览（按分类，16 类 / 294 技能）
+## 技能总览（按分类，16 类 / 295 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，53）
+### 1. 开发工程（developer-engineering，51）
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)：设计智能体的职责、工具、记忆、协作架构和评测方法。
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
@@ -295,12 +295,10 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`codebase-inspection`](./skills/developer-engineering/codebase-inspection/)：用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。
 - [`codebase-onboarding`](./skills/developer-engineering/codebase-onboarding/)：生成代码库架构、环境搭建和常见开发任务的入门指南。
 - [`database-designer`](./skills/developer-engineering/database-designer/)：设计和优化数据库结构、查询及迁移方案。
-- [`database-schema-designer`](./skills/developer-engineering/database-schema-designer/)：设计数据表、约束、索引、迁移和行级权限策略。
 - [`dependency-auditor`](./skills/developer-engineering/dependency-auditor/)：梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - [`docker-expert`](./skills/developer-engineering/docker-expert/)：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。
 - [`frontend-design`](./skills/developer-engineering/frontend-design/)：按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。
 - [`gateway`](./skills/developer-engineering/gateway/)：设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。
-- [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/)：管理并行开发的 Git worktree、环境和端口分配。
 - [`github-contributor`](./skills/developer-engineering/github-contributor/)：寻找开源贡献机会并准备可审查的 GitHub PR。
 - [`golang-benchmark`](./skills/developer-engineering/golang-benchmark/)：使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。
 - [`golang-performance`](./skills/developer-engineering/golang-performance/)：用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。
@@ -341,8 +339,9 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/)：用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。
 
 <a id="cat-ai-workflow"></a>
-### 2. AI 工作流（ai-workflow，47）
+### 2. AI 工作流（ai-workflow，48）
 
+- [`accessibility-engineering`](./skills/ai-workflow/accessibility-engineering/)：对现有界面执行 WCAG 2.2 AA 无障碍审计，结合 axe-core/pa11y 自动检查与键盘、读屏和对比度人工验证并修复违规项。
 - [`agent-workflow-designer`](./skills/ai-workflow/agent-workflow-designer/)：设计多智能体协作流程、任务交接、状态管理和故障恢复。
 - [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/)：用于按 Karpathy 风格约束 AI 编码：先想清楚再动手、保持改动简单、精准修改，并在实现前定义可验证的成功标准。
 - [`api-and-interface-design`](./skills/ai-workflow/api-and-interface-design/)：设计稳定的 API、模块接口和类型契约。
@@ -392,11 +391,12 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`writing-skills`](./skills/ai-workflow/writing-skills/)：编写可复用的技能指导并验证实际触发和执行行为。
 
 <a id="cat-ai-agent-platform"></a>
-### 3. AI 平台与 Agent 开发（ai-agent-platform，13）
+### 3. AI 平台与 Agent 开发（ai-agent-platform，14）
 
 - [`agent-hub`](./skills/ai-agent-platform/agent-hub/)：需要多个智能体并行竞争同一任务时使用：在隔离的 Git worktree 中产出方案、评估结果并合并胜出版本。
 - [`arena`](./skills/ai-agent-platform/arena/)：用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/)：用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
+- [`claude-api`](./skills/ai-agent-platform/claude-api/)：使用 Anthropic Claude API 与官方多语言 SDK 构建、迁移、调试与优化模型应用、工具调用及 Managed Agents。
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/)：用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
 - [`figma`](./skills/ai-agent-platform/figma/)：读取 Figma 设计节点、变量、截图和素材，定位链接目标并排查 MCP 访问问题。
 - [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/)：将具体 Figma 画面适配既有项目，复用组件与样式并按响应式、键盘和视觉标准验收。
@@ -552,15 +552,16 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`theme-factory`](./skills/operations-general/theme-factory/)：用于为幻灯片、文档、报告和网页应用预设主题或生成新的颜色字体系统。
 
 <a id="cat-product-design"></a>
-### 11. 产品与设计（product-design，13）
+### 11. 产品与设计（product-design，14）
 
+- [`ab-test-design`](./skills/product-design/ab-test-design/)：用于设计严谨的 A/B 实验方案，明确假设、单一主指标、护栏指标、随机化单元、使用脚本测算样本量与周期及无闪烁特性开关落地。
 - [`agile-product-owner`](./skills/product-design/agile-product-owner/)：管理产品待办、用户故事、验收条件和迭代计划。
 - [`canvas-design`](./skills/product-design/canvas-design/)：创作海报、静态视觉设计和 PNG、PDF 艺术作品。
-- [`competitive-teardown`](./skills/product-design/competitive-teardown/)：依据产品、定价和用户反馈分析竞争格局与改进机会。
 - [`landing-page-generator`](./skills/product-design/landing-page-generator/)：生成具备清晰文案、行动入口和可访问性的落地页。
 - [`product-manager-toolkit`](./skills/product-design/product-manager-toolkit/)：开展需求优先级排序、用户研究和产品需求文档编写。
 - [`product-strategist`](./skills/product-design/product-strategist/)：制定产品愿景、目标、市场分析和团队发展策略。
 - [`researcher`](./skills/product-design/researcher/)：设计用户访谈、可用性研究并分析定性证据。
+- [`review-animations`](./skills/product-design/review-animations/)：按高精度交互动效标准审查 CSS 过渡、关键帧与 Motion 动画代码（缓动曲线、300ms 时长上限、GPU 属性、可中断性与无障碍降级）。
 - [`saas-scaffolder`](./skills/product-design/saas-scaffolder/)：用于依据已验证产品需求搭建可演进的 SaaS 垂直切片，并覆盖鉴权、租户、计费、监控和验收。
 - [`trace`](./skills/product-design/trace/)：分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。
 - [`ui-design-system`](./skills/product-design/ui-design-system/)：创建和维护设计变量、组件规范及开发交接资料。
@@ -569,7 +570,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`voice`](./skills/product-design/voice/)：设计用户调研或分析评论与反馈时使用：情绪、主题、趋势和可执行洞察。
 
 <a id="cat-security-reliability"></a>
-### 12. 安全治理与稳定性（security-and-reliability，23）
+### 12. 安全治理与稳定性（security-and-reliability，22）
 
 - [`breach`](./skills/security-and-reliability/breach/)：为授权红队和威胁建模工作设计桌面场景、检测覆盖与修复验收。
 - [`cloak`](./skills/security-and-reliability/cloak/)：用于识别个人信息、梳理隐私数据流、评估同意机制或开展隐私影响评估。
@@ -582,7 +583,6 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`link-checker`](./skills/security-and-reliability/link-checker/)：检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。
 - [`osv-scanner`](./skills/security-and-reliability/osv-scanner/)：用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。
 - [`security-audit`](./skills/security-and-reliability/security-audit/)：对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。
-- [`security-auditor`](./skills/security-and-reliability/security-auditor/)：审查应用、接口、基础设施和依赖中的实际安全风险。
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/)：用于按语言或框架检查安全最佳实践，生成安全审查报告和 secure-by-default 建议。
 - [`security-model`](./skills/security-and-reliability/security-model/)：维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)：用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
@@ -611,8 +611,9 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`transcribe`](./skills/multimodal-media/transcribe/)：用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。
 
 <a id="cat-deployment-platforms"></a>
-### 14. 部署平台（deployment-platforms，7）
+### 14. 部署平台（deployment-platforms，8）
 
+- [`cloudflare-agents-sdk`](./skills/deployment-platforms/cloudflare-agents-sdk/)：使用 Cloudflare Agents SDK（`agents`、`AIChatAgent`）在 Workers 与 Durable Objects 上构建、调试及部署有状态 AI Agent、RPC、工作流与 MCP 服务。
 - [`cloudflare-deploy`](./skills/deployment-platforms/cloudflare-deploy/)：用于将应用部署到 Cloudflare 并处理相关发布流程。
 - [`netlify-deploy`](./skills/deployment-platforms/netlify-deploy/)：用于将网站或应用部署到 Netlify 并获取预览或生产链接。
 - [`pipe`](./skills/deployment-platforms/pipe/)：持续集成工作流、触发策略、安全加固和复用设计。

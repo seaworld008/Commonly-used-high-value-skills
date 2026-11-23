@@ -2,14 +2,14 @@
 name: lark-markdown
 description: '操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入在线文档和云盘管理转对应技能。'
 zh_description: "飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。"
-version: "1.1.8"
+version: "1.1.9"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-markdown"
 license: MIT
 tags: [feishu, lark, lark-cli, markdown, docs]
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-23"
 quality: 3
 complexity: intermediate
 metadata:
@@ -78,32 +78,3 @@ Shortcut 是对常用操作的高级封装（`lark-cli markdown +<verb> [flags]`
 
 - [lark-shared](../lark-shared/SKILL.md) — 认证和全局参数
 - [lark-drive](../lark-drive/SKILL.md) — Drive 文件管理、导入 docx、move/delete/search 等
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Markdown; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

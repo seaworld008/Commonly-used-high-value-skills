@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-11-23",
   "decision_rule": "Retire only after replacement coverage is proven and unique executable assets, external contracts, high-risk guardrails, and acceptance criteria have been preserved.",
   "decisions": [
     {
@@ -179,6 +179,54 @@
       "license_lineage": "in-house",
       "local_cleanup_action": "Remove the canonical placeholder skill and generated export; installer --prune-retired handles only an explicitly requested local cleanup.",
       "rationale": "Reviewed pipeline_generator.py, terraform_scaffolder.py and deployment_manager.py: analyze() unconditionally sets success and empty findings. All three references contain only template examples. Real CI, IaC, rollout and rollback guidance is covered by cc-devops-skills, pipe, terraform-engineer and release-manager."
+    },
+    {
+      "name": "database-schema-designer",
+      "decision": "merge",
+      "replacement": "database-designer",
+      "unique_assets": [
+        "Drizzle, Prisma, Alembic partial-index, and PostgreSQL RLS reference patterns"
+      ],
+      "external_contract": null,
+      "license_lineage": "in-house MIT",
+      "local_cleanup_action": "Moved unique ORM and RLS examples into database-designer/references/orm-and-rls-patterns.md and retired the duplicate single-file wrapper.",
+      "rationale": "Avoids two overlapping database schema entry points while keeping all multi-tenancy, RLS, and ORM migration patterns."
+    },
+    {
+      "name": "security-auditor",
+      "decision": "merge",
+      "replacement": "security-review",
+      "unique_assets": [
+        "AI-generated code security checklist and compact threat-model mini-template"
+      ],
+      "external_contract": null,
+      "license_lineage": "in-house MIT",
+      "local_cleanup_action": "Moved unique AI-generated code checks into security-review/references/ai-generated-code-checks.md and retired the duplicate wrapper.",
+      "rationale": "Consolidates code-diff and AI-generated code security review under one canonical evidence-based review workflow."
+    },
+    {
+      "name": "git-worktree-manager",
+      "decision": "merge",
+      "replacement": "using-git-worktrees",
+      "unique_assets": [
+        "Port allocation convention, Docker Compose override, DB isolation, and sparse-checkout templates"
+      ],
+      "external_contract": null,
+      "license_lineage": "in-house MIT merged into MIT obra/superpowers overlay",
+      "local_cleanup_action": "Moved parallel-environment isolation recipes into using-git-worktrees/references/parallel-env-isolation.md and retired the standalone wrapper.",
+      "rationale": "Eliminates duplicate worktree creation skills while preserving multi-worktree service isolation guidance."
+    },
+    {
+      "name": "competitive-teardown",
+      "decision": "merge",
+      "replacement": "compete",
+      "unique_assets": [
+        "Public pricing/sitemap extraction, iOS RSS review scraper, Greenhouse job signal recipe, and UX audit checklist"
+      ],
+      "external_contract": null,
+      "license_lineage": "in-house MIT merged into MIT simota/agent-skills overlay",
+      "local_cleanup_action": "Moved public evidence collection and teardown templates into compete/reference/public-evidence-collection.md and retired the duplicate wrapper.",
+      "rationale": "Unifies competitive intelligence and teardown execution under the richer 44-file Compete skill."
     }
   ]
 }

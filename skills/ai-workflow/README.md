@@ -4,19 +4,20 @@
 
 聚焦 AI 编程 Agent 的规格、计划、实现、测试、审查、发布与持续同步工作流。
 
-当前分类共 **47** 个技能。
+当前分类共 **48** 个技能。
 
 ## 推荐先看
 
 - [skill-creator](./skill-creator/) - 创建和改进技能内容、触发描述及行为评测。
+- [accessibility-engineering](./accessibility-engineering/) - 对现有界面执行 WCAG 2.2 AA 无障碍审计，结合 axe-core/pa11y 自动检查与键盘、读屏和对比度人工验证并修复违规项。
 - [idea-refine](./idea-refine/) - 澄清初步想法，比较方案并检验关键假设。
 - [nlpm-audit](./nlpm-audit/) - 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
-- [api-and-interface-design](./api-and-interface-design/) - 设计稳定的 API、模块接口和类型契约。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `accessibility-engineering` | 对现有界面执行 WCAG 2.2 AA 无障碍审计，结合 axe-core/pa11y 自动检查与键盘、读屏和对比度人工验证并修复违规项。 | [目录](./accessibility-engineering/) | [SKILL.md](./accessibility-engineering/SKILL.md) |
 | `agent-workflow-designer` | 设计多智能体协作流程、任务交接、状态管理和故障恢复。 | [目录](./agent-workflow-designer/) | [SKILL.md](./agent-workflow-designer/SKILL.md) |
 | `andrej-karpathy-skills` | 用于按 Karpathy 风格约束 AI 编码：先想清楚再动手、保持改动简单、精准修改，并在实现前定义可验证的成功标准。 | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
 | `api-and-interface-design` | 设计稳定的 API、模块接口和类型契约。 | [目录](./api-and-interface-design/) | [SKILL.md](./api-and-interface-design/SKILL.md) |

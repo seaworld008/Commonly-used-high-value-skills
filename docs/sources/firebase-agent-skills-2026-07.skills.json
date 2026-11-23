@@ -40,7 +40,7 @@
         "sync_mode": "monitor",
         "path_commit": "bf6538ef0e147831adc04c31291549f7dc399e97"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -64,7 +64,7 @@
             "ref": "main",
             "resolved_commit": "99954a30898bb5ddc8152ee10e124dc3b4106bf7",
             "path_commit": "bf6538ef0e147831adc04c31291549f7dc399e97",
-            "content_sha256": "7f85448a7f488b26020fcd5296e29e386f93e9cf84238d3fdc5a13d0dd47461b",
+            "content_sha256": "8ff290fdee0b6c0854fd41a369c2c5407041785ff5ed069f93171c435d9d38d3",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -82,7 +82,7 @@
         {
           "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
           "owner": "firebase-security-rules-auditor",
-          "sha256": "7f85448a7f488b26020fcd5296e29e386f93e9cf84238d3fdc5a13d0dd47461b",
+          "sha256": "8ff290fdee0b6c0854fd41a369c2c5407041785ff5ed069f93171c435d9d38d3",
           "mode": "100644"
         },
         {
