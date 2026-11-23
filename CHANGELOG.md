@@ -8,7 +8,16 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v6.2.0..HEAD`.
+变更范围 / Revision range: `v7.0.0..HEAD`.
+
+此范围内暂无可归类的变更。 / No categorized changes in this range.
+<!-- AUTO-CHANGELOG:END -->
+
+## [7.0.0] - 2026-11-23
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v6.2.0..v7.0.0`.
 
 #### [2026-11-23]
 
@@ -39,7 +48,6 @@ All notable changes to this repository are documented here.
 - harden upstream discovery, remove bundled session logs, normalize tags
 - retain upstream web-first and pre-execution approval rules
 - record canonical LF digests for the curated guidance
-<!-- AUTO-CHANGELOG:END -->
 
 ## [6.2.0] - 2026-11-18
 
