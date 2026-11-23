@@ -8640,7 +8640,7 @@
             "ref": "main",
             "resolved_commit": "49f948faa9258a0c61caceaf225e179651397431",
             "path_commit": "a5119697b819090e00e5d11ee1d86834d7c1043a",
-            "content_sha256": "2a9fcf4c1e0dfebd7cadb11639d25a118bc2075d24ebbc6e18d77d841574b8c4",
+            "content_sha256": "d039266090d5a64e9e9c9a92d2376d11635e8ab21d877ca07b24623a85016d10",
             "last_checked_at": "2026-11-17",
             "last_synced_at": null,
             "license_checkpoint": {
@@ -8674,7 +8674,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/playwright/SKILL.md",
-          "sha256": "2a9fcf4c1e0dfebd7cadb11639d25a118bc2075d24ebbc6e18d77d841574b8c4",
+          "sha256": "d039266090d5a64e9e9c9a92d2376d11635e8ab21d877ca07b24623a85016d10",
           "owner": "playwright",
           "mode": "100644"
         },

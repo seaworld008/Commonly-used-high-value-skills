@@ -4088,7 +4088,7 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "67047c054f620c627bcff21374907a9404941cf5f5714fa7c77dbb09060c1d4e",
+          "hermes-agent": "4c61fd7776fb6dfd24920c2b24320035276244a53410050ec271224ae2d8432a",
           "graphify": "35c5274697a435a31c3565fd6915235ec8b926a026d448279ec44a2bf059ee7d",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"

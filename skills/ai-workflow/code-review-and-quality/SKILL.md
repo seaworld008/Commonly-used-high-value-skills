@@ -2,14 +2,14 @@
 name: code-review-and-quality
 description: 'Review a diff, pull request, or pasted code for correctness, regressions, security, maintainability, and missing tests.'
 zh_description: "审查代码正确性、可维护性、安全性和验证证据。"
-version: "1.0.7"
+version: "1.0.8"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "code-review-and-quality", "engineering", "workflow"]
 created_at: "2026-07-27"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality
@@ -217,6 +217,8 @@ Check the author's verification story:
 - Are there screenshots for UI changes?
 - Is there a before/after comparison?
 ```
+
+Before running tests or probes yourself, confirm the checkout is clean and on the reviewed ref (`git status --short` is empty and `git rev-parse HEAD` matches the PR head), and name that ref in the review. A dirty working copy can hold uncommitted edits from another session, so evidence from it may describe code outside the change.
 
 ## Multi-Model Review Pattern
 

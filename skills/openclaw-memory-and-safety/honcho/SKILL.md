@@ -2,14 +2,14 @@
 name: honcho
 description: 'Use when setting up, tuning, or troubleshooting Honcho cross-session memory for Hermes Agent, including per-profile peers, recall settings, and context budgets.'
 zh_description: "为 Hermes Agent 配置、调优或排查 Honcho 跨会话记忆时使用。"
-version: "1.0.4"
+version: "1.0.5"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
-source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/7e53b3ef82c9074649230b572dfcc76d4b629058/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
 license: MIT
 tags: [Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]
 created_at: "2026-04-13"
-updated_at: "2026-11-04"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'

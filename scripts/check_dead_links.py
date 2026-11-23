@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -74,6 +75,8 @@ IGNORE_URL_SNIPPETS = (
     "evil.com/",
     "github.com/user/",
     "api.semanticscholar.org/recommendations/v1/papers",
+    "api.semanticscholar.org/graph/v1/",
+    "figma.com/design/EXAMPLEKEY",
     "open.feishu.cn/llms-docs/zh-CN/llms-",
     "www.larkoffice.com/sml/",
     "example.larkoffice.com",
@@ -145,6 +148,8 @@ def should_ignore_url(url: str) -> bool:
         return True
     if any(pattern in parsed.path for pattern in PLACEHOLDER_PATH_PATTERNS):
         return True
+    if host == "arxiv.org" and parsed.path in {"/abs/", "/pdf/"}:
+        return True
     return False
 
 
@@ -171,7 +176,7 @@ def curl_probe(url: str, method: str, timeout: int) -> tuple[int | None, str]:
         "--show-error",
         "--location",
         "--output",
-        "/dev/null",
+        os.devnull,
         "--write-out",
         "%{http_code}",
         "--user-agent",
