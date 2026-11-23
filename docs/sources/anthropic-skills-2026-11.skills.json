@@ -7159,7 +7159,7 @@
         },
         {
           "path": "skills/ai-agent-platform/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
-          "sha256": "f23abb75bc079d835f57da7598ac5a1bee4318214ab803185feb94d8db8c4b88",
+          "sha256": "6772a5e069f7fafb2250958b695f260ddb325756ee8f01583941d67c7991a634",
           "owner": "claude-api",
           "mode": "100644"
         },

@@ -119,7 +119,7 @@ except Exception:  # pragma: no cover
     prefix_diff = None
 
 BINDING_BETA = "thinking-binding-controls-2026-08-01"
-OAUTH_BETA = "oauth-2025-04-20"   # required with a bearer token (OAuth or workload identity); the API 401s without it
+BEARER_REQUIRED_BETA = "oauth-2025-04-20"   # required on wire with a bearer token; kept out of diagnostic stdout/JSON
 # Fields of a create request that the token-counting endpoint does not accept (it rejects unknown fields).
 COUNT_TOKENS_EXCLUDED = ("max_tokens", "stream", "temperature", "top_p", "top_k", "stop_sequences", "metadata",
                          "service_tier")   # create-only fields the count endpoint rejects; everything else goes as captured
@@ -426,10 +426,15 @@ def post(base_url, path, body, betas, api_key, timeout):
     data = json.dumps(body).encode("utf-8")
     req = urllib.request.Request(base_url.rstrip("/") + path, data=data, method="POST")
     req.add_header("content-type", "application/json")
-    for name, value in (api_key if isinstance(api_key, dict) else {"x-api-key": api_key}).items():
+    cred_headers = api_key if isinstance(api_key, dict) else {"x-api-key": api_key}
+    for name, value in cred_headers.items():
         req.add_header(name, value)
+    wire_betas = list(betas)
+    if "authorization" in cred_headers and BEARER_REQUIRED_BETA not in wire_betas:
+        # Attach only on HTTP wire dispatch so diagnostic logs never depend on auth mode.
+        wire_betas.append(BEARER_REQUIRED_BETA)
     req.add_header("anthropic-version", "2023-06-01")
-    req.add_header("anthropic-beta", ",".join(betas))
+    req.add_header("anthropic-beta", ",".join(wire_betas))
     t0 = time.time()
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -961,10 +966,6 @@ def main(argv=None):
 
     betas = [BINDING_BETA] + [b for b in args.beta if b != BINDING_BETA]
     creds = read_credentials()
-    if creds and "authorization" in creds and OAUTH_BETA not in betas:
-        # a bearer token (OAuth or workload identity) authenticates only with this beta value; without it the API
-        # 401s every request, so the token path the guide advertises would never run
-        betas.append(OAUTH_BETA)
     if args.count_tokens and args.mode != "error":
         # on the count endpoint a drop-mode 200 carries no input_transformations, so every turn would read "ok"
         # and the run would be a false clean; the loud arm is the only one the endpoint can report
