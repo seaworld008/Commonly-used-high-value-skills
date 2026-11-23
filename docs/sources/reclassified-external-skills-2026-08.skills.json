@@ -2147,7 +2147,7 @@
             "ref": "main",
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
-            "content_sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
+            "content_sha256": "d8ddd6405e3848cf07920e6aaded39cad8cb4015637f7b3cb2e221f0a2bc59f0",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -2193,7 +2193,7 @@
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
           "owner": "supabase",
-          "sha256": "3a5a0a0aca782b0bd4c5411ae17853acd62bc8e9a3b18146126672ab75b88ee4",
+          "sha256": "d8ddd6405e3848cf07920e6aaded39cad8cb4015637f7b3cb2e221f0a2bc59f0",
           "mode": "100644"
         },
         {
@@ -3257,7 +3257,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "805687f34e8c10b420e3d11335a0ca2c3c90d992",
-            "content_sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
+            "content_sha256": "69f435dcf1d3c76b9cf84d6bd79d362284fa81551687cad33d3bc0701af7fdd1",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3312,7 +3312,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
-          "sha256": "86bd603f438a49519fc39473064b6ee6316cb1780664096b0620887f88bd959b",
+          "sha256": "69f435dcf1d3c76b9cf84d6bd79d362284fa81551687cad33d3bc0701af7fdd1",
           "owner": "vercel-react-best-practices",
           "mode": "100644"
         },

@@ -361,7 +361,7 @@
             "ref": "main",
             "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
-            "content_sha256": "14db85b347c5c5ba048aaaf3879e88a87b844cc5aaadb0ee7b5fb1d67de6e359",
+            "content_sha256": "4af82668e6ca2307a7dc139f40a4e1441c6808295251bfeff7a56fc867303c68",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -401,7 +401,7 @@
         {
           "path": "skills/ai-workflow/requesting-code-review/SKILL.md",
           "owner": "requesting-code-review",
-          "sha256": "14db85b347c5c5ba048aaaf3879e88a87b844cc5aaadb0ee7b5fb1d67de6e359",
+          "sha256": "4af82668e6ca2307a7dc139f40a4e1441c6808295251bfeff7a56fc867303c68",
           "mode": "100644"
         },
         {
@@ -714,7 +714,7 @@
         "sync_mode": "monitor",
         "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -738,7 +738,7 @@
             "ref": "main",
             "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f",
-            "content_sha256": "a037a643b47b8dcb81eaf849f0cb9e8bd77821262ab9aada2fadc17b215a1162",
+            "content_sha256": "e54d6f902f2627516cdf2efafc911892c137eaf72b41b06993ee5b1cd8ba43df",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -750,19 +750,47 @@
               "api_spdx": "MIT"
             }
           }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-workflow/using-git-worktrees",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/using-git-worktrees/references/parallel-env-isolation.md",
+              "target": "skills/ai-workflow/using-git-worktrees/references/parallel-env-isolation.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-11-23",
+            "last_synced_at": "2026-11-23"
+          }
         }
       ],
       "managed_files": [
         {
           "path": "skills/ai-workflow/using-git-worktrees/SKILL.md",
           "owner": "using-git-worktrees",
-          "sha256": "a037a643b47b8dcb81eaf849f0cb9e8bd77821262ab9aada2fadc17b215a1162",
+          "sha256": "e54d6f902f2627516cdf2efafc911892c137eaf72b41b06993ee5b1cd8ba43df",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-git-worktrees/LICENSE.upstream.txt",
           "owner": "using-git-worktrees",
           "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-git-worktrees/references/parallel-env-isolation.md",
+          "owner": "using-git-worktrees",
+          "sha256": "ef6ad4e380862efa5f7ba11b5f1a1e9e2758e8e1bc1c6d98205917adbc85142d",
           "mode": "100644"
         }
       ]
@@ -814,7 +842,7 @@
             "ref": "main",
             "resolved_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
             "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
-            "content_sha256": "48399e87742ea6794fdc8b05c23f14a02a3ff4bab01429f17801f7a3bd517328",
+            "content_sha256": "f7944363145939b8cc11df770b7b62ffdad08aabd0131fb79d57a7d746ab71e0",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -832,7 +860,7 @@
         {
           "path": "skills/ai-workflow/using-superpowers/SKILL.md",
           "owner": "using-superpowers",
-          "sha256": "48399e87742ea6794fdc8b05c23f14a02a3ff4bab01429f17801f7a3bd517328",
+          "sha256": "f7944363145939b8cc11df770b7b62ffdad08aabd0131fb79d57a7d746ab71e0",
           "mode": "100644"
         },
         {

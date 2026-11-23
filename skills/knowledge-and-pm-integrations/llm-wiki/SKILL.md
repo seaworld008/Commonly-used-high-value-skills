@@ -2,14 +2,14 @@
 name: llm-wiki
 description: 'Use when building, querying, ingesting sources into, or auditing an interlinked Markdown knowledge base with immutable raw sources and traceable synthesis.'
 zh_description: "用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。"
-version: "2.0.7"
+version: "2.0.8"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/llm-wiki/SKILL.md"
 license: MIT
 tags: [wiki, knowledge-base, research, notes, markdown, rag-alternative]
 created_at: "2026-04-13"
-updated_at: "2026-11-18"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
@@ -414,29 +414,3 @@ so users who want a scheduled/CLI-driven compile pipeline can point it at the sa
 skill maintains. Trade-offs: it owns page generation (replaces the agent's judgment on page
 creation) and is tuned for small corpora. Use this skill when you want agent-in-the-loop curation;
 use llmwiki when you want batch compile of a source directory.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Llm Wiki; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

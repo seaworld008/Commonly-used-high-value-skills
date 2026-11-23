@@ -2,14 +2,14 @@
 name: supabase
 description: 'Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.'
 zh_description: "开发和排查 Supabase 数据库、认证、存储及应用集成。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md"
 license: MIT
 tags: ["development", "supabase"]
 created_at: "2026-06-03"
-updated_at: "2026-10-03"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -164,34 +164,6 @@ When diagnosing Supabase REST API, Postgres, PostgREST, RLS, Auth, Realtime, Edg
 
 - **Skill Feedback** → [references/skill-feedback.md](references/skill-feedback.md)
   **MUST read when** the user reports that this skill gave incorrect guidance or is missing information.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Supabase; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
 ## Scoped Automation Credentials
 

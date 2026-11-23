@@ -371,7 +371,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ca45fc496a3436251f191354091d557da31c15b5",
-            "content_sha256": "6bb8671d4d591e0ac5375fedc660a661cd240efa6da8e6d36deb00d5cdde2e8e",
+            "content_sha256": "e73571492f2b544e0e0161093a3e11d5ce815cc75e0dc1d23fa68771f0b2ed92",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -429,7 +429,7 @@
         },
         {
           "path": "skills/developer-engineering/mcp-builder/SKILL.md",
-          "sha256": "6bb8671d4d591e0ac5375fedc660a661cd240efa6da8e6d36deb00d5cdde2e8e",
+          "sha256": "e73571492f2b544e0e0161093a3e11d5ce815cc75e0dc1d23fa68771f0b2ed92",
           "owner": "mcp-builder",
           "mode": "100644"
         },
@@ -1264,7 +1264,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
-            "content_sha256": "4fedf60907ede15a023ca9e692a93f35a10dd6b60b3b1732b40130bd89e8da91",
+            "content_sha256": "e8667303340082d0b95d8a6147c247545248608ad23d02aecf972c200eba5833",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1286,6 +1286,11 @@
             {
               "source": "LICENSE",
               "target": "skills/operations-general/theme-factory/LICENSE.local.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
+              "target": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
               "type": "file"
             }
           ],
@@ -1322,7 +1327,7 @@
         },
         {
           "path": "skills/operations-general/theme-factory/SKILL.md",
-          "sha256": "4fedf60907ede15a023ca9e692a93f35a10dd6b60b3b1732b40130bd89e8da91",
+          "sha256": "e8667303340082d0b95d8a6147c247545248608ad23d02aecf972c200eba5833",
           "owner": "theme-factory",
           "mode": "100644"
         },
@@ -1390,6 +1395,12 @@
           "path": "skills/operations-general/theme-factory/themes/tech-innovation.md",
           "sha256": "183648163026dd5eeba3df5effa335b55ba333c3ee1fe215278605e55f40a52a",
           "owner": "theme-factory",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/theme-factory/references/theme-selection-matrix.md",
+          "owner": "theme-factory",
+          "sha256": "b975dff1fc84b852a15d213010f31fa94e6c2b6e3d429a212fdecad1a480d728",
           "mode": "100644"
         }
       ]
@@ -1597,7 +1608,7 @@
             "ref": "main",
             "resolved_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
             "path_commit": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
-            "content_sha256": "e03e32469dfa26824c57fbf4d64f9b3a8f9a8b7a325a8b6404e7670457e479f5",
+            "content_sha256": "090b47930d08f4707eaee6e41b4b5a608ad143ceb518c2840c755a578d5249fc",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -1655,7 +1666,7 @@
         },
         {
           "path": "skills/operations-general/brand-guidelines/SKILL.md",
-          "sha256": "e03e32469dfa26824c57fbf4d64f9b3a8f9a8b7a325a8b6404e7670457e479f5",
+          "sha256": "090b47930d08f4707eaee6e41b4b5a608ad143ceb518c2840c755a578d5249fc",
           "owner": "brand-guidelines",
           "mode": "100644"
         }

@@ -2,14 +2,14 @@
 name: lark-skill-maker
 description: 'Use when creating reusable skills around verified Lark CLI or OpenAPI operations, including scoped permissions and multi-step workflow contracts.'
 zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker"
 license: MIT
 tags: [feishu, lark, lark-cli, skills, agent-workflow]
 created_at: "2026-05-19"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: intermediate
 metadata:
@@ -103,31 +103,37 @@ lark-cli api POST /open-apis/xxx --data '{...}'
 - **安全** — 写入操作前确认用户意图，建议 `--dry-run` 预览
 - **编排** — 说明数据传递、失败回滚、可并行步骤
 
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
+## 端到端构建示例 / End-to-End Skill Authoring Example
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+以下示例展示如何把「查询会议室空闲时段并创建日程」从 OpenAPI 调研一步步封装为可审计、带 `--dry-run` 门控的新飞书技能：
 
-## Common Patterns
+```bash
+# 1. 查看 calendar 与 vc 服务已封装命令，优先复用 Shortcut
+lark-cli calendar --help
+lark-cli vc --help
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
+# 2. 对裸调接口先查询字段与必填参数 Schema
+lark-cli schema vc.v1.room.search
+lark-cli schema calendar.v4.calendar_event.create
+
+# 3. 串联只读检索 -> 用户确认 -> 带 --dry-run 预览的写入操作
+# Step A (Read-Only): 按楼层搜索会议室并记录 room_id / open_chat_id
+lark-cli api POST /open-apis/vc/v1/rooms/search \
+  --data '{"keyword":"5F-A"}' --as user
+
+# Step B (Preview / Confirmation): 创建日程前先校验时间区间与参与人 open_id，支持 --dry-run 预演
+lark-cli calendar +event-create \
+  --summary 'Architecture Review' \
+  --start '2026-11-24T10:00:00+08:00' \
+  --end '2026-11-24T11:00:00+08:00' \
+  --attendees 'ou_example_target' \
+  --dry-run --as user
 ```
 
-## Boundaries
+### 交付前本地检查清单
 
-- Prefer the upstream workflow for Lark Skill Maker; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+- 新技能写入仓库后，确认 frontmatter 含完整 `name`、`description`、`zh_description`、`version`、`tags`、`quality`、`source`。
+- 在目标技能内明确标注所需的最小飞书 scope（例如 `calendar:calendar`、`vc:room:readonly`）以及失败码（如 `41050`、限流重试）的降级策略。
+- 涉及外部数据源时，同步在 `docs/sources/` 登记来源与许可证，并运行 `python scripts/lint_skill_quality.py --strict` 与 `python scripts/check_skill_references.py` 验证引用可达性。
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

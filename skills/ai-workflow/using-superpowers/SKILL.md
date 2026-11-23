@@ -1,15 +1,15 @@
 ---
 name: using-superpowers
-description: Select relevant Superpowers workflow skills when the user requests that workflow or a concrete development task benefits from its process guidance.
+description: 'Use when selecting relevant Superpowers workflow skills for a user-requested workflow or concrete development task that needs structured process guidance.'
 zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/using-superpowers/SKILL.md"
 license: MIT
 tags: ["skills", "workflow", "process"]
 created_at: "2026-04-13"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 4
 complexity: "intermediate"
 ---

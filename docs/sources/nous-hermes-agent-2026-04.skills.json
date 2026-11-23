@@ -59,7 +59,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "183b5ddd5fbc0e05a8545a862f0f015d369e15e0",
-            "content_sha256": "efd212a88d3c28f951768500ceb3abc105fe59ff3c8ff5b231e20ff9e05607d3",
+            "content_sha256": "0808bbc750856fd87c53a76c9317303daae09e347bdb6675f15e8443ef62f084",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -105,7 +105,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md",
           "owner": "llm-wiki",
-          "sha256": "efd212a88d3c28f951768500ceb3abc105fe59ff3c8ff5b231e20ff9e05607d3",
+          "sha256": "0808bbc750856fd87c53a76c9317303daae09e347bdb6675f15e8443ef62f084",
           "mode": "100644"
         },
         {
@@ -664,7 +664,7 @@
             "ref": "main",
             "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a",
-            "content_sha256": "156c759402d9840c5095c7366cd4b0f8c904cce8c5994fc9cbe8043f305ca5ea",
+            "content_sha256": "19be3b4d3821b1fa500253a3547370d16226ed7f9df26f34026426c90e429dfc",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -682,7 +682,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md",
           "owner": "obsidian",
-          "sha256": "156c759402d9840c5095c7366cd4b0f8c904cce8c5994fc9cbe8043f305ca5ea",
+          "sha256": "19be3b4d3821b1fa500253a3547370d16226ed7f9df26f34026426c90e429dfc",
           "mode": "100644"
         },
         {

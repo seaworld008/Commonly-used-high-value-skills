@@ -2,13 +2,13 @@
 name: database-designer
 description: 'Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.'
 zh_description: "设计和优化数据库结构、查询及迁移方案。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["database", "designer", "development"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: "intermediate"
 ---
@@ -479,6 +479,10 @@ def get_user(user_id):
 3. **Audit access patterns**: Monitor and log database access
 4. **Validate inputs**: Prevent SQL injection attacks
 5. **Regular security updates**: Keep database software current
+
+## ORM, Multi-Tenancy & RLS Reference
+
+For Drizzle, Prisma, Alembic partial-index migrations, multi-tenant PostgreSQL RLS policies, and ERD generation patterns, read [ORM and RLS Patterns](references/orm-and-rls-patterns.md).
 
 ## Conclusion
 

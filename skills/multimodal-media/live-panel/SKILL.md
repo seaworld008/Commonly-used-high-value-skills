@@ -1,15 +1,15 @@
 ---
 name: live-panel
-description: Render animated system architecture panels into self-contained HTML and MP4.
+description: 'Use when rendering animated system architecture diagrams or interactive status panels into self-contained HTML and MP4 media outputs.'
 zh_description: "将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。"
-version: "1.0.3"
+version: "1.0.4"
 author: "ythx-101/live-panel-skill"
 source: "github:ythx-101/live-panel-skill"
 source_url: "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/"
 license: "MIT"
 tags: ["architecture", "animation", "video"]
 created_at: "2026-10-12"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 3
 complexity: "advanced"
 ---

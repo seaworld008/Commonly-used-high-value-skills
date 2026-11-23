@@ -159,7 +159,7 @@
             "ref": "main",
             "resolved_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
             "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
-            "content_sha256": "453256c1c5d12aed88e21df2e2ee69cf5bbfb7685c3cf35e66f50411ae155073",
+            "content_sha256": "1707668bfffb93448b4b1dd6ab6f2e1547408e3657e978c7714d8a468ce9c601",
             "last_checked_at": "2026-11-17",
             "last_synced_at": "2026-11-17",
             "license_checkpoint": {
@@ -243,7 +243,7 @@
         {
           "path": "skills/security-and-reliability/security-audit/SKILL.md",
           "owner": "security-audit",
-          "sha256": "453256c1c5d12aed88e21df2e2ee69cf5bbfb7685c3cf35e66f50411ae155073",
+          "sha256": "1707668bfffb93448b4b1dd6ab6f2e1547408e3657e978c7714d8a468ce9c601",
           "mode": "100644"
         },
         {

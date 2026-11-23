@@ -2,14 +2,14 @@
 name: compete
 description: 'Use when researching competitors: profiles, feature and pricing matrices, positioning maps, battle cards, win-loss analysis, and competitive signal tracking.'
 zh_description: "研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md"
 license: MIT
 tags: ["compete", "growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-11-17"
+updated_at: "2026-11-23"
 quality: 5
 complexity: "advanced"
 ---
@@ -288,7 +288,7 @@ Handoff tokens follow `<Source>_TO_<Target>` for every direction above (e.g. `VO
 - **vs Growth**: Growth implements product/site acquisition and SEO; Compete defines professional-brand positioning and personal-channel strategy.
 
 For research across `5+` competitors, use the RESEARCH_FAN_OUT pattern only when delegation is available and authorized; otherwise complete the work in the current session. Domain framework ->
-`reference/competitive-analysis-framework.md`.
+`reference/competitive-analysis-framework.md`. For public pricing, changelog, app-store RSS review, hiring-signal extraction, and UX teardown checklists, read `reference/public-evidence-collection.md`.
 
 ## Reference Map
 

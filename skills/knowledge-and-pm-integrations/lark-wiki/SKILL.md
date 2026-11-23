@@ -2,14 +2,14 @@
 name: lark-wiki
 description: '管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive，正文编辑转 lark-doc。'
 zh_description: "飞书知识库：管理知识空间、空间成员和文档节点。"
-version: "1.0.11"
+version: "1.0.12"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-wiki"
 license: MIT
 tags: [feishu, lark, lark-cli, wiki, knowledge-base]
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-23"
 quality: 4
 complexity: intermediate
 metadata:
@@ -126,32 +126,3 @@ lark-cli wiki <resource> <method> [flags]  # 调用 API
 - 编辑文档正文内容 → [`lark-doc`](../lark-doc/SKILL.md)
 - 表格 / 多维表格数据操作 → [`lark-sheets`](../lark-sheets/SKILL.md) / [`lark-base`](../lark-base/SKILL.md)
 - 按名称搜索文档 / Wiki / 表格文件、评论与权限管理 → [`lark-drive`](../lark-drive/SKILL.md)
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Lark Wiki; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

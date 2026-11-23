@@ -2,14 +2,14 @@
 name: earnings-call-analyzer
 description: 'Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.'
 zh_description: "用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["analyzer", "call", "earnings", "finance"]
 created_at: "2026-03-18"
-updated_at: "2026-11-17"
-quality: 2
+updated_at: "2026-11-23"
+quality: 4
 complexity: "intermediate"
 ---
 

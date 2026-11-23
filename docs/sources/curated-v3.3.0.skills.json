@@ -437,7 +437,7 @@
             "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "path_commit": "b0ebc162d92515b49544e99e059e586156cd74d5",
-            "content_sha256": "179846a41307b9b40dfc410f05aea6eeb225784de277b42064a27a966d36bb57",
+            "content_sha256": "52da5e04380d7e9c2b972724e4e039df90f7aefc9feb36b4f47cf32c972548e7",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "17eca290eefa4fa9d5594edcad845be8df899eb0",
@@ -455,7 +455,7 @@
         {
           "path": "skills/office-white-collar/answer-me-with-html/SKILL.md",
           "owner": "answer-me-with-html",
-          "sha256": "179846a41307b9b40dfc410f05aea6eeb225784de277b42064a27a966d36bb57",
+          "sha256": "52da5e04380d7e9c2b972724e4e039df90f7aefc9feb36b4f47cf32c972548e7",
           "mode": "100644"
         },
         {
@@ -1355,7 +1355,7 @@
             "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df",
-            "content_sha256": "4b03e1c2ed4caa9cdf59c4cece805f8ef9c167faa151b75abeefe534470d5b7d",
+            "content_sha256": "903df51495b8be5da64e17cfe00108dd3aba208cb8273dd8be8bd0dd18ae3305",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
@@ -1373,7 +1373,7 @@
         {
           "path": "skills/devops-sre/golang-observability/SKILL.md",
           "owner": "golang-observability",
-          "sha256": "4b03e1c2ed4caa9cdf59c4cece805f8ef9c167faa151b75abeefe534470d5b7d",
+          "sha256": "903df51495b8be5da64e17cfe00108dd3aba208cb8273dd8be8bd0dd18ae3305",
           "mode": "100644"
         },
         {
@@ -1504,7 +1504,7 @@
             "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df",
-            "content_sha256": "d51366468d8f417e5dfde6be7bcb5f9631b833c30d3e54b80e04132252fd9dcc",
+            "content_sha256": "337a586cc80c56397343714f829b9749459ce8b861987975395da79e6ee0eaa5",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
@@ -1522,7 +1522,7 @@
         {
           "path": "skills/developer-engineering/golang-performance/SKILL.md",
           "owner": "golang-performance",
-          "sha256": "d51366468d8f417e5dfde6be7bcb5f9631b833c30d3e54b80e04132252fd9dcc",
+          "sha256": "337a586cc80c56397343714f829b9749459ce8b861987975395da79e6ee0eaa5",
           "mode": "100644"
         },
         {
@@ -1638,7 +1638,7 @@
             "ref": "49dd158d1076134a641b33efb035946536778336",
             "resolved_commit": "49dd158d1076134a641b33efb035946536778336",
             "path_commit": "d80fa0f4ebe0c5714af0adf8670336065233ecc6",
-            "content_sha256": "3895425ec7117c326579499e8869bc25edfd0515b7024ee2b71b405b248039ce",
+            "content_sha256": "3d1f8738ea7922f2b35e018149246ae95655ebc3dfab9629f03ecdfbe1eb3ff3",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
@@ -1656,7 +1656,7 @@
         {
           "path": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
           "owner": "improve-codebase-architecture",
-          "sha256": "3895425ec7117c326579499e8869bc25edfd0515b7024ee2b71b405b248039ce",
+          "sha256": "3d1f8738ea7922f2b35e018149246ae95655ebc3dfab9629f03ecdfbe1eb3ff3",
           "mode": "100644"
         },
         {
@@ -1764,7 +1764,7 @@
             "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-            "content_sha256": "a5b7baddf97cff0f2fd9ed32fe2240dbf10ccc9b522681cdd2105018e4588cf0",
+            "content_sha256": "83526caa789912448ebacfb654a777f41a9db60bb2bc51e1ac6e0f3c909f890d",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
@@ -1815,7 +1815,7 @@
         {
           "path": "skills/multimodal-media/live-panel/SKILL.md",
           "owner": "live-panel",
-          "sha256": "a5b7baddf97cff0f2fd9ed32fe2240dbf10ccc9b522681cdd2105018e4588cf0",
+          "sha256": "83526caa789912448ebacfb654a777f41a9db60bb2bc51e1ac6e0f3c909f890d",
           "mode": "100644"
         },
         {

@@ -2,14 +2,14 @@
 name: sec-filing-reviewer
 description: 'Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.'
 zh_description: "阅读和比较 SEC 申报文件中的财务信息与风险变化。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["filing", "finance", "reviewer", "sec"]
 created_at: "2026-03-18"
-updated_at: "2026-11-17"
-quality: 2
+updated_at: "2026-11-23"
+quality: 4
 complexity: "intermediate"
 ---
 

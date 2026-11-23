@@ -75,7 +75,7 @@
             "ref": "main",
             "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
             "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396",
-            "content_sha256": "1f250b08ab8a4615e0f6c0640467f1bc3fbc5038119aca6523753a8d8851bcc4",
+            "content_sha256": "50a3dd1a244f3abe246a2c6930e5d1edd48c6afc787bb74d49ec18c8ef397480",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "19db5f1b0ca65e277c158bd4c4263139ccfd859c",
@@ -99,7 +99,7 @@
         {
           "path": "skills/operations-general/i-have-adhd/SKILL.md",
           "owner": "i-have-adhd",
-          "sha256": "1f250b08ab8a4615e0f6c0640467f1bc3fbc5038119aca6523753a8d8851bcc4",
+          "sha256": "50a3dd1a244f3abe246a2c6930e5d1edd48c6afc787bb74d49ec18c8ef397480",
           "mode": "100644"
         },
         {

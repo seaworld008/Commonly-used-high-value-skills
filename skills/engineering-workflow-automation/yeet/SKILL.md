@@ -1,16 +1,16 @@
 ---
 name: yeet
-description: 'Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).'
+description: 'Use only when explicitly asked to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (gh).'
 zh_description: "按用户要求暂存、提交、推送改动并创建 GitHub PR。"
-version: "1.0.3"
+version: "1.0.4"
 author: "OpenAI contributors; local curators"
 source: "https://github.com/openai/skills"
 source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/yeet/SKILL.md"
 license: "Apache-2.0"
 tags: ["automation", "workflow", "yeet"]
 created_at: "2026-03-04"
-updated_at: "2026-11-17"
-quality: 2
+updated_at: "2026-11-23"
+quality: 3
 complexity: "intermediate"
 ---
 
