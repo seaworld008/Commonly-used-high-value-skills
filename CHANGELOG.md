@@ -20,6 +20,7 @@ All notable changes to this repository are documented here.
 - `review-animations` (product-design) — review-animations
 
 ##### Changed
+- refresh repository views and add 2026-11-23 maintenance report
 - curate 5 high-value skills (claude-api, accessibility-engineering, review-animations, cloudflare-agents-sdk, ab-test-design)
 - merge and retire 4 overlapping skills, clear review queue, and tighten skill quality
 - update browser foundations (playwright-mcp v0.0.86), sync hermes-agent v0.23.3, curate 6 upstream diffs, and fix dead links

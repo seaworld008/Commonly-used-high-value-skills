@@ -1,0 +1,33 @@
+{
+  "tag": "v7.0.0",
+  "package_version": "7.0.0",
+  "title": "v7.0.0 · 组合演进、精选新技能与全仓质量升级",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v6.2.0..v7.0.0",
+  "canonical_skills": 295,
+  "highlights": [
+    "合并退役 4 项重叠入口（database-schema-designer→database-designer、security-auditor→security-review、git-worktree-manager→using-git-worktrees、competitive-teardown→compete），并将独有领域知识沉淀为引用资料",
+    "精选策展并入库 5 项高价值技能：claude-api、accessibility-engineering、cloudflare-agents-sdk、review-animations、ab-test-design（含 v6.2.0 之后入库的 modern-web-guidance，共 295 个规范技能 / 16 个分类）",
+    "移除 23 个技能的通用 LOCAL-QUALITY-SUPPLEMENT 模板并补强领域速查与示例，组合审计均分从 94.2 提升至 95.0（295/295 keep，review 队列 0）",
+    "扩展 lint_skill_quality.py 支持中文常见章节标题及单数 Example / Common Patterns，并补齐单元测试",
+    "升级浏览器基础能力跟踪（playwright-mcp v0.0.86，7/7 current）、同步 hermes-agent v0.23.3、审阅 6 项路径迁移来源及 addyosmani 检查点，全仓外链死链 0/500"
+  ],
+  "release_gates": [
+    "完整仓库流水线 validate_repository.py --refresh（3827 pytest + 397 subtests 通过）与提交后生成器幂等性检查通过",
+    "65 项 Node 安全单测、npm test 安装器与打包预演通过",
+    "精确 PR head 的远端 Repository Validation、skills-provenance-ci 与 CodeQL 检查全部通过后合并",
+    "精确 main 提交的 CI 与 Code Scanning 零开放告警门禁后由 Verified Release 自动构建并校验 SHA256 与文件数量后发布"
+  ],
+  "validation_boundaries": {
+    "runtime": "静态门禁、脚本冒烟（audit-a11y.sh、sample_size.py）、Node 安全单测与自动化 pytest 套件均已通过，但不能等同于在线 LLM 模型评测或全部生产环境实测。",
+    "sources": "21 个 openai/skills 条目因上游 Apache-2.0 LICENSE.txt 附加微软版权声明及上游转向 openai/plugins 而在自动 SPDX 校验返回 unavailable，保留仓库内既审版本；无许可限制时可通过原创重写持续演进。"
+  },
+  "compatibility_notes": [
+    "破坏性变更：移除 4 个重叠公共技能入口；升级时可通过 --prune-retired 清理未修改的旧副本并改用对应主技能（database-designer、security-review、using-git-worktrees、compete）。",
+    "claude-api 触发词严格限定于 Claude/Anthropic SDK 与 Managed Agents 场景，并将其 14 节速查表拆分至 references/api-quick-reference.md（主入口保持 419 行 <= 500 行）。",
+    "accessibility-engineering 附带可执行 scripts/audit-a11y.sh（0755）；ab-test-design 附带可执行 scripts/sample_size.py。"
+  ],
+  "audit": "docs/maintenance-audit-2026-11-23.md",
+  "publication_status": "ready"
+}
