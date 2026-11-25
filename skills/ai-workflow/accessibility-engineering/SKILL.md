@@ -2,14 +2,14 @@
 name: accessibility-engineering
 description: 'Use when auditing existing UI for WCAG 2.2 AA conformance, running axe-core or pa11y, triaging accessibility findings, or verifying keyboard, focus, contrast, and screen-reader behavior before shipping.'
 zh_description: "对现有界面执行 WCAG 2.2 AA 无障碍审计，结合 axe-core/pa11y 自动检查与键盘、读屏和对比度人工验证并修复违规项。"
-version: "1.0.0"
+version: "1.0.1"
 author: "Addy Osmani"
 source: "https://github.com/addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/tree/main/skills/accessibility-engineering"
 license: MIT
 tags: [accessibility, a11y, wcag, axe-core, pa11y, frontend, auditing]
 created_at: "2026-11-23"
-updated_at: "2026-11-23"
+updated_at: "2026-11-25"
 quality: 4
 complexity: intermediate
 ---
@@ -51,7 +51,7 @@ npx --yes @axe-core/cli@4.13.0 http://localhost:3000 --dir ./a11y-reports --save
 npx --yes pa11y@9.1.1 http://localhost:3000
 ```
 
-For a combined report, run `bash scripts/audit-a11y.sh url <url> --json`. It runs both pinned tools, records their status and versions, and fails rather than reporting a clean result when either tool does not produce a valid report.
+For a combined report, resolve [scripts/audit-a11y.sh](scripts/audit-a11y.sh) relative to this skill's directory, then run `bash "<absolute-skill-directory>/scripts/audit-a11y.sh" url <url> --json`. Replace `<absolute-skill-directory>` with the absolute path to the directory containing this loaded `SKILL.md`; a plugin or per-skill install may place it outside the project being audited. It runs both pinned tools, records their status and versions, and fails rather than reporting a clean result when either tool does not produce a valid report.
 
 Review the violations grouped by severity:
 - **Critical** — Blocks screen reader access entirely (missing alt text on info images, empty buttons)

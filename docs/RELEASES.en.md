@@ -6,7 +6,7 @@ This file summarizes the main changes in each release. Full notes for every rele
 
 ## Latest Release
 
-**v7.0.0 Portfolio evolution, curated additions, and quality upgrade (2026-11-23)**: merges and retires 4 overlapping skills with reference preservation, adds `claude-api`, `accessibility-engineering`, `cloudflare-agents-sdk`, `review-animations`, and `ab-test-design` (295 canonical skills across 16 categories, portfolio avg 95.0), updates Playwright guidance for `0.0.86`, syncs `hermes-agent v0.23.3`, and closes all dead links (0/500). [Release notes](./releases/v7.0.0.md).
+**v7.0.1 Tenant isolation patch, review fixes, and browser foundation upgrades (2026-11-25)**: restores `database-designer` PostgreSQL parent/child RLS membership checks, least-privilege non-owner grants, and controlled `soft_delete_task` RPC with live PostgreSQL regression coverage; fixes the remaining PR #164 review items and enforces LF checkout normalization in `.gitattributes`; upgrades `agent-browser 0.44.0`, `chrome-devtools-mcp 1.14.0`, `modern-web-guidance 1.0.2`, `hermes-agent v0.23.4`, and `graphify v0.9.119`. [Release notes](./releases/v7.0.1.md).
 
 When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## Recent Releases
+
+- [v7.0.0](./releases/v7.0.0.md) (2026-11-23): merged and retired 4 overlapping skills, added 5 curated high-value skills, and upgraded 295 canonical skills.
 
 - [v6.2.0](./releases/v6.2.0.md) (2026-11-18): combined the v6.1.0 audit and updated `agent-browser` 0.43.0, DevTools, and Playwright guidance with priority browser-foundation tracking.
 

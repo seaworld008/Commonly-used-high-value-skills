@@ -66,7 +66,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b26235719637e8930a8a14c043bf6ec6153290f3dcf7558c13f5329225959632",
+            "content_sha256": "1a0ed026877c0830a564c3ab5b7ff05fc723acdb314439e0d17bc4587fc598bd",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -76,13 +76,13 @@
         {
           "path": "skills/ai-workflow/find-skills/SKILL.md",
           "owner": "find-skills",
-          "sha256": "b26235719637e8930a8a14c043bf6ec6153290f3dcf7558c13f5329225959632",
+          "sha256": "1a0ed026877c0830a564c3ab5b7ff05fc723acdb314439e0d17bc4587fc598bd",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/find-skills/references/catalog-query-recipes.md",
           "owner": "find-skills",
-          "sha256": "a773077ab2bf17292a7e22db7e00274d8a043bb129124f881ba919b5996ae940",
+          "sha256": "3f12d316715e34a6d9ef73a8ad772f349dbe80f016ebf52f0f746654ba55505e",
           "mode": "100644"
         }
       ]

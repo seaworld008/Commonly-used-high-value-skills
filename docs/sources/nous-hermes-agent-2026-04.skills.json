@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-11-23",
+    "checked_at": "2026-11-25",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -126,12 +126,12 @@
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
-        "ref": "v0.23.3",
-        "last_checked_at": "2026-11-23",
-        "last_synced_at": "2026-11-23",
-        "last_synced_commit": "caafe5389ae585ef77387a962aee05b1bcf17029",
+        "ref": "v0.23.4",
+        "last_checked_at": "2026-11-25",
+        "last_synced_at": "2026-11-25",
+        "last_synced_commit": "8fc0374447313e276f6b9a2764bfc750190c966a",
         "sync_mode": "replace",
-        "path_commit": "5d88f6eaad65f8916600d569b6f2df335dd51eab"
+        "path_commit": "0aab6dcf8b7869acbab06507c34881b53036c09a"
       },
       "kind": "mirror",
       "sync_mode": "replace",
@@ -165,18 +165,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.23.3",
-            "resolved_commit": "caafe5389ae585ef77387a962aee05b1bcf17029",
-            "path_commit": "5d88f6eaad65f8916600d569b6f2df335dd51eab",
+            "ref": "v0.23.4",
+            "resolved_commit": "8fc0374447313e276f6b9a2764bfc750190c966a",
+            "path_commit": "0aab6dcf8b7869acbab06507c34881b53036c09a",
             "content_sha256": "4c61fd7776fb6dfd24920c2b24320035276244a53410050ec271224ae2d8432a",
-            "last_checked_at": "2026-11-23",
-            "last_synced_at": "2026-11-23",
+            "last_checked_at": "2026-11-25",
+            "last_synced_at": "2026-11-25",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "caafe5389ae585ef77387a962aee05b1bcf17029",
+              "resolved_commit": "8fc0374447313e276f6b9a2764bfc750190c966a",
               "api_spdx": "MIT"
             }
           }

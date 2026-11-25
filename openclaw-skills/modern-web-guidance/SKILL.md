@@ -2,14 +2,14 @@
 name: modern-web-guidance
 description: 'Mandatory first step for all HTML/CSS and client-side JavaScript implementation or updates, including web patterns in frameworks: search Google Chrome Modern Web Guidance before coding.'
 zh_description: "所有 HTML/CSS 与客户端 JavaScript 实现或修改任务必须先检索 Google 现代 Web 指南，再编写代码；覆盖框架中的原生 Web 能力。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: "Apache-2.0"
 tags: ["web-platform", "browser", "css", "accessibility", "performance"]
 created_at: "2026-11-18"
-updated_at: "2026-11-18"
+updated_at: "2026-11-25"
 quality: 4
 complexity: "intermediate"
 ---
@@ -37,14 +37,14 @@ If a mixed task includes client-side implementation, search before that part.
 
 ## Runner and version
 
-Reviewed CLI: **modern-web-guidance 1.0.1**, requiring Node >=22.
+Reviewed CLI: **modern-web-guidance 1.0.2**, requiring Node >=22.
 This skill's local version is independent of the CLI and guidance corpus.
 Use an existing compatible runner. If acquisition is necessary, reuse the
 task's installation/network authorization and use a scoped, pinned invocation:
 
 ```bash
-npx --yes modern-web-guidance@1.0.1 --version
-npx --yes modern-web-guidance@1.0.1 --help
+npx --yes modern-web-guidance@1.0.2 --version
+npx --yes modern-web-guidance@1.0.2 --help
 ```
 
 ### Pre-execution approval and network access
@@ -54,9 +54,9 @@ the host's sandbox/network policy and whether the task already authorizes the
 runner and its outbound access. In an approval-gated environment with missing
 authorization, request approval/allowlisting with network access before running;
 do not first launch a command that cannot access the network and wait for a timeout.
-Scope approval to `npx --yes modern-web-guidance@1.0.1 *`, or the host's equivalent
+Scope approval to `npx --yes modern-web-guidance@1.0.2 *`, or the host's equivalent
 exact argument rule. Never request a blanket `npx *` or `pnpx *` allowlist.
-Prefer `pnpx modern-web-guidance@1.0.1` if pnpm is available; it does not need `-y`.
+Prefer `pnpx modern-web-guidance@1.0.2` if pnpm is available; it does not need `-y`.
 
 Existing session authorization satisfies this check; do not ask the user again.
 An unrestricted host needs no new approval. A host that disables approval requests
@@ -64,7 +64,7 @@ must use its allowed execution path or report the blocked retrieval; this skill
 does not override host policy. The same rule applies in Codex and Claude Code.
 If the normal npm cache is read-only, set `NPM_CONFIG_CACHE` to a task-owned writable
 directory appropriate to the host. Offline, try the cached runner with
-`npx --offline --yes modern-web-guidance@1.0.1 search "<query>"`; otherwise report
+`npx --offline --yes modern-web-guidance@1.0.2 search "<query>"`; otherwise report
 the unchecked guidance and continue independent work.
 
 On Windows the executable is typically `npx.cmd`. The command can download a package;
@@ -82,7 +82,7 @@ Translate product intent into its UI primitive: "confirm before deleting" can
 become "confirmation modal dialog". Omit private product names and code.
 
 ```bash
-npx --yes modern-web-guidance@1.0.1 search "light dismiss dialog"
+npx --yes modern-web-guidance@1.0.2 search "light dismiss dialog"
 ```
 
 Read returned IDs and descriptions. When results are weak, rephrase once with
@@ -94,10 +94,10 @@ search, not as an additional mandatory step after a matching result.
 Substitute an ID actually returned by the search; do not invent one from memory:
 
 ```bash
-npx --yes modern-web-guidance@1.0.1 retrieve "<returned-id>"
+npx --yes modern-web-guidance@1.0.2 retrieve "<returned-id>"
 ```
 
-Multiple IDs can be comma-separated when several guides are relevant.
+Multiple IDs can be comma-separated when several guides are relevant — retrieve both use-case guides (such as `context-menu` or `teaser`) and any applicable discipline guide (`html`, `css`, `js`, `forms`, `accessibility`, `color`, `performance`, `security`).
 If large output is saved to a temporary file, read the relevant complete guide
 from that reported path. A truncated preview is not evidence of its full rules.
 
@@ -132,7 +132,7 @@ Only use a broad scan when the user requests modernization or legacy-pattern
 review of a project/directory. For a targeted feature, search and retrieve instead.
 
 ```bash
-npx --yes modern-web-guidance@1.0.1 legacy-scan ./src --json
+npx --yes modern-web-guidance@1.0.2 legacy-scan ./src --json
 ```
 
 The scan covers a subset of the corpus. Check each finding against `keepWhen`

@@ -156,7 +156,7 @@ await fetch(await assertSafeUrl(req.body.webhookUrl), { redirect: 'error' });
 
 The `range() !== 'unicast'` check covers loopback, link-local `169.254.169.254` (cloud metadata, the #1 SSRF target), private, and unique-local ranges across IPv4 and IPv6.
 
-**Caveat — this still has a TOCTOU gap.** `fetch` resolves DNS again after the check, so an attacker using a short-TTL record can rebind to an internal IP between validation and connection. For high-risk surfaces, resolve once and connect to the pinned IP, or put a filtering agent in front (`request-filtering-agent` / `ssrf-req-filter`).
+**Close the check/connection gap before using this with untrusted URLs.** An attacker using a short-TTL record can rebind to an internal IP between validation and connection. Use an HTTP transport that connects only to validated addresses, or a filtering transport (`request-filtering-agent` / `ssrf-req-filter`) that enforces the destination policy at connection time. Preserve the original hostname for the HTTP `Host` header, TLS SNI, and certificate verification; keep redirects disabled and enforce the same policy on retries and fallback connections. See the [OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html#domain-name).
 
 ## Input Validation Patterns
 

@@ -1,6 +1,6 @@
 # Browser backend compatibility
 
-Reviewed on 2026-11-18. This reference separates tool interfaces that can reach
+Reviewed on 2026-11-25. This reference separates tool interfaces that can reach
 the same web page but have different session, lifecycle and version contracts.
 
 ## Select the available backend
@@ -37,12 +37,14 @@ An old globally installed `browser-skill` wrapper is not authoritative over the
 host's current instructions. Repository compatibility guidance complements the
 runtime contract and does not replace or override it.
 
-## Chrome DevTools MCP 1.13.0
+## Chrome DevTools MCP 1.14.0
 
 - `--pageIdRouting` is enabled by default. Inventory pages and pass the returned
   page ID to page-scoped tools where their schema requires it.
-- `--categoryNetworkMocks` enables page-scoped network mock tools. Mocking changes
+- `--categoryNetworkMocks` enables page-scoped network mock tools (including abort and allow-origin mocks in 1.14.0). Mocking changes
   what the application observes: use it for an authorized test and clean up.
+- `--backgroundNewPages` keeps new tabs in the background, `serviceWorkerId` inspects extension service workers,
+  and `get_css_styles` returns computed styles plus inline-resolved CSS custom variables.
 - `set_logpoints` depends on JavaScript evaluation being enabled. A server started
   with `--no-javascript-evaluation` does not expose that path.
 - `--categoryExperimentalWebmcp` needs Chrome 150+ and the WebMCP feature flag;
@@ -67,7 +69,7 @@ Refresh the running server or open a new host session when the client retains ol
 tool schemas. Merely editing a package specification to `@latest` does not prove
 that the active process, cached package or tool schema is current.
 
-Sources: [DevTools 1.13.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/chrome-devtools-mcp-v1.13.0),
-[DevTools configuration](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/chrome-devtools-mcp-v1.13.0/README.md),
-[agent-browser 0.43.0](https://github.com/vercel-labs/agent-browser/releases/tag/v0.43.0),
+Sources: [DevTools 1.14.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/chrome-devtools-mcp-v1.14.0),
+[DevTools configuration](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/chrome-devtools-mcp-v1.14.0/README.md),
+[agent-browser 0.44.0](https://github.com/vercel-labs/agent-browser/releases/tag/v0.44.0),
 [OpenAI browser walkthrough](https://developers.openai.com/training/walkthroughs/using-your-computer-and-browser).

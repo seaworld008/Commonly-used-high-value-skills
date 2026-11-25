@@ -1,0 +1,32 @@
+{
+  "tag": "v7.0.1",
+  "package_version": "7.0.1",
+  "title": "v7.0.1 · 租户隔离补丁、审查修复与浏览器基础能力升级",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v7.0.0..v7.0.1",
+  "canonical_skills": 295,
+  "highlights": [
+    "修复 database-designer 的 PostgreSQL RLS 模板：补回 projects 与 organization_members 启用 RLS 及组织成员校验策略、无 BYPASSRLS 非所有者角色授权、soft_delete_task 受控软删除 RPC，并同步刷新 OpenClaw 镜像",
+    "新增真实 PostgreSQL 非表所有者角色（app_user）多租户隔离回归测试 tests/test_database_designer_rls.py，覆盖双租户读写、软删除、伪造身份/列篡改拦截、viewer 只读限制与 fail-closed",
+    "修复 PR #164 其余 3 项审查建议：lark-contact（+search-user --queries）、lark-skill-maker（calendar +create --attendee-ids）与 find-skills（heredoc 修复 Bash 执行语法错误）",
+    "升级浏览器基础能力至最新稳定版（agent-browser 0.44.0、chrome-devtools-mcp 1.14.0、modern-web-guidance 1.0.2，check_browser_foundations 7/7 current）并同步 hermes-agent v0.23.4、graphify v0.9.119、accessibility-engineering 与 x-twitter-scraper",
+    "在 .gitattributes 补齐跨平台 * text=auto eol=lf 与二进制 -text 规则（保留既有特例许可证），防止 Windows 检出换行漂移破坏 provenance 摘要校验"
+  ],
+  "release_gates": [
+    "完整仓库流水线 validate_repository.py --refresh（含真实 PostgreSQL 租户隔离回归测试与全部 pytest 套件）及提交后生成器幂等性检查通过",
+    "check_browser_foundations.py 7/7 current、provenance_pipeline.py --mode all 与仓库健康评估 PASS",
+    "65 项 Node 安全单测、npm test 安装器与打包预演通过",
+    "精确 PR head 与 merged-main 的 Repository Validation、Installer 矩阵、skills-provenance-ci、CodeQL 零开放告警门禁全部通过后由 Verified Release 自动发布"
+  ],
+  "validation_boundaries": {
+    "runtime": "真实 PostgreSQL 18.6 非所有者 RLS 集成测试、find-skills Bash 执行测试、Node 安全单测、npm test 与完整 pytest 套件已通过；但不等同于在线 LLM 模型评测或飞书/Xquik 实盘接口联调。",
+    "sources": "21 个 openai/skills 条目因上游 LICENSE.txt 附加微软版权声明及上游转向 openai/plugins 而在自动 SPDX 校验返回 unavailable，继续保留仓库内既审快照。"
+  },
+  "compatibility_notes": [
+    "向后兼容 v7.0.0（保持 295 个规范技能 / 16 个分类与全部公共路径不变）。",
+    "PostgreSQL RLS 模板新增 soft_delete_task(TEXT) SECURITY DEFINER 函数以兼容 FOR SELECT 策略对 UPDATE ... WHERE 新行的隐式校验；既有直接 UPDATE tasks SET deleted_at = NOW() 调用应迁移至该函数。"
+  ],
+  "audit": "docs/maintenance-audit-2026-11-25.md",
+  "publication_status": "ready"
+}

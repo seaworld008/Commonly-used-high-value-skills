@@ -2,13 +2,13 @@
 name: database-designer
 description: 'Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.'
 zh_description: "设计和优化数据库结构、查询及迁移方案。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["database", "designer", "development"]
 created_at: "2026-03-04"
-updated_at: "2026-11-23"
+updated_at: "2026-11-25"
 quality: 5
 complexity: "intermediate"
 ---
@@ -479,10 +479,11 @@ def get_user(user_id):
 3. **Audit access patterns**: Monitor and log database access
 4. **Validate inputs**: Prevent SQL injection attacks
 5. **Regular security updates**: Keep database software current
+6. **Tenant isolation with RLS**: Enable Row-Level Security on both parent (`projects`, `organization_members`) and child (`tasks`) tables, enforce membership checks under a non-owner role without `BYPASSRLS`, restrict `UPDATE` columns, and bind identity per transaction with `set_config('app.current_user_id', $1, true)`.
 
 ## ORM, Multi-Tenancy & RLS Reference
 
-For Drizzle, Prisma, Alembic partial-index migrations, multi-tenant PostgreSQL RLS policies, and ERD generation patterns, read [ORM and RLS Patterns](references/orm-and-rls-patterns.md).
+For Drizzle, Prisma, Alembic partial-index migrations, complete multi-tenant PostgreSQL RLS policies (parent + child membership validation, non-owner role grants, and two-tenant verification), and ERD generation patterns, read [ORM and RLS Patterns](references/orm-and-rls-patterns.md).
 
 ## Conclusion
 

@@ -2,14 +2,14 @@
 name: lark-skill-maker
 description: 'Use when creating reusable skills around verified Lark CLI or OpenAPI operations, including scoped permissions and multi-step workflow contracts.'
 zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
-version: "1.0.7"
+version: "1.0.8"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker"
 license: MIT
 tags: [feishu, lark, lark-cli, skills, agent-workflow]
 created_at: "2026-05-19"
-updated_at: "2026-11-23"
+updated_at: "2026-11-25"
 quality: 3
 complexity: intermediate
 metadata:
@@ -123,11 +123,11 @@ lark-cli api POST /open-apis/vc/v1/rooms/search \
   --data '{"keyword":"5F-A"}' --as user
 
 # Step B (Preview / Confirmation): 创建日程前先校验时间区间与参与人 open_id，支持 --dry-run 预演
-lark-cli calendar +event-create \
+lark-cli calendar +create \
   --summary 'Architecture Review' \
   --start '2026-11-24T10:00:00+08:00' \
   --end '2026-11-24T11:00:00+08:00' \
-  --attendees 'ou_example_target' \
+  --attendee-ids 'ou_example_target' \
   --dry-run --as user
 ```
 

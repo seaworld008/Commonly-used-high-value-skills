@@ -1819,7 +1819,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a6aa0a0b0f79544a40e390b77c712d320f0a7de232c163c2f4bc3fcd54a2fad4",
+            "content_sha256": "d75f61ab0dc3a3c44f83d54bd9833f632464f198fc1a14f7a5a119fa4713140a",
             "last_checked_at": "2026-11-23",
             "last_synced_at": "2026-11-23"
           }
@@ -1829,13 +1829,13 @@
         {
           "path": "skills/developer-engineering/database-designer/README.md",
           "owner": "database-designer",
-          "sha256": "18264cfce2a0cf29a83902a64909944eac6a6d3ae50d6366f307a6fd97c0bbb5",
+          "sha256": "7ecee7a0ea1515eab3723c3b88a0324f57437008316938a2c874a267e43e5dd9",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/database-designer/SKILL.md",
           "owner": "database-designer",
-          "sha256": "a6aa0a0b0f79544a40e390b77c712d320f0a7de232c163c2f4bc3fcd54a2fad4",
+          "sha256": "d75f61ab0dc3a3c44f83d54bd9833f632464f198fc1a14f7a5a119fa4713140a",
           "mode": "100644"
         },
         {
@@ -1919,7 +1919,7 @@
         {
           "path": "skills/developer-engineering/database-designer/references/orm-and-rls-patterns.md",
           "owner": "database-designer",
-          "sha256": "7b906c9d7fc9e29c2c4c8664a2859b15ffecbd3dd735999226e6b7316df3854c",
+          "sha256": "6b2213d10da2c398a463f114eaf6915a33743fc59f52906e3cce1c4144697724",
           "mode": "100644"
         }
       ]
@@ -5805,7 +5805,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "817dd94e036197bf569dd8a17752062292da5c3f39e68705d5f9f8394ac2ea15",
+            "content_sha256": "4182c048ad88bf4d014b020c43ebec5378e3652c16cef495c257e4da40371397",
             "last_checked_at": "2026-11-18",
             "last_synced_at": "2026-11-18"
           }
@@ -5822,13 +5822,13 @@
         {
           "path": "skills/developer-engineering/modern-web-guidance/SKILL.md",
           "owner": "modern-web-guidance",
-          "sha256": "817dd94e036197bf569dd8a17752062292da5c3f39e68705d5f9f8394ac2ea15",
+          "sha256": "4182c048ad88bf4d014b020c43ebec5378e3652c16cef495c257e4da40371397",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/modern-web-guidance/references/maintenance.md",
           "owner": "modern-web-guidance",
-          "sha256": "571cd732f78712ff889fd7a2f3501833a0db9471cedbae3d654ca937ede958e4",
+          "sha256": "3376d022876b9034408e229a049f1160f6fc801f277cd9e93346c94639895ff7",
           "mode": "100644"
         }
       ]

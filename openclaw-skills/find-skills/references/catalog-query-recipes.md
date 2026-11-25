@@ -5,28 +5,28 @@ Deterministic commands for inspecting `docs/catalog.json`, `docs/sources/portfol
 ## 1. Search by Keyword, Tag, or Category in `docs/catalog.json`
 
 ```bash
-python3 -c "
+python3 - <<'PY'
 import json
 q = 'postgres'
 data = json.load(open('docs/catalog.json', encoding='utf-8'))
 hits = [
     s for s in data['skills']
-    if q in (s['name'] + ' ' + s.get('description','') + ' ' + ' '.join(s.get('tags',[]))).lower()
+    if q in (s['name'] + ' ' + s.get('description', '') + ' ' + ' '.join(s.get('tags', []))).lower()
 ]
 for s in hits:
     print(f"{s['name']} [{s['category']}] (q={s.get('quality')}) -> {s['path']}")
-"
+PY
 ```
 
 ## 2. Check Retired Aliases & Canonical Replacements
 
 ```bash
-python3 -c "
+python3 - <<'PY'
 import json
 policy = json.load(open('docs/sources/portfolio-policy.json', encoding='utf-8'))
 for row in policy.get('retired_skills', []):
     print(f"{row['name']} -> {row.get('replacement') or 'retired'}: {row['reason']}")
-"
+PY
 ```
 
 ## 3. Overlap & Provenance Verification Checklist

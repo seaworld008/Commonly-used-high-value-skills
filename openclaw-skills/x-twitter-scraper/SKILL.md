@@ -2,14 +2,14 @@
 name: x-twitter-scraper
 description: 'Use Xquik for authorized X/Twitter REST reads and account-change confirmation plans executed by supported clients; Radar and support workflows require a named request.'
 zh_description: "在宿主权限内读取 Xquik 数据，规划导出与监控；账户变更生成确认计划，由受支持客户端执行。"
-version: "1.0.9"
+version: "1.0.10"
 author: 'Xquik <support@xquik.com>'
 source: "github:Xquik-dev/x-twitter-scraper"
 source_url: "https://github.com/Xquik-dev/x-twitter-scraper/blob/645ccfbad23f258ed9efb24de1ead641f15938e1/skills/x-twitter-scraper/SKILL.md"
 license: MIT
 tags: [growth, social-media, twitter, x, api, mcp]
 created_at: "2026-06-22"
-updated_at: "2026-11-17"
+updated_at: "2026-11-25"
 quality: 5
 complexity: advanced
 allowed-tools: WebFetch
