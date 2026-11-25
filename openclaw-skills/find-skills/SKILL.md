@@ -2,13 +2,13 @@
 name: find-skills
 description: 'Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.'
 zh_description: "在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。"
-version: "1.1.2"
+version: "1.1.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: ["find", "planning", "skills", "workflow"]
 created_at: "2026-03-15"
-updated_at: "2026-11-23"
+updated_at: "2026-11-25"
 quality: 4
 complexity: "intermediate"
 ---

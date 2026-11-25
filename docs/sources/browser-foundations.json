@@ -18,12 +18,12 @@
         "cli/src/commands.rs",
         "cli/src/mcp.rs"
       ],
-      "reviewed_commit": "d2dfc782ccdd79d25a9b4f0acced9321789cecb8",
-      "reviewed_tree_digest": "205609acfae3aa2e97bc773ee9a6b22079604e6b2b0b16f73757cbc35b25fda4",
-      "reviewed_at": "2026-11-23",
+      "reviewed_commit": "f0a98351ec920bd826b22c98dacf8414f04b9832",
+      "reviewed_tree_digest": "7711f63c378a8685133a52ae80677bfe6d156f2b825002cc87133d59de72db54",
+      "reviewed_at": "2026-11-25",
       "package": "agent-browser",
-      "reviewed_version": "0.43.0",
-      "reviewed_release": "v0.43.0"
+      "reviewed_version": "0.44.0",
+      "reviewed_release": "v0.44.0"
     },
     {
       "id": "chrome-devtools-mcp",
@@ -37,12 +37,12 @@
         "plugin.json",
         "mcp.json"
       ],
-      "reviewed_commit": "ab911a6dd71ed4960c1c679f831c7b5607bc5505",
-      "reviewed_tree_digest": "cb14ceca50bb6cea28e023c809cd9d31f408b287be63ed9947f0073a5eb92975",
-      "reviewed_at": "2026-11-23",
+      "reviewed_commit": "7fcebb2b0392bb623ee50383a8e1ef680975b4aa",
+      "reviewed_tree_digest": "f4048cd9f7560f64ddc2d7f9dfed0bf76e3c6706ec9c356098780d84c620905d",
+      "reviewed_at": "2026-11-25",
       "package": "chrome-devtools-mcp",
-      "reviewed_version": "1.13.0",
-      "reviewed_release": "chrome-devtools-mcp-v1.13.0"
+      "reviewed_version": "1.14.0",
+      "reviewed_release": "chrome-devtools-mcp-v1.14.0"
     },
     {
       "id": "playwright-mcp",
@@ -92,12 +92,12 @@
         "LICENSE",
         "README.md"
       ],
-      "reviewed_commit": "64a6d708f5a43f2cd3fde5d4d7db3905ba1bdf65",
-      "reviewed_tree_digest": "482a7c76f32bb8fe87a305e669c6b1ccc78a5a098fd0c8c659c2893613b23d60",
-      "reviewed_at": "2026-11-18",
+      "reviewed_commit": "2b4aa13a72dd47cd135b06ce5abfccd92e19b24f",
+      "reviewed_tree_digest": "e4e35e2bd8be3c49a325d63e45f57592b0bb34bc814089ba3a7325a9956fe7a4",
+      "reviewed_at": "2026-11-25",
       "package": "modern-web-guidance",
-      "reviewed_version": "1.0.1",
-      "reviewed_release": "v1.0.1"
+      "reviewed_version": "1.0.2",
+      "reviewed_release": "v1.0.2"
     },
     {
       "id": "modern-web-guidance-source",
@@ -112,9 +112,9 @@
         "LICENSE",
         "README.md"
       ],
-      "reviewed_commit": "920ee542afc8785ddbadd9aee976c2eab9caf25f",
-      "reviewed_tree_digest": "12eb5113adc39478e5ea675146ab43db3558edf80bb04d5e8c2a9dc59cdd3a9f",
-      "reviewed_at": "2026-11-23"
+      "reviewed_commit": "92686ac7d6ebd6c794b575335a7ff4a3e7f66ecb",
+      "reviewed_tree_digest": "0635dabc05e209b4b65f28112cb10526870a6e33bcae0f71b42cc483cf1b868b",
+      "reviewed_at": "2026-11-25"
     }
   ],
   "host_managed": [

@@ -514,6 +514,13 @@
       "target": "Jeffallan/claude-skills@4b94d98605baf742b751bb82832ace5caf942271",
       "result": "success",
       "evidence": "Curated modern Terraform 1.11-1.17+ guidance (S3 use_lockfile, provider major bumps, apply -refresh-only, declarative import/moved/removed blocks, trivy config, native .tftest.hcl, ephemeral write-only secrets)."
+    },
+    {
+      "date": "2026-11-25",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@d490e3c98f24c4f368c9dc3bf611b79ab803f75e",
+      "result": "success",
+      "evidence": "Curated monitors-webhooks.md expansion (30 account monitor event types across 6 groups and POST /monitors/posts) while preserving local security and live-estimate guardrails."
     }
   ],
   "skills": [
@@ -3970,9 +3977,9 @@
         "repo": "Xquik-dev/x-twitter-scraper",
         "path": "skills/x-twitter-scraper/SKILL.md",
         "ref": "master",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
-        "last_synced_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
+        "last_checked_at": "2026-11-25",
+        "last_synced_at": "2026-11-25",
+        "last_synced_commit": "d490e3c98f24c4f368c9dc3bf611b79ab803f75e",
         "sync_mode": "monitor",
         "path_commit": "5aaf62333441d771133398337a055b17e81fa740"
       },
@@ -4034,17 +4041,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "master",
-            "resolved_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
+            "resolved_commit": "d490e3c98f24c4f368c9dc3bf611b79ab803f75e",
             "path_commit": "5aaf62333441d771133398337a055b17e81fa740",
-            "content_sha256": "637d909a31337d2ca65eb45c244683bbab84360fc4497b83d35adaef36d82d72",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17",
+            "content_sha256": "6f1c26d0c7180a91fa2ea306fde82db5f414e92a79857a19c7e1ad52dec0b696",
+            "last_checked_at": "2026-11-25",
+            "last_synced_at": "2026-11-25",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
               "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
               "spdx": "MIT",
-              "resolved_commit": "f9dfed93f903a05c235cf1752513d853bce65759",
+              "resolved_commit": "d490e3c98f24c4f368c9dc3bf611b79ab803f75e",
               "api_spdx": "MIT"
             }
           }
@@ -4435,7 +4442,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
           "owner": "x-twitter-scraper",
-          "sha256": "637d909a31337d2ca65eb45c244683bbab84360fc4497b83d35adaef36d82d72",
+          "sha256": "6f1c26d0c7180a91fa2ea306fde82db5f414e92a79857a19c7e1ad52dec0b696",
           "mode": "100644"
         },
         {
@@ -4633,7 +4640,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
           "owner": "x-twitter-scraper",
-          "sha256": "92a191dc94a946ada76107f30c983712effe0270cfebbe1199e921b318077c11",
+          "sha256": "0f4513bec9b4388f5c25b451a66c8c88531449cfa2215952d427d5240a82f7a8",
           "mode": "100644"
         },
         {

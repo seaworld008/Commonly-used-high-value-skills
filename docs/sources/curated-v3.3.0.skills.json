@@ -48,12 +48,12 @@
       "upstream": {
         "repo": "vercel-labs/agent-browser",
         "path": "skill-data/core/SKILL.md",
-        "ref": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-        "last_checked_at": "2026-11-18",
-        "last_synced_at": "2026-11-18",
-        "last_synced_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+        "ref": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+        "last_checked_at": "2026-11-25",
+        "last_synced_at": "2026-11-25",
+        "last_synced_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
         "sync_mode": "monitor",
-        "path_commit": "bc348f0ba30a58348d20c32b185b47019d15c2ef"
+        "path_commit": "bf03eb13832d5817593df769203ed6c8b6f46b77"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -69,9 +69,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "83455f5b0e8e2d76d34e3fac78d5d78bcafe3cc0",
-                "content_sha256": "a171d9a345863282360bc45830483277a538fddf27e4a93324009cc8003563a0",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "65120d47a94fa33affabbf01e7dcf1b1db23fa30",
+                "content_sha256": "cbe96b466cccba9dc64bf0a284616f51b83b24ad5fd0cd13f7dfdbf3a6527aec",
                 "mode": "100644",
                 "relation": "licensed_local_adaptation",
                 "modifications": "Task-session wrapper and version-matched loading; upstream workflow preserved in the offline core reference. Templates retain the task session inside one shell."
@@ -82,7 +82,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/LICENSE.txt",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "8226d363f88a734e52cc79ead7a5588cc55e76f7",
                 "content_sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
                 "mode": "100644",
@@ -94,7 +94,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/authentication.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "7ed8114d72579f8da0f2dc408bd36fba39283bf5",
                 "content_sha256": "590d5b4b53e3088243cceca79ada5c4bebb36633d1e7b2f8baa3076269641a9f",
                 "mode": "100644",
@@ -106,9 +106,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/commands.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "cb067c4f3b0ea5c6eff513bbc90a3c46cec23500",
-                "content_sha256": "2a5ddb3c3a9c78e42166e78cc43799d7f28ba0daf0bb5e9e3d06dcd34edd8fc9",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "471ca1901d8cbf921c53a8f7b25ffd3f789fc2d3",
+                "content_sha256": "9a0cf90f3ba0e5ebade744c6443afad1a202839199f508cfefcfdc871aaf79ae",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -118,7 +118,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/profiling.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "e0c3a4ee582b9aed717a852d933bc9e855a52ed2",
                 "content_sha256": "bfdbe03f0f1da1a20f79d6fcb1ce889bdb43836756934cbf59af4b94e7a80dee",
                 "mode": "100644",
@@ -130,7 +130,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/proxy-support.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "219c22aa2c782b2672891913fbe94b4fea3eb840",
                 "content_sha256": "df8bf62b429debd5c05c37862af941226ecc37070946896b33549414fe4b5ca2",
                 "mode": "100644",
@@ -142,9 +142,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/session-management.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "32a6cd0de8666af745f884c7af6d76dd0e5dd64b",
-                "content_sha256": "578cb84eb3ca10566b1c82d12c5b8d3cadf3b15bf63d1ccbabd47466283553ae",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "e03a896d55e3b5f3910e3befa72be51a7078c181",
+                "content_sha256": "112e093e56534d978d2d94c39c3f2a3c119170e51e05c2cbaba9997a8579050f",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -154,9 +154,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/snapshot-refs.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "bb807048fb3bd849b3da2eb5dab0ab2b2190af7b",
-                "content_sha256": "f3e06f679ebab377c091f0509d0dd52958376b9c06cee3a55ac0be96be12ec65",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "c0fbbf17618427455463763add8585b44a90ee48",
+                "content_sha256": "86171ea4e3e1abab7f55ad01fd9eae03f66f51f1909dec2711b3788ec6567c23",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -166,9 +166,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/streaming.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "ab4c5f0436bf0baff3714e5949f41e7f66022d5a",
-                "content_sha256": "92d10ccffb1d15f2d00179b3f8ae28797e483d7efb9e980633d50cca54793efc",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "bae7e0d615ccb0ed6f7d80b39393d13ed8cb79f2",
+                "content_sha256": "18437a7df4199102fa9af8cffa571303875c096900c8cd9d4bca66b30a3c2034",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -178,9 +178,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/trust-boundaries.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "1297c2da79c1ee48ec6b69e75a9da42d71866de7",
-                "content_sha256": "99046d95b7286c7eb27e7626272945eb7f1b04ee7d0f2f9d471e1ed22f235679",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "02e080d4846646cca09e6b4286d38ca99bd17aa9",
+                "content_sha256": "28fc5088707d06265ea00e4a3d63584db5391e9e4f9a55c84b859dca573867b9",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -190,7 +190,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/video-recording.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "ec71993ab3706faee2ba3e5451fccfc7355f5807",
                 "content_sha256": "ac9860e1bad6d9f96b4108c07ee03db75eb1ad179a9562016f39a8dfb8ed9429",
                 "mode": "100644",
@@ -202,7 +202,7 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/webgpu.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "7a670c875c8b364246aec6d3162166fff29dbf3a",
                 "content_sha256": "a712891500530fc852b902cb453177c34ead1a225715f6ed8261251d52706f3d",
                 "mode": "100644",
@@ -214,9 +214,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/templates/authenticated-session.sh",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "387f92b98f72edd56969d44823cdffe776e85161",
-                "content_sha256": "3a44ce1ca1d6b8ff7b049e8456fb9cd383afa3e76f48532cc6dc836dc0f449e7",
+                "content_sha256": "957eea3e7c1c107b3b310badd419be61060aed582f4584cc950079c9f933941a",
                 "mode": "100755",
                 "relation": "licensed_local_adaptation",
                 "modifications": "Task-session wrapper and version-matched loading; upstream workflow preserved in the offline core reference. Templates retain the task session inside one shell."
@@ -227,9 +227,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/templates/capture-workflow.sh",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "b869f9afa7d92dffcd338ad2efd2ac825d1eea1d",
-                "content_sha256": "caa5fa01b654cab0849d77c7fcb2e07a64b2ba3b7bff4718e9a19d3c8d793177",
+                "content_sha256": "e5359b96467b425c24c6311d6de79f56a9cbeca62a6dd5f94b082dd6359ceb98",
                 "mode": "100755",
                 "relation": "licensed_local_adaptation",
                 "modifications": "Task-session wrapper and version-matched loading; upstream workflow preserved in the offline core reference. Templates retain the task session inside one shell."
@@ -240,9 +240,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/templates/form-automation.sh",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
                 "blob_sha": "4e1f3b2c4b542fae4240ff7054efb9a27b19194a",
-                "content_sha256": "f1b2ef8220d214287d68336512938adfe9bf6e9c2b85e2d66f3239bafc666a6a",
+                "content_sha256": "0372399a8523df67d58e83a3bad8dc5fe5d2589ec84003d0ccba2c966573719d",
                 "mode": "100755",
                 "relation": "licensed_local_adaptation",
                 "modifications": "Task-session wrapper and version-matched loading; upstream workflow preserved in the offline core reference. Templates retain the task session inside one shell."
@@ -253,9 +253,9 @@
               "target": "skills/engineering-workflow-automation/agent-browser/references/upstream-core.md",
               "type": "file",
               "evidence": {
-                "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-                "blob_sha": "83455f5b0e8e2d76d34e3fac78d5d78bcafe3cc0",
-                "content_sha256": "a171d9a345863282360bc45830483277a538fddf27e4a93324009cc8003563a0",
+                "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+                "blob_sha": "65120d47a94fa33affabbf01e7dcf1b1db23fa30",
+                "content_sha256": "cbe96b466cccba9dc64bf0a284616f51b83b24ad5fd0cd13f7dfdbf3a6527aec",
                 "mode": "100644",
                 "relation": "upstream_identical"
               }
@@ -263,20 +263,20 @@
           ],
           "tracking": {
             "channel": "fixed_ref",
-            "ref": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-            "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
-            "path_commit": "bc348f0ba30a58348d20c32b185b47019d15c2ef",
-            "content_sha256": "62ac60fe6fef9b7c75370d12fd7622ff6b378d56fdd30e36a5e1044a7cf07fbd",
+            "ref": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+            "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
+            "path_commit": "bf03eb13832d5817593df769203ed6c8b6f46b77",
+            "content_sha256": "5ac1dcc81d8e5a43a444d8fda85a1b7bb8e2d5e3c2b56255e9ed3d0110cdeabf",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "8226d363f88a734e52cc79ead7a5588cc55e76f7",
               "content_sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
               "spdx": "Apache-2.0",
-              "resolved_commit": "1cc19526f3641c8543d55aa6700e7c55b37ac356",
+              "resolved_commit": "0a923358ea989d7602f0d06507ad3447c62ffe9b",
               "api_spdx": "Apache-2.0"
             },
-            "last_checked_at": "2026-11-18",
-            "last_synced_at": "2026-11-18"
+            "last_checked_at": "2026-11-25",
+            "last_synced_at": "2026-11-25"
           }
         }
       ],
@@ -284,7 +284,7 @@
         {
           "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
           "owner": "agent-browser",
-          "sha256": "62ac60fe6fef9b7c75370d12fd7622ff6b378d56fdd30e36a5e1044a7cf07fbd",
+          "sha256": "5ac1dcc81d8e5a43a444d8fda85a1b7bb8e2d5e3c2b56255e9ed3d0110cdeabf",
           "mode": "100644"
         },
         {
@@ -302,7 +302,7 @@
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/commands.md",
           "owner": "agent-browser",
-          "sha256": "2a5ddb3c3a9c78e42166e78cc43799d7f28ba0daf0bb5e9e3d06dcd34edd8fc9",
+          "sha256": "9a0cf90f3ba0e5ebade744c6443afad1a202839199f508cfefcfdc871aaf79ae",
           "mode": "100644"
         },
         {
@@ -320,25 +320,25 @@
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/session-management.md",
           "owner": "agent-browser",
-          "sha256": "578cb84eb3ca10566b1c82d12c5b8d3cadf3b15bf63d1ccbabd47466283553ae",
+          "sha256": "112e093e56534d978d2d94c39c3f2a3c119170e51e05c2cbaba9997a8579050f",
           "mode": "100644"
         },
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/snapshot-refs.md",
           "owner": "agent-browser",
-          "sha256": "f3e06f679ebab377c091f0509d0dd52958376b9c06cee3a55ac0be96be12ec65",
+          "sha256": "86171ea4e3e1abab7f55ad01fd9eae03f66f51f1909dec2711b3788ec6567c23",
           "mode": "100644"
         },
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/streaming.md",
           "owner": "agent-browser",
-          "sha256": "92d10ccffb1d15f2d00179b3f8ae28797e483d7efb9e980633d50cca54793efc",
+          "sha256": "18437a7df4199102fa9af8cffa571303875c096900c8cd9d4bca66b30a3c2034",
           "mode": "100644"
         },
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/trust-boundaries.md",
           "owner": "agent-browser",
-          "sha256": "99046d95b7286c7eb27e7626272945eb7f1b04ee7d0f2f9d471e1ed22f235679",
+          "sha256": "28fc5088707d06265ea00e4a3d63584db5391e9e4f9a55c84b859dca573867b9",
           "mode": "100644"
         },
         {
@@ -374,7 +374,7 @@
         {
           "path": "skills/engineering-workflow-automation/agent-browser/references/upstream-core.md",
           "owner": "agent-browser",
-          "sha256": "a171d9a345863282360bc45830483277a538fddf27e4a93324009cc8003563a0",
+          "sha256": "cbe96b466cccba9dc64bf0a284616f51b83b24ad5fd0cd13f7dfdbf3a6527aec",
           "mode": "100644"
         }
       ],

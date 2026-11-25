@@ -6,7 +6,7 @@
 
 ## 最新版本
 
-**v7.0.0 组合演进、精选新技能与全仓质量升级（2026-11-23）**：合并退役 4 项重叠技能并迁移独有参考资料，精选入库 `claude-api`、`accessibility-engineering`、`cloudflare-agents-sdk`、`review-animations`、`ab-test-design`（全仓 295 个规范技能 / 16 个分类，均分 95.0）；升级 `playwright-mcp v0.0.86` 适应指引、同步 `hermes-agent v0.23.3`，并完成 0 死链与全仓生成幂等验证。[发布说明](./releases/v7.0.0.md)。
+**v7.0.1 租户隔离补丁、审查修复与浏览器基础能力升级（2026-11-25）**：补全 `database-designer` PostgreSQL RLS 父子表成员校验、非所有者角色最小权限与 `soft_delete_task` 受控软删除 RPC，并新增真实 PostgreSQL 租户隔离回归测试；修复 PR #164 其余 3 处示例问题并加固 `.gitattributes`；同步升级 `agent-browser 0.44.0`、`chrome-devtools-mcp 1.14.0`、`modern-web-guidance 1.0.2`、`hermes-agent v0.23.4` 与 `graphify v0.9.119`。[发布说明](./releases/v7.0.1.md)。
 
 从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## 近期版本
+
+- [v7.0.0](./releases/v7.0.0.md)（2026-11-23）：合并退役 4 项重叠入口，精选入库 5 项高价值技能，移除通用模板并提升至 295 个规范技能。
 
 - [v6.2.0](./releases/v6.2.0.md)（2026-11-18）：合并 v6.1.0 全量审查成果，更新 `agent-browser` 0.43.0、DevTools 与 Playwright 指引，并建立浏览器基础能力优先检查机制。
 

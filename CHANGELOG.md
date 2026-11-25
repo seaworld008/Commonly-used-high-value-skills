@@ -8,7 +8,19 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v6.2.0..HEAD`.
+变更范围 / Revision range: `v7.0.0..HEAD`.
+
+#### [2026-11-25]
+
+##### Fixed
+- restore multi-tenant RLS membership checks, resolve PR #164 findings, and upgrade browser foundations
+<!-- AUTO-CHANGELOG:END -->
+
+## [7.0.0] - 2026-11-23
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v6.2.0..v7.0.0`.
 
 #### [2026-11-23]
 
@@ -39,7 +51,6 @@ All notable changes to this repository are documented here.
 - harden upstream discovery, remove bundled session logs, normalize tags
 - retain upstream web-first and pre-execution approval rules
 - record canonical LF digests for the curated guidance
-<!-- AUTO-CHANGELOG:END -->
 
 ## [6.2.0] - 2026-11-18
 

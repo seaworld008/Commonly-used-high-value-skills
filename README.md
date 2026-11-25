@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # 固定到某个发布版本，便于团队复现
-npx github:seaworld008/Commonly-used-high-value-skills#v7.0.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v7.0.1 install --target codex
 
 # 浏览可选技能、分类和安装目标
 npx github:seaworld008/Commonly-used-high-value-skills list-skills

@@ -79,3 +79,9 @@ python scripts/sync_all_upstream_skills.py
 - agent-browser（稳定版保持 0.43.0）、Chrome DevTools MCP（稳定版保持 1.13.0）与
   `modern-web-guidance-src`（分发稳定版保持 1.0.1）：完成默认分支路径差异审阅并推进
   监控基线，未将未发布默认分支变更写入稳定版指引。
+
+## 本次审阅（2026-11-25）
+
+- agent-browser 稳定版升至 0.44.0（`v0.44.0`，`0a923358ea989d7602f0d06507ad3447c62ffe9b`）：同步 `upstream-core.md` 与 `commands.md` / `session-management.md` / `snapshot-refs.md` / `streaming.md` / `trust-boundaries.md`，补充文档替换后旧 ref 报错 `"no longer loaded"`、WebMCP `[origin]` / `cross-origin` 与内联 JSON 调用、`--allowed-domains` 空列表拒绝、`tab keep` 及 `vercel` 技能改名。
+- Chrome DevTools MCP 稳定版升至 1.14.0（`chrome-devtools-mcp-v1.14.0`）：更新 `browser-testing-with-devtools` 与 `browser-backends.md`，补充 `--backgroundNewPages`、`serviceWorkerId`（`sw-N`）网络与控制台检索、`get_css_styles` 计算样式与 CSS 变量内联解析、透明截图、网络 mock 的 abort/allow-origin 支持及工具执行期页面报错回传。
+- `modern-web-guidance` 分发稳定版升至 1.0.2（`v1.0.2`，`2b4aa13a72dd47cd135b06ce5abfccd92e19b24f`）及 `modern-web-guidance-src`（`92686ac7d6ebd6c794b575335a7ff4a3e7f66ecb`）：更新 `SKILL.md` 与 `references/maintenance.md` 至 1.0.2，纳入 `js` 学科级指南提示及 `context-menu`/`teaser` 等新指南说明，并推进监控基线。

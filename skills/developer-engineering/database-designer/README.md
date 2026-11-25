@@ -35,7 +35,7 @@ A comprehensive database design and analysis toolkit that provides expert-level 
 ### Installation
 ```bash
 # Clone or download the database-designer skill
-cd engineering/database-designer/
+cd skills/developer-engineering/database-designer/
 
 # Make scripts executable
 chmod +x *.py
@@ -193,13 +193,15 @@ python migration_generator.py \
 database-designer/
 ├── README.md                          # This file
 ├── SKILL.md                          # Comprehensive database design guide
+├── EXTENDED.md                       # Extended normalization walkthroughs
 ├── schema_analyzer.py                # Schema analysis tool
 ├── index_optimizer.py                # Index optimization tool  
 ├── migration_generator.py            # Migration generation tool
 ├── references/                       # Reference documentation
 │   ├── normalization_guide.md        # Normalization principles and patterns
 │   ├── index_strategy_patterns.md    # Index design and optimization guide
-│   └── database_selection_decision_tree.md # Database technology selection
+│   ├── database_selection_decision_tree.md # Database technology selection
+│   └── orm-and-rls-patterns.md       # ORM migrations, multi-tenancy, and PostgreSQL RLS
 ├── assets/                           # Sample files and test data
 │   ├── sample_schema.sql            # Sample DDL with various issues
 │   ├── sample_schema.json           # JSON schema definition

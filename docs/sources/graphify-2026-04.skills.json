@@ -33,10 +33,10 @@
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.111",
-        "last_checked_at": "2026-11-17",
-        "last_synced_at": "2026-11-17",
-        "last_synced_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
+        "ref": "v0.9.119",
+        "last_checked_at": "2026-11-25",
+        "last_synced_at": "2026-11-25",
+        "last_synced_commit": "ba33a181f88b6ff675699decf4878566af851ab3",
         "sync_mode": "monitor",
         "path_commit": "d4a5b323ef8501518b82c58a05fe21b35ce24992"
       },
@@ -67,18 +67,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.111",
-            "resolved_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
+            "ref": "v0.9.119",
+            "resolved_commit": "ba33a181f88b6ff675699decf4878566af851ab3",
             "path_commit": "d4a5b323ef8501518b82c58a05fe21b35ce24992",
             "content_sha256": "35c5274697a435a31c3565fd6915235ec8b926a026d448279ec44a2bf059ee7d",
-            "last_checked_at": "2026-11-17",
-            "last_synced_at": "2026-11-17",
+            "last_checked_at": "2026-11-25",
+            "last_synced_at": "2026-11-25",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
+              "resolved_commit": "ba33a181f88b6ff675699decf4878566af851ab3",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -257,6 +257,13 @@
       "target": "Graphify-Labs/graphify@18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-25",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@ba33a181f88b6ff675699decf4878566af851ab3",
+      "result": "success",
+      "evidence": "Reviewed v0.9.111..v0.9.119; official Codex SKILL.md, 8 references, and Apache-2.0 LICENSE remain byte-identical, so local overlay content is preserved and checkpoint advanced to v0.9.119."
     }
   ]
 }

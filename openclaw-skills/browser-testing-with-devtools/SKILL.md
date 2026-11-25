@@ -2,14 +2,14 @@
 name: browser-testing-with-devtools
 description: 'Inspect browser DOM, network, console, screenshots, and performance with Chrome DevTools MCP when validating or debugging web behavior.'
 zh_description: "用于通过浏览器 DevTools 测试、调试和验证前端行为。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "browser-testing-with-devtools", "engineering", "workflow"]
 created_at: "2026-07-27"
-updated_at: "2026-11-18"
+updated_at: "2026-11-25"
 quality: 5
 complexity: advanced
 upstream_slug: browser-testing-with-devtools
@@ -37,20 +37,22 @@ Use Chrome DevTools MCP to give your agent eyes into the browser. This bridges t
 
 ### Runtime and backend compatibility
 
-The current compatibility review covers Chrome DevTools MCP **1.13.0**.
+The current compatibility review covers Chrome DevTools MCP **1.14.0**.
 The package version, this skill's patch version and a native browser plugin's
 application build are separate version streams. Discover tools from the actual
 running server; downloading a newer package does not reload an existing MCP
 process. Load [browser backends](references/browser-backends.md) when choosing
 between native Browser/Chrome, DevTools MCP, agent-browser and Playwright.
 
-With 1.13.0, page-scoped tools use `pageId` routing by default. Obtain the page
+With 1.13.0–1.14.0, page-scoped tools use `pageId` routing by default (and `--backgroundNewPages` keeps newly opened tabs in the background). Obtain the page
 ID from the current page inventory and pass it where the exposed schema requires
 it; do not rely on another agent's selected page. Keep page IDs, DevTools UIDs,
 agent-browser `@eN` refs and Playwright refs within their own backend/session.
 
-Logpoints and page-scoped network mocks are available only when their tool
-groups are exposed. Inspect their schema, scope them to the test page, and
+Logpoints and page-scoped network mocks (including abort and allow-origin mocks) are available only when their tool
+groups are exposed. In 1.14.0, `list_network_requests`, `get_network_request`, and `get_console_message` accept `serviceWorkerId` (`sw-N`),
+`get_css_styles` includes computed styles and inline-resolved CSS custom properties, `take_screenshot` supports transparent backgrounds,
+and page errors raised while a tool executes are surfaced with the response. Inspect their schema, scope them to the test page, and
 restore mocks/logpoints after the test. `--no-javascript-evaluation` also disables
 logpoints in this release; do not work around that restriction with DevTools UI
 automation. Experimental WebMCP, extensions, PWA and vision tools remain opt-in;

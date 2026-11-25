@@ -6,14 +6,14 @@ and proactive pre-execution network approval in approval-gated environments.
 Existing session authorization is reused; the current user and host govern
 execution. These are retained skill rules, not changes to global host settings.
 
-Reviewed distribution commit: `64a6d708f5a43f2cd3fde5d4d7db3905ba1bdf65`.
+Reviewed distribution commit: `2b4aa13a72dd47cd135b06ce5abfccd92e19b24f`.
 The original upstream entry is `skills/modern-web-guidance/SKILL.md`.
 
 ## Sources to check together
 
 - Distribution: https://github.com/GoogleChrome/modern-web-guidance
 - Authoring and CLI source: https://github.com/GoogleChrome/modern-web-guidance-src
-- npm package: `modern-web-guidance`, reviewed at 1.0.1 (Node >=22).
+- npm package: `modern-web-guidance`, reviewed at 1.0.2 (Node >=22).
 
 The distribution repository's skill includes a generated `--skill-version` marker.
 That flag is documented as internal. Do not blindly freeze that marker in local

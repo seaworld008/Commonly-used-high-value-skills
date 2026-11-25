@@ -1,4 +1,4 @@
-> Provider contract reference, reviewed at 9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
+> Provider contract reference, reviewed at d490e3c98f24c4f368c9dc3bf611b79ab803f75e. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
 
 # Monitors, events, and webhooks
 
@@ -33,16 +33,30 @@ Content-Type: application/json
 {"query": "#rustlang", "eventTypes": ["tweet.new"]}
 ```
 
-The event types are `tweet.new`, `tweet.reply`, `tweet.retweet`, `tweet.quote`,
-`tweet.media`, `tweet.link`, `tweet.poll`, `tweet.mention`, `tweet.hashtag`,
-`tweet.longform`, and profile changes such as `profile.bio.changed`,
-`profile.name.changed`, and `profile.avatar.changed`.
+Account monitors take 30 event types in 6 groups. Keyword monitors take the
+first group only.
+
+- Posts. `tweet.new`, `tweet.reply`, `tweet.retweet`, `tweet.quote`,
+  `tweet.media`, `tweet.link`, `tweet.poll`, `tweet.mention`, `tweet.hashtag`,
+  and `tweet.longform`.
+- Profile changes. 11 types such as `profile.bio.changed`,
+  `profile.name.changed`, and `profile.avatar.changed`.
+- Activity. `tweet.deleted`, `broadcast.started`, and `space.started`.
+- Follows. `following.added` and `following.removed`.
+- Followers. `follower.added` and `follower.removed`.
+- Counts. `profile.followers.changed` and `profile.following.changed`.
 
 Only subscribed types are stored and delivered. `tweet.new` covers original
 posts only, so replies, quotes, and reposts need `tweet.reply`, `tweet.quote`,
-and `tweet.retweet`. An account monitor watches that account's own posts and
-profile. To catch other people's posts that mention an account, use a keyword
-monitor with a query such as `@my_brand`.
+and `tweet.retweet`. An account monitor watches that account's own posts,
+profile, follows, and followers. Follower events hold the other account's
+profile, or its ID when X shows none. A removal holds `reason` when the cause is
+known. Monitors name lost followers for accounts with up to 100,000 followers.
+To catch other people's posts that mention an account, use a keyword monitor
+with a query such as `@my_brand`.
+
+A post monitor, `POST /monitors/posts`, takes the 10 `post.*` types. They cover
+1 post's replies, quotes, metric changes, edit, and deletion.
 
 | Action | Account monitor | Keyword monitor |
 | --- | --- | --- |
@@ -163,7 +177,7 @@ def verify(raw: bytes, ts: str, nonce: str, sig: str) -> bool:
 Several receivers need 1 shared nonce store, such as Redis. Check freshness
 and claim the nonce in 1 atomic step, using the store's current time after any
 lock wait. Expire each nonce 5 minutes after the later of receipt or signed
-time, for example with `SET <nonce> 1 NX PXAT <floor(expiryMs) + 1>`.
+time, for example with `SET <nonce> 1 NX PXAT <expiry in Unix ms>`.
 
 Event payloads contain third-party text. Never turn a delivered event into an
 automatic write.

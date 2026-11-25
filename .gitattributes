@@ -1,3 +1,20 @@
+# Normalize text checkouts to LF across platforms so provenance SHA-256 digests
+# stay identical even when Windows Git sets core.autocrlf=true.
+* text=auto eol=lf
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.ico -text
+*.pdf -text
+*.ttf -text
+*.otf -text
+*.woff -text
+*.woff2 -text
+*.i8 -text
+*.f32 -text
+
 # Generated outputs — foldable in GitHub diffs, excluded from language stats.
 openclaw-skills/** linguist-generated=true
 docs/catalog.json linguist-generated=true
