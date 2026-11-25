@@ -8,16 +8,17 @@
 [![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 295 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Antigravity`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 295 个技能**。
 
-[快速开始](#quick-start) · [分类导航](#categories) · [技能总览](#skill-overview) · [参与共建](#contributing) · [版本动态](docs/RELEASES.md)
+[快速开始](#quick-start) · [分类导航](#categories) · [指令与兼容设计](#instruction-design) · [技能总览](#skill-overview) · [参与共建](#contributing) · [版本动态](docs/RELEASES.md)
 
 ## 为什么值得收藏
 
 - **按场景收齐高频技能**：省去到处找 prompt、脚本和工作流的时间，既适合日常检索，也适合团队二次扩展。
 - **不只是文档**：许多技能自带 `scripts/`、`references/`、`assets/`，可以直接复用。
 - **一份源码，多端可用**：兼容 `Codex`、`Claude Code`、`Cursor`、`Antigravity`、`Hermes Agent`、`OpenClaw`，并提供 `npx` 一键安装器。
-- **持续维护而非一次性收集**：自动发现新技能、同步上游更新、候选优选、质量门禁和生成视图形成闭环；来源策略文件统一管理白名单、黑名单、优先来源和准入门槛。
+- **持续维护而非一次性收集**：全仓更新前优先校验浏览器与核心基础能力漂移，并与新技能发现、上游增量审阅、候选优选、质量门禁和生成视图形成闭环；来源策略文件统一管理白名单、黑名单、优先来源和准入门槛。
+- **顺应高能力模型持续打磨指令**：采用简洁前置触发与按需参考加载，清理无依据的机械停顿与重复模板，兼顾自主执行效率与真实风险护栏。
 - **可信、可追溯**：每个技能都有 provenance 来源记录；外源技能必须通过许可证审计；发布前要求 CI 与 Code Scanning 全部通过；`dead-links` 工作流每月巡检外链。
 - **自带安全审查能力**：`skill-security-auditor`、`security-review`、`input-guard`、`link-checker` 等技能可在安装外部技能前识别风险。
 - **Hermes Agent 一等支持**：内置 `hermes-agent`、`native-mcp` 与 `hermes-open-gsd-workflow` 薄路由。
@@ -26,7 +27,7 @@
 
 - AI 开发者、Agent 工作流构建者和自动化工具使用者
 - 想把常见任务沉淀为 Skills 的个人或团队
-- 正在使用 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent`、`OpenClaw` 等工具的工程师
+- 正在使用 `Codex`、`Claude Code`、`Cursor`、`Antigravity`、`Hermes Agent`、`OpenClaw` 等工具的工程师
 - 想搭建自己的高价值技能库、提示库或 Agent 工作流库的人
 
 <a id="quick-start"></a>
@@ -36,9 +37,11 @@
 
 | 客户端 / 场景 | 使用目录 | 说明 |
 |---------------|----------|------|
-| 让 `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` 直接浏览仓库源码 | `skills/` | 保留分类结构，便于检索、维护与编辑 |
+| 让 `Codex` / `Claude Code` / `Cursor` / `Antigravity` / `Hermes Agent` 直接浏览仓库源码 | `skills/` | 保留分类结构，便于检索、维护与编辑 |
+| 跨客户端项目级安装（npx 默认） | `./.agents/skills` | 遵循 Agent Skills 目录约定，按项目隔离技能上下文 |
 | `Codex` 本机安装 | `~/.codex/skills` | 用 npx 安装器或同步脚本平铺安装，便于客户端发现 |
 | `Claude Code` 本机安装 | `~/.claude/skills` 或项目内 `.claude/skills` | 同上 |
+| `Cursor` / `Antigravity` 本机安装 | `~/.cursor/skills` 或 `~/.gemini/antigravity/skills` | 使用 npx 安装器 `--target cursor` / `--target antigravity` 安装 |
 | `OpenClaw` | `openclaw-skills/` | OpenClaw 只识别一层扁平目录，不要指向仓库根目录或 `skills/` |
 
 ### 方式一：npx 一键安装（推荐给命令行用户）
@@ -67,12 +70,13 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 # 安装到自定义目录，适配其他 AI Agent 客户端
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
-# 固定到某个发布版本，便于团队复现
-npx github:seaworld008/Commonly-used-high-value-skills#v7.0.1 install --target codex
+# 固定到指定发布标签（将 <release-tag> 替换为 Releases 中的版本标签，便于团队复现）
+npx github:seaworld008/Commonly-used-high-value-skills#<release-tag> install --target codex
 
-# 浏览可选技能、分类和安装目标
+# 浏览可选技能、安装目标和受管可选包（bundles）
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
 npx github:seaworld008/Commonly-used-high-value-skills list-targets
+npx github:seaworld008/Commonly-used-high-value-skills list-bundles
 ```
 
 可用目标：
@@ -94,6 +98,7 @@ npx github:seaworld008/Commonly-used-high-value-skills list-targets
 - `--all` 表示写入所有标准客户端目标，并不是推荐的默认选项；按需选择 `--target`、`--category`、`--skill` 即可。
 - 从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
 - 每个目标目录都会写入 `.high-value-skills-manifest.json`，记录来源与文件摘要；替换前先暂存并校验，被修改过或非本安装器管理的副本会归档到目标旁的 `.high-value-skills-backups/`。
+- 受管可选包（如 Open GSD，可通过 `list-bundles` 查看）仅在显式传入 `--bundle` 时按需安装，普通安装默认绝不混入。
 - 这不是跨所有目标的原子事务：遇到报错时先检查输出和备份目录，不要手动删除旧副本。
 
 如果你已经在使用 `skills.sh` 生态，也可以尝试标准安装入口：
@@ -115,7 +120,7 @@ npx skills add seaworld008/Commonly-used-high-value-skills --all -a codex -a cla
 如果 AI 工具没有自动识别出来，再补一句即可：
 
 ```text
-当前工具是 `<Codex / Claude Code / Hermes Agent / Cursor / OpenClaw>`，本地仓库路径是 `<你的本地仓库路径>`。
+当前工具是 `<Codex / Claude Code / Cursor / Antigravity / Hermes Agent / OpenClaw>`，本地仓库路径是 `<你的本地仓库路径>`。
 ```
 
 之所以可以这样简化，是因为仓库里已经包含给 AI 工具读取的安装规则与目录约定（[AGENTS.md](./AGENTS.md)），通常不需要你把安装逻辑全部写进提示词。
@@ -189,22 +194,22 @@ openclaw skills check
 
 | 分类 | 说明 | 文档跳转 | 目录 |
 |------|------|----------|------|
-| 开发工程 | 开发、测试、性能、代码审查、数据库与架构 | [跳转](#cat-developer-engineering) | [目录](./skills/developer-engineering/) |
+| 开发工程 | 开发、测试、性能、代码审查、数据库、架构与代码图谱 | [跳转](#cat-developer-engineering) | [目录](./skills/developer-engineering/) |
 | AI 工作流 | Agent 技能使用、规划、实现、评审、验证与发布闭环 | [跳转](#cat-ai-workflow) | [目录](./skills/ai-workflow/) |
-| AI 平台与 Agent 开发 | ChatGPT Apps、Hermes、MCP、Figma、OpenAI Docs 与自主 Agent | [跳转](#cat-ai-agent-platform) | [目录](./skills/ai-agent-platform/) |
-| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright、graphify/GSD | [跳转](#cat-workflow-automation) | [目录](./skills/engineering-workflow-automation/) |
+| AI 平台与 Agent 开发 | Claude/OpenAI 开发、ChatGPT Apps、Hermes、MCP、Figma 与多引擎编排 | [跳转](#cat-ai-agent-platform) | [目录](./skills/ai-agent-platform/) |
+| 工程工作流自动化 | 浏览器自动化、Playwright、GitHub PR/CI 闭环、网页抓取、Notebook 与钩子 | [跳转](#cat-workflow-automation) | [目录](./skills/engineering-workflow-automation/) |
 | DevOps / SRE | 发布、监控、故障响应、CI/CD、环境管理 | [跳转](#cat-devops-sre) | [目录](./skills/devops-sre/) |
 | 金融投资 | 金融数据、估值、风控、回测、投研写作 | [跳转](#cat-finance-investing) | [目录](./skills/finance-investing/) |
 | 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) | [目录](./skills/growth-operations-xiaohongshu/) |
 | 办公与文档 | Word、Excel、PPT、PDF、会议纪要 | [跳转](#cat-office-white-collar) | [目录](./skills/office-white-collar/) |
 | 项目管理与知识库集成 | Notion、Linear、Obsidian、飞书/Lark、规格到实施 | [跳转](#cat-knowledge-pm) | [目录](./skills/knowledge-and-pm-integrations/) |
-| 通用运营 | 品牌、事实核查、内部沟通、主题与天气 | [跳转](#cat-operations-general) | [目录](./skills/operations-general/) |
+| 通用运营 | 品牌规范、事实核查、文档精简、开发环境与领英自动化、招聘与主题 | [跳转](#cat-operations-general) | [目录](./skills/operations-general/) |
 | 产品与设计 | 产品分析、设计系统、UX 研究、SaaS 脚手架 | [跳转](#cat-product-design) | [目录](./skills/product-design/) |
 | 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模、漏洞扫描 | [跳转](#cat-security-reliability) | [目录](./skills/security-and-reliability/) |
 | 多模态内容 | 图像、语音、视频、截图、摘要、转写 | [跳转](#cat-multimodal-media) | [目录](./skills/multimodal-media/) |
 | 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) | [目录](./skills/deployment-platforms/) |
 | 记忆与安全 | 长期记忆、输入防护、RAG、Runbook | [跳转](#cat-memory-safety) | [目录](./skills/openclaw-memory-and-safety/) |
-| 任务理解与拆解 | 联网检索、复盘学习与任务理解补充能力 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
+| 任务理解与拆解 | 陌生代码理解、缺陷根因调查、变更影响面评估、方案追问与复盘学习 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
 
 ## 从哪里开始最容易上手
 
@@ -233,11 +238,19 @@ Hermes 用户推荐从 [`skills/ai-agent-platform/README.md`](./skills/ai-agent-
 
 ### Hermes、Graphify 与 Open GSD
 
-仓库收录官方 Hermes artifact set 和保留完整官方参考资料的 Graphify 策展入口，并把 Open GSD Core / Pi 作为受管 bundle；本地组合层只保留 `hermes-open-gsd-workflow` 这一个入口，不复制版本、安装命令或状态机。实际版本、完整性摘要、安装器和 inventory 以 [`docs/sources/`](./docs/sources/) 的 canonical provenance / bundle metadata 为准。旧的 Hermes + Graphify + GSD 组合技能及其迁移兼容层已删除，portfolio denylist 只负责阻止这些旧名称被重新引入。
+仓库收录官方 Hermes artifact set 和保留完整官方参考资料的 Graphify 策展入口，并把 Open GSD Core / Pi 作为受管 bundle；本地组合层只保留 `hermes-open-gsd-workflow` 这一个入口，不复制版本、安装命令或状态机。实际版本、完整性摘要、安装器和 inventory 以 [`docs/sources/`](./docs/sources/) 的 canonical provenance / bundle metadata 为准。仓库不维护复制上游版本、安装命令或状态机的多工具拼接包装层；功能重叠或已退役的旧入口由组合策略与 denylist 持续拦截，升级时可通过安装器 `--prune-retired` 安全清理未改动的旧副本。
 
-## GPT-6 Astra 指令优化
+<a id="instruction-design"></a>
+## 面向演进模型与多宿主的指令优化
 
-技能采用简洁触发、按需资料和按风险验证的执行方式。全量审计说明、官方来源及模型评测边界见 [Astra 适配指南](docs/astra-skill-guidance.md)，日常维护使用[统一工作流](docs/maintenance-workflow.md)。仓库内容更新与本地模型配置、技能安装分别管理。Codex / Claude 的共享格式、宿主差异和验证边界见[双端兼容说明](docs/cross-agent-compatibility.md)。
+随着基座模型的推理与自主执行能力持续增强，早期面向弱模型编写的冗长说教、机械重复模板、过宽触发词与无依据停顿，反而会干扰高能力模型判断并挤占上下文预算。本仓库围绕模型演进与多宿主协作持续打磨技能规范：
+
+- **简洁前置触发与按需加载**：触发描述把核心任务与适用边界前置，控制入口体积；`SKILL.md` 聚焦领域方法与关键判断，较长参考表、扩展示例与可执行工具拆分至同目录 `EXTENDED.md`、`references/`、`scripts/` 按需读取，导出与安装时完整随包交付。
+- **持续执行与真实风险护栏**：清理硬编码过时模型名、伪造审批门禁与阻碍实现者自检的教条规则；在会话已有授权内持续推进，仅对未授权外部写入、破坏性操作与真实合规边界保留明确停顿与确认。
+- **共享规范与本地配置解耦**：同一份规范适配 `Codex`、`Claude Code`、`Cursor`、`Antigravity`、`Hermes Agent` 与 `OpenClaw`，宿主专属扩展按实际能力选择；仓库内容更新与用户本机模型配置、全局技能安装分别管理，互不自动改写。
+- **按风险验证与评测边界分离**：通过 [`audit_skill_instructions.py`](./scripts/audit_skill_instructions.py)（静态规则防回退，不执行被审内容）与完整校验流水线把关，并严格区分静态指令审计、仓库测试与受控环境下的真实模型行为对照评测。
+
+深入说明：跨客户端共享格式、宿主差异与发现机制见[双端兼容说明](./docs/cross-agent-compatibility.md)；面向高能力模型的指令精简依据、全量审计基线（如 GPT-6 Astra 适配轮次）与行为评测协议见[模型指令适配指南](./docs/astra-skill-guidance.md)；日常同步、来源治理与发布闭环见[统一维护工作流](./docs/maintenance-workflow.md)。
 
 ## 目录结构
 
@@ -246,19 +259,19 @@ skills/
   developer-engineering/                # 开发工程
   ai-workflow/                          # AI 工作流（Agent Skills / 上下文工程 / 计划执行）
   ai-agent-platform/                    # AI 平台与 Agent 开发
-  engineering-workflow-automation/      # 工程工作流自动化（GitHub/CI/测试）
+  engineering-workflow-automation/      # 工程工作流自动化（浏览器/PR/CI/抓取）
   devops-sre/                           # DevOps / SRE
   finance-investing/                    # 金融投资与投研分析
   growth-operations-xiaohongshu/        # 增长运营（小红书/社媒）
   office-white-collar/                  # 办公与文档生产力
   knowledge-and-pm-integrations/        # 项目管理与知识库集成（Linear/Notion/Obsidian/飞书）
-  operations-general/                   # 通用运营
+  operations-general/                   # 通用运营（品牌/核查/个人环境/主题）
   product-design/                       # 产品与设计
   security-and-reliability/             # 安全治理与稳定性
   multimodal-media/                     # 多模态内容（图像/语音/视频/转写）
   deployment-platforms/                 # 部署平台（Vercel/Netlify/Render/Cloudflare）
   openclaw-memory-and-safety/           # 记忆与安全
-  task-understanding-decomposition/     # 任务理解与拆解
+  task-understanding-decomposition/     # 任务理解与拆解（调研/定位/影响评估）
 openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导出目录（不要手工编辑）
 docs/                                   # 维护文档、发布说明、来源记录与生成的目录
 scripts/                                # 安装、同步、生成与校验脚本
@@ -642,17 +655,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`ripple`](./skills/task-understanding-decomposition/ripple/)：实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。
 - [`scout`](./skills/task-understanding-decomposition/scout/)：调查缺陷时使用：复现问题、逐一验证假设、定位根因并评估影响，在修复前完成。
 
-## 下一轮建议补充方向
+## 持续演进与选型原则
 
-以下方向适合作为下一批扩充或替换的候选：
+本仓库作为长期演进的技能基础设施，按以下机制持续扩充、升级与收敛目录：
 
-- 逐个复核仍处于 monitor 状态的上游来源，吸收有价值的上游改动。
-- 从 `VoltAgent/awesome-claude-skills` 中筛选行业类、数据类、科学研究类技能。
-- 从 `kodustech/awesome-agent-skills` 中筛选命令开发、仓库治理和跨客户端兼容技能。
-- 从官方平台文档中沉淀更细的部署、安全、办公自动化和多模态技能。
-- 替换功能重叠的技能前，先比较使用频次、质量评分和最近同步时间。
-
-最近一次维护记录见 [2026-11-04 维护报告](./docs/maintenance-audit-2026-11-04.md)；早期的精选依据见[技能精选与升级报告](./docs/sources/reports/skill-curation-2026-04-25.md)。
+- **核心底座优先巡检**：全仓更新前先运行 [`check_browser_foundations.py`](./scripts/check_browser_foundations.py)，优先审查 `agent-browser`、Chrome DevTools MCP、Playwright 与 Google Modern Web Guidance 的稳定版与接口漂移，详见[浏览器基础能力维护](./docs/browser-foundation-maintenance.md)。
+- **分层来源治理（Pinned / Monitor / In-house）**：依托 [`docs/sources/`](./docs/sources/) 的 provenance v2 区分经审阅的稳定版固定引用、默认分支 `monitor` 来源（逐项复核提交差异、吸收有价值改动并保留本地安全护栏）以及无明确宽松许可证时的原创 `in-house` MIT 重写。
+- **高信号补齐与重叠收敛**：持续从官方文档、真实工程实践及 `VoltAgent/awesome-claude-skills`、`kodustech/awesome-agent-skills` 等公开生态中筛选行业、数据、科研、仓库治理与多模态能力；引入或替换功能重叠技能前，综合比较使用频次、脚本与参考完备度、质量评分和最近同步状态，合并或退役入口配合 `--prune-retired` 平滑收敛。
+- **演进档案与版本追溯**：各版本核心变化见[版本动态](./docs/RELEASES.md)与 [CHANGELOG.md](./CHANGELOG.md)；历次全仓维护报告（`docs/maintenance-audit-*.md`）与发布说明归档于 [`docs/`](./docs/) 及 [`docs/releases/`](./docs/releases/)，早期精选方法见[技能精选与升级报告](./docs/sources/reports/skill-curation-2026-04-25.md)。
 
 <a id="contributing"></a>
 ## 参与共建与维护
@@ -660,7 +670,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ### 贡献新技能
 
 1. 阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)。
-2. 按 `skills/<分类>/<skill-name>/SKILL.md` 结构新建技能，并填写完整 frontmatter（`name`、`description`、`zh_description`、`version`、`tags`、`quality`、`source`）。`description` 用 “Use when …” 写清触发条件，`zh_description` 用简明中文。
+2. 按 `skills/<分类>/<skill-name>/SKILL.md` 结构新建技能，并填写完整 frontmatter（`name`、`description`、`zh_description`、`version`、`tags`、`quality`、`source`）。`description` 把主要任务与触发边界前置（建议 ≤ 240 字符，可用动作动词开头或 “Use when …”），`zh_description` 用简明中文。
 3. 引入外部技能时必须有宽松许可证，并登记来源：
 
    ```bash
@@ -688,14 +698,16 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 # 只刷新生成视图（分类 README、OpenClaw 导出、首页计数与技能总览）
 python3 scripts/refresh_repo_views.py
 
-# 检查外源技能的许可证元数据与外链健康度
+# 检查指令规则回归、外源许可证元数据与外链健康度
+python3 scripts/audit_skill_instructions.py
 python3 scripts/audit_licenses.py
 python3 scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
 
 # 刷新首页 banner 使用的 docs/catalog.json
 python3 scripts/build_catalog_json.py
 
-# 检查上游是否有可用更新（只读）
+# 先巡检浏览器基础能力，再检查上游是否有可用更新（只读）
+python3 scripts/check_browser_foundations.py
 python3 scripts/sync_upstream.py --check-only
 
 # 把仓库里的最新技能同步到本地 Codex 目录
@@ -738,7 +750,7 @@ python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot
 
 - 点一个 Star，让更多 AI 开发者发现它
 - 提交 PR，把你自己的高价值技能沉淀进来
-- 分享给使用 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent`、`OpenClaw` 的朋友或团队
+- 分享给使用 `Codex`、`Claude Code`、`Cursor`、`Antigravity`、`Hermes Agent`、`OpenClaw` 的朋友或团队
 
 ---
 

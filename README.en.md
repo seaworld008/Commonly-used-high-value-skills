@@ -8,16 +8,17 @@
 [![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 295 skills**.
+A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Antigravity`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 295 skills**.
 
-[Quick Start](#quick-start) · [Categories](#categories) · [Skill Overview](#skill-overview) · [Contributing](#contributing) · [Releases](docs/RELEASES.en.md)
+[Quick Start](#quick-start) · [Categories](#categories) · [Instruction Design](#instruction-design) · [Skill Overview](#skill-overview) · [Contributing](#contributing) · [Releases](docs/RELEASES.en.md)
 
 ## Why It Is Useful
 
 - **High-frequency skills, organized by scenario**: stop hunting for prompts, scripts, and workflows; use it for daily lookup or as a base your team extends.
 - **More than documentation**: many skills ship `scripts/`, `references/`, and `assets/` you can reuse directly.
 - **One source, many clients**: works with `Codex`, `Claude Code`, `Cursor`, `Antigravity`, `Hermes Agent`, and `OpenClaw`, with a one-command `npx` installer.
-- **Maintained, not just collected**: discovery of new skills, upstream sync, candidate ranking, quality gates, and generated views run as one loop; a policy file manages allowed, denied, and preferred sources plus admission thresholds.
+- **Maintained, not just collected**: browser and core foundation drift checks run first before portfolio-wide updates, forming one loop with skill discovery, upstream delta review, candidate ranking, quality gates, and generated views; a policy file manages allowed, denied, and preferred sources plus admission thresholds.
+- **Instruction quality tuned for stronger models**: concise front-loaded triggers and on-demand references, with artificial pauses and repetitive boilerplate stripped out while keeping real risk guardrails.
 - **Trustworthy and traceable**: every skill has a provenance record; external skills must pass a license audit; releases require passing CI and zero open Code Scanning alerts; the monthly `dead-links` workflow checks external links.
 - **Built-in security review**: `skill-security-auditor`, `security-review`, `input-guard`, and `link-checker` help spot risks before you install third-party skills.
 - **First-class Hermes Agent support**: includes `hermes-agent`, `native-mcp`, and the thin `hermes-open-gsd-workflow` router.
@@ -26,7 +27,7 @@ A high-value skills repository for AI developers and agent workflow builders wor
 
 - AI developers, agent workflow builders, and automation tool users
 - Individuals and teams who want to turn recurring tasks into skills
-- Engineers using `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, `OpenClaw`, and similar tools
+- Engineers using `Codex`, `Claude Code`, `Cursor`, `Antigravity`, `Hermes Agent`, `OpenClaw`, and similar tools
 - Anyone building their own library of high-value skills, prompts, or agent workflows
 
 <a id="quick-start"></a>
@@ -36,9 +37,11 @@ A high-value skills repository for AI developers and agent workflow builders wor
 
 | Client / scenario | Directory | Notes |
 |-------------------|-----------|-------|
-| Let `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` browse the repository source | `skills/` | Keeps the category structure for search, maintenance, and editing |
+| Let `Codex` / `Claude Code` / `Cursor` / `Antigravity` / `Hermes Agent` browse the repository source | `skills/` | Keeps the category structure for search, maintenance, and editing |
+| Project-level multi-client install (`npx` default) | `./.agents/skills` | Follows the Agent Skills convention and scopes skills to the current project |
 | Local `Codex` install | `~/.codex/skills` | Flat install via the npx installer or the sync script, so the client can discover skills |
 | Local `Claude Code` install | `~/.claude/skills` or project `.claude/skills` | Same as above |
+| Local `Cursor` / `Antigravity` install | `~/.cursor/skills` or `~/.gemini/antigravity/skills` | Install with `--target cursor` / `--target antigravity` via the npx installer |
 | `OpenClaw` | `openclaw-skills/` | OpenClaw only reads a flat, one-level directory; do not point it at the repository root or `skills/` |
 
 ### Option 1: Install With npx (recommended for command-line users)
@@ -67,12 +70,13 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 # Install into a custom directory for another AI agent client
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
-# Pin a release so your team gets reproducible installs
-npx github:seaworld008/Commonly-used-high-value-skills#v7.0.1 install --target codex
+# Pin a release tag (replace <release-tag> with a tag from Releases) for reproducible installs
+npx github:seaworld008/Commonly-used-high-value-skills#<release-tag> install --target codex
 
-# Browse available skills, categories, and install targets
+# Browse available skills, install targets, and governed opt-in bundles
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
 npx github:seaworld008/Commonly-used-high-value-skills list-targets
+npx github:seaworld008/Commonly-used-high-value-skills list-bundles
 ```
 
 Available targets:
@@ -94,6 +98,7 @@ Installer safety guarantees:
 - `--all` means every standard client target and is not a recommended default; pick `--target`, `--category`, and `--skill` as needed.
 - When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
 - Each target directory gets a `.high-value-skills-manifest.json` with source and file digests. Replacements are staged and verified first, and modified or unowned copies are archived in `.high-value-skills-backups/` next to the destination.
+- Governed bundles (such as Open GSD, listed via `list-bundles`) are explicit opt-in with `--bundle` and are never included in normal installs.
 - This is not one atomic transaction across all targets: if something fails, check the output and the backup directory rather than deleting old copies by hand.
 
 If you already use the `skills.sh` ecosystem, you can also try the standard entry point:
@@ -115,7 +120,7 @@ You are my local installation assistant. Install the skills from https://github.
 If the tool doesn't figure out the details on its own, add one more line:
 
 ```text
-The current tool is `<Codex / Claude Code / Hermes Agent / Cursor / OpenClaw>`, and the local repository path is `<your local repository path>`.
+The current tool is `<Codex / Claude Code / Cursor / Antigravity / Hermes Agent / OpenClaw>`, and the local repository path is `<your local repository path>`.
 ```
 
 This short prompt is enough because the repository already contains installation rules and directory conventions written for AI tools ([AGENTS.md](./AGENTS.md)), so you rarely need to spell out the installation logic yourself.
@@ -189,22 +194,22 @@ More client-specific installation examples:
 
 | Category | Description | Jump | Directory |
 |----------|-------------|------|-----------|
-| Developer Engineering | Development, testing, performance, code review, databases, and architecture | [Jump](#cat-developer-engineering) | [Open](./skills/developer-engineering/) |
+| Developer Engineering | Development, testing, performance, code review, databases, architecture, and code graphs | [Jump](#cat-developer-engineering) | [Open](./skills/developer-engineering/) |
 | AI Workflow | Agent skill usage, planning, implementation, review, verification, and release loops | [Jump](#cat-ai-workflow) | [Open](./skills/ai-workflow/) |
-| AI Platform and Agent Development | ChatGPT Apps, Hermes, MCP, Figma, OpenAI Docs, and autonomous agents | [Jump](#cat-ai-agent-platform) | [Open](./skills/ai-agent-platform/) |
-| Engineering Workflow Automation | Browser automation, GitHub, notebooks, Playwright, graphify/GSD | [Jump](#cat-workflow-automation) | [Open](./skills/engineering-workflow-automation/) |
+| AI Platform and Agent Development | Claude/OpenAI apps, ChatGPT Apps, Hermes, MCP, Figma, and multi-agent orchestration | [Jump](#cat-ai-agent-platform) | [Open](./skills/ai-agent-platform/) |
+| Engineering Workflow Automation | Browser automation, Playwright, GitHub PR/CI loops, web scraping, notebooks, and hooks | [Jump](#cat-workflow-automation) | [Open](./skills/engineering-workflow-automation/) |
 | DevOps / SRE | Releases, monitoring, incident response, CI/CD, environment management | [Jump](#cat-devops-sre) | [Open](./skills/devops-sre/) |
 | Finance and Investing | Financial data, valuation, risk, backtesting, research writing | [Jump](#cat-finance-investing) | [Open](./skills/finance-investing/) |
 | Growth Operations | Xiaohongshu, social media, content, attribution, competitor analysis | [Jump](#cat-growth-operations) | [Open](./skills/growth-operations-xiaohongshu/) |
 | Office and Documents | Word, Excel, PowerPoint, PDF, meeting minutes | [Jump](#cat-office-white-collar) | [Open](./skills/office-white-collar/) |
 | Knowledge and PM Integrations | Notion, Linear, Obsidian, Feishu/Lark, spec-to-implementation | [Jump](#cat-knowledge-pm) | [Open](./skills/knowledge-and-pm-integrations/) |
-| General Operations | Brand, fact checking, internal communications, themes, and weather | [Jump](#cat-operations-general) | [Open](./skills/operations-general/) |
+| General Operations | Brand guidelines, fact checking, docs cleanup, dev-env and LinkedIn automation, hiring, and themes | [Jump](#cat-operations-general) | [Open](./skills/operations-general/) |
 | Product and Design | Product analysis, design systems, UX research, SaaS scaffolding | [Jump](#cat-product-design) | [Open](./skills/product-design/) |
 | Security and Reliability | Sentry, security best practices, threat modeling, vulnerability scanning | [Jump](#cat-security-reliability) | [Open](./skills/security-and-reliability/) |
 | Multimodal Media | Images, speech, video, screenshots, summaries, transcription | [Jump](#cat-multimodal-media) | [Open](./skills/multimodal-media/) |
 | Deployment Platforms | Cloudflare, Netlify, Render, Vercel | [Jump](#cat-deployment-platforms) | [Open](./skills/deployment-platforms/) |
 | Memory and Safety | Long-term memory, input guarding, RAG, runbooks | [Jump](#cat-memory-safety) | [Open](./skills/openclaw-memory-and-safety/) |
-| Task Understanding and Decomposition | Web research, retrospectives, and task-understanding support | [Jump](#cat-task-understanding) | [Open](./skills/task-understanding-decomposition/) |
+| Task Understanding and Decomposition | Code comprehension, bug root-cause scouting, blast-radius analysis, plan stress-testing, and retrospectives | [Jump](#cat-task-understanding) | [Open](./skills/task-understanding-decomposition/) |
 
 ## Where to Start
 
@@ -233,11 +238,19 @@ Hermes users should start with [`skills/ai-agent-platform/README.md`](./skills/a
 
 ### Hermes, Graphify, and Open GSD
 
-The repository includes the official Hermes artifact set and a curated Graphify entry that keeps the complete official references, and manages Open GSD Core / Pi as governed bundles. The local composition layer keeps only one entry, `hermes-open-gsd-workflow`, and does not copy versions, install commands, or state machines. Actual versions, integrity digests, installers, and inventories come from the canonical provenance and bundle metadata in [`docs/sources/`](./docs/sources/). The old Hermes + Graphify + GSD composite skills and their migration shims have been removed; the portfolio denylist only prevents those old names from being reintroduced.
+The repository includes the official Hermes artifact set and a curated Graphify entry that keeps the complete official references, and manages Open GSD Core / Pi as governed bundles. The local composition layer keeps only one entry, `hermes-open-gsd-workflow`, and does not copy versions, install commands, or state machines. Actual versions, integrity digests, installers, and inventories come from the canonical provenance and bundle metadata in [`docs/sources/`](./docs/sources/). The repository does not maintain multi-tool wrapper skills that duplicate upstream versions, install commands, or state machines; overlapping or retired legacy entries remain blocked by the portfolio policy and denylist, and upgrades can clean up unchanged installer-owned copies with `--prune-retired`.
 
-## GPT-6 Astra Instruction Improvements
+<a id="instruction-design"></a>
+## Instruction Engineering for Evolving Models and Hosts
 
-Skills use concise triggers, on-demand references, and risk-based verification. The full audit notes, official sources, and model-evaluation boundaries are in the [Astra guidance](docs/astra-skill-guidance.md); day-to-day maintenance follows the [unified workflow](docs/maintenance-workflow.md). Repository updates are managed separately from local model configuration and skill installation. Shared formats, host differences, and verification boundaries for Codex / Claude are in the [cross-agent compatibility notes](docs/cross-agent-compatibility.md).
+As foundation models grow stronger in reasoning and autonomous execution, verbose micromanagement, repetitive boilerplate, overly broad triggers, and artificial pause gates written for weaker models can hurt judgment and waste context budget. This repository continuously refines its skill specifications around evolving models and multi-host collaboration:
+
+- **Concise front-loaded triggers and progressive loading**: trigger descriptions put the primary task and scope upfront while keeping entrypoints compact; `SKILL.md` focuses on domain judgment and workflows, while long reference tables, extended examples, and executable helpers live in co-located `EXTENDED.md`, `references/`, and `scripts/` files loaded on demand and shipped intact during export and installation.
+- **Continuous execution with real risk guardrails**: hardcoded legacy model names, invented approval gates, and rules forbidding implementer self-checks are stripped out; work proceeds within existing session authorization and pauses only for unauthorized external writes, destructive actions, or genuine compliance boundaries.
+- **Shared specification decoupled from local host setup**: a single canonical source targets `Codex`, `Claude Code`, `Cursor`, `Antigravity`, `Hermes Agent`, and `OpenClaw`, adapting host-specific extensions by capability; repository updates stay strictly separate from local model configuration and user-level skill installations.
+- **Risk-based verification and clear evaluation boundaries**: [`audit_skill_instructions.py`](./scripts/audit_skill_instructions.py) (static regression checks without executing audited content) and the full validation pipeline guard day-to-day changes, while strictly distinguishing static instruction audits and repository tests from controlled live-model behavioral evaluations.
+
+Further reading: shared formats, host differences, and discovery behavior are in the [cross-agent compatibility notes](./docs/cross-agent-compatibility.md); instruction-refinement rationale for stronger models, full-portfolio audit baselines (including the GPT-6 Astra round), and the behavioral evaluation protocol are in the [model instruction adaptation guide](./docs/astra-skill-guidance.md); routine upstream sync, provenance governance, and release gates follow the [unified maintenance workflow](./docs/maintenance-workflow.md).
 
 ## Directory Structure
 
@@ -246,19 +259,19 @@ skills/
   developer-engineering/                # Developer engineering
   ai-workflow/                          # AI workflow (agent skills / context engineering / plan execution)
   ai-agent-platform/                    # AI platform and agent development
-  engineering-workflow-automation/      # Engineering workflow automation (GitHub/CI/testing)
+  engineering-workflow-automation/      # Engineering workflow automation (browser/PR/CI/scraping)
   devops-sre/                           # DevOps / SRE
   finance-investing/                    # Finance and investment research
   growth-operations-xiaohongshu/        # Growth operations (Xiaohongshu/social media)
   office-white-collar/                  # Office and document productivity
   knowledge-and-pm-integrations/        # Knowledge and PM integrations (Linear/Notion/Obsidian/Feishu)
-  operations-general/                   # General operations
+  operations-general/                   # General operations (brand/fact-check/dev-env/themes)
   product-design/                       # Product and design
   security-and-reliability/             # Security and reliability
   multimodal-media/                     # Multimodal media (image/speech/video/transcription)
   deployment-platforms/                 # Deployment platforms (Vercel/Netlify/Render/Cloudflare)
   openclaw-memory-and-safety/           # Memory and safety
-  task-understanding-decomposition/     # Task understanding and decomposition
+  task-understanding-decomposition/     # Task understanding and decomposition (lens/scout/ripple)
 openclaw-skills/                        # Generated flat export for OpenClaw (do not edit by hand)
 docs/                                   # Maintenance docs, release notes, provenance records, generated catalog
 scripts/                                # Install, sync, generation, and validation scripts
@@ -642,17 +655,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`ripple`](./skills/task-understanding-decomposition/ripple/): Use before a risky change to estimate its blast radius: dependency chains, breaking changes, pattern consistency, a weighted risk score, and a go or no-go call.
 - [`scout`](./skills/task-understanding-decomposition/scout/): Use when investigating a bug report: reproduce it, test hypotheses one variable at a time, trace the root cause, and assess impact before any fix is written.
 
-## Next Curation Directions
+## Continuous Evolution and Curation
 
-These areas are good candidates for the next round of additions or replacements:
+As an actively maintained skills library, this repository expands, upgrades, and consolidates its catalog through a repeatable governance loop:
 
-- Review the upstream sources still in monitor mode one by one and absorb valuable upstream changes.
-- Evaluate industry, data, and science skills from `VoltAgent/awesome-claude-skills`.
-- Evaluate command-development, repository-governance, and cross-client compatibility skills from `kodustech/awesome-agent-skills`.
-- Turn official platform documentation into more granular deployment, security, office automation, and multimodal skills.
-- Before replacing overlapping skills, compare usage frequency, quality score, and last sync time.
-
-The latest maintenance record is the [2026-11-04 maintenance report](./docs/maintenance-audit-2026-11-04.md); earlier curation decisions are in the [Skill Curation and Upgrade Report](./docs/sources/reports/skill-curation-2026-04-25.md).
+- **Foundation-first drift checks**: before portfolio-wide updates, [`check_browser_foundations.py`](./scripts/check_browser_foundations.py) checks stable releases and interface drift across `agent-browser`, Chrome DevTools MCP, Playwright, and Google Modern Web Guidance; see [browser foundation maintenance](./docs/browser-foundation-maintenance.md).
+- **Tiered provenance governance (Pinned / Monitor / In-house)**: provenance v2 records in [`docs/sources/`](./docs/sources/) separate reviewed stable pins from `monitor`-mode default branches (reviewed commit-by-commit so valuable upstream changes are absorbed without overwriting local guardrails) and original `in-house` MIT rewrites when candidates lack a clear permissive license.
+- **High-signal expansion and overlap consolidation**: new deployment, security, office, multimodal, data, science, and governance skills are continuously curated from official platform docs, real engineering workflows, and ecosystems such as `VoltAgent/awesome-claude-skills` and `kodustech/awesome-agent-skills`; before replacing overlapping entries, maintainers compare usage frequency, bundled script/reference depth, quality scores, and sync recency, retiring superseded names cleanly with `--prune-retired`.
+- **Living release and audit archives**: release highlights are tracked in [Releases](./docs/RELEASES.en.md) and [CHANGELOG.md](./CHANGELOG.md); per-round maintenance audits (`docs/maintenance-audit-*.md`) and release records live under [`docs/`](./docs/) and [`docs/releases/`](./docs/releases/), with initial selection criteria documented in the [Skill Curation and Upgrade Report](./docs/sources/reports/skill-curation-2026-04-25.md).
 
 <a id="contributing"></a>
 ## Contributing and Maintenance
@@ -660,7 +670,7 @@ The latest maintenance record is the [2026-11-04 maintenance report](./docs/main
 ### Contributing a Skill
 
 1. Read [CONTRIBUTING.md](./CONTRIBUTING.md).
-2. Create the skill at `skills/<category>/<skill-name>/SKILL.md` with complete frontmatter (`name`, `description`, `zh_description`, `version`, `tags`, `quality`, `source`). Write `description` as a "Use when …" trigger, and keep `zh_description` short, plain Chinese.
+2. Create the skill at `skills/<category>/<skill-name>/SKILL.md` with complete frontmatter (`name`, `description`, `zh_description`, `version`, `tags`, `quality`, `source`). Put the primary task and trigger conditions upfront in `description` within 240 characters—starting with the core action or `"Use when …"`—and keep `zh_description` in short, plain Chinese.
 3. External skills need a permissive license and a recorded source:
 
    ```bash
@@ -688,14 +698,16 @@ The latest maintenance record is the [2026-11-04 maintenance report](./docs/main
 # Refresh generated views only (category READMEs, OpenClaw export, README counters and skill overviews)
 python3 scripts/refresh_repo_views.py
 
-# Check license metadata and external link health for external skills
+# Check instruction regressions, external license metadata, and external link health
+python3 scripts/audit_skill_instructions.py
 python3 scripts/audit_licenses.py
 python3 scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
 
 # Refresh docs/catalog.json, which feeds the banner
 python3 scripts/build_catalog_json.py
 
-# Check upstream sources for available updates (read-only)
+# Check browser foundations first, then check upstream sources for updates (read-only)
+python3 scripts/check_browser_foundations.py
 python3 scripts/sync_upstream.py --check-only
 
 # Sync the latest repository skills into your local Codex directory
@@ -738,7 +750,7 @@ This repository is released under the [MIT License](./LICENSE). Externally impor
 
 - Star the repository so more AI developers can find it
 - Open a PR to contribute your own high-value skills
-- Share it with friends and teams using `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, or `OpenClaw`
+- Share it with friends and teams using `Codex`, `Claude Code`, `Cursor`, `Antigravity`, `Hermes Agent`, or `OpenClaw`
 
 ---
 
