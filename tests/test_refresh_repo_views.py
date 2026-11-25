@@ -211,5 +211,69 @@ class RefreshRepoViewsTests(unittest.TestCase):
             self.assertTrue((output_root / "finance-skill" / "SKILL.md").exists())
 
 
+    def test_update_root_readmes_supports_evergreen_evolution_heading(self):
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            skill_dir = repo / "skills" / "ai-workflow" / "evergreen-skill"
+            skill_dir.mkdir(parents=True)
+            (skill_dir / "SKILL.md").write_text(
+                textwrap.dedent(
+                    """\
+                    ---
+                    name: evergreen-skill
+                    description: Check evergreen README overview refresh.
+                    zh_description: 检查常青结构下的总览刷新。
+                    ---
+                    # evergreen-skill
+                    """
+                ),
+                encoding="utf-8",
+            )
+            (repo / "README.md").write_text(
+                textwrap.dedent(
+                    """\
+                    当前共 **1 个分类 / 0 个技能**。
+
+                    ## 技能总览（按分类，1 类 / 0 技能）
+
+                    <a id="cat-ai-workflow"></a>
+                    ### 1. AI 工作流（ai-workflow，0）
+
+                    ## 持续演进与选型原则
+
+                    保留该章节正文与后续版本动态。
+                    """
+                ),
+                encoding="utf-8",
+            )
+            (repo / "README.en.md").write_text(
+                textwrap.dedent(
+                    """\
+                    This repository currently contains **1 categories / 0 skills**.
+
+                    ## Skill Overview (by category, 1 categories / 0 skills)
+
+                    <a id="cat-ai-workflow"></a>
+                    ### 1. AI Workflow (ai-workflow, 0)
+
+                    ## Continuous Evolution and Curation
+
+                    Preserve this evergreen section body.
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            module.update_root_readmes(repo, category_count=1, skill_count=1)
+            cn = (repo / "README.md").read_text(encoding="utf-8")
+            en = (repo / "README.en.md").read_text(encoding="utf-8")
+
+            self.assertIn("- [`evergreen-skill`](./skills/ai-workflow/evergreen-skill/)：检查常青结构下的总览刷新。", cn)
+            self.assertIn("## 持续演进与选型原则\n\n保留该章节正文与后续版本动态。", cn)
+            self.assertIn("- [`evergreen-skill`](./skills/ai-workflow/evergreen-skill/): Check evergreen README overview refresh.", en)
+            self.assertIn("## Continuous Evolution and Curation\n\nPreserve this evergreen section body.", en)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Sequence
 import importlib.util
 import re
 from pathlib import Path
@@ -98,13 +99,21 @@ def parse_existing_overview(
     return order, anchors, titles, bullets
 
 
-def replace_section(content: str, start_heading: str, end_heading: str, replacement: str) -> str:
+def replace_section(
+    content: str,
+    start_heading: str,
+    end_heading: str | Sequence[str],
+    replacement: str,
+) -> str:
     start = content.find(start_heading)
     if start == -1:
         return content
-    end = content.find(end_heading, start + len(start_heading))
-    if end == -1:
+    candidates = (end_heading,) if isinstance(end_heading, str) else end_heading
+    search_from = start + len(start_heading)
+    valid_positions = [pos for marker in candidates if (pos := content.find(marker, search_from)) != -1]
+    if not valid_positions:
         return content
+    end = min(valid_positions)
     return content[:start] + replacement.rstrip() + "\n\n" + content[end:]
 
 
@@ -247,14 +256,24 @@ def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) 
             updated = replace_section(
                 updated,
                 "## 技能总览",
-                "## 下一轮建议补充方向",
+                (
+                    "## 持续演进与选型原则",
+                    "## 下一轮建议补充方向",
+                    '<a id="contributing"></a>',
+                    "## 参与共建与维护",
+                ),
                 build_cn_overview(updated, skills_root, category_count, skill_count),
             )
         elif readme_path.name == "README.en.md":
             updated = replace_section(
                 updated,
                 "## Skill Overview",
-                "## Next Curation Directions",
+                (
+                    "## Continuous Evolution and Curation",
+                    "## Next Curation Directions",
+                    '<a id="contributing"></a>',
+                    "## Contributing and Maintenance",
+                ),
                 build_en_overview(updated, skills_root, category_count, skill_count),
             )
         if updated != content:
