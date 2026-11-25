@@ -140,10 +140,20 @@ GRANT SELECT ON organizations, organization_members, projects TO app_user;
 GRANT SELECT, INSERT, DELETE ON tasks TO app_user;
 GRANT UPDATE (title, status, position, version, updated_by_id, updated_at) ON tasks TO app_user;
 
--- Enable RLS on membership, parent, and child tables together
+-- Enable RLS on organization, membership, parent, and child tables together
+ALTER TABLE organizations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE organization_members ENABLE ROW LEVEL SECURITY;
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY organizations_member_read ON organizations FOR SELECT TO app_user
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.organization_members om
+      WHERE om.organization_id = organizations.id
+        AND om.user_id = current_setting('app.current_user_id', true)
+    )
+  );
 
 CREATE POLICY org_members_self_read ON organization_members FOR SELECT TO app_user
   USING (user_id = current_setting('app.current_user_id', true));
@@ -247,7 +257,7 @@ CREATE OR REPLACE FUNCTION soft_delete_task(p_task_id TEXT)
 RETURNS BOOLEAN
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = pg_catalog, public
+SET search_path = pg_catalog, public, pg_temp
 AS $$
 DECLARE
   v_actor TEXT := current_setting('app.current_user_id', true);
@@ -256,12 +266,12 @@ BEGIN
     RETURN FALSE;
   END IF;
 
-  UPDATE tasks t
+  UPDATE public.tasks t
   SET deleted_at = NOW(),
       updated_by_id = v_actor,
       updated_at = NOW()
-  FROM projects p
-  JOIN organization_members om ON om.organization_id = p.organization_id
+  FROM public.projects p
+  JOIN public.organization_members om ON om.organization_id = p.organization_id
   WHERE t.id = p_task_id
     AND t.deleted_at IS NULL
     AND p.id = t.project_id

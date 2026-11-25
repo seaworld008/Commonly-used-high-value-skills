@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-11-23",
+    "checked_at": "2026-11-25",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -1719,7 +1719,7 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/database-designer",
         "ref": "main",
-        "last_checked_at": "2026-11-23",
+        "last_checked_at": "2026-11-25",
         "last_synced_at": "2026-11-23",
         "last_synced_commit": null,
         "sync_mode": "local-only"
@@ -1820,7 +1820,7 @@
             "resolved_commit": null,
             "path_commit": null,
             "content_sha256": "d75f61ab0dc3a3c44f83d54bd9833f632464f198fc1a14f7a5a119fa4713140a",
-            "last_checked_at": "2026-11-23",
+            "last_checked_at": "2026-11-25",
             "last_synced_at": "2026-11-23"
           }
         }
@@ -1919,7 +1919,7 @@
         {
           "path": "skills/developer-engineering/database-designer/references/orm-and-rls-patterns.md",
           "owner": "database-designer",
-          "sha256": "6b2213d10da2c398a463f114eaf6915a33743fc59f52906e3cce1c4144697724",
+          "sha256": "8d7e9f73e56c0e9ea815ae8f523c122651dd33c010852e22753f4979082a1ca1",
           "mode": "100644"
         }
       ]
@@ -11278,6 +11278,13 @@
     },
     {
       "date": "2026-11-23",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 92 local skills"
+    },
+    {
+      "date": "2026-11-25",
       "method": "local-scan",
       "target": "skills/*/*/SKILL.md",
       "result": "success",

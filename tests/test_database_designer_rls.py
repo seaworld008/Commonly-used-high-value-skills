@@ -54,9 +54,11 @@ def test_database_designer_rls_and_openclaw_mirror_include_project_membership() 
 
     sql_block = _extract_sql_ddl_block(canonical_rls)
     for required in (
+        "ALTER TABLE organizations ENABLE ROW LEVEL SECURITY;",
         "ALTER TABLE organization_members ENABLE ROW LEVEL SECURITY;",
         "ALTER TABLE projects ENABLE ROW LEVEL SECURITY;",
         "ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;",
+        "CREATE POLICY organizations_member_read ON organizations",
         "CREATE POLICY projects_member_read ON projects",
         "CREATE POLICY tasks_read ON tasks",
         "CREATE POLICY tasks_insert ON tasks",
@@ -66,7 +68,10 @@ def test_database_designer_rls_and_openclaw_mirror_include_project_membership() 
         "GRANT UPDATE (title, status, position, version, updated_by_id, updated_at) ON tasks TO app_user;",
         "CREATE OR REPLACE FUNCTION soft_delete_task",
         "SECURITY DEFINER",
-        "SET search_path = pg_catalog, public",
+        "SET search_path = pg_catalog, public, pg_temp",
+        "UPDATE public.tasks t",
+        "FROM public.projects p",
+        "JOIN public.organization_members om",
         "current_setting('app.current_user_id', true)",
     ):
         assert required in sql_block
@@ -394,10 +399,10 @@ def test_postgresql_non_owner_tenant_isolation_end_to_end() -> None:
         unauth = _run_as_app_user(
             pg,
             None,
-            "SELECT count(*) FROM projects; SELECT count(*) FROM tasks;",
+            "SELECT count(*) FROM organizations; SELECT count(*) FROM projects; SELECT count(*) FROM tasks;",
         )
         assert unauth.returncode == 0, unauth.stderr
-        assert unauth.stdout.strip().splitlines() == ["0", "0"]
+        assert unauth.stdout.strip().splitlines() == ["0", "0", "0"]
         unauth_insert = _run_as_app_user(
             pg,
             None,
@@ -411,10 +416,11 @@ def test_postgresql_non_owner_tenant_isolation_end_to_end() -> None:
         read_a = _run_as_app_user(
             pg,
             "alice",
-            "SELECT id FROM projects ORDER BY id;\nSELECT id FROM tasks ORDER BY id;",
+            "SELECT id FROM organizations ORDER BY id;\nSELECT id FROM projects ORDER BY id;\nSELECT id FROM tasks ORDER BY id;",
         )
         assert read_a.returncode == 0, read_a.stderr
         assert read_a.stdout.strip().splitlines() == [
+            "org_a",
             "proj_a",
             "task_a_alice",
             "task_a_carol",
@@ -536,7 +542,28 @@ def test_postgresql_non_owner_tenant_isolation_end_to_end() -> None:
         assert admin_del_member.returncode == 0, admin_del_member.stderr
         assert admin_del_member.stdout.strip() == "1"
 
-        # Confirm Tenant B's data remained completely untouched
-        verify_b = _run_as_app_user(pg, "bob", "SELECT id, title FROM tasks ORDER BY id;")
+        # 10. Temp-table shadowing attack inside pg_temp cannot escalate soft_delete_task
+        shadow_attack = _run_as_app_user(
+            pg,
+            "alice",
+            "CREATE TEMP TABLE organization_members ("
+            "id TEXT, organization_id TEXT, user_id TEXT, role TEXT"
+            ");\n"
+            "INSERT INTO pg_temp.organization_members VALUES ('m_evil', 'org_b', 'alice', 'admin');\n"
+            "GRANT SELECT ON pg_temp.organization_members TO schema_owner;\n"
+            "SELECT public.soft_delete_task('task_b_bob');",
+        )
+        assert shadow_attack.returncode == 0, shadow_attack.stderr
+        assert shadow_attack.stdout.strip() == "f"
+
+        # Confirm Tenant B's org and task visibility remained completely isolated & untouched
+        verify_b = _run_as_app_user(
+            pg,
+            "bob",
+            "SELECT id FROM organizations ORDER BY id;\nSELECT id || ':' || title FROM tasks ORDER BY id;",
+        )
         assert verify_b.returncode == 0, verify_b.stderr
-        assert verify_b.stdout.strip() == "task_b_bob\tBob Secret Task"
+        assert verify_b.stdout.strip().splitlines() == [
+            "org_b",
+            "task_b_bob:Bob Secret Task",
+        ]
